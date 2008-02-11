@@ -1,0 +1,328 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+ "dtd/kdex.dtd" [
+<!ENTITY kappname "&ksystemlog;"><!-- replace kapp here -->
+<!ENTITY package "kdeadmin">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE"><!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>The &ksystemlog; Handbook</title>
+
+<authorgroup>
+	<author>
+		<firstname>Nicolas</firstname><surname>Ternisien</surname>
+		<affiliation>
+			<address><email>nicolas.ternisien@gmail.com</email></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<!-- 
+	 To correctly compile, we need to add to this file :
+	 /usr/share/apps/ksgmltools2/customization/entities/general.entities
+	 the following text :
+	 <!ENTITY ksystemlog "<application>KSystemLog</application>">
+-->
+
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+
+<copyright>
+	<year>2008</year>
+	<holder>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2008-02-08</date>
+<releaseinfo>0.4.1</releaseinfo>
+
+<abstract>
+<para>&ksystemlog; is a system log viewer tool for KDE. This program is developed for being used by beginner users, 
+which don't know how to find information about their system, and how the log files are in their computer. 
+But it is also designed for advanced users, who want to quickly see problems occuring on their server.
+</para>
+
+</abstract>
+
+<keywordset>
+	<keyword>KDE</keyword>
+	<keyword>logs</keyword>
+	<keyword>ksystemlog</keyword>
+	<keyword>security</keyword>
+	<keyword>cron</keyword>
+	<keyword>boot</keyword>
+	<keyword>ssh</keyword>
+	<keyword>postfix</keyword>
+	<keyword>apache</keyword>
+	<keyword>samba</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using_ksystemlog">
+	<title>Using &ksystemlog;</title>
+	
+	<sect1 id="introduction">
+		<title>Introduction</title>
+	
+		<sect2>
+			<title>What is &ksystemlog; ?</title>
+			<para>&ksystemlog; is a system log viewer tool.</para>
+			
+			<para>&ksystemlog; helps users to understand what their machine does in the background. The &ksystemlog; aim is to simplify
+			the reading of the log files of the system. This program is developed for being used by beginner users, 
+			which don't know how to find information about their system, and how the log files are in their computer. 
+			</para>
+			
+			<para>
+			But it is also designed for advanced users, who want to quickly see problems occuring on their server.
+			&ksystemlog; try to provide some advanced features to allow the sorting and the reading of logs from specifical programs.
+			</para>
+			
+			<screenshot>
+				<screeninfo>The main screen of &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase>The main screen of &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		
+		</sect2>
+	
+		<sect2>
+			<title>Features</title>
+			
+			<para>
+			In its current version, &ksystemlog; 0.4.1 has quite a number of helpful
+			features, such as:
+			</para>
+			
+			<itemizedlist>
+				<listitem><simpara>Support for many different log files type, with the support of Syslog server formating, Samba</simpara></listitem>
+				<listitem><simpara>Tabbed view to allow displaying several logs at the same time</simpara></listitem>
+				<listitem><simpara>Reading one log mode from multiple sources</simpara></listitem>
+				<listitem><simpara>Auto display new lines logged in bold</simpara></listitem>
+				<listitem><simpara>Group by different criteria (log level, log file, process, hour, ...)</simpara></listitem>
+				<listitem><simpara>Detailed information for each log Lines</simpara></listitem>
+				<listitem><simpara>Auto display new lines logged in bold</simpara></listitem>
+				<listitem><simpara>Adding a log entry manually</simpara></listitem>
+			</itemizedlist>
+
+			<para>
+				It supports the following log files of your system :
+			</para>
+
+			<itemizedlist>
+				<listitem><simpara>Syslog logs (system messages)</simpara></listitem>
+				<listitem><simpara>X.org logs</simpara></listitem>
+				<listitem><simpara>Kernel logs</simpara></listitem>
+				<listitem><simpara>Authentication logs</simpara></listitem>
+				<listitem><simpara>ACPID logs</simpara></listitem>
+				<listitem><simpara>Cups logs</simpara></listitem>
+				<listitem><simpara>Postfix logs</simpara></listitem>
+				<listitem><simpara>Apache logs</simpara></listitem>
+				<listitem><simpara>Samba logs</simpara></listitem>
+				<listitem><simpara>Daemons logs</simpara></listitem>
+				<listitem><simpara>Cron logs</simpara></listitem>
+				<listitem><simpara>XSessions logs</simpara></listitem>
+
+			</itemizedlist>
+			
+			<para>
+			Many other features are included and will be discussed in the appropriate chapters of this manual.
+			</para>
+		
+		</sect2>
+		
+	</sect1>
+
+	
+	<sect1 id="reading">
+		<title>Reading logs with &ksystemlog;</title>
+		
+		<para>
+		As you will see in the following screenshots, &ksystemlog; provides features to easily sort and filter log lines. 
+		We are now going to describe them in the next parts of this documentation.
+		</para>
+	
+		<sect2 id="getting_started">
+			<title>Getting started</title>
+			
+			<para>
+			When you start &ksystemlog;, it tries to open the main useful log, the <guilabel>System Log</guilabel>. 
+			If it does not display it and pops up a message box, you probably forgot to launch &ksystemlog; with a administrator user (generally root login).
+			The log files are generally available in the /var/log folder, which is often protected from normal users.
+			</para>
+			
+			<screenshot>
+				<screeninfo>First opening of &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase>First opening of &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+		
+		<sect2 id="easy_reading">
+			<title>Reading easily log files</title>
+			
+			<sect3 id="sorting">
+				<title>Sorting log lines</title>	
+				<para>
+				Every log lines are displayed in a list view, which can be sorted by clicking on the wanted column. Another click will sorted in the other order.
+				If you want to sort the list as it was the first loading, you can use the <menuchoice><guimenu>Edit</guimenu><guimenuitem>Refresh</guimenuitem></menuchoice> menu item, or simply
+				click on the first column of the list, generally named <guilabel>Date</guilabel>, to sort the list in the ascending order. Even if your log mode
+				does not use time to describe each log lines, for example the <guilabel>X.org Log</guilabel>, the list will be correctly sorted,
+				because &ksystemlog; keeps a internal order of the list.
+				</para>
+			</sect3>
+			
+			<sect3 id="filtering">
+				<title>Filtering log lines</title>
+			
+				<screenshot>
+					<screeninfo>Filtering on a specifical process</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase>Filtering on a specifical process</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para>
+				You can also use the filter bar to filter on the selected criteria and the typed string. Simply type something in the filter, and the list will automatically
+				be modified to only display lines which match your filter string. By default, the combo box next the filter selects <guilabel>All</guilabel>, which means that
+				a line will be displayed only if one of its columns contains the filter string.
+				</para>
+				
+				<para>
+				You can select another field to filter only on this column of the list. For example, in the <guilabel>System Log</guilabel>, by selecting
+				the <guilabel>Process</guilabel> column, and write its name in the filter bar, &ksystemlog; will display every log lines sent by this process.
+				</para>
+			</sect3>
+			
+		</sect2>
+		
+		<sect2 id="other_features">
+			<title>Other features</title>
+			
+			<sect3 id="colorizing">
+				<title>Colorizing log lines</title>
+				
+				<para>
+				This option is activated by default and helps you to see which lines have an higher level than the others. For example <guilabel>Error</guilabel> level will have
+				a most highlighting color than the <guilabel>Notice</guilabel> one. This feature can be disabled in the configuration dialog.
+				</para>
+			
+			</sect3>
+			
+			<sect3 id="hiding_pid">
+				<title>Hiding the process identifier</title>
+				
+				<para>
+				If you are only interested by seeing a kind of process (for example in the <guilabel>System Log</guilabel> or the <guilabel>Cron Log</guilabel>), you can hide its PID 
+				in the <guilabel>Process</guilabel> column. However, this can be useful if you are trying to analyze the output of one specifical command, like a Samba server, or
+				something like that. In this case, please use the <link linkend="filtering">Filter Bar</link>.
+				</para>
+				
+			</sect3>
+		</sect2>
+	</sect1>
+
+	<sect1 id="monitoring_management">
+		<title>Monitoring Management</title>
+		
+		<para>
+		&ksystemlog; provides an easy way to control the reading and the monitoring of log files. Indeed, sometimes, you only need to analyze some existing log lines. In this case,
+		you can't bear of the new appearing line. You are then able a deactivate the monitoring of log files by clicking on the <guimenu>Edit</guimenu><guimenuitem>Pause</guimenuitem> 
+		button, which then closes every opened log files, and leave them being filled by other processes without trying to read them. Of course, you can reactivate the monitoring by 
+		clicking on <guimenu>Edit</guimenu><guimenuitem>Resume</guimenuitem>, which will only read new log lines since the last resuming.
+		</para>
+		
+		<para>
+		Moreover, if you want to stay connected to newly appeared log lines, you can simply toggle the <guimenuitem>Display new log lines</guimenuitem> options.
+		</para>
+	</sect1>
+		
+	<sect1 id="multiple_logs">
+		<title>Management of several opened tabs</title>
+		
+		<para>
+		&ksystemlog; allows you to open several log modes using multiple tab opening. For this, simply use the <guimenu>Window</guimenu> menu to manage and open
+		new tabs. Once you have selected the right tab, simply select the desired log mode using the dedicated menu.
+		
+		</para>
+	</sect1>
+	
+</chapter>
+
+<chapter id="credits">
+
+	<title>Credits and License</title>
+
+	<para>&ksystemlog;</para>
+	<para>
+	&ksystemlog;, Copyright 2008 by Nicolas Ternisien
+	</para>
+	
+	<para>Contributors:</para>
+	<itemizedlist>
+		<listitem><simpara>Patrick Dreker : Ideas, Code Improvements.</simpara></listitem>
+		<listitem><simpara>Bojan : SSH Log mode, Printing.</simpara></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis>Special thanks to all translators of &ksystemlog;.</emphasis>
+	</para>
+	
+	<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+	
+	&underFDL;           <!-- FDL: do not remove -->
+	&underGPL;        	 <!-- GPL License -->
+
+</chapter>
+
+<appendix id="installation">
+	<title>How to obtain and install &ksystemlog;</title>
+	
+	<para>
+	&ksystemlog; has its own home page <ulink	url="http://ksystemlog.forum-software.org">http://ksystemlog.forum-software.org</ulink>. 
+	Please refer to the instructions on the home page since they will contain up-to-date information about how to obtain &ksystemlog;.
+	</para>
+	
+	<para>
+	&ksystemlog; can also be found in the following folder of the KDE Subversion Repository :
+	<ulink url="http://websvn.kde.org/trunk/kdereview/ksystemlog">&ksystemlog; in the KDE repository</ulink>
+	</para>
+
+</appendix>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
