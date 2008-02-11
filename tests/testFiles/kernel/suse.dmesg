@@ -1,0 +1,23 @@
+r8169: eth0: link down
+NET: Registered protocol family 10
+lo: Disabled Privacy Extensions
+ADDRCONF(NETDEV_UP): eth0: link is not ready
+ADDRCONF(NETDEV_UP): eth1: link is not ready
+ppdev: user-space parallel port driver
+audit(1194102016.839:3):  type=1503 operation="inode_permission" requested_mask="a" denied_mask="a" name="/dev/tty" pid=5184 profile="/usr/sbin/cupsd"
+apm: BIOS not found.
+fglrx: module license 'Proprietary. (C) 2002 - ATI Technologies, Starnberg, GERMANY' taints kernel.
+[fglrx] Maximum main memory to use for locked dma buffers: 1414 MBytes.
+[fglrx] module loaded - fglrx 8.37.6 [May 25 2007] on minor 0
+ACPI: PCI Interrupt 0000:01:00.0[A] -> GSI 16 (level, low) -> IRQ 16
+Failure registering capabilities with primary security module.
+[fglrx] total      GART = 130023424
+[fglrx] free       GART = 114032640
+[fglrx] max single GART = 114032640
+[fglrx] total      LFB  = 268304384
+[fglrx] free       LFB  = 253915136
+[fglrx] max single LFB  = 253915136
+[fglrx] total      Inv  = 0
+[fglrx] free       Inv  = 0
+[fglrx] max single Inv  = 0
+[fglrx] total      TIM  = 0

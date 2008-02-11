@@ -1,0 +1,4 @@
+File=ksystemlog.kcfg
+ClassName=KSystemLogConfig
+Singleton=true
+Mutators=true

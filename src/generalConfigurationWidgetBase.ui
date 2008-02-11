@@ -1,0 +1,196 @@
+<ui version="4.0" >
+ <author>Nicolas Ternisien</author>
+ <class>GeneralConfigurationWidgetBase</class>
+ <widget class="QWidget" name="GeneralConfigurationWidgetBase" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>368</width>
+    <height>497</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QGroupBox" name="groupBox_4" >
+     <property name="title" >
+      <string>Startup</string>
+     </property>
+     <layout class="QHBoxLayout" >
+      <item>
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>Load this log mode at startup:</string>
+        </property>
+        <property name="buddy" >
+         <cstring>startupLogMode</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="startupLogMode" >
+        <property name="toolTip" >
+         <string>The log mode which is loaded by default at startup</string>
+        </property>
+        <property name="whatsThis" >
+         <string>The log mode which is loaded by default at startup. Choose 'No Log Mode' if you don't want to load a log mode.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="title" >
+      <string>Log Lines List</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="maxLinesLabel" >
+          <property name="text" >
+           <string>Maximum Lines Displayed:</string>
+          </property>
+          <property name="buddy" >
+           <cstring>maxLines</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="maxLines" >
+          <property name="sizePolicy" >
+           <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip" >
+           <string>Choose here the maximum number of log lines displayed in the main view.</string>
+          </property>
+          <property name="whatsThis" >
+           <string>You can choose here the maximum number of log lines displayed in the main view.</string>
+          </property>
+          <property name="minimum" >
+           <number>10</number>
+          </property>
+          <property name="maximum" >
+           <number>30000</number>
+          </property>
+          <property name="singleStep" >
+           <number>10</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="deleteDuplicatedLines" >
+        <property name="toolTip" >
+         <string>Select this option if you want to delete duplicated log lines &lt;b>(may be slow)&lt;/b>.</string>
+        </property>
+        <property name="whatsThis" >
+         <string>You can select this option if you want to delete duplicated log lines. &lt;b>This option can slow the reading&lt;/b>.</string>
+        </property>
+        <property name="text" >
+         <string>Remove &amp;duplicated log lines (may be slower)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2" >
+     <property name="title" >
+      <string>Options</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QCheckBox" name="deleteProcessId" >
+        <property name="toolTip" >
+         <string>Delete process identifier from process name.</string>
+        </property>
+        <property name="whatsThis" >
+         <string>You can select this option if you want to delete the process identifier from process name. For example, you will sometimes see in the &lt;b>Process&lt;/b> column something like &lt;i>cron&lt;b>[3433]&lt;/b>&lt;/i>. If this option is activated, the annoying bold part will be erased.</string>
+        </property>
+        <property name="text" >
+         <string>Remove &amp;identifier from process name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="colorizeLogLines" >
+        <property name="toolTip" >
+         <string>This option allows the colorization of log lines, depending on their log level.</string>
+        </property>
+        <property name="whatsThis" >
+         <string>This option allows the colorization of log lines, depending on their log level. For example, an error will be in red, a warning in orange... This will help you to better see problems.</string>
+        </property>
+        <property name="text" >
+         <string>&amp;Colorize log lines</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_3" >
+     <property name="title" >
+      <string>Date Format</string>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QRadioButton" name="formatShortDate" >
+        <property name="styleSheet" >
+         <string/>
+        </property>
+        <property name="text" >
+         <string>&amp;Short date format</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="formatFancyShortDate" >
+        <property name="text" >
+         <string>&amp;Fancy short date format</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="formatLongDate" >
+        <property name="text" >
+         <string>&amp;Long date format</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="formatFancyLongDate" >
+        <property name="text" >
+         <string>Fanc&amp;y long date format</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

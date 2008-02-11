@@ -1,0 +1,50 @@
+[2007/02/23 15:11:42, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/23 15:11:42, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 01:51:47, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 01:51:47, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 02:55:47, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 02:55:47, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 03:27:47, 0] lib/util_sock.c:read_data(534)
+  read_data: read failure for 4 bytes to client 192.168.2.243. Error = Connexion ré-initialisée par le correspondant
+[2007/02/24 03:59:48, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 03:59:48, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 04:31:48, 0] lib/util_sock.c:read_data(534)
+  read_data: read failure for 4 bytes to client 192.168.2.243. Error = Connexion ré-initialisée par le correspondant
+[2007/02/24 05:03:48, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 05:03:48, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 07:43:49, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 07:43:49, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 11:27:50, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 11:27:50, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 11:59:50, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 11:59:50, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 12:31:50, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 12:31:50, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/24 14:39:56, 0] lib/util_sock.c:read_data(534)
+  read_data: read failure for 4 bytes to client 192.168.2.243. Error = Connexion ré-initialisée par le correspondant
+[2007/02/24 15:43:57, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 0.0.0.0. Error Connexion ré-initialisée par le correspondant
+[2007/02/24 15:43:57, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)
+[2007/02/26 15:25:49, 0] lib/util_sock.c:write_data(562)
+  write_data: write failure in writing to client 192.168.2.243. Error Connexion ré-initialisée par le correspondant
+[2007/02/26 15:25:49, 0] lib/util_sock.c:send_smb(769)
+  Error writing 4 bytes to client. -1. (Connexion ré-initialisée par le correspondant)

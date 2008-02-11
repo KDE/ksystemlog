@@ -1,0 +1,4 @@
+[2007/08/21 17:44:17, 1] smbd/service.c:make_connection_snum(950)
+  192.168.2.137 (192.168.2.137) connect to service TESTS initially as user nobody (uid=65534, gid=65534) (pid 14256)
+[2007/08/21 17:44:34, 1] smbd/service.c:close_cnum(1150)
+  192.168.2.137 (192.168.2.137) closed connection to service TESTS

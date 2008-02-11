@@ -1,0 +1,33 @@
+[2007/09/18 13:32:21, 0] nmbd/nmbd.c:terminate(58)
+  Got SIGTERM: going down...
+[2007/09/18 13:33:08, 0] nmbd/nmbd.c:main(697)
+  Netbios nameserver version 3.0.25b started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007
+[2007/09/18 13:38:37, 0] nmbd/nmbd_become_lmb.c:become_local_master_stage2(396)
+  *****
+
+  Samba name server NICOLAS is now a local master browser for workgroup BOULOT on subnet 192.168.2.2
+
+  *****
+[2007/09/19 10:00:20, 0] nmbd/nmbd.c:terminate(58)
+  Got SIGTERM: going down...
+[2007/09/19 10:01:27, 0] nmbd/nmbd.c:main(697)
+  Netbios nameserver version 3.0.25b started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007
+[2007/09/19 10:06:53, 0] nmbd/nmbd_become_lmb.c:become_local_master_stage2(396)
+  *****
+
+  Samba name server NICOLAS is now a local master browser for workgroup BOULOT on subnet 192.168.2.2
+
+  *****
+[2007/09/20 10:05:59, 0] nmbd/nmbd.c:terminate(58)
+  Got SIGTERM: going down...
+[2007/09/20 10:07:10, 0] nmbd/nmbd.c:main(697)
+  Netbios nameserver version 3.0.26a started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007
+[2007/09/20 10:12:36, 0] nmbd/nmbd_become_lmb.c:become_local_master_stage2(396)
+  *****
+
+  Samba name server NICOLAS is now a local master browser for workgroup BOULOT on subnet 192.168.2.2
+
+  *****

@@ -1,0 +1,21 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=KSystemLog
+Name[sv]=Ksystemlog
+Categories=Qt;KDE;System;
+X-KDE-SubstituteUID=true
+Exec=ksystemlog %i %m -caption "%c"
+Icon=ksystemlog
+Type=Application
+DocPath=ksystemlog/mainWindow.html
+Comment=System log viewer tool
+Comment[da]=Værktøj til visning af systemlog
+Comment[pt]=Ferramenta de visualização dos registos do sistema
+Comment[pt_BR]=Ferramenta de visualização dos registos do sistema
+Comment[sv]=Verktyg för visning av systemloggar
+Terminal=false
+GenericName=System Logs Viewer
+GenericName[da]=Systemlogfremviser
+GenericName[pt]=Visualizador de Registos do Sistema
+GenericName[pt_BR]=Visualizador de Registos do Sistema
+GenericName[sv]=Systemloggvisning

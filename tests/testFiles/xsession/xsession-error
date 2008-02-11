@@ -1,0 +1,46 @@
+X Error: BadPixmap (invalid Pixmap parameter) 4
+  Major opcode:  54
+  Minor opcode:  0
+  Resource id:  0x1604e8b
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+DCOP Cleaning up dead connections.
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+kbuildsycoca running...
+Reusing existing ksycoca
+kio (KService*): WARNING: The desktop entry file .hidden/dirfilterplugin.desktop has Type=Service but is located under "apps" instead of "services"
+kio (KService*): WARNING: Invalid Service : .hidden/dirfilterplugin.desktop
+DCOP Cleaning up dead connections.
+X Error: BadPixmap (invalid Pixmap parameter) 4
+  Major opcode:  54
+  Minor opcode:  0
+  Resource id:  0x1604e27
+X Error: BadMatch (invalid parameter attributes) 8
+  Major opcode:  161
+  Minor opcode:  6
+  Resource id:  0x1604e27
+X Error: BadPixmap (invalid Pixmap parameter) 4
+  Major opcode:  54
+  Minor opcode:  0
+  Resource id:  0x160533a
+X Error: BadMatch (invalid parameter attributes) 8
+  Major opcode:  161
+  Minor opcode:  6
+  Resource id:  0x160533a

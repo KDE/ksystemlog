@@ -1,0 +1,25 @@
+[   22.232000] ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   22.232000] ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   22.636000] ppdev: user-space parallel port driver
+[   23.044000] audit(1194105334.184:3):  type=1503 operation="inode_permission" requested_mask="a" denied_mask="a" name="/dev/tty" pid=5172 profile="/usr/sbin/cupsd"
+[   23.116000] apm: BIOS not found.
+[   23.836000] fglrx: module license 'Proprietary. (C) 2002 - ATI Technologies, Starnberg, GERMANY' taints kernel.
+[   23.840000] [fglrx] Maximum main memory to use for locked dma buffers: 1414 MBytes.
+[   23.840000] [fglrx] module loaded - fglrx 8.37.6 [May 25 2007] on minor 0
+[   23.964000] ACPI: PCI Interrupt 0000:01:00.0[A] -> GSI 16 (level, low) -> IRQ 16
+[   24.924000] Failure registering capabilities with primary security module.
+[   27.076000] [fglrx] total      GART = 130023424
+[   27.076000] [fglrx] free       GART = 114032640
+[   27.076000] [fglrx] max single GART = 114032640
+[   27.076000] [fglrx] total      LFB  = 268304384
+[   27.076000] [fglrx] free       LFB  = 253915136
+[   27.076000] [fglrx] max single LFB  = 253915136
+[   27.076000] [fglrx] total      Inv  = 0
+[   27.076000] [fglrx] free       Inv  = 0
+[   27.076000] [fglrx] max single Inv  = 0
+[   27.076000] [fglrx] total      TIM  = 0
+[   77.252000] NET: Registered protocol family 17
+[   80.416000] ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+[   91.128000] eth1: no IPv6 routers present
+[   96.452000] ieee80211_crypt: registered algorithm 'CCMP'
+[   97.424000] ieee80211_crypt: registered algorithm 'T

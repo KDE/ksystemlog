@@ -1,0 +1,13 @@
+[2007/09/18 13:33:09, 0] smbd/server.c:main(944)
+  smbd version 3.0.25b started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007
+[2007/09/18 18:17:57, 0] lib/util_sock.c:get_peer_addr(1232)
+  getpeername failed. Error was Transport endpoint is not connected
+[2007/09/19 10:01:28, 0] smbd/server.c:main(944)
+  smbd version 3.0.25b started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007
+[2007/09/19 13:43:46, 0] lib/util_sock.c:get_peer_addr(1232)
+  getpeername failed. Error was Transport endpoint is not connected
+[2007/09/20 10:07:10, 0] smbd/server.c:main(944)
+  smbd version 3.0.26a started.
+  Copyright Andrew Tridgell and the Samba Team 1992-2007

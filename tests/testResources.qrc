@@ -1,0 +1,19 @@
+ <!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+     <file>testFiles/default/one-line.log</file>
+     <file>testFiles/default/two-lines.log</file>
+     <file>testFiles/system/system.log</file>
+     <file>testFiles/system/strange-lines.log</file>
+     <file>testFiles/system/delete-process-identifier.log</file>
+     <file>testFiles/system/max-lines.log</file>
+     <file>testFiles/system/duplicate-lines.log</file>
+     
+     <file>testFiles/logFileReader/file.txt</file>
+
+	<file>testFiles/apache/access.log</file>
+
+	<file>testFiles/kernel/ubuntu.dmesg</file>
+	<file>testFiles/kernel/suse.dmesg</file>
+
+ </qresource>
+ </RCC>

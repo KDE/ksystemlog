@@ -1,0 +1,194 @@
+/usr/sbin/mysqld, Version: 5.0.45-Debian_1ubuntu2-log (Debian etch distribution). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+070920 11:33:41       1 Connect     debian-sys-maint@localhost on
+                      1 Quit
+                      2 Connect     debian-sys-maint@localhost on
+                      2 Quit
+                      3 Connect     debian-sys-maint@localhost on
+                      3 Query       show /*!40003 GLOBAL */ variables
+                      3 Quit
+                      4 Connect     debian-sys-maint@localhost on mysql
+                      4 Query       select @@version_comment limit 1
+                      4 Query       show variables like 'datadir'
+                      4 Quit
+                      5 Connect     debian-sys-maint@localhost on
+                      5 Query       select @@version_comment limit 1
+                      5 Query       SELECT count(*) FROM mysql.user WHERE user='root' and password=''
+                      5 Quit
+                      6 Connect     debian-sys-maint@localhost on
+                      6 Query       SHOW DATABASES
+                      6 Init DB     alfresco
+                      6 Query       SHOW /*!50002 FULL*/ TABLES
+070920 11:33:42       6 Query       CHECK TABLE `access_control_entry`  FAST
+                      6 Query       CHECK TABLE `access_control_list`  FAST
+                      6 Query       CHECK TABLE `applied_patch`  FAST
+                      6 Query       CHECK TABLE `auth_ext_keys`  FAST
+                      6 Query       CHECK TABLE `authority`  FAST
+                      6 Query       CHECK TABLE `child_assoc`  FAST
+                      6 Query       CHECK TABLE `gu_adress`  FAST
+                      6 Query       CHECK TABLE `gu_banner`  FAST
+                      6 Query       CHECK TABLE `gu_bannerclient`  FAST
+                      6 Query       CHECK TABLE `gu_bannerfinish`  FAST
+                      6 Query       CHECK TABLE `gu_categories`  FAST
+                      6 Query       CHECK TABLE `gu_components`  FAST
+                      6 Query       CHECK TABLE `gu_contact_details`  FAST
+                      6 Query       CHECK TABLE `gu_content`  FAST
+                      6 Query       CHECK TABLE `gu_content_frontpage`  FAST
+                      6 Query       CHECK TABLE `gu_content_rating`  FAST
+                      6 Query       CHECK TABLE `gu_core_acl_aro`  FAST
+                      6 Query       CHECK TABLE `gu_core_acl_aro_groups`  FAST
+                      6 Query       CHECK TABLE `gu_core_acl_aro_sections`  FAST
+                      6 Query       CHECK TABLE `gu_core_acl_groups_aro_map`  FAST
+                      6 Query       CHECK TABLE `gu_core_log_items`  FAST
+                      6 Query       CHECK TABLE `gu_core_log_searches`  FAST
+                      6 Query       CHECK TABLE `gu_extcal_categories`  FAST
+                      6 Query       CHECK TABLE `gu_extcal_config`  FAST
+                      6 Query       CHECK TABLE `gu_extcal_events`  FAST
+                      6 Query       CHECK TABLE `gu_extcal_plugins`  FAST
+                      6 Query       CHECK TABLE `gu_gm_edit`  FAST
+                      6 Query       CHECK TABLE `gu_gm_editown`  FAST
+                      6 Query       CHECK TABLE `gu_gm_groupe`  FAST
+                      6 Query       CHECK TABLE `gu_gm_groupeimbrique`  FAST
+                      6 Query       CHECK TABLE `gu_gm_membre`  FAST
+                      6 Query       CHECK TABLE `gu_gm_publish`  FAST
+                      6 Query       CHECK TABLE `gu_groups`  FAST
+                      6 Query       CHECK TABLE `gu_letterman`  FAST
+                      6 Query       CHECK TABLE `gu_letterman_subscribers`  FAST
+                      6 Query       CHECK TABLE `gu_mambots`  FAST
+                      6 Query       CHECK TABLE `gu_menu`  FAST
+                      6 Query       CHECK TABLE `gu_messages`  FAST
+                      6 Query       CHECK TABLE `gu_messages_cfg`  FAST
+                      6 Query       CHECK TABLE `gu_modules`  FAST
+                      6 Query       CHECK TABLE `gu_modules_menu`  FAST
+                      6 Query       CHECK TABLE `gu_newsfeeds`  FAST
+                      6 Query       CHECK TABLE `gu_poll_data`  FAST
+                      6 Query       CHECK TABLE `gu_poll_date`  FAST
+                      6 Query       CHECK TABLE `gu_poll_menu`  FAST
+                      6 Query       CHECK TABLE `gu_polls`  FAST
+                      6 Query       CHECK TABLE `gu_sections`  FAST
+                      6 Query       CHECK TABLE `gu_session`  FAST
+                      6 Query       CHECK TABLE `gu_stats_agents`  FAST
+                      6 Query       CHECK TABLE `gu_template_positions`  FAST
+                      6 Query       CHECK TABLE `gu_templates_menu`  FAST
+                      6 Query       CHECK TABLE `gu_users`  FAST
+                      6 Query       CHECK TABLE `gu_usertypes`  FAST
+                      6 Query       CHECK TABLE `gu_weblinks`  FAST
+                      6 Query       CHECK TABLE `node`  FAST
+                      6 Query       CHECK TABLE `node_aspects`  FAST
+                      6 Query       CHECK TABLE `node_assoc`  FAST
+                      6 Query       CHECK TABLE `node_properties`  FAST
+                      6 Query       CHECK TABLE `node_status`  FAST
+                      6 Query       CHECK TABLE `permission`  FAST
+                      6 Query       CHECK TABLE `store`  FAST
+                      6 Query       CHECK TABLE `version_count`  FAST
+                      6 Init DB     mysql
+                      6 Query       SHOW /*!50002 FULL*/ TABLES
+                      6 Query       CHECK TABLE `columns_priv`  FAST
+                      6 Query       CHECK TABLE `db`  FAST
+                      6 Query       CHECK TABLE `func`  FAST
+                      6 Query       CHECK TABLE `help_category`  FAST
+                      6 Query       CHECK TABLE `help_keyword`  FAST
+                      6 Query       CHECK TABLE `help_relation`  FAST
+                      6 Query       CHECK TABLE `help_topic`  FAST
+                      6 Query       CHECK TABLE `host`  FAST
+                      6 Query       CHECK TABLE `proc`  FAST
+                      6 Query       CHECK TABLE `procs_priv`  FAST
+                      6 Query       CHECK TABLE `tables_priv`  FAST
+                      6 Query       CHECK TABLE `time_zone`  FAST
+                      6 Query       CHECK TABLE `time_zone_leap_second`  FAST
+                      6 Query       CHECK TABLE `time_zone_name`  FAST
+                      6 Query       CHECK TABLE `time_zone_transition`  FAST
+                      6 Query       CHECK TABLE `time_zone_transition_type`  FAST
+                      6 Query       CHECK TABLE `user`  FAST
+                      6 Quit
+070920 11:37:24       7 Connect     root@localhost on
+                      7 Query       SELECT VERSION()
+                      7 Query       SET NAMES utf8
+                      7 Query       SET collation_connection = 'utf8_unicode_ci'
+                      7 Query       SET NAMES utf8
+                      7 Query       SET collation_connection = 'utf8_unicode_ci'
+                      7 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                      7 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                      7 Query       SHOW CHARACTER SET
+                      7 Query       SHOW COLLATION
+                      7 Query       SHOW DATABASES
+                      7 Quit
+                      8 Connect     root@localhost on
+                      8 Query       SELECT VERSION()
+                      8 Query       SET NAMES utf8
+                      8 Query       SET collation_connection = 'utf8_unicode_ci'
+                      8 Query       SET NAMES utf8
+                      8 Query       SET collation_connection = 'utf8_unicode_ci'
+                      8 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                      8 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                      8 Query       SHOW CHARACTER SET
+                      8 Query       SHOW COLLATION
+                      8 Query       SHOW DATABASES
+                      8 Query       SELECT COUNT(*) FROM mysql.user
+                      8 Query       SELECT COUNT(*) FROM mysql.user
+                      8 Query       SHOW GRANTS
+                      8 Query       SELECT COUNT(*) FROM mysql.user
+                      8 Query       SELECT USER()
+                      8 Query       SHOW MASTER LOGS
+                      8 Quit
+                      9 Connect     root@localhost on
+                      9 Query       SELECT VERSION()
+                      9 Query       SET NAMES utf8
+                      9 Query       SET collation_connection = 'utf8_unicode_ci'
+                      9 Query       SET NAMES utf8
+                      9 Query       SET collation_connection = 'utf8_unicode_ci'
+                      9 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                      9 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                      9 Query       SHOW CHARACTER SET
+                      9 Query       SHOW COLLATION
+                      9 Query       SHOW DATABASES
+                      9 Query       SHOW TABLES FROM `alfresco`
+                      9 Query       SHOW TABLES FROM `information_schema`
+                      9 Query       SHOW TABLES FROM `mysql`
+                      9 Quit
+070920 11:37:48      10 Connect     root@localhost on
+                     10 Query       SELECT VERSION()
+                     10 Query       SET NAMES utf8
+                     10 Query       SET collation_connection = 'utf8_unicode_ci'
+                     10 Query       SET NAMES utf8
+                     10 Query       SET collation_connection = 'utf8_unicode_ci'
+                     10 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                     10 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                     10 Query       SHOW CHARACTER SET
+                     10 Query       SHOW COLLATION
+                     10 Query       SHOW DATABASES
+                     10 Quit
+                     11 Connect     root@localhost on
+                     11 Query       SELECT VERSION()
+                     11 Query       SET NAMES utf8
+                     11 Query       SET collation_connection = 'utf8_unicode_ci'
+                     11 Query       SET NAMES utf8
+                     11 Query       SET collation_connection = 'utf8_unicode_ci'
+                     11 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                     11 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                     11 Query       SHOW CHARACTER SET
+                     11 Query       SHOW COLLATION
+                     11 Query       SHOW DATABASES
+                     11 Query       SHOW TABLES FROM `alfresco`
+                     11 Query       SHOW TABLES FROM `information_schema`
+                     11 Query       SHOW TABLES FROM `mysql`
+                     11 Quit
+                     12 Connect     root@localhost on
+                     12 Query       SELECT VERSION()
+                     12 Query       SET NAMES utf8
+                     12 Query       SET collation_connection = 'utf8_unicode_ci'
+                     12 Query       SET NAMES utf8
+                     12 Query       SET collation_connection = 'utf8_unicode_ci'
+                     12 Query       SHOW SESSION VARIABLES LIKE 'collation_connection'
+                     12 Query       SHOW SESSION VARIABLES LIKE 'character_set_connection'
+                     12 Query       SHOW CHARACTER SET
+                     12 Query       SHOW COLLATION
+                     12 Query       SHOW DATABASES
+                     12 Query       SELECT COUNT(*) FROM mysql.user
+                     12 Query       SELECT COUNT(*) FROM mysql.user
+                     12 Query       SHOW GRANTS
+                     12 Query       SELECT COUNT(*) FROM mysql.user
+                     12 Query       SELECT USER()
+                     12 Query       SHOW MASTER LOGS
+070920 11:37:49      12 Quit

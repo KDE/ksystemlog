@@ -1,0 +1,88 @@
+Sep 20 10:47:28 testhost gconfd (root-8801): Sortie
+Sep 20 11:36:42 testhost gconfd (user-5838): Failed to send buffer
+Sep 13 17:34:40 testhost gconfd (user-5822): Sortie
+Sep 14 09:23:29 testhost dhcdbd: Started up.
+Sep 14 09:23:32 testhost hpiod: 1.7.3 accepting connections at 2208...
+Sep 14 09:30:51 testhost gconfd (user-6112): démarrage (version 2.18.0.1), pid 6112 utilisateur « user »
+Sep 14 09:30:51 testhost gconfd (user-6112): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 14 09:30:51 testhost gconfd (user-6112): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 14 09:30:51 testhost gconfd (user-6112): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 14 09:30:51 testhost gconfd (user-6112): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 14 09:30:51 testhost gconfd (user-6112): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 14 09:30:57 testhost gconfd (user-6112): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 0
+Sep 14 09:31:41 testhost gconfd (root-6402): démarrage (version 2.18.0.1), pid 6402 utilisateur « root »
+Sep 14 09:31:41 testhost gconfd (root-6402): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 14 09:31:41 testhost gconfd (root-6402): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 14 09:31:41 testhost gconfd (root-6402): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 14 09:31:41 testhost gconfd (root-6402): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 14 09:31:41 testhost gconfd (root-6402): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 14 09:32:11 testhost gconfd (root-6402): SIGHUP reçu, rechargement de toutes les bases de données
+Sep 14 09:32:11 testhost gconfd (root-6402): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 14 09:32:11 testhost gconfd (root-6402): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 14 09:32:11 testhost gconfd (root-6402): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 14 09:32:11 testhost gconfd (root-6402): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 14 09:32:11 testhost gconfd (root-6402): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 14 09:32:11 testhost gconfd (root-6402): Le serveur GConf n'est pas en cours d'utilisation, arrêt.
+Sep 14 09:32:11 testhost gconfd (root-6402): Sortie
+Sep 14 14:12:33 testhost gconfd (root-17578): démarrage (version 2.18.0.1), pid 17578 utilisateur « root »
+Sep 14 14:12:33 testhost gconfd (root-17578): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 14 14:12:33 testhost gconfd (root-17578): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 14 14:12:33 testhost gconfd (root-17578): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 14 14:12:33 testhost gconfd (root-17578): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 14 14:12:33 testhost gconfd (root-17578): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 14 14:13:03 testhost gconfd (root-17578): SIGHUP reçu, rechargement de toutes les bases de données
+Sep 14 14:13:03 testhost gconfd (root-17578): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 14 14:13:03 testhost gconfd (root-17578): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 14 14:13:03 testhost gconfd (root-17578): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 14 14:13:03 testhost gconfd (root-17578): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 14 14:13:03 testhost gconfd (root-17578): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 14 14:13:03 testhost gconfd (root-17578): Le serveur GConf n'est pas en cours d'utilisation, arrêt.
+Sep 14 14:13:03 testhost gconfd (root-17578): Sortie
+Sep 14 17:00:11 testhost gconfd (user-6112): Sortie
+Sep 17 09:22:23 testhost dhcdbd: Started up.
+Sep 17 09:22:26 testhost hpiod: 1.7.3 accepting connections at 2208...
+Sep 17 09:25:42 testhost gconfd (user-5841): démarrage (version 2.18.0.1), pid 5841 utilisateur « user »
+Sep 17 09:25:42 testhost gconfd (user-5841): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 17 09:25:42 testhost gconfd (user-5841): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 17 09:25:42 testhost gconfd (user-5841): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 17 09:25:42 testhost gconfd (user-5841): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 17 09:25:42 testhost gconfd (user-5841): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 17 09:25:50 testhost gconfd (user-5841): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 0
+Sep 17 10:40:45 testhost gconfd (root-9025): démarrage (version 2.18.0.1), pid 9025 utilisateur « root »
+Sep 17 10:40:45 testhost gconfd (root-9025): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 17 10:40:45 testhost gconfd (root-9025): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 17 10:40:45 testhost gconfd (root-9025): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 17 10:40:45 testhost gconfd (root-9025): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 17 10:40:45 testhost gconfd (root-9025): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 17 10:40:54 testhost gconfd (root-9025): Sortie
+Sep 17 10:41:13 testhost gconfd (user-5841): SIGHUP reçu, rechargement de toutes les bases de données
+Sep 17 10:41:13 testhost gconfd (user-5841): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 17 10:41:13 testhost gconfd (user-5841): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 17 10:41:13 testhost gconfd (user-5841): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 17 10:41:13 testhost gconfd (user-5841): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 17 10:41:13 testhost gconfd (user-5841): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 17 18:00:10 testhost gconfd (root-22226): démarrage (version 2.18.0.1), pid 22226 utilisateur « root »
+Sep 17 18:00:10 testhost gconfd (root-22226): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 17 18:00:10 testhost gconfd (root-22226): Adresse « xml:readwrite:/root/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 17 18:00:10 testhost gconfd (root-22226): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 17 18:00:10 testhost gconfd (root-22226): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 17 18:00:10 testhost gconfd (root-22226): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 17 18:00:40 testhost gconfd (root-22226): Le serveur GConf n'est pas en cours d'utilisation, arrêt.
+Sep 17 18:00:40 testhost gconfd (root-22226): Sortie
+Sep 18 09:29:34 testhost gnome-power-manager: (user) Déconnexion interactive GNOME car le bouton de mise sous tension a été appuyé
+Sep 18 15:52:55 testhost gnome-power-manager: (user) Déconnexion interactive GNOME car le bouton de mise sous tension a été appuyé
+Sep 18 15:54:01 testhost dhcdbd: Started up.
+Sep 18 15:54:04 testhost hpiod: 1.7.3 accepting connections at 2208...
+Sep 18 15:55:33 testhost gconfd (user-6085): démarrage (version 2.18.0.1), pid 6085 utilisateur « user »
+Sep 18 15:55:33 testhost gconfd (user-6085): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 18 15:55:33 testhost gconfd (user-6085): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 1
+Sep 18 15:55:33 testhost gconfd (user-6085): Adresse « xml:readonly:/etc/gconf/gconf.xml.defaults » résolue vers une source de configuration en lecture seule à la position 2
+Sep 18 15:55:33 testhost gconfd (user-6085): Adresse « xml:readonly:/var/lib/gconf/debian.defaults » résolue vers une source de configuration en lecture seule à la position 3
+Sep 18 15:55:33 testhost gconfd (user-6085): Adresse « xml:readonly:/var/lib/gconf/defaults » résolue vers une source de configuration en lecture seule à la position 4
+Sep 18 15:55:41 testhost gconfd (user-6085): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 0
+Sep 18 17:33:42 testhost gconfd (user-6085): Sortie
+Sep 19 09:21:51 testhost dhcdbd: Started up.
+Sep 19 09:21:54 testhost hpiod: 1.7.3 accepting connections at 2208...
+Sep 19 09:22:22 testhost gconfd (user-5989): démarrage (version 2.18.0.1), pid 5989 utilisateur « user »
+Sep 19 09:22:22 testhost gconfd (user-5989): Adresse « xml:readonly:/etc/gconf/gconf.xml.mandatory » résolue vers une source de configuration en lecture seule à la position 0
+Sep 19 09:22:22 testhost gconfd (user-5989): Adresse « xml:readwrite:/home/user/.gconf » résolue vers une source de configuration accessible en écriture à la position 1

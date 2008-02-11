@@ -1,0 +1,34 @@
+PHP Warning:  Module 'PDO' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Sun Sep 02 06:25:34 2007] [notice] Apache/2.2.3 (Ubuntu) mod_jk/1.2.18 PHP/5.2.1 configured -- resuming normal operations
+[Mon Sep 03 09:48:06 2007] [error] [client 192.168.2.209] File does not exist: /home/www/favicon.ico
+[Sun Sep 16 07:35:19 2007] [notice] Apache/2.2.4 (Ubuntu) PHP/5.2.3-1ubuntu5 configured -- resuming normal operations
+[Tue Sep 18 13:32:21 2007] [notice] caught SIGWINCH, shutting down gracefully
+[Tue Sep 18 13:33:15 2007] [notice] Apache/2.2.4 (Ubuntu) PHP/5.2.3-1ubuntu5 configured -- resuming normal operations
+[Tue Sep 18 17:08:35 2007] [error] [client 127.0.0.1] File does not exist: /var/www/timeout.ph
+[Tue Sep 18 17:08:36 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Tue Sep 18 17:08:39 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Tue Sep 18 17:08:40 2007] [error] [client 127.0.0.1] File does not exist: /var/www/timeout.phop
+[Wed Sep 19 10:00:19 2007] [notice] caught SIGWINCH, shutting down gracefully
+[Wed Sep 19 10:01:34 2007] [notice] Apache/2.2.4 (Ubuntu) PHP/5.2.3-1ubuntu5 configured -- resuming normal operations
+[Wed Sep 19 10:02:37 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:02:37 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:35:22 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:40:28 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:54:47 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:57:22 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:58:48 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 10:59:31 2007] [error] [client 127.0.0.1] File does not exist: /var/www/favicon.ico
+[Wed Sep 19 12:06:07 2007] [notice] caught SIGWINCH, shutting down gracefully
+[Wed Sep 19 12:06:18 2007] [notice] Apache/2.2.4 (Ubuntu) PHP/5.2.3-1ubuntu5 configured -- resuming normal operations
+[Wed Sep 19 12:06:33 2007] [error] [client 127.0.0.1] client denied by server configuration: /var/www/sdf
+[Wed Sep 19 12:06:38 2007] [error] [client 127.0.0.1] client denied by server configuration: /var/www/timeout.php
+[Wed Sep 19 12:06:42 2007] [error] [client 127.0.0.1] client denied by server configuration: /var/www/timeout-flusher.php
+[Wed Sep 19 12:07:50 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:52 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:56 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:57 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:58 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:58 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:59 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration
+[Wed Sep 19 12:07:59 2007] [alert] [client 127.0.0.1] /var/www/.htaccess: Invalid command 'mod_gzip_on', perhaps misspelled or defined by a module not included in the server configuration

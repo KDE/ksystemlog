@@ -1,0 +1,24 @@
+Aug 18 17:04:28 localhost kernel: [   17.092000] ieee80211_crypt: registered algorithm 'NULL'
+Aug 18 17:04:28 localhost kernel: [   17.232000] PCI: Setting latency timer of device 0000:03:00.0 to 64
+Aug 18 17:04:28 localhost kernel: [   17.364000] PCI: Setting latency timer of device 0000:00:1b.0 to 64
+Aug 18 17:04:28 localhost kernel: [  100.596000] set_level status: 0
+Aug 18 17:04:29 localhost NetworkManager: <debug> [1187449469.325281] nm_hal_device_added(): New device added (hal udi is '/org/freedesktop/Hal/devices/storage_model_CD/DVDW_TS_L632D').
+Aug 18 17:04:42 localhost kernel: [  115.084000] eth1: no IPv6 routers present
+Aug 18 17:05:23 localhost NetworkManager: <debug> [1187449523.399765] nm_hal_device_added(): New device added (hal udi is '/org/freedesktop/Hal/devices/usb_device_46d_c016_noserial').
+Aug 18 17:05:23 localhost NetworkManager: <debug> [1187449523.521428] nm_hal_device_added(): New device added (hal udi is '/org/freedesktop/Hal/devices/usb_device_46d_c016_noserial_if0').
+Aug 18 17:05:23 localhost NetworkManager: <debug> [1187449523.554409] nm_hal_device_added(): New device added (hal udi is '/org/freedesktop/Hal/devices/usb_device_46d_c016_noserial_usbraw').
+Aug 18 17:05:23 localhost NetworkManager: <debug> [1187449523.576442] nm_hal_device_added(): New device added (hal udi is '/org/freedesktop/Hal/devices/usb_device_46d_c016_noserial_if0_logicaldev_input').
+Aug 18 17:06:13 localhost NetworkManager: <debug> [1187449573.852443] nm_device_802_11_wireless_get_activation_ap(): Forcing AP '3Com'
+Aug 18 17:06:23 localhost NetworkManager: <debug> [1187449583.277856] nm_device_802_11_wireless_get_activation_ap(): Forcing AP '3Com'
+Aug 18 17:06:33 localhost kernel: [  226.604000] eth1: no IPv6 routers present
+Aug 18 17:08:40 localhost kernel: [  353.700000] eth1: no IPv6 routers present
+Aug 18 17:11:52 localhost NetworkManager: <debug> [1187449912.758477] nm_device_802_11_wireless_get_activation_ap(): Forcing AP '3Com'
+Aug 18 17:12:05 localhost kernel: [  559.152000] eth1: no IPv6 routers present
+Aug 18 17:14:15 localhost kernel: [  688.808000] eth1: no IPv6 routers present
+Aug 19 10:45:51 localhost NetworkManager: <debug> [1187513151.426711] nm_device_802_11_wireless_get_activation_ap(): Forcing AP '3Com'
+Aug 19 10:46:03 localhost kernel: [63797.588000] eth1: no IPv6 routers present
+Aug 19 10:48:10 localhost kernel: [63924.112000] eth1: no IPv6 routers present
+Aug 19 16:22:32 localhost NetworkManager: <debug> [1187533352.507843] nm_print_open_socks(): Open Sockets List:
+Aug 19 16:22:32 localhost NetworkManager: <debug> [1187533352.507872] nm_print_open_socks(): Open Sockets List Done.
+Aug 19 18:55:53 localhost kernel: [    0.000000] Entering add_active_range(0, 0, 393136) 0 entries of 256 used
+Aug 19 18:55:53 localhost kernel: [    0.000000] On node 0 totalpages: 393136

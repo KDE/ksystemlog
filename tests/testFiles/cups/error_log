@@ -1,0 +1,4 @@
+E [29/Jun/2007:11:39:56 +0200] Creating missing directory "/var/run/cups/certs"
+I [20/May/1999:19:18:28 +0000] Job 1 queued on 'DeskJet' by 'mike'.
+I [20/May/1999:19:21:02 +0000] Job 2 queued on 'DeskJet' by 'mike'.
+I [20/May/1999:19:22:24 +0000] Job 2 was cancelled by 'mike'.

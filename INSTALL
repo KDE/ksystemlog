@@ -1,0 +1,32 @@
+Specific Trouble case with KSystemLog
+===================================================
+I hope that you will don't have any problems to compile and test KSystemLog.
+If you successfully compile KSystemLog but you have strange problems (with the
+tool bars, please manually copy src/ksystemlogui.rc in the $HOME/.kde/share/apps/ksystemlog
+folder (create it if it does not exist).
+
+If you still have problems, do not hesitate do email me ;-)
+Nicolas Ternisien <nicolas.ternisien@gmail.com>
+
+For more informations, please also see the KsystemLog Web site :
+http://annivernet.free.fr/ksystemlog/
+
+Source Package Creation
+==================================================
+Retrieve the svn2dist tool at :
+http://websvn.kde.org/trunk/KDE/kdesdk/scripts
+
+Then, once it is downloaded, launch the following command :
+
+svn2dist playground/sysadmin/ ksystemlog -v 0.3.3 -l --no-gzip
+
+- "playground/sysadmin" is the folder where ksystemlog is located, but it is also the path to the doc and localization in the KDE SVN tree. 
+- "ksystemlog" is the folder of the project, but also the name of it
+
+Basic Installation
+===================================================
+
+cmake .
+make
+make install
+

@@ -1,0 +1,92 @@
+<ui version="4.0" >
+ <class>XSessionConfigurationWidgetBase</class>
+ <widget class="QWidget" name="XSessionConfigurationWidgetBase" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QGroupBox" name="groupBox" >
+     <property name="title" >
+      <string>X Session Log File</string>
+     </property>
+     <layout class="QGridLayout" >
+      <item row="0" column="0" >
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>Log File:</string>
+        </property>
+        <property name="buddy" >
+         <cstring>xsessionUrlRequester</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="KUrlRequester" native="1" name="xsessionUrlRequester" >
+        <property name="enabled" >
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2" >
+       <widget class="QCheckBox" name="ignoreXorgErrors" >
+        <property name="toolTip" >
+         <string>Check this option to removeXorg errors</string>
+        </property>
+        <property name="whatsThis" >
+         <string>Check this option to remove Xorg errors</string>
+        </property>
+        <property name="text" >
+         <string>Ignore Xorg Errors</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="2" >
+       <widget class="QLabel" name="xorgErrorsDescription" >
+        <property name="text" >
+         <string>&lt;p>&lt;b>Note:&lt;/b> Check this option to remove X.org errors.&lt;/p>&lt;p style="margin-bottom:0px">The following lines will be ignored:&lt;/p></string>
+        </property>
+        <property name="wordWrap" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>31</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QWidget</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

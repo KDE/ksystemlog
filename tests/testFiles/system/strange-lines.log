@@ -1,0 +1,8 @@
+Aug 10 17:04:28 localhost kernel: Kernel panic
+Aug 11 13:49:38 localhost -- MARK --
+Aug 12 18:10:32 localhost last message repeated 4 times
+Aug 13 17:04:28 testprocess: Say ouhou  
+Aug 14 17:04:28 localhost kernel say ouhou
+Aug 15 22:39:01 localhost /USR/SBIN/CRON[9433]: (root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)
+
+blablalbla

@@ -1,0 +1,217 @@
+
+Current Development Version (0.4.1)
+===================================
+
+ - Compatibility with KDE 4 beta4
+ - Fix icon position in search bar
+ - Add test coverage for Kernel logs
+ - Support for Suse Kernel logs
+ - Add joker to file list in configuration
+ - Auto-recognizition of the opened files
+
+Previous Releases
+===========================
+ 
+KSystemLog 0.4 Release
+----------------------
+
+This major rewrite of KSystemLog took between 3 and 4 months of development.
+
+ - **Major rewrite** of KSystemLog. All core parts have been totally rewritten.
+ - Compatible with KDE 4.
+ - Use of Oxygen icons.
+ - New search bar (like the Firefox search bar).
+ - Integrated Progress dialog into the main window.
+ - History on log messages.
+ - No more crash each 5 minutes.
+ - Highly decrease the number of memory leaks.
+ - Modularization of log modes (kernel, system, authentication,...).
+ - New XSession log mode.
+ - Vastly improved version of Apache, Samba, Cups and ACPID log modes.
+ - No more layout problem in Details dialog.
+ - No more layout problem in Configuration Dialog.
+ - Kernel log mode is now using the "dmesg" command output
+ - Remove Boot log (no interested log file in distributions)
+ - Remove the "Group By" [Date/User/...] feature in contextual menu during refactoring. This feature could be reimplemented in future release.
+ 
+KSystemLog 0.3.3 Release
+------------------------
+
+Major Features and Improvements
+...............................
+
+ - Writing documentation (still miss a lot of things).
+ - Support for a system tray notifier (thanks to Jean-Rémy Falleri).
+ - Adding Printing (many thanks to Bojan).
+ - Adding SSH mode (many thanks to Bojan).
+
+Minor Fixes
+...........
+
+ - Do not use kdesu by default, a distrib/desktop dependent solution (thanks to Jonathan Riddell).
+ - Displaying KSystemLog in Gnome (thanks to Jonathan Riddell).
+ - Fix problems detected by http://www.icefox.net/kde/tests website. (pre-incrementation, TRUE->true, KConfigXT XML Doctype...)
+ - Updating French translation.
+ - Fix documentation and translations compilations.
+ - Optimization
+ - Minor fixes...
+
+KSystemLog 0.3.2 Release
+------------------------
+
+Major Features and Improvements
+...............................
+
+ - Improve a little bit the starting of KSystemLog.
+ - Add the Apache log.
+ - Add the Postfix log.
+ - Add the Samba log.
+ - Dialog box for sending log message manually from a dialog box.
+ - Log Toolbar is now visible by default, but only main logs are displayed.
+ - Colorize log lines by default.
+
+Minor Fixes
+...........
+
+ - Add a grayed "Type your filter here" in the filter (like Amarok).
+ - Remove shortcut on each log mode. They were to annoying to manage. The user always can bind the key he wants for a log.
+ - A double-click on an item opens the Detail Dialog.
+ - Fix a bug which decreased the log file reading.
+ - Add the Group By action to the Toolbar.
+ - Using sub-folders to sort source files
+ - Remove a useless space in most of logs
+ - Improve the saving of log views layout (column order is now saved)
+ - Remove tons of memory leaks
+ - Definetly fix the Detail Dialog by drawing it with Qt Designer
+
+KSystemLog 0.3.1 Release
+------------------------
+
+Major Features and Improvements
+...............................
+
+ - Fix the compilation problem on KDE 3.3. KSystemLog should now even compile on KDE 3.2
+ - Add an option to remove the process identifier from the process column
+ - Add an option to colorize log lines depending on their log level
+ - Correctly save the window size on exit
+
+Minor Fixes
+...........
+
+ - New icon ! (made by a non-artist developer ;-)
+ - KUbuntu, Mandriva, Debian and Gentoo packages for 0.3
+
+KSystemLog 0.3 Release
+----------------------
+
+Major Features and Improvements
+...............................
+
+ - Group By &lt;Column&gt; menu item to sort items in a tree (with root nodes of the selected column).
+ - Progress bar Dialog when loading (and reloading) logs
+ - New option finding same entries and remove them
+ - Management of a character limit per line (from configuration dialog)
+ - Save the sorting and sort column state and reload it at startup
+ - Add a menu item to hide the filter
+ - Cool Group By main entries' look
+ - Middle button on a log icon opens it in a new tab (And Ctrl+Left click and Shift+Left Click)
+
+Minor Fixes
+...........
+
+ - Fixing KDE 3.2 Compilation problem
+ - Updated translations for : Breton, Danish, German, Greek, English, Estonian, French, Irish, Italian, Panjabi, Polish, Kinyarwanda, Swedish and Turkish
+ - Same size for Next and Previous button in detail dialog
+ - Reload (an resize) correctly the content of the detail dialog 
+ - Add more log levels managed in Cups log
+ - Fix a bug which strips message of the Acpid log
+ - Save the group by sorting in the config file
+ - Manage log lines with more than 1024 characters
+ - Fix many typography errors (thanks to Andrew Coles)
+ - Splitting of KSystemLog and LogManager classes, to allow displaying other kind of view in the center of KSystemLog
+ - Remove source code automatically managed by KDE Libs (and respective slot/signal pairs)
+ - Saving size of the windows, and Toolbar/menu configuration between KSystemLog launching
+ - Mandriva Package (KSystemLog 0.2.2)
+ - KUbuntu Package (KSystemLog 0.2.2)
+ - Hide the log toolbar by default
+ - Fix the limit ignoring problem
+ - Fix the unknown and mysterious crash bug
+ - A lot of bug fixes (reloading and detail dialog, NULL pointers...)
+	
+KSystemLog 0.2.1 and 0.2.2 Release
+----------------------------------
+	
+ - French translation updated
+ - KDE 3.3 compilation error fixed
+ - English typography errors fixed
+
+KSystemLog 0.2 Release
+----------------------
+
+The new version of KSystemLog is now available ! 0.2 version adds several major features to KSystemLog.
+The translations are not updated, but the strings are freezed for 4-5 days, so do not hesitate to help
+me translating KSystemLog !
+
+Major Features and Improvements
+...............................
+
+ - KSystemLog can open multiple log files thanks to its tabbed interface
+ - Using KConfigXT (yeah!)
+ - Implements the Find / Find next features
+ - A Send to a friend button
+ - Add support for ACPId Log file
+ - Add support for Cups log files
+ - Smaller popup in the main view
+ - Tooltip and What this in configuration dialog
+ - Saving the opened tabs list on exit
+ - KSystemLog Web site !
+
+Minor Fixes
+...........
+
+ - KSystemlog.desktop fixed (thanks to EliasP)
+ - Debian Packages for Sarge, SID, and SID with KDE 3.4
+ - SuSe 9.3 package (checkinstall package)
+ - Conectiva 10 package
+ - Gentoo ebuild
+ - Number of line added in other logs
+ - Many bugs fixed
+ - Replace old email address to new one
+ - Number of lines added in other logs
+
+KSystemLog 0.1.1 Release (05/06/2005)
+-------------------------------------
+
+This version is a bugfixed version of KSystemLog 0.1.
+
+ - Correctly parse internal messages of Syslog Deamon
+ - Fix columns problem when we switch between Kernel and System logs
+ - Fix parsing problem of Kernel/Boot/Authentication logs (damned Copy/Paste)
+ - Reimplement the Dialog Box, to have the Next and Previous features, non modal behavior...
+ - Improve (a little) the parsing speed of SysLog and Xorg logs.
+ - Add a little vertical line between each column (what an eye candy feature ;-)
+ - Fix KSystemLog compilation problems with KDE 3.3 (and maybe older version)
+ - French translation of KSystemLog
+
+Initial Release of KSystemLog 0.1 (05/05/2005)
+----------------------------------------------
+
+I am proud to announce the first public release of KSystemLog. I worked on the version since 2 months, and I hope you will like it.
+
+**Here is a list of features :**
+
+ - Open multiple log files and append them to the list
+ - Auto display new log lines (with a bold font to better see them)
+ - Quick sort of each column
+ - Easily con figuration of each source file (to don't have any problem with different management of syslog in each distribution)
+ - Stop and resume the log analysis
+ - Copy to clipboard feature and Save to file, to help newbie sending report to developer
+ - X.org and all Syslog file format supported. (and many more in the next version...)
+ - Display advanced informations about each lines (level, date, message, user, process, host name, etc.), with a specific popup or a dialog box.
+ 
+
+
+
+*This file use the reStructuredText format.* 
+
+*More information at http://en.wikipedia.org/wiki/ReStructuredText*

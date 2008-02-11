@@ -1,0 +1,192 @@
+<ui version="4.0" >
+ <class>DetailDialogBase</class>
+ <widget class="QDialog" name="DetailDialogBase" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>411</width>
+    <height>248</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Log Line Details</string>
+  </property>
+  <property name="whatsThis" >
+   <string>This dialog displays detailed information about the currently selected log line.</string>
+  </property>
+  <layout class="QGridLayout" >
+   <item row="1" column="0" colspan="2" >
+    <widget class="KTextEdit" native="1" name="message" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text" stdset="0" >
+      <string>Message</string>
+     </property>
+     <property name="readOnly" stdset="0" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" >
+    <widget class="QLabel" name="icon" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text" >
+      <string>Icon</string>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" >
+    <widget class="QLabel" name="header" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Expanding" hsizetype="Preferred" >
+       <horstretch>2</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text" >
+      <string>Main information</string>
+     </property>
+     <property name="wordWrap" >
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2" >
+    <layout class="QHBoxLayout" >
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="KPushButton" native="1" name="previous" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip" >
+        <string>Move to the previous line</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Moves to the previous line. This button is deactivated if there is no previous log line.</string>
+       </property>
+       <property name="text" stdset="0" >
+        <string>&amp;Back</string>
+       </property>
+       <property name="stdItem" stdset="0" >
+        <number>14</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="KPushButton" native="1" name="next" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip" >
+        <string>Move to the next line</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Moves to the next line. This button is deactivated if there is no next log line.</string>
+       </property>
+       <property name="text" stdset="0" >
+        <string>&amp;Forward</string>
+       </property>
+       <property name="stdItem" stdset="0" >
+        <number>15</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType" >
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>100</width>
+         <height>31</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="KPushButton" native="1" name="closeButton" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip" >
+        <string>Close the Detail dialog.</string>
+       </property>
+       <property name="whatsThis" >
+        <string>Closes this Detail dialog.</string>
+       </property>
+       <property name="text" stdset="0" >
+        <string>&amp;Close</string>
+       </property>
+       <property name="stdItem" stdset="0" >
+        <number>13</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="8" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>KTextEdit</class>
+   <extends>QWidget</extends>
+   <header>ktextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QWidget</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>message</tabstop>
+ </tabstops>
+ <includes>
+  <include location="local" >ktextedit.h</include>
+  <include location="local" >kpushbutton.h</include>
+  <include location="local" >kpushbutton.h</include>
+  <include location="local" >kpushbutton.h</include>
+ </includes>
+ <resources/>
+ <connections/>
+</ui>

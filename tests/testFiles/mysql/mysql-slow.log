@@ -1,0 +1,94 @@
+/usr/sbin/mysqld, Version: 5.0.45-Debian_1ubuntu2-log (Debian etch distribution). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 070920 11:33:41
+# User@Host: debian-sys-maint[debian-sys-maint] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 1  Rows_examined: 4
+SELECT count(*) FROM mysql.user WHERE user='root' and password='';
+# Time: 070920 11:39:28
+# User@Host: root[root] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 62  Rows_examined: 62
+use alfresco;
+SELECT *,
+                    `TABLE_SCHEMA`       AS `Db`,
+                    `TABLE_NAME`         AS `Name`,
+                    `ENGINE`             AS `Engine`,
+                    `ENGINE`             AS `Type`,
+                    `VERSION`            AS `Version`,
+                    `ROW_FORMAT`         AS `Row_format`,
+                    `TABLE_ROWS`         AS `Rows`,
+                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                    `DATA_LENGTH`        AS `Data_length`,
+                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                    `INDEX_LENGTH`       AS `Index_length`,
+                    `DATA_FREE`          AS `Data_free`,
+                    `AUTO_INCREMENT`     AS `Auto_increment`,
+                    `CREATE_TIME`        AS `Create_time`,
+                    `UPDATE_TIME`        AS `Update_time`,
+                    `CHECK_TIME`         AS `Check_time`,
+                    `TABLE_COLLATION`    AS `Collation`,
+                    `CHECKSUM`           AS `Checksum`,
+                    `CREATE_OPTIONS`     AS `Create_options`,
+                    `TABLE_COMMENT`      AS `Comment`
+               FROM `information_schema`.`TABLES`
+              WHERE BINARY `TABLE_SCHEMA` IN ('alfresco');
+# User@Host: root[root] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 1  Rows_examined: 2
+SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'alfresco' LIMIT 1;
+# Time: 070920 11:39:29
+# User@Host: root[root] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 62  Rows_examined: 62
+SELECT *,
+                    `TABLE_SCHEMA`       AS `Db`,
+                    `TABLE_NAME`         AS `Name`,
+                    `ENGINE`             AS `Engine`,
+                    `ENGINE`             AS `Type`,
+                    `VERSION`            AS `Version`,
+                    `ROW_FORMAT`         AS `Row_format`,
+                    `TABLE_ROWS`         AS `Rows`,
+                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                    `DATA_LENGTH`        AS `Data_length`,
+                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                    `INDEX_LENGTH`       AS `Index_length`,
+                    `DATA_FREE`          AS `Data_free`,
+                    `AUTO_INCREMENT`     AS `Auto_increment`,
+                    `CREATE_TIME`        AS `Create_time`,
+                    `UPDATE_TIME`        AS `Update_time`,
+                    `CHECK_TIME`         AS `Check_time`,
+                    `TABLE_COLLATION`    AS `Collation`,
+                    `CHECKSUM`           AS `Checksum`,
+                    `CREATE_OPTIONS`     AS `Create_options`,
+                    `TABLE_COMMENT`      AS `Comment`
+               FROM `information_schema`.`TABLES`
+              WHERE BINARY `TABLE_SCHEMA` IN ('alfresco');
+# Time: 070920 11:39:31
+# User@Host: root[root] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 62  Rows_examined: 62
+SELECT *,
+                    `TABLE_SCHEMA`       AS `Db`,
+                    `TABLE_NAME`         AS `Name`,
+                    `ENGINE`             AS `Engine`,
+                    `ENGINE`             AS `Type`,
+                    `VERSION`            AS `Version`,
+                    `ROW_FORMAT`         AS `Row_format`,
+                    `TABLE_ROWS`         AS `Rows`,
+                    `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                    `DATA_LENGTH`        AS `Data_length`,
+                    `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                    `INDEX_LENGTH`       AS `Index_length`,
+                    `DATA_FREE`          AS `Data_free`,
+                    `AUTO_INCREMENT`     AS `Auto_increment`,
+                    `CREATE_TIME`        AS `Create_time`,
+                    `UPDATE_TIME`        AS `Update_time`,
+                    `CHECK_TIME`         AS `Check_time`,
+                    `TABLE_COLLATION`    AS `Collation`,
+                    `CHECKSUM`           AS `Checksum`,
+                    `CREATE_OPTIONS`     AS `Create_options`,
+                    `TABLE_COMMENT`      AS `Comment`
+               FROM `information_schema`.`TABLES`
+              WHERE BINARY `TABLE_SCHEMA` IN ('alfresco');
+# Time: 070920 11:39:43
+# User@Host: root[root] @ localhost []
+# Query_time: 0  Lock_time: 0  Rows_sent: 30  Rows_examined: 30
+select * from node
+ LIMIT 0, 30;
