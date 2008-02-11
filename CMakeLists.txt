@@ -8,29 +8,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fmessage-length=0")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
-enable_testing()
-set(KDE4_BUILD_TESTS ON)
-
-set(KDE_COLOR_DEBUG ON)
-
-#set(KDE4_ENABLE_FINAL ON)
-
-find_package(KDE4 REQUIRED)
-
-include(KDE4Defaults)
-
-add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-
-message("CMake Generation done : ${CMAKE_CURRENT_SOURCE_DIR}.")
-message("Installation prefix : ${CMAKE_INSTALL_PREFIX}.")
-message("Use the following command to set the install prefix (optional) :")
-message("\tcmake -D CMAKE_INSTALL_PREFIX=build")
-message("")
-
-include_directories(
-	${KDE4_INCLUDE_DIR}
-	${QT_INCLUDES}
-)
 
 add_custom_target(  
     package
