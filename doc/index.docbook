@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
- "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!ENTITY ksystemlog "<application>KSystemLog</application>">
 <!ENTITY kappname "&ksystemlog;"><!-- replace kapp here -->
 <!ENTITY package "kdeadmin">
 <!ENTITY % addindex "IGNORE">
@@ -20,13 +20,6 @@
 		</affiliation>
 	</author>
 </authorgroup>
-
-<!-- 
-	 To correctly compile, we need to add to this file :
-	 /usr/share/apps/ksgmltools2/customization/entities/general.entities
-	 the following text :
-	 <!ENTITY ksystemlog "<application>KSystemLog</application>">
--->
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
