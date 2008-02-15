@@ -14,6 +14,11 @@ add_custom_target(
     COMMAND ./build-package.sh
 )
 
+##
+# To specify a different install prefix, use :
+# cmake -D CMAKE_INSTALL_PREFIX=build .
+##
+
 ########### Subfolders ##########
 
 add_subdirectory(src) 
