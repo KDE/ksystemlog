@@ -17,6 +17,9 @@ add_custom_target(
 ##
 # To specify a different install prefix, use :
 # cmake -D CMAKE_INSTALL_PREFIX=build .
+#
+# To help Eclipse discover include paths, use :
+# cmake -D CMAKE_VERBOSE_MAKEFILE=true .
 ##
 
 ########### Subfolders ##########
