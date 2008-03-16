@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KSystemLog
+Name[th]=บันทึกการทำงานของระบบ
 Categories=Qt;KDE;System;
 X-KDE-SubstituteUID=true
 Exec=ksystemlog %i %m -caption "%c"
@@ -14,6 +15,7 @@ Comment[ga]=Amharcán ar logchomhaid an chórais
 Comment[ja]=システムログビューア
 Comment[pt]=Ferramenta de visualização de registos do sistema
 Comment[pt_BR]=Ferramenta de visualização de registos do sistema
+Comment[th]=เครื่องมือแสดงบันทึกการทำงานของระบบ
 Comment[uk]=Засіб перегляду системних журналів
 Comment[zh_CN]=系统日志查看工具
 Comment[zh_TW]=系統紀錄檢視工具
@@ -25,6 +27,7 @@ GenericName[ga]=Amharcán ar Logchomhaid an Chórais
 GenericName[ja]=システムログビューア
 GenericName[pt]=Visualizador de Registos do Sistema
 GenericName[pt_BR]=Visualizador de Registos do Sistema
+GenericName[th]=เครื่องมือแสดงบันทึกการทำงานของระบบ
 GenericName[uk]=Переглядач системних журналів
 GenericName[zh_CN]=系统日志查看器
 GenericName[zh_TW]=系統紀錄檢視器
