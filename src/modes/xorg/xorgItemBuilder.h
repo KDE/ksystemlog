@@ -54,7 +54,7 @@ class XorgItemBuilder : public LogModeItemBuilder {
 			item->setText(0, "");
 			
 			int i=1;
-			foreach(QString label, line->logItems()) {
+			foreach(const QString &label, line->logItems()) {
 				item->setText(i, label);
 				i++;
 			}

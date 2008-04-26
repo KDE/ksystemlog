@@ -136,7 +136,7 @@ class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui
 				QString text = xorgErrorsDescription->text();
 				text.append("<ul style='margin-top:0px;margin-bottom:0px'>");
 				
-				foreach(QString xorgErrorKeyword, configuration->xorgErrorKeywords()) {
+				foreach(const QString &xorgErrorKeyword, configuration->xorgErrorKeywords()) {
 					text.append(i18n("<li><b>%1</b>: ...</li>", xorgErrorKeyword));
 				}
 				text.append("</ul>");
