@@ -70,7 +70,7 @@ target_link_libraries(ksystemlog
 
 install( TARGETS ksystemlog DESTINATION ${BIN_INSTALL_DIR})
 
-install(FILES   ksystemlog.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES   ksystemlog.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES   ksystemlogui.rc DESTINATION ${DATA_INSTALL_DIR}/ksystemlog)
 
 kde4_install_icons( ${ICON_INSTALL_DIR})
