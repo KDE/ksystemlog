@@ -47,7 +47,7 @@ CupsLogMode::CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfiguration
 	//Cups Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Cups log."));
-	d->action->setWhatsThis(i18n("Displays the CUPS log in the current tab. CUPS is the program which manage printing on your computer."));
+	d->action->setWhatsThis(i18n("Displays the CUPS log in the current tab. CUPS is the program which manages printing on your computer."));
 
 }
 
