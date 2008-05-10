@@ -46,7 +46,7 @@ CronLogMode::CronLogMode() :
 	
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the planned tasks log (Cron log)."));
-	d->action->setWhatsThis(i18n("Displays the planned tasks log in the current tab. Cron process is a program in charged of launching planned tasks on your system, like security checks, or auto-restarting of some services. Use this menu to see the last-launched processes."));
+	d->action->setWhatsThis(i18n("Displays the planned tasks log in the current tab. Cron process is a program in charge of launching planned tasks on your system, like security checks, or auto-restarting of some services. Use this menu to see the recently launched processes."));
 
 }
 
