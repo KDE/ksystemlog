@@ -46,7 +46,7 @@ NetbiosLogMode::NetbiosLogMode(SambaConfiguration* sambaConfiguration, SambaConf
 	//Netbios Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Netbios log."));
-	d->action->setWhatsThis(i18n("<qt>Displays the Netbios log in the current tab. Netbios is the file sharing protocol developed by Microsoft.</qt>"));
+	d->action->setWhatsThis(i18n("Displays the Netbios log in the current tab. Netbios is the file sharing protocol developed by Microsoft."));
 	
 }
 

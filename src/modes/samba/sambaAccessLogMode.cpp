@@ -46,7 +46,7 @@ SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration* sambaConfiguration, S
 	//Samba Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Samba Access log."));
-	d->action->setWhatsThis(i18n("<qt>Displays the Samba Access log in the current tab. This log mode allows you to see connections between your shares and remote hosts.</qt>"));
+	d->action->setWhatsThis(i18n("Displays the Samba Access log in the current tab. This log mode allows you to see connections between your shares and remote hosts."));
 	
 }
 

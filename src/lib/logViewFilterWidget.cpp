@@ -107,7 +107,7 @@ void LogViewFilterWidget::initSearchListFilter() {
 	d->filterList=new KComboBox();
 
 	d->filterList->setToolTip(i18n("Choose the filtered column here"));
-	d->filterList->setWhatsThis(i18n("<qt>Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means no specific filter.</qt>"));
+	d->filterList->setWhatsThis(i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means no specific filter."));
 
 	d->filterList->addItem(i18n("All"));
 

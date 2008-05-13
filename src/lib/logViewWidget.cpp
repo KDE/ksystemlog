@@ -50,7 +50,7 @@ LogViewWidget::LogViewWidget(QWidget* parent) :
 	d(new LogViewWidgetPrivate()) {
 	
 	//TODO Add this setWhatsThis() to all columns each time they change
-	//setWhatThis(i18n("<qt><p>This is the main view of KSystemLog. It displays the last lines of the selected log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log lines in <b>bold</b> are the last added to the list.</p></qt>"));
+	//setWhatThis(i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log lines in <b>bold</b> are the last added to the list.</p>"));
 	
 	QStringList headerLabels;
 	headerLabels.append("Date");

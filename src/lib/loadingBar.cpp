@@ -91,16 +91,16 @@ void LoadingBar::startLoading(const LogMode& logMode, const LogFile& logFile, in
 	//Several files to load
 	if (fileCount>1 && fileIndex>=1) {
 		if (d->firstLoading)
-			d->label->setText(i18n("<qt>Loading <b>%1</b>...<br /><i>%2</i> - (<b>%3</b>/%4 files)</qt>", logMode.name(), logFile.url().path(), fileIndex, fileCount));
+			d->label->setText(i18n("Loading <b>%1</b>...<br /><i>%2</i> - (<b>%3</b>/%4 files)", logMode.name(), logFile.url().path(), fileIndex, fileCount));
 		else
-			d->label->setText(i18n("<qt>Reloading <b>%1</b>...<br /><i>%2</i> - (<b>%3</b>/%4 files)</qt>", logMode.name(), logFile.url().path(), fileIndex, fileCount));
+			d->label->setText(i18n("Reloading <b>%1</b>...<br /><i>%2</i> - (<b>%3</b>/%4 files)", logMode.name(), logFile.url().path(), fileIndex, fileCount));
 	}
 	//Only one file
 	else {
 		if (d->firstLoading)
-			d->label->setText(i18n("<qt>Loading <b>%1</b>...<br /><i>%2</i></qt>", logMode.name(), logFile.url().path()));
+			d->label->setText(i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
 		else
-			d->label->setText(i18n("<qt>Reloading <b>%1</b>...<br /><i>%2</i></qt>", logMode.name(), logFile.url().path()));
+			d->label->setText(i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
 	}
 
 }

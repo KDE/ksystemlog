@@ -58,7 +58,7 @@ LogLevelFileList::LogLevelFileList(QWidget* parent, const QString& description) 
 
 	changeItem=new QPushButton(i18n("&Change Status..."));
 	changeItem->setToolTip(i18n("Change the level of the current file(s)"));
-	changeItem->setWhatsThis(i18n("<qt>Changes the level of the current file(s). See KSystemLog documentation for more information about each log level.</qt>"));
+	changeItem->setWhatsThis(i18n("Changes the level of the current file(s). See KSystemLog documentation for more information about each log level."));
 	
 	//Insert the button just after the "Modify File" button
 	buttonsLayout()->insertWidget(2, changeItem);

@@ -47,7 +47,7 @@ ApacheLogMode::ApacheLogMode(ApacheConfiguration* apacheConfiguration, ApacheCon
 	//Apache Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Apache log."));
-	d->action->setWhatsThis(i18n("<qt>Displays the Apache log in the current tab. Apache is the main used Web server in the world.</qt>"));
+	d->action->setWhatsThis(i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
 	
 }
 

@@ -293,7 +293,7 @@
         <string>This link opens the 'logger' command manual.</string>
        </property>
        <property name="text" >
-        <string>&lt;qt>&lt;a href="man:/logger">Logger Manual&lt;/a>&lt;/qt></string>
+        <string>&lt;a href="man:/logger">Logger Manual&lt;/a></string>
        </property>
       </widget>
      </item>

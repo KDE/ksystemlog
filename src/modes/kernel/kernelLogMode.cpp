@@ -46,7 +46,7 @@ KernelLogMode::KernelLogMode() :
 	
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the kernel log."));
-	d->action->setWhatsThis(i18n("<qt>Displays the kernel log in the current tab. This log is only useful for users who want to know why the Kernel does not detect their hardware or what is the cause of the last <i>kernel panic/oops</i>.</qt>"));
+	d->action->setWhatsThis(i18n("Displays the kernel log in the current tab. This log is only useful for users who want to know why the Kernel does not detect their hardware or what is the cause of the last <i>kernel panic/oops</i>."));
 
 }
 

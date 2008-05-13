@@ -46,7 +46,7 @@ SambaLogMode::SambaLogMode(SambaConfiguration* sambaConfiguration, SambaConfigur
 	//Samba Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Samba log."));
-	d->action->setWhatsThis(i18n("<qt>Displays the Samba log in the current tab. Samba is the file sharing server which interacts with Microsoft Windows network.</qt>"));
+	d->action->setWhatsThis(i18n("Displays the Samba log in the current tab. Samba is the file sharing server which interacts with Microsoft Windows network."));
 	
 }
 

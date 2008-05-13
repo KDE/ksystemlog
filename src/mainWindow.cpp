@@ -610,14 +610,14 @@ void MainWindow::setupActions() {
 	d->expandAllAction->setText(i18n("Ex&pand All"));
 	d->expandAllAction->setShortcut(Qt::CTRL + Qt::Key_X);
 	d->expandAllAction->setToolTip(i18n("Expand all categories"));
-	d->expandAllAction->setWhatsThis(i18n("<qt>This action opens all main categories. This is enabled only if an option has been selected in the <b>Group By</b> menu.</qt>"));
+	d->expandAllAction->setWhatsThis(i18n("This action opens all main categories. This is enabled only if an option has been selected in the <b>Group By</b> menu."));
 	d->expandAllAction->setEnabled(false);
 	
 	d->collapseAllAction = actionCollection()->addAction("collapse_all");
 	d->collapseAllAction->setText(i18n("Col&lapse All"));
 	d->collapseAllAction->setShortcut(Qt::CTRL + Qt::Key_L);
 	d->collapseAllAction->setToolTip(i18n("Collapse all categories"));
-	d->collapseAllAction->setWhatsThis(i18n("<qt>This action closes all main categories. This is enabled only if an option has been selected in the <b>Group By</b> menu.</qt>"));
+	d->collapseAllAction->setWhatsThis(i18n("This action closes all main categories. This is enabled only if an option has been selected in the <b>Group By</b> menu."));
 	d->collapseAllAction->setEnabled(false);
 	
 	d->sendMailAction = actionCollection()->addAction("send_mail");
