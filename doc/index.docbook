@@ -241,7 +241,7 @@ But it is also designed for advanced users, who want to quickly see problems occ
 		
 		<para>
 		&ksystemlog; provides an easy way to control the reading and the monitoring of log files. Indeed, sometimes, you only need to analyze some existing log lines. In this case,
-		you can't bear of the new appearing line. You are then able a deactivate the monitoring of log files by clicking on the <guimenu>Edit</guimenu><guimenuitem>Pause</guimenuitem> 
+		you cannot bear of the new appearing line. You are then able a deactivate the monitoring of log files by clicking on the <guimenu>Edit</guimenu><guimenuitem>Pause</guimenuitem> 
 		button, which then closes every opened log files, and leave them being filled by other processes without trying to read them. Of course, you can reactivate the monitoring by 
 		clicking on <guimenu>Edit</guimenu><guimenuitem>Resume</guimenuitem>, which will only read new log lines since the last resuming.
 		</para>
