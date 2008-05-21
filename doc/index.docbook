@@ -19,9 +19,8 @@
 			<address><email>nicolas.ternisien@gmail.com</email></address>
 		</affiliation>
 	</author>
-</authorgroup>
-
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
 
 <copyright>
 	<year>2008</year>
@@ -283,10 +282,9 @@ But it is also designed for advanced users, who want to quickly see problems occ
 		<emphasis>Special thanks to all translators of &ksystemlog;.</emphasis>
 	</para>
 	
-	<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-	
-	&underFDL;           <!-- FDL: do not remove -->
-	&underGPL;        	 <!-- GPL License -->
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;           <!-- FDL: do not remove -->
+&underGPL;        	 <!-- GPL License -->
 
 </chapter>
 
