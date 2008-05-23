@@ -32,6 +32,7 @@
 #include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <kfilterdev.h>
+#include <kdeprintdialog.h>
 
 #include "logging.h"
 
@@ -103,10 +104,12 @@ void LogViewExport::printSelection() {
 	 */
 
 	// initialize the printer using the print dialog
-	QPrintDialog printDialog(&printer, parent);
-	if (printDialog.exec() == false) {
+	QPrintDialog *printDialog = KdePrint::createPrintDialog(&printer, parent);
+	if (printDialog->exec() == false) {
+		delete printDialog;
 		return;
 	}
+	delete printDialog;
 
 	// create a painter to paint on the printer object
 	QPainter painter;
