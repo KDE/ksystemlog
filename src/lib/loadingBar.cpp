@@ -63,7 +63,7 @@ LoadingBar::LoadingBar(QWidget* parent) :
 	
 	widgetLayout->addStretch();
 	
-	d->label = new QLabel("Loading Progress...");
+	d->label = new QLabel(i18n("Loading Progress..."));
 	d->label->setMinimumWidth(250);
 	layout->addWidget(d->label, 1, Qt::AlignBottom);
 
