@@ -34,31 +34,31 @@ class LogLine;
 class LogViewWidgetPrivate;
 
 class LogViewWidget : public QTreeWidget {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		LogViewWidget(QWidget* parent = NULL);
 
 		virtual ~LogViewWidget();
-
+                virtual void selectAll();
 		void setColumns(const LogViewColumns& columns);
-		
+
 		int itemCount() const;
 		int notHiddenItemCount();
 
 		QList<LogViewWidgetItem*> items();
 		QList<LogLine*> logLines();
-		
+
 		/**
 		 * Return the related widget item of this logLine or NULL if it has not been found
 		 */
 		LogViewWidgetItem* findItem(LogLine* logLine);
-		
+
 		LogViewWidgetItem* findNewestItem();
-		
+
 		LogViewModel* model() const;
-		
+
 		bool hasItemsSelected();
 		LogViewWidgetItem* firstSelectedItem();
 		LogViewWidgetItem* lastSelectedItem();
@@ -67,7 +67,7 @@ class LogViewWidget : public QTreeWidget {
 
 		void expandAll();
 		void collapseAll();
-		
+
 		void resizeColumns();
 
 	public slots:
@@ -75,10 +75,10 @@ class LogViewWidget : public QTreeWidget {
 
 	signals:
 		void columnsChanged(const LogViewColumns& columns);
-	
+
 	private slots:
 		void toggleHeader(QAction* action);
-		
+
 	private:
 		LogViewWidgetPrivate* const d;
 };

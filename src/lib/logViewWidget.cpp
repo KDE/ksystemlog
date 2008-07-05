@@ -40,7 +40,7 @@
 class LogViewWidgetPrivate {
 public:
 	LogViewModel* logViewModel;
-	
+
 	QActionGroup* headersTogglingActions;
 
 };
@@ -48,72 +48,72 @@ public:
 LogViewWidget::LogViewWidget(QWidget* parent) :
 	QTreeWidget(parent),
 	d(new LogViewWidgetPrivate()) {
-	
+
 	//TODO Add this setWhatsThis() to all columns each time they change
 	//setWhatThis(i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log lines in <b>bold</b> are the last added to the list.</p>"));
-	
+
 	QStringList headerLabels;
 	headerLabels.append("Date");
 	headerLabels.append("Message");
-	
+
 	d->logViewModel = new LogViewModel(this);
 	d->headersTogglingActions = new QActionGroup(this);
 	d->headersTogglingActions->setExclusive(false);
 	connect(d->headersTogglingActions, SIGNAL(triggered(QAction*)), this, SLOT(toggleHeader(QAction*)));
-	
+
 	setHeaderLabels(headerLabels);
-	
+
 	//Header
 	header()->setContextMenuPolicy(Qt::ActionsContextMenu);
 	header()->setMovable(true);
 
 	setSortingEnabled(true);
 	sortItems(0, Qt::AscendingOrder);
-	
+
 	setAnimated(true);
 
 	setRootIsDecorated(false);
-	
+
 	setAllColumnsShowFocus(true);
-	
+
 	setAlternatingRowColors(true);
 
 	setSelectionMode(QAbstractItemView::ExtendedSelection);
-	
+
 	setContextMenuPolicy(Qt::ActionsContextMenu);
 }
 
 LogViewWidget::~LogViewWidget() {
 	delete d->logViewModel;
-	
+
 	delete d;
 }
 
 void LogViewWidget::setColumns(const LogViewColumns& columns) {
 	logDebug() << "Updating columns using " << columns << "..." << endl;
-	
+
 	//First, delete all current columns
 	setColumnCount(0);
 
 	setHeaderLabels(columns.toStringList());
-	
+
 	sortItems(0, Qt::AscendingOrder);
-	
+
 	//Remove previous header actions
 	QListIterator<QAction*> it(d->headersTogglingActions->actions());
 	it.toBack();
 	while (it.hasPrevious()) {
 		QAction* action = it.previous();
-		
+
 		header()->removeAction( action );
 		d->headersTogglingActions->removeAction( action );
-		
+
 		delete action;
 	}
-	
+
 	//Add new actions
 	int columnIndex = 0;
-	
+
 	foreach(const LogViewColumn &column, columns.columns()) {
 		QAction* action = new QAction(this);
 		action->setText(column.columnName());
@@ -123,17 +123,17 @@ void LogViewWidget::setColumns(const LogViewColumns& columns) {
 		action->setChecked(true);
 		action->setToolTip(i18n("Display/Hide the '%1' column", column.columnName()));
 		action->setData(QVariant(columnIndex));
-		
+
 		d->headersTogglingActions->addAction(action);
-		
+
 		++columnIndex;
 	}
-	
+
 	header()->addActions(d->headersTogglingActions->actions());
 
 
 	emit columnsChanged(columns);
-	
+
 	logDebug() << "Log View Widget updated..." << endl;
 
 }
@@ -145,26 +145,31 @@ void LogViewWidget::resizeColumns() {
 	}
 }
 
+void LogViewWidget::selectAll() {
+    if ( notHiddenItemCount()>0  )
+        QTreeWidget::selectAll();
+}
+
 int LogViewWidget::itemCount() const {
 	return topLevelItemCount();
 }
 
 QList<LogLine*> LogViewWidget::logLines() {
 	QList<LogLine*> logLines;
-	
+
 	QTreeWidgetItemIterator it(this);
 	while (*it != NULL) {
 		LogViewWidgetItem* item = static_cast<LogViewWidgetItem*>(*it);
 		logLines.append(item->logLine());
 		++it;
 	}
-	
+
 	return logLines;
 }
 
 LogViewWidgetItem* LogViewWidget::findNewestItem() {
 	LogViewWidgetItem* newestItem = NULL;
-	
+
 	QTreeWidgetItemIterator it(this);
 	while (*it != NULL) {
 		LogViewWidgetItem* item = static_cast<LogViewWidgetItem*>(*it);
@@ -174,9 +179,9 @@ LogViewWidgetItem* LogViewWidget::findNewestItem() {
 
 		++it;
 	}
-	
+
 	return newestItem;
-	
+
 }
 
 LogViewWidgetItem* LogViewWidget::findItem(LogLine* searchedLogLine) {
@@ -188,19 +193,19 @@ LogViewWidgetItem* LogViewWidget::findItem(LogLine* searchedLogLine) {
 
 		++it;
 	}
-	
+
 	return NULL;
 }
 
 QList<LogViewWidgetItem*> LogViewWidget::items() {
 	QList<LogViewWidgetItem*> items;
-	
+
 	QTreeWidgetItemIterator it(this);
 	while (*it != NULL) {
 		items.append(static_cast<LogViewWidgetItem*>(*it));
 		++it;
 	}
-	
+
 	return items;
 }
 
@@ -211,7 +216,7 @@ LogViewModel* LogViewWidget::model() const {
 bool LogViewWidget::hasItemsSelected() {
 	if (firstSelectedItem() == NULL)
 		return false;
-	
+
 	return true;
 }
 
@@ -255,12 +260,12 @@ void LogViewWidget::collapseAll() {
 
 void LogViewWidget::toggleToolTip(bool enabled) {
 	logDebug() << "Toggle tool tip " << enabled << endl;
-	
+
 	QTreeWidgetItemIterator it(this);
 	while (*it != NULL) {
 		LogViewWidgetItem* item = static_cast<LogViewWidgetItem*>(*it);
 		item->toggleToolTip(enabled);
-		
+
 		++it;
 	}
 
@@ -275,24 +280,24 @@ void LogViewWidget::scrollToNewestItem() {
 		if (newestItem!=NULL) {
 			scrollToItem(newestItem);
 		}
-	}	
+	}
 }
 
 int LogViewWidget::notHiddenItemCount() {
 	int count = 0;
-	
+
 	QTreeWidgetItemIterator it(this, QTreeWidgetItemIterator::NotHidden);
 	while (*it != NULL) {
 		count++;
 		++it;
 	}
-	
+
 	return count;
 }
 
 void LogViewWidget::toggleHeader(QAction* action) {
 	logDebug() << "Toggling header" << endl;
-	
+
 	int columnIndex = action->data().toInt();
 	if (header()->isSectionHidden(columnIndex) == true)
 		header()->setSectionHidden(columnIndex, false);
