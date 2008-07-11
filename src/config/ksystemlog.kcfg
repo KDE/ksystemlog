@@ -25,28 +25,28 @@
 		</entry>
 		
 		<entry name="DeleteProcessIdentifier" type="Bool">
-			<label>Does we display the PID in the process column of the SystemLog ?</label>
+			<label>Do we display the PID in the process column of the SystemLog?</label>
 			<default>false</default>
 		</entry>
 		
 		<entry name="ColorizeLogLines" type="Bool">
-			<label>Does we colorize the log lines depending of their log level ?</label>
+			<label>Do we colorize the log lines depending of their log level?</label>
 			<default>true</default>
 		</entry>
 
 
 		<entry name="TooltipEnabled" type="Bool">
-			<label>Is the tooltip enabled.</label>
+			<label>Whether the tooltip is enabled.</label>
 			<default>true</default>
 		</entry>
 		
 		<entry name="NewLinesDisplayed" type="Bool">
-			<label>Is the new lines displayed.</label>
+			<label>Whether the new lines are displayed.</label>
 			<default>true</default>
 		</entry>
 		
 		<entry name="ToggleFilterBar" type="Bool">
-			<label>Does we display the filter bar.</label>
+			<label>Whether the filter bar is shown.</label>
 			<default>true</default>
 		</entry>
 		
