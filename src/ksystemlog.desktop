@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KSystemLog
 Name[ml]=കെസിസ്റ്റംലോഗ്
+Name[nn]=KSystemlogg
 Name[sv]=Ksystemlog
 Name[th]=บันทึกการทำงานของระบบ
 Name[x-test]=xxKSystemLogxx
@@ -29,6 +30,7 @@ Comment[lv]=Sistēmas žurnāla skatīšanas rīks
 Comment[ml]=സിസ്റ്റം ലോഗ് കാണാന്നുള്ള ടൂള്‍
 Comment[nds]=Kieker för Systeem-Logböker
 Comment[nl]=Programma voor het bekijken van systeemlogs
+Comment[nn]=Verktøy for vising av systemloggar
 Comment[pt]=Ferramenta de visualização de registos do sistema
 Comment[pt_BR]=Ferramenta de visualização de log
 Comment[sv]=Visningsverktyg för systemloggar
@@ -58,6 +60,7 @@ GenericName[lv]=Sistēmas žurnālu skatītājs
 GenericName[ml]=സിസ്റ്റം ലോഗുകളുടെ ദര്‍ശിനി
 GenericName[nds]=Systeemlogbook-Kieker
 GenericName[nl]=Systeemlogviewer
+GenericName[nn]=Systemloggvisar
 GenericName[pt]=Visualizador de Registos do Sistema
 GenericName[pt_BR]=Visualizador de logs do sistema
 GenericName[sv]=Visning av systemloggar
