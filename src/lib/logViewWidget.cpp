@@ -214,10 +214,7 @@ LogViewModel* LogViewWidget::model() const {
 }
 
 bool LogViewWidget::hasItemsSelected() {
-	if (firstSelectedItem() == NULL)
-		return false;
-
-	return true;
+    return ( !selectedItems ().isEmpty() );
 }
 
 LogViewWidgetItem* LogViewWidget::firstSelectedItem() {
