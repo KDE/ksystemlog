@@ -42,7 +42,7 @@
       <item row="1" column="0" colspan="2" >
        <widget class="QCheckBox" name="ignoreXorgErrors" >
         <property name="toolTip" >
-         <string>Check this option to removeXorg errors</string>
+         <string>Check this option to remove Xorg errors</string>
         </property>
         <property name="whatsThis" >
          <string>Check this option to remove Xorg errors</string>
