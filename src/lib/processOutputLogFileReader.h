@@ -25,7 +25,6 @@
 #define PROCESS_OUTPUT_UPDATER_INTERVAL 10000
 
 #include <QProcess>
-#include <QString>
 
 #include "logFile.h"
 

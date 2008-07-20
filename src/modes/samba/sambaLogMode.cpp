@@ -21,7 +21,6 @@
 
 #include "sambaLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

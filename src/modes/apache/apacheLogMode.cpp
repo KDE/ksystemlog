@@ -21,7 +21,6 @@
 
 #include "apacheLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

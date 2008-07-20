@@ -21,7 +21,6 @@
 
 #include "postfixLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

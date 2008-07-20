@@ -21,7 +21,6 @@
 
 #include "cupsPageLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

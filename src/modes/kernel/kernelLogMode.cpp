@@ -21,7 +21,6 @@
 
 #include "kernelLogMode.h"
 
-#include <QString>
 #include <QList>
 #include <QAction>
 

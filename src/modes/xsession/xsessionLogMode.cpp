@@ -21,7 +21,6 @@
 
 #include "xsessionLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

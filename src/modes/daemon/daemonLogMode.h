@@ -33,7 +33,6 @@
 #define DAEMON_MODE_ICON "openterm"
 
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

@@ -21,7 +21,6 @@
 
 #include "xorgLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>

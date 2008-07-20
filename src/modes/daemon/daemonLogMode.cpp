@@ -21,7 +21,6 @@
 
 #include "daemonLogMode.h"
 
-#include <QString>
 #include <QList>
 
 #include <kicon.h>
