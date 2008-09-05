@@ -298,7 +298,7 @@ But it is also designed for advanced users, who want to quickly see problems occ
 	
 	<para>
 	&ksystemlog; can also be found in the following folder of the &kde; Subversion Repository :
-	<ulink url="http://websvn.kde.org/trunk/kdereview/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
+	<ulink url="http://websvn.kde.org/trunk//KDE/kdeadmin/ksystemlog/">&ksystemlog; in the &kde; repository</ulink>
 	</para>
 
 </appendix>
