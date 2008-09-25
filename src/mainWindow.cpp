@@ -572,7 +572,7 @@ void MainWindow::showSearchBar() {
 		}
 	}
 	
-	//Be sure to display the view search of the active LogManager at last, to the the focus to it
+	//Be sure to display the view search of the active LogManager at last, and focus to it
 	d->tabs->activeLogManager()->usedView()->toggleLogViewSearch(true);
 
 }
