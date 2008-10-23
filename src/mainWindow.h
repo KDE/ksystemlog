@@ -116,7 +116,7 @@ class MainWindow : public KXmlGuiWindow {
 		
 	protected slots:
 		/**
-		 * Last method called before application exitting (Overriden method)
+		 * Last method called before application exitting (Overridden method)
 		 */
 		bool queryExit();
 		
