@@ -96,31 +96,31 @@ class MainWindowPrivate {
 
 public:
 	
-	QAction* saveAction;
-	QAction* copyAction;
+	KAction* saveAction;
+	KAction* copyAction;
 	
-	QAction* reloadAction;
+	KAction* reloadAction;
 	
-	QAction* sendMailAction;
-	QAction* logMessageAction;
+	KAction* sendMailAction;
+	KAction* logMessageAction;
 
-	QAction* filterBarAction;
+	KAction* filterBarAction;
 
-	QAction* selectAllAction;
+	KAction* selectAllAction;
 	
-	QAction* expandAllAction;
-	QAction* collapseAllAction;
+	KAction* expandAllAction;
+	KAction* collapseAllAction;
 	
-	QAction* resumePauseAction;
-	QAction* detailAction;
-	QAction* printAction;
+	KAction* resumePauseAction;
+	KAction* detailAction;
+	KAction* printAction;
 	
-	QAction* findAction;
-	QAction* findNextAction;
-	QAction* findPreviousAction;
+	KAction* findAction;
+	KAction* findNextAction;
+	KAction* findPreviousAction;
 	
-	QAction* tooltipEnabledAction;
-	QAction* newLinesDisplayedAction;
+	KAction* tooltipEnabledAction;
+	KAction* newLinesDisplayedAction;
 
 	/**
 	 * Action groups which stores all Log Mode Actions
@@ -653,7 +653,7 @@ void MainWindow::setupActions() {
 	d->filterBarAction->setCheckable(true);
 	d->filterBarAction->setChecked(KSystemLogConfig::toggleFilterBar());
 
-	QAction* newTabAction = actionCollection()->addAction("new_tab", d->tabs, SLOT(createTab()));
+	KAction* newTabAction = actionCollection()->addAction("new_tab", d->tabs, SLOT(createTab()));
 	newTabAction->setText(i18n("&New Tab"));
 	newTabAction->setIcon(KIcon("tab-new"));
 	newTabAction->setShortcut(Qt::CTRL + Qt::Key_T);
@@ -661,7 +661,7 @@ void MainWindow::setupActions() {
 	newTabAction->setWhatsThis(i18n("Creates a new tab which can display another log."));
 	d->tabs->addAction(newTabAction);
 	
-	QAction* closeTabAction = actionCollection()->addAction("close_tab", d->tabs, SLOT(closeTab()));
+	KAction* closeTabAction = actionCollection()->addAction("close_tab", d->tabs, SLOT(closeTab()));
 	closeTabAction->setText(i18n("&Close Tab"));
 	closeTabAction->setIcon(KIcon("tab-close"));
 	closeTabAction->setShortcut(Qt::CTRL+Qt::Key_W);
@@ -669,7 +669,7 @@ void MainWindow::setupActions() {
 	closeTabAction->setWhatsThis(i18n("Closes the current tab."));
 	d->tabs->addAction(closeTabAction);
 
-	QAction* duplicateTabAction = actionCollection()->addAction("duplicate_tab", d->tabs, SLOT(duplicateTab()));
+	KAction* duplicateTabAction = actionCollection()->addAction("duplicate_tab", d->tabs, SLOT(duplicateTab()));
 	duplicateTabAction->setText(i18n("&Duplicate Tab"));
 	duplicateTabAction->setIcon(KIcon("tab-duplicate"));
 	duplicateTabAction->setShortcut(Qt::SHIFT + Qt::CTRL + Qt::Key_N);
@@ -681,7 +681,7 @@ void MainWindow::setupActions() {
 	separatorAction->setSeparator(true);
 	d->tabs->addAction(separatorAction);
 	
-	QAction* moveTabLeftAction = actionCollection()->addAction("move_tab_left", d->tabs, SLOT(moveTabLeft()));
+	KAction* moveTabLeftAction = actionCollection()->addAction("move_tab_left", d->tabs, SLOT(moveTabLeft()));
 	moveTabLeftAction->setText(i18n("Move Tab &Left"));
 	moveTabLeftAction->setIcon(KIcon("arrow-left"));
 	moveTabLeftAction->setShortcut(Qt::SHIFT+Qt::CTRL+Qt::Key_Left);
@@ -689,7 +689,7 @@ void MainWindow::setupActions() {
 	moveTabLeftAction->setWhatsThis(i18n("Moves the current tab to the left."));
 	d->tabs->addAction(moveTabLeftAction);
 	
-	QAction* moveTabRightAction = actionCollection()->addAction("move_tab_right", d->tabs, SLOT(moveTabRight()));
+	KAction* moveTabRightAction = actionCollection()->addAction("move_tab_right", d->tabs, SLOT(moveTabRight()));
 	moveTabRightAction->setText(i18n("Move Tab &Right"));
 	moveTabRightAction->setIcon(KIcon("arrow-right"));
 	moveTabRightAction->setShortcut(Qt::SHIFT+Qt::CTRL+Qt::Key_Right);
