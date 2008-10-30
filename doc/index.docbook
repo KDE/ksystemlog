@@ -34,7 +34,7 @@
 
 <abstract>
 <para>&ksystemlog; is a system log viewer tool for &kde;. This program is developed for being used by beginner users, 
-who don't know how to find information about their system, and how the log files are in their computer. 
+who don't know how to find information about their system, and where the log files are on their computer. 
 But it is also designed for advanced users, who want to quickly see problems occuring on their server.
 </para>
 
@@ -67,7 +67,7 @@ But it is also designed for advanced users, who want to quickly see problems occ
 			
 			<para>&ksystemlog; helps users to understand what their machine does in the background. The &ksystemlog; aim is to simplify
 			the reading of the log files of the system. This program is developed for being used by beginner users, 
-			which don't know how to find information about their system, and how the log files are in their computer. 
+			which don't know how to find information about their system, and where the log files are on their computer. 
 			</para>
 			
 			<para>
@@ -247,7 +247,7 @@ But it is also designed for advanced users, who want to quickly see problems occ
 		</para>
 		
 		<para>
-		Moreover, if you want to stay connected to newly appeared log lines, you can simply toggle the <guimenuitem>Display new log lines</guimenuitem> options.
+		Moreover, if you want to stay connected to newly appeared log lines, you can simply toggle the <guimenuitem>Scroll to New Lines</guimenuitem> option in the context menu of the main window.
 		</para>
 	</sect1>
 		
