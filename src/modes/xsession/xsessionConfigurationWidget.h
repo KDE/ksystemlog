@@ -77,7 +77,7 @@ class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui
 			*/
 			
 			xsessionUrlRequester->setToolTip(i18n("You can type or choose the X Session log file (example: <i>~/.xsession-errors</i>)."));
-			xsessionUrlRequester->setWhatsThis(i18n("You can type or choose here the authentication log file. This file will be analyzed when you select the <b>X Session log</b> menu. Generally, its name is <i>~/.xsession-errors</i>"));
+			xsessionUrlRequester->setWhatsThis(i18n("You can type or choose here the X Session log file. This file will be analyzed when you select the <b>X Session log</b> menu. Generally, its name is <i>~/.xsession-errors</i>"));
 			xsessionUrlRequester->setMode(KFile::File);
 			xsessionUrlRequester->setEnabled(true);
 			
