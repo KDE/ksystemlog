@@ -49,5 +49,3 @@ QListWidget* LogLevelSelectionDialog::logLevels() const {
 	return logLevelsList;
 }
 
-#include "logLevelSelectionDialog.moc"
-
