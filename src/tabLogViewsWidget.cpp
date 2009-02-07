@@ -303,7 +303,7 @@ void TabLogViewsWidget::reloadAll() {
 			continue;
 		}
 		
-		//Do a simple reload if its an open log mode
+		//Do a simple reload if it is an open log mode
 		if (tabLogManager->logManager()->logMode()->id()=="openLogMode") {
 			tabLogManager->logManager()->reload();
 			continue;
