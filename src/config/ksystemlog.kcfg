@@ -20,7 +20,7 @@
 		</entry>
 		
 		<entry name="DeleteDuplicatedLines" type="Bool">
-			<label>Option is true when user want to delete same log lines.</label>
+			<label>Option is true when the user wants to delete repeated log lines.</label>
 			<default>false</default>
 		</entry>
 		
