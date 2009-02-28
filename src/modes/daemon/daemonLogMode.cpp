@@ -36,7 +36,7 @@
 #include "logModeItemBuilder.h"
 
 DaemonLogMode::DaemonLogMode() : 
-	LogMode(DAEMON_LOG_MODE_ID, i18n("Daemons Log"), DAEMON_MODE_ICON) {
+	LogMode(DAEMON_LOG_MODE_ID, i18n("Daemons' Logs"), DAEMON_MODE_ICON) {
 	
 	d->logModeConfiguration = new DaemonConfiguration();
 	
@@ -45,8 +45,8 @@ DaemonLogMode::DaemonLogMode() :
 	d->itemBuilder = new LogModeItemBuilder();
 	
 	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the daemons log."));
-	d->action->setWhatsThis(i18n("Displays the daemons log in the current tab. The daemons are all processes launched in the background of the system. See this log if you want to know what it occurs in the background of your system."));
+	d->action->setToolTip(i18n("Display the daemons' logs."));
+	d->action->setWhatsThis(i18n("Displays the daemons' logs in the current tab. The daemons are all processes launched in the background of the system. See this log if you want to know what occurs in the background of your system."));
 
 }
 

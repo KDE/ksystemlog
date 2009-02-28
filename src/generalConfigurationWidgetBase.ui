@@ -33,7 +33,7 @@
          <string>The log mode which is loaded by default at startup</string>
         </property>
         <property name="whatsThis" >
-         <string>The log mode which is loaded by default at startup. Choose 'No Log Mode' if you don't want to load a log mode.</string>
+         <string>The log mode loaded by default at startup. Choose 'No Log Mode' if you do not want this to happen.</string>
         </property>
        </widget>
       </item>
@@ -88,13 +88,13 @@
       <item>
        <widget class="QCheckBox" name="deleteDuplicatedLines" >
         <property name="toolTip" >
-         <string>Select this option if you want to delete duplicated log lines &lt;b>(may be slow)&lt;/b>.</string>
+         <string>Select this option if you want to delete duplicate log lines &lt;b>(may be slow)&lt;/b>.</string>
         </property>
         <property name="whatsThis" >
-         <string>You can select this option if you want to delete duplicated log lines. &lt;b>This option can slow the reading&lt;/b>.</string>
+         <string>Select this option if you want to delete duplicate log lines. &lt;b>This option can slow log reading&lt;/b>.</string>
         </property>
         <property name="text" >
-         <string>Remove &amp;duplicated log lines (may be slower)</string>
+         <string>Remove &amp;duplicate log lines (may be slower)</string>
         </property>
        </widget>
       </item>
@@ -110,10 +110,10 @@
       <item>
        <widget class="QCheckBox" name="deleteProcessId" >
         <property name="toolTip" >
-         <string>Delete process identifier from process name.</string>
+         <string>Remove process identifier from process name.</string>
         </property>
         <property name="whatsThis" >
-         <string>You can select this option if you want to delete the process identifier from process name. For example, you will sometimes see in the &lt;b>Process&lt;/b> column something like &lt;i>cron&lt;b>[3433]&lt;/b>&lt;/i>. If this option is activated, the annoying bold part will be erased.</string>
+         <string>Select this option if you want to remove the process identifier from the process name. For example, the &lt;b>Process&lt;/b> column may contain entries such as &lt;i>cron&lt;b>[3433]&lt;/b>&lt;/i>. If this option is activated, the bold part will be removed.</string>
         </property>
         <property name="text" >
          <string>Remove &amp;identifier from process name</string>
@@ -123,13 +123,13 @@
       <item>
        <widget class="QCheckBox" name="colorizeLogLines" >
         <property name="toolTip" >
-         <string>This option allows the colorization of log lines, depending on their log level.</string>
+         <string>This option allows log lines to be colored depending on their log level.</string>
         </property>
         <property name="whatsThis" >
-         <string>This option allows the colorization of log lines, depending on their log level. For example, an error will be in red, a warning in orange... This will help you to better see problems.</string>
+         <string>This option allows log lines to be colored depending on their log level. For example, errors will be shown in red, warnings in orange, and so on. This will help you to see problems more easily.</string>
         </property>
         <property name="text" >
-         <string>&amp;Colorize log lines</string>
+         <string>&amp;Colored log lines</string>
         </property>
        </widget>
       </item>

@@ -44,13 +44,13 @@ class DaemonConfigurationWidget : public LogModeConfigurationWidget {
 	
 	public:
 		DaemonConfigurationWidget() : 
-			LogModeConfigurationWidget(i18n("Daemons Log"), DAEMON_MODE_ICON, i18n("Daemons Log"))
+			LogModeConfigurationWidget(i18n("Daemons' Logs"), DAEMON_MODE_ICON, i18n("Daemons' Logs"))
 			{
 			
 			QHBoxLayout* layout = new QHBoxLayout();
 			this->setLayout(layout);
 
-			fileList=new FileList(this, i18n("<p>These files will be analyzed to show the <b>Daemons Logs</b>.</p>"));
+			fileList=new FileList(this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
 			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 			layout->addWidget(fileList);
 

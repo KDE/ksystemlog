@@ -20,28 +20,28 @@
 		</entry>
 		
 		<entry name="DeleteDuplicatedLines" type="Bool">
-			<label>Option is true when the user wants to delete repeated log lines.</label>
+			<label>Option is true if the user wants to delete repeated log lines.</label>
 			<default>false</default>
 		</entry>
 		
 		<entry name="DeleteProcessIdentifier" type="Bool">
-			<label>Do we display the PID in the process column of the SystemLog?</label>
+			<label>Option is true if the PID in the process column of the SystemLog is to be omitted.</label>
 			<default>false</default>
 		</entry>
 		
 		<entry name="ColorizeLogLines" type="Bool">
-			<label>Do we colorize the log lines depending of their log level?</label>
+			<label>Option is true if the log lines are to be colored depending on their log level.</label>
 			<default>true</default>
 		</entry>
 
 
 		<entry name="TooltipEnabled" type="Bool">
-			<label>Whether the tooltip is enabled.</label>
+			<label>Whether the tooltips are enabled.</label>
 			<default>true</default>
 		</entry>
 		
 		<entry name="NewLinesDisplayed" type="Bool">
-			<label>Whether the new lines are displayed.</label>
+			<label>Whether new lines are displayed.</label>
 			<default>true</default>
 		</entry>
 		
@@ -67,7 +67,7 @@
 
 		Samba config entries
 		<entry name="SambaPaths" type="StringList">
-			<label>The Samba log files paths.</label>
+			<label>The Samba log file paths.</label>
 			<default>/var/log/samba/log.nmbd,/var/log/samba/log.smbd</default>
 		</entry>
 		

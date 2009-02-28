@@ -238,7 +238,7 @@ void LoggerDialog::sendMessage() {
 	
 	//If the launching of the command failed
 	if (process.error() == QProcess::FailedToStart) {
-		KMessageBox::error(this, i18n("Unable to find the 'logger' command on your system. Please type 'logger' in Konsole to be sure that this command is not installed."), i18n("Command not found"));
+		KMessageBox::error(this, i18n("Unable to find the 'logger' command on your system. Please type 'logger' in a Konsole to determine whether this command is installed."), i18n("Command not found"));
 		return;
 	}
 	
@@ -249,7 +249,7 @@ void LoggerDialog::sendMessage() {
 
 	//No such file or directory
 	if (process.exitCode()==1) {
-		KMessageBox::error(this, i18n("This file does not exist. Please choose a right file."), i18n("File not valid"));
+		KMessageBox::error(this, i18n("This file does not exist, please choose another."), i18n("File not valid"));
 		return;
 	}
 
