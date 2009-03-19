@@ -79,7 +79,7 @@ LogViewSearchWidget::LogViewSearchWidget() :
 	
 	searchLabel->setBuddy(searchLine);
 	
-	connect(searchLine, SIGNAL(textEdited(const QString&)), this, SLOT(findFirst()));
+	connect(searchLine, SIGNAL(textEdited(const QString&)), this, SLOT(findFirst(const QString &)));
 	connect(searchLine, SIGNAL(textEdited(const QString&)), this, SLOT(highlightAll()));
 	
 	connect(searchLine, SIGNAL(returnPressed()), this, SLOT(findNext()));
@@ -89,7 +89,7 @@ LogViewSearchWidget::LogViewSearchWidget() :
 	connect(caseSensitive, SIGNAL(clicked()), this, SLOT(highlightAll()));
 	connect(highlightAllButton, SIGNAL(clicked()), this, SLOT(highlightAll()));
 	
-	
+        findFirst(searchLine->text());	
 	
 }
 
@@ -108,6 +108,14 @@ void LogViewSearchWidget::displaySearch() {
 
 void LogViewSearchWidget::setTreeWidget(LogViewWidget* logViewWidget) {
 	d->logViewWidget = logViewWidget;
+}
+
+void LogViewSearchWidget::findFirst(const QString & text) {
+        bool textIsNotEmpty = !text.isEmpty();
+ 	next->setEnabled(textIsNotEmpty);
+        previous->setEnabled(textIsNotEmpty);
+        if(textIsNotEmpty)
+		findFirst();
 }
 
 void LogViewSearchWidget::findFirst() {

@@ -47,7 +47,8 @@ public slots:
 	void displaySearch();
 	
 	void findFirst();
-	
+        
+        void findFirst(const QString &);	
 	void findNext();
 	void findPrevious();
 	
