@@ -78,14 +78,14 @@ void FileListHelper::prepareButton(QPushButton* button, const QIcon& icon, const
 QStringList FileListHelper::findPaths(KUrl::List urls) {
 	QStringList paths;
 	
-	for (KUrl::List::iterator it=urls.begin(); it!=urls.end(); ++it) {
+	for (KUrl::List::ConstIterator it=urls.constBegin(); it!=urls.constEnd(); ++it) {
 		KUrl url(*it);
 		
 		if (isValidFile(url)) {
 			
 			//If this Url uses a joker (i.e. : "/var/log/apache2/*")
-			if (url.fileName().contains("*")) {
-				QStringList foundPaths = expandJoker(url.path());
+			if (url.fileName().contains('*')) {
+				const QStringList foundPaths = expandJoker(url.path());
 				logDebug() << "Found paths of " << url.path() << ":" << foundPaths << endl;
 				foreach(const QString &foundPath, foundPaths) {
 					paths.append(foundPath);
@@ -142,7 +142,7 @@ QStringList FileListHelper::expandJoker(const KUrl& url) {
 	}
 	
 	QStringList foundPaths;
-	QStringList files = directory.entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
+	const QStringList files = directory.entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
 	foreach(const QString &file, files) {
 		foundPaths.append(directory.absoluteFilePath(file));
 	}
