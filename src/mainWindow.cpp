@@ -195,10 +195,7 @@ MainWindow::MainWindow() :
 	//position, icon size, etc.
 	setAutoSaveSettings();
 	
-	//TODO Try to find an improvement of this _big_ hack
-	//Set its default size, the first time KSystemLog is loaded
-	if (!initialGeometrySet())
-		resize(800,600);
+	//TODO Try to find an improvement of this _big_ hack to set its default size, the first time KSystemLog is loaded
 	
 	//Show KSystemLog before loading the first log file
 	show();

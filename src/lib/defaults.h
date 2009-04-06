@@ -27,7 +27,7 @@
 /**
  * Icon name of KSystemLog
  */
-#define KSYSTEMLOG_ICON "ksystemlog"
+#define KSYSTEMLOG_ICON "utilities-log-viewer"
 
 enum LogLevelIds {
 	NONE_LOG_LEVEL_ID=0,

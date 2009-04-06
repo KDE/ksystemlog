@@ -30,7 +30,7 @@
 /**
  * Daemon Log Icon
  */
-#define DAEMON_MODE_ICON "openterm"
+#define DAEMON_MODE_ICON "utilities-terminal"
 
 
 #include <QList>
