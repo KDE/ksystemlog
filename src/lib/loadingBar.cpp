@@ -91,11 +91,11 @@ void LoadingBar::startLoading(const LogMode& logMode, const LogFile& logFile, in
 	//Several files to load
 	if (fileCount>1 && fileIndex>=1) {
 		if (d->firstLoading)
-			d->label->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i>",
+			d->label->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
 						"Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
 						fileCount, logMode.name(), logFile.url().path(), fileIndex));
 		else
-			d->label->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i>",
+			d->label->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
 						"Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
 						fileCount, logMode.name(), logFile.url().path(), fileIndex));
 	}
