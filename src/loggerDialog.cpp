@@ -93,6 +93,7 @@ LoggerDialog::LoggerDialog(QWidget *parent) :
 			break;
 		}
 	}
+        tag->setEnabled(false);
 
 }
 
