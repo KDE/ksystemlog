@@ -164,8 +164,6 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="8" />
- <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
  <customwidgets>
   <customwidget>
    <class>KTextEdit</class>
