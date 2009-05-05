@@ -51,7 +51,7 @@
         <item>
          <widget class="QLabel" name="maxLinesLabel" >
           <property name="text" >
-           <string>Maximum Lines Displayed:</string>
+           <string>Maximum lines displayed:</string>
           </property>
           <property name="buddy" >
            <cstring>maxLines</cstring>

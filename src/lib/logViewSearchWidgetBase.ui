@@ -82,7 +82,7 @@
    <item>
     <widget class="QCheckBox" name="highlightAllButton" >
      <property name="text" >
-      <string>&amp;Highlight All</string>
+      <string>&amp;Highlight all</string>
      </property>
     </widget>
    </item>

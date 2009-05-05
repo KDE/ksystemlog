@@ -582,7 +582,7 @@ void MainWindow::setupActions() {
 	fileOpenAction->setWhatsThis(i18n("Opens a file in KSystemLog and displays its content in the current tab."));	
 			
 	d->printAction = actionCollection()->addAction(KStandardAction::Print);
-	d->printAction->setText(i18n("&Print selection..."));
+	d->printAction->setText(i18n("&Print Selection..."));
 	d->printAction->setToolTip(i18n("Print the selection"));
 	d->printAction->setWhatsThis(i18n("Prints the selection. Simply select the important lines and click on this menu entry to print the selection."));	
 	d->printAction->setEnabled(false);

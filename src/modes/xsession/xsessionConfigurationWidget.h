@@ -64,7 +64,7 @@ class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui
 			
 			layout->addWidget(xsessionBox);
 			
-			xsessionLayout->addWidget(new QLabel(i18n("Log File:")), 0, 0);
+			xsessionLayout->addWidget(new QLabel(i18n("Log file:")), 0, 0);
 			
 			xsessionUrlRequester=new KUrlRequester(xsessionBox);
 

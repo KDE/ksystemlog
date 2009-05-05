@@ -107,7 +107,7 @@ void ProcessOutputLogFileReader::startProcess() {
 	
 	if (d->logFile.url().isValid()==false) {
 		QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
-		emit errorOccured(i18n("The File Does Not Exist"), message);
+		emit errorOccured(i18n("File Does Not Exist"), message);
 		emit statusBarChanged(message);
 	}
 
@@ -152,7 +152,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
 	
 	if (exitStatus==QProcess::CrashExit) {
 		QString message(i18n("The process '%1' crashed.", d->logFile.url().path()));
-		emit errorOccured(i18n("Process crashed."), message);
+		emit errorOccured(i18n("Process Crashed"), message);
 		emit statusBarChanged(message);
 	}
 	

@@ -19,7 +19,7 @@
       <item row="0" column="0" >
        <widget class="QLabel" name="label" >
         <property name="text" >
-         <string>Log File:</string>
+         <string>Log file:</string>
         </property>
         <property name="buddy" >
          <cstring>xsessionUrlRequester</cstring>
@@ -48,7 +48,7 @@
          <string>Check this option to remove Xorg errors</string>
         </property>
         <property name="text" >
-         <string>Ignore Xorg Errors</string>
+         <string>Ignore Xorg errors</string>
         </property>
        </widget>
       </item>

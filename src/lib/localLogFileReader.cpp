@@ -113,7 +113,7 @@ QIODevice* LocalLogFileReader::open() {
 	
 	if (d->logFile.url().isValid()==false) {
 		QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
-		emit errorOccured(i18n("The File Does Not Exist"), message);
+		emit errorOccured(i18n("File Does Not Exist"), message);
 		emit statusBarChanged(message);
 	}
 		
@@ -127,7 +127,7 @@ QIODevice* LocalLogFileReader::open() {
 	//If the file does not exist
 	if (! file->exists()) {
 		QString message(i18n("The file '%1' does not exist.", d->logFile.url().path()));
-		emit errorOccured(i18n("The file does not exist"), message);
+		emit errorOccured(i18n("File Does Not Exist"), message);
 		emit statusBarChanged(message);
 		delete file;
 		return NULL;
@@ -147,7 +147,7 @@ QIODevice* LocalLogFileReader::open() {
 		
 		if (inputDevice == NULL) {
 			QString message(i18n("Unable to uncompress the '%2' format of '%1'.", d->logFile.url().path(), mimeType));
-			emit errorOccured(i18n("Unable to uncompress the file"), message);
+			emit errorOccured(i18n("Unable to Uncompress File"), message);
 			emit statusBarChanged(message);
 			return NULL;
 		}

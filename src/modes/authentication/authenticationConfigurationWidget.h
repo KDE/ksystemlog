@@ -59,7 +59,7 @@ class AuthenticationConfigurationWidget : public LogModeConfigurationWidget {
 			
 			layout->addWidget(authenticationBox);
 			
-			authenticationLayout->addWidget(new QLabel(i18n("Authentication Log File:")));
+			authenticationLayout->addWidget(new QLabel(i18n("Authentication log file:")));
 			
 			authenticationUrlRequester=new KUrlRequester(authenticationBox);
 			authenticationUrlRequester->setMode(KFile::File);
