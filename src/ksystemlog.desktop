@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KSystemLog
+Name[bg]=Системни логове
 Name[hne]=के-सिस्टम-लाग
 Name[hu]=Rendszernapló-megjelenítő
 Name[ml]=കെസിസ്റ്റംലോഗ്
@@ -15,6 +16,7 @@ Icon=utilities-log-viewer
 Type=Application
 X-DocPath=ksystemlog/index.html
 Comment=System log viewer tool
+Comment[bg]=Инструмент за преглеждане на системните логове
 Comment[ca]=Eina de visualització dels registres del sistema
 Comment[cs]=Nástroj na prohlížení záznamů systému
 Comment[da]=Fremviserværktøj til systemlog
@@ -54,6 +56,7 @@ Comment[zh_CN]=系统日志查看工具
 Comment[zh_TW]=系統紀錄檢視工具
 Terminal=false
 GenericName=System Logs Viewer
+GenericName[bg]=Преглед на системните логове
 GenericName[ca]=Visor dels registres del sistema
 GenericName[cs]=Prohlížeč záznamů systému
 GenericName[da]=Systemlogfremviser
