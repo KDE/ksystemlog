@@ -135,9 +135,11 @@ void ProcessOutputLogFileReader::closeProcess() {
 
 	d->availableStandardOutput.clear();
 	
-	d->process->close();
-	delete d->process;
-	d->process = NULL;
+	if(d->process) {
+		d->process->close();
+		delete d->process;
+		d->process = NULL;
+	}
 
 	logDebug() << "Process closed" << endl;
 }
