@@ -43,6 +43,5 @@ add_subdirectory(src/modes/apache)
 add_subdirectory(src/modes/postfix) 
 add_subdirectory(src/modes/samba)
 add_subdirectory(src/modes/cups)
-add_subdirectory(src/modes/)
 
 add_subdirectory(tests) 
