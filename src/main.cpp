@@ -50,6 +50,7 @@ int main(int argc, char** argv) {
 			"http://www.forum-software.org"
 	);
 	
+	about.setProgramIconName("utilities-log-viewer");
 	about.addCredit(ki18n("Bojan Djurkovic"), ki18n("Log Printing"), "dbojan@gmail.com");
 	
 	KCmdLineArgs::init(argc, argv, &about);
