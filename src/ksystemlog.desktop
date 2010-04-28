@@ -110,6 +110,7 @@ Comment[zh_TW]=系統紀錄檢視工具
 Terminal=false
 GenericName=System Log Viewer
 GenericName[de]=Systemprotokoll-Betrachter
+GenericName[nds]=Kieker för't Systeemlogbook
 GenericName[pt]=Visualizador de Registos do Sistema
 GenericName[pt_BR]=Visualizador do log do sistema
 GenericName[sv]=Visning av systemloggar
