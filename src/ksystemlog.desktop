@@ -110,6 +110,7 @@ Comment[zh_TW]=系統紀錄檢視工具
 Terminal=false
 GenericName=System Log Viewer
 GenericName[ca]=Visor dels registres del sistema
+GenericName[cs]=Prohlížeč systémových logů
 GenericName[de]=Systemprotokoll-Betrachter
 GenericName[en_GB]=System Log Viewer
 GenericName[ja]=システムログビューア
