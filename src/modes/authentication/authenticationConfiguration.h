@@ -36,50 +36,50 @@
 class AuthenticationConfigurationPrivate {
 public:
 	QString authenticationPath;
-	
+
 	QStringList warningKeywords;
 	QStringList errorKeywords;
 };
 
 class AuthenticationConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		AuthenticationConfiguration() :
 			d(new AuthenticationConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("AuthenticationLogMode");
-			
-			QString defaultAuthenticationPath("/var/log/auth.log");
-			configuration->addItemString("LogFilePath", d->authenticationPath, defaultAuthenticationPath, "LogFilePath");
-			
+			configuration->setCurrentGroup(QLatin1String( "AuthenticationLogMode" ));
+
+			QString defaultAuthenticationPath(QLatin1String( "/var/log/auth.log" ));
+			configuration->addItemString(QLatin1String( "LogFilePath" ), d->authenticationPath, defaultAuthenticationPath, QLatin1String( "LogFilePath" ));
+
 			QStringList defaultWarningKeywords;
-			defaultWarningKeywords.append("failed");
-			configuration->addItemStringList("WarningKeywords", d->warningKeywords, defaultWarningKeywords, "WarningKeywords");
-			
+			defaultWarningKeywords.append(QLatin1String( "failed" ));
+			configuration->addItemStringList(QLatin1String( "WarningKeywords" ), d->warningKeywords, defaultWarningKeywords, QLatin1String( "WarningKeywords" ));
+
 			QStringList defaultErrorKeywords;
-			defaultErrorKeywords.append("error");
-			configuration->addItemStringList("ErrorKeywords", d->errorKeywords, defaultErrorKeywords, "ErrorKeywords");
-				
+			defaultErrorKeywords.append(QLatin1String( "error" ));
+			configuration->addItemStringList(QLatin1String( "ErrorKeywords" ), d->errorKeywords, defaultErrorKeywords, QLatin1String( "ErrorKeywords" ));
+
 		}
 
 		virtual ~AuthenticationConfiguration() {
 			delete d;
 		}
-		
+
 		QString authenticationPath() const {
 			return d->authenticationPath;
 		}
-		
+
 		void setAuthenticationPath(const QString& authenticationPath) {
 			d->authenticationPath = authenticationPath;
 		}
-		
+
 		QStringList warningKeywords() const {
 			return d->warningKeywords;
 		}
-		
+
 		QStringList errorKeywords() const {
 			return d->errorKeywords;
 		}

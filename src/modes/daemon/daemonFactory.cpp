@@ -39,6 +39,6 @@ QList<LogMode*> DaemonLogModeFactory::createLogModes() const {
 }
 
 LogModeAction* DaemonLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(DAEMON_LOG_MODE_ID);
+	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( DAEMON_LOG_MODE_ID ));
 	return new SimpleAction(logMode->action(), logMode);
 }

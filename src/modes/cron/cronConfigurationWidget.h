@@ -41,50 +41,50 @@
 #include "cronLogMode.h"
 
 class CronConfigurationWidget : public LogModeConfigurationWidget {
-	
+
 	Q_OBJECT
-	
+
 	public:
-		CronConfigurationWidget() : 
-			LogModeConfigurationWidget(i18n("Cron Log"), CRON_MODE_ICON, i18n("Cron Log"))
+		CronConfigurationWidget() :
+			LogModeConfigurationWidget(i18n("Cron Log"),QLatin1String( CRON_MODE_ICON ), i18n("Cron Log"))
 			{
-			
+
 			QVBoxLayout* layout = new QVBoxLayout();
 			this->setLayout(layout);
 
 			QString description = i18n("<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned tasks logs). <a href='man:/cron'>More information...</a></p>");
 
 			fileList = new FileList(this, description);
-			
+
 			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
 			layout->addWidget(fileList);
-			
+
 			processFilterGroup = new QGroupBox(i18n("Enable Process Filtering"));
 			processFilterGroup->setCheckable(true);
-			
+
 			connect(processFilterGroup, SIGNAL(clicked(bool)), this, SLOT(toggleProcessFilterEnabling(bool)));
 			connect(processFilterGroup, SIGNAL(clicked(bool)), this, SIGNAL(configurationChanged()));
-			
+
 			layout->addWidget(processFilterGroup);
-			
+
 			QHBoxLayout* processFilterLayout = new QHBoxLayout();
-			
+
 			processFilterGroup->setLayout(processFilterLayout);
-			
+
 			processFilterLabel = new QLabel(i18n("Only keeps lines which matches this process :"));
 			processFilter = new QLineEdit(this);
-			
+
 			processFilterLabel->setBuddy(processFilter);
 			connect(processFilter, SIGNAL(textEdited(const QString&)), this, SIGNAL(configurationChanged()));
-			
+
 			processFilterLayout->addWidget(processFilterLabel);
 			processFilterLayout->addWidget(processFilter);
-			
+
 		}
 
 		virtual ~CronConfigurationWidget() {
-			
+
 		}
 
 		bool isValid() const {
@@ -92,7 +92,7 @@ class CronConfigurationWidget : public LogModeConfigurationWidget {
 				logDebug() << "Cron configuration not valid" << endl;
 				return false;
 			}
-			
+
 			if (processFilterGroup->isChecked() && processFilter->text().isEmpty()) {
 				logDebug() << "Cron configuration not valid" << endl;
 				return false;
@@ -104,12 +104,12 @@ class CronConfigurationWidget : public LogModeConfigurationWidget {
 
 		void saveConfig() {
 			logDebug() << "Saving config from Cron Options..." << endl;
-			
-			CronConfiguration* cronConfiguration = Globals::instance()->findLogMode(CRON_LOG_MODE_ID)->logModeConfiguration<CronConfiguration*>();
+
+			CronConfiguration* cronConfiguration = Globals::instance()->findLogMode(QLatin1String( CRON_LOG_MODE_ID ))->logModeConfiguration<CronConfiguration*>();
 			cronConfiguration->setCronPaths(fileList->paths());
-			
+
 			if (processFilterGroup->isChecked() == false) {
-				cronConfiguration->setProcessFilter("");
+				cronConfiguration->setProcessFilter(QLatin1String( "" ));
 			}
 			else {
 				cronConfiguration->setProcessFilter(processFilter->text());
@@ -117,12 +117,12 @@ class CronConfigurationWidget : public LogModeConfigurationWidget {
 		}
 
 		void readConfig() {
-			CronConfiguration* cronConfiguration = Globals::instance()->findLogMode(CRON_LOG_MODE_ID)->logModeConfiguration<CronConfiguration*>();
+			CronConfiguration* cronConfiguration = Globals::instance()->findLogMode(QLatin1String( CRON_LOG_MODE_ID ))->logModeConfiguration<CronConfiguration*>();
 
 			fileList->removeAllItems();
-			
+
 			fileList->addPaths(cronConfiguration->cronPaths());
-			
+
 			if (cronConfiguration->processFilter().isEmpty()) {
 				processFilterGroup->setChecked(false);
 			}
@@ -130,29 +130,29 @@ class CronConfigurationWidget : public LogModeConfigurationWidget {
 				processFilterGroup->setChecked(true);
 				processFilter->setText(cronConfiguration->processFilter());
 			}
-			
-			
+
+
 		}
-		
+
 		void defaultConfig() {
 			//TODO Find a way to read the configuration per default
 			readConfig();
 		}
-		
+
 	private slots:
 		void toggleProcessFilterEnabling(bool enabled) {
 			processFilter->setEnabled(enabled);
 			processFilterLabel->setEnabled(enabled);
 		}
-		
+
 	private:
 		FileList* fileList;
-		
+
 		QGroupBox* processFilterGroup;
-		
+
 		QLineEdit* processFilter;
 		QLabel* processFilterLabel;
-		
+
 
 };
 

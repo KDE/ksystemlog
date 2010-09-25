@@ -38,20 +38,20 @@ class CronItemBuilder : public LogModeItemBuilder {
 
 	public:
 		CronItemBuilder() {
-			
+
 		}
-		
+
 		virtual ~CronItemBuilder() {
-			
+
 		}
 
 		QString createFormattedText(LogLine* line) const {
 			QString result;
-			
-			result.append("<table>");
-			
+
+			result.append(QLatin1String( "<table>" ));
+
 			QListIterator<QString> it(line->logItems());
-			
+
 			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
 			result.append(labelMessageFormat(i18n("Hostname:"), it.next() ));
 			result.append(labelMessageFormat(i18n("Process:"), it.next() ));
@@ -59,7 +59,7 @@ class CronItemBuilder : public LogModeItemBuilder {
 			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
 			result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
 
-			result.append("</table>");
+			result.append(QLatin1String( "</table>" ));
 
 			return result;
 

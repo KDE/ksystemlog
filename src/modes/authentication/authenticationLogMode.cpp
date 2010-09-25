@@ -34,23 +34,23 @@
 #include "authenticationConfigurationWidget.h"
 #include "authenticationConfiguration.h"
 
-AuthenticationLogMode::AuthenticationLogMode() : 
-	LogMode(AUTHENTICATION_LOG_MODE_ID, i18n("Authentication Log"), AUTHENTICATION_MODE_ICON) {
-	
+AuthenticationLogMode::AuthenticationLogMode() :
+	LogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ), i18n("Authentication Log"),QLatin1String( AUTHENTICATION_MODE_ICON )) {
+
 	d->logModeConfiguration = new AuthenticationConfiguration();
-	
+
 	d->logModeConfigurationWidget = new AuthenticationConfigurationWidget();
-	
+
 	d->itemBuilder = new LogModeItemBuilder();
-	
+
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the authentication log."));
 	d->action->setWhatsThis(i18n("Displays the authentication log in the current tab. This log displays all logins made by each user of the system, and can help you to know if someone tried to crack your system."));
-	
+
 }
 
 AuthenticationLogMode::~AuthenticationLogMode() {
-	
+
 }
 
 Analyzer* AuthenticationLogMode::createAnalyzer() {
@@ -59,7 +59,7 @@ Analyzer* AuthenticationLogMode::createAnalyzer() {
 
 QList<LogFile> AuthenticationLogMode::createLogFiles() {
 	AuthenticationConfiguration* configuration = logModeConfiguration<AuthenticationConfiguration*>();
-	
+
 	QList<LogFile> logFiles;
 	logFiles.append(configuration->findGenericLogFile(configuration->authenticationPath()));
 	return logFiles;

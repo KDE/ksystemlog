@@ -32,9 +32,9 @@
 class LogMode;
 
 class CronAnalyzer : public SyslogAnalyzer {
-	
+
 	Q_OBJECT
-	
+
 	public:
 
 		CronAnalyzer(LogMode* logMode) :
@@ -45,7 +45,7 @@ class CronAnalyzer : public SyslogAnalyzer {
 		virtual ~CronAnalyzer() {
 
 		}
-		
+
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
 			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
@@ -66,31 +66,31 @@ class CronAnalyzer : public SyslogAnalyzer {
 		 * Sep 16 18:39:05 localhost /usr/sbin/cron[5479]: (CRON) INFO (pidfile fd = 3)
 		 * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) STARTUP (fork ok)
 		 * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) INFO (Running @reboot jobs)
-		 * 
+		 *
 		 */
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
 
 			//Use the default parsing
 			LogLine* syslogLine=SyslogAnalyzer::parseMessage(logLine, originalFile);
-			
+
 			QStringList list=syslogLine->logItems();
-			
+
 			if (isCronLine(syslogLine) == false) {
 				delete syslogLine;
 				return NULL;
 			}
-			
+
 			//Gets the message column (last item) and deletes it
 			QString message=list.takeLast();
-			
-			int leftBracket=message.indexOf('(');
-			int rightBracket=message.indexOf(')');
-			
+
+			int leftBracket=message.indexOf(QLatin1Char( '(' ));
+			int rightBracket=message.indexOf(QLatin1Char( ')' ));
+
 			QString user=message.mid(leftBracket+1, rightBracket-leftBracket-1);
-			
+
 			list.append(user);
-			
-			if (message.indexOf("CMD") != -1) {
+
+			if (message.indexOf(QLatin1String( "CMD" )) != -1) {
 				// Ignore this : ") CMD (" (length = 7)
 				message=message.right(message.length() - rightBracket - 7);
 				message=message.simplified();
@@ -101,27 +101,27 @@ class CronAnalyzer : public SyslogAnalyzer {
 				message=message.right(message.length() - rightBracket - 2);
 				syslogLine->setLogLevel(Globals::instance()->noticeLogLevel());
 			}
-			
+
 			list.append(message);
-			
+
 			syslogLine->setLogItems(list);
-			
+
 			return syslogLine;
 		}
-		
+
 		inline bool isCronLine(LogLine* syslogLine) {
 			CronConfiguration* cronConfiguration = logMode->logModeConfiguration<CronConfiguration*>();
 			if (cronConfiguration->processFilter().isEmpty()) {
 				return true;
 			}
-			
+
 			//If the process line does not match the cron process, then ignore this line
 			const QStringList list = syslogLine->logItems();
 			QString processLine = list.at(1);
 			if (processLine.contains(cronConfiguration->processFilter(), Qt::CaseInsensitive) == true) {
 				return true;
 			}
-			
+
 			return false;
 		}
 };

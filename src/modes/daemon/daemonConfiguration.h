@@ -37,29 +37,29 @@ public:
 };
 
 class DaemonConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		DaemonConfiguration() :
 			d(new DaemonConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("DaemonLogMode");
-			
+			configuration->setCurrentGroup(QLatin1String( "DaemonLogMode" ));
+
 			QStringList defaultDaemonPaths;
-			defaultDaemonPaths << "/var/log/daemon.log";
-			configuration->addItemStringList("LogFilesPaths", d->daemonPaths, defaultDaemonPaths, "LogFilesPaths");
-				
+			defaultDaemonPaths << QLatin1String( "/var/log/daemon.log" );
+			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->daemonPaths, defaultDaemonPaths, QLatin1String( "LogFilesPaths" ));
+
 		}
 
 		virtual ~DaemonConfiguration() {
 			delete d;
 		}
-		
+
 		QStringList daemonPaths() const {
 			return d->daemonPaths;
 		}
-		
+
 		void setDaemonPaths(const QStringList& daemonPaths) {
 			d->daemonPaths = daemonPaths;
 		}
