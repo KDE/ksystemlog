@@ -51,7 +51,7 @@ QList<LogMode*> ApacheLogModeFactory::createLogModes() const {
 LogModeAction* ApacheLogModeFactory::createLogModeAction() const {
 	LogMode* apacheLogMode = Globals::instance()->findLogMode(APACHE_LOG_MODE_ID);
 	
-	MultipleActions* multipleActions = new MultipleActions(KIcon(APACHE_MODE_ICON), i18n("Apache"), apacheLogMode);
+	MultipleActions* multipleActions = new MultipleActions(KIcon( QLatin1String(APACHE_MODE_ICON) ), i18n("Apache"), apacheLogMode);
 	multipleActions->addInnerAction(apacheLogMode->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(APACHE_ACCESS_LOG_MODE_ID)->action());
 	

@@ -48,22 +48,22 @@ FileList::FileList(QWidget* parent, const QString& descriptionText) :
 
 	description->setText(descriptionText);
 	
-	fileListHelper.prepareButton(add, KIcon("document-new"), this, SLOT(addItem()), fileList);
+	fileListHelper.prepareButton(add, KIcon( QLatin1String( "document-new" )), this, SLOT(addItem()), fileList);
 	
-	fileListHelper.prepareButton(modify, KIcon("document-open"), this, SLOT(modifyItem()), fileList);
+	fileListHelper.prepareButton(modify, KIcon( QLatin1String( "document-open" )), this, SLOT(modifyItem()), fileList);
 	
 	//Add a separator in the FileList
 	QAction* separator = new QAction(this);
 	separator->setSeparator(true);
 	fileList->addAction(separator);
 
-	fileListHelper.prepareButton(remove, KIcon("list-remove"), this, SLOT(removeSelectedItem()), fileList);
+	fileListHelper.prepareButton(remove, KIcon( QLatin1String( "list-remove" )), this, SLOT(removeSelectedItem()), fileList);
 	
-	fileListHelper.prepareButton(up, KIcon("go-up"), this, SLOT(moveUpItem()), fileList);
+	fileListHelper.prepareButton(up, KIcon( QLatin1String( "go-up" )), this, SLOT(moveUpItem()), fileList);
 	
-	fileListHelper.prepareButton(down, KIcon("go-down"), this, SLOT(moveDownItem()), fileList);
+	fileListHelper.prepareButton(down, KIcon( QLatin1String( "go-down" )), this, SLOT(moveDownItem()), fileList);
 	
-	fileListHelper.prepareButton(removeAll, KIcon("trash-empty"), this, SLOT(removeAllItems()), fileList);
+	fileListHelper.prepareButton(removeAll, KIcon( QLatin1String( "trash-empty" )), this, SLOT(removeAllItems()), fileList);
 	
 	connect(fileList, SIGNAL(itemSelectionChanged()), this, SLOT(updateButtons()));
 	connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(modifyItem(QListWidgetItem*)));

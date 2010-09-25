@@ -49,7 +49,7 @@ MultipleFileList::MultipleFileList(QWidget* parent, const QString& descriptionTe
 
 	description->setText(descriptionText);
 	
-	fileListHelper.prepareButton(modify, KIcon("document-open"), this, SLOT(modifyItem()), fileList);
+	fileListHelper.prepareButton(modify, KIcon( QLatin1String( "document-open" )), this, SLOT(modifyItem()), fileList);
 	
 	fileList->header()->setVisible(false);
 	
@@ -58,13 +58,13 @@ MultipleFileList::MultipleFileList(QWidget* parent, const QString& descriptionTe
 	separator->setSeparator(true);
 	fileList->addAction(separator);
 
-	fileListHelper.prepareButton(remove, KIcon("list-remove"), this, SLOT(removeSelectedItem()), fileList);
+	fileListHelper.prepareButton(remove, KIcon( QLatin1String( "list-remove" )), this, SLOT(removeSelectedItem()), fileList);
 	
-	fileListHelper.prepareButton(up, KIcon("go-up"), this, SLOT(moveUpItem()), fileList);
+	fileListHelper.prepareButton(up, KIcon( QLatin1String( "go-up" )), this, SLOT(moveUpItem()), fileList);
 	
-	fileListHelper.prepareButton(down, KIcon("go-down"), this, SLOT(moveDownItem()), fileList);
+	fileListHelper.prepareButton(down, KIcon( QLatin1String( "go-down" )), this, SLOT(moveDownItem()), fileList);
 	
-	fileListHelper.prepareButton(removeAll, KIcon("trash-empty"), this, SLOT(removeAllItems()), fileList);
+	fileListHelper.prepareButton(removeAll, KIcon( QLatin1String( "trash-empty" )), this, SLOT(removeAllItems()), fileList);
 	
 	connect(fileList, SIGNAL(itemSelectionChanged()), this, SLOT(updateButtons()));
 	connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(modifyItem(QTreeWidgetItem*)));
@@ -184,7 +184,7 @@ int MultipleFileList::addCategory(const QString& itemName, const QString& button
 	int index = fileList->indexOfTopLevelItem(item);
 
 	QPushButton* addButton = new QPushButton(buttonName, this);
-	QAction* action = fileListHelper.prepareButtonAndAction(addButton, KIcon("document-new"));
+	QAction* action = fileListHelper.prepareButtonAndAction(addButton, KIcon( QLatin1String( "document-new" )));
 
 	//Insert the action in first position
 	fileList->insertAction(fileList->actions().at(addButtons.buttons().size()), action);

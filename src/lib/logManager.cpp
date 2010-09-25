@@ -35,11 +35,11 @@
 
 class LogManagerPrivate {
 	friend class LogManager;
-	
+
 	QTime lastUpdate;
-	
+
 	LogMode* logMode;
-	
+
 	Analyzer* analyzer;
 	View* usedView;
 
@@ -48,22 +48,22 @@ class LogManagerPrivate {
 LogManager::LogManager(View* view) :
 	d(new LogManagerPrivate())
 	{
-	
+
 	d->lastUpdate = QTime::currentTime();
-	
+
 	d->logMode = NULL;
 	d->analyzer = NULL;
-	
+
 	d->usedView = view;
 	connect(d->usedView, SIGNAL(droppedUrls(const KUrl::List&)), this, SLOT(loadDroppedUrls(const KUrl::List&)));
 }
 
 LogManager::~LogManager() {
 	cleanPreviousLogMode();
-	
+
 	//usedView is managed by MainWindow
 	//logMode is managed by Globals
-	
+
 	delete d;
 }
 
@@ -78,32 +78,32 @@ void LogManager::reload() {
 	}
 
 	logDebug() << "Reloading with log mode " << d->logMode->name() << "..." << endl;
-	
+
 	emit statusBarChanged(i18n("Loading log..."));
-	
+
 	// Change part of the main interface
 	emit tabTitleChanged(d->usedView, d->logMode->icon(), d->logMode->name());
 	emit windowTitleChanged(d->logMode->name());
-	
+
 	logDebug() << "Emptying view..." << endl;
-	
+
 	// Empty the current list, to better fill it
 	d->usedView->logViewWidget()->model()->clear();
-	
+
 	logDebug() << "Initializing view..." << endl;
 
 	// Init the Log View
 	logDebug() << "Initializing columns view..." << endl;
-	
+
 	d->usedView->logViewWidget()->setColumns(d->analyzer->initColumns());
-		
+
 	logDebug() << "Reading log..." << endl;
 
 	// Read the log files
 	d->analyzer->watchLogFiles(true);
-	
+
 	emit statusBarChanged(i18n("Log successfully loaded."));
-	
+
 	// Log List has been totally reloaded
 	emit reloaded();
 
@@ -124,9 +124,9 @@ void LogManager::updateLog(int lineCount) {
 
 	if (lineCount==0)
 		return;
-	
+
 	d->lastUpdate = QTime::currentTime();
-	
+
 	emit logUpdated(d->usedView, lineCount);
 }
 
@@ -134,7 +134,7 @@ void LogManager::cleanPreviousLogMode() {
 	logDebug() << "Cleaning previous LogMode..." << endl;
 
 	d->logMode = NULL;
-	
+
 	delete d->analyzer;
 	d->analyzer = NULL;
 }
@@ -145,9 +145,9 @@ void LogManager::initialize(LogMode* mode) {
 
 void LogManager::internalInitialize(LogMode* mode, const QList<LogFile>& logFiles) {
 	logDebug() << "Initializing LogManager..." << endl;
-	
+
 	logDebug() << "Using files" << logFiles << endl;
-	
+
 	cleanPreviousLogMode();
 
 	//Use the new mode
@@ -156,7 +156,7 @@ void LogManager::internalInitialize(LogMode* mode, const QList<LogFile>& logFile
 	//Find the Analyzer instance used for this new mode
 	d->analyzer=mode->createAnalyzer();
 	d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
-	
+
 	connect(d->analyzer, SIGNAL(statusBarChanged(const QString&)), 				this, SIGNAL(statusBarChanged(const QString&)));
 	connect(d->analyzer, SIGNAL(errorOccured(const QString&, const QString&)), 	this, SLOT(showErrorMessage(const QString&, const QString&)));
 	connect(d->analyzer, SIGNAL(logUpdated(int)), 								this, SLOT(updateLog(int)));
@@ -174,9 +174,9 @@ void LogManager::internalInitialize(LogMode* mode, const QList<LogFile>& logFile
 
 void LogManager::showErrorMessage(const QString& title, const QString& message) {
 	KMessageBox::error(
-		d->usedView, 
-		message, 
-		title, 
+		d->usedView,
+		message,
+		title,
 		KMessageBox::Notify
 	);
 }
@@ -186,8 +186,8 @@ void LogManager::setParsingPaused(bool paused) {
 		logWarning() << "Log manager is not yet initialized" << endl;
 		return;
 	}
-	
-	d->analyzer->setParsingPaused(paused);	
+
+	d->analyzer->setParsingPaused(paused);
 }
 
 bool LogManager::isParsingPaused() const {
@@ -195,22 +195,22 @@ bool LogManager::isParsingPaused() const {
 		logWarning() << "Log manager is not yet initialized" << endl;
 		return false;
 	}
-	
+
 	return d->analyzer->isParsingPaused();
 }
 
 void LogManager::loadDroppedUrls(const KUrl::List& urls) {
 	logDebug() << "Drop " << urls << endl;
-	
+
 	QList<LogFile> logFiles;
-	
+
 	foreach (const KUrl &url, urls) {
 		logFiles.append(LogFile(url, Globals::instance()->informationLogLevel()));
 	}
-	
+
 	if (logFiles.isEmpty() == false) {
-		internalInitialize(Globals::instance()->findLogMode("openLogMode"), logFiles);
-		
+		internalInitialize(Globals::instance()->findLogMode(QLatin1String( "openLogMode" )), logFiles);
+
 		reload();
 	}
 }

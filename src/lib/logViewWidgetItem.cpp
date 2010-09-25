@@ -43,7 +43,7 @@ LogViewWidgetItem::LogViewWidgetItem(LogViewWidget* list, LogLine* l) :
 	QTreeWidgetItem(list),
 	line(l)
 	{
-	
+
 	//Add this item to the LogLine, to let the LogLine initialize it
 	line->setItem(this);
 }
@@ -60,12 +60,12 @@ void LogViewWidgetItem::toggleToolTip(bool displayed) {
 	if (displayed == true)
 		setToolTip(columnCount()-1, line->logMode()->itemBuilder()->createToolTipText(line));
 	else
-		setToolTip(columnCount()-1, "");
+		setToolTip(columnCount()-1, QLatin1String( "" ));
 }
 
 bool LogViewWidgetItem::operator<(const QTreeWidgetItem & other) const {
 	int sortedColumn = treeWidget()->sortColumn();
-	
+
 	//If we sort items by date (always the first column)
 	if (sortedColumn == 0) {
 		const LogViewWidgetItem& otherItem=static_cast<const LogViewWidgetItem&> (other);

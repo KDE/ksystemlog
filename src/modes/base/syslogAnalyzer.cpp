@@ -82,7 +82,7 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 		logDebug() << "Too short line" << endl;
 		return undefinedLogLine(logLine, originalFile);
 	}
-	
+
 	int year=QDate::currentDate().year();
 
 	//Month number
@@ -118,9 +118,9 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 
 	QString hostname;
 
-	int nextSpace = line.indexOf(' ');
-	int nextDoubleDot=line.indexOf(':');
-	
+	int nextSpace = line.indexOf(QLatin1Char( ' ' ));
+	int nextDoubleDot=line.indexOf(QLatin1Char( ':' ));
+
 	//Normal case or no process name
 	if (nextSpace < nextDoubleDot || nextDoubleDot == -1) {
 		//Host name
@@ -132,20 +132,20 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 		//Host name
 		hostname = undefinedHostName();
 	}
-	
+
 	//Refresh double dot once the line has been substr'ed
-	nextDoubleDot=line.indexOf(':');
+	nextDoubleDot=line.indexOf(QLatin1Char( ':' ));
 
 	QString process;
 	QString message;
 
-	//Process name	
+	//Process name
 	if (nextDoubleDot!=-1) {
 		process=line.left(nextDoubleDot);
 
 		//If the delete process identifier option is enabled
 		if (KSystemLogConfig::deleteProcessIdentifier()==true) {
-			int squareBracket=process.indexOf('[');
+			int squareBracket=process.indexOf(QLatin1Char( '[' ));
 
 			//If we find a bracket, we remove the useless part
 			if (squareBracket!=-1) {
@@ -157,11 +157,11 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 
 		message=line.remove(0, 1);
 	}
-	//If we can't find any ':' character, it means that this line is a 
+	//If we can't find any ':' character, it means that this line is a
 	//internal message of syslogd
 	else {
-		if (line.contains("last message repeated") || line.contains("-- MARK --")) {
-			process="syslog";
+		if (line.contains(QLatin1String( "last message repeated" )) || line.contains(QLatin1String( "-- MARK --" ))) {
+			process=QLatin1String( "syslog" );
 		}
 		else {
 			process=undefinedProcess();
@@ -178,9 +178,9 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 	return new LogLine(
 			logLineInternalIdGenerator++,
 			dateTime,
-			list, 
-			originalFile.url().path(), 
-			originalFile.defaultLogLevel(), 
+			list,
+			originalFile.url().path(),
+			originalFile.defaultLogLevel(),
 			logMode
 	);
 }
@@ -191,22 +191,22 @@ inline LogLine* SyslogAnalyzer::undefinedLogLine(const QString& message, const L
 	return new LogLine(
 				logLineInternalIdGenerator++,
 				QDateTime::currentDateTime(),
-				items, 
-				originalFile.url().path(), 
-				originalFile.defaultLogLevel(), 
+				items,
+				originalFile.url().path(),
+				originalFile.defaultLogLevel(),
 				logMode
 	);
-	
+
 }
 
 inline QString SyslogAnalyzer::undefinedHostName() {
 	//i18nc("Undefined host name", "undefined");
-	return ""; 
+	return QLatin1String( "" );
 }
 
 inline QString SyslogAnalyzer::undefinedProcess() {
 	//i18nc("Undefined process", "undefined");
-	return "";
+	return QLatin1String( "" );
 }
 
 #include "syslogAnalyzer.moc"

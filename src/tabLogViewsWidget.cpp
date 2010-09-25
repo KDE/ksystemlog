@@ -335,7 +335,7 @@ void TabLogViewsWidget::changeReloadingTab(View* view, bool reloading) {
 	TabLogManager* tabLogManager = findRelatedTabLogManager(view);
 	
 	if (reloading == true)
-		changeTab(tabLogManager->logManager()->usedView(), KIcon("view-refresh"), tabLogManager->title());
+		changeTab(tabLogManager->logManager()->usedView(), KIcon( QLatin1String( "view-refresh" )), tabLogManager->title());
 	else
 		changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
 }

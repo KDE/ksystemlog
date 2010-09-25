@@ -53,8 +53,8 @@ LogViewWidget::LogViewWidget(QWidget* parent) :
 	//setWhatThis(i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log lines in <b>bold</b> are the last added to the list.</p>"));
 
 	QStringList headerLabels;
-	headerLabels.append("Date");
-	headerLabels.append("Message");
+	headerLabels.append(QLatin1String( "Date" ));
+	headerLabels.append(QLatin1String( "Message" ));
 
 	d->logViewModel = new LogViewModel(this);
 	d->headersTogglingActions = new QActionGroup(this);
@@ -117,7 +117,7 @@ void LogViewWidget::setColumns(const LogViewColumns& columns) {
 	foreach(const LogViewColumn &column, columns.columns()) {
 		QAction* action = new QAction(this);
 		action->setText(column.columnName());
-		//helloAction->setIcon(KIcon("media-playback-start"));
+		//helloAction->setIcon(KIcon( QLatin1String( "media-playback-start" )));
 		//helloAction->setShortcut(Qt::CTRL + Qt::Key_M);
 		action->setCheckable(true);
 		action->setChecked(true);

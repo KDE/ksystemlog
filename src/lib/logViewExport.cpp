@@ -64,7 +64,7 @@ void LogViewExport::sendMail() {
 		LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
 
 		body+= item->logLine()->exportToText();
-		body+='\n';
+		body+=QLatin1Char( '\n' );
 
 		++it;
 		++i;
@@ -79,15 +79,15 @@ void LogViewExport::sendMail() {
 	}
 
 	// Parameters list of this method
-	//const QString &   to, 
-	//const QString &   cc, 
-	//const QString &   bcc, 
-	//const QString &   subject, 
-	//const QString &   body, 
-	//const QString &   messageFile, 
-	//const QStringList &   attachURLs, 
+	//const QString &   to,
+	//const QString &   cc,
+	//const QString &   bcc,
+	//const QString &   subject,
+	//const QString &   body,
+	//const QString &   messageFile,
+	//const QStringList &   attachURLs,
 	//const QCString &   startup_id
-	KToolInvocation::invokeMailer("", "", "", i18n("Log Lines of my problem"), body, "", QStringList(), kapp->startupId());
+	KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
 }
 
 void LogViewExport::printSelection() {
@@ -201,7 +201,7 @@ void LogViewExport::copyToClipboard() {
 
 		//Copy the item content to the text string
 		text.append(item->logLine()->exportToText());
-		text.append('\n');
+		text.append(QLatin1Char( '\n' ));
 
 		it++;
 		nbCopied++;
@@ -260,7 +260,7 @@ void LogViewExport::fileSave() {
 		ioDev->close();
 
 		delete ioDev;
-		
+
 		emit statusBarChanged(i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
 	}
 	else {

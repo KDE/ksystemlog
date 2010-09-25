@@ -47,7 +47,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget() :
 
 	setupUi(this);
 
-	startupLogMode->addItem(KIcon(NO_MODE_ICON), i18n("No Log Mode"), QVariant(""));
+	startupLogMode->addItem(KIcon( QLatin1String( NO_MODE_ICON) ), i18n("No Log Mode"), QVariant("" ));
 	foreach(LogMode* logMode, Globals::instance()->logModes()) {
 		//Ignore this special case
 		if (logMode->id() == "openLogMode")

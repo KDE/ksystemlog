@@ -39,9 +39,9 @@
 
 class LogViewFilterWidgetPrivate {
 public:
-	
+
 	LogViewWidgetSearchLine* filterLine;
-	
+
 	/**
 	 * Filter of the column list
 	 */
@@ -52,50 +52,50 @@ public:
 
 LogViewWidgetSearchLine::LogViewWidgetSearchLine() :
 	KTreeWidgetSearchLine() {
-	
+
 }
 
 LogViewWidgetSearchLine::~LogViewWidgetSearchLine() {
-	
+
 }
 
 void LogViewWidgetSearchLine::updateSearch(const QString& pattern) {
 	KTreeWidgetSearchLine::updateSearch(pattern);
-	
+
 	emit treeWidgetUpdated();
 }
 
 
 LogViewFilterWidget::LogViewFilterWidget() :
 	d(new LogViewFilterWidgetPrivate()) {
-	
+
 
 	QHBoxLayout* filterBarLayout = new QHBoxLayout();
 	filterBarLayout->setMargin(0);
 	//filterBarLayout->setSpacing(-1);
 	setLayout(filterBarLayout);
-	
+
 	d->filterLine = new LogViewWidgetSearchLine();
-	
+
 	d->filterLine->setToolTip(i18n("Type your filter here"));
 	d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
 	d->filterLine->setClickMessage(i18n("Enter your search here..."));
-	
+
 	QLabel* filterIcon = new QLabel();
-	filterIcon->setPixmap(SmallIcon("view-filter"));
+	filterIcon->setPixmap(SmallIcon(QLatin1String( "view-filter" )));
 	filterIcon->setBuddy(d->filterLine);
 	filterBarLayout->addWidget(filterIcon);
-	
+
 	QLabel* filterLabel = new QLabel(i18n("Filter:"));
 	filterLabel->setBuddy(d->filterLine);
 	filterBarLayout->addWidget(filterLabel);
-	
+
 	filterBarLayout->addWidget(d->filterLine);
 
 	initSearchListFilter();
 
 	filterBarLayout->addWidget(d->filterList);
-	
+
 }
 
 LogViewFilterWidget::~LogViewFilterWidget() {
@@ -121,7 +121,7 @@ void LogViewFilterWidget::initSearchListFilter() {
 
 void LogViewFilterWidget::updateFilterColumns(const LogViewColumns& columns) {
 	logDebug() << "Changing columns..." << endl;
-	
+
 	//We first delete all items
 	d->filterList->clear();
 
@@ -145,9 +145,9 @@ void LogViewFilterWidget::changeColumnFilter(int column) {
 		d->filterLine->setSearchColumns(QList<int>());
 		return;
 	}
-	
+
 	logDebug() << "Searching on " << d->filterList->currentIndex() << " column" << endl;
-	
+
 	QList<int> filterColumns;
 	//currentIndex() - 1 to do not count the "All" columns item
 	filterColumns.append(d->filterList->currentIndex() - 1);

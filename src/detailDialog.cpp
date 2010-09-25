@@ -39,11 +39,11 @@ DetailDialog::DetailDialog(QWidget* parent) :
 	setupUi(this);
 	
 	previous->setText(i18n("&Previous"));
-	previous->setIcon(KIcon("arrow-up"));
+	previous->setIcon(KIcon( QLatin1String( "arrow-up" )));
 	connect(previous, SIGNAL(clicked()), this, SLOT(previousItem()));
 	
 	next->setText(i18n("&Next"));
-	next->setIcon(KIcon("arrow-down"));
+	next->setIcon(KIcon( QLatin1String( "arrow-down" )));
 	connect(next, SIGNAL(clicked()), this, SLOT(nextItem()));
 	
 	closeButton->setText(KStandardGuiItem::close().text());

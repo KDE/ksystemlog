@@ -37,13 +37,13 @@
 
 
 class LocalLogFileReaderPrivate : public LogFileReaderPrivate {
-	
+
 public:
-	
+
 	KDirWatch* watch;
-	
+
 	long previousFilePosition;
-	
+
 	/**
 	 * Mutex avoiding multiple logFileModified() calls
 	 */
@@ -52,22 +52,22 @@ public:
 };
 
 
-LocalLogFileReader::LocalLogFileReader(const LogFile& logFile) : 
+LocalLogFileReader::LocalLogFileReader(const LogFile& logFile) :
 	LogFileReader(*new LocalLogFileReaderPrivate(), logFile) {
-	
+
 	init();
 }
 
 
 LocalLogFileReader::LocalLogFileReader(LocalLogFileReaderPrivate& dd, const LogFile& logFile) :
 	LogFileReader(dd, logFile) {
-	
+
 	init();
 }
 
 LocalLogFileReader::~LocalLogFileReader() {
 	Q_D(LocalLogFileReader);
-	
+
 	//Delete the watching object
 	delete d->watch;
 
@@ -84,7 +84,7 @@ void LocalLogFileReader::init() {
 	d->previousFilePosition = 0;
 
 	logDebug() << "Reading local file " << d->logFile.url().path() << endl;
-	
+
 }
 
 void LocalLogFileReader::watchFile(bool enable) {
@@ -92,14 +92,14 @@ void LocalLogFileReader::watchFile(bool enable) {
 
 	if (enable == true) {
 		logDebug() << "Monitoring file : " << d->logFile.url().path() << endl;
-		
+
 		if (d->watch->contains(d->logFile.url().path()) == false) {
 			d->watch->addFile(d->logFile.url().path());
 		}
-		
+
 		//Reinit current file position
 		d->previousFilePosition = 0;
-		
+
 		//If we enable the watching, then we first try to see if new lines have appeared
 		logFileModified();
 	}
@@ -110,15 +110,15 @@ void LocalLogFileReader::watchFile(bool enable) {
 
 QIODevice* LocalLogFileReader::open() {
 	Q_D(LocalLogFileReader);
-	
+
 	if (d->logFile.url().isValid()==false) {
 		QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
 		emit errorOccured(i18n("File Does Not Exist"), message);
 		emit statusBarChanged(message);
 	}
-		
+
 	QString mimeType = KMimeType::findByFileContent( d->logFile.url().path() )->name();
-	
+
 	logDebug() << d->logFile.url().path() << " : " << mimeType << endl;
 	QIODevice* inputDevice;
 
@@ -132,19 +132,19 @@ QIODevice* LocalLogFileReader::open() {
 		delete file;
 		return NULL;
 	}
-	
+
 	//Plain text file : we use a QFile object
-	if (mimeType == "text/plain" || mimeType == "application/octet-stream") {
+	if (mimeType == QLatin1String( "text/plain" ) || mimeType == QLatin1String( "application/octet-stream" )) {
 		logDebug() << "Using QFile input device" << endl;
-		
-		inputDevice = file; 
+
+		inputDevice = file;
 	}
 	//Compressed file : we use the KFilterDev helper
 	else {
 		logDebug() << "Using KFilterDev input device" << endl;
 
 		inputDevice = KFilterDev::deviceForFile(d->logFile.url().path(), mimeType);
-		
+
 		if (inputDevice == NULL) {
 			QString message(i18n("Unable to uncompress the '%2' format of '%1'.", d->logFile.url().path(), mimeType));
 			emit errorOccured(i18n("Unable to Uncompress File"), message);
@@ -160,7 +160,7 @@ QIODevice* LocalLogFileReader::open() {
 		delete inputDevice;
 		return NULL;
 	}
-	
+
 	return inputDevice;
 }
 
@@ -171,7 +171,7 @@ void LocalLogFileReader::close(QIODevice* inputDevice) {
 
 QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
 	logDebug() << "Retrieving raw buffer..."<< endl;
-	
+
 	Q_D(LocalLogFileReader);
 
 	QStringList rawBuffer;
@@ -180,7 +180,7 @@ QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
 	while (inputStream.atEnd() == false) {
 		rawBuffer.append(inputStream.readLine());
 	}
-	
+
 	logDebug() << "Raw buffer retrieved."<< endl;
 
 	//Get the size file for the next calculation
@@ -192,7 +192,7 @@ QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
 
 void LocalLogFileReader::logFileModified() {
 	Q_D(LocalLogFileReader);
-	
+
 	logDebug() << "Locking log file modification..." << endl;
 	if (d->insertionLocking.tryLock() == false) {
 		logDebug() << "Log file modification already detected." << endl;
@@ -204,11 +204,11 @@ void LocalLogFileReader::logFileModified() {
 		logError() << "Could not open file " << d->logFile.url().path() << endl;
 		return;
 	}
-	
+
 	//If there are new lines in the file, insert only them or this is the first time we read this file
 	if (d->previousFilePosition!=0 && d->previousFilePosition <= inputDevice->size()) {
 		logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().path() << ")" << endl;
-		
+
 		if (inputDevice->isSequential()) {
 			logError() << "The file current position could not be modified" << endl;
 		}
@@ -227,9 +227,9 @@ void LocalLogFileReader::logFileModified() {
 		logDebug() << "New file or file truncated. (Re-)Loading log file" << endl;
 
 		emit contentChanged(this, Analyzer::FullRead, readContent(inputDevice));
-		
+
 	}
-	
+
 	close(inputDevice);
 
 	logDebug() << "Unlocking log file modification..." << endl;

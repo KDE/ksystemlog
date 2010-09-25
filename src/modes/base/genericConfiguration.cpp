@@ -33,21 +33,21 @@
 class GenericLogModeConfigurationPrivate {
 public:
 	QStringList logFilesPaths;
-	
+
 	QList<int> logFilesLevels;
 
 };
 
 GenericLogModeConfiguration::GenericLogModeConfiguration(const QString& configurationGroup, const QStringList& defaultLogFilesPaths, const QList<int> defaultLogFilesLevels) :
 	d(new GenericLogModeConfigurationPrivate()) {
-	
+
 	logDebug() << "Using Configuration Group : " << configurationGroup << endl;
 	configuration->setCurrentGroup(configurationGroup);
-		
-	configuration->addItemStringList("LogFilesPaths", d->logFilesPaths, defaultLogFilesPaths, "LogFilesPaths");
 
-	configuration->addItemIntList("LogFilesLevels", d->logFilesLevels, defaultLogFilesLevels, "LogFilesLevels");
-	
+	configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->logFilesPaths, defaultLogFilesPaths, QLatin1String( "LogFilesPaths" ));
+
+	configuration->addItemIntList(QLatin1String( "LogFilesLevels" ), d->logFilesLevels, defaultLogFilesLevels, QLatin1String( "LogFilesLevels" ));
+
 }
 
 GenericLogModeConfiguration::~GenericLogModeConfiguration() {
@@ -66,45 +66,45 @@ QList<int> GenericLogModeConfiguration::logFilesLevels() const {
 void GenericLogModeConfiguration::setLogFilesPaths(const QStringList& logFilesPaths) {
 	d->logFilesPaths = logFilesPaths;
 }
-	
+
 void GenericLogModeConfiguration::setLogFilesLevels(const QList<int>& logFilesLevels) {
 	d->logFilesLevels = logFilesLevels;
 }
-		
+
 
 QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() {
 
 	QList<LogFile> logFiles;
-	
+
 	if (d->logFilesPaths.size() != d->logFilesLevels.size()) {
 		logDebug() << i18n("The two arrays size are different, skipping the reading of log files.") << endl;
 		return logFiles;
 	}
-	
+
 	LogLevel* level;
-	
+
 	QListIterator<QString> itString(d->logFilesPaths);
 	QListIterator<int> itInt(d->logFilesLevels);
-	
+
 	while (itString.hasNext()) {
 		int intValue=itInt.next();
 		QString stringValue=itString.next();
-		
+
 		if (intValue>=0 && intValue<(int) Globals::instance()->logLevels().count())
 			level=Globals::instance()->logLevels().at(intValue);
 		else
 			level=Globals::instance()->informationLogLevel();
-		
+
 		KUrl url(stringValue);
 		if (!url.isValid()) {
 			logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path()) << endl;
 			continue;
 		}
-		
+
 		logFiles.append(LogFile(url, level));
-			
+
 	}
-	
+
 	return logFiles;
 }
 

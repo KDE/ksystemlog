@@ -70,7 +70,7 @@ StatusBar::StatusBar(QWidget* parent) :
 	
 	/*
 	d->toggleHistory = new QPushButton(this);
-	d->toggleHistory->setIcon(KIcon("view-history"));
+	d->toggleHistory->setIcon(KIcon( QLatin1String( "view-history" )));
 	d->toggleHistory->setFlat(true);
 	addPermanentWidget(d->toggleHistory, 0);
 	

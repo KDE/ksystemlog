@@ -55,7 +55,7 @@ QList<LogMode*> SambaLogModeFactory::createLogModes() const {
 LogModeAction* SambaLogModeFactory::createLogModeAction() const {
 	LogMode* sambaLogMode = Globals::instance()->findLogMode(SAMBA_LOG_MODE_ID);
 	
-	MultipleActions* multipleActions = new MultipleActions(KIcon(SAMBA_MODE_ICON), i18n("Samba"), sambaLogMode);
+	MultipleActions* multipleActions = new MultipleActions(KIcon( QLatin1String( SAMBA_MODE_ICON) ), i18n("Samba"), sambaLogMode);
 	multipleActions->addInnerAction(sambaLogMode->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(SAMBA_ACCESS_LOG_MODE_ID)->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(NETBIOS_LOG_MODE_ID)->action());
