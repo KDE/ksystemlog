@@ -38,20 +38,20 @@ class CupsPageItemBuilder : public LogModeItemBuilder {
 
 	public:
 		CupsPageItemBuilder() {
-			
+
 		}
-		
+
 		virtual ~CupsPageItemBuilder() {
-			
+
 		}
 
 		QString createFormattedText(LogLine* line) const {
 			QString result;
-			
+
 			QListIterator<QString> it(line->logItems());
-			
-			result.append("<table>");
-			
+
+			result.append(QLatin1String( "<table>" ));
+
 			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
 			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
 			result.append(labelMessageFormat(i18n("Printer:"), it.next() ));
@@ -61,7 +61,7 @@ class CupsPageItemBuilder : public LogModeItemBuilder {
 			result.append(labelMessageFormat(i18n("Num Copies:"), it.next() ));
 			result.append(labelMessageFormat(i18n("Job Billing:"), it.next() ));
 
-			result.append("</table>");
+			result.append(QLatin1String( "</table>" ));
 
 			return result;
 		}

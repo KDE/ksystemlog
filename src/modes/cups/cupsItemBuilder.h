@@ -38,22 +38,22 @@ class CupsItemBuilder : public LogModeItemBuilder {
 
 	public:
 		CupsItemBuilder() {
-			
+
 		}
-		
+
 		virtual ~CupsItemBuilder() {
-			
+
 		}
 
 		QString createFormattedText(LogLine* line) const {
 			QString result;
-			
-			result.append("<table>");
-			
+
+			result.append(QLatin1String( "<table>" ));
+
 			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
 			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
 
-			result.append("</table>");
+			result.append(QLatin1String( "</table>" ));
 
 			return result;
 		}

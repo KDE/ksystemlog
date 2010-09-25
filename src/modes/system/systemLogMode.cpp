@@ -35,15 +35,15 @@
 
 #include "logModeItemBuilder.h"
 
-SystemLogMode::SystemLogMode() : 
-	LogMode(SYSTEM_LOG_MODE_ID, i18n("System Log"), SYSTEM_MODE_ICON) {
-	
+SystemLogMode::SystemLogMode() :
+	LogMode(QLatin1String( SYSTEM_LOG_MODE_ID ), i18n("System Log"),QLatin1String( SYSTEM_MODE_ICON )) {
+
 	d->logModeConfiguration = new SystemConfiguration();
-	
+
 	d->logModeConfigurationWidget = new SystemConfigurationWidget();
-	
+
 	d->itemBuilder = new LogModeItemBuilder();
-	
+
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the system log."));
 	d->action->setWhatsThis(i18n("Displays the system log in the current tab. This log is generally used by non-specialized processes (like \"sudo\" or \"fsck\" commands)"));
@@ -51,7 +51,7 @@ SystemLogMode::SystemLogMode() :
 }
 
 SystemLogMode::~SystemLogMode() {
-	
+
 }
 
 Analyzer* SystemLogMode::createAnalyzer() {

@@ -39,34 +39,34 @@
 
 class XorgAnalyzer : public Analyzer {
 	Q_OBJECT
-	
+
 	public:
-		XorgAnalyzer(LogMode* logMode) : 
+		XorgAnalyzer(LogMode* logMode) :
 			Analyzer(logMode),
 			currentDateTime(QDateTime::currentDateTime())
 			{
 
 			initializeTypeName();
 		}
-		
+
 		virtual ~XorgAnalyzer() {
-			
+
 		}
-		
+
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
-				
+
 			columns.addColumn(LogViewColumn(i18n("Line"), false, false));
 			columns.addColumn(LogViewColumn(i18n("Type"), false, false));
 			columns.addColumn(LogViewColumn(i18n("Message"), false, false));
-			
+
 			columns.setGroupByDay(false);
 			columns.setGroupByHour(false);
 
 			return columns;
 		}
 
-		
+
 	protected:
 		LogFileReader* createLogFileReader(const LogFile& logFile) {
 			return new LocalLogFileReader(logFile);
@@ -75,15 +75,15 @@ class XorgAnalyzer : public Analyzer {
 		Analyzer::LogFileSortMode logFileSortMode() {
 			return Analyzer::AscendingSortedLogFile;
 		}
-		
+
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
-			
+
 			QString string(logLine);
-			
+
 			QString type;
-			
+
 			type=string.left(4);
-			
+
 			LogLevel* logLineType=findTypeName(type);
 
 			//If the type is not empty, the log message has a type, so we can delete it
@@ -93,42 +93,42 @@ class XorgAnalyzer : public Analyzer {
 			else {
 				logLineType=Globals::instance()->informationLogLevel();
 			}
-			
+
 			QStringList list;
 			list.append(logLineType->name());
 			list.append(string);
-			
+
 			return new LogLine(
-					logLineInternalIdGenerator++, 
-					currentDateTime, 
-					list, 
-					originalFile.url().path(), 
-					logLineType, 
+					logLineInternalIdGenerator++,
+					currentDateTime,
+					list,
+					originalFile.url().path(),
+					logLineType,
 					logMode
 			);
 		}
-		
+
 	private:
 
 		QMap<QString, LogLevel*> xorgLevels;
-		
+
 		void initializeTypeName() {
-			xorgLevels["(--)"]=new LogLevel(1001, i18n("Probed"), PROBED_LOG_LEVEL_ICON, QColor(246, 206, 30));
-			xorgLevels["(**)"]=new LogLevel(1002, i18n("From config file"), CONFIG_FILE_LOG_LEVEL_ICON, QColor(161, 133, 240));
-			xorgLevels["(==)"]=new LogLevel(1003, i18n("Default setting"), DEFAULT_SETTING_LOG_LEVEL_ICON, QColor(169, 189, 165));
-			xorgLevels["(++)"]=new LogLevel(1004, i18n("From command Line"), COMMAND_LINE_LOG_LEVEL_ICON, QColor(179, 181, 214));
-			xorgLevels["(!!)"]=Globals::instance()->noticeLogLevel();
-			xorgLevels["(II)"]=Globals::instance()->informationLogLevel();
-			xorgLevels["(WW)"]=Globals::instance()->warningLogLevel();
-			xorgLevels["(EE)"]=Globals::instance()->errorLogLevel();
-			xorgLevels["(NI)"]=new LogLevel(1005, i18n("Not implemented"), NOT_IMPLEMENTED_LOG_LEVEL_ICON, QColor(136, 146, 240));
-			xorgLevels["(\?\?)"]=Globals::instance()->noLogLevel();
+			xorgLevels[QLatin1String( "(--)" )]=new LogLevel(1001, i18n("Probed"),QLatin1String( PROBED_LOG_LEVEL_ICON ), QColor(246, 206, 30));
+			xorgLevels[QLatin1String( "(**)" )]=new LogLevel(1002, i18n("From config file"),QLatin1String( CONFIG_FILE_LOG_LEVEL_ICON ), QColor(161, 133, 240));
+			xorgLevels[QLatin1String( "(==)" )]=new LogLevel(1003, i18n("Default setting"),QLatin1String( DEFAULT_SETTING_LOG_LEVEL_ICON ), QColor(169, 189, 165));
+			xorgLevels[QLatin1String( "(++)" )]=new LogLevel(1004, i18n("From command Line"),QLatin1String( COMMAND_LINE_LOG_LEVEL_ICON ), QColor(179, 181, 214));
+			xorgLevels[QLatin1String( "(!!)" )]=Globals::instance()->noticeLogLevel();
+			xorgLevels[QLatin1String( "(II)" )]=Globals::instance()->informationLogLevel();
+			xorgLevels[QLatin1String( "(WW)" )]=Globals::instance()->warningLogLevel();
+			xorgLevels[QLatin1String( "(EE)" )]=Globals::instance()->errorLogLevel();
+			xorgLevels[QLatin1String( "(NI)" )]=new LogLevel(1005, i18n("Not implemented"),QLatin1String( NOT_IMPLEMENTED_LOG_LEVEL_ICON ), QColor(136, 146, 240));
+			xorgLevels[QLatin1String( "(\?\?)" )]=Globals::instance()->noLogLevel();
 
 		}
 
 		LogLevel* findTypeName(const QString& type) {
 			QMap<QString, LogLevel*>::iterator it;
-			
+
 			it=xorgLevels.find(type);
 			if (it!=xorgLevels.end())
 				return *it;
@@ -136,7 +136,7 @@ class XorgAnalyzer : public Analyzer {
 				return NULL;
 
 		}
-		
+
 		QDateTime currentDateTime;
 
 };

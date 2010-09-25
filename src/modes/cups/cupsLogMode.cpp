@@ -35,14 +35,14 @@
 #include "cupsConfiguration.h"
 
 
-CupsLogMode::CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget) : 
-	LogMode(CUPS_LOG_MODE_ID, i18n("Cups Log"), CUPS_MODE_ICON) {
-	
+CupsLogMode::CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget) :
+	LogMode(QLatin1String( CUPS_LOG_MODE_ID ), i18n("Cups Log"),QLatin1String( CUPS_MODE_ICON )) {
+
 	d->logModeConfiguration = cupsConfiguration;
 	d->logModeConfigurationWidget = cupsConfigurationWidget;
-	
+
 	d->itemBuilder = new CupsItemBuilder();
-	
+
 	//Cups Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Cups log."));
@@ -51,7 +51,7 @@ CupsLogMode::CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfiguration
 }
 
 CupsLogMode::~CupsLogMode() {
-	
+
 }
 
 Analyzer* CupsLogMode::createAnalyzer() {

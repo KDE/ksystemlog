@@ -39,22 +39,22 @@
 #include "logModeItemBuilder.h"
 #include "openAnalyzer.h"
 
-OpenLogMode::OpenLogMode(QWidget* parent) : 
-	LogMode(OPEN_LOG_MODE_ID, i18n("Log File"), OPEN_MODE_ICON),
+OpenLogMode::OpenLogMode(QWidget* parent) :
+	LogMode(QLatin1String( OPEN_LOG_MODE_ID ), i18n("Log File"),QLatin1String( OPEN_MODE_ICON )),
 	parent(parent) {
-	
+
 	d->logModeConfiguration = NULL;
-	
+
 	d->logModeConfigurationWidget = NULL;
-	
+
 	d->itemBuilder = new LogModeItemBuilder();
-	
+
 	d->action = NULL;
 
 }
 
 OpenLogMode::~OpenLogMode() {
-	
+
 }
 
 Analyzer* OpenLogMode::createAnalyzer() {
@@ -65,16 +65,16 @@ QList<LogFile> OpenLogMode::createLogFiles() {
 	//Open a standard Filedialog
 	KUrl openingFileName(KFileDialog::getOpenUrl(KUrl(), QString(), parent, i18n("Open Location")));
 	logDebug() << "Opening file : " << openingFileName.url() << endl;
-	
+
 	if (openingFileName.isEmpty()) {
 		return QList<LogFile>();
 	}
-	
+
 	if (openingFileName.isValid()) {
 		LogFile logFile(openingFileName, Globals::instance()->informationLogLevel());
 		QList<LogFile> logFiles;
 		logFiles.append(logFile);
-		
+
 		return logFiles;
 
 	}

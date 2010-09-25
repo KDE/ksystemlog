@@ -37,57 +37,57 @@
 #include "cupsLogMode.h"
 
 class CupsConfigurationWidget : public LogModeConfigurationWidget {
-	
+
 	Q_OBJECT
-	
+
 	public:
-		CupsConfigurationWidget() : 
-			LogModeConfigurationWidget(i18n("Cups Log"), CUPS_MODE_ICON, i18n("Cups &amp; Cups Web Server Log"))
+		CupsConfigurationWidget() :
+			LogModeConfigurationWidget(i18n("Cups Log"),QLatin1String( CUPS_MODE_ICON ), i18n("Cups &amp; Cups Web Server Log"))
 			{
-			
+
 			QHBoxLayout* layout = new QHBoxLayout();
 			this->setLayout(layout);
 
 			cupsFileList=new MultipleFileList(this, i18n("<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups Web Access log</b>.</p>"));
-			
+
 			cupsPathsId = cupsFileList->addCategory(i18n("Cups Log Files"), i18n("Add Cups File..."));
 			cupsAccessPathsId = cupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
 			cupsPagePathsId = cupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
 			cupsPdfPathsId = cupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
-			
+
 			connect(cupsFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
-			
+
 			layout->addWidget(cupsFileList);
 		}
-		
+
 		~CupsConfigurationWidget() {
-			
+
 		}
 
 
 	public slots:
-	
+
 		void saveConfig() {
 			logDebug() << "Saving config from Cups Options..." << endl;
-			
-			CupsConfiguration* cupsConfiguration = Globals::instance()->findLogMode(CUPS_LOG_MODE_ID)->logModeConfiguration<CupsConfiguration*>();
+
+			CupsConfiguration* cupsConfiguration = Globals::instance()->findLogMode(QLatin1String( CUPS_LOG_MODE_ID ))->logModeConfiguration<CupsConfiguration*>();
 			cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
 			cupsConfiguration->setCupsAccessPaths(cupsFileList->paths(cupsAccessPathsId));
 			cupsConfiguration->setCupsPagePaths(cupsFileList->paths(cupsPagePathsId));
 			cupsConfiguration->setCupsPdfPaths(cupsFileList->paths(cupsPdfPathsId));
-			
+
 		}
-		
+
 		void defaultConfig() {
 			//TODO Find a way to read the configuration per default
 			readConfig();
 		}
-		
+
 		void readConfig() {
-			CupsConfiguration* cupsConfiguration = Globals::instance()->findLogMode(CUPS_LOG_MODE_ID)->logModeConfiguration<CupsConfiguration*>();
+			CupsConfiguration* cupsConfiguration = Globals::instance()->findLogMode(QLatin1String( CUPS_LOG_MODE_ID ))->logModeConfiguration<CupsConfiguration*>();
 
 			cupsFileList->removeAllItems();
-			
+
 			cupsFileList->addPaths(cupsPathsId, cupsConfiguration->cupsPaths());
 			cupsFileList->addPaths(cupsAccessPathsId, cupsConfiguration->cupsAccessPaths());
 			cupsFileList->addPaths(cupsPagePathsId, cupsConfiguration->cupsPagePaths());
@@ -100,21 +100,21 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget {
 				logDebug() << "Cups configuration not valid" << endl;
 				return false;
 			}
-			
+
 			logDebug() << "Cups configuration valid" << endl;
 			return true;
 
 		}
-		
+
 	private:
 
 		MultipleFileList* cupsFileList;
-		
+
 		int cupsPathsId;
 		int cupsAccessPathsId;
 		int cupsPagePathsId;
 		int cupsPdfPathsId;
-		
+
 };
 
 #endif // _CUPS_CONFIGURATION_WIDGET_H_

@@ -38,23 +38,23 @@
 class CupsAnalyzer : public Analyzer {
 
 	Q_OBJECT
-	
+
 	public:
 		explicit CupsAnalyzer(LogMode* logMode) :
 			Analyzer(logMode) {
-			
+
 			initializeTypeLevels();
 		}
-		
+
 		virtual ~CupsAnalyzer() {
-			
+
 		}
-		
+
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
 			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-			
+
 			return columns;
 		}
 
@@ -73,7 +73,7 @@ class CupsAnalyzer : public Analyzer {
 		 * Also sees :
 		 * http://www.cups.org/documentation.php/ref-error_log.html
 		 * level date-time message
-		 * 
+		 *
 		 * Levels :
 		 * A - Alert message (LogLevel alert)
 		 * C - Critical error message (LogLevel crit)
@@ -83,31 +83,31 @@ class CupsAnalyzer : public Analyzer {
 		 * I - Informational message (LogLevel info)
 		 * N - Notice message (LogLevel notice)
 		 * W - Warning message (LogLevel warn)
-		 * X - Emergency error message (LogLevel emerg) 
-		 * 
+		 * X - Emergency error message (LogLevel emerg)
+		 *
 		 * Log line examples :
 		 * I [15/Feb/2004:01:29:32 +0100] LoadPPDs: No new or changed PPDs...
 		 * E [15/Feb/2004:01:43:15 +0100] Scheduler shutting down due to SIGTERM.
-		 * 
+		 *
 		 */
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
 			QString line(logLine);
-			
+
 			QChar level=logLine[0];
-			
+
 			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime( logLine.mid(2, 28) );
-				
+
 			QString message=line.remove(0, 31);
-			
+
 			QStringList list;
 			list.append(message);
-			
+
 			return new LogLine(
 					logLineInternalIdGenerator++,
-					dateTime, 
-					list, 
-					originalLogFile.url().path(), 
-					findLogLevel(level), 
+					dateTime,
+					list,
+					originalLogFile.url().path(),
+					findLogLevel(level),
 					logMode
 			);
 		}
@@ -116,21 +116,21 @@ class CupsAnalyzer : public Analyzer {
 		QMap<QChar, LogLevel*> mapTypeLevels;
 
 		void initializeTypeLevels() {
-			mapTypeLevels['d']=new LogLevel(20, i18n("debug 2"), DEBUG2_LOG_LEVEL_ICON, QColor(169, 189, 165));
-			mapTypeLevels['D']=Globals::instance()->debugLogLevel();
-			mapTypeLevels['I']=Globals::instance()->informationLogLevel();
-			mapTypeLevels['N']=Globals::instance()->noticeLogLevel();
-			mapTypeLevels['W']=Globals::instance()->warningLogLevel();
-			mapTypeLevels['E']=Globals::instance()->errorLogLevel();
-			mapTypeLevels['C']=Globals::instance()->criticalLogLevel();
-			mapTypeLevels['A']=Globals::instance()->alertLogLevel();
-			mapTypeLevels['X']=Globals::instance()->emergencyLogLevel();
-			mapTypeLevels[' ']=Globals::instance()->noLogLevel();
+			mapTypeLevels[QLatin1Char( 'd' )]=new LogLevel(20, i18n("debug 2"), QLatin1String( DEBUG2_LOG_LEVEL_ICON ), QColor(169, 189, 165));
+			mapTypeLevels[QLatin1Char( 'D' )]=Globals::instance()->debugLogLevel();
+			mapTypeLevels[QLatin1Char( 'I' )]=Globals::instance()->informationLogLevel();
+			mapTypeLevels[QLatin1Char( 'N' )]=Globals::instance()->noticeLogLevel();
+			mapTypeLevels[QLatin1Char( 'W' )]=Globals::instance()->warningLogLevel();
+			mapTypeLevels[QLatin1Char( 'E' )]=Globals::instance()->errorLogLevel();
+			mapTypeLevels[QLatin1Char( 'C' )]=Globals::instance()->criticalLogLevel();
+			mapTypeLevels[QLatin1Char( 'A' )]=Globals::instance()->alertLogLevel();
+			mapTypeLevels[QLatin1Char( 'X' )]=Globals::instance()->emergencyLogLevel();
+			mapTypeLevels[QLatin1Char( ' ' )]=Globals::instance()->noLogLevel();
 		}
 
 		LogLevel* findLogLevel(const QChar& type) {
 			QMap<QChar, LogLevel*>::iterator it;
-			
+
 			it=mapTypeLevels.find(type);
 			if (it!=mapTypeLevels.end()) {
 				return(*it);

@@ -34,17 +34,17 @@
 #include "cupsPageLogMode.h"
 
 class CupsPageAnalyzer : public Analyzer {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		explicit CupsPageAnalyzer(LogMode* logMode) :
 			Analyzer(logMode),
-			cupsPageRegex("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)") {
+			cupsPageRegex(QLatin1String( "(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)" )) {
 		}
-		
+
 		virtual ~CupsPageAnalyzer() {
-			
+
 		}
 
 		LogViewColumns initColumns() {
@@ -61,11 +61,11 @@ class CupsPageAnalyzer : public Analyzer {
 			return columns;
 		}
 
-		
+
 	protected:
-		
+
 		QRegExp cupsPageRegex;
-		
+
 		LogFileReader* createLogFileReader(const LogFile& logFile) {
 			return new LocalLogFileReader(logFile);
 		}
@@ -77,12 +77,12 @@ class CupsPageAnalyzer : public Analyzer {
 		/*
 		 * http://www.cups.org/documentation.php/ref-page_log.html
 		 * Format : printer user job-id date-time page-number num-copies job-billing
-		 * 
+		 *
 		 * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123
 		 * DeskJet root 2 [20/May/1999:19:21:05 +0000] 2 1 acme-123
 		 */
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			
+
 			QString line(logLine);
 
 			int firstPosition = cupsPageRegex.indexIn(logLine);
@@ -90,7 +90,7 @@ class CupsPageAnalyzer : public Analyzer {
 				logDebug() << "Unable to parse line " << logLine << endl;
 				return NULL;
 			}
-						
+
 			QStringList capturedTexts = cupsPageRegex.capturedTexts();
 
 			//Remove full line
@@ -100,10 +100,10 @@ class CupsPageAnalyzer : public Analyzer {
 
 			return new LogLine(
 					logLineInternalIdGenerator++,
-					dateTime, 
-					capturedTexts, 
-					originalLogFile.url().path(), 
-					Globals::instance()->informationLogLevel(), 
+					dateTime,
+					capturedTexts,
+					originalLogFile.url().path(),
+					Globals::instance()->informationLogLevel(),
 					logMode
 			);
 		}

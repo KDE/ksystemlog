@@ -40,21 +40,21 @@
 #include "systemLogMode.h"
 
 class SystemConfigurationWidget : public LogModeConfigurationWidget {
-	
+
 	Q_OBJECT
-	
+
 	public:
-		SystemConfigurationWidget() : 
-			LogModeConfigurationWidget(i18n("System Log"), SYSTEM_MODE_ICON, i18n("System Log"))
+		SystemConfigurationWidget() :
+			LogModeConfigurationWidget(i18n("System Log"),QLatin1String( SYSTEM_MODE_ICON ), i18n("System Log"))
 			{
-			
+
 			QVBoxLayout* layout = new QVBoxLayout();
 			this->setLayout(layout);
 
 			QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
 			fileList = new LogLevelFileList(this, description);
-			
+
 			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
 			layout->addWidget(fileList);
@@ -62,7 +62,7 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget {
 		}
 
 		virtual ~SystemConfigurationWidget() {
-			
+
 		}
 
 		bool isValid() const {
@@ -77,17 +77,17 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget {
 
 		void saveConfig() {
 			logDebug() << "Saving config from System Options..." << endl;
-			
-			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(SYSTEM_LOG_MODE_ID)->logModeConfiguration<SystemConfiguration*>();
+
+			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(QLatin1String( SYSTEM_LOG_MODE_ID ))->logModeConfiguration<SystemConfiguration*>();
 			systemConfiguration->setLogFilesPaths(fileList->paths());
 			systemConfiguration->setLogFilesLevels(fileList->levels());
 		}
 
 		void readConfig() {
-			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(SYSTEM_LOG_MODE_ID)->logModeConfiguration<SystemConfiguration*>();
+			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(QLatin1String( SYSTEM_LOG_MODE_ID ))->logModeConfiguration<SystemConfiguration*>();
 
 			fileList->removeAllItems();
-			
+
 			fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
 		}
 
@@ -97,7 +97,7 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget {
 		}
 
 	private:
-		
+
 		LogLevelFileList* fileList;
 
 };

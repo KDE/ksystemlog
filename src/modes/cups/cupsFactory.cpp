@@ -39,30 +39,30 @@
 QList<LogMode*> CupsLogModeFactory::createLogModes() const {
 
 	//Create the shared configuration and configuration widget between the logModes
-	
+
 	CupsConfiguration* logModeConfiguration = new CupsConfiguration();
 	CupsConfigurationWidget* logModeConfigurationWidget = new CupsConfigurationWidget();
-	
+
 	QList<LogMode*> logModes;
 	logModes.append(new CupsLogMode(logModeConfiguration, logModeConfigurationWidget));
 	logModes.append(new CupsAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
 	logModes.append(new CupsPageLogMode(logModeConfiguration, logModeConfigurationWidget));
 	logModes.append(new CupsPdfLogMode(logModeConfiguration, logModeConfigurationWidget));
-	
+
 	return logModes;
 }
 
 LogModeAction* CupsLogModeFactory::createLogModeAction() const {
-	LogMode* cupsLogMode = Globals::instance()->findLogMode(CUPS_LOG_MODE_ID);
-	
+	LogMode* cupsLogMode = Globals::instance()->findLogMode(QLatin1String( CUPS_LOG_MODE_ID ));
+
 	MultipleActions* multipleActions = new MultipleActions(KIcon( QLatin1String( CUPS_MODE_ICON) ), i18n("Cups"), cupsLogMode);
 	multipleActions->addInnerAction(cupsLogMode->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(CUPS_ACCESS_LOG_MODE_ID)->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(CUPS_PAGE_LOG_MODE_ID)->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(CUPS_PDF_LOG_MODE_ID)->action());
-	
+	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( CUPS_ACCESS_LOG_MODE_ID ))->action());
+	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( CUPS_PAGE_LOG_MODE_ID ))->action());
+	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( CUPS_PDF_LOG_MODE_ID ))->action());
+
 	multipleActions->setInToolBar(false);
 	multipleActions->setCategory(LogModeAction::ServicesCategory);
-	
+
 	return multipleActions;
 }

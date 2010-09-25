@@ -38,29 +38,29 @@ public:
 };
 
 class XorgConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		XorgConfiguration() :
 			d(new XorgConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("XorgLogMode");
-			
+			configuration->setCurrentGroup(QLatin1String( "XorgLogMode" ));
+
 			QStringList defaultXorgPaths;
-			defaultXorgPaths << "/var/log/Xorg.0.log";
-			configuration->addItemStringList("LogFilesPaths", d->xorgPaths, defaultXorgPaths, "LogFilesPaths");
-				
+			defaultXorgPaths << QLatin1String( "/var/log/Xorg.0.log" );
+			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->xorgPaths, defaultXorgPaths, QLatin1String( "LogFilesPaths" ));
+
 		}
 
 		virtual ~XorgConfiguration() {
 			delete d;
 		}
-		
+
 		QStringList xorgPaths() const {
 			return d->xorgPaths;
 		}
-		
+
 		void setXorgPaths(const QStringList& xorgPaths) {
 			d->xorgPaths = xorgPaths;
 		}

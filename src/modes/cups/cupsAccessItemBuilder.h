@@ -38,20 +38,20 @@ class CupsAccessItemBuilder : public LogModeItemBuilder {
 
 	public:
 		CupsAccessItemBuilder() {
-			
+
 		}
-		
+
 		virtual ~CupsAccessItemBuilder() {
-			
+
 		}
 
 		QString createFormattedText(LogLine* line) const {
 			QString result;
-			
+
 			QListIterator<QString> it(line->logItems());
-			
-			result.append("<table>");
-			
+
+			result.append(QLatin1String( "<table>" ));
+
 			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
 			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
 			result.append(labelMessageFormat(i18n("Hostname:"), it.next() ));
@@ -60,7 +60,7 @@ class CupsAccessItemBuilder : public LogModeItemBuilder {
 			result.append(labelMessageFormat(i18n("HTTP Response:"), it.next() ));
 			result.append(labelMessageFormat(i18n("Bytes Sent:"), it.next() ));
 
-			result.append("</table>");
+			result.append(QLatin1String( "</table>" ));
 
 			return result;
 		}

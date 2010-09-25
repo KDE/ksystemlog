@@ -34,22 +34,22 @@
 #include "cupsAccessLogMode.h"
 
 class CupsAccessAnalyzer : public Analyzer {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		explicit CupsAccessAnalyzer(LogMode* logMode) :
 			Analyzer(logMode),
-			cupsAccessRegex("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)") {
+			cupsAccessRegex(QLatin1String( "(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)" )) {
 		}
-		
+
 		virtual ~CupsAccessAnalyzer() {
-			
+
 		}
 
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
-	
+
 			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Host"), true, true));
 			columns.addColumn(LogViewColumn(i18n("Group"), true, true));
@@ -63,11 +63,11 @@ class CupsAccessAnalyzer : public Analyzer {
 			return columns;
 		}
 
-		
+
 	protected:
-		
+
 		QRegExp cupsAccessRegex;
-		
+
 		LogFileReader* createLogFileReader(const LogFile& logFile) {
 			return new LocalLogFileReader(logFile);
 		}
@@ -78,17 +78,17 @@ class CupsAccessAnalyzer : public Analyzer {
 
 		/*
 		 * http://www.cups.org/documentation.php/ref-access_log.html
-		 * 
+		 *
 		 * host group user date-time \"method resource version\" status bytes ipp-operation ipp-status
 		 * 10.0.1.2 - - [01/Dec/2005:21:50:28 +0000] "POST / HTTP/1.1" 200 317 CUPS-Get-Printers successful-ok-ignored-or-substituted-attributes
 		 * localhost - - [01/Dec/2005:21:50:32 +0000] "GET /admin HTTP/1.1" 200 0 - -
 		 * localhost - - [01/Dec/2005:21:50:32 +0000] "POST / HTTP/1.1" 200 157 CUPS-Get-Printers successful-ok-ignored-or-substituted-attributes
 		 * localhost - - [01/Dec/2005:21:50:32 +0000] "POST / HTTP/1.1" 200 1411 CUPS-Get-Devices -
 		 * localhost - - [01/Dec/2005:21:50:32 +0000] "GET /admin HTTP/1.1" 200 6667 - -
-		 * 
+		 *
 		 */
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			
+
 			QString line(logLine);
 
 			int firstPosition = cupsAccessRegex.indexIn(logLine);
@@ -96,36 +96,36 @@ class CupsAccessAnalyzer : public Analyzer {
 				logDebug() << "Unable to parse line " << logLine << endl;
 				return NULL;
 			}
-						
+
 			QStringList capturedTexts = cupsAccessRegex.capturedTexts();
 
 			//Remove full line
 			capturedTexts.removeAt(0);
-			
+
 			capturedTexts.replace(5, ParsingHelper::instance()->parseHttpResponse(capturedTexts.at(5)));
 			capturedTexts.replace(6, ParsingHelper::instance()->parseSize(capturedTexts.at(6)));
 
 			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
-			
+
 			LogLevel* logLevel = findLevel(capturedTexts.at(capturedTexts.count()-1));
 
 			return new LogLine(
 					logLineInternalIdGenerator++,
-					dateTime, 
-					capturedTexts, 
-					originalLogFile.url().path(), 
-					logLevel, 
+					dateTime,
+					capturedTexts,
+					originalLogFile.url().path(),
+					logLevel,
 					logMode
 			);
 		}
-		
-		inline LogLevel* findLevel(const QString& status) const {
-			if (status == "successful-ok")
-				return Globals::instance()->informationLogLevel();
-			else if (status == "ignored")
-				return Globals::instance()->warningLogLevel(); 
 
-			return Globals::instance()->noticeLogLevel(); 
+		inline LogLevel* findLevel(const QString& status) const {
+			if (status == QLatin1String( "successful-ok" ))
+				return Globals::instance()->informationLogLevel();
+			else if (status == QLatin1String( "ignored" ))
+				return Globals::instance()->warningLogLevel();
+
+			return Globals::instance()->noticeLogLevel();
 		}
 };
 

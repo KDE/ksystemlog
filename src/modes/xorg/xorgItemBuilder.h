@@ -40,44 +40,44 @@ class XorgItemBuilder : public LogModeItemBuilder {
 
 	public:
 		XorgItemBuilder() {
-			
+
 		}
-		
+
 		virtual ~XorgItemBuilder() {
-			
+
 		}
-		
+
 
 		void prepareItem(LogViewWidgetItem* item) const {
 			LogLine* line=item->logLine();
-				
-			item->setText(0, "");
-			
+
+			item->setText(0, QLatin1String( "" ));
+
 			int i=1;
 			foreach(const QString &label, line->logItems()) {
 				item->setText(i, label);
 				i++;
 			}
-			
+
 			item->setIcon(0, line->logLevel()->pixmap());
 		}
 
 		QString createToolTipText(LogLine* line) const {
 			QString result;
-			
+
 			QListIterator<QString> it(line->logItems());
-			
-			result.append("<table>");
-			
+
+			result.append(QLatin1String( "<table>" ));
+
 			QString type=it.next();
 			if (type.isEmpty())
 				result.append(labelMessageFormat(i18n("Type:"), i18n("none")));
 			else
 				result.append(labelMessageFormat(i18n("Type:"), type ));
-			
+
 			result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
 
-			result.append("</table>");
+			result.append(QLatin1String( "</table>" ));
 
 			return result;
 		}

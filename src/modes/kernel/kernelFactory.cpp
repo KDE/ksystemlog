@@ -39,6 +39,6 @@ QList<LogMode*> KernelLogModeFactory::createLogModes() const {
 }
 
 LogModeAction* KernelLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(KERNEL_LOG_MODE_ID);
+	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( KERNEL_LOG_MODE_ID ));
 	return new SimpleAction(logMode->action(), logMode);
 }
