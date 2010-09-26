@@ -40,21 +40,21 @@
 #include "postfixLogMode.h"
 
 class PostfixConfigurationWidget : public LogModeConfigurationWidget {
-	
+
 	Q_OBJECT
-	
+
 	public:
-		PostfixConfigurationWidget() : 
-			LogModeConfigurationWidget(i18n("Postfix Log"), POSTFIX_MODE_ICON, i18n("Postfix Log"))
+		PostfixConfigurationWidget() :
+			LogModeConfigurationWidget(i18n("Postfix Log"),QLatin1String( POSTFIX_MODE_ICON ), i18n("Postfix Log"))
 			{
-			
+
 			QVBoxLayout* layout = new QVBoxLayout();
 			this->setLayout(layout);
 
 			QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
 			fileList = new LogLevelFileList(this, description);
-			
+
 			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
 			layout->addWidget(fileList);
@@ -62,7 +62,7 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget {
 		}
 
 		virtual ~PostfixConfigurationWidget() {
-			
+
 		}
 
 		bool isValid() const {
@@ -77,17 +77,17 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget {
 
 		void saveConfig() {
 			logDebug() << "Saving config from Postfix Options..." << endl;
-			
-			PostfixConfiguration* configuration = Globals::instance()->findLogMode(POSTFIX_LOG_MODE_ID)->logModeConfiguration<PostfixConfiguration*>();
+
+			PostfixConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( POSTFIX_LOG_MODE_ID ))->logModeConfiguration<PostfixConfiguration*>();
 			configuration->setLogFilesPaths(fileList->paths());
 			configuration->setLogFilesLevels(fileList->levels());
 		}
 
 		void readConfig() {
-			PostfixConfiguration* configuration = Globals::instance()->findLogMode(POSTFIX_LOG_MODE_ID)->logModeConfiguration<PostfixConfiguration*>();
+			PostfixConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( POSTFIX_LOG_MODE_ID ))->logModeConfiguration<PostfixConfiguration*>();
 
 			fileList->removeAllItems();
-			
+
 			fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
 		}
 
@@ -97,7 +97,7 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget {
 		}
 
 	private:
-		
+
 		LogLevelFileList* fileList;
 
 };

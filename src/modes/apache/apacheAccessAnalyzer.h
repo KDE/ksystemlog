@@ -34,22 +34,22 @@
 #include "apacheAccessLogMode.h"
 
 class ApacheAccessAnalyzer : public Analyzer {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		explicit ApacheAccessAnalyzer(LogMode* logMode) :
 			Analyzer(logMode) {
-			
+
 		}
-		
+
 		virtual ~ApacheAccessAnalyzer() {
-			
+
 		}
 
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
-			
+
 			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Host Name"), true, true));
 			columns.addColumn(LogViewColumn(i18n("Id."), true, true)); //=Identification protocol [From RFC1413 (see Google for more infos)]
@@ -63,9 +63,9 @@ class ApacheAccessAnalyzer : public Analyzer {
 			return columns;
 		}
 
-		
+
 	protected:
-		
+
 		LogFileReader* createLogFileReader(const LogFile& logFile) {
 			return new LocalLogFileReader(logFile);
 		}
@@ -76,54 +76,54 @@ class ApacheAccessAnalyzer : public Analyzer {
 
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
 			QString line(logLine);
-		
-			int spacePos=line.indexOf(' ');
-			
-			QString hostName=line.left(spacePos);	
+
+			int spacePos=line.indexOf(QLatin1Char( ' ' ));
+
+			QString hostName=line.left(spacePos);
 			line=line.remove(0, spacePos+1);
-			
-			spacePos=line.indexOf(' ');
+
+			spacePos=line.indexOf(QLatin1Char( ' ' ));
 			QString identd=line.left(spacePos);
 			line=line.remove(0, spacePos+1);
-			
-			spacePos=line.indexOf(' ');
+
+			spacePos=line.indexOf(QLatin1Char( ' ' ));
 			QString userName=line.left(spacePos);
 			line=line.remove(0, spacePos+1);
-		
-			int endDate=line.indexOf(']');
+
+			int endDate=line.indexOf(QLatin1Char( ']' ));
 			QString strDateTime=line.left(endDate);
 			line=line.remove(0, endDate+3);
-			
+
 			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count()-2));
-			
-			int endQuote=line.indexOf('\"');
+
+			int endQuote=line.indexOf(QLatin1Char( '\"' ));
 			QString message=line.left(endQuote);
 			line=line.remove(0, endQuote+2);
-			
-			spacePos=line.indexOf(' ');
+
+			spacePos=line.indexOf(QLatin1Char( ' ' ));
 			QString httpResponse=ParsingHelper::instance()->parseHttpResponse(line.left(spacePos));
 			line=line.remove(0, spacePos+1);
-		
-			spacePos=line.indexOf(' ');
+
+			spacePos=line.indexOf(QLatin1Char( ' ' ));
 			QString bytesSent=ParsingHelper::instance()->parseSize(line.left(spacePos));
 			line=line.remove(0, spacePos+2);
-			
+
 			QString url;
-			
-			endQuote=line.indexOf('\"');
+
+			endQuote=line.indexOf(QLatin1Char( '\"' ));
 			if (endQuote!=-1) {
 				url=line.left(endQuote);
 				line=line.remove(0, endQuote+3);
 			}
-				
+
 			QString agent;
-			
+
 			//TODO Convert this value to find a more simple name for the Agent
-			endQuote=line.indexOf('\"');
+			endQuote=line.indexOf(QLatin1Char( '\"' ));
 			if (endQuote!=-1) {
 				agent=ParsingHelper::instance()->parseAgent(line.left(endQuote));
 			}
-			
+
 			QStringList list;
 			list.append(hostName);
 			list.append(identd);
@@ -133,13 +133,13 @@ class ApacheAccessAnalyzer : public Analyzer {
 			list.append(agent);
 			list.append(message);
 			list.append(url);
-			
+
 			return new LogLine(
 					logLineInternalIdGenerator++,
-					dateTime, 
-					list, 
-					originalLogFile.url().path(), 
-					Globals::instance()->informationLogLevel(), 
+					dateTime,
+					list,
+					originalLogFile.url().path(),
+					Globals::instance()->informationLogLevel(),
 					logMode
 			);
 		}

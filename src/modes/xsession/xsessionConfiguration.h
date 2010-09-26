@@ -36,74 +36,74 @@
 class XSessionConfigurationPrivate {
 public:
 	QString xsessionPath;
-	
+
 	bool ignoreXorgErrors;
-	
+
 	QStringList xorgErrorKeywords;
-	
+
 	QStringList warningKeywords;
 	QStringList errorKeywords;
 };
 
 class XSessionConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		XSessionConfiguration() :
 			d(new XSessionConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("XSessionLogMode");
-			
-			configuration->addItemString("LogFilePath", d->xsessionPath, "~/.xsession-errors", "LogFilePath");
-			
-			configuration->addItemBool("IgnoreXorgErrors", d->ignoreXorgErrors, false, "IgnoreXorgErrors");
-			
+			configuration->setCurrentGroup(QLatin1String( "XSessionLogMode" ));
+
+			configuration->addItemString(QLatin1String( "LogFilePath" ), d->xsessionPath, QLatin1String( "~/.xsession-errors" ), QLatin1String( "LogFilePath" ));
+
+			configuration->addItemBool(QLatin1String( "IgnoreXorgErrors" ), d->ignoreXorgErrors, false, QLatin1String( "IgnoreXorgErrors" ));
+
 			QStringList defaultXorgErrorKeywords;
-			defaultXorgErrorKeywords.append("X Error");
-			defaultXorgErrorKeywords.append("  Major opcode");
-			defaultXorgErrorKeywords.append("  Minor opcode");
-			defaultXorgErrorKeywords.append("  Resource id");
-			configuration->addItemStringList("XorgErrorKeywords", d->xorgErrorKeywords, defaultXorgErrorKeywords, "XorgErrorKeywords");
-			
+			defaultXorgErrorKeywords.append(QLatin1String( "X Error" ));
+			defaultXorgErrorKeywords.append(QLatin1String( "  Major opcode" ));
+			defaultXorgErrorKeywords.append(QLatin1String( "  Minor opcode" ));
+			defaultXorgErrorKeywords.append(QLatin1String( "  Resource id" ));
+			configuration->addItemStringList(QLatin1String( "XorgErrorKeywords" ), d->xorgErrorKeywords, defaultXorgErrorKeywords, QLatin1String( "XorgErrorKeywords" ));
+
 			QStringList defaultWarningKeywords;
-			defaultWarningKeywords.append("WARNING");
-			configuration->addItemStringList("WarningKeywords", d->warningKeywords, defaultWarningKeywords, "WarningKeywords");
-			
+			defaultWarningKeywords.append(QLatin1String( "WARNING" ));
+			configuration->addItemStringList(QLatin1String( "WarningKeywords" ), d->warningKeywords, defaultWarningKeywords, QLatin1String( "WarningKeywords" ));
+
 			QStringList defaultErrorKeywords;
-			defaultErrorKeywords.append("ERROR");
-			configuration->addItemStringList("ErrorKeywords", d->errorKeywords, defaultErrorKeywords, "ErrorKeywords");
+			defaultErrorKeywords.append(QLatin1String( "ERROR" ));
+			configuration->addItemStringList(QLatin1String( "ErrorKeywords" ), d->errorKeywords, defaultErrorKeywords, QLatin1String( "ErrorKeywords" ));
 
 		}
 
 		virtual ~XSessionConfiguration() {
 			delete d;
 		}
-		
+
 		QStringList xorgErrorKeywords() const {
 			return d->xorgErrorKeywords;
 		}
-		
+
 		bool isIgnoreXorgErrors() const {
 			return d->ignoreXorgErrors;
 		}
-		
+
 		void setIgnoreXorgErrors(bool ignore) {
 			d->ignoreXorgErrors = ignore;
 		}
-		
+
 		QString xsessionPath() const {
 			return d->xsessionPath;
 		}
-		
+
 		void setXSessionPath(const QString& xsessionPath) {
 			d->xsessionPath = xsessionPath;
 		}
-		
+
 		QStringList warningKeywords() const {
 			return d->warningKeywords;
 		}
-		
+
 		QStringList errorKeywords() const {
 			return d->errorKeywords;
 		}

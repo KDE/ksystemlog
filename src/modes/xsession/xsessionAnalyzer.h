@@ -34,33 +34,33 @@
 
 class XSessionAnalyzer : public Analyzer {
 	Q_OBJECT
-	
+
 	public:
-		XSessionAnalyzer(LogMode* logMode) : 
+		XSessionAnalyzer(LogMode* logMode) :
 			Analyzer(logMode),
 			currentDateTime(QDateTime::currentDateTime())
 			{
 
 		}
-		
+
 		virtual ~XSessionAnalyzer() {
-			
+
 		}
-		
+
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
-			
+
 			columns.addColumn(LogViewColumn(i18n("Line"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Program"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-			
+
 			columns.setGroupByDay(false);
 			columns.setGroupByHour(false);
 
 			return columns;
 		}
 
-		
+
 	protected:
 		LogFileReader* createLogFileReader(const LogFile& logFile) {
 			return new LocalLogFileReader(logFile);
@@ -75,32 +75,32 @@ class XSessionAnalyzer : public Analyzer {
 		}
 
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
-			int classPrototypePosition=logLine.indexOf("::");
-			int programPos=logLine.indexOf(':');
-			
+			int classPrototypePosition=logLine.indexOf(QLatin1String( "::" ));
+			int programPos=logLine.indexOf(QLatin1Char( ':' ));
+
 			//If the first found : is the begin of a :: (example: QFile::at:) then we move to the next :
 			if (classPrototypePosition != -1 && programPos==classPrototypePosition) {
-				programPos=logLine.indexOf(':', classPrototypePosition+2);
+				programPos=logLine.indexOf(QLatin1Char( ':' ), classPrototypePosition+2);
 			}
-			
+
 			QString program;
 			QString message;
 			if (programPos==-1) {
-				program = "";
+				program = QLatin1String( "" );
 				message = logLine.simplified();
 			}
 			else {
 				program = logLine.left(programPos);
 				message = logLine.right(logLine.length()-programPos-1);
 			}
-			
+
 			message = message.simplified();
-			
+
 			//Do not add this line if this is a X error that the user wants to ignore
 			if (isXorgError(program) == true) {
 				return NULL;
 			}
-			
+
 			//Find the right log level
 			LogLevel* logLevel;
 			if (hasErrorKeywords(message))
@@ -109,25 +109,25 @@ class XSessionAnalyzer : public Analyzer {
 				logLevel = Globals::instance()->warningLogLevel();
 			else
 				logLevel = Globals::instance()->informationLogLevel();
-						
-			
-			
+
+
+
 			return new LogLine(
-					logLineInternalIdGenerator++, 
-					currentDateTime, 
-					QStringList() << program << message, 
-					originalFile.url().path(), 
-					logLevel, 
+					logLineInternalIdGenerator++,
+					currentDateTime,
+					QStringList() << program << message,
+					originalFile.url().path(),
+					logLevel,
 					logMode
 			);
 		}
-		
+
 	private:
 		bool isXorgError(const QString& program) {
 			XSessionConfiguration* configuration = logMode->logModeConfiguration<XSessionConfiguration*>();
 			if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
 				return true;
-			
+
 			return false;
 		}
 
@@ -147,10 +147,10 @@ class XSessionAnalyzer : public Analyzer {
 					return true;
 				}
 			}
-			
+
 			return false;
 		}
-	
+
 
 		QDateTime currentDateTime;
 

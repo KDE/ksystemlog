@@ -35,9 +35,9 @@
 #include "sambaConfiguration.h"
 
 
-SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) : 
-	LogMode(SAMBA_ACCESS_LOG_MODE_ID, i18n("Samba Access Log"), SAMBA_ACCESS_MODE_ICON) {
-	
+SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) :
+	LogMode(QLatin1String( SAMBA_ACCESS_LOG_MODE_ID ), i18n("Samba Access Log"),QLatin1String( SAMBA_ACCESS_MODE_ICON )) {
+
 	d->logModeConfiguration = sambaConfiguration;
 	d->logModeConfigurationWidget = sambaConfigurationWidget;
 	d->itemBuilder = itemBuilder;
@@ -46,11 +46,11 @@ SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration* sambaConfiguration, S
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Samba Access log."));
 	d->action->setWhatsThis(i18n("Displays the Samba Access log in the current tab. This log mode allows you to see connections between your shares and remote hosts."));
-	
+
 }
 
 SambaAccessLogMode::~SambaAccessLogMode() {
-	
+
 }
 
 Analyzer* SambaAccessLogMode::createAnalyzer() {

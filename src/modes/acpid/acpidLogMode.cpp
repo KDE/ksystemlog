@@ -34,15 +34,15 @@
 #include "acpidConfigurationWidget.h"
 #include "acpidConfiguration.h"
 
-AcpidLogMode::AcpidLogMode() : 
-	LogMode(ACPID_LOG_MODE_ID, i18n("ACPI Log"), ACPID_MODE_ICON) {
-	
+AcpidLogMode::AcpidLogMode() :
+	LogMode(QLatin1String( ACPID_LOG_MODE_ID ), i18n("ACPI Log"),QLatin1String( ACPID_MODE_ICON )) {
+
 	d->logModeConfiguration = new AcpidConfiguration();
-	
+
 	d->logModeConfigurationWidget = new AcpidConfigurationWidget();
-	
+
 	d->itemBuilder = new AcpidItemBuilder();
-	
+
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the ACPI log."));
 	d->action->setWhatsThis(i18n("Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your computer, like notebook batteries, reset buttons..."));
@@ -50,7 +50,7 @@ AcpidLogMode::AcpidLogMode() :
 }
 
 AcpidLogMode::~AcpidLogMode() {
-	
+
 }
 
 Analyzer* AcpidLogMode::createAnalyzer() {

@@ -37,26 +37,26 @@
 QList<LogMode*> ApacheLogModeFactory::createLogModes() const {
 
 	//Create the shared configuration and configuration widget between the logModes
-	
+
 	ApacheConfiguration* logModeConfiguration = new ApacheConfiguration();
 	ApacheConfigurationWidget* logModeConfigurationWidget = new ApacheConfigurationWidget();
-	
+
 	QList<LogMode*> logModes;
 	logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
 	logModes.append(new ApacheAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
-	
+
 	return logModes;
 }
 
 LogModeAction* ApacheLogModeFactory::createLogModeAction() const {
-	LogMode* apacheLogMode = Globals::instance()->findLogMode(APACHE_LOG_MODE_ID);
-	
+	LogMode* apacheLogMode = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ));
+
 	MultipleActions* multipleActions = new MultipleActions(KIcon( QLatin1String(APACHE_MODE_ICON) ), i18n("Apache"), apacheLogMode);
 	multipleActions->addInnerAction(apacheLogMode->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(APACHE_ACCESS_LOG_MODE_ID)->action());
-	
+	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ))->action());
+
 	multipleActions->setInToolBar(false);
 	multipleActions->setCategory(LogModeAction::ServicesCategory);
-	
+
 	return multipleActions;
 }

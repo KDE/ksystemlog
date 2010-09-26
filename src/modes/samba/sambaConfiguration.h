@@ -36,66 +36,66 @@
 class SambaConfigurationPrivate {
 public:
 	QStringList sambaPaths;
-	
+
 	QStringList sambaAccessPaths;
-	
+
 	QStringList netbiosPaths;
 };
 
 class SambaConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		SambaConfiguration() :
 			d(new SambaConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("SambaLogMode");
-			
+			configuration->setCurrentGroup(QLatin1String( "SambaLogMode" ));
+
 			QStringList defaultSambaPaths;
-			defaultSambaPaths << "/var/log/samba/log.smbd";
-			configuration->addItemStringList("SambaLogFilesPaths", d->sambaPaths, defaultSambaPaths, "SambaLogFilesPaths");
+			defaultSambaPaths << QLatin1String( "/var/log/samba/log.smbd" );
+			configuration->addItemStringList(QLatin1String( "SambaLogFilesPaths" ), d->sambaPaths, defaultSambaPaths, QLatin1String( "SambaLogFilesPaths" ));
 
 			QStringList defaultSambaAccessPaths;
-			defaultSambaAccessPaths << "/var/log/samba/log.localhost"  << "/var/log/samba/log.127.0.0.1";
-			configuration->addItemStringList("SambaAccessLogFilesPaths", d->sambaAccessPaths, defaultSambaAccessPaths, "SambaAccessLogFilesPaths");
-			
+			defaultSambaAccessPaths << QLatin1String( "/var/log/samba/log.localhost" )  << QLatin1String( "/var/log/samba/log.127.0.0.1" );
+			configuration->addItemStringList(QLatin1String( "SambaAccessLogFilesPaths" ), d->sambaAccessPaths, defaultSambaAccessPaths, QLatin1String( "SambaAccessLogFilesPaths" ));
+
 			QStringList defaultNetbiosPaths;
-			defaultNetbiosPaths << "/var/log/samba/log.nmbd";
-			configuration->addItemStringList("NetbiosLogFilesPaths", d->netbiosPaths, defaultNetbiosPaths, "NetbiosLogFilesPaths");
+			defaultNetbiosPaths << QLatin1String( "/var/log/samba/log.nmbd" );
+			configuration->addItemStringList(QLatin1String( "NetbiosLogFilesPaths" ), d->netbiosPaths, defaultNetbiosPaths, QLatin1String( "NetbiosLogFilesPaths" ));
 		}
 
 		virtual ~SambaConfiguration() {
 			delete d;
 		}
-		
+
 		QStringList sambaPaths() const {
 			return d->sambaPaths;
 		}
-		
+
 		QStringList sambaAccessPaths() const {
 			return d->sambaAccessPaths;
 		}
-		
+
 		QStringList netbiosPaths() const {
 			return d->netbiosPaths;
 		}
-		
+
 		void setSambaPaths(const QStringList& sambaPaths) {
 			d->sambaPaths = sambaPaths;
 		}
-		
+
 		void setNetbiosPaths(const QStringList& netbiosPaths) {
 			d->netbiosPaths = netbiosPaths;
 		}
-		
+
 		void setSambaAccessPaths(const QStringList& sambaAccessPaths) {
 			d->sambaAccessPaths = sambaAccessPaths;
 		}
-		
+
 	private:
 		SambaConfigurationPrivate* const d;
-		
+
 };
 
 #endif // _SAMBA_CONFIGURATION_H_

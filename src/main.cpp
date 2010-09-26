@@ -29,8 +29,8 @@
 #include "logging.h"
 
 int main(int argc, char** argv) {
-	
-	KAboutData about(	
+
+	KAboutData about(
 			"ksystemlog",
 			0,
 			ki18n("KSystemlog"),
@@ -42,26 +42,26 @@ int main(int argc, char** argv) {
 			"http://ksystemlog.forum-software.org",
 			"nicolas.ternisien@gmail.com"
 	);
-	
+
 	about.addAuthor(
-			ki18n("Nicolas Ternisien"), 
-			ki18n("Main developer"), 
-			"nicolas.ternisien@gmail.com", 
+			ki18n("Nicolas Ternisien"),
+			ki18n("Main developer"),
+			"nicolas.ternisien@gmail.com",
 			"http://www.forum-software.org"
 	);
-	
-	about.setProgramIconName("utilities-log-viewer");
+
+	about.setProgramIconName(QLatin1String( "utilities-log-viewer" ));
 	about.addCredit(ki18n("Bojan Djurkovic"), ki18n("Log Printing"), "dbojan@gmail.com");
-	
+
 	KCmdLineArgs::init(argc, argv, &about);
-	
+
 	KCmdLineOptions options;
 	options.add("+[URL]", ki18n("Document to open"));
 
 	KCmdLineArgs::addCmdLineOptions( options );
-	
+
 	KApplication app;
-	
+
 	//See if we are starting with session management
 	if (app.isSessionRestored()) {
 		RESTORE(KSystemLog::MainWindow);
@@ -81,12 +81,12 @@ int main(int argc, char** argv) {
 				//LogManager* firstLogManager = d->tabs->createTab();
 				//d->tabs->load(Globals::instance()->findLogMode("openLogMode"), firstLogManager);
 				//Open log mode need to automatically find the passed url : args->url(i)
-			
+
 			}
 		}
-		
+
 		args->clear();
 	}
-	
+
 	return app.exec();
 }

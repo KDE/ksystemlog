@@ -42,11 +42,11 @@
 
 class ConfigurationDialogPrivate {
 public:
-	
+
 	GeneralConfigurationWidget* generalConfiguration;
-	
+
 	QList<LogModeConfigurationWidget*> logModeConfigurations;
-	
+
 	bool changed;
 };
 
@@ -54,11 +54,11 @@ ConfigurationDialog::ConfigurationDialog(QWidget* parent) :
 	KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self()),
 	d(new ConfigurationDialogPrivate())
 	{
-	
+
 	d->changed = false;
 
 	setupGeneralConfiguration();
-	
+
 	setupLogModeConfigurations();
 
 }
@@ -71,27 +71,27 @@ ConfigurationDialog::~ConfigurationDialog() {
 void ConfigurationDialog::setupLogModeConfigurations() {
 	logDebug() << "Setup Log Mode Configurations..." << endl;
 
-	
+
 	foreach(LogMode* logMode, Globals::instance()->logModes()) {
 		//Some Log mode does not need a configuration widget
 		if (logMode->logModeConfigurationWidget() == NULL) {
 			continue;
 		}
-		
+
 		//The configuration widget could be shared between Log Modes
 		if (d->logModeConfigurations.contains(logMode->logModeConfigurationWidget()) == true) {
 			continue;
 		}
-	
+
 		d->logModeConfigurations.append(logMode->logModeConfigurationWidget());
 	}
-		
+
 
 	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
 		logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration..." << endl;
-		
+
 		addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(), logModeConfigurationWidget->iconName(), logModeConfigurationWidget->header(), false);
-	
+
 		connect(logModeConfigurationWidget, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
 	}
 }
@@ -105,24 +105,24 @@ void ConfigurationDialog::showConfiguration() {
 void ConfigurationDialog::setupGeneralConfiguration() {
 	d->generalConfiguration = new GeneralConfigurationWidget();
 
-	addPage(d->generalConfiguration, i18n("General"), KSYSTEMLOG_ICON, i18n("General"), false);
+	addPage(d->generalConfiguration, i18n("General"), QLatin1String( KSYSTEMLOG_ICON ), i18n("General"), false);
 
 	connect(d->generalConfiguration, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
 }
 
 void ConfigurationDialog::updateSettings() {
 	logDebug() << "Saving configuration..." << endl;
-	
+
 	d->changed = false;
-	
+
 	d->generalConfiguration->saveConfig();
-	
+
 	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
 		logModeConfigurationWidget->saveConfig();
 	}
 
 	KSystemLogConfig::self()->writeConfig();
-	
+
 	emit configurationSaved();
 
 	logDebug() << "Configuration saved" << endl;
@@ -135,7 +135,7 @@ bool ConfigurationDialog::hasChanged() {
 
 void ConfigurationDialog::updateConfiguration() {
 	logDebug() << "Updating configuration..." << endl;
-	
+
 	bool valid = d->generalConfiguration->isValid();
 	if (valid) {
 		foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
@@ -145,10 +145,10 @@ void ConfigurationDialog::updateConfiguration() {
 			}
 		}
 	}
-	
+
 	if (valid == true) {
 		enableButtonOk(true);
-		
+
 		updateButtons();
 	}
 	else {
@@ -162,12 +162,12 @@ void ConfigurationDialog::updateButtons() {
 	logDebug() << "Updating configuration buttons..." << endl;
 
 	d->changed = true;
-	
+
 }
 
 void ConfigurationDialog::updateWidgets() {
 	logDebug() << "Reading configuration..." << endl;
-	
+
 	d->generalConfiguration->readConfig();
 	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
 		logModeConfigurationWidget->readConfig();
@@ -178,12 +178,12 @@ void ConfigurationDialog::updateWidgets() {
 
 void ConfigurationDialog::updateWidgetsDefault() {
 	logDebug() << "Loading default configuration..." << endl;
-	
+
 	d->generalConfiguration->defaultConfig();
 	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
 		logModeConfigurationWidget->defaultConfig();
 	}
-	
+
 	d->changed = false;
 }
 
@@ -191,9 +191,9 @@ bool ConfigurationDialog::isDefault() {
 	/**
 	 * TODO Set this to true and find a way to retrieve defaults value
 	 * of the configuration (see defaultConfig() methods of LogModeConfigurations)
-	 */ 
-	
-	return true; 
+	 */
+
+	return true;
 }
 
 #include "configurationDialog.moc"

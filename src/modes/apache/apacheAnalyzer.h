@@ -36,24 +36,24 @@
 class ApacheAnalyzer : public Analyzer {
 
 	Q_OBJECT
-	
+
 	public:
 		explicit ApacheAnalyzer(LogMode* logMode) :
 			Analyzer(logMode) {
-			
+
 			initializeTypeLevels();
 		}
-		
+
 		virtual ~ApacheAnalyzer() {
-			
+
 		}
-		
+
 		LogViewColumns initColumns() {
 			LogViewColumns columns;
 			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Client"), true, false));
 			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-			
+
 			return columns;
 		}
 
@@ -77,96 +77,96 @@ class ApacheAnalyzer : public Analyzer {
 		 * [client 127.0.0.1] PHP Parse error:  parse error, unexpected T_PRIVATE, expecting T_STRING in /mnt/boulot/web/annivernet/src/fonctions/formulaire.inc.php on line 25
 		 */
 		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			
+
 			QString line(logLine);
-			
+
 			QDate date;
 			QTime time;
-			
+
 			QString level;
-			
+
 			//Temporary variable
 			int squareBracket;
-			
+
 			//Special case which sometimes happens
-			if (line.indexOf("[client")==0) {
+			if (line.indexOf(QLatin1String( "[client" ))==0) {
 				date=QDate::currentDate();
 				time=QTime::currentTime();
-				level="notice";
+				level=QLatin1String( "notice" );
 			}
 			else {
-			
+
 				//The Date
-				int dateBegin=line.indexOf("[");
-				int dateEnd=line.indexOf("]");
-				
+				int dateBegin=line.indexOf(QLatin1String( "[" ));
+				int dateEnd=line.indexOf(QLatin1String( "]" ));
+
 				QString type;
 				QString message;
-			
-			
+
+
 				QString strDate=line.mid(dateBegin+1, dateEnd-dateBegin-1);
-				
+
 				QString month=strDate.mid(4, 3);
-				
+
 				QString day=strDate.mid(8, 2);
-				
+
 				QString hour=strDate.mid(11, 2);
 				QString min=strDate.mid(14, 2);
 				QString sec=strDate.mid(17, 2);
-				
+
 				QString year=strDate.mid(20, 4);
-			
+
 				date=QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
 				time=QTime(hour.toInt(), min.toInt(), sec.toInt());
-			
+
 				line=line.remove(0, dateEnd+3);
-			
+
 
 				//The log level
-				squareBracket=line.indexOf("]");
+				squareBracket=line.indexOf(QLatin1String( "]" ));
 				level=line.left(squareBracket);
 				line=line.remove(0, squareBracket+2);
 			}
-			
+
 			//The client
-			int beginSquareBracket=line.indexOf("[client");
-			squareBracket=line.indexOf("]");
+			int beginSquareBracket=line.indexOf(QLatin1String( "[client" ));
+			squareBracket=line.indexOf(QLatin1String( "]" ));
 			QString client;
 			if (beginSquareBracket==-1 || squareBracket==-1) {
-				client="";
+				client=QLatin1String( "" );
 			}
 			else {
 				client=line.mid(8, squareBracket-8); //8=strlen("[client ")
 				line=line.remove(0, squareBracket+2);
 			}
-			
+
 
 			QStringList list;
 			list.append(client);
 			list.append(line);
-			
+
 			return new LogLine(
 					logLineInternalIdGenerator++,
-					QDateTime(date, time), 
-					list, 
-					originalLogFile.url().path(), 
-					findLogLevel(level), 
+					QDateTime(date, time),
+					list,
+					originalLogFile.url().path(),
+					findLogLevel(level),
 					logMode
 			);
 		}
 
 	private:
 		QMap<QString, LogLevel*> mapTypeLevels;
-		
+
 		void initializeTypeLevels() {
-			mapTypeLevels["notice"]=Globals::instance()->informationLogLevel();
-			mapTypeLevels["warn"]=Globals::instance()->warningLogLevel();
-			mapTypeLevels["error"]=Globals::instance()->errorLogLevel();
+			mapTypeLevels[QLatin1String( "notice" )]=Globals::instance()->informationLogLevel();
+			mapTypeLevels[QLatin1String( "warn" )]=Globals::instance()->warningLogLevel();
+			mapTypeLevels[QLatin1String( "error" )]=Globals::instance()->errorLogLevel();
 		}
-		
+
 		LogLevel* findLogLevel(const QString& type) {
 			QMap<QString, LogLevel*>::iterator it;
-			
+
 			it=mapTypeLevels.find(type);
 			if (it!=mapTypeLevels.end()) {
 				return (*it);

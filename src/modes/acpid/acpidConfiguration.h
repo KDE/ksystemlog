@@ -39,29 +39,29 @@ public:
 };
 
 class AcpidConfiguration : public LogModeConfiguration {
-	
+
 	Q_OBJECT
-	
+
 	public:
 		AcpidConfiguration() :
 			d(new AcpidConfigurationPrivate()) {
 
-			configuration->setCurrentGroup("AcpidLogMode");
-			
+			configuration->setCurrentGroup(QLatin1String( "AcpidLogMode" ));
+
 			QStringList defaultAcpidPaths;
-			defaultAcpidPaths << "/var/log/acpid";
-			configuration->addItemStringList("LogFilesPaths", d->acpidPaths, defaultAcpidPaths, "LogFilesPaths");
-				
+			defaultAcpidPaths << QLatin1String( "/var/log/acpid" );
+			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->acpidPaths, defaultAcpidPaths, QLatin1String( "LogFilesPaths" ));
+
 		}
 
 		virtual ~AcpidConfiguration() {
 			delete d;
 		}
-		
+
 		QStringList acpidPaths() const {
 			return d->acpidPaths;
 		}
-		
+
 		void setAcpidPaths(const QStringList& acpidPaths) {
 			d->acpidPaths = acpidPaths;
 		}

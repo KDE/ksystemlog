@@ -35,23 +35,23 @@
 #include "apacheConfiguration.h"
 
 
-ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget) : 
-	LogMode(APACHE_ACCESS_LOG_MODE_ID, i18n("Apache Access Log"), APACHE_ACCESS_MODE_ICON) {
-	
+ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget) :
+	LogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ), i18n("Apache Access Log"), QLatin1String( APACHE_ACCESS_MODE_ICON )) {
+
 	d->logModeConfiguration = apacheConfiguration;
 	d->logModeConfigurationWidget = apacheConfigurationWidget;
-	
+
 	d->itemBuilder = new ApacheAccessItemBuilder();
 
 	//Apache Log Action
 	d->action = createDefaultAction();
 	d->action->setToolTip(i18n("Display the Apache Access log."));
 	d->action->setWhatsThis(i18n("Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. This log saves all requests performed by the Apache web server."));
-	
+
 }
 
 ApacheAccessLogMode::~ApacheAccessLogMode() {
-	
+
 }
 
 Analyzer* ApacheAccessLogMode::createAnalyzer() {
