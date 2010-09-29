@@ -58,36 +58,36 @@ void FindIncompatibleKioTest::initTestCase() {
 
 
 void FindIncompatibleKioTest::find() {
-	QString kdelibs("/home/nicolas/workspace/kdelibs");
-	QString kdebase("/home/nicolas/workspace/kdebase");
+	QString kdelibs = QLatin1String("/home/nicolas/workspace/kdelibs");
+	QString kdebase = QLatin1String("/home/nicolas/workspace/kdebase");
 	
-	QString outputPath("/home/nicolas/compatibleKioSlaves.html");
+	QString outputPath = QLatin1String("/home/nicolas/compatibleKioSlaves.html");
 	
 	QStringList existingMethods;
-	existingMethods << "void SlaveBase::openConnection(void)";
-	existingMethods << "void SlaveBase::closeConnection(void)";
-	existingMethods << "void SlaveBase::stat(KUrl const &)";
-	existingMethods << "void SlaveBase::put(KUrl const &, int, bool, bool)";
-	existingMethods << "void SlaveBase::special(const QByteArray &)";
-	existingMethods << "void SlaveBase::listDir(KUrl const &)";
-	existingMethods << "void SlaveBase::get(KUrl const & )";
-	existingMethods << "void SlaveBase::open(KUrl const &, QIODevice::OpenMode)";
-	existingMethods << "void SlaveBase::read(KIO::filesize_t)";
-	existingMethods << "void SlaveBase::write(const QByteArray &)";
-	existingMethods << "void SlaveBase::seek(KIO::filesize_t)";
-	existingMethods << "void SlaveBase::close()";
-	existingMethods << "void SlaveBase::mimetype(KUrl const &url)";
-	existingMethods << "void SlaveBase::rename(KUrl const &, KUrl const &, bool)";
-	existingMethods << "void SlaveBase::symlink(QString const &, KUrl const &, bool)";
-	existingMethods << "void SlaveBase::copy(KUrl const &, KUrl const &, int, bool)";
-	existingMethods << "void SlaveBase::del(KUrl const &, bool)";
-	existingMethods << "void SlaveBase::setLinkDest(const KUrl &, const QString&)";
-	existingMethods << "void SlaveBase::mkdir(KUrl const &, int)";
-	existingMethods << "void SlaveBase::chmod(KUrl const &, int)";
-	existingMethods << "void SlaveBase::setModificationTime(KUrl const &, const QDateTime&)";
-	existingMethods << "void SlaveBase::chown(KUrl const &, const QString &, const QString &)";
-	existingMethods << "void SlaveBase::setSubUrl(KUrl const &)";
-	existingMethods << "void SlaveBase::multiGet(const QByteArray &)";
+	existingMethods << QLatin1String("void SlaveBase::openConnection(void)");
+	existingMethods << QLatin1String("void SlaveBase::closeConnection(void)");
+	existingMethods << QLatin1String("void SlaveBase::stat(KUrl const &)");
+	existingMethods << QLatin1String("void SlaveBase::put(KUrl const &, int, bool, bool)");
+	existingMethods << QLatin1String("void SlaveBase::special(const QByteArray &)");
+	existingMethods << QLatin1String("void SlaveBase::listDir(KUrl const &)");
+	existingMethods << QLatin1String("void SlaveBase::get(KUrl const & )");
+	existingMethods << QLatin1String("void SlaveBase::open(KUrl const &, QIODevice::OpenMode)");
+	existingMethods << QLatin1String("void SlaveBase::read(KIO::filesize_t)");
+	existingMethods << QLatin1String("void SlaveBase::write(const QByteArray &)");
+	existingMethods << QLatin1String("void SlaveBase::seek(KIO::filesize_t)");
+	existingMethods << QLatin1String("void SlaveBase::close()");
+	existingMethods << QLatin1String("void SlaveBase::mimetype(KUrl const &url)");
+	existingMethods << QLatin1String("void SlaveBase::rename(KUrl const &, KUrl const &, bool)");
+	existingMethods << QLatin1String("void SlaveBase::symlink(QString const &, KUrl const &, bool)");
+	existingMethods << QLatin1String("void SlaveBase::copy(KUrl const &, KUrl const &, int, bool)");
+	existingMethods << QLatin1String("void SlaveBase::del(KUrl const &, bool)");
+	existingMethods << QLatin1String("void SlaveBase::setLinkDest(const KUrl &, const QString&)");
+	existingMethods << QLatin1String("void SlaveBase::mkdir(KUrl const &, int)");
+	existingMethods << QLatin1String("void SlaveBase::chmod(KUrl const &, int)");
+	existingMethods << QLatin1String("void SlaveBase::setModificationTime(KUrl const &, const QDateTime&)");
+	existingMethods << QLatin1String("void SlaveBase::chown(KUrl const &, const QString &, const QString &)");
+	existingMethods << QLatin1String("void SlaveBase::setSubUrl(KUrl const &)");
+	existingMethods << QLatin1String("void SlaveBase::multiGet(const QByteArray &)");
 
 	//logDebug() << existingMethods << endl;
 	
@@ -113,28 +113,28 @@ void FindIncompatibleKioTest::find() {
 
 	QList<KUrl> parsingUrls;
 	
-	parsingUrls.append(KUrl(kdelibs + "/kioslave/http/http.h"));
-	parsingUrls.append(KUrl(kdelibs + "/kioslave/ftp/ftp.h"));
-	parsingUrls.append(KUrl(kdelibs + "/kioslave/file/file.h"));
-	parsingUrls.append(KUrl(kdelibs + "/kioslave/metainfo/metainfo.h"));
+	parsingUrls.append(KUrl(kdelibs + QLatin1String("/kioslave/http/http.h")));
+	parsingUrls.append(KUrl(kdelibs + QLatin1String("/kioslave/ftp/ftp.h")));
+	parsingUrls.append(KUrl(kdelibs + QLatin1String("/kioslave/file/file.h")));
+	parsingUrls.append(KUrl(kdelibs + QLatin1String("/kioslave/metainfo/metainfo.h")));
 	
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/about/kio_about.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/cgi/cgi.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/filter/filter.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/finger/kio_finger.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/fish/fish.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/floppy/kio_floppy.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/info/info.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/man/kio_man.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/media/kio_media.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/nfs/kio_nfs.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/remote/kio_remote.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/settings/kio_settings.cc"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/sftp/kio_sftp.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/smb/kio_smb.h"));
-	//parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/tar/tar.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/thumbnail/thumbnail.h"));
-	parsingUrls.append(KUrl(kdebase + "/runtime/kioslave/trash/kio_trash.h"));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/about/kio_about.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/cgi/cgi.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/filter/filter.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/finger/kio_finger.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/fish/fish.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/floppy/kio_floppy.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/info/info.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/man/kio_man.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/media/kio_media.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/nfs/kio_nfs.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/remote/kio_remote.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/settings/kio_settings.cc")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/sftp/kio_sftp.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/smb/kio_smb.h")));
+	//parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/tar/tar.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/thumbnail/thumbnail.h")));
+	parsingUrls.append(KUrl(kdebase + QLatin1String("/runtime/kioslave/trash/kio_trash.h")));
 	
 	
 	out << "<hr />" << endl;
@@ -221,7 +221,7 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList& meth
 	foreach(QString line, lines) {
 		line = convertMethod(line);
 
-		if (line.contains("void") == false)
+		if (line.contains(QLatin1String("void")) == false)
 		continue;
 
 		//logDebug() << "Line" << convertMethod(line) << endl;
@@ -246,15 +246,15 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList& meth
 
 QString FindIncompatibleKioTest::convertMethod(const QString& method) {
 	QString result(method);
-	result = result.remove("SlaveBase::");
-	result = result.remove("virtual");
-	//	result = result.remove(" ");
+	result = result.remove(QLatin1String("SlaveBase::"));
+	result = result.remove(QLatin1String("virtual"));
+	//	result = result.remove(QLatin1String(" "));
 	//	result = result.replace('\t', ' ');
-	result = result.remove(";");
+	result = result.remove(QLatin1String(";"));
 	result = result.simplified();
 
-	int firstParenthesis = result.indexOf("(");
-	int lastParenthesis = result.indexOf(")");
+	int firstParenthesis = result.indexOf(QLatin1String("("));
+	int lastParenthesis = result.indexOf(QLatin1String(")"));
 	if (firstParenthesis != -1&& lastParenthesis != -1)
 		result = result.remove(firstParenthesis+1, lastParenthesis-firstParenthesis-1);
 

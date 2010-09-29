@@ -123,7 +123,7 @@ void TestUtil::addLogLines(const QString& fileName, const QStringList& addedLine
 		data.close();
 	}
 	else {
-		QFAIL( QString("Unable to open the test log file %1").arg(fileName).toUtf8() );
+		QFAIL( QString::fromLatin1("Unable to open the test log file %1").arg(fileName).toUtf8() );
 	}
 	
 	//Wait 3 secs to be sure the log file changed have been processed
