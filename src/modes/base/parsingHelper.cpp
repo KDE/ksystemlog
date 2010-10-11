@@ -21,6 +21,7 @@
 
 #include "parsingHelper.h"
 
+#include <kglobal.h>
 #include <klocale.h>
 
 #include "logging.h"
