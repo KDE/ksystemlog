@@ -124,11 +124,21 @@ bool FileListHelper::isValidFile(const KUrl& url) {
 }
 
 KUrl::List FileListHelper::openUrls() {
-	return KFileDialog::getOpenUrls(KUrl(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent, i18n("Choose Log File"));
+	KFileDialog fileDialog(KUrl(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+	fileDialog.setCaption(i18n("Choose Log File"));
+	fileDialog.setMode(KFile::Files);
+
+	fileDialog.exec();
+	return fileDialog.selectedUrls();
 }
 
 KUrl FileListHelper::openUrl(const QString& originPath) {
-	return KFileDialog::getOpenUrl(KUrl(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent, i18n("Choose Log File"));
+	KFileDialog fileDialog(KUrl(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+	fileDialog.setCaption(i18n("Choose Log File"));
+	fileDialog.setMode(KFile::File);
+
+	fileDialog.exec();
+	return fileDialog.selectedUrl();
 }
 
 QStringList FileListHelper::expandJoker(const KUrl& url) {
