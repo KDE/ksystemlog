@@ -95,7 +95,7 @@ class CupsAnalyzer : public Analyzer {
 
 			QChar level=logLine[0];
 
-			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime( logLine.mid(2, 28) );
+			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime( logLine.mid(3, 26) );
 
 			QString message=line.remove(0, 31);
 
