@@ -249,7 +249,7 @@ void LogViewExport::fileSave() {
 			LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
 
 			//Copy the item content to the stream
-			stream << item->logLine()->exportToText();
+			stream << item->logLine()->exportToText() << '\n';
 
 			//Retrieve the next item
 			it++;
