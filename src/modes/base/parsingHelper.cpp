@@ -151,22 +151,9 @@ int ParsingHelper::parseSyslogMonth(const QString& string) {
 }
 
 QString ParsingHelper::parseSize(const QString& stringSize) {
-	long size=stringSize.toLong();
+	qint64 size=stringSize.toLongLong();
 
-	if (size<1024)
-		return i18nc("Size format", "%1 B", size);
-	else if (size<1024*1024) {
-		double newSize=size / 1024.;
-		QString strNewSize;
-		strNewSize.sprintf("%0.2f", newSize);
-		return i18nc("Size format", "%1 KB", strNewSize);
-	}
-	else {
-		double newSize=size / (1024.*1024.);
-		QString strNewSize;
-		strNewSize.sprintf("%0.2f", newSize);
-		return i18nc("Size format", "%1 MB", strNewSize);
-	}
+	return KGlobal::locale()->formatByteSize(size);
 }
 
 QString ParsingHelper::parseHttpResponse(const QString& response) {
