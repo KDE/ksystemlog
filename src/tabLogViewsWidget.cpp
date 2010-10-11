@@ -68,9 +68,6 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget* parent) :
 	setCornerWidget(tabNewTabButton, Qt::TopLeftCorner);
 	setCornerWidget(tabCloseTabButton, Qt::TopRightCorner);
 
-	setHoverCloseButton(true);
-	setHoverCloseButtonDelayed(true);
-
 	setUsesScrollButtons(true);
 
 	//The context menu is managed manually
