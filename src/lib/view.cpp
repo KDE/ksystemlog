@@ -86,7 +86,7 @@ View::View(QWidget *parent) :
 	connect(d->logViewFilterWidget->filterLine(), SIGNAL(treeWidgetUpdated()), this, SIGNAL(searchFilterChanged()));
 	connect(d->logViewFilterWidget->filterLine(), SIGNAL(treeWidgetUpdated()), this, SLOT(unselectHiddenItems()));
 	
-	d->logViewFilterWidget->setShown(KSystemLogConfig::toggleFilterBar());
+	d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
 
 	topLayout->addWidget(d->logViewFilterWidget);
 	
@@ -140,7 +140,7 @@ void View::displayLoadingBar(bool display) {
 	}
 	else {
 		d->logViewWidget->show();
-		d->logViewFilterWidget->show();
+		d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
 		//No need to redisplay the search bar
 
 		d->loadingBar->hide();
