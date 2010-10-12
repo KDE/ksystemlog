@@ -141,6 +141,7 @@ void View::displayLoadingBar(bool display) {
 	else {
 		d->logViewWidget->show();
 		d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
+		d->logViewFilterWidget->filterLine()->updateSearch();
 		//No need to redisplay the search bar
 
 		d->loadingBar->hide();
