@@ -87,7 +87,7 @@ StatusBar::StatusBar(QWidget* parent) :
 	d->messageList->setInsertPolicy(QComboBox::InsertAtTop);
 	d->messageList->setMaxVisibleItems(5);
 	connect(d->messageList, SIGNAL(currentIndexChanged(int)), this, SLOT(selectLastHistory()));
-
+/*
 	//TODO Define a specifical palette (and make it works !)
 	QPalette palette(d->messageList->palette());
 	palette.setColor(QPalette::HighlightedText, Qt::red); //palette.color(QPalette::Base)
@@ -95,7 +95,7 @@ StatusBar::StatusBar(QWidget* parent) :
 	palette.setColor(QPalette::Text, QColor(212, 140, 95)); //palette.color(QPalette::Base)
 	d->messageList->setPalette(palette);
 	//d->messageList->repaint();
-
+*/
 	addPermanentWidget(d->messageList, 4);
 
 	d->lastModificationLabel = new QLabel(QLatin1String( "" ), this);
