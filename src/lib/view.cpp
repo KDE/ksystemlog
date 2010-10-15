@@ -150,10 +150,12 @@ void View::displayLoadingBar(bool display) {
 }
 
 void View::toggleLogViewFilter(bool display) {
-	if (display == true)
+	if (display == true) {
 		d->logViewFilterWidget->show();
-	else
+	} else {
+		d->logViewFilterWidget->filterLine()->clear();
 		d->logViewFilterWidget->hide();
+	}
 }
 
 void View::toggleLogViewSearch(bool display) {
