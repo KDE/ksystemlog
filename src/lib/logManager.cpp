@@ -55,7 +55,7 @@ LogManager::LogManager(View* view) :
 	d->analyzer = NULL;
 
 	d->usedView = view;
-	connect(d->usedView, SIGNAL(droppedUrls(const KUrl::List&)), this, SLOT(loadDroppedUrls(const KUrl::List&)));
+	connect(d->usedView, SIGNAL(droppedUrls(KUrl::List)), this, SLOT(loadDroppedUrls(KUrl::List)));
 }
 
 LogManager::~LogManager() {
@@ -157,11 +157,11 @@ void LogManager::internalInitialize(LogMode* mode, const QList<LogFile>& logFile
 	d->analyzer=mode->createAnalyzer();
 	d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
 
-	connect(d->analyzer, SIGNAL(statusBarChanged(const QString&)), 				this, SIGNAL(statusBarChanged(const QString&)));
-	connect(d->analyzer, SIGNAL(errorOccured(const QString&, const QString&)), 	this, SLOT(showErrorMessage(const QString&, const QString&)));
+	connect(d->analyzer, SIGNAL(statusBarChanged(QString)), 				this, SIGNAL(statusBarChanged(QString)));
+	connect(d->analyzer, SIGNAL(errorOccured(QString,QString)), 	this, SLOT(showErrorMessage(QString,QString)));
 	connect(d->analyzer, SIGNAL(logUpdated(int)), 								this, SLOT(updateLog(int)));
 
-	connect(d->analyzer, SIGNAL(readFileStarted(const LogMode&, const LogFile&, int, int)), 	d->usedView->loadingBar(), SLOT(startLoading(const LogMode&, const LogFile&, int, int)));
+	connect(d->analyzer, SIGNAL(readFileStarted(LogMode,LogFile,int,int)), 	d->usedView->loadingBar(), SLOT(startLoading(LogMode,LogFile,int,int)));
 	connect(d->analyzer, SIGNAL(openingProgressed()), 	d->usedView->loadingBar(), SLOT(progressLoading()));
 	connect(d->analyzer, SIGNAL(readEnded()), 			d->usedView->loadingBar(), SLOT(endLoading()));
 

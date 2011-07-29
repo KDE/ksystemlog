@@ -55,9 +55,9 @@ LoggerDialog::LoggerDialog(QWidget *parent) :
 	connect(messageActivation, SIGNAL(toggled(bool)), this, SLOT(changeMessageActivation(bool)));
 
 
-	connect(file, SIGNAL(textChanged(const QString&)), this, SLOT(textChanged()));
-	connect(message, SIGNAL(textChanged(const QString&)), this, SLOT(textChanged()));
-	connect(tag, SIGNAL(textChanged(const QString&)), this, SLOT(textChanged()));
+	connect(file, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
+	connect(message, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
+	connect(tag, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
 
 	buildMaps();
 

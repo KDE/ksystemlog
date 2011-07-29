@@ -109,9 +109,9 @@ void Analyzer::setLogFiles(const QList<LogFile>& logFiles) {
 		LogFileReader* logFileReader = createLogFileReader(logFile);
 		logFileReaders.append(logFileReader);
 		
-		connect(logFileReader, SIGNAL(contentChanged(LogFileReader*, Analyzer::ReadingMode, const QStringList&)), this, SLOT(logFileChanged(LogFileReader*, Analyzer::ReadingMode, const QStringList&)));
-		connect(logFileReader, SIGNAL(statusBarChanged(const QString&)), this, SIGNAL(statusBarChanged(const QString&)));
-		connect(logFileReader, SIGNAL(errorOccured(const QString&, const QString&)), this, SIGNAL(errorOccured(const QString&, const QString&)));
+		connect(logFileReader, SIGNAL(contentChanged(LogFileReader*,Analyzer::ReadingMode,QStringList)), this, SLOT(logFileChanged(LogFileReader*,Analyzer::ReadingMode,QStringList)));
+		connect(logFileReader, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+		connect(logFileReader, SIGNAL(errorOccured(QString,QString)), this, SIGNAL(errorOccured(QString,QString)));
 	}
 }
 

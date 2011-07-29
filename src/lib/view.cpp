@@ -91,7 +91,7 @@ View::View(QWidget *parent) :
 	topLayout->addWidget(d->logViewFilterWidget);
 	
 	d->logViewWidget=new LogViewWidget(this);
-	connect(d->logViewWidget, SIGNAL(columnsChanged(const LogViewColumns&)), d->logViewFilterWidget, SLOT(updateFilterColumns(const LogViewColumns&)));
+	connect(d->logViewWidget, SIGNAL(columnsChanged(LogViewColumns)), d->logViewFilterWidget, SLOT(updateFilterColumns(LogViewColumns)));
 	
 	d->logViewFilterWidget->filterLine()->setTreeWidget(d->logViewWidget);
 	topLayout->addWidget(d->logViewWidget);

@@ -74,8 +74,8 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget* parent) :
 	//setContextMenuPolicy(Qt::ActionsContextMenu);
 
 	connect(this, SIGNAL(mouseDoubleClick()), this, SLOT(createTab()));
-	connect(this, SIGNAL(contextMenu(const QPoint&)), this, SLOT(showContextMenu(const QPoint&)));
-	connect(this, SIGNAL(contextMenu(QWidget*, const QPoint&)), this, SLOT(showContextMenu(QWidget*, const QPoint&)));
+	connect(this, SIGNAL(contextMenu(QPoint)), this, SLOT(showContextMenu(QPoint)));
+	connect(this, SIGNAL(contextMenu(QWidget*,QPoint)), this, SLOT(showContextMenu(QWidget*,QPoint)));
 
 	//TODO Use this (need to connect to movedTab(int, int) signal and update the QList
 	//setTabReorderingEnabled(true);
@@ -223,8 +223,8 @@ TabLogManager* TabLogViewsWidget::newTabLogManager() {
 	LogManager* logManager=new LogManager(view);
 
 	//Signals from LogManager to Main Class
-	connect(logManager, SIGNAL(tabTitleChanged(View*, const QIcon&, const QString&)), this, SLOT(changeTab(View*, const QIcon&, const QString&)));
-	connect(logManager, SIGNAL(logUpdated(View*, int)), this, SLOT(changeTitleAddedLines(View*, int)));
+	connect(logManager, SIGNAL(tabTitleChanged(View*,QIcon,QString)), this, SLOT(changeTab(View*,QIcon,QString)));
+	connect(logManager, SIGNAL(logUpdated(View*,int)), this, SLOT(changeTitleAddedLines(View*,int)));
 
 	TabLogManager* tabLogManager = new TabLogManager(logManager);
 	d->tabLogManagers.append(tabLogManager);
@@ -364,23 +364,23 @@ void TabLogViewsWidget::selectAllCurrentView() {
 
 void TabLogViewsWidget::fileSaveCurrentView() {
 	LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-	connect(&logViewExport, SIGNAL(statusBarChanged(const QString&)), this, SIGNAL(statusBarChanged(const QString&)));
+	connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
 	logViewExport.fileSave();
 }
 
 void TabLogViewsWidget::copyToClipboardCurrentView() {
 	LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-	connect(&logViewExport, SIGNAL(statusBarChanged(const QString&)), this, SIGNAL(statusBarChanged(const QString&)));
+	connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
 	logViewExport.copyToClipboard();
 }
 void TabLogViewsWidget::sendMailCurrentView() {
 	LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-	connect(&logViewExport, SIGNAL(statusBarChanged(const QString&)), this, SIGNAL(statusBarChanged(const QString&)));
+	connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
 	logViewExport.sendMail();
 }
 void TabLogViewsWidget::printSelectionCurrentView() {
 	LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-	connect(&logViewExport, SIGNAL(statusBarChanged(const QString&)), this, SIGNAL(statusBarChanged(const QString&)));
+	connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
 	logViewExport.printSelection();
 }
 

@@ -79,8 +79,8 @@ LogViewSearchWidget::LogViewSearchWidget() :
 
 	searchLabel->setBuddy(searchLine);
 
-	connect(searchLine, SIGNAL(textEdited(const QString&)), this, SLOT(findFirst(const QString &)));
-	connect(searchLine, SIGNAL(textEdited(const QString&)), this, SLOT(highlightAll()));
+	connect(searchLine, SIGNAL(textEdited(QString)), this, SLOT(findFirst(QString)));
+	connect(searchLine, SIGNAL(textEdited(QString)), this, SLOT(highlightAll()));
 
 	connect(searchLine, SIGNAL(returnPressed()), this, SLOT(findNext()));
 

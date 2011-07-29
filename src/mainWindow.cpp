@@ -220,7 +220,7 @@ void MainWindow::setupTabLogViews() {
 
 	d->tabs=new TabLogViewsWidget();
 
-	connect(d->tabs, SIGNAL(statusBarChanged(const QString&)), this, SLOT(changeStatusBar(const QString&)));
+	connect(d->tabs, SIGNAL(statusBarChanged(QString)), this, SLOT(changeStatusBar(QString)));
 	connect(d->tabs, SIGNAL(logManagerCreated(LogManager*)), this, SLOT(prepareCreatedLogManager(LogManager*)));
 	connect(d->tabs, SIGNAL(currentChanged(int)), this, SLOT(changeCurrentTab()));
 
@@ -274,13 +274,13 @@ void MainWindow::prepareCreatedLogManager(LogManager* manager) {
 	manager->usedView()->logViewWidget()->addAction(d->detailAction);
 
 	//Log Manager and View signals
-	connect(manager, SIGNAL(windowTitleChanged(const QString&)), this, SLOT(changeWindowTitle(const QString&)));
-	connect(manager, SIGNAL(statusBarChanged(const QString&)), this, SLOT(changeStatusBar(const QString&)));
-	connect(manager, SIGNAL(logUpdated(View*, int)), this, SLOT(updateStatusBar()));
+	connect(manager, SIGNAL(windowTitleChanged(QString)), this, SLOT(changeWindowTitle(QString)));
+	connect(manager, SIGNAL(statusBarChanged(QString)), this, SLOT(changeStatusBar(QString)));
+	connect(manager, SIGNAL(logUpdated(View*,int)), this, SLOT(updateStatusBar()));
 	connect(manager, SIGNAL(reloaded()), this, SLOT(changeCurrentTab()));
 
 	connect(manager->usedView(), SIGNAL(searchFilterChanged()), this, SLOT(updateStatusBar()));
-	connect(manager->usedView()->logViewWidget(), SIGNAL(itemDoubleClicked (QTreeWidgetItem*, int)), this, SLOT(showDetailsDialog()));
+	connect(manager->usedView()->logViewWidget(), SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(showDetailsDialog()));
 	connect(manager->usedView()->logViewWidget(), SIGNAL(itemSelectionChanged()), this, SLOT(updateSelection()));
 	connect(manager->usedView()->logViewWidget()->model(), SIGNAL(processingMultipleInsertions(bool)), this, SLOT(updateReloading()));
 

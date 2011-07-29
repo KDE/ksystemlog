@@ -67,7 +67,7 @@ MultipleFileList::MultipleFileList(QWidget* parent, const QString& descriptionTe
 	fileListHelper.prepareButton(removeAll, KIcon( QLatin1String( "trash-empty" )), this, SLOT(removeAllItems()), fileList);
 	
 	connect(fileList, SIGNAL(itemSelectionChanged()), this, SLOT(updateButtons()));
-	connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*, int)), this, SLOT(modifyItem(QTreeWidgetItem*)));
+	connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this, SLOT(modifyItem(QTreeWidgetItem*)));
 	connect(this, SIGNAL(fileListChanged()), this, SLOT(updateButtons()));
 	
 	connect(&addButtons, SIGNAL(buttonClicked(int)), this, SLOT(addItem(int)));

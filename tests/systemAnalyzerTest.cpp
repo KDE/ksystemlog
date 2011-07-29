@@ -138,7 +138,7 @@ void SystemAnalyzerTest::testMultipleLines() {
 	systemAnalyzer->setLogFiles(logFiles);
 
 
-	QSignalSpy stateSpy(systemAnalyzer, SIGNAL( logUpdated(int) ));
+	QSignalSpy stateSpy(systemAnalyzer, SIGNAL(logUpdated(int)));
 	QList<QVariant> arguments;
 
 	//Each watching relaunch a reading

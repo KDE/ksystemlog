@@ -68,7 +68,7 @@ void KioLogFileReaderTest::testKioLogFileReader() {
 	logFileReader->open();
 	
 
-	connect(logFileReader, SIGNAL(lineRead(const QString&)), this, SLOT(readLine(const QString&)));
+	connect(logFileReader, SIGNAL(lineRead(QString)), this, SLOT(readLine(QString)));
 	
 	QTest::qWait(100000);
 	
