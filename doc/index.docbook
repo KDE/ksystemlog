@@ -7,7 +7,7 @@
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
-<book lang="&language;">
+<book id="ksystemlog" lang="&language;">
 
 <bookinfo>
 <title>The &ksystemlog; Handbook</title>
