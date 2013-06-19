@@ -92,7 +92,8 @@ void SystemAnalyzerTest::testOneLine() {
 
 	QStringList items = QStringList() << QLatin1String("localhost") << QLatin1String("kernel") << QLatin1String("[11663.656000] eth1: no IPv6 routers present");
 
-	testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 21), QTime(22, 52, 44)), items
+	const int year = QDate::currentDate().year();
+	testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 21), QTime(22, 52, 44)), items
 
 	);
 
@@ -203,31 +204,33 @@ void SystemAnalyzerTest::testStrangeLines() {
 	QString undefined = QLatin1String("");
 	
 	QStringList items;
+    
+	const int year = QDate::currentDate().year();
 
 	//Classical log line
 	items = QStringList() << QLatin1String("localhost") << QLatin1String("kernel") << QLatin1String("Kernel panic");
-	testUtil.testLine(model->logLines().at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 10), QTime(17, 04, 28)), items);
+	testUtil.testLine(model->logLines().at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 10), QTime(17, 04, 28)), items);
 
 	//-- MARK -- log line
 	items = QStringList() << QLatin1String("localhost") << QLatin1String("syslog") << QLatin1String("-- MARK --");
-	testUtil.testLine(model->logLines().at(1), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 11), QTime(13, 49, 38)), items);
+	testUtil.testLine(model->logLines().at(1), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 11), QTime(13, 49, 38)), items);
 
 	//Last message repeated n time log line
 	items = QStringList() << QLatin1String("localhost") << QLatin1String("syslog") << QLatin1String("last message repeated 4 times");
-	testUtil.testLine(model->logLines().at(2), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 12), QTime(18, 10, 32)), items);
+	testUtil.testLine(model->logLines().at(2), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 12), QTime(18, 10, 32)), items);
 
 	//"Aug 13 17:04:28 testprocess: Say ouhou  " -> No host name
 	items = QStringList() << undefined << QLatin1String("testprocess") << QLatin1String("Say ouhou  ");
-	testUtil.testLine(model->logLines().at(3), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 13), QTime(17, 04, 28)), items);
+	testUtil.testLine(model->logLines().at(3), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 13), QTime(17, 04, 28)), items);
 
 	//"Aug 14 17:04:28 localhost kernel say ouhou" -> No process name and not a syslog message
 	items = QStringList() << QLatin1String("localhost") << undefined << QLatin1String("kernel say ouhou");
-	testUtil.testLine(model->logLines().at(4), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 14), QTime(17, 04, 28)), items);
+	testUtil.testLine(model->logLines().at(4), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 14), QTime(17, 04, 28)), items);
 
 	//"Aug 15 22:39:01 localhost /USR/SBIN/CRON[9433]: (root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)" -> Long log line
 	items = QStringList() << QLatin1String("localhost") << QLatin1String("/USR/SBIN/CRON[9433]")
 			<< QLatin1String("(root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)");
-	testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(2007, 8, 15), QTime(22, 39, 01)), items);
+	testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(), QDateTime(QDate(year, 8, 15), QTime(22, 39, 01)), items);
 
 	//"blablalbla" -> Invalid line
 	items = QStringList() << undefined << undefined << QLatin1String("");
