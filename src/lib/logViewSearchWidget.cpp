@@ -237,11 +237,6 @@ bool LogViewSearchWidget::compareItem(LogViewWidgetItem* item) {
 }
 
 bool LogViewSearchWidget::findItem(LogViewWidgetItem* item) {
-	Qt::CaseSensitivity caseSensitivity = Qt::CaseInsensitive;
-	if (caseSensitive->isChecked()) {
-		caseSensitivity = Qt::CaseSensitive;
-	}
-
 	if (compareItem(item) == true) {
 		unselectAll();
 
