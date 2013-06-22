@@ -30,8 +30,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2008-02-08</date>
-<releaseinfo>0.4.1</releaseinfo>
+<date>2013-06-08</date>
+<releaseinfo>0.4 (&kde; 4.11)</releaseinfo>
 
 <abstract>
 <para>&ksystemlog; is a system log viewer tool for &kde;. This program is developed for beginner users
@@ -93,7 +93,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 			<title>Features</title>
 
 			<para>
-			In its current version, &ksystemlog; 0.4.1 has quite a number of helpful
+			In its current version, &ksystemlog; 0.4 has quite a number of helpful
 			features, such as:
 			</para>
 
@@ -148,9 +148,10 @@ It is also designed for advanced users who want to quickly see problems occuring
 			<title>Getting started</title>
 
 			<para>
-			When you start &ksystemlog;, it tries to open the most useful log, the <guilabel>System Log</guilabel>.
+			When you start &ksystemlog;, by default it tries to open the most useful log, the <guilabel>System Log</guilabel>.
 			If it does not display it and pops up a message box, you probably forgot to launch &ksystemlog; as an administrator user (commonly named root).
 			The log files are usually available in the /var/log folder, which is often protected against normal users.
+			In the settings dialog you can select another log to open at startup.
 			</para>
 
 			<screenshot>
@@ -173,7 +174,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 				<title>Sorting log lines</title>
 				<para>
 				Every log lines are displayed in a list view, which can be sorted by clicking on the wanted column. Another click will sort it in the other order.
-				If you want to sort the list as it was on the first loading, you can use the <menuchoice><guimenu>Edit</guimenu><guimenuitem>Refresh</guimenuitem></menuchoice> menu item, or simply
+				If you want to sort the list as it was on the first loading, you can use the <menuchoice><guimenu>Edit</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> menu item, or simply
 				click on the first column of the list, generally named <guilabel>Date</guilabel>, to sort the list in the ascending order. Even if your log mode
 				does not use time to describe each log lines, for example the <guilabel>X.org Log</guilabel>, the list will be correctly sorted,
 				because &ksystemlog; keeps an internal order of the list.
@@ -203,7 +204,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 
 				<para>
 				You can select another field to filter only this column of the list. For example, in the <guilabel>System Log</guilabel>, by selecting
-				the <guilabel>Process</guilabel> column, and writing its name in the filter bar, &ksystemlog; will display every log lines sent by this process.
+				the <guilabel>Process</guilabel> column, and writing a process name in the filter bar, &ksystemlog; will display every log lines sent by this process.
 				</para>
 			</sect3>
 
@@ -231,9 +232,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 
 			</sect3>
 		</sect2>
-	</sect1>
-
-	<sect1 id="monitoring_management">
+	<sect2 id="monitoring_management">
 		<title>Monitoring Management</title>
 
 		<para>
@@ -246,9 +245,9 @@ It is also designed for advanced users who want to quickly see problems occuring
 		<para>
 		Furthermore, to focus on the newly appeared log lines, you can toggle the <guimenuitem>Scroll to New Lines</guimenuitem> option.
 		</para>
-	</sect1>
+	</sect2>
 
-	<sect1 id="multiple_logs">
+	<sect2 id="multiple_logs">
 		<title>Management of several opened tabs</title>
 
 		<para>
@@ -256,6 +255,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 		new tabs. Once you have selected the right tab, simply choose the desired log mode using the dedicated menu.
 
 		</para>
+	</sect2>
 	</sect1>
 
 </chapter>
@@ -290,13 +290,13 @@ It is also designed for advanced users who want to quickly see problems occuring
 	<title>How to obtain and install &ksystemlog;</title>
 
 	<para>
-	&ksystemlog; has its own home page <ulink	url="http://ksystemlog.forum-software.org">http://ksystemlog.forum-software.org</ulink>.
+	&ksystemlog; has its own home page <ulink url="http://ksystemlog.forum-software.org">http://ksystemlog.forum-software.org</ulink>.
 	Please refer to the instructions on the home page since they will contain up-to-date information about how to obtain &ksystemlog;.
 	</para>
 
 	<para>
-	&ksystemlog; can also be found in the following folder of the &kde; Subversion Repository :
-	<ulink url="http://websvn.kde.org/trunk/KDE/kdeadmin/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
+	&ksystemlog; can also be found in the following folder of the &kde; Git Repository :
+	<ulink url="https://projects.kde.org/projects/kde/kdeadmin/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
 	</para>
 
 </appendix>
