@@ -94,9 +94,9 @@ void TestUtil::testLine(
 		const QDateTime& time,
 		const QStringList& items) const {
 	
+	QCOMPARE (line->time(), time);
 	QCOMPARE (line->sourceFileName(), originalFileName);
 	QCOMPARE (line->logLevel()->id(), logLevel->id());
-	QCOMPARE (line->time(), time);
 
 	//Test log line items
 	QStringList logItems = line->logItems(); 
