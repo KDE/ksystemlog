@@ -79,6 +79,11 @@ class MainWindow : public KXmlGuiWindow {
 		 * with @ref saveProperties
 		 */
 		void readProperties(const KConfigGroup& configuration);
+
+		/**
+		 * Reimplemented to save configuration when closing.
+		 */
+		void closeEvent(QCloseEvent *event);
 		
 	public slots:
 		void changeStatusBar(const QString& text);
@@ -113,12 +118,6 @@ class MainWindow : public KXmlGuiWindow {
 		
 		void changeResumePauseAction(bool paused);
 		void selectLogModeAction(QAction* action);
-		
-	protected slots:
-		/**
-		 * Last method called before application exitting (Overridden method)
-		 */
-		bool queryExit();
 		
 	private:
 		

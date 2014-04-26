@@ -336,12 +336,11 @@ void MainWindow::updateReloading() {
 
 }
 
-bool MainWindow::queryExit() {
+void MainWindow::closeEvent(QCloseEvent *event) {
 	logDebug() << "Saving configuration before exit..." << endl;
 	//Write the config to the file
 	KSystemLogConfig::self()->writeConfig();
-
-	return true;
+	KXmlGuiWindow::closeEvent(event);
 }
 
 TabLogViewsWidget* MainWindow::tabs() {
