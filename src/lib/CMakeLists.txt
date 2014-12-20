@@ -49,7 +49,7 @@ add_dependencies(
 )
 
 target_link_libraries(ksystemlog_lib
-	${KDE4_KDEUI_LIBS}
-        ${KDE4_KIO_LIBS}
+	KF5::KDELibs4Support
+	KF5::Archive
 	ksystemlog_config
 )

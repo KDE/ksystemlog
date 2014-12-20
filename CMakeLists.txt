@@ -1,9 +1,25 @@
 project(KSystemLog)
 
-find_package(KDE4 REQUIRED)
+cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
+set (QT_MIN_VERSION "5.2.0")
 
-include(KDE4Defaults)
-include(MacroLibrary)
+find_package (ECM 1.3.0 REQUIRED NO_MODULE)
+set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+
+add_definitions(-DTRANSLATION_DOMAIN="ksystemlog")
+
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+
+find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Core
+    Widgets
+)
+
+find_package(KF5 REQUIRED COMPONENTS
+    KDELibs4Support
+)
 
 include(CheckIncludeFile)
 include(CheckIncludeFiles)
@@ -13,14 +29,12 @@ include(CheckLibraryExists)
 include(CheckPrototypeExists)
 include(CheckTypeSize)
 
-set(CMAKE_REQUIRED_DEFINITIONS ${_KDE4_PLATFORM_DEFINITIONS})
 if(WIN32)
   set(CMAKE_REQUIRED_LIBRARIES ${KDEWIN32_LIBRARIES})
   set(CMAKE_REQUIRED_INCLUDES  ${KDEWIN32_INCLUDES})
 endif(WIN32)
-add_definitions(${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 # Help Eclipse to parse errors more efficiently
 if(CMAKE_COMPILER_IS_GNUCC)

@@ -33,7 +33,7 @@
 #include <kfiledialog.h>
 #include <kdialog.h>
 #include <kmessagebox.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <kurl.h>
 
 #include <kvbox.h>

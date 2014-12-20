@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #include <kapplication.h>
-#include <kaboutdata.h>
+#include <k4aboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
 #include <kurl.h>
@@ -30,13 +30,13 @@
 
 int main(int argc, char** argv) {
 
-	KAboutData about(
+	K4AboutData about(
 			"ksystemlog",
 			0,
 			ki18n("KSystemlog"),
 			"0.4",
 			ki18n("System Logs Viewer for KDE"),
-			KAboutData::License_GPL_V2,
+			K4AboutData::License_GPL_V2,
 			ki18n("(C) 2007, Nicolas Ternisien"),
 			ki18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
 			"http://ksystemlog.forum-software.org",

@@ -23,6 +23,7 @@
 
 
 #include <QList>
+#include <QPushButton>
 
 #include <klocale.h>
 #include <kiconloader.h>
@@ -147,13 +148,13 @@ void ConfigurationDialog::updateConfiguration() {
 	}
 
 	if (valid == true) {
-		enableButtonOk(true);
+		buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(true);
 
 		updateButtons();
 	}
 	else {
-		enableButtonOk(false);
-		enableButtonApply(false);
+		buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(false);
+		buttonBox()->button(QDialogButtonBox::Apply)->setEnabled(false);
 	}
 
 }

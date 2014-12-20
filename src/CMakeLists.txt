@@ -47,8 +47,8 @@ kde4_add_ui_files(ksystemlog_sources
 kde4_add_executable(ksystemlog ${ksystemlog_sources})
 
 target_link_libraries(ksystemlog  
-	${KDE4_KIO_LIBS} 
-	${KDE4_KDEUI_LIBS}
+	KF5::KDELibs4Support
+	KF5::Archive
 	ksystemlog_lib
 	ksystemlog_config
 	ksystemlog_open

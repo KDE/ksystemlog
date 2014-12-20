@@ -38,7 +38,7 @@
 #include <kglobal.h>
 #include <klocale.h>
 
-#include <kiconloader.h>
+#include <kicon.h>
 
 #include <kservice.h>
 #include <kservicetypetrader.h>
@@ -96,31 +96,31 @@ class MainWindowPrivate {
 
 public:
 
-	KAction* saveAction;
-	KAction* copyAction;
+	QAction* saveAction;
+	QAction* copyAction;
 
-	KAction* reloadAction;
+	QAction* reloadAction;
 
-	KAction* sendMailAction;
-	KAction* logMessageAction;
+	QAction* sendMailAction;
+	QAction* logMessageAction;
 
-	KAction* filterBarAction;
+	QAction* filterBarAction;
 
-	KAction* selectAllAction;
+	QAction* selectAllAction;
 
-	KAction* expandAllAction;
-	KAction* collapseAllAction;
+	QAction* expandAllAction;
+	QAction* collapseAllAction;
 
-	KAction* resumePauseAction;
-	KAction* detailAction;
-	KAction* printAction;
+	QAction* resumePauseAction;
+	QAction* detailAction;
+	QAction* printAction;
 
-	KAction* findAction;
-	KAction* findNextAction;
-	KAction* findPreviousAction;
+	QAction* findAction;
+	QAction* findNextAction;
+	QAction* findPreviousAction;
 
-	KAction* tooltipEnabledAction;
-	KAction* newLinesDisplayedAction;
+	QAction* tooltipEnabledAction;
+	QAction* newLinesDisplayedAction;
 
 	/**
 	 * Action groups which stores all Log Mode Actions
@@ -649,7 +649,7 @@ void MainWindow::setupActions() {
 	d->filterBarAction->setCheckable(true);
 	d->filterBarAction->setChecked(KSystemLogConfig::toggleFilterBar());
 
-	KAction* newTabAction = actionCollection()->addAction( QLatin1String( "new_tab" ), d->tabs, SLOT(createTab()));
+	QAction* newTabAction = actionCollection()->addAction( QLatin1String( "new_tab" ), d->tabs, SLOT(createTab()));
 	newTabAction->setText(i18n("&New Tab"));
 	newTabAction->setIcon(KIcon( QLatin1String( "tab-new" )));
 	newTabAction->setShortcut(Qt::CTRL + Qt::Key_T);
@@ -657,7 +657,7 @@ void MainWindow::setupActions() {
 	newTabAction->setWhatsThis(i18n("Creates a new tab which can display another log."));
 	d->tabs->addAction(newTabAction);
 
-	KAction* closeTabAction = actionCollection()->addAction( QLatin1String( "close_tab" ), d->tabs, SLOT(closeTab()));
+	QAction* closeTabAction = actionCollection()->addAction( QLatin1String( "close_tab" ), d->tabs, SLOT(closeTab()));
 	closeTabAction->setText(i18n("&Close Tab"));
 	closeTabAction->setIcon(KIcon( QLatin1String( "tab-close" )));
 	closeTabAction->setShortcut(Qt::CTRL+Qt::Key_W);
@@ -665,7 +665,7 @@ void MainWindow::setupActions() {
 	closeTabAction->setWhatsThis(i18n("Closes the current tab."));
 	d->tabs->addAction(closeTabAction);
 
-	KAction* duplicateTabAction = actionCollection()->addAction( QLatin1String( "duplicate_tab" ), d->tabs, SLOT(duplicateTab()));
+	QAction* duplicateTabAction = actionCollection()->addAction( QLatin1String( "duplicate_tab" ), d->tabs, SLOT(duplicateTab()));
 	duplicateTabAction->setText(i18n("&Duplicate Tab"));
 	duplicateTabAction->setIcon(KIcon( QLatin1String( "tab-duplicate" )));
 	duplicateTabAction->setShortcut(Qt::SHIFT + Qt::CTRL + Qt::Key_N);
@@ -677,7 +677,7 @@ void MainWindow::setupActions() {
 	separatorAction->setSeparator(true);
 	d->tabs->addAction(separatorAction);
 
-	KAction* moveTabLeftAction = actionCollection()->addAction( QLatin1String( "move_tab_left" ), d->tabs, SLOT(moveTabLeft()));
+	QAction* moveTabLeftAction = actionCollection()->addAction( QLatin1String( "move_tab_left" ), d->tabs, SLOT(moveTabLeft()));
 	moveTabLeftAction->setText(i18n("Move Tab &Left"));
 	moveTabLeftAction->setIcon(KIcon( QLatin1String( "arrow-left" )));
 	moveTabLeftAction->setShortcut(Qt::SHIFT+Qt::CTRL+Qt::Key_Left);
@@ -685,7 +685,7 @@ void MainWindow::setupActions() {
 	moveTabLeftAction->setWhatsThis(i18n("Moves the current tab to the left."));
 	d->tabs->addAction(moveTabLeftAction);
 
-	KAction* moveTabRightAction = actionCollection()->addAction( QLatin1String( "move_tab_right" ), d->tabs, SLOT(moveTabRight()));
+	QAction* moveTabRightAction = actionCollection()->addAction( QLatin1String( "move_tab_right" ), d->tabs, SLOT(moveTabRight()));
 	moveTabRightAction->setText(i18n("Move Tab &Right"));
 	moveTabRightAction->setIcon(KIcon( QLatin1String( "arrow-right" )));
 	moveTabRightAction->setShortcut(Qt::SHIFT+Qt::CTRL+Qt::Key_Right);

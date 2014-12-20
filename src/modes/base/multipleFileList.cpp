@@ -31,7 +31,7 @@
 #include <kfiledialog.h>
 #include <kurl.h>
 #include <kmessagebox.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <kmenu.h>
 
 #include "defaults.h"

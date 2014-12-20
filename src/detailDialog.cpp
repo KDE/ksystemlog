@@ -23,6 +23,7 @@
 
 //Qt includes
 
+#include <kicon.h>
 #include <kiconloader.h>
 #include <klocale.h>
 

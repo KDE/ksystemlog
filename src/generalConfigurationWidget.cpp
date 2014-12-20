@@ -26,8 +26,9 @@
 #include <QPushButton>
 #include <QButtonGroup>
 
+#include <kglobal.h>
 #include <klocale.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <kstandarddirs.h>
 
 #include "logging.h"
