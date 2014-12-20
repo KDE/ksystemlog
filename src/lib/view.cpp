@@ -26,6 +26,7 @@
 #include <QDropEvent>
 #include <QDragEnterEvent>
 #include <QFileInfo>
+#include <QMimeData>
 
 #include <QPushButton>
 
@@ -188,7 +189,7 @@ QSize View::sizeHint() const {
 }
 
 void View::dropEvent(QDropEvent* event) {
-	KUrl::List urls = KUrl::List::fromMimeData( event->mimeData() );
+	QList<QUrl> urls = event->mimeData()->urls();
 	
 	//If URLs have been dropped
 	if ( ! urls.isEmpty() ) {
@@ -198,7 +199,7 @@ void View::dropEvent(QDropEvent* event) {
 }
 
 void View::dragEnterEvent(QDragEnterEvent* event) {
-	KUrl::List urls = KUrl::List::fromMimeData( event->mimeData() );
+	QList<QUrl> urls = event->mimeData()->urls();
 	
 	//If URLs have been dropped
 	if (urls.isEmpty() ) {
@@ -206,8 +207,8 @@ void View::dragEnterEvent(QDragEnterEvent* event) {
 		return;
 	}
 	
-	foreach (const KUrl &url, urls) {
-		QFileInfo fileInfo(url.path());
+	foreach (const QUrl &url, urls) {
+		QFileInfo fileInfo(url.toLocalFile());
 		
 		//TODO Add a recognition of binary files (using the Url mimetype) and refuse them
 		

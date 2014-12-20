@@ -94,7 +94,7 @@ void LogLevelFileList::insertItem(LogLevel* level, const QString& itemText) {
 
 void LogLevelFileList::addItem() {
 	//Open a standard Filedialog
-	KUrl::List urls=fileListHelper.openUrls();
+	QList<QUrl> urls=fileListHelper.openUrls();
 	
 	QStringList paths=fileListHelper.findPaths(urls);
 	foreach(const QString &path, paths) {

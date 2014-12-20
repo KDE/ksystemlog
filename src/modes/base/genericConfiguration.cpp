@@ -95,7 +95,7 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() {
 		else
 			level=Globals::instance()->informationLogLevel();
 
-		KUrl url(stringValue);
+		QUrl url(stringValue);
 		if (!url.isValid()) {
 			logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path()) << endl;
 			continue;

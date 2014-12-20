@@ -55,7 +55,7 @@ LogManager::LogManager(View* view) :
 	d->analyzer = NULL;
 
 	d->usedView = view;
-	connect(d->usedView, SIGNAL(droppedUrls(KUrl::List)), this, SLOT(loadDroppedUrls(KUrl::List)));
+	connect(d->usedView, SIGNAL(droppedUrls(QList<QUrl>)), this, SLOT(loadDroppedUrls(QList<QUrl>)));
 }
 
 LogManager::~LogManager() {
@@ -199,7 +199,7 @@ bool LogManager::isParsingPaused() const {
 	return d->analyzer->isParsingPaused();
 }
 
-void LogManager::loadDroppedUrls(const KUrl::List& urls) {
+void LogManager::loadDroppedUrls(const QList<QUrl>& urls) {
 	logDebug() << "Drop " << urls << endl;
 
 	QList<LogFile> logFiles;

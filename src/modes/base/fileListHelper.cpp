@@ -75,11 +75,11 @@ void FileListHelper::prepareButton(QPushButton* button, const QIcon& icon, const
 	fileList->addAction(action);
 }
 
-QStringList FileListHelper::findPaths(KUrl::List urls) {
+QStringList FileListHelper::findPaths(QList<QUrl> urls) {
 	QStringList paths;
 
-	for (KUrl::List::ConstIterator it=urls.constBegin(); it!=urls.constEnd(); ++it) {
-		KUrl url(*it);
+	for (QList<QUrl>::ConstIterator it=urls.constBegin(); it!=urls.constEnd(); ++it) {
+		QUrl url(*it);
 
 		if (isValidFile(url)) {
 
@@ -100,7 +100,7 @@ QStringList FileListHelper::findPaths(KUrl::List urls) {
 	return paths;
 }
 
-bool FileListHelper::isValidFile(const KUrl& url) {
+bool FileListHelper::isValidFile(const QUrl& url) {
 	QString message;
 
 	//If it is not valid
@@ -123,7 +123,7 @@ bool FileListHelper::isValidFile(const KUrl& url) {
 	return true;
 }
 
-KUrl::List FileListHelper::openUrls() {
+QList<QUrl> FileListHelper::openUrls() {
 	KFileDialog fileDialog(KUrl(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
 	fileDialog.setMode(KFile::Files);
@@ -132,7 +132,7 @@ KUrl::List FileListHelper::openUrls() {
 	return fileDialog.selectedUrls();
 }
 
-KUrl FileListHelper::openUrl(const QString& originPath) {
+QUrl FileListHelper::openUrl(const QString& originPath) {
 	KFileDialog fileDialog(KUrl(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
 	fileDialog.setMode(KFile::File);
@@ -141,7 +141,7 @@ KUrl FileListHelper::openUrl(const QString& originPath) {
 	return fileDialog.selectedUrl();
 }
 
-QStringList FileListHelper::expandJoker(const KUrl& url) {
+QStringList FileListHelper::expandJoker(const QUrl& url) {
 	QDir directory = QDir(url.path().left(url.path().count() - url.fileName().count()));
 
 	logDebug() << "Dir " << directory.path() << endl;

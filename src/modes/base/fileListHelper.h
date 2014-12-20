@@ -22,10 +22,9 @@
 #ifndef _FILE_LIST_HELPER_H_
 #define _FILE_LIST_HELPER_H_
 
+#include <QUrl>
 #include <QWidget>
 #include <QIcon>
-
-#include <kurl.h>
 
 class QAction;
 class QPushButton;
@@ -42,12 +41,12 @@ class FileListHelper : public QObject {
 		FileListHelper(QWidget* parent);
 		virtual ~FileListHelper();
 
-		QStringList findPaths(KUrl::List urls);
-		bool isValidFile(const KUrl& url);
-		QStringList expandJoker(const KUrl& url);
+		QStringList findPaths(QList<QUrl> urls);
+		bool isValidFile(const QUrl& url);
+		QStringList expandJoker(const QUrl& url);
 		
-		KUrl::List openUrls();
-		KUrl openUrl(const QString& originPath);
+		QList<QUrl> openUrls();
+		QUrl openUrl(const QString& originPath);
 		
 		/**
 		 * Change the enabled status of the button and of its QActions

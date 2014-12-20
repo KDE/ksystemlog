@@ -81,7 +81,7 @@ class View : public QWidget {
 	signals:
 		void searchFilterChanged();
 		
-		void droppedUrls(const KUrl::List& urls);
+		void droppedUrls(const QList<QUrl>& urls);
 		
 	private:
 		ViewPrivate* const d;

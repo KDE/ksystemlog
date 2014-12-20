@@ -25,8 +25,7 @@
 #include <QObject>
 #include <QDataStream>
 #include <QDebug>
-
-#include <kurl.h>
+#include <QUrl>
 
 class LogLevel;
 
@@ -40,7 +39,7 @@ class LogFile : public QObject {
 		LogFile();
 		
 		LogFile(const LogFile& logFile);
-		LogFile(const KUrl& url, LogLevel* defaultLogLevel);
+		LogFile(const QUrl& url, LogLevel* defaultLogLevel);
 		
 		virtual ~LogFile();
 
@@ -48,7 +47,7 @@ class LogFile : public QObject {
 		
 		LogFile& operator=(const LogFile& column);
 		
-		KUrl url() const;
+		QUrl url() const;
 		
 		LogLevel* defaultLogLevel() const;
 

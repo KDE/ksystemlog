@@ -27,7 +27,7 @@
 class LogFilePrivate {
 	
 public:
-	KUrl url;
+	QUrl url;
 	
 	LogLevel* defaultLogLevel;
 
@@ -46,7 +46,7 @@ LogFile::LogFile(const LogFile& logFile) :
 	d->defaultLogLevel = logFile.defaultLogLevel();
 }
 
-LogFile::LogFile(const KUrl& url, LogLevel* defaultLogLevel) :
+LogFile::LogFile(const QUrl& url, LogLevel* defaultLogLevel) :
 	d(new LogFilePrivate()) {
 
 	d->url = url;
@@ -73,7 +73,7 @@ LogFile& LogFile::operator=(const LogFile& logFile) {
 	return *this;
 }
 
-KUrl LogFile::url() const {
+QUrl LogFile::url() const {
 	return d->url;
 }
 

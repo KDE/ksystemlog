@@ -89,7 +89,7 @@ bool FileList::isEmpty() const {
 
 void FileList::addItem() {
 	//Open a standard Filedialog
-	KUrl::List urls=fileListHelper.openUrls();
+	QList<QUrl> urls=fileListHelper.openUrls();
 	
 	QStringList paths=fileListHelper.findPaths(urls);
 	foreach(const QString &path, paths) {
@@ -109,7 +109,7 @@ void FileList::modifyItem(QListWidgetItem* item) {
 	//Open a standard Filedialog
 	KUrl url=fileListHelper.openUrl(previousPath);
 
-	KUrl::List urls;
+	QList<QUrl> urls;
 	urls.append(url);
 	QStringList paths=fileListHelper.findPaths(urls);
 	

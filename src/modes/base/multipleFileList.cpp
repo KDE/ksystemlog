@@ -204,7 +204,7 @@ void MultipleFileList::addItem(int category) {
 	logDebug() << "Adding item" << category << endl;
 	
 	//Open a standard Filedialog
-	KUrl::List urls=fileListHelper.openUrls();
+	QList<QUrl> urls=fileListHelper.openUrls();
 	
 	QTreeWidgetItem* categoryItem = fileList->topLevelItem(category);
 	
@@ -257,7 +257,7 @@ void MultipleFileList::modifyItem(QTreeWidgetItem* item) {
 	//Open a standard Filedialog
 	KUrl url=fileListHelper.openUrl(previousPath);
 
-	KUrl::List urls;
+	QList<QUrl> urls;
 	urls.append(url);
 	QStringList paths=fileListHelper.findPaths(urls);
 	

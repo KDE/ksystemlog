@@ -77,7 +77,7 @@ class LogManager : public QObject {
 		void logUpdated(View* view, int addedLines);
 		
 	private slots:
-		void loadDroppedUrls(const KUrl::List& urls);
+		void loadDroppedUrls(const QList<QUrl>& urls);
 		
 	private:
 		void internalInitialize(LogMode* mode, const QList<LogFile>& logFiles);
