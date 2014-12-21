@@ -292,4 +292,4 @@ QStringList FindIncompatibleKioTest::headerContent(const KUrl& url) {
 
 QTEST_KDEMAIN(FindIncompatibleKioTest, GUI)
 
-#include "FindIncompatibleKioTest.moc"
+#include "findIncompatibleKioTest.moc"
