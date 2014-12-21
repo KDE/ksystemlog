@@ -28,7 +28,7 @@
 #include <QPushButton>
 
 // KDE includes
-#include <kmenu.h>
+#include <QMenu>
 #include <KLocalizedString>
 #include <kfiledialog.h>
 #include <kdialog.h>

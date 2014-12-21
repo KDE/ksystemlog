@@ -30,7 +30,7 @@
 #include <kurl.h>
 #include <kmessagebox.h>
 #include <QIcon>
-#include <kmenu.h>
+#include <QMenu>
 
 #include "defaults.h"
 

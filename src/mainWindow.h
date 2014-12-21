@@ -27,7 +27,7 @@
 #include <kapplication.h>
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
-#include <kmenu.h>
+#include <QMenu>
 
 #include <ktoggleaction.h>
 
