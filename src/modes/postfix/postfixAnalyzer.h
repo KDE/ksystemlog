@@ -22,7 +22,6 @@
 #ifndef _POSTFIX_ANALYZER_H_
 #define _POSTFIX_ANALYZER_H_
 
-#include <KLocalizedString>
 
 #include "syslogAnalyzer.h"
 

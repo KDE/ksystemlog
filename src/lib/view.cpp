@@ -33,8 +33,6 @@
 #include <QVBoxLayout>
 
 #include <kiconloader.h>
-#include <QIcon>
-#include <KLocalizedString>
 
 #include "logging.h"
 

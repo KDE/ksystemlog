@@ -22,7 +22,6 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
-#include <QList>
 
 //KDE includes
 #include <kapplication.h>

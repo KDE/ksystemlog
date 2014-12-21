@@ -29,7 +29,6 @@
 #include <QBrush>
 
 //KDE includes
-#include <KLocalizedString>
 #include <kmessagebox.h>
 #include "logging.h"
 

@@ -28,7 +28,6 @@
 
 #include <kcombobox.h>
 #include <kiconloader.h>
-#include <QIcon>
 #include <KLocalizedString>
 
 #include "logViewWidget.h"

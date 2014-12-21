@@ -23,7 +23,6 @@
 #define _OPEN_ANALYZER_H_
 
 
-#include <KLocalizedString>
 
 #include "syslogAnalyzer.h"
 

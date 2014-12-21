@@ -23,7 +23,6 @@
 
 #include <QList>
 
-#include <QIcon>
 #include <KLocalizedString>
 
 #include "logging.h"

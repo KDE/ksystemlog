@@ -57,7 +57,6 @@
 #include <kedittoolbar.h>
 
 #include <kstandardshortcut.h>
-#include <kaction.h>
 #include <kstandardaction.h>
 #include <kactioncollection.h>
 

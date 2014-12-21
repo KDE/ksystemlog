@@ -25,7 +25,6 @@
 
 #include <QPushButton>
 
-#include <KLocalizedString>
 #include <kactioncollection.h>
 #include <kfiledialog.h>
 #include <kurl.h>

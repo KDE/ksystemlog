@@ -24,7 +24,6 @@
 #include <QString>
 #include <QList>
 
-#include <QIcon>
 #include <KLocalizedString>
 
 #include <ktoggleaction.h>

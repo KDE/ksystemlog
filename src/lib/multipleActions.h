@@ -26,7 +26,6 @@
 #include <QString>
 #include <QList>
 
-#include <kicon.h>
 #include <kactionmenu.h>
 
 #include "globals.h"

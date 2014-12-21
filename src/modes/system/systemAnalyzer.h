@@ -22,7 +22,6 @@
 #ifndef _SYSTEM_ANALYZER_H_
 #define _SYSTEM_ANALYZER_H_
 
-#include <KLocalizedString>
 
 #include "syslogAnalyzer.h"
 
