@@ -339,7 +339,7 @@ void MainWindow::updateReloading() {
 void MainWindow::closeEvent(QCloseEvent *event) {
 	logDebug() << "Saving configuration before exit..." << endl;
 	//Write the config to the file
-	KSystemLogConfig::self()->writeConfig();
+	KSystemLogConfig::self()->save();
 	KXmlGuiWindow::closeEvent(event);
 }
 

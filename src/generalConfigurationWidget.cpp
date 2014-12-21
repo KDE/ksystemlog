@@ -54,7 +54,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget() :
 		if (logMode->id() == QLatin1String( "openLogMode" ))
 			continue;
 
-		startupLogMode->addItem(QIcon::fromTheme(logMode->icon()), logMode->name(), QVariant(logMode->id()));
+		startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
 	}
 
 	connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
