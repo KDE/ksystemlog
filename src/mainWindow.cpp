@@ -36,7 +36,7 @@
 #include <kactionmenu.h>
 
 #include <kglobal.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <QIcon>
 

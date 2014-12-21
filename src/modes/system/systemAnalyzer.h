@@ -22,7 +22,7 @@
 #ifndef _SYSTEM_ANALYZER_H_
 #define _SYSTEM_ANALYZER_H_
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "syslogAnalyzer.h"
 

@@ -25,7 +25,7 @@
 #include <QRegExp>
 #include <QFile>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 

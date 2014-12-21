@@ -22,7 +22,7 @@
 #include "sambaFactory.h"
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "multipleActions.h"
 #include "logMode.h"

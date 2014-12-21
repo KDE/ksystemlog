@@ -25,7 +25,7 @@
 
 #include <QIcon>
 #include <kiconloader.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"

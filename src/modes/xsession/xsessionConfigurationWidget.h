@@ -25,7 +25,7 @@
 #include <QGroupBox>
 #include <QCheckBox>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurlrequester.h>
 
 #include "globals.h"

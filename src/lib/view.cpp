@@ -34,7 +34,7 @@
 
 #include <kiconloader.h>
 #include <QIcon>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 

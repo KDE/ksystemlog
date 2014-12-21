@@ -25,7 +25,7 @@
 #include <QList>
 #include <QMenu>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kiconloader.h>
 #include <QIcon>
 

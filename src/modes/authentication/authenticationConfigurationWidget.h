@@ -25,7 +25,7 @@
 #include <QHBoxLayout>
 #include <QGroupBox>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurlrequester.h>
 
 #include "globals.h"

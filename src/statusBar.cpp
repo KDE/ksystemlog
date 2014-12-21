@@ -30,7 +30,7 @@
 #include <kglobal.h>
 
 #include <kcombobox.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <ksqueezedtextlabel.h>
 
 #include "logging.h"

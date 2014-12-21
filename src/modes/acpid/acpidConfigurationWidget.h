@@ -23,7 +23,7 @@
 #define _ACPID_CONFIGURATION_WIDGET_H_
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "globals.h"
 #include "logging.h"

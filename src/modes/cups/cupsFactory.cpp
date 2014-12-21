@@ -22,7 +22,7 @@
 #include "cupsFactory.h"
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "multipleActions.h"
 #include "logMode.h"

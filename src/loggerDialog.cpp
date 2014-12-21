@@ -23,7 +23,7 @@
 
 #include <QProcess>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 
 //Project includes

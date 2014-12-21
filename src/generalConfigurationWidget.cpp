@@ -27,7 +27,7 @@
 #include <QButtonGroup>
 
 #include <kglobal.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <QIcon>
 #include <kstandarddirs.h>
 

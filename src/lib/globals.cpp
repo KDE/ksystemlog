@@ -25,7 +25,7 @@
 #include <QList>
 #include <QMap>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "defaults.h"
 #include "logLevel.h"

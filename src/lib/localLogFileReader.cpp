@@ -25,7 +25,7 @@
 #include <QFile>
 
 #include <kdirwatch.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kfilterdev.h>
 #include <kmimetype.h>
 #include <kurl.h>

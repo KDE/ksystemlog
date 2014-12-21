@@ -21,7 +21,7 @@
 
 #include "logManager.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <kmessagebox.h>
 

@@ -26,7 +26,7 @@
 
 #include "logModeItemBuilder.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 

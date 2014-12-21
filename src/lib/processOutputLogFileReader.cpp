@@ -25,7 +25,7 @@
 #include <QProcess>
 #include <QStringList>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurl.h>
 
 #include "logFileReader.h"

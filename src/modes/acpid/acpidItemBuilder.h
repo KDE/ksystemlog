@@ -24,7 +24,7 @@
 
 #include <QString>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 

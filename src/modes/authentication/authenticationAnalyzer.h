@@ -22,7 +22,7 @@
 #ifndef _AUTHENTICATION_ANALYZER_H_
 #define _AUTHENTICATION_ANALYZER_H_
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "syslogAnalyzer.h"
 

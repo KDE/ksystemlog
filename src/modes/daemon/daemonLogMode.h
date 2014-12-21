@@ -36,7 +36,7 @@
 #include <QList>
 
 #include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"

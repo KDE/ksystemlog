@@ -29,7 +29,7 @@
 
 // KDE includes
 #include <kmenu.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kfiledialog.h>
 #include <kdialog.h>
 #include <kmessagebox.h>

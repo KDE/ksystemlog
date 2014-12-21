@@ -25,7 +25,7 @@
 #include <QList>
 #include <QPushButton>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kiconloader.h>
 
 

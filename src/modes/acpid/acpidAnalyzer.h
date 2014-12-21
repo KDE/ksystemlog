@@ -22,7 +22,7 @@
 #ifndef _ACPID_ANALYZER_H_
 #define _ACPID_ANALYZER_H_
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "analyzer.h"
 

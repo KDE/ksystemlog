@@ -22,7 +22,7 @@
 #ifndef _X_SESSION_ANALYZER_H_
 #define _X_SESSION_ANALYZER_H_
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "analyzer.h"
 

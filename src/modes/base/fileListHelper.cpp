@@ -25,7 +25,7 @@
 #include <QAction>
 #include <QPushButton>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kfiledialog.h>
 #include <kurl.h>
 #include <kmessagebox.h>

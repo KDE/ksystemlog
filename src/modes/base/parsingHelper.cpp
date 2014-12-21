@@ -22,7 +22,7 @@
 #include "parsingHelper.h"
 
 #include <kglobal.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <KFormat>
 
 #include "logging.h"

@@ -25,10 +25,10 @@
 #include <QList>
 
 #include <QIcon>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <ktoggleaction.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurl.h>
 #include <kfiledialog.h>
 #include <kmessagebox.h>

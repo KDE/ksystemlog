@@ -26,7 +26,7 @@
 
 #include <QVBoxLayout>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "globals.h"
 #include "logging.h"

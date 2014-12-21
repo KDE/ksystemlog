@@ -23,7 +23,7 @@
 #define _APACHE_ACCESS_ANALYZER_H_
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "analyzer.h"
 

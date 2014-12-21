@@ -22,7 +22,7 @@
 #include <kapplication.h>
 #include <k4aboutdata.h>
 #include <kcmdlineargs.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurl.h>
 
 #include "mainWindow.h"

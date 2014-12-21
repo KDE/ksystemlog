@@ -29,7 +29,7 @@
 #include <QBrush>
 
 //KDE includes
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 #include "logging.h"
 

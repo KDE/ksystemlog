@@ -28,7 +28,7 @@
 #include <QLabel>
 #include <QLineEdit>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "globals.h"
 #include "logging.h"

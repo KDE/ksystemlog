@@ -21,7 +21,7 @@
 
 #include "levelPrintPage.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kglobal.h>
 
 #include <QCheckBox>

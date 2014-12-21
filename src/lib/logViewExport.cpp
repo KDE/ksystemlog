@@ -27,7 +27,7 @@
 #include <QtGui/QPrintDialog>
 
 #include <kapplication.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <ktoolinvocation.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>

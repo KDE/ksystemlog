@@ -23,7 +23,7 @@
 #define _CUPS_PAGE_ANALYZER_H_
 
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "analyzer.h"
 

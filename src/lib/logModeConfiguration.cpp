@@ -25,7 +25,7 @@
 #include "defaults.h"
 
 #include <kurl.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logFile.h"
 #include "logLevel.h"

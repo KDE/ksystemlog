@@ -28,7 +28,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kapplication.h>
 #include <kiconloader.h>
 

@@ -21,7 +21,7 @@
 
 #include "genericConfiguration.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "defaults.h"

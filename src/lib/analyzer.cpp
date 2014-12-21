@@ -21,7 +21,7 @@
 
 #include "analyzer.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "ksystemlogConfig.h"
