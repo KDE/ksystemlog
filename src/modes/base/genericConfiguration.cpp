@@ -109,4 +109,4 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() {
 }
 
 
-#include "genericConfiguration.moc"
+

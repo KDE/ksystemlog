@@ -333,4 +333,4 @@ void LogViewSearchWidget::unlightAll() {
 	}
 }
 
-#include "logViewSearchWidget.moc"
+

@@ -190,4 +190,4 @@ void LogLevelFileList::addPaths(const QStringList& stringList, const QList<int>&
 }
 
 
-#include "logLevelFileList.moc"
+

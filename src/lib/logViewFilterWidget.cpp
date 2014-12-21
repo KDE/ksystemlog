@@ -164,4 +164,4 @@ LogViewWidgetSearchLine* LogViewFilterWidget::filterLine() {
 	return d->filterLine;
 }
 
-#include "logViewFilterWidget.moc"
+

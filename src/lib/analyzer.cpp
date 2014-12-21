@@ -253,4 +253,4 @@ inline void Analyzer::informOpeningProgress(int currentPosition, int total) {
 	}
 }
 
-#include "analyzer.moc"
+

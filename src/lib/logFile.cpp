@@ -91,4 +91,4 @@ QDebug& operator<< (QDebug& out, const LogFile& logFile) {
 	return out;
 }
 
-#include "logFile.moc"
+

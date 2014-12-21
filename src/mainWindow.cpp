@@ -811,4 +811,4 @@ void MainWindow::setupLogActions() {
 
 }
 
-#include "mainWindow.moc"
+

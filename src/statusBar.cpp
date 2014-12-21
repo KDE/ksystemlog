@@ -140,4 +140,4 @@ void StatusBar::toggleHistory() {
 
 }
 
-#include "statusBar.moc"
+

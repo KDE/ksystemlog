@@ -197,5 +197,5 @@ bool ConfigurationDialog::isDefault() {
 	return true;
 }
 
-#include "configurationDialog.moc"
+
 

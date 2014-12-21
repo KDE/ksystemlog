@@ -228,4 +228,4 @@ void View::dragEnterEvent(QDragEnterEvent* event) {
 
 }
 
-#include "view.moc"
+

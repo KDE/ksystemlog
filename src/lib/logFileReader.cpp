@@ -51,4 +51,4 @@ LogFile LogFileReader::logFile() const {
 	return d->logFile;
 }
 
-#include "logFileReader.moc"
+

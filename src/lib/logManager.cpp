@@ -215,4 +215,4 @@ void LogManager::loadDroppedUrls(const QList<QUrl>& urls) {
 	}
 }
 
-#include "logManager.moc"
+

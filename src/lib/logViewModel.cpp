@@ -252,4 +252,4 @@ bool LogViewModel::insertNewLogLine(LogLine* line) {
 	return false;
 }
 
-#include "logViewModel.moc"
+

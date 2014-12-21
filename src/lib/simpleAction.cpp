@@ -54,4 +54,4 @@ QAction* SimpleAction::actionMenu() {
 	return action;
 }
 
-#include "simpleAction.moc"
+

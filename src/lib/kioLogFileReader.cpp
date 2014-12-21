@@ -169,4 +169,4 @@ void KioLogFileReader::watchFile(const QString& path) {
 	logDebug() << "Watch file : size : " << path << endl;
 }
 
-#include "kioLogFileReader.moc"
+

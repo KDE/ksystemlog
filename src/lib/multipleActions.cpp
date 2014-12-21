@@ -48,4 +48,4 @@ void MultipleActions::addInnerAction(QAction* innerAction) {
 	
 }
 
-#include "multipleActions.moc"
+

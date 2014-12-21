@@ -133,4 +133,4 @@ void DetailDialog::nextItem() {
 	moveToItem(1);
 }
 
-#include "detailDialog.moc"
+

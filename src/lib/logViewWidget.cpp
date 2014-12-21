@@ -303,4 +303,4 @@ void LogViewWidget::toggleHeader(QAction* action) {
 }
 
 
-#include "logViewWidget.moc"
+

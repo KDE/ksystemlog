@@ -253,4 +253,4 @@ QList<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList& strin
 	return logFiles;
 }
 
-#include "logModeConfiguration.moc"
+

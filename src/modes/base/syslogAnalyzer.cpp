@@ -209,4 +209,4 @@ inline QString SyslogAnalyzer::undefinedProcess() {
 	return QLatin1String( "" );
 }
 
-#include "syslogAnalyzer.moc"
+

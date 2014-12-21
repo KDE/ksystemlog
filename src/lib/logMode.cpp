@@ -79,4 +79,4 @@ QAction* LogMode::createDefaultAction() {
 	return action;
 }
 
-#include "logMode.moc"
+

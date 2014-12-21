@@ -230,4 +230,4 @@ QStringList FileList::paths() {
 	return paths;
 }
 
-#include "fileList.moc"
+

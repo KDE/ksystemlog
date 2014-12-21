@@ -236,4 +236,4 @@ void LocalLogFileReader::logFileModified() {
 	d->insertionLocking.unlock();
 }
 
-#include "localLogFileReader.moc"
+

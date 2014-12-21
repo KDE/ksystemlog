@@ -84,4 +84,4 @@ QString TabLogManager::logModeName() {
 		return d->logManager->logMode()->name();
 }
 
-#include "tabLogManager.moc"
+

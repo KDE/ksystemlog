@@ -169,4 +169,4 @@ void FileListHelper::setEnabledAction(QPushButton* button, bool enabled) {
 	}
 }
 
-#include "fileListHelper.moc"
+

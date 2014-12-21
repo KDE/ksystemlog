@@ -235,4 +235,4 @@ void ProcessOutputLogFileReader::emptyBuffer() {
 	}
 }
 
-#include "processOutputLogFileReader.moc"
+

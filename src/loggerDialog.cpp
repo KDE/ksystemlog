@@ -259,4 +259,4 @@ void LoggerDialog::sendMessage() {
 }
 
 
-#include "loggerDialog.moc"
+
