@@ -26,7 +26,7 @@
 #include <QActionGroup>
 #include <QAction>
 #include <QList>
-#include <QtGui/QPrinter>
+#include <QPrinter>
 
 //KDE includes
 #include <kmainwindow.h>

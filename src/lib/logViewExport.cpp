@@ -23,8 +23,8 @@
 
 #include <QPainter>
 #include <QClipboard>
-#include <QtGui/QPrinter>
-#include <QtGui/QPrintDialog>
+#include <QPrinter>
+#include <QPrintDialog>
 
 #include <kapplication.h>
 #include <KLocalizedString>
