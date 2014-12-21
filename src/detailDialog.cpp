@@ -26,6 +26,8 @@
 #include <QIcon>
 #include <kiconloader.h>
 #include <KLocalizedString>
+#include <KGuiItem>
+#include <KStandardGuiItem>
 
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
@@ -47,8 +49,7 @@ DetailDialog::DetailDialog(QWidget* parent) :
 	next->setIcon(QIcon::fromTheme( QLatin1String( "arrow-down" )));
 	connect(next, SIGNAL(clicked()), this, SLOT(nextItem()));
 	
-	closeButton->setText(KStandardGuiItem::close().text());
-	closeButton->setIcon(KStandardGuiItem::close().icon());
+	KGuiItem::assign(closeButton,KStandardGuiItem::close());
 	connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
 	
 }

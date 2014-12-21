@@ -28,7 +28,6 @@
 
 
 #include <kurl.h>
-#include <kvbox.h>
 #include <kiconloader.h>
 
 class LogViewColumnPrivate {

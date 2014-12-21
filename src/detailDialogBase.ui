@@ -79,7 +79,7 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="KPushButton" native="1" name="previous" >
+      <widget class="QPushButton" native="1" name="previous" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
          <horstretch>0</horstretch>
@@ -101,7 +101,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" native="1" name="next" >
+      <widget class="QPushButton" native="1" name="next" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
          <horstretch>0</horstretch>
@@ -139,7 +139,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KPushButton" native="1" name="closeButton" >
+      <widget class="QPushButton" native="1" name="closeButton" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
          <horstretch>0</horstretch>
@@ -170,20 +170,12 @@
    <extends>QWidget</extends>
    <header>ktextedit.h</header>
   </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QWidget</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>message</tabstop>
  </tabstops>
  <includes>
   <include location="local" >ktextedit.h</include>
-  <include location="local" >kpushbutton.h</include>
-  <include location="local" >kpushbutton.h</include>
-  <include location="local" >kpushbutton.h</include>
  </includes>
  <resources/>
  <connections/>

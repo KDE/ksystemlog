@@ -36,8 +36,6 @@
 #include <QIcon>
 #include <kurl.h>
 
-#include <kvbox.h>
-
 #include <klistwidget.h>
 
 #include "defaults.h"
