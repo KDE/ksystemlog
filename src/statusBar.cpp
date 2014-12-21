@@ -115,12 +115,12 @@ void StatusBar::changeLineCountMessage(const QString& lineCountMessage) {
 }
 
 void StatusBar::changeLastModification(const QTime& lastModification) {
-	d->lastModificationLabel->setText(i18n("Last updated: %1.", KGlobal::locale()->formatTime(lastModification, true, false) ));
+	d->lastModificationLabel->setText(i18n("Last updated: %1.", KLocale::global()->formatTime(lastModification, true, false) ));
 }
 
 void StatusBar::changeMessage(const QString& message) {
 	//d->messageLabel->setText(message);
-	d->messageList->insertItem(0, i18n("%1: %2", KGlobal::locale()->formatTime(QTime::currentTime(), true, false), message));
+	d->messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true, false), message));
 
 	//100 log history message max.
 	if (d->messageList->count() > 100) {

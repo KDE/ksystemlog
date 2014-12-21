@@ -91,7 +91,7 @@ void GeneralConfigurationWidget::addDateFormatExample() {
 
 		KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
 
-		QString formattedDate = KGlobal::locale()->formatDateTime(currentDateTime, currentButtonFormat, true);
+		QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat, true);
 
 		button->setText( i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate) );
 	}

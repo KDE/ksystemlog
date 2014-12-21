@@ -41,7 +41,7 @@ LogModeItemBuilder::~LogModeItemBuilder() {
 }
 
 QString LogModeItemBuilder::formatDate(const QDateTime& dateTime) const {
-	return KGlobal::locale()->formatDateTime(dateTime, (KLocale::DateFormat) KSystemLogConfig::dateFormat(), true);
+	return KLocale::global()->formatDateTime(dateTime, (KLocale::DateFormat) KSystemLogConfig::dateFormat(), true);
 }
 
 void LogModeItemBuilder::prepareItem(LogViewWidgetItem* item) const {

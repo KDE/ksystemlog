@@ -122,7 +122,7 @@ void ConfigurationDialog::updateSettings() {
 		logModeConfigurationWidget->saveConfig();
 	}
 
-	KSystemLogConfig::self()->writeConfig();
+	KSystemLogConfig::self()->save();
 
 	emit configurationSaved();
 

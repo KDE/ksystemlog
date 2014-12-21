@@ -23,6 +23,7 @@
 
 #include <kglobal.h>
 #include <klocale.h>
+#include <KFormat>
 
 #include "logging.h"
 
@@ -154,7 +155,7 @@ int ParsingHelper::parseSyslogMonth(const QString& string) {
 QString ParsingHelper::parseSize(const QString& stringSize) {
 	qint64 size=stringSize.toLongLong();
 
-	return KGlobal::locale()->formatByteSize(size);
+	return KFormat().formatByteSize(size);
 }
 
 QString ParsingHelper::parseHttpResponse(const QString& response) {
