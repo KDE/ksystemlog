@@ -23,7 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include "logging.h"

@@ -32,7 +32,7 @@
 #include "globals.h"
 
 #include "logModeAction.h"
-
+#include <QIcon>
 class QAction;
 
 /**
@@ -45,7 +45,7 @@ class MultipleActions : public LogModeAction {
 	Q_OBJECT
 	
 	public:
-		MultipleActions(const KIcon& icon, const QString& text, QObject* parent);
+		MultipleActions(const QIcon& icon, const QString& text, QObject* parent);
 		
 		virtual ~MultipleActions();
 		

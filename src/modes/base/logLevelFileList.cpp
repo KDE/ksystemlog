@@ -33,7 +33,7 @@
 #include <kfiledialog.h>
 #include <kdialog.h>
 #include <kmessagebox.h>
-#include <kicon.h>
+#include <QIcon>
 #include <kurl.h>
 
 #include <kvbox.h>
@@ -63,7 +63,7 @@ LogLevelFileList::LogLevelFileList(QWidget* parent, const QString& description) 
 	//Insert the button just after the "Modify File" button
 	buttonsLayout()->insertWidget(2, changeItem);
 	
-	QAction* action = fileListHelper.prepareButtonAndAction(changeItem, KIcon( QLatin1String( "favorites" )), this, SLOT(changeItemType()));
+	QAction* action = fileListHelper.prepareButtonAndAction(changeItem, QIcon::fromTheme( QLatin1String( "favorites" )), this, SLOT(changeItemType()));
 
 	//Insert the action just after the "Modify File" action
 	fileList->insertAction(fileList->actions().at(2), action);

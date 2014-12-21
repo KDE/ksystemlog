@@ -24,7 +24,7 @@
 #include <QString>
 #include <QList>
 
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include <ktoggleaction.h>

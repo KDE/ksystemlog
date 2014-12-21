@@ -23,7 +23,7 @@
 
 //Qt includes
 
-#include <kicon.h>
+#include <QIcon>
 #include <kiconloader.h>
 #include <klocale.h>
 
@@ -40,11 +40,11 @@ DetailDialog::DetailDialog(QWidget* parent) :
 	setupUi(this);
 	
 	previous->setText(i18n("&Previous"));
-	previous->setIcon(KIcon( QLatin1String( "arrow-up" )));
+	previous->setIcon(QIcon::fromTheme( QLatin1String( "arrow-up" )));
 	connect(previous, SIGNAL(clicked()), this, SLOT(previousItem()));
 	
 	next->setText(i18n("&Next"));
-	next->setIcon(KIcon( QLatin1String( "arrow-down" )));
+	next->setIcon(QIcon::fromTheme( QLatin1String( "arrow-down" )));
 	connect(next, SIGNAL(clicked()), this, SLOT(nextItem()));
 	
 	closeButton->setText(KStandardGuiItem::close().text());

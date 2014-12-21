@@ -28,7 +28,7 @@
 
 #include <kcombobox.h>
 #include <kiconloader.h>
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include "logViewWidget.h"

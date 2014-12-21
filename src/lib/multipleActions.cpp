@@ -25,7 +25,7 @@
 
 #include "logging.h"
 
-MultipleActions::MultipleActions(const KIcon& icon, const QString& text, QObject* parent) {
+MultipleActions::MultipleActions(const QIcon& icon, const QString& text, QObject* parent) {
 	action = new KActionMenu(icon, text, parent);
 
 }

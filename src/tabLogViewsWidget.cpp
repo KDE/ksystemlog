@@ -27,7 +27,7 @@
 
 #include <klocale.h>
 #include <kiconloader.h>
-#include <kicon.h>
+#include <QIcon>
 
 #include "logging.h"
 
@@ -332,7 +332,7 @@ void TabLogViewsWidget::changeReloadingTab(View* view, bool reloading) {
 	TabLogManager* tabLogManager = findRelatedTabLogManager(view);
 
 	if (reloading == true)
-		changeTab(tabLogManager->logManager()->usedView(), KIcon( QLatin1String( "view-refresh" )), tabLogManager->title());
+		changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme( QLatin1String( "view-refresh" )), tabLogManager->title());
 	else
 		changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
 }
@@ -386,7 +386,7 @@ void TabLogViewsWidget::printSelectionCurrentView() {
 
 QIcon TabLogViewsWidget::logModeIcon(LogMode* logMode) {
 	if ( logMode == NULL)
-		return KIcon(QLatin1String( NO_MODE_ICON ));
+		return QIcon::fromTheme(QLatin1String( NO_MODE_ICON ));
 	else
 		return logMode->icon();
 

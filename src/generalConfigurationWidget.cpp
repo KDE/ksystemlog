@@ -28,7 +28,7 @@
 
 #include <kglobal.h>
 #include <klocale.h>
-#include <kicon.h>
+#include <QIcon>
 #include <kstandarddirs.h>
 
 #include "logging.h"
@@ -48,13 +48,13 @@ GeneralConfigurationWidget::GeneralConfigurationWidget() :
 
 	setupUi(this);
 
-	startupLogMode->addItem(KIcon( QLatin1String( NO_MODE_ICON) ), i18n("No Log Mode"), QVariant(QLatin1String( "" ) ));
+	startupLogMode->addItem(QIcon::fromTheme( QLatin1String( NO_MODE_ICON) ), i18n("No Log Mode"), QVariant(QLatin1String( "" ) ));
 	foreach(LogMode* logMode, Globals::instance()->logModes()) {
 		//Ignore this special case
 		if (logMode->id() == QLatin1String( "openLogMode" ))
 			continue;
 
-		startupLogMode->addItem(KIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
+		startupLogMode->addItem(QIcon::fromTheme(logMode->icon()), logMode->name(), QVariant(logMode->id()));
 	}
 
 	connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));

@@ -26,7 +26,7 @@
 #include <QComboBox>
 #include <QTime>
 
-#include <kicon.h>
+#include <QIcon>
 #include <kglobal.h>
 
 #include <kcombobox.h>
@@ -70,7 +70,7 @@ StatusBar::StatusBar(QWidget* parent) :
 
 	/*
 	d->toggleHistory = new QPushButton(this);
-	d->toggleHistory->setIcon(KIcon( QLatin1String( "view-history" )));
+	d->toggleHistory->setIcon(QIcon::fromTheme( QLatin1String( "view-history" )));
 	d->toggleHistory->setFlat(true);
 	addPermanentWidget(d->toggleHistory, 0);
 

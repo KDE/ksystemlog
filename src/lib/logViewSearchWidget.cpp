@@ -30,7 +30,7 @@
 
 
 #include <kiconloader.h>
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include "logging.h"
@@ -68,13 +68,13 @@ LogViewSearchWidget::LogViewSearchWidget() :
 	//The message widget is hidden by default
 	hideMessage();
 
-	closeButton->setIcon(KIcon( QLatin1String( "dialog-close" )));
+	closeButton->setIcon(QIcon::fromTheme( QLatin1String( "dialog-close" )));
 	connect(closeButton, SIGNAL(clicked()), this, SLOT(hide()));
 
-	next->setIcon(KIcon( QLatin1String( "arrow-down" )));
+	next->setIcon(QIcon::fromTheme( QLatin1String( "arrow-down" )));
 	connect(next, SIGNAL(clicked()), this, SLOT(findNext()));
 
-	previous->setIcon(KIcon( QLatin1String( "arrow-up" )));
+	previous->setIcon(QIcon::fromTheme( QLatin1String( "arrow-up" )));
 	connect(previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
 
 	searchLabel->setBuddy(searchLine);

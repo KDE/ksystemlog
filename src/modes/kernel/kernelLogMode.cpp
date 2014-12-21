@@ -24,7 +24,7 @@
 #include <QList>
 #include <QAction>
 
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include "logging.h"

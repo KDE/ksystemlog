@@ -24,7 +24,7 @@
 #include <QAction>
 #include <QHeaderView>
 
-#include <kicon.h>
+#include <QIcon>
 #include <klocale.h>
 
 #include "logging.h"
@@ -117,7 +117,7 @@ void LogViewWidget::setColumns(const LogViewColumns& columns) {
 	foreach(const LogViewColumn &column, columns.columns()) {
 		QAction* action = new QAction(this);
 		action->setText(column.columnName());
-		//helloAction->setIcon(KIcon( QLatin1String( "media-playback-start" )));
+		//helloAction->setIcon(QIcon::fromTheme( QLatin1String( "media-playback-start" )));
 		//helloAction->setShortcut(Qt::CTRL + Qt::Key_M);
 		action->setCheckable(true);
 		action->setChecked(true);
