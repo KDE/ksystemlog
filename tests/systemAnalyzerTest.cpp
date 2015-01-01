@@ -206,7 +206,7 @@ void SystemAnalyzerTest::testStrangeLines() {
 	QStringList items;
     
 	const int year = QDate::currentDate().year();
-	QSKIP("This test/code is broken", SkipAll);
+	QSKIP("This test/code is broken");
     
 	//Classical log line
 	items = QStringList() << QLatin1String("localhost") << QLatin1String("kernel") << QLatin1String("Kernel panic");

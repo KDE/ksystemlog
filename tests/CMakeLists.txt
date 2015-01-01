@@ -17,7 +17,7 @@ macro(ksystemlog_unit_tests)
 			testUtil.cpp
 		)
 		
-		qt4_add_resources( unitTest_sources testResources.qrc )
+		qt5_add_resources( unitTest_sources testResources.qrc )
 
 		kde4_add_unit_test(
 			${unitTest} 
@@ -28,11 +28,11 @@ macro(ksystemlog_unit_tests)
 		
 		target_link_libraries(
 			${unitTest} 
-			${QT_AND_KDECORE_LIBS} 
-			${QT_QTTEST_LIBRARY}
-			${KDE4_KDEUI_LIBS}
-			${KDE4_KIO_LIBS}
-			${KDE4_KDECORE_LIBS} 
+			 
+			Qt5::Test
+			
+			KF5::KIOCore
+			KF5::KDELibs4Support 
 			ksystemlog_lib
 			ksystemlog_base_mode
 			ksystemlog_config

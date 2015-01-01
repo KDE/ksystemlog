@@ -82,4 +82,4 @@ void KioLogFileReaderTest::readLine(const QString& line) {
 
 QTEST_KDEMAIN(KioLogFileReaderTest, GUI)
 
-#include "logFileReaderTest.moc"
+#include "kioLogFileReaderTest.moc"
