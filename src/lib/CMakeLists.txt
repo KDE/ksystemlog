@@ -39,9 +39,9 @@ set(ksystemlog_lib_sources
 
 )
 
-kde4_add_ui_files(ksystemlog_lib_sources logViewSearchWidgetBase.ui)
+ki18n_wrap_ui(ksystemlog_lib_sources logViewSearchWidgetBase.ui)
 
-kde4_add_library(ksystemlog_lib STATIC ${ksystemlog_lib_sources})
+add_library(ksystemlog_lib STATIC ${ksystemlog_lib_sources})
 
 add_dependencies(
 	ksystemlog_lib 

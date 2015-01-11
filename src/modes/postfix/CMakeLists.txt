@@ -15,7 +15,7 @@ set(ksystemlog_postfix_sources
 	postfixLogMode.cpp
 )
 
-kde4_add_library(ksystemlog_postfix STATIC ${ksystemlog_postfix_sources})
+add_library(ksystemlog_postfix STATIC ${ksystemlog_postfix_sources})
 
 add_dependencies(
 	ksystemlog_postfix
@@ -26,7 +26,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_postfix
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode
 	ksystemlog_config

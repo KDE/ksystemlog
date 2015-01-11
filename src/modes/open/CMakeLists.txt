@@ -13,7 +13,7 @@ set(ksystemlog_open_sources
 )
 
 
-kde4_add_library(ksystemlog_open STATIC ${ksystemlog_open_sources})
+add_library(ksystemlog_open STATIC ${ksystemlog_open_sources})
 
 add_dependencies(
 	ksystemlog_open 
@@ -22,7 +22,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_open
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_config
 	ksystemlog_base_mode

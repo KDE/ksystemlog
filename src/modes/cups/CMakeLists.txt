@@ -32,7 +32,7 @@ set(ksystemlog_cups_sources
 	
 )
 
-kde4_add_library(ksystemlog_cups STATIC ${ksystemlog_cups_sources})
+add_library(ksystemlog_cups STATIC ${ksystemlog_cups_sources})
 
 add_dependencies(
 	ksystemlog_cups
@@ -43,7 +43,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_cups
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode
 	ksystemlog_config

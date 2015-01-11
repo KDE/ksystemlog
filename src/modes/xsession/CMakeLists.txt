@@ -17,9 +17,9 @@ set(ksystemlog_xsession_sources
 	xsessionFactory.cpp
 )
 
-kde4_add_ui_files(ksystemlog_xsession_sources xsessionConfigurationWidgetBase.ui )
+ki18n_wrap_ui(ksystemlog_xsession_sources xsessionConfigurationWidgetBase.ui )
 
-kde4_add_library(ksystemlog_xsession STATIC ${ksystemlog_xsession_sources})
+add_library(ksystemlog_xsession STATIC ${ksystemlog_xsession_sources})
 
 add_dependencies(
 	ksystemlog_xsession
@@ -29,7 +29,7 @@ add_dependencies(
 
 target_link_libraries(
     ksystemlog_xsession
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode 
 	ksystemlog_config

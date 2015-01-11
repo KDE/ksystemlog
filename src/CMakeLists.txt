@@ -38,13 +38,13 @@ set(ksystemlog_sources
 
 )
 
-kde4_add_ui_files(ksystemlog_sources
+ki18n_wrap_ui(ksystemlog_sources
 	detailDialogBase.ui
 	loggerDialogBase.ui
 	generalConfigurationWidgetBase.ui
 )
 
-kde4_add_executable(ksystemlog ${ksystemlog_sources})
+add_executable(ksystemlog ${ksystemlog_sources})
 
 target_link_libraries(ksystemlog  
 	KF5::KDELibs4Support

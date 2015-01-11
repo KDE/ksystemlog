@@ -13,7 +13,7 @@ set(ksystemlog_kernel_sources
 	kernelItemBuilder.cpp
 )
 
-kde4_add_library(ksystemlog_kernel STATIC ${ksystemlog_kernel_sources})
+add_library(ksystemlog_kernel STATIC ${ksystemlog_kernel_sources})
 
 add_dependencies(
 	ksystemlog_kernel 
@@ -23,7 +23,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_kernel
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode
 	ksystemlog_config

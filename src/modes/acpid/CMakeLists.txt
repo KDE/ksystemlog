@@ -17,7 +17,7 @@ set(ksystemlog_acpid_sources
 	acpidFactory.cpp
 )
 
-kde4_add_library(ksystemlog_acpid STATIC ${ksystemlog_acpid_sources})
+add_library(ksystemlog_acpid STATIC ${ksystemlog_acpid_sources})
 
 add_dependencies(
 	ksystemlog_acpid
@@ -28,7 +28,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_acpid
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode 
 	ksystemlog_config
