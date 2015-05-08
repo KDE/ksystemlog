@@ -89,7 +89,7 @@ class AuthenticationConfigurationWidget : public LogModeConfigurationWidget {
 		void readConfig() {
 			AuthenticationConfiguration* authenticationConfiguration = Globals::instance()->findLogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ))->logModeConfiguration<AuthenticationConfiguration*>();
 
-			authenticationUrlRequester->setUrl(KUrl(authenticationConfiguration->authenticationPath()));
+      authenticationUrlRequester->setUrl(QUrl::fromLocalFile(authenticationConfiguration->authenticationPath()));
 		}
 
 		void defaultConfig() {

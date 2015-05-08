@@ -27,7 +27,6 @@
 
 #include <kactioncollection.h>
 #include <kfiledialog.h>
-#include <kurl.h>
 #include <kmessagebox.h>
 #include <QIcon>
 #include <QMenu>
@@ -106,7 +105,7 @@ void FileList::modifyItem(QListWidgetItem* item) {
 	QString previousPath = item->text();
 	
 	//Open a standard Filedialog
-	KUrl url=fileListHelper.openUrl(previousPath);
+  QUrl url=fileListHelper.openUrl(previousPath);
 
 	QList<QUrl> urls;
 	urls.append(url);

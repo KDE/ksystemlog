@@ -22,7 +22,6 @@
 #include <QList>
 
 #include <qtest_kde.h>
-#include <kurl.h>
 
 #include "logFile.h"
 #include "kioLogFileReader.h"
@@ -61,7 +60,7 @@ void KioLogFileReaderTest::testKioLogFileReader() {
 	*/
 	
 	///home/nicolas/test.txt
-	LogFile logFile(KUrl("http://localhost/test.txt"), Globals::instance()->informationLogLevel());
+  LogFile logFile(QUrl::fromLocalFile("http://localhost/test.txt"), Globals::instance()->informationLogLevel());
 	
 	KioLogFileReader* logFileReader = new KioLogFileReader(logFile);
 	

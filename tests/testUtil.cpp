@@ -24,7 +24,6 @@
 #include <QTemporaryFile>
 
 #include <qtest_kde.h>
-#include <kurl.h>
 
 #include "systemFactory.h"
 #include "kernelFactory.h"
@@ -80,7 +79,7 @@ QList<LogFile> TestUtil::createLogFiles(const QString& resourceFileName) const {
 	LogLevel* informationLogLevel = Globals::instance()->informationLogLevel();
 	
 	QList<LogFile> logFiles;
-	LogFile logFile(KUrl(tempFile->fileName()), informationLogLevel);
+	LogFile logFile(QUrl::fromLocalFile(tempFile->fileName()), informationLogLevel);
 	logFiles.append(logFile);
 	
 	return logFiles;

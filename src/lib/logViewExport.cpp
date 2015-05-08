@@ -234,7 +234,7 @@ void LogViewExport::fileSave() {
 		return;
 	}
 
-	QString filename = KFileDialog::getSaveFileName(KUrl(), QString(), parent);
+  QString filename = KFileDialog::getSaveFileName(QUrl(), QString(), parent);
 	if (filename.isEmpty() == true) {
 		return;
 	}

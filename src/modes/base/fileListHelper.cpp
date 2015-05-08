@@ -27,7 +27,6 @@
 
 #include <KLocalizedString>
 #include <kfiledialog.h>
-#include <kurl.h>
 #include <kmessagebox.h>
 #include <kiconloader.h>
 
@@ -124,7 +123,7 @@ bool FileListHelper::isValidFile(const QUrl& url) {
 }
 
 QList<QUrl> FileListHelper::openUrls() {
-	KFileDialog fileDialog(KUrl(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+  KFileDialog fileDialog(QUrl::fromLocalFile(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
 	fileDialog.setMode(KFile::Files);
 
@@ -133,7 +132,7 @@ QList<QUrl> FileListHelper::openUrls() {
 }
 
 QUrl FileListHelper::openUrl(const QString& originPath) {
-	KFileDialog fileDialog(KUrl(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+  KFileDialog fileDialog(QUrl::fromLocalFile(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
 	fileDialog.setMode(KFile::File);
 

@@ -106,7 +106,7 @@ class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui
 		void readConfig() {
 			XSessionConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ))->logModeConfiguration<XSessionConfiguration*>();
 
-			xsessionUrlRequester->setUrl(KUrl(configuration->xsessionPath()));
+      xsessionUrlRequester->setUrl(QUrl::fromLocalFile(configuration->xsessionPath()));
 			ignoreXorgErrors->setChecked(configuration->isIgnoreXorgErrors());
 
 			prepareXorgErrorsDescription();
