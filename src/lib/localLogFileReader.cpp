@@ -143,7 +143,8 @@ QIODevice* LocalLogFileReader::open() {
 	else {
 		logDebug() << "Using KFilterDev input device" << endl;
 
-		inputDevice = KFilterDev::deviceForFile(d->logFile.url().path(), mimeType);
+    //inputDevice = KFilterDev::deviceForFile(d->logFile.url().path(), mimeType);
+    inputDevice = new KCompressionDevice(d->logFile.url().path(), KFilterDev::compressionTypeForMimeType(mimeType));
 
 		if (inputDevice == NULL) {
 			QString message(i18n("Unable to uncompress the '%2' format of '%1'.", d->logFile.url().path(), mimeType));

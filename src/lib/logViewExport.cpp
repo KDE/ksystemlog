@@ -240,9 +240,9 @@ void LogViewExport::fileSave() {
 		return;
 	}
 
-	QIODevice* ioDev = KFilterDev::deviceForFile(filename);
+  QIODevice* ioDev = new KFilterDev(filename);
 	if (ioDev->open(QIODevice::WriteOnly)) {
-		QTextStream stream(ioDev);
+    QTextStream stream(ioDev);
 
 		int nbCopied=0;
 

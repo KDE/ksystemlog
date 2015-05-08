@@ -805,5 +805,3 @@ void MainWindow::setupLogActions() {
 }
 
 }
-
-
