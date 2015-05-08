@@ -1,8 +1,9 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <author>Nicolas Ternisien</author>
  <class>GeneralConfigurationWidgetBase</class>
- <widget class="QWidget" name="GeneralConfigurationWidgetBase" >
-  <property name="geometry" >
+ <widget class="QWidget" name="GeneralConfigurationWidgetBase">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -10,29 +11,29 @@
     <height>497</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox_4" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="title">
       <string>Startup</string>
      </property>
-     <layout class="QHBoxLayout" >
+     <layout class="QHBoxLayout">
       <item>
-       <widget class="QLabel" name="label" >
-        <property name="text" >
+       <widget class="QLabel" name="label">
+        <property name="text">
          <string>Load this log mode at startup:</string>
         </property>
-        <property name="buddy" >
+        <property name="buddy">
          <cstring>startupLogMode</cstring>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="startupLogMode" >
-        <property name="toolTip" >
+       <widget class="QComboBox" name="startupLogMode">
+        <property name="toolTip">
          <string>The log mode which is loaded by default at startup</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>The log mode loaded by default at startup. Choose 'No Log Mode' if you do not want this to happen.</string>
         </property>
        </widget>
@@ -41,44 +42,44 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
       <string>Log Lines List</string>
      </property>
-     <layout class="QVBoxLayout" >
+     <layout class="QVBoxLayout">
       <item>
-       <layout class="QHBoxLayout" >
+       <layout class="QHBoxLayout">
         <item>
-         <widget class="QLabel" name="maxLinesLabel" >
-          <property name="text" >
-           <string>Maximum lines displayed:</string>
+         <widget class="QLabel" name="maxLinesLabel">
+          <property name="text">
+           <string>&amp;Maximum lines displayed:</string>
           </property>
-          <property name="buddy" >
+          <property name="buddy">
            <cstring>maxLines</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="KIntSpinBox" name="maxLines" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+         <widget class="QSpinBox" name="maxLines">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="toolTip" >
+          <property name="toolTip">
            <string>Choose here the maximum number of log lines displayed in the main view.</string>
           </property>
-          <property name="whatsThis" >
+          <property name="whatsThis">
            <string>You can choose here the maximum number of log lines displayed in the main view.</string>
           </property>
-          <property name="minimum" >
+          <property name="minimum">
            <number>10</number>
           </property>
-          <property name="maximum" >
+          <property name="maximum">
            <number>30000</number>
           </property>
-          <property name="singleStep" >
+          <property name="singleStep">
            <number>10</number>
           </property>
          </widget>
@@ -86,14 +87,14 @@
        </layout>
       </item>
       <item>
-       <widget class="QCheckBox" name="deleteDuplicatedLines" >
-        <property name="toolTip" >
-         <string>Select this option if you want to delete duplicate log lines &lt;b>(may be slow)&lt;/b>.</string>
+       <widget class="QCheckBox" name="deleteDuplicatedLines">
+        <property name="toolTip">
+         <string>Select this option if you want to delete duplicate log lines &lt;b&gt;(may be slow)&lt;/b&gt;.</string>
         </property>
-        <property name="whatsThis" >
-         <string>Select this option if you want to delete duplicate log lines. &lt;b>This option can slow log reading&lt;/b>.</string>
+        <property name="whatsThis">
+         <string>Select this option if you want to delete duplicate log lines. &lt;b&gt;This option can slow log reading&lt;/b&gt;.</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>Remove &amp;duplicate log lines (may be slower)</string>
         </property>
        </widget>
@@ -102,33 +103,33 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
       <string>Options</string>
      </property>
-     <layout class="QVBoxLayout" >
+     <layout class="QVBoxLayout">
       <item>
-       <widget class="QCheckBox" name="deleteProcessId" >
-        <property name="toolTip" >
+       <widget class="QCheckBox" name="deleteProcessId">
+        <property name="toolTip">
          <string>Remove process identifier from process name.</string>
         </property>
-        <property name="whatsThis" >
-         <string>Select this option if you want to remove the process identifier from the process name. For example, the &lt;b>Process&lt;/b> column may contain entries such as &lt;i>cron&lt;b>[3433]&lt;/b>&lt;/i>. If this option is activated, the bold part will be removed.</string>
+        <property name="whatsThis">
+         <string>Select this option if you want to remove the process identifier from the process name. For example, the &lt;b&gt;Process&lt;/b&gt; column may contain entries such as &lt;i&gt;cron&lt;b&gt;[3433]&lt;/b&gt;&lt;/i&gt;. If this option is activated, the bold part will be removed.</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>Remove &amp;identifier from process name</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="colorizeLogLines" >
-        <property name="toolTip" >
+       <widget class="QCheckBox" name="colorizeLogLines">
+        <property name="toolTip">
          <string>This option allows log lines to be colored depending on their log level.</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>This option allows log lines to be colored depending on their log level. For example, errors will be shown in red, warnings in orange, and so on. This will help you to see problems more easily.</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>&amp;Colored log lines</string>
         </property>
        </widget>
@@ -137,38 +138,38 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_3" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
       <string>Date Format</string>
      </property>
-     <layout class="QVBoxLayout" >
+     <layout class="QVBoxLayout">
       <item>
-       <widget class="QRadioButton" name="formatShortDate" >
-        <property name="styleSheet" >
+       <widget class="QRadioButton" name="formatShortDate">
+        <property name="styleSheet">
          <string/>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>&amp;Short date format</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="formatFancyShortDate" >
-        <property name="text" >
-         <string>&amp;Fancy short date format</string>
+       <widget class="QRadioButton" name="formatFancyShortDate">
+        <property name="text">
+         <string>Fa&amp;ncy short date format</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="formatLongDate" >
-        <property name="text" >
+       <widget class="QRadioButton" name="formatLongDate">
+        <property name="text">
          <string>&amp;Long date format</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="formatFancyLongDate" >
-        <property name="text" >
+       <widget class="QRadioButton" name="formatFancyLongDate">
+        <property name="text">
          <string>Fanc&amp;y long date format</string>
         </property>
        </widget>
@@ -178,10 +179,10 @@
    </item>
    <item>
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>40</height>
@@ -191,13 +192,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
