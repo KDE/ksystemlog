@@ -23,12 +23,12 @@
 
 #include <QString>
 #include <QList>
+#include <QFileDialog>
 
 #include <KLocalizedString>
 
 #include <ktoggleaction.h>
 #include <KLocalizedString>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 
 #include "logging.h"
@@ -61,7 +61,7 @@ Analyzer* OpenLogMode::createAnalyzer() {
 
 QList<LogFile> OpenLogMode::createLogFiles() {
 	//Open a standard Filedialog
-  QUrl openingFileName(KFileDialog::getOpenUrl(QUrl(), QString(), parent, i18n("Open Location")));
+  QUrl openingFileName(QFileDialog::getOpenFileUrl(parent, i18n("Open Location"), QUrl(), QString()));
   logDebug() << "Opening file : " << openingFileName.url() << endl;
 
 	if (openingFileName.isEmpty()) {

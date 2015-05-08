@@ -25,12 +25,12 @@
 #include <QClipboard>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QFileDialog>
 
 #include <kapplication.h>
 #include <KLocalizedString>
 #include <ktoolinvocation.h>
 #include <kmessagebox.h>
-#include <kfiledialog.h>
 #include <kfilterdev.h>
 #include <kdeprintdialog.h>
 
@@ -234,7 +234,8 @@ void LogViewExport::fileSave() {
 		return;
 	}
 
-  QString filename = KFileDialog::getSaveFileName(QUrl(), QString(), parent);
+  //QString filename = QFileDialog::getSaveFileName(QUrl(), QString(), parent);
+  QString filename = QFileDialog::getSaveFileName();
 	if (filename.isEmpty() == true) {
 		return;
 	}

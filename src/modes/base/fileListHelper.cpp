@@ -24,9 +24,9 @@
 #include <QObject>
 #include <QAction>
 #include <QPushButton>
+#include <QFileDialog>
 
 #include <KLocalizedString>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <kiconloader.h>
 
@@ -123,21 +123,21 @@ bool FileListHelper::isValidFile(const QUrl& url) {
 }
 
 QList<QUrl> FileListHelper::openUrls() {
-  KFileDialog fileDialog(QUrl::fromLocalFile(DEFAULT_LOG_FOLDER), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+  QFileDialog fileDialog(parent, QString(), DEFAULT_LOG_FOLDER, QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"));
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
-	fileDialog.setMode(KFile::Files);
+  fileDialog.setFileMode(QFileDialog::ExistingFiles);
 
 	fileDialog.exec();
-	return fileDialog.selectedUrls();
+  return fileDialog.selectedUrls();
 }
 
 QUrl FileListHelper::openUrl(const QString& originPath) {
-  KFileDialog fileDialog(QUrl::fromLocalFile(originPath), QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"), parent);
+  QFileDialog fileDialog(parent, QString(), originPath, QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"));
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
-	fileDialog.setMode(KFile::File);
+  fileDialog.setFileMode(QFileDialog::ExistingFile);
 
 	fileDialog.exec();
-	return fileDialog.selectedUrl();
+  return fileDialog.selectedUrls().at(0);
 }
 
 QStringList FileListHelper::expandJoker(const QUrl& url) {
