@@ -19,48 +19,65 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include <kapplication.h>
-#include <k4aboutdata.h>
-#include <kcmdlineargs.h>
+#include <QCommandLineParser>
+
+#include <KAboutData>
 #include <KLocalizedString>
-#include <kurl.h>
 
 #include "mainWindow.h"
 #include "logging.h"
 
 int main(int argc, char** argv) {
 
-	K4AboutData about(
-			"ksystemlog",
-			0,
-			ki18n("KSystemlog"),
-			"0.4",
-			ki18n("System Logs Viewer for KDE"),
-			K4AboutData::License_GPL_V2,
-			ki18n("(C) 2007, Nicolas Ternisien"),
-			ki18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
-			"http://ksystemlog.forum-software.org",
-			"nicolas.ternisien@gmail.com"
+  QApplication app(argc, argv);
+
+  KLocalizedString::setApplicationDomain("ksystemlog");
+
+  KAboutData about(
+      QStringLiteral("ksystemlog"),
+      i18n("KSystemlog"),
+      QStringLiteral("0.4"),
+      i18n("System Logs Viewer for KDE"),
+      KAboutLicense::GPL_V2,
+      i18n("(C) 2007, Nicolas Ternisien"),
+      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
+      QStringLiteral("https://www.kde.org/applications/system/ksystemlog/"),
+      QString()
 	);
+
+  about.setOrganizationDomain("kde.org");
 
 	about.addAuthor(
-			ki18n("Nicolas Ternisien"),
-			ki18n("Main developer"),
-			"nicolas.ternisien@gmail.com",
-			"http://www.forum-software.org"
+      i18n("Nicolas Ternisien"),
+      i18n("Main developer"),
+      QStringLiteral("nicolas.ternisien@gmail.com"),
+      QStringLiteral("http://www.forum-software.org")
 	);
+  about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));
 
-	about.setProgramIconName(QLatin1String( "utilities-log-viewer" ));
-	about.addCredit(ki18n("Bojan Djurkovic"), ki18n("Log Printing"), "dbojan@gmail.com");
+  KAboutData::setApplicationData(about);
 
-	KCmdLineArgs::init(argc, argv, &about);
+  app.setApplicationName(about.componentName());
+  app.setApplicationDisplayName(about.displayName());
+  app.setOrganizationDomain(about.organizationDomain());
+  app.setApplicationVersion(about.version());
 
-	KCmdLineOptions options;
-	options.add("+[URL]", ki18n("Document to open"));
+  QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String("utilities-log-viewer")));
 
-	KCmdLineArgs::addCmdLineOptions( options );
+  QCommandLineParser parser;
+  about.setupCommandLine(&parser);
+  parser.setApplicationDescription(about.shortDescription());
+  parser.addHelpOption();
+  parser.addVersionOption();
 
-	KApplication app;
+  // url to open
+  parser.addPositionalArgument(QStringLiteral("URL"), i18n("Document to open."));
+
+  // do the command line parsing
+  parser.process(app);
+
+  // handle standard options
+  about.processCommandLine(&parser);
 
 	//See if we are starting with session management
 	if (app.isSessionRestored()) {
@@ -68,24 +85,25 @@ int main(int argc, char** argv) {
 	}
 	else {
 		//No session... Just start up normally
-		KCmdLineArgs* args=KCmdLineArgs::parsedArgs();
-		if (args->count()==0) {
+
+    const QStringList args = parser.positionalArguments();
+
+    if (args.count() == 0) {
 			new KSystemLog::MainWindow();
 		}
 		else {
-			/*KSystemLog::MainWindow* mainWindow;*/
+      //KSystemLog::MainWindow* mainWindow;
 			new KSystemLog::MainWindow();
-			for (int i = 0; i < args->count(); i++) {
-				logDebug() << "Loading file " << args->url(i) << endl;
+      for (int i = 0; i < args.count(); i++) {
+
+        logDebug() << "Loading file " << args.at(i) << endl;
+
 				//TODO Implement this kind of loading
 				//LogManager* firstLogManager = d->tabs->createTab();
 				//d->tabs->load(Globals::instance()->findLogMode("openLogMode"), firstLogManager);
 				//Open log mode need to automatically find the passed url : args->url(i)
-
 			}
 		}
-
-		args->clear();
 	}
 
 	return app.exec();
