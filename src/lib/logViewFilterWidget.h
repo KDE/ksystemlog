@@ -74,9 +74,10 @@ public:
 	~LogViewWidgetSearchLine();
 	
 public:
-	/**
-	 * Reimplemented just to send a signal _AFTER_ the tree updating
-	 */
+  // Silence compiler warning
+  using KTreeWidgetSearchLine::updateSearch;
+
+  // Reimplemented just to send a signal _AFTER_ the tree updating
 	void updateSearch(const QString& pattern = QString());
 
 signals:
