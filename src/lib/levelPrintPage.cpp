@@ -124,7 +124,7 @@ void LevelPrintPage::setOptions( const QMap<QString,QString>& opts ) {
 
 */
 
-bool LevelPrintPage::isValid( QString& msg) {
+bool LevelPrintPage::isValid( QString& /*msg*/) {
 	return true;
 }
 

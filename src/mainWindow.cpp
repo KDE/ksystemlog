@@ -42,7 +42,6 @@
 #include <kservicetypetrader.h>
 
 #include <ktoggleaction.h>
-#include <kmenubar.h>
 
 #include <kfiledialog.h>
 

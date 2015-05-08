@@ -95,13 +95,13 @@ void KioLogFileReader::close() {
 	d->fileJob->close();
 }
 
-void KioLogFileReader::openDone(KIO::Job* job) {
+void KioLogFileReader::openDone(KIO::Job* /*job*/) {
 	logDebug() << "Opening done..." << endl;
 
 	d->fileJob->read(READ_SIZE);
 
 }
-void KioLogFileReader::closeDone(KIO::Job* job) {
+void KioLogFileReader::closeDone(KIO::Job* /*job*/) {
 	logDebug() << "Closing done..." << endl;
 }
 
@@ -161,7 +161,7 @@ void KioLogFileReader::emitCompleteLines() {
 
 }
 
-void KioLogFileReader::mimetypeReceived(KIO::Job* job, const QString& type) {
+void KioLogFileReader::mimetypeReceived(KIO::Job* /*job*/, const QString& type) {
 	logDebug() << "Mimetype received " << type << endl;
 }
 
