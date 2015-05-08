@@ -1,3 +1,5 @@
+include(ECMAddTests)
+
 set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 
 include_directories( 
@@ -19,12 +21,10 @@ macro(ksystemlog_unit_tests)
 		
 		qt5_add_resources( unitTest_sources testResources.qrc )
 
-		kde4_add_unit_test(
-			${unitTest} 
-			TESTNAME ksystemlog-${unitTest}
-			
-			${unitTest_sources}
-		)
+                add_executable(${unitTest}
+                               ${unitTest_sources})
+                add_test(ksystemlog-${unitTest} ${unitTest})
+                ecm_mark_as_test(${unitTest})
 		
 		target_link_libraries(
 			${unitTest} 

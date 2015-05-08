@@ -11,6 +11,7 @@ add_definitions(-DTRANSLATION_DOMAIN="ksystemlog")
 include(KDEInstallDirs)
 include(KDECompilerSettings)
 include(KDECMakeSettings)
+include(FeatureSummary)
 
 find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -82,7 +83,6 @@ add_subdirectory(src/modes/samba)
 add_subdirectory(src/modes/cups)
 
 add_subdirectory(tests) 
-
 add_subdirectory(doc)
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
