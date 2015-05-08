@@ -32,9 +32,7 @@
 #include <kmainwindow.h>
 #include <kmessagebox.h>
 #include <ktabwidget.h>
-
 #include <kactionmenu.h>
-
 #include <kglobal.h>
 #include <KLocalizedString>
 
@@ -46,12 +44,10 @@
 #include <ktoggleaction.h>
 #include <kmenubar.h>
 
-
 #include <kfiledialog.h>
 
 #include <kconfig.h>
 
-#include <kurl.h>
 #include <kurlrequesterdialog.h>
 
 #include <kedittoolbar.h>
@@ -592,7 +588,7 @@ void MainWindow::setupActions() {
 	d->saveAction->setWhatsThis(i18n("Saves the selection to a file. This action is useful if you want to create an attachment or a backup of a particular log."));
 	d->saveAction->setEnabled(false);
 
-	QAction* fileQuitAction = actionCollection()->addAction(KStandardAction::Quit, kapp, SLOT(quit()));
+  QAction* fileQuitAction = actionCollection()->addAction(KStandardAction::Quit, qApp, SLOT(quit()));
 	fileQuitAction->setToolTip(i18n("Quit KSystemLog"));
 	fileQuitAction->setWhatsThis(i18n("Quits KSystemLog."));
 

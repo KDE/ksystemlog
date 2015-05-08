@@ -78,7 +78,7 @@ LogViewFilterWidget::LogViewFilterWidget() :
 
 	d->filterLine->setToolTip(i18n("Type your filter here"));
 	d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
-	d->filterLine->setClickMessage(i18n("Enter your search here..."));
+  d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
 	QLabel* filterIcon = new QLabel();
 	filterIcon->setPixmap(SmallIcon(QLatin1String( "view-filter" )));

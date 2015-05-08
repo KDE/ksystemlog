@@ -24,7 +24,6 @@
 
 
 //KDE includes
-#include <kapplication.h>
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
 #include <QMenu>
