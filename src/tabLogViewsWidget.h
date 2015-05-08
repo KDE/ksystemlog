@@ -22,7 +22,7 @@
 #ifndef _TAB_LOG_VIEWS_WIDGET_H_
 #define _TAB_LOG_VIEWS_WIDGET_H_
 
-#include <ktabwidget.h>
+#include <QTabWidget>
 #include <QList>
 
 class QString;
@@ -35,7 +35,7 @@ class LogMode;
 
 class TabLogViewsWidgetPrivate;
 
-class TabLogViewsWidget : public KTabWidget {
+class TabLogViewsWidget : public QTabWidget {
 	
 	Q_OBJECT
 	

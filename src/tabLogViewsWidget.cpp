@@ -48,7 +48,7 @@ public:
 };
 
 TabLogViewsWidget::TabLogViewsWidget(QWidget* parent) :
-	KTabWidget(parent),
+  QTabWidget(parent),
 	d(new TabLogViewsWidgetPrivate()) {
 
 	d->contextMenu = NULL;
@@ -71,7 +71,7 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget* parent) :
 	setUsesScrollButtons(true);
 
 	//The context menu is managed manually
-	//setContextMenuPolicy(Qt::ActionsContextMenu);
+  setContextMenuPolicy(Qt::ActionsContextMenu);
 
 	connect(this, SIGNAL(mouseDoubleClick()), this, SLOT(createTab()));
 	connect(this, SIGNAL(contextMenu(QPoint)), this, SLOT(showContextMenu(QPoint)));
@@ -109,9 +109,10 @@ void TabLogViewsWidget::newTab(View* view) {
 	insertTab(count(), view, SmallIcon(QLatin1String( NO_MODE_ICON )), i18n("No Log"));
 
 	if (count()>1)
-		setTabBarHidden(false);
+    tabBar()->show();
+
 	else
-		setTabBarHidden(true);
+    tabBar()->hide();
 
 }
 
@@ -176,8 +177,7 @@ void TabLogViewsWidget::moveTabLeft() {
 	d->tabLogManagers.removeAt(position);
 	d->tabLogManagers.insert(position-1, currentTabLogManager);
 
-	moveTab(position, position-1);
-
+  tabBar()->moveTab(position, position-1);
 }
 
 void TabLogViewsWidget::moveTabRight() {
@@ -194,8 +194,7 @@ void TabLogViewsWidget::moveTabRight() {
 	d->tabLogManagers.removeAt(position);
 	d->tabLogManagers.insert(position+1, currentTabLogManager);
 
-	moveTab(position, position+1);
-
+  tabBar()->moveTab(position, position+1);
 }
 
 LogManager* TabLogViewsWidget::duplicateTab() {
@@ -252,17 +251,16 @@ void TabLogViewsWidget::closeTab() {
 		return;
 	}
 
-	TabLogManager* currentTabLogManager=activeTabLogManager();
+  TabLogManager* currentTabLogManager = activeTabLogManager();
 
 	d->tabLogManagers.removeAll(currentTabLogManager);
 
-	removePage(currentTabLogManager->logManager()->usedView());
-	if (count()==1) {
-		setTabBarHidden(true);
+  removeTab(indexOf(currentTabLogManager->logManager()->usedView()));
+  if (count() == 1) {
+    tabBar()->hide();
 	}
 
 	delete currentTabLogManager;
-
 }
 
 void TabLogViewsWidget::load(LogMode* logMode, LogManager* manager) {
@@ -310,8 +308,6 @@ void TabLogViewsWidget::reloadAll() {
 		load(tabLogManager->logManager()->logMode(), tabLogManager->logManager());
 
 	}
-
-
 }
 
 void TabLogViewsWidget::changeCurrentTab() {
