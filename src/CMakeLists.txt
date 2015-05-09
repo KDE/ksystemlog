@@ -69,7 +69,7 @@ target_link_libraries(ksystemlog
 
 ########### Installation ###############
 
-install( TARGETS ksystemlog ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ksystemlog ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-install(PROGRAMS   ksystemlog.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES   ksystemlogui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/ksystemlog)
+install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES ksystemlogui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/ksystemlog)
