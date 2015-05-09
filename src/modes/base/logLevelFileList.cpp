@@ -30,13 +30,8 @@
 // KDE includes
 #include <QMenu>
 #include <KLocalizedString>
-#include <kfiledialog.h>
-#include <kdialog.h>
 #include <kmessagebox.h>
 #include <QIcon>
-#include <kurl.h>
-
-#include <klistwidget.h>
 
 #include "defaults.h"
 
@@ -52,7 +47,7 @@ LogLevelFileList::LogLevelFileList(QWidget* parent, const QString& description) 
 	FileList(parent, description)
 	{
 
-	logDebug() << "Initializing specific file list..." << endl;
+  logDebug() << "Initializing specific file list...";
 
 	changeItem=new QPushButton(i18n("&Change Status..."));
 	changeItem->setToolTip(i18n("Change the level of the current file(s)"));
@@ -76,7 +71,7 @@ LogLevelFileList::LogLevelFileList(QWidget* parent, const QString& description) 
 
 	updateSpecificButtons();
 	
-	logDebug() << "Specific file list initialized" << endl;
+  logDebug() << "Specific file list initialized";
 
 }
  
@@ -111,7 +106,7 @@ void LogLevelFileList::updateSpecificButtons() {
 }
 
 void LogLevelFileList::changeItemType() {
-	logDebug() << "Changing item type..." << endl;
+  logDebug() << "Changing item type...";
 
 	LogLevelSelectionDialog logLevelSelectionDialog(this);
 	
@@ -163,7 +158,7 @@ QList<int> LogLevelFileList::levels() {
 void LogLevelFileList::addPaths(const QStringList& stringList, const QList<int>& valueList) {
 	//A little security test
 	if (stringList.size() != valueList.size()) {
-		logDebug() << i18n("The two arrays size are different, skipping the reading of generic paths.") << endl;
+    logDebug() << i18n("The two arrays size are different, skipping the reading of generic paths.");
 		return;
 	}
 	

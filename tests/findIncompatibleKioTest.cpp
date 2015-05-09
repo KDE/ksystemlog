@@ -89,10 +89,10 @@ void FindIncompatibleKioTest::find() {
 	existingMethods << QLatin1String("void SlaveBase::multiGet(const QByteArray &)");
 
 	//logDebug() << existingMethods << endl;
-	
+
 	QFile file(outputPath);
 	if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-		logError() << "Unable to open the output file" << outputPath << endl;
+    logError() << "Unable to open the output file" << outputPath << endl;
 		return;
 	}
 
@@ -263,8 +263,8 @@ QString FindIncompatibleKioTest::convertMethod(const QString& method) {
 QStringList FindIncompatibleKioTest::headerContent(const QUrl& url) {
 	QStringList kioHeaderContent;
 
-	QString tmpFile;
-	if (KIO::NetAccess::download(url, tmpFile, new QWidget()) ) {
+  QString tmpFile;
+  if (KIO::NetAccess::download(url, tmpFile, new QWidget()) ) {
 
 		QFile file(tmpFile);
 		file.open(QIODevice::ReadOnly);

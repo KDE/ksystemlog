@@ -41,7 +41,7 @@ public:
 GenericLogModeConfiguration::GenericLogModeConfiguration(const QString& configurationGroup, const QStringList& defaultLogFilesPaths, const QList<int> defaultLogFilesLevels) :
 	d(new GenericLogModeConfigurationPrivate()) {
 
-	logDebug() << "Using Configuration Group : " << configurationGroup << endl;
+  logDebug() << "Using Configuration Group : " << configurationGroup;
 	configuration->setCurrentGroup(configurationGroup);
 
 	configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->logFilesPaths, defaultLogFilesPaths, QLatin1String( "LogFilesPaths" ));
@@ -77,7 +77,7 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() {
 	QList<LogFile> logFiles;
 
 	if (d->logFilesPaths.size() != d->logFilesLevels.size()) {
-		logDebug() << i18n("The two arrays size are different, skipping the reading of log files.") << endl;
+    logDebug() << i18n("The two arrays size are different, skipping the reading of log files.");
 		return logFiles;
 	}
 
@@ -97,7 +97,7 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() {
 
 		QUrl url(stringValue);
 		if (!url.isValid()) {
-			logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path()) << endl;
+      logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
 			continue;
 		}
 

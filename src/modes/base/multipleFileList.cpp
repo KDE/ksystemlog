@@ -28,7 +28,6 @@
 
 #include <KLocalizedString>
 #include <kactioncollection.h>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <QIcon>
 #include <QMenu>
@@ -42,7 +41,7 @@ MultipleFileList::MultipleFileList(QWidget* parent, const QString& descriptionTe
 	fileListHelper(this)
 	{
 	
-	logDebug() << "Initializing multiple file list..." << endl;
+  logDebug() << "Initializing multiple file list...";
 	
 	setupUi(this);
 
@@ -73,7 +72,7 @@ MultipleFileList::MultipleFileList(QWidget* parent, const QString& descriptionTe
 	
 	updateButtons();
 	
-	logDebug() << "Multiple File list initialized" << endl;
+  logDebug() << "Multiple File list initialized";
 	
 }
 
@@ -82,7 +81,7 @@ MultipleFileList::~MultipleFileList() {
 }
 
 void MultipleFileList::updateButtons() {
-	logDebug() << "Updating buttons..." << endl;
+  logDebug() << "Updating buttons...";
 	
 	if (isFileListsEmpty() == true)
 		fileListHelper.setEnabledAction(removeAll, false);
@@ -127,18 +126,18 @@ void MultipleFileList::updateButtons() {
 		fileListHelper.setEnabledAction(down, false);
 	}
 
-	logDebug() << "Buttons updated" << endl;
+  logDebug() << "Buttons updated";
 }
 
 bool MultipleFileList::isFileListsEmpty() const {
 	for (int i=0; i<fileList->topLevelItemCount(); ++i) {
 		if (categoryCount(i) != 0) {
-			logDebug() << "Is not empty" << endl;
+      logDebug() << "Is not empty";
 			return false;
 		}
 	}
 	
-	logDebug() << "Is empty" << endl;
+  logDebug() << "Is empty";
 	return true;
 
 }
@@ -146,12 +145,12 @@ bool MultipleFileList::isFileListsEmpty() const {
 bool MultipleFileList::isOneOfCategoryEmpty() const {
 	for (int i=0; i<fileList->topLevelItemCount(); ++i) {
 		if (categoryCount(i) == 0) {
-			logDebug() << "A category is empty" << endl;
+      logDebug() << "A category is empty";
 			return true;
 		}
 	}
 	
-	logDebug() << "No category empty" << endl;
+  logDebug() << "No category empty";
 	return false;
 	
 }
@@ -159,7 +158,7 @@ bool MultipleFileList::isOneOfCategoryEmpty() const {
 int MultipleFileList::categoryCount(int index) const {
 	QTreeWidgetItem* item = fileList->topLevelItem(index);
 	if (item==NULL) {
-		logError() << "Index out of range" << index << endl;
+    logCritical() << "Index out of range" << index;
 		return 0;
 	}
 	
@@ -200,7 +199,7 @@ int MultipleFileList::addCategory(const QString& itemName, const QString& button
 }
 
 void MultipleFileList::addItem(int category) {
-	logDebug() << "Adding item" << category << endl;
+  logDebug() << "Adding item" << category;
 	
 	//Open a standard Filedialog
 	QList<QUrl> urls=fileListHelper.openUrls();
@@ -218,26 +217,26 @@ void MultipleFileList::addItem(int category) {
 }
 
 void MultipleFileList::addItemInternal(QTreeWidgetItem* categoryItem, const QString& path) {
-	logDebug() << "Adding" << path << "to" << categoryItem->text(0) << endl;
+  logDebug() << "Adding" << path << "to" << categoryItem->text(0);
 	QTreeWidgetItem* item = new QTreeWidgetItem(QStringList(path));
 	categoryItem->addChild(item);
 	categoryItem->setExpanded(true);
 }
 
 QTreeWidgetItem* MultipleFileList::findCategoryOfChild(QTreeWidgetItem* childItem) {
-	logDebug() << "Finding Category of" << childItem->text(0) << endl;
+  logDebug() << "Finding Category of" << childItem->text(0);
 
 	for(int i=0; i<fileList->topLevelItemCount(); ++i) {
 		QTreeWidgetItem* item = fileList->topLevelItem(i);
 
 		if (item->indexOfChild(childItem) != -1) {
-			logDebug() << "Category of" << childItem->text(0) << "is" << item->text(0) << endl; 
+      logDebug() << "Category of" << childItem->text(0) << "is" << item->text(0);
 			return item;
 		}
 		
 	}
 	
-	logDebug() << "No Category of" << childItem->text(0) << endl;
+  logDebug() << "No Category of" << childItem->text(0);
 	return NULL;
 }
 
@@ -336,9 +335,9 @@ void MultipleFileList::unselectAllItems() {
 }
 
 void MultipleFileList::updateEmptyItems() {
-	logDebug() << "Updating empty items..." << endl;
+  logDebug() << "Updating empty items...";
 	
-	logDebug() << "Adding empty items..." << endl;
+  logDebug() << "Adding empty items...";
 	
 	for(int i=0; i<fileList->topLevelItemCount(); ++i) {
 		QTreeWidgetItem* categoryItem = fileList->topLevelItem(i);
@@ -351,29 +350,29 @@ void MultipleFileList::updateEmptyItems() {
 	
 	removeEmptyItems();
 
-	logDebug() << "Empty items updated" << endl;
+  logDebug() << "Empty items updated";
 }
 
 void MultipleFileList::removeEmptyItems() {
-	logDebug() << "Removing empty items..." << endl;
+  logDebug() << "Removing empty items...";
 	
 	//Remove empty items of lists
 	for(int categoryIndex=0; categoryIndex<fileList->topLevelItemCount(); ++categoryIndex) {
 		QTreeWidgetItem* categoryItem = fileList->topLevelItem(categoryIndex);
 		
-		logDebug() << "Removing empty items of " << categoryItem->text(0) << endl;
+    logDebug() << "Removing empty items of " << categoryItem->text(0);
 		
 		for(int i=0; i<categoryItem->childCount(); ++i) {
 			QTreeWidgetItem* childItem = categoryItem->child(i);
 			
 			if (isEmptyItem(childItem) == true && categoryItem->childCount() > 1) {
-				logDebug() << "Remove a child item" << endl;
+        logDebug() << "Remove a child item";
 				delete categoryItem->takeChild(i);
 				break;
 			}
 		}
 		
-		logDebug() << "Empty items of " << categoryItem->text(0) << "removed" << endl;
+    logDebug() << "Empty items of " << categoryItem->text(0) << "removed";
 
 			
 	}
@@ -389,7 +388,7 @@ bool MultipleFileList::isEmptyItem(QTreeWidgetItem* item) const {
 }
 
 void MultipleFileList::addEmptyItem(QTreeWidgetItem* item) {
-	logDebug() << "Adding an empty item..." << endl;
+  logDebug() << "Adding an empty item...";
 
 	QTreeWidgetItem* emptyItem = new QTreeWidgetItem(item, QStringList(i18n("No log file...")));
 	item->setExpanded(true);

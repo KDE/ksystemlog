@@ -99,7 +99,7 @@ Reader* ReaderFactory::createReader(LogMode* logMode) {
 		return reader;
 	}
 	
-	logError() << "LogMode not found : returns NULL Reader" << endl;
+  logCritical() << "LogMode not found : returns NULL Reader";
 	return NULL;
 }
 */
@@ -150,7 +150,7 @@ QList<LogFile> LogFilesFactory::createLogFiles(LogMode* logMode) {
 		return LogFilesFactory::getXSessionLogFiles();
 	}
 	
-	logError() << "LogFiles not found : returns NULL Reader" << endl;
+  logError() << "LogFiles not found : returns NULL Reader";
 	
 	return QList<LogFile>();
 
@@ -213,7 +213,7 @@ LogFile LogModeConfiguration::findGenericLogFile(const QString& file) {
 	
   QUrl url(file);
 	if (!url.isValid()) {
-		logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path()) << endl;
+    logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
     return LogFile(QUrl(), Globals::instance()->noLogLevel());
 	}
 	
@@ -241,7 +241,7 @@ QList<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList& strin
 		
     QUrl url(string);
 		if (!url.isValid()) {
-			logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path()) << endl;
+      logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
 			continue;
 		}
 		

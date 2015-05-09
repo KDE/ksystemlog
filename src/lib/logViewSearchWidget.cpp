@@ -123,14 +123,14 @@ void LogViewSearchWidget::findFirst() {
 }
 
 void LogViewSearchWidget::findNext() {
-	logDebug() << "Finding next" << endl;
+  logDebug() << "Finding next";
 
 	LogViewWidgetItem* lastSelectedItem = d->logViewWidget->lastSelectedItem();
 	internalFind(lastSelectedItem, LogViewSearchWidget::Next);
 }
 
 void LogViewSearchWidget::findPrevious() {
-	logDebug() << "Finding previous" << endl;
+  logDebug() << "Finding previous";
 
 	LogViewWidgetItem* firstSelectedItem = d->logViewWidget->firstSelectedItem();
 	internalFind(firstSelectedItem, LogViewSearchWidget::Previous);
@@ -299,7 +299,7 @@ void LogViewSearchWidget::highlightAll() {
 	if (highlightAllButton->isChecked()) {
 		unlightAll();
 
-		logDebug() << "Highlighting all" << endl;
+    logDebug() << "Highlighting all";
 		QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::All);
 		while ( *it != NULL ) {
 			LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
@@ -320,7 +320,7 @@ void LogViewSearchWidget::highlightAll() {
 }
 
 void LogViewSearchWidget::unlightAll() {
-	logDebug() << "Unlighting all" << endl;
+  logDebug() << "Unlighting all";
 
 	QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::All);
 	while ( *it != NULL ) {

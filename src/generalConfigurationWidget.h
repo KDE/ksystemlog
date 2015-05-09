@@ -39,6 +39,8 @@ class GeneralConfigurationWidget : public QWidget, public Ui::GeneralConfigurati
 		
 		bool isValid() const;
 
+    enum dateFormat {};
+
 	public slots:
 		void saveConfig() const;
 

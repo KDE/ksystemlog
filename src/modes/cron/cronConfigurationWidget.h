@@ -89,21 +89,21 @@ class CronConfigurationWidget : public LogModeConfigurationWidget {
 
 		bool isValid() const {
 			if (fileList->isEmpty() == true) {
-				logDebug() << "Cron configuration not valid" << endl;
+        logDebug() << "Cron configuration not valid";
 				return false;
 			}
 
 			if (processFilterGroup->isChecked() && processFilter->text().isEmpty()) {
-				logDebug() << "Cron configuration not valid" << endl;
+        logDebug() << "Cron configuration not valid";
 				return false;
 			}
 
-			logDebug() << "Cron configuration valid" << endl;
+      logDebug() << "Cron configuration valid";
 			return true;
 		}
 
 		void saveConfig() {
-			logDebug() << "Saving config from Cron Options..." << endl;
+      logDebug() << "Saving config from Cron Options...";
 
 			CronConfiguration* cronConfiguration = Globals::instance()->findLogMode(QLatin1String( CRON_LOG_MODE_ID ))->logModeConfiguration<CronConfiguration*>();
 			cronConfiguration->setCronPaths(fileList->paths());

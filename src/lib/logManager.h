@@ -24,8 +24,6 @@
 
 #include <QList>
 
-#include <kurl.h>
-
 #include "globals.h"
 
 #include "logMode.h"

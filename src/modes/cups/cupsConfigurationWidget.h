@@ -68,7 +68,7 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget {
 	public slots:
 
 		void saveConfig() {
-			logDebug() << "Saving config from Cups Options..." << endl;
+      logDebug() << "Saving config from Cups Options...";
 
 			CupsConfiguration* cupsConfiguration = Globals::instance()->findLogMode(QLatin1String( CUPS_LOG_MODE_ID ))->logModeConfiguration<CupsConfiguration*>();
 			cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
@@ -97,11 +97,11 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget {
 	protected:
 		bool isValid() const {
 			if (cupsFileList->isOneOfCategoryEmpty()==true) {
-				logDebug() << "Cups configuration not valid" << endl;
+        logDebug() << "Cups configuration not valid";
 				return false;
 			}
 
-			logDebug() << "Cups configuration valid" << endl;
+      logDebug() << "Cups configuration valid";
 			return true;
 
 		}

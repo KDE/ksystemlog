@@ -43,8 +43,8 @@ public:
 
 	~LogViewFilterWidget();
 	
-	KComboBox* filterList();
-	LogViewWidgetSearchLine* filterLine();
+  KComboBox* filterList();
+  LogViewWidgetSearchLine* filterLine();
 
 public slots:
 	void updateFilterColumns(const LogViewColumns& list);

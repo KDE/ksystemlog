@@ -67,16 +67,16 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget {
 
 		bool isValid() const {
 			if (fileList->isEmpty() == false) {
-				logDebug() << "Postfix configuration valid" << endl;
+        logDebug() << "Postfix configuration valid";
 				return true;
 			}
 
-			logDebug() << "Postfix configuration not valid" << endl;
+      logDebug() << "Postfix configuration not valid";
 			return false;
 		}
 
 		void saveConfig() {
-			logDebug() << "Saving config from Postfix Options..." << endl;
+      logDebug() << "Saving config from Postfix Options...";
 
 			PostfixConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( POSTFIX_LOG_MODE_ID ))->logModeConfiguration<PostfixConfiguration*>();
 			configuration->setLogFilesPaths(fileList->paths());

@@ -26,10 +26,8 @@
 #include <QPushButton>
 #include <QButtonGroup>
 
-#include <kglobal.h>
 #include <KLocalizedString>
 #include <QIcon>
-#include <kstandarddirs.h>
 
 #include "logging.h"
 #include "defaults.h"
@@ -68,10 +66,12 @@ GeneralConfigurationWidget::GeneralConfigurationWidget() :
 	connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
 	d->dateFormatGroup = new QButtonGroup(this);
-	d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
-	d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
-	d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
-	d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
+  //d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
+  //d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
+  //d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
+  //d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
+  d->dateFormatGroup->addButton(formatShortDate, QLocale::ShortFormat);
+  d->dateFormatGroup->addButton(formatLongDate, QLocale::LongFormat);
 
 	connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
 
@@ -89,15 +89,18 @@ void GeneralConfigurationWidget::addDateFormatExample() {
 	foreach(QAbstractButton* button, d->dateFormatGroup->buttons()) {
 		QDateTime currentDateTime(QDateTime::currentDateTime());
 
-		KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
+    //KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
+    QLocale::FormatType currentButtonFormat = (QLocale::FormatType) d->dateFormatGroup->id(button);
 
-		QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat, true);
+    //QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat, true);
+    QString formattedDate = QLocale().toString(QDateTime().currentDateTime(), currentButtonFormat);
 
 		button->setText( i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate) );
 	}
 }
 
-void GeneralConfigurationWidget::readConfig() {
+void GeneralConfigurationWidget::readConfig()
+{
 	for (int i=0; i<startupLogMode->count(); ++i) {
 		if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
 			startupLogMode->setCurrentIndex(i);
@@ -113,13 +116,14 @@ void GeneralConfigurationWidget::readConfig() {
 
 	colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
 
-	KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
+  //KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
+  QLocale::FormatType dateFormat = (QLocale::FormatType) KSystemLogConfig::dateFormat();
 	QAbstractButton* selectedButton = d->dateFormatGroup->button(dateFormat);
 	selectedButton->setChecked(true);
 }
 
 void GeneralConfigurationWidget::saveConfig() const {
-	logDebug() << "Save config from General preferences" << endl;
+  logDebug() << "Save config from General preferences";
 
 	KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
 
@@ -138,12 +142,12 @@ void GeneralConfigurationWidget::defaultConfig() {
 }
 
 bool GeneralConfigurationWidget::isValid() const {
-	if (maxLines->value()>0) {
-		logDebug() << "General configuration valid" << endl;
+  if (maxLines->value()>0) {
+    logDebug() << "General configuration valid";
 		return true;
 	}
 
-	logDebug() << "General configuration not valid" << endl;
+  logDebug() << "General configuration not valid";
 	return false;
 }
 

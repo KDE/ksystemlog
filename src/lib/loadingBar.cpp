@@ -21,6 +21,7 @@
 
 #include "loadingBar.h"
 
+#include <QApplication>
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
@@ -29,7 +30,6 @@
 #include <QHBoxLayout>
 
 #include <KLocalizedString>
-#include <kapplication.h>
 #include <kiconloader.h>
 
 class LoadingBarPrivate {
@@ -122,7 +122,8 @@ void LoadingBar::endLoading() {
 void LoadingBar::progressLoading() {
 	d->progressBar->setValue( d->progressBar->value() + 1 );
 
-	kapp->processEvents();
+  //kapp->processEvents();
+  qApp->processEvents();
 }
 
 

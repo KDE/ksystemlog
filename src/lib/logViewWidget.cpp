@@ -65,7 +65,8 @@ LogViewWidget::LogViewWidget(QWidget* parent) :
 
 	//Header
 	header()->setContextMenuPolicy(Qt::ActionsContextMenu);
-	header()->setMovable(true);
+  //header()->setMovable(true);
+  header()->setSectionsMovable(true);
 
 	setSortingEnabled(true);
 	sortItems(0, Qt::AscendingOrder);
@@ -90,7 +91,7 @@ LogViewWidget::~LogViewWidget() {
 }
 
 void LogViewWidget::setColumns(const LogViewColumns& columns) {
-	logDebug() << "Updating columns using " << columns << "..." << endl;
+  logDebug() << "Updating columns using " << columns << "...";
 
 	//First, delete all current columns
 	setColumnCount(0);
@@ -134,7 +135,7 @@ void LogViewWidget::setColumns(const LogViewColumns& columns) {
 
 	emit columnsChanged(columns);
 
-	logDebug() << "Log View Widget updated..." << endl;
+  logDebug() << "Log View Widget updated...";
 
 }
 
@@ -256,7 +257,7 @@ void LogViewWidget::collapseAll() {
 }
 
 void LogViewWidget::toggleToolTip(bool enabled) {
-	logDebug() << "Toggle tool tip " << enabled << endl;
+  logDebug() << "Toggle tool tip " << enabled;
 
 	QTreeWidgetItemIterator it(this);
 	while (*it != NULL) {
@@ -269,7 +270,7 @@ void LogViewWidget::toggleToolTip(bool enabled) {
 }
 
 void LogViewWidget::scrollToNewestItem() {
-	logDebug() << "Scrolling to the newest item..." << endl;
+  logDebug() << "Scrolling to the newest item...";
 
 	//Scroll to last item if requested
 	if (KSystemLogConfig::newLinesDisplayed() == true) {
@@ -293,7 +294,7 @@ int LogViewWidget::notHiddenItemCount() {
 }
 
 void LogViewWidget::toggleHeader(QAction* action) {
-	logDebug() << "Toggling header" << endl;
+  logDebug() << "Toggling header";
 
 	int columnIndex = action->data().toInt();
 	if (header()->isSectionHidden(columnIndex) == true)

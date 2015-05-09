@@ -178,7 +178,7 @@ QString LogLine::exportToText() const {
 	QString exporting;
 
 	if (d->item == NULL) {
-		logError() << "Trying to export text from NULL item" << endl;
+    logCritical() << "Trying to export text from NULL item";
 		return exporting;
 	}
 

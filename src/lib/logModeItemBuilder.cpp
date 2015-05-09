@@ -22,7 +22,6 @@
 #include "logModeItemBuilder.h"
 
 #include <KLocalizedString>
-#include <kglobal.h>
 
 #include "logging.h"
 
@@ -41,7 +40,8 @@ LogModeItemBuilder::~LogModeItemBuilder() {
 }
 
 QString LogModeItemBuilder::formatDate(const QDateTime& dateTime) const {
-	return KLocale::global()->formatDateTime(dateTime, (KLocale::DateFormat) KSystemLogConfig::dateFormat(), true);
+  //return KLocale::global()->formatDateTime(dateTime, (KLocale::DateFormat) KSystemLogConfig::dateFormat(), true);
+  return QLocale().toString(dateTime, (QLocale::FormatType)KSystemLogConfig::dateFormat());
 }
 
 void LogModeItemBuilder::prepareItem(LogViewWidgetItem* item) const {

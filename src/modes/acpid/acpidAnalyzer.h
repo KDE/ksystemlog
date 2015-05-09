@@ -98,8 +98,8 @@ class AcpidAnalyzer : public Analyzer {
 				date=QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
 				time=QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-				//logDebug() << "Date=" << date.toString() << endl;
-				//logDebug() << "Time=" << time.toString() << endl;
+        //logDebug() << "Date=" << date.toString();
+        //logDebug() << "Time=" << time.toString();
 
 				line=line.remove(0, dateEnd+2);
 

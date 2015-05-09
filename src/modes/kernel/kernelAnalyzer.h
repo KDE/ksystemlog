@@ -87,7 +87,7 @@ class KernelAnalyzer : public Analyzer {
 			long updateSeconds = pureSecondsString.toLong();
 
 			startupDateTime = QDateTime::currentDateTime().addSecs(- updateSeconds);
-			logDebug() << "Startup time : " << startupDateTime << endl;
+      logDebug() << "Startup time : " << startupDateTime;
 
 		}
 
@@ -105,7 +105,7 @@ class KernelAnalyzer : public Analyzer {
 			//If we have the date, we are able to update the start date
 			if (timeExists != -1) {
 
-				//logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt() << endl;
+        //logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
 				dateTime = dateTime.addSecs( timeRegex.cap(1).toInt() );
 				dateTime = dateTime.addMSecs( timeRegex.cap(2).toInt()/1000 );
 
@@ -118,13 +118,13 @@ class KernelAnalyzer : public Analyzer {
 			}
 
 			/*
-			logDebug() << "--------------------------------" << endl;
-			logDebug() << logLine << endl;
-			logDebug() << "Secs : " << dateTime.time().second() << endl;
-			logDebug() << "MSec : " << dateTime.time().msec() << endl;
-			logDebug() << "Comp : " << messages.at(0) << endl;
-			logDebug() << "Msg  : " << messages.at(1) << endl;
-			logDebug() << "--------------------------------" << endl;
+      logDebug() << "--------------------------------";
+      logDebug() << logLine;
+      logDebug() << "Secs : " << dateTime.time().second();
+      logDebug() << "MSec : " << dateTime.time().msec();
+      logDebug() << "Comp : " << messages.at(0);
+      logDebug() << "Msg  : " << messages.at(1);
+      logDebug() << "--------------------------------";
 			*/
 
 			LogLine* line = new LogLine(

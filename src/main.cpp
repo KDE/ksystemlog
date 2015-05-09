@@ -28,7 +28,12 @@
 #include "mainWindow.h"
 #include "logging.h"
 
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog", QtWarningMsg)
+
 int main(int argc, char** argv) {
+
+  // Enable debug output:
+  // QLoggingCategory::setFilterRules(QStringLiteral("ksystemlog.debug = true"));
 
   QApplication app(argc, argv);
 
@@ -97,7 +102,7 @@ int main(int argc, char** argv) {
 			new KSystemLog::MainWindow();
       for (int i = 0; i < args.count(); i++) {
 
-        logDebug() << "Loading file " << args.at(i) << endl;
+        logDebug() << "Loading file " << args.at(i);
 
 				//TODO Implement this kind of loading
 				//LogManager* firstLogManager = d->tabs->createTab();

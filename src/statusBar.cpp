@@ -27,7 +27,6 @@
 #include <QTime>
 
 #include <QIcon>
-#include <kglobal.h>
 
 #include <kcombobox.h>
 #include <KLocalizedString>
@@ -45,7 +44,7 @@ public:
 
 	//KSqueezedTextLabel* messageLabel;
 
-	KComboBox* messageList;
+  KComboBox* messageList;
 
 	QLabel* lastModificationLabel;
 
@@ -54,7 +53,7 @@ public:
 };
 
 StatusBar::StatusBar(QWidget* parent) :
-	KStatusBar(parent),
+  QStatusBar(parent),
 	d(new StatusBarPrivate()) {
 
 	d->lineCountLabel = new QLabel(QLatin1String( "" ), this);
@@ -83,7 +82,7 @@ StatusBar::StatusBar(QWidget* parent) :
 	d->messageLabel->setTextElideMode(Qt::ElideRight);
 	addPermanentWidget(d->messageLabel, 4);
 */
-	d->messageList = new KComboBox(this);
+  d->messageList = new KComboBox(this);
 	d->messageList->setInsertPolicy(QComboBox::InsertAtTop);
 	d->messageList->setMaxVisibleItems(5);
 	connect(d->messageList, SIGNAL(currentIndexChanged(int)), this, SLOT(selectLastHistory()));
@@ -115,12 +114,14 @@ void StatusBar::changeLineCountMessage(const QString& lineCountMessage) {
 }
 
 void StatusBar::changeLastModification(const QTime& lastModification) {
-	d->lastModificationLabel->setText(i18n("Last updated: %1.", KLocale::global()->formatTime(lastModification, true, false) ));
+  //d->lastModificationLabel->setText(i18n("Last updated: %1.", KLocale::global()->formatTime(lastModification, true, false) ));
+  d->lastModificationLabel->setText(i18n("Last updated: %1.", QLocale().toString(lastModification) ));
 }
 
 void StatusBar::changeMessage(const QString& message) {
 	//d->messageLabel->setText(message);
-	d->messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true, false), message));
+  //d->messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true, false), message));
+  d->messageList->insertItem(0, i18n("%1: %2", QLocale().toString(QTime::currentTime()), message));
 
 	//100 log history message max.
 	if (d->messageList->count() > 100) {
@@ -134,10 +135,8 @@ void StatusBar::selectLastHistory() {
 }
 
 void StatusBar::toggleHistory() {
-	logDebug() << "Toggling History..." << endl;
+  logDebug() << "Toggling History...";
 	d->messageList->showPopup();
 }
 
 }
-
-

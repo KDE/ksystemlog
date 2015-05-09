@@ -49,7 +49,15 @@ add_dependencies(
 )
 
 target_link_libraries(ksystemlog_lib
-	KF5::KDELibs4Support
+        ksystemlog_config
+
+        KF5::I18n
 	KF5::Archive
-	ksystemlog_config
+        KF5::ConfigWidgets
+        KF5::ItemViews
+        KF5::IconThemes
+        KF5::KIOCore
+        KF5::Completion
 )
+
+qt5_use_modules(ksystemlog_lib Widgets PrintSupport)

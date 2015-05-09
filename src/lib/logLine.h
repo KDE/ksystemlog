@@ -25,8 +25,6 @@
 #include <QStringList>
 #include <QDateTime>
 
-#include <kurl.h>
-
 #include "globals.h"
 
 #include "logLevel.h"

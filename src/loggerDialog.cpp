@@ -102,7 +102,7 @@ LoggerDialog::~LoggerDialog() {
 }
 
 void LoggerDialog::initialize() {
-	logDebug() << "Initializing Logger dialog..." << endl;
+  logDebug() << "Initializing Logger dialog...";
 
 	message->clear();
 	message->setFocus();

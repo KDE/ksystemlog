@@ -22,7 +22,6 @@
 #include "levelPrintPage.h"
 
 #include <KLocalizedString>
-#include <kglobal.h>
 
 #include <QCheckBox>
 #include <QGridLayout>
@@ -68,7 +67,7 @@ LevelPrintPage::LevelPrintPage(QWidget* parent)
 		m_btnGroup->addButton(button, level->id());		
 		m_btnGroupLayout->addWidget(button, row, col);		
 		
-		logDebug() << "name: " << level->name() << " id: " << level->id() << endl;
+    logDebug() << "name: " << level->name() << " id: " << level->id();
 		
 		row++;
 		if(row >= 4) {

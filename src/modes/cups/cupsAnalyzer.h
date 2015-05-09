@@ -136,7 +136,7 @@ class CupsAnalyzer : public Analyzer {
 				return(*it);
 			}
 			else {
-				logError() << i18n("New Log Level detected: Please send this log file to the KSystemLog developer to add it.") << endl;
+        logCritical() << i18n("New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
 				return(Globals::instance()->noLogLevel());
 			}
 		}

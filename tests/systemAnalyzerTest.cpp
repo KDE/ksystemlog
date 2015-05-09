@@ -22,10 +22,9 @@
 #include <QList>
 #include <QStringList>
 #include <QThread>
+#include <QSignalSpy>
+#include <QTest>
 
-#include <qtest_kde.h>
-
-#include <kurl.h>
 #include <kdirwatch.h>
 
 #include "testUtil.h"
@@ -41,6 +40,8 @@
 #include "ksystemlogConfig.h"
 
 #include "logging.h"
+
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
 class SystemAnalyzerTest : public QObject {
 
@@ -359,7 +360,6 @@ void SystemAnalyzerTest::testRemoveDuplicates() {
 	QCOMPARE(model->itemCount(), 5);
 }
 
-
-QTEST_KDEMAIN(SystemAnalyzerTest, GUI)
+QTEST_MAIN(SystemAnalyzerTest)
 
 #include "systemAnalyzerTest.moc"

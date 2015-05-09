@@ -68,7 +68,7 @@ void Analyzer::deleteLogFiles() {
 	
 	// Remove the watching on the monitored files
 	foreach (LogFileReader* logFileReader, logFileReaders) {
-		logDebug() << "Remove file : " << logFileReader->logFile().url().path() << endl;
+    logDebug() << "Remove file : " << logFileReader->logFile().url().path();
 		delete logFileReader;
 	}
 	
@@ -85,11 +85,11 @@ void Analyzer::setParsingPaused(bool paused) {
 	bool watching;
 	//If we resume the parsing, then parse files to know if new lines have been appended
 	if (parsingPaused==true) {
-		logDebug() << "Pausing reading" << endl;
+    logDebug() << "Pausing reading";
 		watching=false;
 	}
 	else {
-		logDebug() << "Relaunch reading" << endl;
+    logDebug() << "Relaunch reading";
 		watching=true;
 	}
 	
@@ -117,18 +117,18 @@ void Analyzer::setLogFiles(const QList<LogFile>& logFiles) {
 
 void Analyzer::logFileChanged(LogFileReader* logFileReader, ReadingMode readingMode, const QStringList& content) {
 	if (readingMode == Analyzer::FullRead)
-		logDebug() << "File " << logFileReader->logFile().url().path() << " has been modified on full read." << endl;
+    logDebug() << "File " << logFileReader->logFile().url().path() << " has been modified on full read.";
 	else
-		logDebug() << "File " << logFileReader->logFile().url().path() << " has been modified on partial read" << endl;
+    logDebug() << "File " << logFileReader->logFile().url().path() << " has been modified on partial read";
 
 	if (parsingPaused == true) {
-		logDebug() << "Pause enabled. Nothing read." << endl;
+    logDebug() << "Pause enabled. Nothing read.";
 		return;
 	}
 
-	logDebug() << "Locking file modifications of " << logFileReader->logFile().url().path() << endl;
+  logDebug() << "Locking file modifications of " << logFileReader->logFile().url().path();
 	insertionLocking->lock();
-	logDebug() << "Unlocking file modifications of " << logFileReader->logFile().url().path() << endl;
+  logDebug() << "Unlocking file modifications of " << logFileReader->logFile().url().path();
 
 	QTime benchmark;
 	benchmark.start();
@@ -141,7 +141,7 @@ void Analyzer::logFileChanged(LogFileReader* logFileReader, ReadingMode readingM
 		insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::UpdatingRead);
 	}
 	else {
-		logDebug() << "Reading file "<< logFileReader->logFile().url().path() << endl;
+    logDebug() << "Reading file "<< logFileReader->logFile().url().path();
 		
 		emit statusBarChanged( i18n("Opening '%1'...", logFileReader->logFile().url().path()) );
 		
@@ -166,17 +166,17 @@ void Analyzer::logFileChanged(LogFileReader* logFileReader, ReadingMode readingM
 	//Inform MainWindow status bar
 	emit statusBarChanged( i18n("Log file '%1' has changed.", logFileReader->logFile().url().path()) );
 
-	logDebug() << "Updating log files in " << benchmark.elapsed() << " ms" << endl;
+  logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 
 	insertionLocking->unlock();
 }
 
 int Analyzer::insertLines(const QStringList& bufferedLines, const LogFile& logFile, ReadingMode readingMode) {
-	logDebug() << "Inserting lines..." << endl;
+  logDebug() << "Inserting lines...";
 	
 	//If there is no line
 	if (bufferedLines.size()==0) {
-		logWarning() << "File is empty : " << logFile.url().path() << endl;
+    logWarning() << "File is empty : " << logFile.url().path();
 	}
 
 
@@ -191,7 +191,7 @@ int Analyzer::insertLines(const QStringList& bufferedLines, const LogFile& logFi
 	 * 
 	 * TODO Read revertly the file and ignore last lines if we are in Descending mode
 	 */
-	logDebug() << "Log file Sort mode is " << logFileSortMode() << endl;
+  logDebug() << "Log file Sort mode is " << logFileSortMode();
 	if (logFileSortMode() == Analyzer::AscendingSortedLogFile) {
 		//Calculate how many lines we will ignore
 		if (bufferedLines.size() > KSystemLogConfig::maxLines()) {
@@ -221,7 +221,7 @@ int Analyzer::insertLines(const QStringList& bufferedLines, const LogFile& logFi
 		++currentPosition;
 	}
 
-	logDebug() << "Total read lines :"<< (bufferedLines.size() - stop) << "(" << logFile.url().path() << ")" << endl;
+  logDebug() << "Total read lines :"<< (bufferedLines.size() - stop) << "(" << logFile.url().path() << ")";
 	
 	return insertedLogLineCount;
 }

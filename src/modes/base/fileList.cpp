@@ -26,7 +26,6 @@
 #include <QPushButton>
 
 #include <kactioncollection.h>
-#include <kfiledialog.h>
 #include <kmessagebox.h>
 #include <QIcon>
 #include <QMenu>
@@ -40,7 +39,7 @@ FileList::FileList(QWidget* parent, const QString& descriptionText) :
 	fileListHelper(this)
 	{
 	
-	logDebug() << "Initializing file list..." << endl;
+  logDebug() << "Initializing file list...";
 	
 	setupUi(this);
 
@@ -69,7 +68,7 @@ FileList::FileList(QWidget* parent, const QString& descriptionText) :
 	
 	updateButtons();
 	
-	logDebug() << "File list initialized" << endl;
+  logDebug() << "File list initialized";
 	
 }
 

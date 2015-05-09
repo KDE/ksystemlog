@@ -66,7 +66,7 @@ class ApacheConfigurationWidget : public LogModeConfigurationWidget {
 	public slots:
 
 		void saveConfig() {
-			logDebug() << "Saving config from Apache Options..." << endl;
+      logDebug() << "Saving config from Apache Options...";
 
 			ApacheConfiguration* apacheConfiguration = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ))->logModeConfiguration<ApacheConfiguration*>();
 			apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
@@ -90,11 +90,11 @@ class ApacheConfigurationWidget : public LogModeConfigurationWidget {
 	protected:
 		bool isValid() const {
 			if (apacheFileList->isOneOfCategoryEmpty()==true) {
-				logDebug() << "Apache configuration not valid" << endl;
+        logDebug() << "Apache configuration not valid";
 				return false;
 			}
 
-			logDebug() << "Apache configuration valid" << endl;
+      logDebug() << "Apache configuration valid";
 			return true;
 
 		}

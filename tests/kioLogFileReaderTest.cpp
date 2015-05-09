@@ -20,8 +20,9 @@
  ***************************************************************************/
 
 #include <QList>
+#include <QTest>
 
-#include <qtest_kde.h>
+//#include <qtest_kde.h>
 
 #include "logFile.h"
 #include "kioLogFileReader.h"
@@ -29,6 +30,8 @@
 #include "testUtil.h"
 
 #include "logging.h"
+
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
 class KioLogFileReaderTest: public QObject {
 
@@ -79,6 +82,6 @@ void KioLogFileReaderTest::readLine(const QString& line) {
 	logDebug() << "Line " << line << endl;
 }
 
-QTEST_KDEMAIN(KioLogFileReaderTest, GUI)
+QTEST_MAIN(KioLogFileReaderTest)
 
 #include "kioLogFileReaderTest.moc"

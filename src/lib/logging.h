@@ -23,67 +23,61 @@
 #ifndef _KSYSTEMLOG_LOGGING_H_
 #define _KSYSTEMLOG_LOGGING_H_
 
-
-#include <kdebug.h>
+#include <QLoggingCategory>
 
 /**
  * Existing logging functions are :
  * - logDebug()
  * - logWarning()
- * - logError()
+ * - logCritical()
  * - logFatal()
  * 
  * Use it like kDebug() function :
- * logDebug() << "Debug message" << list.size() << endl;
+ * logDebug() << "Debug message" << list.size();
  */
 
-/*
- * Log prefix of any log message
- * The regexp removes the parameters and return type of the method prototype 
- * 
- * Example : 
- * [LogManager::synchronizeLogView(547)] Synchronizing the model...
- * 
- */
-
-#define KSYSTEM_LOG_KDEBUG_ID 87400
+Q_DECLARE_LOGGING_CATEGORY(KSYSTEMLOG)
 
 /**
  * Colored logging
+ */
 
-#define LOG_DEFAULT_COLOR "\033[m"
+/*
 
-#define LOG_DEBUG_COLOR 			"\033[37m"
-#define LOG_ERROR_COLOR            "\033[31m"
-#define LOG_FATAL_COLOR            "\033[31m"
-#define LOG_WARNING_COLOR         "\033[33m" 
+#define LOG_DEFAULT_COLOR   "\033[m"
+
+#define LOG_DEBUG_COLOR     "\033[37m"
+#define LOG_CRITICAL_COLOR  "\033[31m"
+#define LOG_FATAL_COLOR     "\033[31m"
+#define LOG_WARNING_COLOR   "\033[33m"
 
 #define LOG_PREFIX(logColor) logColor << "[" <<  __LINE__ << "]" << LOG_DEFAULT_COLOR
 
- */
+*/
 
-#define LOG_DEFAULT_COLOR		""
+#define LOG_DEFAULT_COLOR   ""
 
-#define LOG_DEBUG_COLOR			""
-#define LOG_ERROR_COLOR			""
-#define LOG_FATAL_COLOR			""
-#define LOG_WARNING_COLOR		""
+#define LOG_DEBUG_COLOR     ""
+#define LOG_CRITICAL_COLOR  ""
+#define LOG_FATAL_COLOR     ""
+#define LOG_WARNING_COLOR   ""
 
-#define LOG_PREFIX(logColor)	"" 
+#define LOG_PREFIX(logColor) ""
 
 #if !defined(KDE_NO_DEBUG_OUTPUT)
-	#define logDebug() kDebug(KSYSTEM_LOG_KDEBUG_ID) << LOG_PREFIX(LOG_DEBUG_COLOR)  
+  #define logDebug() qCDebug(KSYSTEMLOG) << LOG_PREFIX(LOG_DEBUG_COLOR)
 #else  // KDE_NO_DEBUG_OUTPUT
-	#define logDebug() kDebug(KSYSTEM_LOG_KDEBUG_ID)
+  #define logDebug() qCDebug(KSYSTEMLOG)
 #endif
 
 #if !defined(KDE_NO_WARNING_OUTPUT)
-	#define logWarning() kWarning(KSYSTEM_LOG_KDEBUG_ID) << LOG_PREFIX(LOG_WARNING_COLOR)
+  #define logWarning() qCWarning(KSYSTEMLOG) << LOG_PREFIX(LOG_WARNING_COLOR)
 #else  // KDE_NO_WARNING_OUTPUT
-	#define logWarning() kWarning(KSYSTEM_LOG_KDEBUG_ID)
+	#define logWarning() qCWarning(KSYSTEMLOG)
 #endif
 
-#define logError() kError(KSYSTEM_LOG_KDEBUG_ID) << LOG_PREFIX(LOG_ERROR_COLOR)
-#define logFatal() kFatal(KSYSTEM_LOG_KDEBUG_ID) << LOG_PREFIX(LOG_FATAL_COLOR)
+#define logCritical() qCCritical(KSYSTEMLOG) << LOG_PREFIX(LOG_CRITICAL_COLOR)
+
+#define logFatal() qCFatal(KSYSTEMLOG) << LOG_PREFIX(LOG_FATAL_COLOR)
 
 #endif // _KSYSTEMLOG_LOGGING_H_

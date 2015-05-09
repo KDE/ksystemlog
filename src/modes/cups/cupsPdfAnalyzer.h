@@ -85,18 +85,18 @@ class CupsPdfAnalyzer : public Analyzer {
 
 			int firstPosition = cupsPdfRegex.indexIn(logLine);
 			if (firstPosition == -1) {
-				logDebug() << "Unable to parse line " << logLine << endl;
+        logDebug() << "Unable to parse line " << logLine;
 				return NULL;
 			}
 
 			QStringList capturedTexts = cupsPdfRegex.capturedTexts();
 
 			/*
-			logDebug() << "------------------------------------------" << endl;
+      logDebug() << "------------------------------------------";
 			foreach(QString cap, capturedTexts) {
-				logDebug() << cap << endl;
+        logDebug() << cap;
 			}
-			logDebug() << "------------------------------------------" << endl;
+      logDebug() << "------------------------------------------";
 			*/
 
 			//Remove full line

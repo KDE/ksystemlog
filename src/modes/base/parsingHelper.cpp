@@ -21,7 +21,6 @@
 
 #include "parsingHelper.h"
 
-#include <kglobal.h>
 #include <KLocalizedString>
 #include <KFormat>
 
@@ -136,7 +135,7 @@ QDateTime ParsingHelper::parseSyslogDateTime(const QString& dateTime) {
 
 	int firstPosition = regex.indexIn(dateTime);
 	if (firstPosition == -1) {
-		logDebug() << "Unable to parse date " << dateTime << endl;
+    logDebug() << "Unable to parse date " << dateTime;
 		return QDateTime::currentDateTime();
 	}
 

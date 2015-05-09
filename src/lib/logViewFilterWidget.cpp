@@ -44,7 +44,7 @@ public:
 	/**
 	 * Filter of the column list
 	 */
-	KComboBox* filterList;
+  KComboBox* filterList;
 
 };
 
@@ -103,12 +103,12 @@ LogViewFilterWidget::~LogViewFilterWidget() {
 
 
 void LogViewFilterWidget::initSearchListFilter() {
-	d->filterList=new KComboBox();
+  d->filterList=new KComboBox();
 
-	d->filterList->setToolTip(i18n("Choose the filtered column here"));
-	d->filterList->setWhatsThis(i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means no specific filter."));
+  d->filterList->setToolTip(i18n("Choose the filtered column here"));
+  d->filterList->setWhatsThis(i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means no specific filter."));
 
-	d->filterList->addItem(i18n("All"));
+  d->filterList->addItem(i18n("All"));
 
 	d->filterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
@@ -119,7 +119,7 @@ void LogViewFilterWidget::initSearchListFilter() {
 }
 
 void LogViewFilterWidget::updateFilterColumns(const LogViewColumns& columns) {
-	logDebug() << "Changing columns..." << endl;
+  logDebug() << "Changing columns...";
 
 	//We first delete all items
 	d->filterList->clear();
@@ -139,13 +139,13 @@ void LogViewFilterWidget::updateFilterColumns(const LogViewColumns& columns) {
 void LogViewFilterWidget::changeColumnFilter(int column) {
 	//The user select all columns
 	if (column==0) {
-		logDebug() << "Searching on all columns" << endl;
+    logDebug() << "Searching on all columns";
 
 		d->filterLine->setSearchColumns(QList<int>());
 		return;
 	}
 
-	logDebug() << "Searching on " << d->filterList->currentIndex() << " column" << endl;
+  logDebug() << "Searching on " << d->filterList->currentIndex() << " column";
 
 	QList<int> filterColumns;
 	//currentIndex() - 1 to do not count the "All" columns item

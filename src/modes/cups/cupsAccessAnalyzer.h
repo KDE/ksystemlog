@@ -93,7 +93,7 @@ class CupsAccessAnalyzer : public Analyzer {
 
 			int firstPosition = cupsAccessRegex.indexIn(logLine);
 			if (firstPosition == -1) {
-				logDebug() << "Unable to parse line " << logLine << endl;
+        logDebug() << "Unable to parse line " << logLine;
 				return NULL;
 			}
 

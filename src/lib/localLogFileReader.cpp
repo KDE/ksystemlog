@@ -23,12 +23,11 @@
 
 #include <QMutex>
 #include <QFile>
+#include <QMimeDatabase>
 
 #include <kdirwatch.h>
 #include <KLocalizedString>
 #include <kfilterdev.h>
-#include <kmimetype.h>
-#include <kurl.h>
 
 #include "logFileReader.h"
 #include "logFileReaderPrivate.h"
@@ -83,7 +82,7 @@ void LocalLogFileReader::init() {
 	//Init current file position
 	d->previousFilePosition = 0;
 
-	logDebug() << "Reading local file " << d->logFile.url().path() << endl;
+  logDebug() << "Reading local file " << d->logFile.url().path();
 
 }
 
@@ -91,7 +90,7 @@ void LocalLogFileReader::watchFile(bool enable) {
 	Q_D(LocalLogFileReader);
 
 	if (enable == true) {
-		logDebug() << "Monitoring file : " << d->logFile.url().path() << endl;
+    logDebug() << "Monitoring file : " << d->logFile.url().path();
 
 		if (d->watch->contains(d->logFile.url().path()) == false) {
 			d->watch->addFile(d->logFile.url().path());
@@ -117,9 +116,10 @@ QIODevice* LocalLogFileReader::open() {
 		emit statusBarChanged(message);
 	}
 
-	QString mimeType = KMimeType::findByFileContent( d->logFile.url().path() )->name();
+  QMimeDatabase db;
+  QString mimeType = db.mimeTypeForFile(d->logFile.url().path(), QMimeDatabase::MatchContent).name();
 
-	logDebug() << d->logFile.url().path() << " : " << mimeType << endl;
+  logDebug() << d->logFile.url().path() << " : " << mimeType;
 	QIODevice* inputDevice;
 
 	//Try to see if this file exists
@@ -135,13 +135,13 @@ QIODevice* LocalLogFileReader::open() {
 
 	//Plain text file : we use a QFile object
 	if (mimeType == QLatin1String( "text/plain" ) || mimeType == QLatin1String( "application/octet-stream" )) {
-		logDebug() << "Using QFile input device" << endl;
+    logDebug() << "Using QFile input device";
 
 		inputDevice = file;
 	}
 	//Compressed file : we use the KFilterDev helper
 	else {
-		logDebug() << "Using KFilterDev input device" << endl;
+    logDebug() << "Using KFilterDev input device";
 
     //inputDevice = KFilterDev::deviceForFile(d->logFile.url().path(), mimeType);
     inputDevice = new KCompressionDevice(d->logFile.url().path(), KFilterDev::compressionTypeForMimeType(mimeType));
@@ -171,7 +171,7 @@ void LocalLogFileReader::close(QIODevice* inputDevice) {
 }
 
 QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
-	logDebug() << "Retrieving raw buffer..."<< endl;
+  logDebug() << "Retrieving raw buffer...";
 
 	Q_D(LocalLogFileReader);
 
@@ -182,7 +182,7 @@ QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
 		rawBuffer.append(inputStream.readLine());
 	}
 
-	logDebug() << "Raw buffer retrieved."<< endl;
+  logDebug() << "Raw buffer retrieved.";
 
 	//Get the size file for the next calculation
 	d->previousFilePosition = inputDevice->size();
@@ -194,38 +194,38 @@ QStringList LocalLogFileReader::readContent(QIODevice* inputDevice) {
 void LocalLogFileReader::logFileModified() {
 	Q_D(LocalLogFileReader);
 
-	logDebug() << "Locking log file modification..." << endl;
+  logDebug() << "Locking log file modification...";
 	if (d->insertionLocking.tryLock() == false) {
-		logDebug() << "Log file modification already detected." << endl;
+    logDebug() << "Log file modification already detected.";
 		return;
 	}
 
 	QIODevice* inputDevice = open();
 	if (inputDevice == NULL) {
-		logError() << "Could not open file " << d->logFile.url().path() << endl;
+    logCritical() << "Could not open file " << d->logFile.url().path();
 		return;
 	}
 
 	//If there are new lines in the file, insert only them or this is the first time we read this file
 	if (d->previousFilePosition!=0 && d->previousFilePosition <= inputDevice->size()) {
-		logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().path() << ")" << endl;
+    logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().path() << ")";
 
 		if (inputDevice->isSequential()) {
-			logError() << "The file current position could not be modified" << endl;
+      logCritical() << "The file current position could not be modified";
 		}
 		else {
 			//Place the cursor to the last line opened
 			inputDevice->seek(d->previousFilePosition);
 		}
 
-		logDebug() << "Retrieving a part of the file..."<< endl;
+    logDebug() << "Retrieving a part of the file...";
 
 		emit contentChanged(this, Analyzer::UpdatingRead, readContent(inputDevice));
 
 	}
 	//Else reread all lines, clear log list
 	else {
-		logDebug() << "New file or file truncated. (Re-)Loading log file" << endl;
+    logDebug() << "New file or file truncated. (Re-)Loading log file";
 
 		emit contentChanged(this, Analyzer::FullRead, readContent(inputDevice));
 
@@ -233,7 +233,7 @@ void LocalLogFileReader::logFileModified() {
 
 	close(inputDevice);
 
-	logDebug() << "Unlocking log file modification..." << endl;
+  logDebug() << "Unlocking log file modification...";
 	d->insertionLocking.unlock();
 }
 

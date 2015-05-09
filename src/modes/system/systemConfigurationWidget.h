@@ -67,16 +67,16 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget {
 
 		bool isValid() const {
 			if (fileList->isEmpty() == false) {
-				logDebug() << "System configuration valid" << endl;
+        logDebug() << "System configuration valid";
 				return true;
 			}
 
-			logDebug() << "System configuration not valid" << endl;
+      logDebug() << "System configuration not valid";
 			return false;
 		}
 
 		void saveConfig() {
-			logDebug() << "Saving config from System Options..." << endl;
+      logDebug() << "Saving config from System Options...";
 
 			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(QLatin1String( SYSTEM_LOG_MODE_ID ))->logModeConfiguration<SystemConfiguration*>();
 			systemConfiguration->setLogFilesPaths(fileList->paths());

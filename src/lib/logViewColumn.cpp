@@ -22,12 +22,9 @@
 
 #include "logViewColumn.h"
 
-
 #include <QString>
 #include <QDataStream>
 
-
-#include <kurl.h>
 #include <kiconloader.h>
 
 class LogViewColumnPrivate {

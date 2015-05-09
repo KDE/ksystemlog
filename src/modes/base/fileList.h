@@ -23,7 +23,6 @@
 #define _FILE_LIST_H_
 
 #include <QWidget>
-#include <kurl.h>
 
 #include "fileListHelper.h"
 

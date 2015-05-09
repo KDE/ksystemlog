@@ -104,7 +104,7 @@ void LogViewModel::startingMultipleInsertions(Analyzer::ReadingMode /*readingMod
 	d->concurrentMultipleInsertions++;
 	
 	if (hasLocked == true) {
-		logDebug() << "Starting multiple insertions..." << endl;
+    logDebug() << "Starting multiple insertions...";
 		
 		emit( processingMultipleInsertions(true) );
 		
@@ -121,7 +121,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
 	d->concurrentMultipleInsertions--;
 	
 	if (lockMultipleInsertions() == true) {
-		logDebug() << "Ending multiple insertions..." << endl;
+    logDebug() << "Ending multiple insertions...";
 		
 		//Scroll to the newest item if some lines have been added
 		if (insertedLogLineCount>0) {
@@ -132,9 +132,9 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
 			d->logViewWidget->resizeColumns();
 		}
 		
-		logDebug() << "Enabling log view widget refresh..." << endl;
+    logDebug() << "Enabling log view widget refresh...";
 		d->logViewWidget->setUpdatesEnabled(true);
-		
+
 		emit( processingMultipleInsertions(false) );
 	}
 }
@@ -146,10 +146,10 @@ bool LogViewModel::lockMultipleInsertions() {
 	
 	//Debug messages
 	if (d->concurrentMultipleInsertions > 0) {
-		logDebug() << "Existing multiple insertions request is still active" << endl;
+    logDebug() << "Existing multiple insertions request is still active";
 	}
 	else if  (d->concurrentMultipleInsertions < 0) {
-		logError() << "Existing multiple insertions forgot to call this method" << endl;
+    logCritical() << "Existing multiple insertions forgot to call this method";
 	}
 	
 	return false;
@@ -181,14 +181,14 @@ bool LogViewModel::isNewer(LogLine* newLine) const {
 }
 
 void LogViewModel::removeOldestLogLine() {
-	//logDebug() << "Removing oldest log line" << endl;
+  //logDebug() << "Removing oldest log line";
 	
 	if (isEmpty()==true) {
 		return;
 	}
 
 	if (d->oldestItem==NULL) {
-		logWarning() << "Oldest item is null" << endl;
+    logWarning() << "Oldest item is null";
 		return;
 	}
 
@@ -247,7 +247,7 @@ bool LogViewModel::insertNewLogLine(LogLine* line) {
 		return true;
 	}
 
-	//logDebug() << "Do not insert an old line : " << line->logItems() << endl;
+  //logDebug() << "Do not insert an old line : " << line->logItems();
 	
 	return false;
 }

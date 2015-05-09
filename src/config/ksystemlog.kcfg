@@ -6,7 +6,7 @@
 
 	<kcfgfile name="ksystemlogrc" />
 	
-	<include>klocale.h</include>
+        <!-- <include>klocale.h</include> -->
 	
 	<group name="KSystemLogGeneral">
 		<entry name="StartupLogMode" type="String">
@@ -52,7 +52,8 @@
 		
 		<entry name="DateFormat" type="Enum">
 			<label>The date format of log lines.</label>
-			<default>KLocale::ShortDate</default>
+                        <default>QLocale::ShortFormat</default>
+                        <!-- <default>KLocale::ShortDate</default> -->
 			<!--
 			<choices>
 				<choice name="KLocale::ShortDate"/>

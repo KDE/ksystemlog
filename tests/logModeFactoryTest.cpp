@@ -20,8 +20,7 @@
  ***************************************************************************/
 
 
-#include <qtest_kde.h>
-#include <kurl.h>
+#include <QTest>
 
 #include "testUtil.h"
 
@@ -35,6 +34,8 @@
 #include "logViewWidget.h"
 
 #include "logging.h"
+
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
 class LogModeFactoryTest: public QObject {
 
@@ -77,6 +78,6 @@ void LogModeFactoryTest::testReaderFactory() {
 
 }
 
-QTEST_KDEMAIN(LogModeFactoryTest, GUI)
+QTEST_MAIN(LogModeFactoryTest)
 
 #include "logModeFactoryTest.moc"

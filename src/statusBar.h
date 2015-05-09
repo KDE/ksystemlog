@@ -22,12 +22,9 @@
 #ifndef _STATUS_BAR_
 #define _STATUS_BAR_
 
-
-#include <kstatusbar.h>
+#include <QStatusBar>
 
 class QString;
-
-
 
 namespace KSystemLog {
 
@@ -36,7 +33,7 @@ class StatusBarPrivate;
 /**
  * Status Bar
  */
-class StatusBar : public KStatusBar {
+class StatusBar : public QStatusBar {
 	
 	Q_OBJECT
 	

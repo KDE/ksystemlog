@@ -172,7 +172,7 @@ class ApacheAnalyzer : public Analyzer {
 				return (*it);
 			}
 			else {
-				logError() << "New Log Level detected: Please send this log file to the KSystemLog developer to add it (" << type << ")" << endl;
+        logCritical() << "New Log Level detected: Please send this log file to the KSystemLog developer to add it (" << type << ")";
 				return Globals::instance()->noLogLevel();
 			}
 		}

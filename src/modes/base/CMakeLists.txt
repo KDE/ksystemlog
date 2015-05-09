@@ -33,4 +33,6 @@ target_link_libraries(
 	
 	ksystemlog_lib
 	ksystemlog_config
+
+        KF5::XmlGui
 )

@@ -27,8 +27,6 @@
 #include <QString>
 #include <QStringList>
 
-#include <kurl.h>
-
 #include "globals.h"
 
 #include "logLine.h"

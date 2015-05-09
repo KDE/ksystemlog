@@ -24,7 +24,6 @@
 
 #include <QWidget>
 
-
 #include "ui_loggerDialogBase.h"
 
 class LoggerDialogPrivate;

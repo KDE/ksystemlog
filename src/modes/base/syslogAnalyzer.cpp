@@ -25,8 +25,6 @@
 #include <QStringList>
 #include <QDateTime>
 
-#include <kurl.h>
-
 #include <KLocalizedString>
 
 #include "globals.h"
@@ -75,11 +73,11 @@ Analyzer::LogFileSortMode SyslogAnalyzer::logFileSortMode() {
  * TODO Improve speed of this method (with KRegExp class for example)
  */
 LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& originalFile) {
-	//logDebug() << QTime::currentTime() << " : Reading line : " << logLine << " from " << originalFile.url.path() << endl;
+  //logDebug() << QTime::currentTime() << " : Reading line : " << logLine << " from " << originalFile.url.path();
 
 	//15 is the default date size format
 	if (logLine.length()<15) {
-		logDebug() << "Too short line" << endl;
+    logDebug() << "Too short line";
 		return undefinedLogLine(logLine, originalFile);
 	}
 
@@ -110,7 +108,7 @@ LogLine* SyslogAnalyzer::parseMessage(const QString& logLine, const LogFile& ori
 
 	QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
 	if (dateTime.isValid() == false) {
-		logDebug() << "Malformed date and time" << endl;
+    logDebug() << "Malformed date and time";
 		return undefinedLogLine(logLine, originalFile);
 	}
 

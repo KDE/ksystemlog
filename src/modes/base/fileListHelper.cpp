@@ -85,7 +85,7 @@ QStringList FileListHelper::findPaths(QList<QUrl> urls) {
 			//If this Url uses a joker (i.e. : "/var/log/apache2/*")
 			if (url.fileName().contains(QLatin1Char( '*' ))) {
 				const QStringList foundPaths = expandJoker(url.path());
-				logDebug() << "Found paths of " << url.path() << ":" << foundPaths << endl;
+        logDebug() << "Found paths of " << url.path() << ":" << foundPaths;
 				foreach(const QString &foundPath, foundPaths) {
 					paths.append(foundPath);
 				}
@@ -134,7 +134,7 @@ QList<QUrl> FileListHelper::openUrls() {
 QUrl FileListHelper::openUrl(const QString& originPath) {
   QFileDialog fileDialog(parent, QString(), originPath, QLatin1String( "*|" ) + i18n("All Files (*)") + QLatin1String( "\n*.log|" ) + i18n("Log Files (*.log)"));
 	fileDialog.setWindowTitle(i18n("Choose Log File"));
-  fileDialog.setFileMode(QFileDialog::ExistingFile);
+  fileDialog.setFileMode(QFileDialog::AnyFile);
 
 	fileDialog.exec();
   return fileDialog.selectedUrls().at(0);
@@ -143,7 +143,7 @@ QUrl FileListHelper::openUrl(const QString& originPath) {
 QStringList FileListHelper::expandJoker(const QUrl& url) {
 	QDir directory = QDir(url.path().left(url.path().count() - url.fileName().count()));
 
-	logDebug() << "Dir " << directory.path() << endl;
+  logDebug() << "Dir " << directory.path();
 	QString filename = url.fileName();
 
 	if (filename.isEmpty()) {

@@ -21,18 +21,17 @@
 
 #include "logViewExport.h"
 
+#include <QApplication>
 #include <QPainter>
 #include <QClipboard>
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QFileDialog>
 
-#include <kapplication.h>
 #include <KLocalizedString>
 #include <ktoolinvocation.h>
 #include <kmessagebox.h>
 #include <kfilterdev.h>
-#include <kdeprintdialog.h>
 
 #include "logging.h"
 
@@ -52,7 +51,7 @@ LogViewExport::~LogViewExport() {
 }
 
 void LogViewExport::sendMail() {
-	logDebug() << "Exporting to mail..." << endl;
+  logDebug() << "Exporting to mail...";
 
 	QString body(i18n("Here are my logs:\n"));
 
@@ -87,11 +86,12 @@ void LogViewExport::sendMail() {
 	//const QString &   messageFile,
 	//const QStringList &   attachURLs,
 	//const QCString &   startup_id
-	KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
+  //KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
+  KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log Lines of my problem"), body, QLatin1String( "" ), QStringList(), QByteArray());
 }
 
 void LogViewExport::printSelection() {
-	logDebug() << "Printing selection..." << endl;
+  logDebug() << "Printing selection...";
 
 	QPrinter printer;
 
@@ -104,7 +104,7 @@ void LogViewExport::printSelection() {
 	 */
 
 	// initialize the printer using the print dialog
-	QPrintDialog *printDialog = KdePrint::createPrintDialog(&printer, parent);
+  QPrintDialog *printDialog = new QPrintDialog(&printer, parent);
 	if (printDialog->exec() == false) {
 		delete printDialog;
 		return;
@@ -180,7 +180,7 @@ void LogViewExport::printSelection() {
 }
 
 void LogViewExport::printPageNumber(QPainter& painter, QRect& printView, int movement, int page) {
-	logDebug() << "Printing page number..." << endl;
+  logDebug() << "Printing page number...";
 
 	painter.translate(0, -movement);
 	printView.moveTo(QPoint(0, printView.height()) );
@@ -190,7 +190,7 @@ void LogViewExport::printPageNumber(QPainter& painter, QRect& printView, int mov
 }
 
 void LogViewExport::copyToClipboard() {
-	logDebug() << "Copying to clipboard..." << endl;
+  logDebug() << "Copying to clipboard...";
 
 	int nbCopied=0;
 	QString text;
@@ -219,12 +219,12 @@ void LogViewExport::copyToClipboard() {
 		emit statusBarChanged(i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
 	}
 
-	logDebug() << "Copied " << nbCopied << " log lines" << endl;
+  logDebug() << "Copied " << nbCopied << " log lines";
 
 }
 
 void LogViewExport::fileSave() {
-	logDebug() << "Saving to a file..." << endl;
+  logDebug() << "Saving to a file...";
 
 	QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
 

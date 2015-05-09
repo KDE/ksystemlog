@@ -66,12 +66,12 @@ void DetailDialog::selectionChanged(LogViewWidget* logViewWidget) {
 
 //TODO Try to find a method that reload (an resize) correctly the content of the detail dialog
 void DetailDialog::updateDetails() {
-	//logDebug() << "Updating Detail Dialog..." << endl;
+  //logDebug() << "Updating Detail Dialog...";
 	
 	//Get the current-last item selected
 	LogViewWidgetItem* item=logViewWidget->lastSelectedItem();
 	if (item==NULL) {
-		logDebug() << "No item found." << endl;
+    logDebug() << "No item found.";
 		return;
 	}
 	
@@ -99,23 +99,23 @@ void DetailDialog::updateDetails() {
 
 void DetailDialog::moveToItem(int direction) {
 	if (direction < 0)
-		logDebug() << "Go to previous item..." << endl;
+    logDebug() << "Go to previous item...";
 	else
-		logDebug() << "Go to next item..." << endl;
+    logDebug() << "Go to next item...";
 	
 	//Get the current-last item selected
 	LogViewWidgetItem* item=logViewWidget->lastSelectedItem();
 	if (item==NULL) {
-		logDebug() << "No item found." << endl;
+    logDebug() << "No item found.";
 		return;
 	}
 	
 	QTreeWidgetItem* destinationItem = logViewWidget->topLevelItem( logViewWidget->indexOfTopLevelItem(item) + direction );
 	if (destinationItem==NULL) {
 		if (direction < 0)
-			logDebug() << "No previous item found." << endl;
+      logDebug() << "No previous item found.";
 		else
-			logDebug() << "No next item found." << endl;
+      logDebug() << "No next item found.";
 		return;
 	}
 	

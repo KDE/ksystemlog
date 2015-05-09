@@ -67,7 +67,7 @@ class SambaConfigurationWidget : public LogModeConfigurationWidget {
 	public slots:
 
 		void saveConfig() {
-			logDebug() << "Saving config from Samba Options..." << endl;
+      logDebug() << "Saving config from Samba Options...";
 
 			SambaConfiguration* sambaConfiguration = Globals::instance()->findLogMode(QLatin1String( SAMBA_LOG_MODE_ID ))->logModeConfiguration<SambaConfiguration*>();
 			sambaConfiguration->setSambaPaths(sambaFileList->paths(sambaPathsId));
@@ -93,11 +93,11 @@ class SambaConfigurationWidget : public LogModeConfigurationWidget {
 	protected:
 		bool isValid() const {
 			if (sambaFileList->isOneOfCategoryEmpty()==true) {
-				logDebug() << "Samba configuration not valid" << endl;
+        logDebug() << "Samba configuration not valid";
 				return false;
 			}
 
-			logDebug() << "Samba configuration valid" << endl;
+      logDebug() << "Samba configuration valid";
 			return true;
 
 		}

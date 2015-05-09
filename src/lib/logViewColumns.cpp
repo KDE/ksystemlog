@@ -25,7 +25,6 @@
 #include <QList>
 
 #include "logging.h"
-#include <kurl.h>
 
 #include "globals.h"
 #include "logViewColumn.h"

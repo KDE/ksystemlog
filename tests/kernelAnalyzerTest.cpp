@@ -22,10 +22,8 @@
 #include <QList>
 #include <QStringList>
 #include <QThread>
+#include <QTest>
 
-#include <qtest_kde.h>
-
-#include <kurl.h>
 #include <kdirwatch.h>
 
 #include "testUtil.h"
@@ -44,6 +42,8 @@
 
 #include "kernelAnalyzer.h"
 #include "localLogFileReader.h"
+
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
 /**
  * Reimplements the Kernel Analyzer using a Local File Reader
@@ -172,7 +172,6 @@ void KernelAnalyzerTest::testSuseDmesg() {
 	testUtil.destroyReader(kernelAnalyzer);
 }
 
-
-QTEST_KDEMAIN(KernelAnalyzerTest, GUI)
+QTEST_MAIN(KernelAnalyzerTest)
 
 #include "kernelAnalyzerTest.moc"

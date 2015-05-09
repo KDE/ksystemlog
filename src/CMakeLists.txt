@@ -47,8 +47,6 @@ ki18n_wrap_ui(ksystemlog_sources
 add_executable(ksystemlog ${ksystemlog_sources})
 
 target_link_libraries(ksystemlog  
-	KF5::KDELibs4Support
-	KF5::Archive
 	ksystemlog_lib
 	ksystemlog_config
 	ksystemlog_open
@@ -63,7 +61,10 @@ target_link_libraries(ksystemlog
 	ksystemlog_xsession
 	ksystemlog_postfix 
 	ksystemlog_cups 
-	ksystemlog_samba 
+        ksystemlog_samba
+
+        KF5::Archive
+        KF5::TextWidgets
 )
 
 ########### Installation ###############
@@ -71,4 +72,4 @@ target_link_libraries(ksystemlog
 install( TARGETS ksystemlog ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS   ksystemlog.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES   ksystemlogui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/ksystemlog)
+install(FILES   ksystemlogui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/ksystemlog)

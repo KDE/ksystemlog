@@ -11,6 +11,6 @@ kconfig_add_kcfg_files(ksystemlog_config_SRCS ksystemlogConfig.kcfgc)
 
 add_library(ksystemlog_config STATIC ${ksystemlog_config_SRCS})
 
-target_link_libraries(ksystemlog_config KF5::KDELibs4Support
-	
+target_link_libraries(ksystemlog_config
+        KF5::ConfigGui
 )

@@ -87,7 +87,7 @@ class CupsPageAnalyzer : public Analyzer {
 
 			int firstPosition = cupsPageRegex.indexIn(logLine);
 			if (firstPosition == -1) {
-				logDebug() << "Unable to parse line " << logLine << endl;
+        logDebug() << "Unable to parse line " << logLine;
 				return NULL;
 			}
 

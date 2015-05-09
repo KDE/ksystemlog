@@ -1,7 +1,8 @@
-project(KSystemLog)
+project(KSystemlog)
 
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 set (QT_MIN_VERSION "5.2.0")
+set (KF5_MIN_VERSION "5.0.0")
 
 find_package (ECM 1.7.0 REQUIRED NO_MODULE)
 set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -19,8 +20,20 @@ find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Test
 )
 
-find_package(KF5 REQUIRED COMPONENTS
-    KDELibs4Support
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    XmlGui
+    CoreAddons
+    WidgetsAddons
+    ItemViews
+    IconThemes
+    KIO
+    Config
+    Archive
+    DocTools
+    I18n
+    Completion
+    TextWidgets
+    JobWidgets
 )
 
 include(CheckIncludeFile)
@@ -28,7 +41,6 @@ include(CheckIncludeFiles)
 include(CheckSymbolExists)
 include(CheckFunctionExists)
 include(CheckLibraryExists)
-include(CheckPrototypeExists)
 include(CheckTypeSize)
 
 if(WIN32)
@@ -48,7 +60,7 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 
 
 add_custom_target(  
-    package
+    pkg
     COMMAND ./build-package.sh
 )
 
@@ -84,5 +96,8 @@ add_subdirectory(src/modes/cups)
 
 add_subdirectory(tests) 
 add_subdirectory(doc)
+
+find_package(KF5I18n CONFIG REQUIRED)
+ki18n_install(po)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
