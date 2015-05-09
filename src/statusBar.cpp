@@ -115,7 +115,7 @@ void StatusBar::changeLineCountMessage(const QString& lineCountMessage) {
 
 void StatusBar::changeLastModification(const QTime& lastModification) {
   //d->lastModificationLabel->setText(i18n("Last updated: %1.", KLocale::global()->formatTime(lastModification, true, false) ));
-  d->lastModificationLabel->setText(i18n("Last updated: %1.", QLocale().toString(lastModification) ));
+  d->lastModificationLabel->setText(i18n("Last updated: %1.", QLocale().toString(lastModification, QString("hh:mm:ss")) ));
 }
 
 void StatusBar::changeMessage(const QString& message) {
