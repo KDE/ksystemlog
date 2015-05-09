@@ -154,23 +154,9 @@
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="formatFancyShortDate">
-        <property name="text">
-         <string>Fa&amp;ncy short date format</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QRadioButton" name="formatLongDate">
         <property name="text">
          <string>&amp;Long date format</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="formatFancyLongDate">
-        <property name="text">
-         <string>Fanc&amp;y long date format</string>
         </property>
        </widget>
       </item>
