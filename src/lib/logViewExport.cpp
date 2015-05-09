@@ -234,42 +234,41 @@ void LogViewExport::fileSave() {
 		return;
 	}
 
-  //QString filename = QFileDialog::getSaveFileName(QUrl(), QString(), parent);
-  QString filename = QFileDialog::getSaveFileName();
+  QString filename = QFileDialog::getSaveFileName(parent, i18n("Save selected log entries to..."), QString());
 	if (filename.isEmpty() == true) {
 		return;
 	}
 
-  QIODevice* ioDev = new KFilterDev(filename);
-	if (ioDev->open(QIODevice::WriteOnly)) {
+  QFile *ioDev = new QFile(filename);
+
+  if (ioDev->open(QIODevice::WriteOnly))
+  {
     QTextStream stream(ioDev);
 
-		int nbCopied=0;
+    int nbCopied = 0;
 
-		while ( *it != NULL) {
+    while (*it != NULL)
+    {
 			LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
 
-			//Copy the item content to the stream
+      //Copy the item content to the stream
 			stream << item->logLine()->exportToText() << '\n';
 
 			//Retrieve the next item
 			it++;
 			nbCopied++;
-
 		}
 
-		ioDev->close();
+    ioDev->close();
 
-		delete ioDev;
+    delete ioDev;
 
 		emit statusBarChanged(i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
 	}
-	else {
+  else
+  {
 		QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
 		KMessageBox::error(parent, message, i18n("Unable to save file."));
 	}
 
-
 }
-
-
