@@ -106,7 +106,7 @@ void ConfigurationDialog::showConfiguration() {
 void ConfigurationDialog::setupGeneralConfiguration() {
 	d->generalConfiguration = new GeneralConfigurationWidget();
 
-	addPage(d->generalConfiguration, i18n("General"), QLatin1String( KSYSTEMLOG_ICON ), i18n("General"), false);
+  addPage(d->generalConfiguration, i18n("General"), QLatin1String( "applications-system" ), i18n("General"), false);
 
 	connect(d->generalConfiguration, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
 }

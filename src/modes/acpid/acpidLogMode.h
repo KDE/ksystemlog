@@ -30,7 +30,7 @@
 /**
  * Acpid Log Icon
  */
-#define ACPID_MODE_ICON "battery"
+#define ACPID_MODE_ICON "preferences-system-power-management"
 
 #include <QList>
 
