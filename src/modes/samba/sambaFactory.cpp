@@ -60,7 +60,6 @@ LogModeAction* SambaLogModeFactory::createLogModeAction() const {
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( SAMBA_ACCESS_LOG_MODE_ID ))->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( NETBIOS_LOG_MODE_ID ))->action());
 
-	multipleActions->setInToolBar(false);
 	multipleActions->setCategory(LogModeAction::ServicesCategory);
 
 	return multipleActions;

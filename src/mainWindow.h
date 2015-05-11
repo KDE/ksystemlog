@@ -30,6 +30,8 @@
 
 #include <ktoggleaction.h>
 
+#include "logModeAction.h"
+
 class QAction;
 
 class LogManager;
@@ -115,7 +117,7 @@ class MainWindow : public KXmlGuiWindow {
 		void changeCurrentTab();
 		
 		void changeResumePauseAction(bool paused);
-		void selectLogModeAction(QAction* action);
+    void selectLogModeAction(bool);
 		
 	private:
 		
@@ -126,6 +128,7 @@ class MainWindow : public KXmlGuiWindow {
 		void setupTabLogViews();
 		
 		void setupActions();
+    void setupLogModeMenu();
 		void setupLogActions();
 		
 		void updateDetailDialog();

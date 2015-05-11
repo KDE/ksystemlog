@@ -34,24 +34,19 @@ class LogModeAction : public QObject {
 	
 public:
 	
-	enum Category {
-			RootCategory,
-	        ServicesCategory,
-	        OthersCategory
-	    };
-    Q_DECLARE_FLAGS(Categories, Category)
+  enum Category { RootCategory,
+                  ServicesCategory,
+                  OthersCategory };
 
-    LogModeAction();
+  Q_DECLARE_FLAGS(Categories, Category)
+
+  LogModeAction();
     
 	virtual ~LogModeAction();
 	
 	virtual QList<QAction*> innerActions() = 0;
 	
 	virtual QAction* actionMenu() = 0;
-	
-	void setInToolBar(bool inToolBar);
-	
-	bool isInToolBar();
 	
 	void setCategory(Category category);
 	

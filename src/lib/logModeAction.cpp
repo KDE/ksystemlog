@@ -39,14 +39,6 @@ LogModeAction::~LogModeAction() {
 	delete d;
 }
 
-void LogModeAction::setInToolBar(bool inToolBar) {
-	d->inToolBar = inToolBar;
-}
-
-bool LogModeAction::isInToolBar() {
-	return d->inToolBar;
-}
-
 void LogModeAction::setCategory(LogModeAction::Category category) {
 	d->category = category;
 }

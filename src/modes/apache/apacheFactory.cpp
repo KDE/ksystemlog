@@ -55,7 +55,6 @@ LogModeAction* ApacheLogModeFactory::createLogModeAction() const {
 	multipleActions->addInnerAction(apacheLogMode->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ))->action());
 
-	multipleActions->setInToolBar(false);
 	multipleActions->setCategory(LogModeAction::ServicesCategory);
 
 	return multipleActions;

@@ -22,19 +22,17 @@
 #include "mainWindow.h"
 
 //Qt includes
-
 #include <QActionGroup>
 #include <QAction>
 #include <QList>
 #include <QPrinter>
+#include <QIcon>
 
 //KDE includes
 #include <kmainwindow.h>
 #include <kmessagebox.h>
 #include <kactionmenu.h>
 #include <KLocalizedString>
-
-#include <QIcon>
 
 #include <kservice.h>
 #include <kservicetypetrader.h>
@@ -80,8 +78,6 @@
 #include "globals.h"
 #include "logModeAction.h"
 
-//Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
-
 namespace KSystemLog {
 
 class MainWindowPrivate {
@@ -118,7 +114,6 @@ public:
 	 * Action groups which stores all Log Mode Actions
 	 */
 	QActionGroup* logModesActionGroup;
-
 
 	QPrinter* printer;
 
@@ -157,11 +152,11 @@ MainWindow::MainWindow() :
   logDebug() << "Starting KSystemLog...";
 
 	//Load log modes plugins
-	loadLogModePlugins();
+  loadLogModePlugins();
 
 	//Create the GUI from XML configuration
   logDebug() << "Creating Gui...";
-	createGUI();
+  createGUI();
 
 	//TODO Improve the status bar to add a custom widget which shows an history of latest message, and add a LogLevel for each ones
 	//Initialize the Status Bar
@@ -173,14 +168,18 @@ MainWindow::MainWindow() :
 	//Setup the Actions
 	setupActions();
 
+  // Setup toolbar log actions, needs to be called before setupGUI()
+  setupLogActions();
+
 	// Apply the create the main window and ask the mainwindow to
 	// automatically save settings if changed: window size, toolbar
 	// position, icon size, etc.  Also to add actions for the statusbar
 	// toolbar, and keybindings if necessary.
   logDebug() << "Setup Gui...";
-	setupGUI();
+  setupGUI();
 
-	setupLogActions();
+  // Setup Logs menu, needs to be called after setupGUI()
+  setupLogModeMenu();
 
 	//Apply the saved mainwindow settings, if any, and ask the main window
 	//to automatically save settings if changed: window size, tool bar
@@ -242,7 +241,7 @@ void MainWindow::prepareCreatedLogManager(LogManager* manager) {
 	//Contextual menu Log Manager signals
 	QAction* separator;
 
-	manager->usedView()->logViewWidget()->addAction(d->reloadAction);
+  manager->usedView()->logViewWidget()->addAction(d->reloadAction);
 	manager->usedView()->logViewWidget()->addAction(d->selectAllAction);
 
 	separator = new QAction(this);
@@ -317,7 +316,7 @@ void MainWindow::updateReloading() {
 	d->findPreviousAction->setEnabled(enabled);
 
 	//Enables/Disables all Log Mode actions
-	d->logModesActionGroup->setEnabled(enabled);
+  //d->logModesActionGroup->setEnabled(enabled);
 
 	d->tabs->changeReloadingTab(currentView, !enabled);
 
@@ -690,7 +689,6 @@ void MainWindow::setupActions() {
 	d->reloadAction = actionCollection()->addAction( QLatin1String( "reload" ), d->tabs, SLOT(reloadCurrent()));
 	d->reloadAction->setText(i18n("&Reload"));
 	d->reloadAction->setIcon(QIcon::fromTheme( QLatin1String( "view-refresh" )));
-	d->reloadAction->setShortcut(Qt::Key_F5);
 	d->reloadAction->setToolTip(i18n("Reload the current log"));
 	d->reloadAction->setWhatsThis(i18n("Reloads the current log, if you want to be sure that the view is correctly updated."));
   actionCollection()->setDefaultShortcut(d->reloadAction, Qt::Key_F5);
@@ -736,72 +734,80 @@ void MainWindow::setupActions() {
 
 }
 
-void MainWindow::selectLogModeAction(QAction* action) {
-	QString selectedModeId = action->data().toString();
+void MainWindow::selectLogModeAction(bool)
+{
+  //qDebug() << "action selected" << action->data().toString();
 
-	LogMode* currentMode = NULL;
-	foreach(LogMode* logMode, Globals::instance()->logModes()) {
-		if (logMode->id() == selectedModeId) {
-			currentMode = logMode;
-			break;
-		}
-	}
+  QString selectedModeId = actionCollection()->action(QObject::sender()->objectName())->data().toString();
 
-	if (currentMode==NULL) {
+  qDebug() << "selectLogModeAction2() called by" << selectedModeId;
+
+  LogMode* currentMode = NULL;
+  foreach(LogMode* logMode, Globals::instance()->logModes()) {
+    if (logMode->id() == selectedModeId) {
+      currentMode = logMode;
+      break;
+    }
+  }
+
+  if (currentMode == NULL) {
     logCritical() << "The selected mode does not exist";
-		return;
-	}
+    return;
+  }
 
   logDebug() << "Selecting " << currentMode->name() << " (" << currentMode->id() << ")";
 
-	/*
-	//If the user uses the middle button OR left button + shift OR left button + control : = it opens the log in a new tab
-	if (state==Qt::MidButton || (state==Qt::ControlModifier+Qt::LeftButton) || (state==Qt::ShiftModifier+Qt::LeftButton))
-		createTab();
-	*/
+  /*
+  //If the user uses the middle button OR left button + shift OR left button + control : = it opens the log in a new tab
+  if (state==Qt::MidButton || (state==Qt::ControlModifier+Qt::LeftButton) || (state==Qt::ShiftModifier+Qt::LeftButton))
+    createTab();
+  */
 
-	d->tabs->load(currentMode, d->tabs->activeLogManager());
+  d->tabs->load(currentMode, d->tabs->activeLogManager());
 }
 
-void MainWindow::setupLogActions() {
-	QList<QAction*> menuLogModeActions;
-	QList<QAction*> toolBarLogModeActions;
+void MainWindow::setupLogModeMenu()
+{
+  // Sets up the Logs menu
 
-	KActionMenu* servicesAction = new KActionMenu(QIcon::fromTheme( QLatin1String( "preferences-system-session-services") ), i18n("Services"), this);
-	KActionMenu* othersAction = new KActionMenu(QIcon::fromTheme( QLatin1String( "preferences-other")), i18n("Others"), this);
+  QList<QAction*> menuLogModeActions;
 
-	d->logModesActionGroup=new QActionGroup(actionCollection());
+  KActionMenu* servicesAction = new KActionMenu(QIcon::fromTheme( QLatin1String( "preferences-system-session-services") ), i18n("Services"), this);
+  KActionMenu* othersAction = new KActionMenu(QIcon::fromTheme( QLatin1String( "preferences-other")), i18n("Others"), this);
 
-	connect(d->logModesActionGroup, SIGNAL(triggered(QAction*)), this, SLOT(selectLogModeAction(QAction*)));
+  foreach(LogModeAction* logModeAction, Globals::instance()->logModeActions())
+  {
+    if (logModeAction->category() == LogModeAction::RootCategory)
+      menuLogModeActions.append( logModeAction->actionMenu() );
+    else if (logModeAction->category() == LogModeAction::ServicesCategory)
+      servicesAction->addAction( logModeAction->actionMenu() );
+    else if (logModeAction->category() == LogModeAction::OthersCategory)
+      othersAction->addAction( logModeAction->actionMenu() );
+  }
 
-	foreach(LogModeAction* logModeAction, Globals::instance()->logModeActions()) {
-		foreach(QAction* action, logModeAction->innerActions()) {
-			d->logModesActionGroup->addAction(action);
+  menuLogModeActions.append( servicesAction );
+  menuLogModeActions.append( othersAction );
+
+  //Menu dynamic action list
+  unplugActionList(QLatin1String( "log_mode_list" ));
+  plugActionList(QLatin1String( "log_mode_list" ), menuLogModeActions);
+}
+
+void MainWindow::setupLogActions()
+{
+  // Sets up the log actions
+
+  foreach(LogModeAction* logModeAction, Globals::instance()->logModeActions())
+  {
+    foreach(QAction* action, logModeAction->innerActions())
+    {
+      logDebug() << "adding action" << action->data().toString();
+
+      action = actionCollection()->addAction(action->data().toString(), action);
+      connect(action, SIGNAL(triggered(bool)), this, SLOT(selectLogModeAction(bool)));
 		}
 
-		if (logModeAction->category() == LogModeAction::RootCategory)
-			menuLogModeActions.append( logModeAction->actionMenu() );
-		else if (logModeAction->category() == LogModeAction::ServicesCategory)
-			servicesAction->addAction( logModeAction->actionMenu() );
-		else if (logModeAction->category() == LogModeAction::OthersCategory)
-			othersAction->addAction( logModeAction->actionMenu() );
-
-		if (logModeAction->isInToolBar() == true) {
-			toolBarLogModeActions.append( logModeAction->actionMenu() );
-		}
-	}
-
-	menuLogModeActions.append( servicesAction );
-	menuLogModeActions.append( othersAction );
-
-	//Menu dynamic action list
-	unplugActionList(QLatin1String( "log_mode_list" ));
-	plugActionList(QLatin1String( "log_mode_list" ), menuLogModeActions);
-
-	//ToolBar dynamic action list
-	unplugActionList(QLatin1String( "tool_bar_log_mode_list" ));
-	plugActionList(QLatin1String( "tool_bar_log_mode_list" ), toolBarLogModeActions);
-
+  }
 }
 
 }

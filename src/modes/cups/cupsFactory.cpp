@@ -61,7 +61,6 @@ LogModeAction* CupsLogModeFactory::createLogModeAction() const {
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( CUPS_PAGE_LOG_MODE_ID ))->action());
 	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( CUPS_PDF_LOG_MODE_ID ))->action());
 
-	multipleActions->setInToolBar(false);
 	multipleActions->setCategory(LogModeAction::ServicesCategory);
 
 	return multipleActions;
