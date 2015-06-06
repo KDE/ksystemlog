@@ -28,25 +28,24 @@
 
 #include "logFile.h"
 
-
 class KSystemLogConfig;
 
-class LogModeConfiguration : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogModeConfiguration();
-		
-		virtual ~LogModeConfiguration();
-		
-		LogFile findGenericLogFile(const QString& file);
-		QList<LogFile> findGenericLogFiles(const QStringList& files);
-		
-		QList<LogFile> findNoModeLogFiles(const QStringList& stringList);
-		
-	protected:
-		KSystemLogConfig* configuration;
+class LogModeConfiguration : public QObject
+{
+    Q_OBJECT
+
+public:
+    LogModeConfiguration();
+
+    virtual ~LogModeConfiguration();
+
+    LogFile findGenericLogFile(const QString &file);
+    QList<LogFile> findGenericLogFiles(const QStringList &files);
+
+    QList<LogFile> findNoModeLogFiles(const QStringList &stringList);
+
+protected:
+    KSystemLogConfig *configuration;
 };
 
 #endif // _LOG_MODE_CONFIGURATION_H_

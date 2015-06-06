@@ -32,23 +32,23 @@
 
 class QAction;
 
-class SimpleAction : public LogModeAction {
-	
-	Q_OBJECT
-	
-	public:
-		SimpleAction(const QIcon& icon, const QString& text, QObject* parent);
-		
-		SimpleAction(QAction* action, QObject* parent);
-		
-		virtual ~SimpleAction();
-		
-		QList<QAction*> innerActions();
-		
-		QAction* actionMenu();
+class SimpleAction : public LogModeAction
+{
+    Q_OBJECT
 
-	private:
-		QAction* action; 
+public:
+    SimpleAction(const QIcon &icon, const QString &text, QObject *parent);
+
+    SimpleAction(QAction *action, QObject *parent);
+
+    virtual ~SimpleAction();
+
+    QList<QAction *> innerActions();
+
+    QAction *actionMenu();
+
+private:
+    QAction *action;
 };
 
 #endif // _SIMPLE_ACTIONS_H_

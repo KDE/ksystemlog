@@ -22,7 +22,6 @@
 #ifndef _CUPS_PAGE_ANALYZER_H_
 #define _CUPS_PAGE_ANALYZER_H_
 
-
 #include <KLocalizedString>
 
 #include "analyzer.h"
@@ -33,80 +32,68 @@
 
 #include "cupsPageLogMode.h"
 
-class CupsPageAnalyzer : public Analyzer {
+class CupsPageAnalyzer : public Analyzer
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    explicit CupsPageAnalyzer(LogMode *logMode)
+        : Analyzer(logMode)
+        , cupsPageRegex(QLatin1String("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
+    {
+    }
 
-	public:
-		explicit CupsPageAnalyzer(LogMode* logMode) :
-			Analyzer(logMode),
-			cupsPageRegex(QLatin1String( "(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)" )) {
-		}
+    virtual ~CupsPageAnalyzer() {}
 
-		virtual ~CupsPageAnalyzer() {
+    LogViewColumns initColumns()
+    {
+        LogViewColumns columns;
 
-		}
+        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Printer"), true, true));
+        columns.addColumn(LogViewColumn(i18n("User"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Job Id"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Page Number"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Num Copies"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Job Billing"), true, false));
 
-		LogViewColumns initColumns() {
-			LogViewColumns columns;
+        return columns;
+    }
 
-			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Printer"), true, true));
-			columns.addColumn(LogViewColumn(i18n("User"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Job Id"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Page Number"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Num Copies"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Job Billing"), true, false));
+protected:
+    QRegExp cupsPageRegex;
 
-			return columns;
-		}
+    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
 
+    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
 
-	protected:
+    /*
+     * http://www.cups.org/documentation.php/ref-page_log.html
+     * Format : printer user job-id date-time page-number num-copies job-billing
+     *
+     * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123
+     * DeskJet root 2 [20/May/1999:19:21:05 +0000] 2 1 acme-123
+     */
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    {
+        QString line(logLine);
 
-		QRegExp cupsPageRegex;
+        int firstPosition = cupsPageRegex.indexIn(logLine);
+        if (firstPosition == -1) {
+            logDebug() << "Unable to parse line " << logLine;
+            return NULL;
+        }
 
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new LocalLogFileReader(logFile);
-		}
+        QStringList capturedTexts = cupsPageRegex.capturedTexts();
 
-		Analyzer::LogFileSortMode logFileSortMode() {
-			return Analyzer::AscendingSortedLogFile;
-		}
+        // Remove full line
+        capturedTexts.removeAt(0);
 
-		/*
-		 * http://www.cups.org/documentation.php/ref-page_log.html
-		 * Format : printer user job-id date-time page-number num-copies job-billing
-		 *
-		 * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123
-		 * DeskJet root 2 [20/May/1999:19:21:05 +0000] 2 1 acme-123
-		 */
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
+        QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
 
-			QString line(logLine);
-
-			int firstPosition = cupsPageRegex.indexIn(logLine);
-			if (firstPosition == -1) {
-        logDebug() << "Unable to parse line " << logLine;
-				return NULL;
-			}
-
-			QStringList capturedTexts = cupsPageRegex.capturedTexts();
-
-			//Remove full line
-			capturedTexts.removeAt(0);
-
-			QDateTime dateTime=ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
-
-			return new LogLine(
-					logLineInternalIdGenerator++,
-					dateTime,
-					capturedTexts,
-					originalLogFile.url().path(),
-					Globals::instance()->informationLogLevel(),
-					logMode
-			);
-		}
+        return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
+                           originalLogFile.url().path(), Globals::instance()->informationLogLevel(), logMode);
+    }
 };
 
 #endif // _CUPS_PAGE_ANALYZER_H_

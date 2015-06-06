@@ -33,30 +33,33 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
+SambaLogMode::SambaLogMode(SambaConfiguration *sambaConfiguration,
+                           SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
+    : LogMode(QLatin1String(SAMBA_LOG_MODE_ID), i18n("Samba Log"), QLatin1String(SAMBA_MODE_ICON))
+{
+    d->logModeConfiguration = sambaConfiguration;
+    d->logModeConfigurationWidget = sambaConfigurationWidget;
+    d->itemBuilder = itemBuilder;
 
-SambaLogMode::SambaLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) :
-	LogMode(QLatin1String( SAMBA_LOG_MODE_ID ), i18n("Samba Log"),QLatin1String( SAMBA_MODE_ICON )) {
-
-	d->logModeConfiguration = sambaConfiguration;
-	d->logModeConfigurationWidget = sambaConfigurationWidget;
-	d->itemBuilder = itemBuilder;
-
-	//Samba Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Samba log."));
-	d->action->setWhatsThis(i18n("Displays the Samba log in the current tab. Samba is the file sharing server which interacts with Microsoft Windows network."));
-
+    // Samba Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Samba log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the Samba log in the current tab. Samba is the file sharing server which interacts with "
+        "Microsoft Windows network."));
 }
 
-SambaLogMode::~SambaLogMode() {
-
+SambaLogMode::~SambaLogMode()
+{
 }
 
-Analyzer* SambaLogMode::createAnalyzer() {
-	return new SambaAnalyzer(this);
+Analyzer *SambaLogMode::createAnalyzer()
+{
+    return new SambaAnalyzer(this);
 }
 
-QList<LogFile> SambaLogMode::createLogFiles() {
-	SambaConfiguration* sambaConfiguration = logModeConfiguration<SambaConfiguration*>();
-	return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaPaths());
+QList<LogFile> SambaLogMode::createLogFiles()
+{
+    SambaConfiguration *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
+    return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaPaths());
 }

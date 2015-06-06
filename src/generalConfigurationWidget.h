@@ -28,33 +28,33 @@
 
 class GeneralConfigurationWidgetPrivate;
 
-class GeneralConfigurationWidget : public QWidget, public Ui::GeneralConfigurationWidgetBase {
-	
-	Q_OBJECT
-	
-	public:
-		GeneralConfigurationWidget();
-		
-		~GeneralConfigurationWidget();
-		
-		bool isValid() const;
+class GeneralConfigurationWidget : public QWidget, public Ui::GeneralConfigurationWidgetBase
+{
+    Q_OBJECT
+
+public:
+    GeneralConfigurationWidget();
+
+    ~GeneralConfigurationWidget();
+
+    bool isValid() const;
 
     enum dateFormat {};
 
-	public slots:
-		void saveConfig() const;
+public slots:
+    void saveConfig() const;
 
-		void defaultConfig();
+    void defaultConfig();
 
-		void readConfig();
-		
-	signals:
-		void configurationChanged();
-		
-	private:
-		void addDateFormatExample();
-		
-		GeneralConfigurationWidgetPrivate* const d;
+    void readConfig();
+
+signals:
+    void configurationChanged();
+
+private:
+    void addDateFormatExample();
+
+    GeneralConfigurationWidgetPrivate *const d;
 };
 
 #endif // _GENERAL_CONFIGURATION_WIDGET_H_

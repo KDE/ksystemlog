@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,16 +31,18 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> CronLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new CronLogMode());
-	return logModes;
+QList<LogMode *> CronLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new CronLogMode());
+    return logModes;
 }
 
-LogModeAction* CronLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( CRON_LOG_MODE_ID ));
-	SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
-	logModeAction->setCategory(LogModeAction::ServicesCategory);
+LogModeAction *CronLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(CRON_LOG_MODE_ID));
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+    logModeAction->setCategory(LogModeAction::ServicesCategory);
 
-	return logModeAction;
+    return logModeAction;
 }

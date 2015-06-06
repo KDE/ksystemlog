@@ -22,7 +22,6 @@
 #ifndef _DAEMON_CONFIGURATION_WIDGET_H_
 #define _DAEMON_CONFIGURATION_WIDGET_H_
 
-
 #include <KLocalizedString>
 
 #include "globals.h"
@@ -38,62 +37,66 @@
 
 class FileList;
 
-class DaemonConfigurationWidget : public LogModeConfigurationWidget {
+class DaemonConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    DaemonConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Daemons' Logs"), QLatin1String(DAEMON_MODE_ICON),
+                                     i18n("Daemons' Logs"))
+    {
+        QHBoxLayout *layout = new QHBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		DaemonConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Daemons' Logs"),QLatin1String( DAEMON_MODE_ICON ), i18n("Daemons' Logs"))
-			{
+        fileList = new FileList(
+            this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
+        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        layout->addWidget(fileList);
+    }
 
-			QHBoxLayout* layout = new QHBoxLayout();
-			this->setLayout(layout);
+    ~DaemonConfigurationWidget() {}
 
-			fileList=new FileList(this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
-			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
-			layout->addWidget(fileList);
+public slots:
 
-		}
+    void saveConfig()
+    {
+        DaemonConfiguration *daemonConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       ->logModeConfiguration<DaemonConfiguration *>();
 
-		~DaemonConfigurationWidget() {
+        daemonConfiguration->setDaemonPaths(fileList->paths());
+    }
 
-		}
+    void readConfig()
+    {
+        DaemonConfiguration *daemonConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       ->logModeConfiguration<DaemonConfiguration *>();
 
-	public slots:
+        fileList->removeAllItems();
 
-		void saveConfig() {
-			DaemonConfiguration* daemonConfiguration = Globals::instance()->findLogMode(QLatin1String( DAEMON_LOG_MODE_ID ))->logModeConfiguration<DaemonConfiguration*>();
+        fileList->addPaths(daemonConfiguration->daemonPaths());
+    }
 
-			daemonConfiguration->setDaemonPaths(fileList->paths());
-		}
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-		void readConfig() {
-			DaemonConfiguration* daemonConfiguration = Globals::instance()->findLogMode(QLatin1String( DAEMON_LOG_MODE_ID ))->logModeConfiguration<DaemonConfiguration*>();
+protected:
+    bool isValid() const
+    {
+        if (fileList->isEmpty() == false) {
+            return true;
+        }
 
-			fileList->removeAllItems();
+        return false;
+    }
 
-			fileList->addPaths(daemonConfiguration->daemonPaths());
-		}
-
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
-
-	protected:
-		bool isValid() const {
-			if (fileList->isEmpty()==false) {
-				return true;
-			}
-
-			return false;
-
-		}
-
-	private:
-		FileList* fileList;
-
+private:
+    FileList *fileList;
 };
 
 #endif // _DAEMON_CONFIGURATION_WIDGET_H_

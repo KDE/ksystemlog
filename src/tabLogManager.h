@@ -22,41 +22,37 @@
 #ifndef _TAB_LOG_MANAGER_H_
 #define _TAB_LOG_MANAGER_H_
 
-
 #include <QObject>
 
 class QString;
 
 class LogManager;
 
-
 class TabLogManagerPrivate;
 
 /**
  * Class that wrap a LogManager inside a tabbed view
  */
-class TabLogManager : public QObject {
-	
-	Q_OBJECT
-	
-public:
-	TabLogManager(LogManager* logManager);
-	
-	virtual ~TabLogManager();
-	
-	LogManager* logManager();
-	
-	void addNewLinesCount(int newLines);
-	void initNewLinesCount();
-	
-	QString title();
-	
-private:
-	QString logModeName();
-	
-	TabLogManagerPrivate* const d;
-	
-};
+class TabLogManager : public QObject
+{
+    Q_OBJECT
 
+public:
+    TabLogManager(LogManager *logManager);
+
+    virtual ~TabLogManager();
+
+    LogManager *logManager();
+
+    void addNewLinesCount(int newLines);
+    void initNewLinesCount();
+
+    QString title();
+
+private:
+    QString logModeName();
+
+    TabLogManagerPrivate *const d;
+};
 
 #endif // _TAB_LOG_MANAGER_H_

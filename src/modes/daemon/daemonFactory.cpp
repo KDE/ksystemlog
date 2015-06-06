@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,15 +31,17 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> DaemonLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new DaemonLogMode());
-	return logModes;
+QList<LogMode *> DaemonLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new DaemonLogMode());
+    return logModes;
 }
 
-LogModeAction* DaemonLogModeFactory::createLogModeAction() const {
-  LogMode* logMode = Globals::instance()->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID));
-  SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
+LogModeAction *DaemonLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID));
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
-  return logModeAction;
+    return logModeAction;
 }

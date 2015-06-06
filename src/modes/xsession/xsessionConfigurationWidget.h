@@ -41,113 +41,123 @@
 
 #include "ui_xsessionConfigurationWidgetBase.h"
 
+class XSessionConfigurationWidget : public LogModeConfigurationWidget,
+                                    public Ui::XSessionConfigurationWidgetBase
+{
+    Q_OBJECT
 
-class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui::XSessionConfigurationWidgetBase {
+public:
+    XSessionConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("X Session Log"), QLatin1String(X_SESSION_MODE_ICON),
+                                     i18n("X Session Log"))
+    {
+        setupUi(this);
+        /*
 
-	Q_OBJECT
+        QVBoxLayout* layout = new QVBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		XSessionConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("X Session Log"), QLatin1String(  X_SESSION_MODE_ICON ), i18n("X Session Log"))
-			{
+        //Authentication log file
+        QGroupBox* xsessionBox=new QGroupBox(i18n("X Session Log File"));
+        QGridLayout* xsessionLayout = new QGridLayout();
+        xsessionBox->setLayout(xsessionLayout);
 
-			setupUi(this);
-			/*
+        layout->addWidget(xsessionBox);
 
-			QVBoxLayout* layout = new QVBoxLayout();
-			this->setLayout(layout);
+        xsessionLayout->addWidget(new QLabel(i18n("Log file:")), 0, 0);
 
-			//Authentication log file
-			QGroupBox* xsessionBox=new QGroupBox(i18n("X Session Log File"));
-			QGridLayout* xsessionLayout = new QGridLayout();
-			xsessionBox->setLayout(xsessionLayout);
+        xsessionUrlRequester=new KUrlRequester(xsessionBox);
 
-			layout->addWidget(xsessionBox);
+        xsessionLayout->addWidget(xsessionUrlRequester, 0, 1);
 
-			xsessionLayout->addWidget(new QLabel(i18n("Log file:")), 0, 0);
+        ignoreXorgErrors = new QCheckBox(i18n("Ignore Xorg Errors"), this);
+        xsessionLayout->addWidget(xsessionUrlRequester, 1, 0, 1, 2);
 
-			xsessionUrlRequester=new KUrlRequester(xsessionBox);
+        layout->addStretch();
+        */
 
-			xsessionLayout->addWidget(xsessionUrlRequester, 0, 1);
+        xsessionUrlRequester->setToolTip(
+            i18n("You can type or choose the X Session log file (example: <i>~/.xsession-errors</i>)."));
+        xsessionUrlRequester->setWhatsThis(i18n(
+            "You can type or choose here the X Session log file. This file will be analyzed when you select "
+            "the <b>X Session log</b> menu. Generally, its name is <i>~/.xsession-errors</i>"));
+        xsessionUrlRequester->setMode(KFile::File);
+        xsessionUrlRequester->setEnabled(true);
 
-			ignoreXorgErrors = new QCheckBox(i18n("Ignore Xorg Errors"), this);
-			xsessionLayout->addWidget(xsessionUrlRequester, 1, 0, 1, 2);
+        connect(xsessionUrlRequester, SIGNAL(textChanged(const QString &)), this,
+                SIGNAL(configurationChanged()));
+        connect(ignoreXorgErrors, SIGNAL(stateChanged(int)), this, SIGNAL(configurationChanged()));
 
-			layout->addStretch();
-			*/
+        connect(ignoreXorgErrors, SIGNAL(toggled(bool)), xorgErrorsDescription, SLOT(setEnabled(bool)));
 
-			xsessionUrlRequester->setToolTip(i18n("You can type or choose the X Session log file (example: <i>~/.xsession-errors</i>)."));
-			xsessionUrlRequester->setWhatsThis(i18n("You can type or choose here the X Session log file. This file will be analyzed when you select the <b>X Session log</b> menu. Generally, its name is <i>~/.xsession-errors</i>"));
-			xsessionUrlRequester->setMode(KFile::File);
-			xsessionUrlRequester->setEnabled(true);
+        xorgErrorsDescriptionDefined = false;
+    }
 
-			connect(xsessionUrlRequester, SIGNAL(textChanged(const QString&)), this, SIGNAL(configurationChanged()));
-			connect(ignoreXorgErrors, SIGNAL(stateChanged(int)), this, SIGNAL(configurationChanged()));
+    ~XSessionConfigurationWidget() {}
 
-			connect(ignoreXorgErrors, SIGNAL(toggled(bool)), xorgErrorsDescription, SLOT(setEnabled(bool)));
+public slots:
 
-			xorgErrorsDescriptionDefined = false;
+    void saveConfig()
+    {
+        XSessionConfiguration *configuration = Globals::instance()
+                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   ->logModeConfiguration<XSessionConfiguration *>();
 
-		}
+        configuration->setXSessionPath(xsessionUrlRequester->url().path());
+        configuration->setIgnoreXorgErrors(ignoreXorgErrors->isChecked());
+    }
 
-		~XSessionConfigurationWidget() {
+    void readConfig()
+    {
+        XSessionConfiguration *configuration = Globals::instance()
+                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   ->logModeConfiguration<XSessionConfiguration *>();
 
-		}
+        xsessionUrlRequester->setUrl(QUrl::fromLocalFile(configuration->xsessionPath()));
+        ignoreXorgErrors->setChecked(configuration->isIgnoreXorgErrors());
 
-	public slots:
+        prepareXorgErrorsDescription();
+    }
 
-		void saveConfig() {
-			XSessionConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ))->logModeConfiguration<XSessionConfiguration*>();
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-			configuration->setXSessionPath(xsessionUrlRequester->url().path());
-			configuration->setIgnoreXorgErrors(ignoreXorgErrors->isChecked());
-		}
+protected:
+    bool isValid() const
+    {
+        if (xsessionUrlRequester->url().path().isEmpty() == false) {
+            return true;
+        }
 
-		void readConfig() {
-			XSessionConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ))->logModeConfiguration<XSessionConfiguration*>();
+        return false;
+    }
 
-      xsessionUrlRequester->setUrl(QUrl::fromLocalFile(configuration->xsessionPath()));
-			ignoreXorgErrors->setChecked(configuration->isIgnoreXorgErrors());
+private:
+    void prepareXorgErrorsDescription()
+    {
+        XSessionConfiguration *configuration = Globals::instance()
+                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   ->logModeConfiguration<XSessionConfiguration *>();
 
-			prepareXorgErrorsDescription();
-		}
+        // Prepare Ignore Xorg Errors description
+        if (xorgErrorsDescriptionDefined == false) {
+            QString text = xorgErrorsDescription->text();
+            text.append(QLatin1String("<ul style='margin-top:0px;margin-bottom:0px'>"));
 
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
+            foreach (const QString &xorgErrorKeyword, configuration->xorgErrorKeywords()) {
+                text.append(i18n("<li><b>%1</b>: ...</li>", xorgErrorKeyword));
+            }
+            text.append(QLatin1String("</ul>"));
+            xorgErrorsDescription->setText(text);
 
-	protected:
-		bool isValid() const {
-			if (xsessionUrlRequester->url().path().isEmpty()==false) {
-				return true;
-			}
+            xorgErrorsDescriptionDefined = true;
+        }
+    }
 
-			return false;
-
-		}
-
-	private:
-		void prepareXorgErrorsDescription() {
-			XSessionConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ))->logModeConfiguration<XSessionConfiguration*>();
-
-			//Prepare Ignore Xorg Errors description
-			if (xorgErrorsDescriptionDefined == false) {
-				QString text = xorgErrorsDescription->text();
-				text.append(QLatin1String( "<ul style='margin-top:0px;margin-bottom:0px'>" ));
-
-				foreach(const QString &xorgErrorKeyword, configuration->xorgErrorKeywords()) {
-					text.append(i18n("<li><b>%1</b>: ...</li>", xorgErrorKeyword));
-				}
-				text.append(QLatin1String( "</ul>" ));
-				xorgErrorsDescription->setText(text);
-
-				xorgErrorsDescriptionDefined = true;
-			}
-
-		}
-
-		bool xorgErrorsDescriptionDefined;
+    bool xorgErrorsDescriptionDefined;
 };
 
 #endif // _X_SESSION_CONFIGURATION_WIDGET_H_

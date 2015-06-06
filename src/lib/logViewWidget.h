@@ -33,55 +33,54 @@ class LogLine;
 
 class LogViewWidgetPrivate;
 
-class LogViewWidget : public QTreeWidget {
+class LogViewWidget : public QTreeWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    LogViewWidget(QWidget *parent = NULL);
 
-	public:
-		LogViewWidget(QWidget* parent = NULL);
+    virtual ~LogViewWidget();
+    virtual void selectAll();
+    void setColumns(const LogViewColumns &columns);
 
-		virtual ~LogViewWidget();
-                virtual void selectAll();
-		void setColumns(const LogViewColumns& columns);
+    int itemCount() const;
+    int notHiddenItemCount();
 
-		int itemCount() const;
-		int notHiddenItemCount();
+    QList<LogViewWidgetItem *> items();
+    QList<LogLine *> logLines();
 
-		QList<LogViewWidgetItem*> items();
-		QList<LogLine*> logLines();
+    /**
+     * Return the related widget item of this logLine or NULL if it has not been found
+     */
+    LogViewWidgetItem *findItem(LogLine *logLine);
 
-		/**
-		 * Return the related widget item of this logLine or NULL if it has not been found
-		 */
-		LogViewWidgetItem* findItem(LogLine* logLine);
+    LogViewWidgetItem *findNewestItem();
 
-		LogViewWidgetItem* findNewestItem();
+    LogViewModel *model() const;
 
-		LogViewModel* model() const;
+    bool hasItemsSelected();
+    LogViewWidgetItem *firstSelectedItem();
+    LogViewWidgetItem *lastSelectedItem();
 
-		bool hasItemsSelected();
-		LogViewWidgetItem* firstSelectedItem();
-		LogViewWidgetItem* lastSelectedItem();
+    void scrollToNewestItem();
 
-		void scrollToNewestItem();
+    void expandAll();
+    void collapseAll();
 
-		void expandAll();
-		void collapseAll();
+    void resizeColumns();
 
-		void resizeColumns();
+public slots:
+    void toggleToolTip(bool enabled);
 
-	public slots:
-		void toggleToolTip(bool enabled);
+signals:
+    void columnsChanged(const LogViewColumns &columns);
 
-	signals:
-		void columnsChanged(const LogViewColumns& columns);
+private slots:
+    void toggleHeader(QAction *action);
 
-	private slots:
-		void toggleHeader(QAction* action);
-
-	private:
-		LogViewWidgetPrivate* const d;
+private:
+    LogViewWidgetPrivate *const d;
 };
 
-
-#endif //LOG_VIEW_WIDGET_H
+#endif // LOG_VIEW_WIDGET_H

@@ -22,7 +22,6 @@
 #ifndef _APACHE_ANALYZER_H_
 #define _APACHE_ANALYZER_H_
 
-
 #include <KLocalizedString>
 
 #include "analyzer.h"
@@ -33,151 +32,138 @@
 #include "apacheLogMode.h"
 #include "parsingHelper.h"
 
-class ApacheAnalyzer : public Analyzer {
+class ApacheAnalyzer : public Analyzer
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    explicit ApacheAnalyzer(LogMode *logMode)
+        : Analyzer(logMode)
+    {
+        initializeTypeLevels();
+    }
 
-	public:
-		explicit ApacheAnalyzer(LogMode* logMode) :
-			Analyzer(logMode) {
+    virtual ~ApacheAnalyzer() {}
 
-			initializeTypeLevels();
-		}
+    LogViewColumns initColumns()
+    {
+        LogViewColumns columns;
+        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Client"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
 
-		virtual ~ApacheAnalyzer() {
+        return columns;
+    }
 
-		}
+protected:
+    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
 
-		LogViewColumns initColumns() {
-			LogViewColumns columns;
-			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Client"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
 
-			return columns;
-		}
+    /*
+     * Log line examples :
+     * [Wed May 18 22:16:02 2005] [error] [client 127.0.0.1] File does not exist:
+     * /var/www/html/ksystemlog/screenshots/small/kernel-view.png, referer:
+     * http://localhost.localdomain/ksystemlog/screenshots.php
+     * [Wed May 18 22:16:02 2005] [error] [client 127.0.0.1] File does not exist:
+     * /var/www/html/ksystemlog/screenshots/small/system-filter.png, referer:
+     * http://localhost.localdomain/ksystemlog/screenshots.php
+     * [Thu May 19 18:00:19 2005] [notice] mod_jk2.post_config() first invocation
+     * [Thu May 19 18:00:19 2005] [notice] Digest: generating secret for digest authentication ...
+     * [client 127.0.0.1] PHP Parse error:  parse error, unexpected T_PRIVATE, expecting T_STRING in
+     * /mnt/boulot/web/annivernet/src/fonctions/formulaire.inc.php on line 25
+     */
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    {
+        QString line(logLine);
 
+        QDate date;
+        QTime time;
 
+        QString level;
 
-	protected:
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new LocalLogFileReader(logFile);
-		}
+        // Temporary variable
+        int squareBracket;
 
-		Analyzer::LogFileSortMode logFileSortMode() {
-			return Analyzer::AscendingSortedLogFile;
-		}
+        // Special case which sometimes happens
+        if (line.indexOf(QLatin1String("[client")) == 0) {
+            date = QDate::currentDate();
+            time = QTime::currentTime();
+            level = QLatin1String("notice");
+        } else {
+            // The Date
+            int dateBegin = line.indexOf(QLatin1String("["));
+            int dateEnd = line.indexOf(QLatin1String("]"));
 
-		/*
-		 * Log line examples :
-		 * [Wed May 18 22:16:02 2005] [error] [client 127.0.0.1] File does not exist: /var/www/html/ksystemlog/screenshots/small/kernel-view.png, referer: http://localhost.localdomain/ksystemlog/screenshots.php
-		 * [Wed May 18 22:16:02 2005] [error] [client 127.0.0.1] File does not exist: /var/www/html/ksystemlog/screenshots/small/system-filter.png, referer: http://localhost.localdomain/ksystemlog/screenshots.php
-		 * [Thu May 19 18:00:19 2005] [notice] mod_jk2.post_config() first invocation
-		 * [Thu May 19 18:00:19 2005] [notice] Digest: generating secret for digest authentication ...
-		 * [client 127.0.0.1] PHP Parse error:  parse error, unexpected T_PRIVATE, expecting T_STRING in /mnt/boulot/web/annivernet/src/fonctions/formulaire.inc.php on line 25
-		 */
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
+            QString type;
+            QString message;
 
-			QString line(logLine);
+            QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
-			QDate date;
-			QTime time;
+            QString month = strDate.mid(4, 3);
 
-			QString level;
+            QString day = strDate.mid(8, 2);
 
-			//Temporary variable
-			int squareBracket;
+            QString hour = strDate.mid(11, 2);
+            QString min = strDate.mid(14, 2);
+            QString sec = strDate.mid(17, 2);
 
-			//Special case which sometimes happens
-			if (line.indexOf(QLatin1String( "[client" ))==0) {
-				date=QDate::currentDate();
-				time=QTime::currentTime();
-				level=QLatin1String( "notice" );
-			}
-			else {
+            QString year = strDate.mid(20, 4);
 
-				//The Date
-				int dateBegin=line.indexOf(QLatin1String( "[" ));
-				int dateEnd=line.indexOf(QLatin1String( "]" ));
+            date = QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
+            time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-				QString type;
-				QString message;
+            line = line.remove(0, dateEnd + 3);
 
+            // The log level
+            squareBracket = line.indexOf(QLatin1String("]"));
+            level = line.left(squareBracket);
+            line = line.remove(0, squareBracket + 2);
+        }
 
-				QString strDate=line.mid(dateBegin+1, dateEnd-dateBegin-1);
+        // The client
+        int beginSquareBracket = line.indexOf(QLatin1String("[client"));
+        squareBracket = line.indexOf(QLatin1String("]"));
+        QString client;
+        if (beginSquareBracket == -1 || squareBracket == -1) {
+            client = QLatin1String("");
+        } else {
+            client = line.mid(8, squareBracket - 8); // 8=strlen("[client ")
+            line = line.remove(0, squareBracket + 2);
+        }
 
-				QString month=strDate.mid(4, 3);
+        QStringList list;
+        list.append(client);
+        list.append(line);
 
-				QString day=strDate.mid(8, 2);
+        return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
+                           originalLogFile.url().path(), findLogLevel(level), logMode);
+    }
 
-				QString hour=strDate.mid(11, 2);
-				QString min=strDate.mid(14, 2);
-				QString sec=strDate.mid(17, 2);
+private:
+    QMap<QString, LogLevel *> mapTypeLevels;
 
-				QString year=strDate.mid(20, 4);
+    void initializeTypeLevels()
+    {
+        mapTypeLevels[QLatin1String("notice")] = Globals::instance()->informationLogLevel();
+        mapTypeLevels[QLatin1String("warn")] = Globals::instance()->warningLogLevel();
+        mapTypeLevels[QLatin1String("error")] = Globals::instance()->errorLogLevel();
+    }
 
-				date=QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
-				time=QTime(hour.toInt(), min.toInt(), sec.toInt());
+    LogLevel *findLogLevel(const QString &type)
+    {
+        QMap<QString, LogLevel *>::iterator it;
 
-				line=line.remove(0, dateEnd+3);
-
-
-				//The log level
-				squareBracket=line.indexOf(QLatin1String( "]" ));
-				level=line.left(squareBracket);
-				line=line.remove(0, squareBracket+2);
-			}
-
-			//The client
-			int beginSquareBracket=line.indexOf(QLatin1String( "[client" ));
-			squareBracket=line.indexOf(QLatin1String( "]" ));
-			QString client;
-			if (beginSquareBracket==-1 || squareBracket==-1) {
-				client=QLatin1String( "" );
-			}
-			else {
-				client=line.mid(8, squareBracket-8); //8=strlen("[client ")
-				line=line.remove(0, squareBracket+2);
-			}
-
-
-			QStringList list;
-			list.append(client);
-			list.append(line);
-
-			return new LogLine(
-					logLineInternalIdGenerator++,
-					QDateTime(date, time),
-					list,
-					originalLogFile.url().path(),
-					findLogLevel(level),
-					logMode
-			);
-		}
-
-	private:
-		QMap<QString, LogLevel*> mapTypeLevels;
-
-		void initializeTypeLevels() {
-			mapTypeLevels[QLatin1String( "notice" )]=Globals::instance()->informationLogLevel();
-			mapTypeLevels[QLatin1String( "warn" )]=Globals::instance()->warningLogLevel();
-			mapTypeLevels[QLatin1String( "error" )]=Globals::instance()->errorLogLevel();
-		}
-
-		LogLevel* findLogLevel(const QString& type) {
-			QMap<QString, LogLevel*>::iterator it;
-
-			it=mapTypeLevels.find(type);
-			if (it!=mapTypeLevels.end()) {
-				return (*it);
-			}
-			else {
-        logCritical() << "New Log Level detected: Please send this log file to the KSystemLog developer to add it (" << type << ")";
-				return Globals::instance()->noLogLevel();
-			}
-		}
-
-
+        it = mapTypeLevels.find(type);
+        if (it != mapTypeLevels.end()) {
+            return (*it);
+        } else {
+            logCritical()
+                << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
+                << type << ")";
+            return Globals::instance()->noLogLevel();
+        }
+    }
 };
 
 #endif // _APACHE_ANALYZER_H_

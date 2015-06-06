@@ -29,17 +29,14 @@
 class LogModeAction;
 class LogMode;
 
-class XSessionLogModeFactory : public LogModeFactory {
-	
-	Q_OBJECT
-	
-	public:
+class XSessionLogModeFactory : public LogModeFactory
+{
+    Q_OBJECT
 
-		QList<LogMode*> createLogModes() const;
+public:
+    QList<LogMode *> createLogModes() const;
 
-		LogModeAction* createLogModeAction() const;
-
+    LogModeAction *createLogModeAction() const;
 };
 
 #endif // _X_SESSION_FACTORY_H_
-

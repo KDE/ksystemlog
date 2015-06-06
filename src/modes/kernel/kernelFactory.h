@@ -29,17 +29,14 @@
 class LogModeAction;
 class LogMode;
 
-class KernelLogModeFactory : public LogModeFactory {
-	
-	Q_OBJECT
-	
-	public:
+class KernelLogModeFactory : public LogModeFactory
+{
+    Q_OBJECT
 
-		QList<LogMode*> createLogModes() const;
+public:
+    QList<LogMode *> createLogModes() const;
 
-		LogModeAction* createLogModeAction() const;
-
+    LogModeAction *createLogModeAction() const;
 };
 
 #endif // _KERNEL_FACTORY_H_
-

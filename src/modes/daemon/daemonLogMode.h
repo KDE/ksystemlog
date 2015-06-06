@@ -32,9 +32,7 @@
  */
 #define DAEMON_MODE_ICON "utilities-terminal"
 
-
 #include <QList>
-
 
 #include "logging.h"
 #include "logMode.h"
@@ -45,21 +43,18 @@
 
 #include "logModeItemBuilder.h"
 
-class DaemonLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class DaemonLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit DaemonLogMode();
+    explicit DaemonLogMode();
 
+    ~DaemonLogMode();
 
-	~DaemonLogMode();
+    Analyzer *createAnalyzer();
 
-	Analyzer* createAnalyzer();
-
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _DAEMON_LOG_MODE_H_
-

@@ -21,14 +21,13 @@
 
 #include "logViewWidgetItem.h"
 
-//Qt includes
+// Qt includes
 
 #include <QTreeWidgetItem>
 
-
 #include <QBrush>
 
-//KDE includes
+// KDE includes
 #include <kmessagebox.h>
 #include "logging.h"
 
@@ -38,40 +37,43 @@
 
 #include "logMode.h"
 
-LogViewWidgetItem::LogViewWidgetItem(LogViewWidget* list, LogLine* l) :
-	QTreeWidgetItem(list),
-	line(l)
-	{
-
-	//Add this item to the LogLine, to let the LogLine initialize it
-	line->setItem(this);
+LogViewWidgetItem::LogViewWidgetItem(LogViewWidget *list, LogLine *l)
+    : QTreeWidgetItem(list)
+    , line(l)
+{
+    // Add this item to the LogLine, to let the LogLine initialize it
+    line->setItem(this);
 }
 
-LogViewWidgetItem::~LogViewWidgetItem() {
-	delete line;
+LogViewWidgetItem::~LogViewWidgetItem()
+{
+    delete line;
 }
 
-LogLine* LogViewWidgetItem::logLine() const {
-	return line;
+LogLine *LogViewWidgetItem::logLine() const
+{
+    return line;
 }
 
-void LogViewWidgetItem::toggleToolTip(bool displayed) {
-	if (displayed == true)
-		setToolTip(columnCount()-1, line->logMode()->itemBuilder()->createToolTipText(line));
-	else
-		setToolTip(columnCount()-1, QLatin1String( "" ));
+void LogViewWidgetItem::toggleToolTip(bool displayed)
+{
+    if (displayed == true)
+        setToolTip(columnCount() - 1, line->logMode()->itemBuilder()->createToolTipText(line));
+    else
+        setToolTip(columnCount() - 1, QLatin1String(""));
 }
 
-bool LogViewWidgetItem::operator<(const QTreeWidgetItem & other) const {
-	int sortedColumn = treeWidget()->sortColumn();
+bool LogViewWidgetItem::operator<(const QTreeWidgetItem &other) const
+{
+    int sortedColumn = treeWidget()->sortColumn();
 
-	//If we sort items by date (always the first column)
-	if (sortedColumn == 0) {
-		const LogViewWidgetItem& otherItem=static_cast<const LogViewWidgetItem&> (other);
-		return line->isOlderThan( *(otherItem.logLine()) );
-	}
-	//Default sorting
-	else {
-		return text(sortedColumn) < other.text(sortedColumn);
-	}
+    // If we sort items by date (always the first column)
+    if (sortedColumn == 0) {
+        const LogViewWidgetItem &otherItem = static_cast<const LogViewWidgetItem &>(other);
+        return line->isOlderThan(*(otherItem.logLine()));
+    }
+    // Default sorting
+    else {
+        return text(sortedColumn) < other.text(sortedColumn);
+    }
 }

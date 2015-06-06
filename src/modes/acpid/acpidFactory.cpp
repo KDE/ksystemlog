@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,16 +31,18 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> AcpidLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new AcpidLogMode());
-	return logModes;
+QList<LogMode *> AcpidLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new AcpidLogMode());
+    return logModes;
 }
 
-LogModeAction* AcpidLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( ACPID_LOG_MODE_ID ));
-	SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
-	logModeAction->setCategory(LogModeAction::OthersCategory);
+LogModeAction *AcpidLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(ACPID_LOG_MODE_ID));
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+    logModeAction->setCategory(LogModeAction::OthersCategory);
 
-	return logModeAction;
+    return logModeAction;
 }

@@ -35,82 +35,81 @@ class LogMode;
 
 class TabLogViewsWidgetPrivate;
 
-class TabLogViewsWidget : public QTabWidget {
-	
-	Q_OBJECT
-	
+class TabLogViewsWidget : public QTabWidget
+{
+    Q_OBJECT
+
 public:
-	TabLogViewsWidget(QWidget* parent = NULL);
-	
-	virtual ~TabLogViewsWidget();
+    TabLogViewsWidget(QWidget *parent = NULL);
 
-	QList<LogManager*> logManagers();
+    virtual ~TabLogViewsWidget();
 
-	LogManager* activeLogManager();
+    QList<LogManager *> logManagers();
 
-	void load(LogMode* logMode, LogManager* manager);
+    LogManager *activeLogManager();
+
+    void load(LogMode *logMode, LogManager *manager);
 
 public slots:
-	
-	LogManager* createTab();
-	LogManager* duplicateTab();
-	
-	void closeTab();
-	
-	void moveTabLeft();
-	void moveTabRight();
 
-	void reloadCurrent();
-	void reloadAll();
+    LogManager *createTab();
+    LogManager *duplicateTab();
 
-	/**
-	 * Display a reload icon on the specified view tab
-	 */
-	void changeReloadingTab(View* view, bool reloading);
+    void closeTab();
 
-	//Methods that transmit a signal to the current logViewWidget
-	void expandAllCurrentView();
-	void collapseAllCurrentView();
-	void selectAllCurrentView();
+    void moveTabLeft();
+    void moveTabRight();
 
-	void fileSaveCurrentView();
-	void copyToClipboardCurrentView();
-	void sendMailCurrentView();
-	void printSelectionCurrentView();
-	
+    void reloadCurrent();
+    void reloadAll();
+
+    /**
+     * Display a reload icon on the specified view tab
+     */
+    void changeReloadingTab(View *view, bool reloading);
+
+    // Methods that transmit a signal to the current logViewWidget
+    void expandAllCurrentView();
+    void collapseAllCurrentView();
+    void selectAllCurrentView();
+
+    void fileSaveCurrentView();
+    void copyToClipboardCurrentView();
+    void sendMailCurrentView();
+    void printSelectionCurrentView();
+
 private slots:
-	void changeTab(View* view, const QIcon& icon, const QString& label);
-	
-	void changeCurrentTab();
-	void changeTitleAddedLines(View*, int);
-	
-	void showContextMenu(const QPoint& cursorPosition);
-	void showContextMenu(QWidget* tab, const QPoint& cursorPosition);
-	
+    void changeTab(View *view, const QIcon &icon, const QString &label);
+
+    void changeCurrentTab();
+    void changeTitleAddedLines(View *, int);
+
+    void showContextMenu(const QPoint &cursorPosition);
+    void showContextMenu(QWidget *tab, const QPoint &cursorPosition);
+
 signals:
-	void tabCreationRequested();
-	void tabClosingRequested();
-	
-	void logManagerCreated(LogManager* manager);
-	
-	void statusBarChanged(const QString& message);
-	
+    void tabCreationRequested();
+    void tabClosingRequested();
+
+    void logManagerCreated(LogManager *manager);
+
+    void statusBarChanged(const QString &message);
+
 private:
-	TabLogManager* newTabLogManager();
-	
-	void newTab(View* view);
+    TabLogManager *newTabLogManager();
 
-	LogManager* findRelatedLogManager(View* view);
-	
-	QIcon logModeIcon(LogMode* icon);
-	
-	TabLogManager* activeTabLogManager();
-	TabLogManager* findRelatedTabLogManager(View* view);
-	
-	void prepareContextMenu(bool onTab);
+    void newTab(View *view);
 
-	TabLogViewsWidgetPrivate* const d;
-	
+    LogManager *findRelatedLogManager(View *view);
+
+    QIcon logModeIcon(LogMode *icon);
+
+    TabLogManager *activeTabLogManager();
+    TabLogManager *findRelatedTabLogManager(View *view);
+
+    void prepareContextMenu(bool onTab);
+
+    TabLogViewsWidgetPrivate *const d;
 };
 
 #endif // _TAB_LOG_VIEWS_WIDGET_H_

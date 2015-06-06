@@ -30,39 +30,41 @@ class QAction;
 class QPushButton;
 
 /**
- * Class which maintains common behavior between 
+ * Class which maintains common behavior between
  * FileList classes
  */
-class FileListHelper : public QObject {
+class FileListHelper : public QObject
+{
+    Q_OBJECT
 
-	Q_OBJECT
-	
-	public:
-		FileListHelper(QWidget* parent);
-		virtual ~FileListHelper();
+public:
+    FileListHelper(QWidget *parent);
+    virtual ~FileListHelper();
 
-		QStringList findPaths(QList<QUrl> urls);
-		bool isValidFile(const QUrl& url);
-		QStringList expandJoker(const QUrl& url);
-		
-		QList<QUrl> openUrls();
-		QUrl openUrl(const QString& originPath);
-		
-		/**
-		 * Change the enabled status of the button and of its QActions
-		 */
-		void setEnabledAction(QPushButton* button, bool enabled);
+    QStringList findPaths(QList<QUrl> urls);
+    bool isValidFile(const QUrl &url);
+    QStringList expandJoker(const QUrl &url);
 
-		/**
-		 * TODO Do this inline (and remove this method)
-		 */
-		void prepareButton(QPushButton* button, const QIcon& icon, const QObject* receiver, const char* member, QWidget* fileList);
+    QList<QUrl> openUrls();
+    QUrl openUrl(const QString &originPath);
 
-		QAction* prepareButtonAndAction(QPushButton* button, const QIcon& icon);
-		QAction* prepareButtonAndAction(QPushButton* button, const QIcon& icon, const QObject* receiver, const char* member);
-		
-	private:
-		QWidget* parent;
+    /**
+     * Change the enabled status of the button and of its QActions
+     */
+    void setEnabledAction(QPushButton *button, bool enabled);
+
+    /**
+     * TODO Do this inline (and remove this method)
+     */
+    void prepareButton(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member,
+                       QWidget *fileList);
+
+    QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon);
+    QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon, const QObject *receiver,
+                                    const char *member);
+
+private:
+    QWidget *parent;
 };
 
 #endif //_FILE_LIST_HELPER_H_

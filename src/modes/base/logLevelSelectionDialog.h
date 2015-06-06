@@ -26,16 +26,14 @@
 
 #include "ui_logLevelSelectionDialogBase.h"
 
-class LogLevelSelectionDialog : public QDialog, public Ui::LogLevelSelectionDialogBase {
-	
-	public:
-		explicit LogLevelSelectionDialog(QWidget* parent = NULL);
+class LogLevelSelectionDialog : public QDialog, public Ui::LogLevelSelectionDialogBase
+{
+public:
+    explicit LogLevelSelectionDialog(QWidget *parent = NULL);
 
-		virtual ~LogLevelSelectionDialog();
-		
-		QListWidget* logLevels() const;
+    virtual ~LogLevelSelectionDialog();
 
+    QListWidget *logLevels() const;
 };
-
 
 #endif //_LOG_LEVEL_SELECTION_DIALOG_H_

@@ -21,43 +21,46 @@
 
 #include "logModeConfigurationWidget.h"
 
-class LogModeConfigurationWidgetPrivate {
+class LogModeConfigurationWidgetPrivate
+{
 public:
-	QString itemName;
-	QString iconName;
-	QString header;
+    QString itemName;
+    QString iconName;
+    QString header;
 };
 
-LogModeConfigurationWidget::LogModeConfigurationWidget(const QString& itemName, const QString& iconName, const QString& header) : 
-	QWidget(),
-	d(new LogModeConfigurationWidgetPrivate())
-	{
-	
-	d->itemName = itemName;
-	d->iconName = iconName;
-	d->header = header;
+LogModeConfigurationWidget::LogModeConfigurationWidget(const QString &itemName, const QString &iconName,
+                                                       const QString &header)
+    : QWidget()
+    , d(new LogModeConfigurationWidgetPrivate())
+{
+    d->itemName = itemName;
+    d->iconName = iconName;
+    d->header = header;
 }
 
-
-LogModeConfigurationWidget::~LogModeConfigurationWidget() {
-	delete d;
+LogModeConfigurationWidget::~LogModeConfigurationWidget()
+{
+    delete d;
 }
 
-QString LogModeConfigurationWidget::itemName() const {
-	return d->itemName;
+QString LogModeConfigurationWidget::itemName() const
+{
+    return d->itemName;
 }
-QString LogModeConfigurationWidget::iconName() const {
-	return d->iconName;
+QString LogModeConfigurationWidget::iconName() const
+{
+    return d->iconName;
 }
-QString LogModeConfigurationWidget::header() const {
-	return d->header;
+QString LogModeConfigurationWidget::header() const
+{
+    return d->header;
 }
 
 /**
  * Default implementation
  */
-bool LogModeConfigurationWidget::isValid() const {
-	return true;
+bool LogModeConfigurationWidget::isValid() const
+{
+    return true;
 }
-
-

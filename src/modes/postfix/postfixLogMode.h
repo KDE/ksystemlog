@@ -37,20 +37,18 @@
 #include "logFile.h"
 #include "logMode.h"
 
-class PostfixLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class PostfixLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit PostfixLogMode();
+    explicit PostfixLogMode();
 
-	~PostfixLogMode();
+    ~PostfixLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _POSTFIX_LOG_MODE_H_
-

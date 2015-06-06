@@ -34,33 +34,29 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class CupsPdfItemBuilder : public LogModeItemBuilder {
+class CupsPdfItemBuilder : public LogModeItemBuilder
+{
+public:
+    CupsPdfItemBuilder() {}
 
-	public:
-		CupsPdfItemBuilder() {
+    virtual ~CupsPdfItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~CupsPdfItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Message:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Message:"), it.next() ));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
+        return result;
+    }
 };
 
 #endif // _CUPS_PDF_ITEM_BUILDER_H_

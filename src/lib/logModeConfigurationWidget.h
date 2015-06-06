@@ -27,32 +27,31 @@
 
 class LogModeConfigurationWidgetPrivate;
 
-class LogModeConfigurationWidget : public QWidget {
-	
-	Q_OBJECT
-	
-	public:
-		LogModeConfigurationWidget(const QString& itemName, const QString& iconName, const QString& header);
-		
-		virtual ~LogModeConfigurationWidget();
-		
-		virtual bool isValid() const;
-		
-		virtual void saveConfig() = 0;
-		virtual void defaultConfig() = 0;
-		virtual void readConfig() = 0;
+class LogModeConfigurationWidget : public QWidget
+{
+    Q_OBJECT
 
-	signals:
-		void configurationChanged();
-		
-	public:
-		QString itemName() const;
-		QString iconName() const;
-		QString header() const;
-		
-	private:
-		
-		LogModeConfigurationWidgetPrivate* const d;
+public:
+    LogModeConfigurationWidget(const QString &itemName, const QString &iconName, const QString &header);
+
+    virtual ~LogModeConfigurationWidget();
+
+    virtual bool isValid() const;
+
+    virtual void saveConfig() = 0;
+    virtual void defaultConfig() = 0;
+    virtual void readConfig() = 0;
+
+signals:
+    void configurationChanged();
+
+public:
+    QString itemName() const;
+    QString iconName() const;
+    QString header() const;
+
+private:
+    LogModeConfigurationWidgetPrivate *const d;
 };
 
 #endif // _LOG_MODE_CONFIGURATION_WIDGET_H_

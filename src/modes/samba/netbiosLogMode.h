@@ -32,7 +32,6 @@
  */
 #define NETBIOS_MODE_ICON "folder-remote"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -43,20 +42,20 @@ class SambaConfiguration;
 class SambaConfigurationWidget;
 class SambaItemBuilder;
 
-class NetbiosLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class NetbiosLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit NetbiosLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder);
+    explicit NetbiosLogMode(SambaConfiguration *sambaConfiguration,
+                            SambaConfigurationWidget *sambaConfigurationWidget,
+                            SambaItemBuilder *itemBuilder);
 
-	~NetbiosLogMode();
+    ~NetbiosLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _NETBIOS_LOG_MODE_H_
-

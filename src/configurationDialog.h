@@ -24,42 +24,41 @@
 
 #include <kconfigdialog.h>
 
-
 class ConfigurationDialogPrivate;
 
-class ConfigurationDialog: public KConfigDialog {
-	
-	Q_OBJECT
-	
-	public:
-		ConfigurationDialog(QWidget* parent);
-	
-		~ConfigurationDialog();
+class ConfigurationDialog : public KConfigDialog
+{
+    Q_OBJECT
 
-		void showConfiguration();
+public:
+    ConfigurationDialog(QWidget *parent);
 
-	signals:
-		void configurationSaved();
-	
-	protected slots:
-		
-		void updateWidgets();
-		void updateWidgetsDefault();
-		void updateSettings();
-		void updateButtons();
-		
-	private slots:
-		void updateConfiguration();
-		
-	private:
-		bool hasChanged();
-		bool isDefault();
-		
-		ConfigurationDialogPrivate* const d;
+    ~ConfigurationDialog();
 
-		void setupGeneralConfiguration();
+    void showConfiguration();
 
-		void setupLogModeConfigurations();
+signals:
+    void configurationSaved();
+
+protected slots:
+
+    void updateWidgets();
+    void updateWidgetsDefault();
+    void updateSettings();
+    void updateButtons();
+
+private slots:
+    void updateConfiguration();
+
+private:
+    bool hasChanged();
+    bool isDefault();
+
+    ConfigurationDialogPrivate *const d;
+
+    void setupGeneralConfiguration();
+
+    void setupLogModeConfigurations();
 };
 
 #endif //_CONFIGURATION_DIALOG_H_

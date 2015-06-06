@@ -34,55 +34,51 @@ class KComboBox;
 
 class LogViewFilterWidgetPrivate;
 
-class LogViewFilterWidget : public QWidget {
-
-	Q_OBJECT
+class LogViewFilterWidget : public QWidget
+{
+    Q_OBJECT
 
 public:
-	LogViewFilterWidget();
+    LogViewFilterWidget();
 
-	~LogViewFilterWidget();
-	
-  KComboBox* filterList();
-  LogViewWidgetSearchLine* filterLine();
+    ~LogViewFilterWidget();
+
+    KComboBox *filterList();
+    LogViewWidgetSearchLine *filterLine();
 
 public slots:
-	void updateFilterColumns(const LogViewColumns& list);
+    void updateFilterColumns(const LogViewColumns &list);
 
 private slots:
-	void changeColumnFilter(int column);
+    void changeColumnFilter(int column);
 
 signals:
-	void treeWidgetUpdated();
+    void treeWidgetUpdated();
 
 private:
-	void initSearchListFilter();
+    void initSearchListFilter();
 
-	LogViewFilterWidgetPrivate* const d;
-
-
+    LogViewFilterWidgetPrivate *const d;
 };
 
-
-class LogViewWidgetSearchLine : public KTreeWidgetSearchLine {
-
-	Q_OBJECT
+class LogViewWidgetSearchLine : public KTreeWidgetSearchLine
+{
+    Q_OBJECT
 
 public:
-	LogViewWidgetSearchLine();
+    LogViewWidgetSearchLine();
 
-	~LogViewWidgetSearchLine();
-	
+    ~LogViewWidgetSearchLine();
+
 public:
-  // Silence compiler warning
-  using KTreeWidgetSearchLine::updateSearch;
+    // Silence compiler warning
+    using KTreeWidgetSearchLine::updateSearch;
 
-  // Reimplemented just to send a signal _AFTER_ the tree updating
-	void updateSearch(const QString& pattern = QString());
+    // Reimplemented just to send a signal _AFTER_ the tree updating
+    void updateSearch(const QString &pattern = QString());
 
 signals:
-	void treeWidgetUpdated();
-
+    void treeWidgetUpdated();
 };
 
-#endif //LOG_VIEW_FILTER_WIDGET_H
+#endif // LOG_VIEW_FILTER_WIDGET_H

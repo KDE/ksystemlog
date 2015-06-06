@@ -30,41 +30,41 @@
 /**
  * TODO Fork this class in SyslogParsingHelper and HttpParsingHelper
  */
-class ParsingHelper {
+class ParsingHelper
+{
+public:
+    static ParsingHelper *instance();
 
-	public:
-		static ParsingHelper* instance();
-		
-		~ParsingHelper();
+    ~ParsingHelper();
 
-		/**
-		 * Returns the months number represented by the 3 first letters in the QString parameter
-		 */
-		int parseSyslogMonth(const QString& month);
-	
-		QDateTime parseHttpDateTime(const QString& dateTime);
-		
-		/*
-		 * TODO Use this method in SyslogAnalyzer, and add a parameter to use the current year instead
-		 * of trying to search it in string
-		 */
-		QDateTime parseSyslogDateTime(const QString& dateTime);
-		QString syslogDateTimeRegexp();
-	
-		QString parseSize(const QString& size);
-		
-		QString parseHttpResponse(const QString& response);
-		
-		QString parseAgent(const QString& agent);
-		
-	private:
-		explicit ParsingHelper();
-		
-		static ParsingHelper* self;
+    /**
+     * Returns the months number represented by the 3 first letters in the QString parameter
+     */
+    int parseSyslogMonth(const QString &month);
 
-		QMap<QString, int> mapMonths;
-		
-		QMap<QString, QString> mapHTTPResponse;
+    QDateTime parseHttpDateTime(const QString &dateTime);
+
+    /*
+     * TODO Use this method in SyslogAnalyzer, and add a parameter to use the current year instead
+     * of trying to search it in string
+     */
+    QDateTime parseSyslogDateTime(const QString &dateTime);
+    QString syslogDateTimeRegexp();
+
+    QString parseSize(const QString &size);
+
+    QString parseHttpResponse(const QString &response);
+
+    QString parseAgent(const QString &agent);
+
+private:
+    explicit ParsingHelper();
+
+    static ParsingHelper *self;
+
+    QMap<QString, int> mapMonths;
+
+    QMap<QString, QString> mapHTTPResponse;
 };
 
 #endif

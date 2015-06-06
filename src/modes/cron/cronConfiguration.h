@@ -33,56 +33,46 @@
 
 #include "ksystemlogConfig.h"
 
-class CronConfigurationPrivate {
+class CronConfigurationPrivate
+{
 public:
-	QStringList cronPaths;
+    QStringList cronPaths;
 
-	QString processFilter;
+    QString processFilter;
 };
 
-class CronConfiguration : public LogModeConfiguration {
+class CronConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    CronConfiguration()
+        : d(new CronConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("CronLogMode"));
 
-	public:
-		CronConfiguration() :
-			d(new CronConfigurationPrivate()) {
+        QStringList defaultCronPaths;
+        defaultCronPaths << QLatin1String("/var/log/syslog");
+        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->cronPaths, defaultCronPaths,
+                                         QLatin1String("LogFilesPaths"));
 
-			configuration->setCurrentGroup(QLatin1String( "CronLogMode" ));
+        QString defaultProcessFilter(QLatin1String("/usr/sbin/cron"));
+        configuration->addItemString(QLatin1String("ProcessFilter"), d->processFilter, defaultProcessFilter,
+                                     QLatin1String("ProcessFilter"));
+    }
 
-			QStringList defaultCronPaths;
-			defaultCronPaths << QLatin1String( "/var/log/syslog" );
-			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->cronPaths, defaultCronPaths, QLatin1String( "LogFilesPaths" ));
+    virtual ~CronConfiguration() { delete d; }
 
-			QString defaultProcessFilter(QLatin1String( "/usr/sbin/cron" ));
-			configuration->addItemString(QLatin1String( "ProcessFilter" ), d->processFilter, defaultProcessFilter, QLatin1String( "ProcessFilter" ));
+    QString processFilter() const { return d->processFilter; }
 
+    void setProcessFilter(const QString &processFilter) { d->processFilter = processFilter; }
 
-		}
+    QStringList cronPaths() const { return d->cronPaths; }
 
-		virtual ~CronConfiguration() {
-			delete d;
-		}
+    void setCronPaths(const QStringList &cronPaths) { d->cronPaths = cronPaths; }
 
-		QString processFilter() const {
-			return d->processFilter;
-		}
-
-		void setProcessFilter(const QString& processFilter) {
-			d->processFilter = processFilter;
-		}
-
-		QStringList cronPaths() const {
-			return d->cronPaths;
-		}
-
-		void setCronPaths(const QStringList& cronPaths) {
-			d->cronPaths = cronPaths;
-		}
-
-	private:
-		CronConfigurationPrivate* const d;
-
+private:
+    CronConfigurationPrivate *const d;
 };
 
 #endif // _CRON_CONFIGURATION_H_

@@ -24,7 +24,6 @@
 
 #include "logModeConfigurationWidget.h"
 
-
 #include <KLocalizedString>
 
 #include "globals.h"
@@ -36,80 +35,85 @@
 #include "sambaConfiguration.h"
 #include "sambaLogMode.h"
 
-class SambaConfigurationWidget : public LogModeConfigurationWidget {
+class SambaConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    SambaConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Samba Log"), QLatin1String(SAMBA_MODE_ICON), i18n("Samba Log"))
+    {
+        QHBoxLayout *layout = new QHBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		SambaConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Samba Log"),QLatin1String( SAMBA_MODE_ICON ), i18n("Samba Log"))
-			{
+        sambaFileList
+            = new MultipleFileList(this, i18n(
+                                             "<p>These files will be analyzed to show <b>Samba log</b>, "
+                                             "<b>Samba Access log</b> and <b>Netbios log</b>.</p>"));
 
-			QHBoxLayout* layout = new QHBoxLayout();
-			this->setLayout(layout);
+        sambaPathsId = sambaFileList->addCategory(i18n("Samba Log Files"), i18n("Add Samba File..."));
+        sambaAccessPathsId
+            = sambaFileList->addCategory(i18n("Samba Access Log Files"), i18n("Add Samba Access File..."));
+        netbiosPathsId = sambaFileList->addCategory(i18n("Netbios Log Files"), i18n("Add Netbios File..."));
 
-			sambaFileList=new MultipleFileList(this, i18n("<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access log</b> and <b>Netbios log</b>.</p>"));
+        connect(sambaFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
-			sambaPathsId = sambaFileList->addCategory(i18n("Samba Log Files"), i18n("Add Samba File..."));
-			sambaAccessPathsId = sambaFileList->addCategory(i18n("Samba Access Log Files"), i18n("Add Samba Access File..."));
-			netbiosPathsId = sambaFileList->addCategory(i18n("Netbios Log Files"), i18n("Add Netbios File..."));
+        layout->addWidget(sambaFileList);
+    }
 
-			connect(sambaFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+    ~SambaConfigurationWidget() {}
 
-			layout->addWidget(sambaFileList);
-		}
+public slots:
 
-		~SambaConfigurationWidget() {
+    void saveConfig()
+    {
+        logDebug() << "Saving config from Samba Options...";
 
-		}
+        SambaConfiguration *sambaConfiguration = Globals::instance()
+                                                     ->findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     ->logModeConfiguration<SambaConfiguration *>();
+        sambaConfiguration->setSambaPaths(sambaFileList->paths(sambaPathsId));
+        sambaConfiguration->setSambaAccessPaths(sambaFileList->paths(sambaAccessPathsId));
+        sambaConfiguration->setNetbiosPaths(sambaFileList->paths(netbiosPathsId));
+    }
 
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-	public slots:
+    void readConfig()
+    {
+        SambaConfiguration *sambaConfiguration = Globals::instance()
+                                                     ->findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     ->logModeConfiguration<SambaConfiguration *>();
 
-		void saveConfig() {
-      logDebug() << "Saving config from Samba Options...";
+        sambaFileList->removeAllItems();
 
-			SambaConfiguration* sambaConfiguration = Globals::instance()->findLogMode(QLatin1String( SAMBA_LOG_MODE_ID ))->logModeConfiguration<SambaConfiguration*>();
-			sambaConfiguration->setSambaPaths(sambaFileList->paths(sambaPathsId));
-			sambaConfiguration->setSambaAccessPaths(sambaFileList->paths(sambaAccessPathsId));
-			sambaConfiguration->setNetbiosPaths(sambaFileList->paths(netbiosPathsId));
-		}
+        sambaFileList->addPaths(sambaPathsId, sambaConfiguration->sambaPaths());
+        sambaFileList->addPaths(sambaAccessPathsId, sambaConfiguration->sambaAccessPaths());
+        sambaFileList->addPaths(netbiosPathsId, sambaConfiguration->netbiosPaths());
+    }
 
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
+protected:
+    bool isValid() const
+    {
+        if (sambaFileList->isOneOfCategoryEmpty() == true) {
+            logDebug() << "Samba configuration not valid";
+            return false;
+        }
 
-		void readConfig() {
-			SambaConfiguration* sambaConfiguration = Globals::instance()->findLogMode(QLatin1String( SAMBA_LOG_MODE_ID ))->logModeConfiguration<SambaConfiguration*>();
+        logDebug() << "Samba configuration valid";
+        return true;
+    }
 
-			sambaFileList->removeAllItems();
+private:
+    MultipleFileList *sambaFileList;
 
-			sambaFileList->addPaths(sambaPathsId, sambaConfiguration->sambaPaths());
-			sambaFileList->addPaths(sambaAccessPathsId, sambaConfiguration->sambaAccessPaths());
-			sambaFileList->addPaths(netbiosPathsId, sambaConfiguration->netbiosPaths());
-		}
-
-	protected:
-		bool isValid() const {
-			if (sambaFileList->isOneOfCategoryEmpty()==true) {
-        logDebug() << "Samba configuration not valid";
-				return false;
-			}
-
-      logDebug() << "Samba configuration valid";
-			return true;
-
-		}
-
-	private:
-
-		MultipleFileList* sambaFileList;
-
-		int sambaPathsId;
-		int sambaAccessPathsId;
-		int netbiosPathsId;
-
+    int sambaPathsId;
+    int sambaAccessPathsId;
+    int netbiosPathsId;
 };
 
 #endif // _SAMBA_CONFIGURATION_WIDGET_H_

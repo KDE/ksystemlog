@@ -33,31 +33,29 @@ class LoadingBarPrivate;
 /**
  * TODO Try to have a working Cancel button (for the moment, it only hide the Loading Dialog)
  */
-class LoadingBar : public QWidget {
+class LoadingBar : public QWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
-	
-	public:
-		LoadingBar(QWidget* parent=NULL);
-		
-		~LoadingBar();
-		
-		QProgressBar* progressBar();
+public:
+    LoadingBar(QWidget *parent = NULL);
 
-	public slots:
-		
-		void startLoading(const LogMode& logMode, const LogFile& logFile, int fileIndex, int fileCount);
-		void endLoading();
-		
-		void progressLoading();
+    ~LoadingBar();
 
-	signals:
-		void displayed(bool displayed);
-		
-	private:
-		LoadingBarPrivate* const d;
-		
-		
+    QProgressBar *progressBar();
+
+public slots:
+
+    void startLoading(const LogMode &logMode, const LogFile &logFile, int fileIndex, int fileCount);
+    void endLoading();
+
+    void progressLoading();
+
+signals:
+    void displayed(bool displayed);
+
+private:
+    LoadingBarPrivate *const d;
 };
 
 #endif // _LOADING_BAR_H_

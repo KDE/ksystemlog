@@ -36,33 +36,29 @@
 
 class LogLine;
 
-class AcpidItemBuilder : public LogModeItemBuilder {
+class AcpidItemBuilder : public LogModeItemBuilder
+{
+public:
+    AcpidItemBuilder() {}
 
-	public:
-		AcpidItemBuilder() {
+    virtual ~AcpidItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~AcpidItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Type:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Type:"),  it.next()));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
+        return result;
+    }
 };
 
 #endif // _ACPID_ITEM_BUILDER_H_

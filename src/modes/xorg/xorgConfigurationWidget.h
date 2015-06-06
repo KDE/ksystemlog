@@ -22,7 +22,6 @@
 #ifndef _XORG_CONFIGURATION_WIDGET_H_
 #define _XORG_CONFIGURATION_WIDGET_H_
 
-
 #include <KLocalizedString>
 
 #include "globals.h"
@@ -37,62 +36,65 @@
 
 class FileList;
 
-class XorgConfigurationWidget : public LogModeConfigurationWidget {
+class XorgConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    XorgConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("X.org Log"), QLatin1String(XORG_MODE_ICON), i18n("X.org Log"))
+    {
+        QHBoxLayout *layout = new QHBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		XorgConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("X.org Log"),QLatin1String( XORG_MODE_ICON ), i18n("X.org Log"))
-			{
+        fileList
+            = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
+        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        layout->addWidget(fileList);
+    }
 
-			QHBoxLayout* layout = new QHBoxLayout();
-			this->setLayout(layout);
+    ~XorgConfigurationWidget() {}
 
-			fileList=new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
-			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
-			layout->addWidget(fileList);
+public slots:
 
-		}
+    void saveConfig()
+    {
+        XorgConfiguration *xorgConfiguration = Globals::instance()
+                                                   ->findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   ->logModeConfiguration<XorgConfiguration *>();
 
-		~XorgConfigurationWidget() {
+        xorgConfiguration->setXorgPaths(fileList->paths());
+    }
 
-		}
+    void readConfig()
+    {
+        XorgConfiguration *xorgConfiguration = Globals::instance()
+                                                   ->findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   ->logModeConfiguration<XorgConfiguration *>();
 
-	public slots:
+        fileList->removeAllItems();
 
-		void saveConfig() {
-			XorgConfiguration* xorgConfiguration = Globals::instance()->findLogMode(QLatin1String( XORG_LOG_MODE_ID ))->logModeConfiguration<XorgConfiguration*>();
+        fileList->addPaths(xorgConfiguration->xorgPaths());
+    }
 
-			xorgConfiguration->setXorgPaths(fileList->paths());
-		}
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-		void readConfig() {
-			XorgConfiguration* xorgConfiguration = Globals::instance()->findLogMode(QLatin1String( XORG_LOG_MODE_ID ))->logModeConfiguration<XorgConfiguration*>();
+protected:
+    bool isValid() const
+    {
+        if (fileList->isEmpty() == false) {
+            return true;
+        }
 
-			fileList->removeAllItems();
+        return false;
+    }
 
-			fileList->addPaths(xorgConfiguration->xorgPaths());
-		}
-
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
-
-	protected:
-		bool isValid() const {
-			if (fileList->isEmpty()==false) {
-				return true;
-			}
-
-			return false;
-
-		}
-
-	private:
-		FileList* fileList;
-
+private:
+    FileList *fileList;
 };
 
 #endif // _XORG_CONFIGURATION_WIDGET_H_

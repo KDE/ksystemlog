@@ -35,132 +35,130 @@
 #include "logViewColumn.h"
 #include "logging.h"
 
-
-class LogViewFilterWidgetPrivate {
+class LogViewFilterWidgetPrivate
+{
 public:
+    LogViewWidgetSearchLine *filterLine;
 
-	LogViewWidgetSearchLine* filterLine;
-
-	/**
-	 * Filter of the column list
-	 */
-  KComboBox* filterList;
-
+    /**
+     * Filter of the column list
+     */
+    KComboBox *filterList;
 };
 
-
-LogViewWidgetSearchLine::LogViewWidgetSearchLine() :
-	KTreeWidgetSearchLine() {
-
+LogViewWidgetSearchLine::LogViewWidgetSearchLine()
+    : KTreeWidgetSearchLine()
+{
 }
 
-LogViewWidgetSearchLine::~LogViewWidgetSearchLine() {
-
+LogViewWidgetSearchLine::~LogViewWidgetSearchLine()
+{
 }
 
-void LogViewWidgetSearchLine::updateSearch(const QString& pattern) {
-	KTreeWidgetSearchLine::updateSearch(pattern);
+void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
+{
+    KTreeWidgetSearchLine::updateSearch(pattern);
 
-	emit treeWidgetUpdated();
+    emit treeWidgetUpdated();
 }
 
+LogViewFilterWidget::LogViewFilterWidget()
+    : d(new LogViewFilterWidgetPrivate())
+{
+    QHBoxLayout *filterBarLayout = new QHBoxLayout();
+    filterBarLayout->setMargin(0);
+    // filterBarLayout->setSpacing(-1);
+    setLayout(filterBarLayout);
 
-LogViewFilterWidget::LogViewFilterWidget() :
-	d(new LogViewFilterWidgetPrivate()) {
+    d->filterLine = new LogViewWidgetSearchLine();
 
+    d->filterLine->setToolTip(i18n("Type your filter here"));
+    d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
+    d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
-	QHBoxLayout* filterBarLayout = new QHBoxLayout();
-	filterBarLayout->setMargin(0);
-	//filterBarLayout->setSpacing(-1);
-	setLayout(filterBarLayout);
+    QLabel *filterIcon = new QLabel();
+    filterIcon->setPixmap(SmallIcon(QLatin1String("view-filter")));
+    filterIcon->setBuddy(d->filterLine);
+    filterBarLayout->addWidget(filterIcon);
 
-	d->filterLine = new LogViewWidgetSearchLine();
+    QLabel *filterLabel = new QLabel(i18n("Filter:"));
+    filterLabel->setBuddy(d->filterLine);
+    filterBarLayout->addWidget(filterLabel);
 
-	d->filterLine->setToolTip(i18n("Type your filter here"));
-	d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
-  d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
+    filterBarLayout->addWidget(d->filterLine);
 
-	QLabel* filterIcon = new QLabel();
-	filterIcon->setPixmap(SmallIcon(QLatin1String( "view-filter" )));
-	filterIcon->setBuddy(d->filterLine);
-	filterBarLayout->addWidget(filterIcon);
+    initSearchListFilter();
 
-	QLabel* filterLabel = new QLabel(i18n("Filter:"));
-	filterLabel->setBuddy(d->filterLine);
-	filterBarLayout->addWidget(filterLabel);
-
-	filterBarLayout->addWidget(d->filterLine);
-
-	initSearchListFilter();
-
-	filterBarLayout->addWidget(d->filterList);
-
+    filterBarLayout->addWidget(d->filterList);
 }
 
-LogViewFilterWidget::~LogViewFilterWidget() {
-	delete d;
+LogViewFilterWidget::~LogViewFilterWidget()
+{
+    delete d;
 }
 
+void LogViewFilterWidget::initSearchListFilter()
+{
+    d->filterList = new KComboBox();
 
-void LogViewFilterWidget::initSearchListFilter() {
-  d->filterList=new KComboBox();
+    d->filterList->setToolTip(i18n("Choose the filtered column here"));
+    d->filterList->setWhatsThis(i18n(
+        "Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means "
+        "no specific filter."));
 
-  d->filterList->setToolTip(i18n("Choose the filtered column here"));
-  d->filterList->setWhatsThis(i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means no specific filter."));
+    d->filterList->addItem(i18n("All"));
 
-  d->filterList->addItem(i18n("All"));
+    d->filterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
-	d->filterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-
-	connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(setFocus()));
-	connect(d->filterList, SIGNAL(activated(int)), this, SLOT(changeColumnFilter(int)));
-	connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(updateSearch()));
-
+    connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(setFocus()));
+    connect(d->filterList, SIGNAL(activated(int)), this, SLOT(changeColumnFilter(int)));
+    connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(updateSearch()));
 }
 
-void LogViewFilterWidget::updateFilterColumns(const LogViewColumns& columns) {
-  logDebug() << "Changing columns...";
+void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
+{
+    logDebug() << "Changing columns...";
 
-	//We first delete all items
-	d->filterList->clear();
+    // We first delete all items
+    d->filterList->clear();
 
-	//Then we insert the default items
-	d->filterList->addItem(i18n("All"));
+    // Then we insert the default items
+    d->filterList->addItem(i18n("All"));
 
-	foreach(const LogViewColumn& column, columns.columns()) {
-		if (column.isFiltered()==true) {
-			d->filterList->addItem(column.columnName());
-		}
-	}
+    foreach (const LogViewColumn &column, columns.columns()) {
+        if (column.isFiltered() == true) {
+            d->filterList->addItem(column.columnName());
+        }
+    }
 
-	d->filterList->setCurrentIndex(0);
+    d->filterList->setCurrentIndex(0);
 }
 
-void LogViewFilterWidget::changeColumnFilter(int column) {
-	//The user select all columns
-	if (column==0) {
-    logDebug() << "Searching on all columns";
+void LogViewFilterWidget::changeColumnFilter(int column)
+{
+    // The user select all columns
+    if (column == 0) {
+        logDebug() << "Searching on all columns";
 
-		d->filterLine->setSearchColumns(QList<int>());
-		return;
-	}
+        d->filterLine->setSearchColumns(QList<int>());
+        return;
+    }
 
-  logDebug() << "Searching on " << d->filterList->currentIndex() << " column";
+    logDebug() << "Searching on " << d->filterList->currentIndex() << " column";
 
-	QList<int> filterColumns;
-	//currentIndex() - 1 to do not count the "All" columns item
-	filterColumns.append(d->filterList->currentIndex() - 1);
+    QList<int> filterColumns;
+    // currentIndex() - 1 to do not count the "All" columns item
+    filterColumns.append(d->filterList->currentIndex() - 1);
 
-	d->filterLine->setSearchColumns(filterColumns);
-
+    d->filterLine->setSearchColumns(filterColumns);
 }
 
-KComboBox* LogViewFilterWidget::filterList() {
-	return d->filterList;
+KComboBox *LogViewFilterWidget::filterList()
+{
+    return d->filterList;
 }
 
-LogViewWidgetSearchLine* LogViewFilterWidget::filterLine() {
-	return d->filterLine;
+LogViewWidgetSearchLine *LogViewFilterWidget::filterLine()
+{
+    return d->filterLine;
 }
-
-

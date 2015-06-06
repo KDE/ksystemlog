@@ -22,62 +22,62 @@
 #ifndef _AUTHENTICATION_ANALYZER_H_
 #define _AUTHENTICATION_ANALYZER_H_
 
-
 #include "syslogAnalyzer.h"
 
 #include "authenticationLogMode.h"
 #include "authenticationConfiguration.h"
-	
-class AuthenticationAnalyzer : public SyslogAnalyzer {
-	Q_OBJECT
-	
-	public:
 
-		AuthenticationAnalyzer(LogMode* logMode) :
-			SyslogAnalyzer(logMode) {
+class AuthenticationAnalyzer : public SyslogAnalyzer
+{
+    Q_OBJECT
 
-		}
+public:
+    AuthenticationAnalyzer(LogMode *logMode)
+        : SyslogAnalyzer(logMode)
+    {
+    }
 
-		virtual ~AuthenticationAnalyzer() {
+    virtual ~AuthenticationAnalyzer() {}
 
-		}
-		
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			LogLine* syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
-			
-			QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
-			
-			if (hasErrorKeywords(message))
-				syslogLine->setLogLevel(Globals::instance()->errorLogLevel());
-			else if (hasWarningKeywords(message))
-				syslogLine->setLogLevel(Globals::instance()->warningLogLevel());
-			
-			return syslogLine;
-		}
-		
-	
-	private:
-		bool hasWarningKeywords(const QString& message) {
-			AuthenticationConfiguration* configuration = logMode->logModeConfiguration<AuthenticationConfiguration*>();
-			return hasKeywords(message, configuration->warningKeywords());
-		}
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    {
+        LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
 
-		bool hasErrorKeywords(const QString& message) {
-			AuthenticationConfiguration* configuration = logMode->logModeConfiguration<AuthenticationConfiguration*>();
-			return hasKeywords(message, configuration->errorKeywords());
-		}
+        QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
 
-		bool hasKeywords(const QString& message, const QStringList& keywords) {
-			foreach(const QString& keyword, keywords) {
-				if (message.contains(keyword, Qt::CaseInsensitive)) {
-					return true;
-				}
-			}
-			
-			return false;
-		}
-	
+        if (hasErrorKeywords(message))
+            syslogLine->setLogLevel(Globals::instance()->errorLogLevel());
+        else if (hasWarningKeywords(message))
+            syslogLine->setLogLevel(Globals::instance()->warningLogLevel());
 
+        return syslogLine;
+    }
+
+private:
+    bool hasWarningKeywords(const QString &message)
+    {
+        AuthenticationConfiguration *configuration
+            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+        return hasKeywords(message, configuration->warningKeywords());
+    }
+
+    bool hasErrorKeywords(const QString &message)
+    {
+        AuthenticationConfiguration *configuration
+            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+        return hasKeywords(message, configuration->errorKeywords());
+    }
+
+    bool hasKeywords(const QString &message, const QStringList &keywords)
+    {
+        foreach (const QString &keyword, keywords) {
+            if (message.contains(keyword, Qt::CaseInsensitive)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 };
 
 #endif

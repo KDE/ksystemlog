@@ -32,187 +32,196 @@
 #include "globals.h"
 #include "ksystemlogConfig.h"
 
-class LogLinePrivate {
+class LogLinePrivate
+{
 public:
+    long internalId;
 
-	long internalId;
+    QDateTime time;
 
-	QDateTime time;
+    QStringList logItems;
 
-	QStringList logItems;
+    QString originalFile;
 
-	QString originalFile;
+    LogLevel *logLevel;
 
-	LogLevel* logLevel;
+    LogMode *logMode;
 
-	LogMode* logMode;
+    bool recent;
 
-	bool recent;
-
-	LogViewWidgetItem* item;
-
+    LogViewWidgetItem *item;
 };
 
-LogLine::LogLine(
-		long internalId,
-		const QDateTime& dateTime,
-		const QStringList& logItems,
-		const QString& file,
-		LogLevel* logLevel,
-		LogMode* logMode) :
+LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file,
+                 LogLevel *logLevel, LogMode *logMode)
+    :
 
-	d(new LogLinePrivate()) {
+    d(new LogLinePrivate())
+{
+    d->internalId = internalId;
+    d->time = dateTime;
+    d->logItems = logItems;
+    d->originalFile = file;
+    d->logLevel = logLevel;
+    d->logMode = logMode;
 
-	d->internalId = internalId;
-	d->time=dateTime;
-	d->logItems = logItems;
-	d->originalFile = file;
-	d->logLevel = logLevel;
-	d->logMode = logMode;
+    // No linked item when constructs this LogLine
+    d->item = NULL;
 
-	//No linked item when constructs this LogLine
-	d->item = NULL;
-
-	//By default in newly created item has the recent state
-	setRecent(true);
-
+    // By default in newly created item has the recent state
+    setRecent(true);
 }
 
-LogLine::~LogLine() {
-	//logLevel is managed by Globals
+LogLine::~LogLine()
+{
+    // logLevel is managed by Globals
 
-	//item is managed by LogMode
-	//itemBuilder is managed by LogMode
+    // item is managed by LogMode
+    // itemBuilder is managed by LogMode
 
-	delete d;
+    delete d;
 }
 
-
-LogMode* LogLine::logMode() const {
-	return d->logMode;
+LogMode *LogLine::logMode() const
+{
+    return d->logMode;
 }
 
-void LogLine::setLogMode(LogMode* logMode) {
-	d->logMode = logMode;
+void LogLine::setLogMode(LogMode *logMode)
+{
+    d->logMode = logMode;
 }
 
-bool LogLine::equals(const LogLine& other) const {
-	if (logMode()->id() != other.logMode()->id())
-		return false;
+bool LogLine::equals(const LogLine &other) const
+{
+    if (logMode()->id() != other.logMode()->id())
+        return false;
 
-	if (time() != other.time())
-		return false;
+    if (time() != other.time())
+        return false;
 
-	if (logLevel()->id() != other.logLevel()->id())
-		return false;
+    if (logLevel()->id() != other.logLevel()->id())
+        return false;
 
-	if (d->logItems != other.d->logItems)
-		return false;
+    if (d->logItems != other.d->logItems)
+        return false;
 
-	return true;
+    return true;
 }
 
-LogLevel* LogLine::logLevel() const {
-	return d->logLevel;
+LogLevel *LogLine::logLevel() const
+{
+    return d->logLevel;
 }
 
-void LogLine::setLogLevel(LogLevel* level) {
-	d->logLevel=level;
+void LogLine::setLogLevel(LogLevel *level)
+{
+    d->logLevel = level;
 }
 
-QDateTime LogLine::time() const {
-	return d->time;
+QDateTime LogLine::time() const
+{
+    return d->time;
 }
 
-void LogLine::setLogItems(const QStringList& logItems) {
-	d->logItems = logItems;
+void LogLine::setLogItems(const QStringList &logItems)
+{
+    d->logItems = logItems;
 }
 
-QStringList LogLine::logItems() const {
-	return d->logItems;
+QStringList LogLine::logItems() const
+{
+    return d->logItems;
 }
 
-QString LogLine::sourceFileName() const {
-	return d->originalFile;
+QString LogLine::sourceFileName() const
+{
+    return d->originalFile;
 }
 
-bool LogLine::isOlderThan(const LogLine& other) const {
-	if (d->time == other.time())
-		return d->internalId < other.internalId();
+bool LogLine::isOlderThan(const LogLine &other) const
+{
+    if (d->time == other.time())
+        return d->internalId < other.internalId();
 
-	return d->time < other.time();
+    return d->time < other.time();
 }
 
-bool LogLine::isNewerThan(const LogLine& other) const {
-	if (d->time == other.time())
-		return d->internalId > other.internalId();
+bool LogLine::isNewerThan(const LogLine &other) const
+{
+    if (d->time == other.time())
+        return d->internalId > other.internalId();
 
-	return d->time > other.time();
+    return d->time > other.time();
 }
 
-bool LogLine::isSameTime(const LogLine& other) const {
-	return d->time==other.time();
+bool LogLine::isSameTime(const LogLine &other) const
+{
+    return d->time == other.time();
 }
 
-long LogLine::internalId() const {
-	return d->internalId;
+long LogLine::internalId() const
+{
+    return d->internalId;
 }
 
-void LogLine::setRecent(bool recent) {
-	d->recent = recent;
+void LogLine::setRecent(bool recent)
+{
+    d->recent = recent;
 
-	if (d->item!=NULL) {
-		QFont currentFont = d->item->font(d->item->columnCount()-1);
+    if (d->item != NULL) {
+        QFont currentFont = d->item->font(d->item->columnCount() - 1);
 
-		//We avoid doing the same process
-		if (d->recent != currentFont.bold()) {
-			currentFont.setBold(recent);
-			d->item->setFont(d->item->columnCount()-1, currentFont);
-		}
-	}
+        // We avoid doing the same process
+        if (d->recent != currentFont.bold()) {
+            currentFont.setBold(recent);
+            d->item->setFont(d->item->columnCount() - 1, currentFont);
+        }
+    }
 }
 
+QString LogLine::exportToText() const
+{
+    QString exporting;
 
-QString LogLine::exportToText() const {
+    if (d->item == NULL) {
+        logCritical() << "Trying to export text from NULL item";
+        return exporting;
+    }
 
-	QString exporting;
+    for (int i = 0; i < d->item->columnCount(); ++i) {
+        if (i > 0)
+            exporting.append(QLatin1Char('\t'));
 
-	if (d->item == NULL) {
-    logCritical() << "Trying to export text from NULL item";
-		return exporting;
-	}
+        exporting.append(d->item->text(i));
+    }
 
-	for (int i=0; i < d->item->columnCount(); ++i) {
-		if (i>0)
-			exporting.append(QLatin1Char( '\t' ));
-
-		exporting.append(d->item->text(i));
-	}
-
-	return exporting;
+    return exporting;
 }
 
-QString LogLine::formattedText() {
-	return d->logMode->itemBuilder()->createFormattedText(this);
+QString LogLine::formattedText()
+{
+    return d->logMode->itemBuilder()->createFormattedText(this);
 }
 
-void LogLine::setItem(LogViewWidgetItem* item) {
-	d->item = item;
+void LogLine::setItem(LogViewWidgetItem *item)
+{
+    d->item = item;
 
-	initializeItem();
+    initializeItem();
 }
 
-void LogLine::initializeItem() {
-	d->logMode->itemBuilder()->prepareItem(d->item);
+void LogLine::initializeItem()
+{
+    d->logMode->itemBuilder()->prepareItem(d->item);
 
-	//Call methods that change the look of the item
-	setRecent(d->recent);
+    // Call methods that change the look of the item
+    setRecent(d->recent);
 
-	if (KSystemLogConfig::colorizeLogLines()) {
-		//Last column index = d->logItems.count() = (d->logItems.count() -1) +1 (the date column)
-		d->item->setForeground(d->logItems.count(), QBrush(d->logLevel->color()));
-	}
+    if (KSystemLogConfig::colorizeLogLines()) {
+        // Last column index = d->logItems.count() = (d->logItems.count() -1) +1 (the date column)
+        d->item->setForeground(d->logItems.count(), QBrush(d->logLevel->color()));
+    }
 
-	d->item->toggleToolTip(KSystemLogConfig::tooltipEnabled());
-
+    d->item->toggleToolTip(KSystemLogConfig::tooltipEnabled());
 }

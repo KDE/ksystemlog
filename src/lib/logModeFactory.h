@@ -28,24 +28,21 @@
 class LogModeAction;
 class LogMode;
 
-class LogModeFactory : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		explicit LogModeFactory();
-		
-		virtual ~LogModeFactory();
-		
-		virtual LogModeAction* createLogModeAction() const = 0;
+class LogModeFactory : public QObject
+{
+    Q_OBJECT
 
-		/**
-		 * Create the log mode
-		 */
-		virtual QList<LogMode*> createLogModes() const = 0;
+public:
+    explicit LogModeFactory();
 
+    virtual ~LogModeFactory();
+
+    virtual LogModeAction *createLogModeAction() const = 0;
+
+    /**
+     * Create the log mode
+     */
+    virtual QList<LogMode *> createLogModes() const = 0;
 };
 
-
 #endif // _LOG_MODE_FACTORY_H_
-

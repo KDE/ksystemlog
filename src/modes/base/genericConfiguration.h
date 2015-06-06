@@ -31,26 +31,27 @@
 
 class GenericLogModeConfigurationPrivate;
 
-class GenericLogModeConfiguration : public LogModeConfiguration {
-	
-	Q_OBJECT
-	
-	public:
-		GenericLogModeConfiguration(const QString& configurationGroup, const QStringList& defaultLogFilesPaths, const QList<int> defaultLogFilesLevels);
-		virtual ~GenericLogModeConfiguration();
-		
-		QStringList logFilesPaths() const;
-		
-		QList<int> logFilesLevels() const;
-		
-		void setLogFilesPaths(const QStringList& logFilesPaths);
+class GenericLogModeConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-		void setLogFilesLevels(const QList<int>& logFilesLevels);
+public:
+    GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths,
+                                const QList<int> defaultLogFilesLevels);
+    virtual ~GenericLogModeConfiguration();
 
-		QList<LogFile> findGenericLogFiles();
-		
-	private:
-		GenericLogModeConfigurationPrivate* const d;
+    QStringList logFilesPaths() const;
+
+    QList<int> logFilesLevels() const;
+
+    void setLogFilesPaths(const QStringList &logFilesPaths);
+
+    void setLogFilesLevels(const QList<int> &logFilesLevels);
+
+    QList<LogFile> findGenericLogFiles();
+
+private:
+    GenericLogModeConfigurationPrivate *const d;
 };
 
 #endif // _GENERIC_LOG_MODE_CONFIGURATION_H_

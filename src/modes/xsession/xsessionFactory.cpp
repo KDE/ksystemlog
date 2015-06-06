@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,17 +31,19 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> XSessionLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new XSessionLogMode());
-	return logModes;
+QList<LogMode *> XSessionLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new XSessionLogMode());
+    return logModes;
 }
 
-LogModeAction* XSessionLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ));
-	SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
+LogModeAction *XSessionLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID));
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
-	logModeAction->setCategory(LogModeAction::OthersCategory);
+    logModeAction->setCategory(LogModeAction::OthersCategory);
 
-	return logModeAction;
+    return logModeAction;
 }

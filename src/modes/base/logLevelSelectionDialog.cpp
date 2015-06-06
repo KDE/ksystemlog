@@ -26,26 +26,23 @@
 #include <kstandardguiitem.h>
 #include <kiconloader.h>
 
+LogLevelSelectionDialog::LogLevelSelectionDialog(QWidget *parent)
+    : QDialog(parent)
+{
+    setupUi(this);
 
-LogLevelSelectionDialog::LogLevelSelectionDialog(QWidget* parent) :
-	QDialog(parent) {
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setIcon(KStandardGuiItem::ok().icon());
 
-	setupUi(this);
-
-	QPushButton* okButton = buttonBox->button(QDialogButtonBox::Ok);
-	okButton->setIcon(KStandardGuiItem::ok().icon());
-	
-	QPushButton* cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
-	cancelButton->setIcon(KStandardGuiItem::cancel().icon());
-
+    QPushButton *cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
+    cancelButton->setIcon(KStandardGuiItem::cancel().icon());
 }
 
-
-LogLevelSelectionDialog::~LogLevelSelectionDialog() {
-
+LogLevelSelectionDialog::~LogLevelSelectionDialog()
+{
 }
 
-QListWidget* LogLevelSelectionDialog::logLevels() const {
-	return logLevelsList;
+QListWidget *LogLevelSelectionDialog::logLevels() const
+{
+    return logLevelsList;
 }
-

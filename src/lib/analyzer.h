@@ -39,93 +39,84 @@ class LogViewModel;
 class LogFileReader;
 class LogMode;
 
-class Analyzer : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		enum ReadingMode {
-				UpdatingRead,
-				FullRead
-		};
-		Q_DECLARE_FLAGS(ReadingModes, ReadingMode)
-		
-		enum LogFileSortMode {
-			AscendingSortedLogFile,
-			FilteredLogFile,
-			UnsortedLogFile
-		};
-		Q_DECLARE_FLAGS(LogFileSortModes, LogFileSortMode)
+class Analyzer : public QObject
+{
+    Q_OBJECT
 
-		explicit Analyzer(LogMode* logMode);
-		
-		~Analyzer();
-		
-		void watchLogFiles(bool enabled);
-		
+public:
+    enum ReadingMode { UpdatingRead, FullRead };
+    Q_DECLARE_FLAGS(ReadingModes, ReadingMode)
 
-		void setLogFiles(const QList<LogFile>& logFiles);
-		void setLogViewModel(LogViewModel* logViewModel);
+    enum LogFileSortMode { AscendingSortedLogFile, FilteredLogFile, UnsortedLogFile };
+    Q_DECLARE_FLAGS(LogFileSortModes, LogFileSortMode)
 
-		bool isParsingPaused() const;
+    explicit Analyzer(LogMode *logMode);
 
-		virtual LogViewColumns initColumns() = 0;
+    ~Analyzer();
 
-	public slots:
-		void setParsingPaused(bool paused);
-		
-	protected:
-		virtual LogFileReader* createLogFileReader(const LogFile& logFile) = 0;
-		virtual Analyzer::LogFileSortMode logFileSortMode() = 0;
-		
-		virtual LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) = 0;
-		
-	private:
+    void watchLogFiles(bool enabled);
 
-		inline void informOpeningProgress(int currentPosition, int total);
-		
-		void deleteLogFiles();
-		
-		/**
-		 * Parse and insert the buffered lines in the model
-		 * Returns the count of inserted lines
-		 */
-		int insertLines(const QStringList& bufferedLines, const LogFile& logFile, ReadingMode readingMode);
-		
-		/**
-		 * Parse and insert a line in the model
-		 * Returns false if it was not inserted, true if it was
-		 */
-		bool insertLine(const QString& buffer, const LogFile& originalFile, ReadingMode readingMode);
-		
-	private slots:
-		void logFileChanged(LogFileReader* logFileReader, Analyzer::ReadingMode readingMode, const QStringList& content);
+    void setLogFiles(const QList<LogFile> &logFiles);
+    void setLogViewModel(LogViewModel *logViewModel);
 
-	signals:
-		void statusBarChanged(const QString& message);
-		void errorOccured(const QString& title, const QString& message);
-		
-		void openingProgressed();
-		
-		void logUpdated(int lineTotal);
-		
-		void readFileStarted(const LogMode& logMode, const LogFile& logFile, int fileIndex, int fileCount);
-		void readEnded();
-		
-	protected:
-		//TODO Move those members to a D-pointer (and think about subclasses accesses)
-		bool parsingPaused;
-		
-		LogViewModel* logViewModel;
+    bool isParsingPaused() const;
 
-		LogMode* logMode;
-		
-		QList<LogFileReader*> logFileReaders;
-		
-		QMutex* insertionLocking;
-		
-		long logLineInternalIdGenerator;
+    virtual LogViewColumns initColumns() = 0;
 
+public slots:
+    void setParsingPaused(bool paused);
+
+protected:
+    virtual LogFileReader *createLogFileReader(const LogFile &logFile) = 0;
+    virtual Analyzer::LogFileSortMode logFileSortMode() = 0;
+
+    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) = 0;
+
+private:
+    inline void informOpeningProgress(int currentPosition, int total);
+
+    void deleteLogFiles();
+
+    /**
+     * Parse and insert the buffered lines in the model
+     * Returns the count of inserted lines
+     */
+    int insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode);
+
+    /**
+     * Parse and insert a line in the model
+     * Returns false if it was not inserted, true if it was
+     */
+    bool insertLine(const QString &buffer, const LogFile &originalFile, ReadingMode readingMode);
+
+private slots:
+    void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode,
+                        const QStringList &content);
+
+signals:
+    void statusBarChanged(const QString &message);
+    void errorOccured(const QString &title, const QString &message);
+
+    void openingProgressed();
+
+    void logUpdated(int lineTotal);
+
+    void readFileStarted(const LogMode &logMode, const LogFile &logFile, int fileIndex, int fileCount);
+    void readEnded();
+
+protected:
+    // TODO Move those members to a D-pointer (and think about subclasses accesses)
+    bool parsingPaused;
+
+    LogViewModel *logViewModel;
+
+    LogMode *logMode;
+
+    QList<LogFileReader *> logFileReaders;
+
+    QMutex *insertionLocking;
+
+    long logLineInternalIdGenerator;
 };
 
 #endif

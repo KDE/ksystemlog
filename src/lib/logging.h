@@ -19,7 +19,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-
 #ifndef _KSYSTEMLOG_LOGGING_H_
 #define _KSYSTEMLOG_LOGGING_H_
 
@@ -31,7 +30,7 @@
  * - logWarning()
  * - logCritical()
  * - logFatal()
- * 
+ *
  * Use it like kDebug() function :
  * logDebug() << "Debug message" << list.size();
  */
@@ -55,25 +54,25 @@ Q_DECLARE_LOGGING_CATEGORY(KSYSTEMLOG)
 
 */
 
-#define LOG_DEFAULT_COLOR   ""
+#define LOG_DEFAULT_COLOR ""
 
-#define LOG_DEBUG_COLOR     ""
-#define LOG_CRITICAL_COLOR  ""
-#define LOG_FATAL_COLOR     ""
-#define LOG_WARNING_COLOR   ""
+#define LOG_DEBUG_COLOR ""
+#define LOG_CRITICAL_COLOR ""
+#define LOG_FATAL_COLOR ""
+#define LOG_WARNING_COLOR ""
 
 #define LOG_PREFIX(logColor) ""
 
 #if !defined(KDE_NO_DEBUG_OUTPUT)
-  #define logDebug() qCDebug(KSYSTEMLOG) << LOG_PREFIX(LOG_DEBUG_COLOR)
-#else  // KDE_NO_DEBUG_OUTPUT
-  #define logDebug() qCDebug(KSYSTEMLOG)
+#define logDebug() qCDebug(KSYSTEMLOG) << LOG_PREFIX(LOG_DEBUG_COLOR)
+#else // KDE_NO_DEBUG_OUTPUT
+#define logDebug() qCDebug(KSYSTEMLOG)
 #endif
 
 #if !defined(KDE_NO_WARNING_OUTPUT)
-  #define logWarning() qCWarning(KSYSTEMLOG) << LOG_PREFIX(LOG_WARNING_COLOR)
-#else  // KDE_NO_WARNING_OUTPUT
-	#define logWarning() qCWarning(KSYSTEMLOG)
+#define logWarning() qCWarning(KSYSTEMLOG) << LOG_PREFIX(LOG_WARNING_COLOR)
+#else // KDE_NO_WARNING_OUTPUT
+#define logWarning() qCWarning(KSYSTEMLOG)
 #endif
 
 #define logCritical() qCCritical(KSYSTEMLOG) << LOG_PREFIX(LOG_CRITICAL_COLOR)

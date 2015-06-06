@@ -32,7 +32,6 @@
  */
 #define APACHE_MODE_ICON "network-server"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class ApacheConfiguration;
 class ApacheConfigurationWidget;
 
-class ApacheLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class ApacheLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit ApacheLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget);
+    explicit ApacheLogMode(ApacheConfiguration *apacheConfiguration,
+                           ApacheConfigurationWidget *apacheConfigurationWidget);
 
-	~ApacheLogMode();
+    ~ApacheLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _APACHE_LOG_MODE_H_
-

@@ -36,33 +36,29 @@
 
 class LogLine;
 
-class KernelItemBuilder : public LogModeItemBuilder {
+class KernelItemBuilder : public LogModeItemBuilder
+{
+public:
+    KernelItemBuilder() {}
 
-	public:
-		KernelItemBuilder() {
+    virtual ~KernelItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~KernelItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Component:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Component:"),  it.next()));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
+        return result;
+    }
 };
 
 #endif // _KERNEL_ITEM_BUILDER_H_

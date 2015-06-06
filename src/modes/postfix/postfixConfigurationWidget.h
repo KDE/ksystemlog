@@ -39,67 +39,70 @@
 
 #include "postfixLogMode.h"
 
-class PostfixConfigurationWidget : public LogModeConfigurationWidget {
+class PostfixConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    PostfixConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Postfix Log"), QLatin1String(POSTFIX_MODE_ICON),
+                                     i18n("Postfix Log"))
+    {
+        QVBoxLayout *layout = new QVBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		PostfixConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Postfix Log"),QLatin1String( POSTFIX_MODE_ICON ), i18n("Postfix Log"))
-			{
+        QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
-			QVBoxLayout* layout = new QVBoxLayout();
-			this->setLayout(layout);
+        fileList = new LogLevelFileList(this, description);
 
-			QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
+        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
-			fileList = new LogLevelFileList(this, description);
+        layout->addWidget(fileList);
+    }
 
-			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+    virtual ~PostfixConfigurationWidget() {}
 
-			layout->addWidget(fileList);
+    bool isValid() const
+    {
+        if (fileList->isEmpty() == false) {
+            logDebug() << "Postfix configuration valid";
+            return true;
+        }
 
-		}
+        logDebug() << "Postfix configuration not valid";
+        return false;
+    }
 
-		virtual ~PostfixConfigurationWidget() {
+    void saveConfig()
+    {
+        logDebug() << "Saving config from Postfix Options...";
 
-		}
+        PostfixConfiguration *configuration = Globals::instance()
+                                                  ->findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  ->logModeConfiguration<PostfixConfiguration *>();
+        configuration->setLogFilesPaths(fileList->paths());
+        configuration->setLogFilesLevels(fileList->levels());
+    }
 
-		bool isValid() const {
-			if (fileList->isEmpty() == false) {
-        logDebug() << "Postfix configuration valid";
-				return true;
-			}
+    void readConfig()
+    {
+        PostfixConfiguration *configuration = Globals::instance()
+                                                  ->findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  ->logModeConfiguration<PostfixConfiguration *>();
 
-      logDebug() << "Postfix configuration not valid";
-			return false;
-		}
+        fileList->removeAllItems();
 
-		void saveConfig() {
-      logDebug() << "Saving config from Postfix Options...";
+        fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
+    }
 
-			PostfixConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( POSTFIX_LOG_MODE_ID ))->logModeConfiguration<PostfixConfiguration*>();
-			configuration->setLogFilesPaths(fileList->paths());
-			configuration->setLogFilesLevels(fileList->levels());
-		}
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-		void readConfig() {
-			PostfixConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( POSTFIX_LOG_MODE_ID ))->logModeConfiguration<PostfixConfiguration*>();
-
-			fileList->removeAllItems();
-
-			fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
-		}
-
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
-
-	private:
-
-		LogLevelFileList* fileList;
-
+private:
+    LogLevelFileList *fileList;
 };
 
 #endif // _POSTFIX_CONFIGURATION_WIDGET_H_

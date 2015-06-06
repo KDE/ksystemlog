@@ -34,37 +34,32 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class CronItemBuilder : public LogModeItemBuilder {
+class CronItemBuilder : public LogModeItemBuilder
+{
+public:
+    CronItemBuilder() {}
 
-	public:
-		CronItemBuilder() {
+    virtual ~CronItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~CronItemBuilder() {
+        result.append(QLatin1String("<table>"));
 
-		}
+        QListIterator<QString> it(line->logItems());
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Hostname:"), it.next()));
+        result.append(labelMessageFormat(i18n("Process:"), it.next()));
+        result.append(labelMessageFormat(i18n("User:"), it.next()));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
 
-			result.append(QLatin1String( "<table>" ));
+        result.append(QLatin1String("</table>"));
 
-			QListIterator<QString> it(line->logItems());
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Hostname:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Process:"), it.next() ));
-			result.append(labelMessageFormat(i18n("User:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-
-		}
+        return result;
+    }
 };
-
 
 #endif // _CRON_ITEM_BUILDER_H_

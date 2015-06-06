@@ -38,20 +38,18 @@
 
 #include "logMode.h"
 
-class XSessionLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class XSessionLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit XSessionLogMode();
+    explicit XSessionLogMode();
 
-	~XSessionLogMode();
+    ~XSessionLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _X_SESSION_LOG_MODE_H_
-

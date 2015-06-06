@@ -30,30 +30,29 @@
 
 class LogViewColumnPrivate;
 
-class LogViewColumn {
-	
-	public:
-		LogViewColumn(const LogViewColumn& column);
-		
-		/*
-		 * TODO For the moment, filtered and grouped parameters are useless : Use them or remove them
-		 */
-		explicit LogViewColumn(const QString& name, bool filtered=true, bool grouped=true);
+class LogViewColumn
+{
+public:
+    LogViewColumn(const LogViewColumn &column);
 
-		virtual ~LogViewColumn();
+    /*
+     * TODO For the moment, filtered and grouped parameters are useless : Use them or remove them
+     */
+    explicit LogViewColumn(const QString &name, bool filtered = true, bool grouped = true);
 
-		QString columnName() const;
-		bool isGrouped() const;
-		bool isFiltered() const;
-		
-		LogViewColumn& operator=(const LogViewColumn& column);
-		
-	private:
-		LogViewColumnPrivate* const d;
+    virtual ~LogViewColumn();
 
+    QString columnName() const;
+    bool isGrouped() const;
+    bool isFiltered() const;
+
+    LogViewColumn &operator=(const LogViewColumn &column);
+
+private:
+    LogViewColumnPrivate *const d;
 };
 
-QDataStream & operator<< (QDataStream& out, const LogViewColumn& column);
-QDebug & operator<< (QDebug& out, const LogViewColumn& column);
+QDataStream &operator<<(QDataStream &out, const LogViewColumn &column);
+QDebug &operator<<(QDebug &out, const LogViewColumn &column);
 
-#endif //LOG_VIEW_COLUMN_H
+#endif // LOG_VIEW_COLUMN_H

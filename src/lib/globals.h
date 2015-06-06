@@ -28,8 +28,6 @@
 #include "logMode.h"
 #include "logModeFactory.h"
 
-
-
 class LogModeFactory;
 
 class LogMode;
@@ -40,44 +38,44 @@ class Reader;
 
 class GlobalsPrivate;
 
-class Globals {
-	public:
-		static Globals* instance();
+class Globals
+{
+public:
+    static Globals *instance();
 
-		~Globals();
-		
-		QList<LogLevel*> logLevels();
-		
-		LogLevel* noLogLevel();
-		LogLevel* debugLogLevel();
-		LogLevel* informationLogLevel();
-		LogLevel* noticeLogLevel();
-		LogLevel* warningLogLevel();
-		LogLevel* errorLogLevel();
-		LogLevel* criticalLogLevel();
-		LogLevel* alertLogLevel();
-		LogLevel* emergencyLogLevel();
-		
-		/**
-		 * Allow to add a new Reader for a new log mode
-		 */
-		void registerLogModeFactory(LogModeFactory* logModeFactory);
-		
-		QList<LogMode*> logModes();
-		
-		QList<LogModeAction*> logModeActions();
-		
-		LogMode* findLogMode(const QString& logModeName);
-		
-	private:
-		explicit Globals();
-		
-		static Globals* self;
-		
-		void setupLogLevels();
+    ~Globals();
 
-		GlobalsPrivate* const d;
+    QList<LogLevel *> logLevels();
 
+    LogLevel *noLogLevel();
+    LogLevel *debugLogLevel();
+    LogLevel *informationLogLevel();
+    LogLevel *noticeLogLevel();
+    LogLevel *warningLogLevel();
+    LogLevel *errorLogLevel();
+    LogLevel *criticalLogLevel();
+    LogLevel *alertLogLevel();
+    LogLevel *emergencyLogLevel();
+
+    /**
+     * Allow to add a new Reader for a new log mode
+     */
+    void registerLogModeFactory(LogModeFactory *logModeFactory);
+
+    QList<LogMode *> logModes();
+
+    QList<LogModeAction *> logModeActions();
+
+    LogMode *findLogMode(const QString &logModeName);
+
+private:
+    explicit Globals();
+
+    static Globals *self;
+
+    void setupLogLevels();
+
+    GlobalsPrivate *const d;
 };
 
 #endif

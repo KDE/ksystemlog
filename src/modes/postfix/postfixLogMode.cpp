@@ -34,29 +34,32 @@
 
 #include "logModeItemBuilder.h"
 
-PostfixLogMode::PostfixLogMode() :
-	LogMode(QLatin1String( POSTFIX_LOG_MODE_ID ), i18n("Postfix Log"),QLatin1String( POSTFIX_MODE_ICON )) {
+PostfixLogMode::PostfixLogMode()
+    : LogMode(QLatin1String(POSTFIX_LOG_MODE_ID), i18n("Postfix Log"), QLatin1String(POSTFIX_MODE_ICON))
+{
+    d->logModeConfiguration = new PostfixConfiguration();
 
-	d->logModeConfiguration = new PostfixConfiguration();
+    d->logModeConfigurationWidget = new PostfixConfigurationWidget();
 
-	d->logModeConfigurationWidget = new PostfixConfigurationWidget();
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->itemBuilder = new LogModeItemBuilder();
-
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Postfix log."));
-	d->action->setWhatsThis(i18n("Displays the Postfix log in the current tab. Postfix is the most known and used mail server in the Linux world."));
-
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Postfix log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the Postfix log in the current tab. Postfix is the most known and used mail server in the "
+        "Linux world."));
 }
 
-PostfixLogMode::~PostfixLogMode() {
-
+PostfixLogMode::~PostfixLogMode()
+{
 }
 
-Analyzer* PostfixLogMode::createAnalyzer() {
-	return new PostfixAnalyzer(this);
+Analyzer *PostfixLogMode::createAnalyzer()
+{
+    return new PostfixAnalyzer(this);
 }
 
-QList<LogFile> PostfixLogMode::createLogFiles() {
-	return logModeConfiguration<PostfixConfiguration*>()->findGenericLogFiles();
+QList<LogFile> PostfixLogMode::createLogFiles()
+{
+    return logModeConfiguration<PostfixConfiguration *>()->findGenericLogFiles();
 }

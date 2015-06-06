@@ -34,30 +34,34 @@
 
 #include "logModeItemBuilder.h"
 
-DaemonLogMode::DaemonLogMode() :
-	LogMode(QLatin1String( DAEMON_LOG_MODE_ID ), i18n("Daemons' Logs"), QLatin1String( DAEMON_MODE_ICON )) {
+DaemonLogMode::DaemonLogMode()
+    : LogMode(QLatin1String(DAEMON_LOG_MODE_ID), i18n("Daemons' Logs"), QLatin1String(DAEMON_MODE_ICON))
+{
+    d->logModeConfiguration = new DaemonConfiguration();
 
-	d->logModeConfiguration = new DaemonConfiguration();
+    d->logModeConfigurationWidget = new DaemonConfigurationWidget();
 
-	d->logModeConfigurationWidget = new DaemonConfigurationWidget();
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->itemBuilder = new LogModeItemBuilder();
-
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the daemons' logs."));
-	d->action->setWhatsThis(i18n("Displays the daemons' logs in the current tab. The daemons are all processes launched in the background of the system. See this log if you want to know what occurs in the background of your system."));
-
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the daemons' logs."));
+    d->action->setWhatsThis(i18n(
+        "Displays the daemons' logs in the current tab. The daemons are all processes launched in the "
+        "background of the system. See this log if you want to know what occurs in the background of your "
+        "system."));
 }
 
-DaemonLogMode::~DaemonLogMode() {
-
+DaemonLogMode::~DaemonLogMode()
+{
 }
 
-Analyzer* DaemonLogMode::createAnalyzer() {
-	return new SyslogAnalyzer(this);
+Analyzer *DaemonLogMode::createAnalyzer()
+{
+    return new SyslogAnalyzer(this);
 }
 
-QList<LogFile> DaemonLogMode::createLogFiles() {
-	DaemonConfiguration* configuration = logModeConfiguration<DaemonConfiguration*>();
-	return configuration->findGenericLogFiles(configuration->daemonPaths());
+QList<LogFile> DaemonLogMode::createLogFiles()
+{
+    DaemonConfiguration *configuration = logModeConfiguration<DaemonConfiguration *>();
+    return configuration->findGenericLogFiles(configuration->daemonPaths());
 }

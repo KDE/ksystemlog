@@ -23,52 +23,55 @@
 
 #include <kiconloader.h>
 
-class LogLevelPrivate {
+class LogLevelPrivate
+{
 public:
-	int id;
-	QString name;
-	
-	QString icon;
-	
-	QColor color;
+    int id;
+    QString name;
 
-	QPixmap pixmap;
+    QString icon;
 
+    QColor color;
+
+    QPixmap pixmap;
 };
 
-
-LogLevel::LogLevel(int id, const QString& nm, const QString& ic, const QColor& col) :
-	d(new LogLevelPrivate()) {
-
-	d->id = id;
-	d->name = nm;
-	d->icon = ic;
-	d->color = col;
-	d->pixmap = SmallIcon(ic);
-
+LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col)
+    : d(new LogLevelPrivate())
+{
+    d->id = id;
+    d->name = nm;
+    d->icon = ic;
+    d->color = col;
+    d->pixmap = SmallIcon(ic);
 }
 
-
-LogLevel::~LogLevel() {
-	delete d;
+LogLevel::~LogLevel()
+{
+    delete d;
 }
 
-int LogLevel::id() {
-	return d->id;
+int LogLevel::id()
+{
+    return d->id;
 }
 
-QString LogLevel::name() {
-	return d->name;
+QString LogLevel::name()
+{
+    return d->name;
 }
 
-QString LogLevel::icon() {
-	return d->icon;
+QString LogLevel::icon()
+{
+    return d->icon;
 }
 
-QColor LogLevel::color() {
-	return d->color;
+QColor LogLevel::color()
+{
+    return d->color;
 }
 
-QPixmap LogLevel::pixmap() {
-	return d->pixmap;
+QPixmap LogLevel::pixmap()
+{
+    return d->pixmap;
 }

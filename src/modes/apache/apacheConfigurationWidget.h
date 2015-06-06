@@ -24,7 +24,6 @@
 
 #include "logModeConfigurationWidget.h"
 
-
 #include <KLocalizedString>
 
 #include "globals.h"
@@ -36,76 +35,81 @@
 #include "apacheConfiguration.h"
 #include "apacheLogMode.h"
 
-class ApacheConfigurationWidget : public LogModeConfigurationWidget {
+class ApacheConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    ApacheConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Apache Log"), QLatin1String(APACHE_MODE_ICON), i18n("Apache Log"))
+    {
+        QHBoxLayout *layout = new QHBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		ApacheConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Apache Log"),QLatin1String( APACHE_MODE_ICON ), i18n("Apache Log"))
-			{
+        apacheFileList
+            = new MultipleFileList(this, i18n(
+                                             "<p>These files will be analyzed to show the <b>Apache log</b> "
+                                             "and the <b>Apache Access log</b>.</p>"));
 
-			QHBoxLayout* layout = new QHBoxLayout();
-			this->setLayout(layout);
+        apachePathsId = apacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
+        apacheAccessPathsId
+            = apacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
 
-			apacheFileList=new MultipleFileList(this, i18n("<p>These files will be analyzed to show the <b>Apache log</b> and the <b>Apache Access log</b>.</p>"));
+        connect(apacheFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
-			apachePathsId = apacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
-			apacheAccessPathsId = apacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
+        layout->addWidget(apacheFileList);
+    }
 
-			connect(apacheFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+    ~ApacheConfigurationWidget() {}
 
-			layout->addWidget(apacheFileList);
-		}
+public slots:
 
-		~ApacheConfigurationWidget() {
+    void saveConfig()
+    {
+        logDebug() << "Saving config from Apache Options...";
 
-		}
+        ApacheConfiguration *apacheConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
+                                                       ->logModeConfiguration<ApacheConfiguration *>();
+        apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
+        apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
+    }
 
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-	public slots:
+    void readConfig()
+    {
+        ApacheConfiguration *apacheConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
+                                                       ->logModeConfiguration<ApacheConfiguration *>();
 
-		void saveConfig() {
-      logDebug() << "Saving config from Apache Options...";
+        apacheFileList->removeAllItems();
 
-			ApacheConfiguration* apacheConfiguration = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ))->logModeConfiguration<ApacheConfiguration*>();
-			apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
-			apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
-		}
+        apacheFileList->addPaths(apachePathsId, apacheConfiguration->apachePaths());
+        apacheFileList->addPaths(apacheAccessPathsId, apacheConfiguration->apacheAccessPaths());
+    }
 
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
+protected:
+    bool isValid() const
+    {
+        if (apacheFileList->isOneOfCategoryEmpty() == true) {
+            logDebug() << "Apache configuration not valid";
+            return false;
+        }
 
-		void readConfig() {
-			ApacheConfiguration* apacheConfiguration = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ))->logModeConfiguration<ApacheConfiguration*>();
+        logDebug() << "Apache configuration valid";
+        return true;
+    }
 
-			apacheFileList->removeAllItems();
+private:
+    MultipleFileList *apacheFileList;
 
-			apacheFileList->addPaths(apachePathsId, apacheConfiguration->apachePaths());
-			apacheFileList->addPaths(apacheAccessPathsId, apacheConfiguration->apacheAccessPaths());
-		}
-
-	protected:
-		bool isValid() const {
-			if (apacheFileList->isOneOfCategoryEmpty()==true) {
-        logDebug() << "Apache configuration not valid";
-				return false;
-			}
-
-      logDebug() << "Apache configuration valid";
-			return true;
-
-		}
-
-	private:
-
-		MultipleFileList* apacheFileList;
-
-		int apachePathsId;
-		int apacheAccessPathsId;
-
+    int apachePathsId;
+    int apacheAccessPathsId;
 };
 
 #endif // _APACHE_CONFIGURATION_WIDGET_H_

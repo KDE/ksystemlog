@@ -21,7 +21,6 @@
 
 #include "apacheFactory.h"
 
-
 #include <KLocalizedString>
 
 #include "multipleActions.h"
@@ -34,28 +33,31 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
-QList<LogMode*> ApacheLogModeFactory::createLogModes() const {
+QList<LogMode *> ApacheLogModeFactory::createLogModes() const
+{
+    // Create the shared configuration and configuration widget between the logModes
 
-	//Create the shared configuration and configuration widget between the logModes
+    ApacheConfiguration *logModeConfiguration = new ApacheConfiguration();
+    ApacheConfigurationWidget *logModeConfigurationWidget = new ApacheConfigurationWidget();
 
-	ApacheConfiguration* logModeConfiguration = new ApacheConfiguration();
-	ApacheConfigurationWidget* logModeConfigurationWidget = new ApacheConfigurationWidget();
+    QList<LogMode *> logModes;
+    logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
+    logModes.append(new ApacheAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
 
-	QList<LogMode*> logModes;
-	logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
-	logModes.append(new ApacheAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
-
-	return logModes;
+    return logModes;
 }
 
-LogModeAction* ApacheLogModeFactory::createLogModeAction() const {
-	LogMode* apacheLogMode = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ));
+LogModeAction *ApacheLogModeFactory::createLogModeAction() const
+{
+    LogMode *apacheLogMode = Globals::instance()->findLogMode(QLatin1String(APACHE_LOG_MODE_ID));
 
-	MultipleActions* multipleActions = new MultipleActions(QIcon::fromTheme( QLatin1String(APACHE_MODE_ICON) ), i18n("Apache"), apacheLogMode);
-	multipleActions->addInnerAction(apacheLogMode->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ))->action());
+    MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QLatin1String(APACHE_MODE_ICON)),
+                                                           i18n("Apache"), apacheLogMode);
+    multipleActions->addInnerAction(apacheLogMode->action());
+    multipleActions->addInnerAction(
+        Globals::instance()->findLogMode(QLatin1String(APACHE_ACCESS_LOG_MODE_ID))->action());
 
-	multipleActions->setCategory(LogModeAction::ServicesCategory);
+    multipleActions->setCategory(LogModeAction::ServicesCategory);
 
-	return multipleActions;
+    return multipleActions;
 }

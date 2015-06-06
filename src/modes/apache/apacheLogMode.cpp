@@ -33,31 +33,33 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
+ApacheLogMode::ApacheLogMode(ApacheConfiguration *apacheConfiguration,
+                             ApacheConfigurationWidget *apacheConfigurationWidget)
+    : LogMode(QLatin1String(APACHE_LOG_MODE_ID), i18n("Apache Log"), QLatin1String(APACHE_MODE_ICON))
+{
+    d->logModeConfiguration = apacheConfiguration;
+    d->logModeConfigurationWidget = apacheConfigurationWidget;
 
-ApacheLogMode::ApacheLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget) :
-	LogMode(QLatin1String( APACHE_LOG_MODE_ID ), i18n("Apache Log"),QLatin1String( APACHE_MODE_ICON )) {
+    d->itemBuilder = new ApacheItemBuilder();
 
-	d->logModeConfiguration = apacheConfiguration;
-	d->logModeConfigurationWidget = apacheConfigurationWidget;
-
-	d->itemBuilder = new ApacheItemBuilder();
-
-	//Apache Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Apache log."));
-	d->action->setWhatsThis(i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
-
+    // Apache Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Apache log."));
+    d->action->setWhatsThis(
+        i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
 }
 
-ApacheLogMode::~ApacheLogMode() {
-
+ApacheLogMode::~ApacheLogMode()
+{
 }
 
-Analyzer* ApacheLogMode::createAnalyzer() {
-	return new ApacheAnalyzer(this);
+Analyzer *ApacheLogMode::createAnalyzer()
+{
+    return new ApacheAnalyzer(this);
 }
 
-QList<LogFile> ApacheLogMode::createLogFiles() {
-	ApacheConfiguration* apacheConfiguration = logModeConfiguration<ApacheConfiguration*>();
-	return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apachePaths());
+QList<LogFile> ApacheLogMode::createLogFiles()
+{
+    ApacheConfiguration *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
+    return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apachePaths());
 }

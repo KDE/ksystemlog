@@ -26,36 +26,34 @@
 
 class QString;
 
-namespace KSystemLog {
-
+namespace KSystemLog
+{
 class StatusBarPrivate;
 
 /**
  * Status Bar
  */
-class StatusBar : public QStatusBar {
-	
-	Q_OBJECT
-	
-public:
-	explicit StatusBar(QWidget* parent);
-	
-	virtual ~StatusBar();
-	
-	void changeLineCountMessage(const QString& lineCountMessage);
-	void changeLastModification(const QTime& lastModification);
-	
-	void changeMessage(const QString& message);
-	
-private slots:
-	void toggleHistory();
-	void selectLastHistory();
-private:
-	
-	StatusBarPrivate* const d;
-	
-};
+class StatusBar : public QStatusBar
+{
+    Q_OBJECT
 
+public:
+    explicit StatusBar(QWidget *parent);
+
+    virtual ~StatusBar();
+
+    void changeLineCountMessage(const QString &lineCountMessage);
+    void changeLastModification(const QTime &lastModification);
+
+    void changeMessage(const QString &message);
+
+private slots:
+    void toggleHistory();
+    void selectLastHistory();
+
+private:
+    StatusBarPrivate *const d;
+};
 }
 
 #endif // _STATUS_BAR_

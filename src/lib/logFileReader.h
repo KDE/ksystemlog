@@ -31,33 +31,32 @@
 
 class LogFileReaderPrivate;
 
-class LogFileReader : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		
-		LogFileReader(const LogFile& logFile);
-		
-		virtual ~LogFileReader();
+class LogFileReader : public QObject
+{
+    Q_OBJECT
 
-		virtual void watchFile(bool enable) = 0;
-		
-		LogFile logFile() const;
-	    
-	signals:
-		void contentChanged(LogFileReader* origin, Analyzer::ReadingMode readingMode, const QStringList& newLines);
-		
-		void statusBarChanged(const QString& message);
-		void errorOccured(const QString& title, const QString& message);
-	
-	protected:
-		LogFileReaderPrivate* const d_ptr;
-		LogFileReader(LogFileReaderPrivate& dd, const LogFile& logFile);
-		
-	private:
-		Q_DECLARE_PRIVATE(LogFileReader)
-		
+public:
+    LogFileReader(const LogFile &logFile);
+
+    virtual ~LogFileReader();
+
+    virtual void watchFile(bool enable) = 0;
+
+    LogFile logFile() const;
+
+signals:
+    void contentChanged(LogFileReader *origin, Analyzer::ReadingMode readingMode,
+                        const QStringList &newLines);
+
+    void statusBarChanged(const QString &message);
+    void errorOccured(const QString &title, const QString &message);
+
+protected:
+    LogFileReaderPrivate *const d_ptr;
+    LogFileReader(LogFileReaderPrivate &dd, const LogFile &logFile);
+
+private:
+    Q_DECLARE_PRIVATE(LogFileReader)
 };
 
 #endif // _LOG_FILE_READER_H_

@@ -22,27 +22,24 @@
 #ifndef _OPEN_LOG_MODE_FACTORY_H_
 #define _OPEN_LOG_MODE_FACTORY_H_
 
-
 #include "logModeFactory.h"
 #include "logModeConfiguration.h"
 
-class OpenLogModeFactory : public LogModeFactory {
-	
-	Q_OBJECT
-	
-	public:
-		explicit OpenLogModeFactory(QWidget* parent);
-		
-		~OpenLogModeFactory();
+class OpenLogModeFactory : public LogModeFactory
+{
+    Q_OBJECT
 
-		QList<LogMode*> createLogModes() const;
+public:
+    explicit OpenLogModeFactory(QWidget *parent);
 
-		LogModeAction* createLogModeAction() const;
-		
-	private:
+    ~OpenLogModeFactory();
 
-		QWidget* parent;
+    QList<LogMode *> createLogModes() const;
+
+    LogModeAction *createLogModeAction() const;
+
+private:
+    QWidget *parent;
 };
 
 #endif // _OPEN_LOG_MODE_FACTORY_H_
-

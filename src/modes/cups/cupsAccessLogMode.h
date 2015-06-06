@@ -32,7 +32,6 @@
  */
 #define CUPS_ACCESS_MODE_ICON "printer"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class CupsConfiguration;
 class CupsConfigurationWidget;
 
-class CupsAccessLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class CupsAccessLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit CupsAccessLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget);
+    explicit CupsAccessLogMode(CupsConfiguration *cupsConfiguration,
+                               CupsConfigurationWidget *cupsConfigurationWidget);
 
-	~CupsAccessLogMode();
+    ~CupsAccessLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _CUPS_ACCESS_LOG_MODE_H_
-

@@ -30,26 +30,26 @@
 #define KSYSTEMLOG_ICON "utilities-log-viewer"
 
 enum LogLevelIds {
-	NONE_LOG_LEVEL_ID=0,
-	DEBUG_LOG_LEVEL_ID,
-	INFORMATION_LOG_LEVEL_ID,
-	NOTICE_LOG_LEVEL_ID,
-	WARNING_LOG_LEVEL_ID,
-	ERROR_LOG_LEVEL_ID,
-	CRITICAL_LOG_LEVEL_ID,
-	ALERT_LOG_LEVEL_ID,
-	EMERGENCY_LOG_LEVEL_ID
+    NONE_LOG_LEVEL_ID = 0,
+    DEBUG_LOG_LEVEL_ID,
+    INFORMATION_LOG_LEVEL_ID,
+    NOTICE_LOG_LEVEL_ID,
+    WARNING_LOG_LEVEL_ID,
+    ERROR_LOG_LEVEL_ID,
+    CRITICAL_LOG_LEVEL_ID,
+    ALERT_LOG_LEVEL_ID,
+    EMERGENCY_LOG_LEVEL_ID
 };
 
-//TODO Need a rewriting
+// TODO Need a rewriting
 /*
 enum GroupByType {
-	NO_GROUP_BY=0,
-	GROUP_BY_LOG_LEVEL,
-	GROUP_BY_DAY,
-	GROUP_BY_HOUR,
-	GROUP_BY_LOG_FILE,
-	GROUP_BY_COLUMN
+    NO_GROUP_BY=0,
+    GROUP_BY_LOG_LEVEL,
+    GROUP_BY_DAY,
+    GROUP_BY_HOUR,
+    GROUP_BY_LOG_FILE,
+    GROUP_BY_COLUMN
 };
 
 //This variable only counts GROUP_BY methods != than GROUP_BY_COLUMN
@@ -72,6 +72,5 @@ enum GroupByType {
  * Icon name of No Mode icon
  */
 #define NO_MODE_ICON "text-x-generic"
-
 
 #endif // _DEFAULTS_H_

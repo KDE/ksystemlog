@@ -34,39 +34,35 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class ApacheAccessItemBuilder : public LogModeItemBuilder {
+class ApacheAccessItemBuilder : public LogModeItemBuilder
+{
+public:
+    ApacheAccessItemBuilder() {}
 
-	public:
-		ApacheAccessItemBuilder() {
+    virtual ~ApacheAccessItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~ApacheAccessItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Host Name:"), it.next()));
+        result.append(labelMessageFormat(i18n("Identification:"), it.next()));
+        result.append(labelMessageFormat(i18n("Username:"), it.next()));
+        result.append(labelMessageFormat(i18n("HTTP Response:"), it.next()));
+        result.append(labelMessageFormat(i18n("Bytes Sent:"), it.next()));
+        result.append(labelMessageFormat(i18n("Agent Identity:"), it.next()));
+        result.append(labelMessageFormat(i18n("HTTP Request:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Host Name:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Identification:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Username:"), it.next() ));
-			result.append(labelMessageFormat(i18n("HTTP Response:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Bytes Sent:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Agent Identity:"), it.next() ));
-			result.append(labelMessageFormat(i18n("HTTP Request:"), it.next() ));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
+        return result;
+    }
 };
 
 #endif // _APACHE_ACCESS_ITEM_BUILDER_H_

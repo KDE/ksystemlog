@@ -32,7 +32,6 @@
  */
 #define SAMBA_MODE_ICON "folder-remote"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -43,20 +42,19 @@ class SambaConfiguration;
 class SambaConfigurationWidget;
 class SambaItemBuilder;
 
-class SambaLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class SambaLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit SambaLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder);
+    explicit SambaLogMode(SambaConfiguration *sambaConfiguration,
+                          SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder);
 
-	~SambaLogMode();
+    ~SambaLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _SAMBA_LOG_MODE_H_
-

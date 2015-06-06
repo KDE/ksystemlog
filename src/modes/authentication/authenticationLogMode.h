@@ -38,20 +38,18 @@
 
 #include "logMode.h"
 
-class AuthenticationLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class AuthenticationLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit AuthenticationLogMode();
+    explicit AuthenticationLogMode();
 
-	~AuthenticationLogMode();
+    ~AuthenticationLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer();
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _AUTHENTICATION_LOG_MODE_H_
-

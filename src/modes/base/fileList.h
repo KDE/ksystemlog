@@ -30,54 +30,54 @@
 
 class QVBoxLayout;
 
-class FileList : public QWidget, public Ui::FileListBase {
+class FileList : public QWidget, public Ui::FileListBase
+{
+    Q_OBJECT
 
-	Q_OBJECT
-	
-	public:
-		FileList(QWidget* parent, const QString& descriptionText);
-		virtual ~FileList();
-		
-		int count() const;
-		
-		bool isEmpty() const;
-		
-		QStringList paths();
+public:
+    FileList(QWidget *parent, const QString &descriptionText);
+    virtual ~FileList();
 
-		void addPaths(const QStringList& paths);
-		
-	public slots:
-		void removeAllItems();
-		
-	signals:
-		void fileListChanged();
+    int count() const;
 
-	private slots:
-		
-		void updateButtons();
-		
-		void removeSelectedItem();
-		void moveUpItem();
-		void moveDownItem();
-		
-	protected slots:
-		virtual void addItem();
-		
-		void modifyItem();
-		void modifyItem(QListWidgetItem* item);
+    bool isEmpty() const;
 
-	protected:
-		void removeItem(int id);
-		
-		void moveItem(int direction);
-		void unselectAllItems();
+    QStringList paths();
 
-		/**
-		 * Convenient method which returns the layout which manage the button list
-		 */
-		QVBoxLayout* buttonsLayout();
+    void addPaths(const QStringList &paths);
 
-		FileListHelper fileListHelper;
+public slots:
+    void removeAllItems();
+
+signals:
+    void fileListChanged();
+
+private slots:
+
+    void updateButtons();
+
+    void removeSelectedItem();
+    void moveUpItem();
+    void moveDownItem();
+
+protected slots:
+    virtual void addItem();
+
+    void modifyItem();
+    void modifyItem(QListWidgetItem *item);
+
+protected:
+    void removeItem(int id);
+
+    void moveItem(int direction);
+    void unselectAllItems();
+
+    /**
+     * Convenient method which returns the layout which manage the button list
+     */
+    QVBoxLayout *buttonsLayout();
+
+    FileListHelper fileListHelper;
 };
 
 #endif //_FILE_LIST_H_

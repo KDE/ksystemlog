@@ -39,67 +39,69 @@
 
 #include "systemLogMode.h"
 
-class SystemConfigurationWidget : public LogModeConfigurationWidget {
+class SystemConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    SystemConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("System Log"), QLatin1String(SYSTEM_MODE_ICON), i18n("System Log"))
+    {
+        QVBoxLayout *layout = new QVBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		SystemConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("System Log"),QLatin1String( SYSTEM_MODE_ICON ), i18n("System Log"))
-			{
+        QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
-			QVBoxLayout* layout = new QVBoxLayout();
-			this->setLayout(layout);
+        fileList = new LogLevelFileList(this, description);
 
-			QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
+        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
 
-			fileList = new LogLevelFileList(this, description);
+        layout->addWidget(fileList);
+    }
 
-			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+    virtual ~SystemConfigurationWidget() {}
 
-			layout->addWidget(fileList);
+    bool isValid() const
+    {
+        if (fileList->isEmpty() == false) {
+            logDebug() << "System configuration valid";
+            return true;
+        }
 
-		}
+        logDebug() << "System configuration not valid";
+        return false;
+    }
 
-		virtual ~SystemConfigurationWidget() {
+    void saveConfig()
+    {
+        logDebug() << "Saving config from System Options...";
 
-		}
+        SystemConfiguration *systemConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       ->logModeConfiguration<SystemConfiguration *>();
+        systemConfiguration->setLogFilesPaths(fileList->paths());
+        systemConfiguration->setLogFilesLevels(fileList->levels());
+    }
 
-		bool isValid() const {
-			if (fileList->isEmpty() == false) {
-        logDebug() << "System configuration valid";
-				return true;
-			}
+    void readConfig()
+    {
+        SystemConfiguration *systemConfiguration = Globals::instance()
+                                                       ->findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       ->logModeConfiguration<SystemConfiguration *>();
 
-      logDebug() << "System configuration not valid";
-			return false;
-		}
+        fileList->removeAllItems();
 
-		void saveConfig() {
-      logDebug() << "Saving config from System Options...";
+        fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
+    }
 
-			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(QLatin1String( SYSTEM_LOG_MODE_ID ))->logModeConfiguration<SystemConfiguration*>();
-			systemConfiguration->setLogFilesPaths(fileList->paths());
-			systemConfiguration->setLogFilesLevels(fileList->levels());
-		}
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-		void readConfig() {
-			SystemConfiguration* systemConfiguration = Globals::instance()->findLogMode(QLatin1String( SYSTEM_LOG_MODE_ID ))->logModeConfiguration<SystemConfiguration*>();
-
-			fileList->removeAllItems();
-
-			fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
-		}
-
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
-
-	private:
-
-		LogLevelFileList* fileList;
-
+private:
+    LogLevelFileList *fileList;
 };
 
 #endif // _SYSTEM_CONFIGURATION_WIDGET_H_

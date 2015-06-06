@@ -34,19 +34,20 @@ class QLabel;
 /**
  @author Bojan Djurkovic
  */
-class LevelPrintPage : public QWidget {
+class LevelPrintPage : public QWidget
+{
 public:
-	explicit LevelPrintPage(QWidget *parent = 0);
-	~LevelPrintPage();
+    explicit LevelPrintPage(QWidget *parent = 0);
+    ~LevelPrintPage();
 
-	bool isValid(QString& msg);
+    bool isValid(QString &msg);
 
 private:
-	QButtonGroup* m_btnGroup;
-	QGridLayout* m_btnGroupLayout;
-	QVBoxLayout* m_pageLayout;
-	QLabel* m_lblChoose;
-	QList<QCheckBox*> levelCheckBoxes;
+    QButtonGroup *m_btnGroup;
+    QGridLayout *m_btnGroupLayout;
+    QVBoxLayout *m_pageLayout;
+    QLabel *m_lblChoose;
+    QList<QCheckBox *> levelCheckBoxes;
 };
 
 #endif

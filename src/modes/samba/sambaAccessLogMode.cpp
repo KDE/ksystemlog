@@ -33,30 +33,35 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
+SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration *sambaConfiguration,
+                                       SambaConfigurationWidget *sambaConfigurationWidget,
+                                       SambaItemBuilder *itemBuilder)
+    : LogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID), i18n("Samba Access Log"),
+              QLatin1String(SAMBA_ACCESS_MODE_ICON))
+{
+    d->logModeConfiguration = sambaConfiguration;
+    d->logModeConfigurationWidget = sambaConfigurationWidget;
+    d->itemBuilder = itemBuilder;
 
-SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) :
-	LogMode(QLatin1String( SAMBA_ACCESS_LOG_MODE_ID ), i18n("Samba Access Log"),QLatin1String( SAMBA_ACCESS_MODE_ICON )) {
-
-	d->logModeConfiguration = sambaConfiguration;
-	d->logModeConfigurationWidget = sambaConfigurationWidget;
-	d->itemBuilder = itemBuilder;
-
-	//Samba Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Samba Access log."));
-	d->action->setWhatsThis(i18n("Displays the Samba Access log in the current tab. This log mode allows you to see connections between your shares and remote hosts."));
-
+    // Samba Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Samba Access log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the Samba Access log in the current tab. This log mode allows you to see connections "
+        "between your shares and remote hosts."));
 }
 
-SambaAccessLogMode::~SambaAccessLogMode() {
-
+SambaAccessLogMode::~SambaAccessLogMode()
+{
 }
 
-Analyzer* SambaAccessLogMode::createAnalyzer() {
-	return new SambaAnalyzer(this);
+Analyzer *SambaAccessLogMode::createAnalyzer()
+{
+    return new SambaAnalyzer(this);
 }
 
-QList<LogFile> SambaAccessLogMode::createLogFiles() {
-	SambaConfiguration* sambaConfiguration = logModeConfiguration<SambaConfiguration*>();
-	return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaAccessPaths());
+QList<LogFile> SambaAccessLogMode::createLogFiles()
+{
+    SambaConfiguration *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
+    return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaAccessPaths());
 }

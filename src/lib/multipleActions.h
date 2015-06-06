@@ -39,29 +39,29 @@ class QAction;
  * and be able to retrieve them when necessary, using actions().
  * This method will return QAction added using addInnerAction().
  */
-class MultipleActions : public LogModeAction {
-	
-	Q_OBJECT
-	
-	public:
-		MultipleActions(const QIcon& icon, const QString& text, QObject* parent);
-		
-		virtual ~MultipleActions();
-		
-		QList<QAction*> innerActions();
+class MultipleActions : public LogModeAction
+{
+    Q_OBJECT
 
-		QAction* actionMenu();
-		
-		/**
-		 * This method is not called addAction() to avoid name collision with
-		 * parent class
-		 */
-		void addInnerAction(QAction* action);
+public:
+    MultipleActions(const QIcon &icon, const QString &text, QObject *parent);
 
-	private:
-		QList<QAction*> actions;
-		
-		KActionMenu* action; 
+    virtual ~MultipleActions();
+
+    QList<QAction *> innerActions();
+
+    QAction *actionMenu();
+
+    /**
+     * This method is not called addAction() to avoid name collision with
+     * parent class
+     */
+    void addInnerAction(QAction *action);
+
+private:
+    QList<QAction *> actions;
+
+    KActionMenu *action;
 };
 
 #endif // _MULTIPLE_ACTIONS_H_

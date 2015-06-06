@@ -25,27 +25,28 @@
 
 #include "logging.h"
 
-MultipleActions::MultipleActions(const QIcon& icon, const QString& text, QObject* parent) {
-	action = new KActionMenu(icon, text, parent);
-
+MultipleActions::MultipleActions(const QIcon &icon, const QString &text, QObject *parent)
+{
+    action = new KActionMenu(icon, text, parent);
 }
 
-MultipleActions::~MultipleActions() {
-	delete action;
+MultipleActions::~MultipleActions()
+{
+    delete action;
 }
 
-QList<QAction*> MultipleActions::innerActions() {
-	return actions;
+QList<QAction *> MultipleActions::innerActions()
+{
+    return actions;
 }
 
-QAction* MultipleActions::actionMenu() {
-	return action;
+QAction *MultipleActions::actionMenu()
+{
+    return action;
 }
 
-void MultipleActions::addInnerAction(QAction* innerAction) {
-	action->addAction(innerAction);
-	actions.append(innerAction);
-	
+void MultipleActions::addInnerAction(QAction *innerAction)
+{
+    action->addAction(innerAction);
+    actions.append(innerAction);
 }
-
-

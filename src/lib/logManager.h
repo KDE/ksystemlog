@@ -34,56 +34,54 @@
 
 class View;
 
-
 class LogManagerPrivate;
 
-class LogManager : public QObject {
-	Q_OBJECT
-	
-	public:
-	
-		explicit LogManager(View* view);
-		
-		~LogManager();
-		
-		View* usedView() const;
-		
-		const QTime& lastUpdate() const;
-		
-		LogMode* logMode();
-		
-		void initialize(LogMode* mode);
-				
-		void setParsingPaused(bool paused);
-		bool isParsingPaused() const;
-		
-		void reload();
-		
-	protected slots:
-		
-		void updateLog(int lineCount);
-		
-		void showErrorMessage(const QString& title, const QString& message);
-		
-	signals:
-		void tabTitleChanged(View* view, const QIcon& icon, const QString& label);
-		
-		void windowTitleChanged(const QString& caption);
-		void statusBarChanged(const QString& message);
-		
-		void reloaded();
-		void logUpdated(View* view, int addedLines);
-		
-	private slots:
-		void loadDroppedUrls(const QList<QUrl>& urls);
-		
-	private:
-		void internalInitialize(LogMode* mode, const QList<LogFile>& logFiles);
-		
-		void cleanPreviousLogMode();
-			
-		LogManagerPrivate* d;
+class LogManager : public QObject
+{
+    Q_OBJECT
 
+public:
+    explicit LogManager(View *view);
+
+    ~LogManager();
+
+    View *usedView() const;
+
+    const QTime &lastUpdate() const;
+
+    LogMode *logMode();
+
+    void initialize(LogMode *mode);
+
+    void setParsingPaused(bool paused);
+    bool isParsingPaused() const;
+
+    void reload();
+
+protected slots:
+
+    void updateLog(int lineCount);
+
+    void showErrorMessage(const QString &title, const QString &message);
+
+signals:
+    void tabTitleChanged(View *view, const QIcon &icon, const QString &label);
+
+    void windowTitleChanged(const QString &caption);
+    void statusBarChanged(const QString &message);
+
+    void reloaded();
+    void logUpdated(View *view, int addedLines);
+
+private slots:
+    void loadDroppedUrls(const QList<QUrl> &urls);
+
+private:
+    void internalInitialize(LogMode *mode, const QList<LogFile> &logFiles);
+
+    void cleanPreviousLogMode();
+
+    LogManagerPrivate *d;
 };
 
-#endif //LOG_MANAGER_H
+#endif // LOG_MANAGER_H

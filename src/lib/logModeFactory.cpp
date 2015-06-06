@@ -23,14 +23,10 @@
 
 #include "logging.h"
 
-LogModeFactory::LogModeFactory() {
-	
+LogModeFactory::LogModeFactory()
+{
 }
 
-
-LogModeFactory::~LogModeFactory() {
-	
+LogModeFactory::~LogModeFactory()
+{
 }
-
-
-

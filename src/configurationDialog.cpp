@@ -21,13 +21,11 @@
 
 #include "configurationDialog.h"
 
-
 #include <QList>
 #include <QPushButton>
 
 #include <KLocalizedString>
 #include <kiconloader.h>
-
 
 #include "generalConfigurationWidget.h"
 
@@ -41,161 +39,165 @@
 #include "logging.h"
 #include "defaults.h"
 
-class ConfigurationDialogPrivate {
+class ConfigurationDialogPrivate
+{
 public:
+    GeneralConfigurationWidget *generalConfiguration;
 
-	GeneralConfigurationWidget* generalConfiguration;
+    QList<LogModeConfigurationWidget *> logModeConfigurations;
 
-	QList<LogModeConfigurationWidget*> logModeConfigurations;
-
-	bool changed;
+    bool changed;
 };
 
-ConfigurationDialog::ConfigurationDialog(QWidget* parent) :
-	KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self()),
-	d(new ConfigurationDialogPrivate())
-	{
+ConfigurationDialog::ConfigurationDialog(QWidget *parent)
+    : KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self())
+    , d(new ConfigurationDialogPrivate())
+{
+    d->changed = false;
 
-	d->changed = false;
+    setupGeneralConfiguration();
 
-	setupGeneralConfiguration();
-
-	setupLogModeConfigurations();
-
+    setupLogModeConfigurations();
 }
 
-ConfigurationDialog::~ConfigurationDialog() {
-	//All configuration pages are managed by KConfigDialog
-	delete d;
+ConfigurationDialog::~ConfigurationDialog()
+{
+    // All configuration pages are managed by KConfigDialog
+    delete d;
 }
 
-void ConfigurationDialog::setupLogModeConfigurations() {
-  logDebug() << "Setup Log Mode Configurations...";
+void ConfigurationDialog::setupLogModeConfigurations()
+{
+    logDebug() << "Setup Log Mode Configurations...";
 
+    foreach (LogMode *logMode, Globals::instance()->logModes()) {
+        // Some Log mode does not need a configuration widget
+        if (logMode->logModeConfigurationWidget() == NULL) {
+            continue;
+        }
 
-	foreach(LogMode* logMode, Globals::instance()->logModes()) {
-		//Some Log mode does not need a configuration widget
-		if (logMode->logModeConfigurationWidget() == NULL) {
-			continue;
-		}
+        // The configuration widget could be shared between Log Modes
+        if (d->logModeConfigurations.contains(logMode->logModeConfigurationWidget()) == true) {
+            continue;
+        }
 
-		//The configuration widget could be shared between Log Modes
-		if (d->logModeConfigurations.contains(logMode->logModeConfigurationWidget()) == true) {
-			continue;
-		}
+        d->logModeConfigurations.append(logMode->logModeConfigurationWidget());
+    }
 
-		d->logModeConfigurations.append(logMode->logModeConfigurationWidget());
-	}
+    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+        logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
 
+        addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(),
+                logModeConfigurationWidget->iconName(), logModeConfigurationWidget->header(), false);
 
-	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
-    logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
-
-		addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(), logModeConfigurationWidget->iconName(), logModeConfigurationWidget->header(), false);
-
-		connect(logModeConfigurationWidget, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
-	}
+        connect(logModeConfigurationWidget, SIGNAL(configurationChanged()), this,
+                SLOT(updateConfiguration()));
+    }
 }
 
-void ConfigurationDialog::showConfiguration() {
-  logDebug() << "Showing Configuration dialog...";
+void ConfigurationDialog::showConfiguration()
+{
+    logDebug() << "Showing Configuration dialog...";
 
-	show();
+    show();
 }
 
-void ConfigurationDialog::setupGeneralConfiguration() {
-	d->generalConfiguration = new GeneralConfigurationWidget();
+void ConfigurationDialog::setupGeneralConfiguration()
+{
+    d->generalConfiguration = new GeneralConfigurationWidget();
 
-  addPage(d->generalConfiguration, i18n("General"), QLatin1String( "applications-system" ), i18n("General"), false);
+    addPage(d->generalConfiguration, i18n("General"), QLatin1String("applications-system"), i18n("General"),
+            false);
 
-	connect(d->generalConfiguration, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
+    connect(d->generalConfiguration, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
 }
 
-void ConfigurationDialog::updateSettings() {
-  logDebug() << "Saving configuration...";
+void ConfigurationDialog::updateSettings()
+{
+    logDebug() << "Saving configuration...";
 
-	d->changed = false;
+    d->changed = false;
 
-	d->generalConfiguration->saveConfig();
+    d->generalConfiguration->saveConfig();
 
-	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
-		logModeConfigurationWidget->saveConfig();
-	}
+    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+        logModeConfigurationWidget->saveConfig();
+    }
 
-	KSystemLogConfig::self()->save();
+    KSystemLogConfig::self()->save();
 
-	emit configurationSaved();
+    emit configurationSaved();
 
-  logDebug() << "Configuration saved";
+    logDebug() << "Configuration saved";
 }
 
-bool ConfigurationDialog::hasChanged() {
-  logDebug() << "Current change status : " << d->changed;
-	return d->changed;
+bool ConfigurationDialog::hasChanged()
+{
+    logDebug() << "Current change status : " << d->changed;
+    return d->changed;
 }
 
-void ConfigurationDialog::updateConfiguration() {
-  logDebug() << "Updating configuration...";
+void ConfigurationDialog::updateConfiguration()
+{
+    logDebug() << "Updating configuration...";
 
-	bool valid = d->generalConfiguration->isValid();
-	if (valid) {
-		foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
-			if (logModeConfigurationWidget->isValid() == false) {
-				valid = false;
-				break;
-			}
-		}
-	}
+    bool valid = d->generalConfiguration->isValid();
+    if (valid) {
+        foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+            if (logModeConfigurationWidget->isValid() == false) {
+                valid = false;
+                break;
+            }
+        }
+    }
 
-	if (valid == true) {
-		buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(true);
+    if (valid == true) {
+        buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(true);
 
-		updateButtons();
-	}
-	else {
-		buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(false);
-		buttonBox()->button(QDialogButtonBox::Apply)->setEnabled(false);
-	}
-
+        updateButtons();
+    } else {
+        buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(false);
+        buttonBox()->button(QDialogButtonBox::Apply)->setEnabled(false);
+    }
 }
 
-void ConfigurationDialog::updateButtons() {
-  logDebug() << "Updating configuration buttons...";
+void ConfigurationDialog::updateButtons()
+{
+    logDebug() << "Updating configuration buttons...";
 
-	d->changed = true;
-
+    d->changed = true;
 }
 
-void ConfigurationDialog::updateWidgets() {
-  logDebug() << "Reading configuration...";
+void ConfigurationDialog::updateWidgets()
+{
+    logDebug() << "Reading configuration...";
 
-	d->generalConfiguration->readConfig();
-	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
-		logModeConfigurationWidget->readConfig();
-	}
+    d->generalConfiguration->readConfig();
+    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+        logModeConfigurationWidget->readConfig();
+    }
 
-	d->changed = false;
+    d->changed = false;
 }
 
-void ConfigurationDialog::updateWidgetsDefault() {
-  logDebug() << "Loading default configuration...";
+void ConfigurationDialog::updateWidgetsDefault()
+{
+    logDebug() << "Loading default configuration...";
 
-	d->generalConfiguration->defaultConfig();
-	foreach (LogModeConfigurationWidget* logModeConfigurationWidget, d->logModeConfigurations ) {
-		logModeConfigurationWidget->defaultConfig();
-	}
+    d->generalConfiguration->defaultConfig();
+    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+        logModeConfigurationWidget->defaultConfig();
+    }
 
-	d->changed = false;
+    d->changed = false;
 }
 
-bool ConfigurationDialog::isDefault() {
-	/**
-	 * TODO Set this to true and find a way to retrieve defaults value
-	 * of the configuration (see defaultConfig() methods of LogModeConfigurations)
-	 */
+bool ConfigurationDialog::isDefault()
+{
+    /**
+     * TODO Set this to true and find a way to retrieve defaults value
+     * of the configuration (see defaultConfig() methods of LogModeConfigurations)
+     */
 
-	return true;
+    return true;
 }
-
-
-

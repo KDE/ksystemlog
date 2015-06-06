@@ -28,25 +28,24 @@
 
 class LogLevelPrivate;
 
-class LogLevel {
-	
-	public:
-		explicit LogLevel(int id, const QString& name, const QString& icon, const QColor& color);
+class LogLevel
+{
+public:
+    explicit LogLevel(int id, const QString &name, const QString &icon, const QColor &color);
 
-		virtual ~LogLevel();
+    virtual ~LogLevel();
 
-		int id();
-		QString name();
-		
-		QString icon();
-		
-		QColor color();
+    int id();
+    QString name();
 
-		QPixmap pixmap();
-		
-	private:
-		LogLevelPrivate* const d;
+    QString icon();
+
+    QColor color();
+
+    QPixmap pixmap();
+
+private:
+    LogLevelPrivate *const d;
 };
-
 
 #endif

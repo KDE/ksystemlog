@@ -27,40 +27,35 @@
 class QPushButton;
 class LogLevel;
 
+class LogLevelFileList : public FileList
+{
+    Q_OBJECT
 
-class LogLevelFileList : public FileList {
+public:
+    LogLevelFileList(QWidget *parent, const QString &description);
 
-	Q_OBJECT
-	
-	public:
-		LogLevelFileList(QWidget* parent, const QString& description);
-		
-		virtual ~LogLevelFileList();
+    virtual ~LogLevelFileList();
 
-		QList<int> levels();
-		
-		void addPaths(const QStringList& filePaths, const QList<int>& fileLevels);
+    QList<int> levels();
 
-	private:
-		LogLevel* level(int i);
-		
-		void insertItem(LogLevel* level, const QString& itemText);
-		
-		static int LogLevelRole;
-		
-		QPushButton* changeItem;
-		
-	protected slots:
-		void addItem();
-		
-	private slots:
-		void updateSpecificButtons();
+    void addPaths(const QStringList &filePaths, const QList<int> &fileLevels);
 
-		
-		void changeItemType();
-	
-	    
+private:
+    LogLevel *level(int i);
 
+    void insertItem(LogLevel *level, const QString &itemText);
+
+    static int LogLevelRole;
+
+    QPushButton *changeItem;
+
+protected slots:
+    void addItem();
+
+private slots:
+    void updateSpecificButtons();
+
+    void changeItemType();
 };
 
 #endif //_LOG_LEVEL_FILE_LIST_H_

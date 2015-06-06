@@ -28,37 +28,35 @@ class LogViewColumn;
 class QStringList;
 class LogViewColumnsPrivate;
 
-class LogViewColumns {
-	
-	public:
-		LogViewColumns();
-		
-		~LogViewColumns();
-		
-		bool isGroupByLogLevel() const;
-		bool isGroupByDay() const;
-		bool isGroupByHour() const;
-		bool isGroupByLogFile() const;
-	
-		void setGroupByLogLevel(bool value);
-		void setGroupByDay(bool value);
-		void setGroupByHour(bool value);
-		void setGroupByLogFile(bool value);
-	
-		QList<LogViewColumn> columns() const;
-		
-		void addColumn(const LogViewColumn& column);
-		QStringList toStringList() const;
+class LogViewColumns
+{
+public:
+    LogViewColumns();
 
-		LogViewColumns& operator=(const LogViewColumns& columns);
+    ~LogViewColumns();
 
-	private:
-		LogViewColumnsPrivate* const d;
+    bool isGroupByLogLevel() const;
+    bool isGroupByDay() const;
+    bool isGroupByHour() const;
+    bool isGroupByLogFile() const;
 
+    void setGroupByLogLevel(bool value);
+    void setGroupByDay(bool value);
+    void setGroupByHour(bool value);
+    void setGroupByLogFile(bool value);
+
+    QList<LogViewColumn> columns() const;
+
+    void addColumn(const LogViewColumn &column);
+    QStringList toStringList() const;
+
+    LogViewColumns &operator=(const LogViewColumns &columns);
+
+private:
+    LogViewColumnsPrivate *const d;
 };
 
-
-QDataStream & operator<< (QDataStream& out, const LogViewColumns& columns);
-QDebug & operator<< (QDebug& out, const LogViewColumns& columns);
+QDataStream &operator<<(QDataStream &out, const LogViewColumns &columns);
+QDebug &operator<<(QDebug &out, const LogViewColumns &columns);
 
 #endif

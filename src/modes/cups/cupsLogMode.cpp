@@ -33,31 +33,34 @@
 #include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
 
+CupsLogMode::CupsLogMode(CupsConfiguration *cupsConfiguration,
+                         CupsConfigurationWidget *cupsConfigurationWidget)
+    : LogMode(QLatin1String(CUPS_LOG_MODE_ID), i18n("Cups Log"), QLatin1String(CUPS_MODE_ICON))
+{
+    d->logModeConfiguration = cupsConfiguration;
+    d->logModeConfigurationWidget = cupsConfigurationWidget;
 
-CupsLogMode::CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget) :
-	LogMode(QLatin1String( CUPS_LOG_MODE_ID ), i18n("Cups Log"),QLatin1String( CUPS_MODE_ICON )) {
+    d->itemBuilder = new CupsItemBuilder();
 
-	d->logModeConfiguration = cupsConfiguration;
-	d->logModeConfigurationWidget = cupsConfigurationWidget;
-
-	d->itemBuilder = new CupsItemBuilder();
-
-	//Cups Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Cups log."));
-	d->action->setWhatsThis(i18n("Displays the CUPS log in the current tab. CUPS is the program which manages printing on your computer."));
-
+    // Cups Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Cups log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the CUPS log in the current tab. CUPS is the program which manages printing on your "
+        "computer."));
 }
 
-CupsLogMode::~CupsLogMode() {
-
+CupsLogMode::~CupsLogMode()
+{
 }
 
-Analyzer* CupsLogMode::createAnalyzer() {
-	return new CupsAnalyzer(this);
+Analyzer *CupsLogMode::createAnalyzer()
+{
+    return new CupsAnalyzer(this);
 }
 
-QList<LogFile> CupsLogMode::createLogFiles() {
-	CupsConfiguration* cupsConfiguration = logModeConfiguration<CupsConfiguration*>();
-	return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPaths());
+QList<LogFile> CupsLogMode::createLogFiles()
+{
+    CupsConfiguration *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
+    return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPaths());
 }

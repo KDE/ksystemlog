@@ -25,33 +25,35 @@
 
 #include "logging.h"
 
-SimpleAction::SimpleAction(const QIcon& icon, const QString& text, QObject* parent) {
-	action = new QAction(icon, text, parent);
+SimpleAction::SimpleAction(const QIcon &icon, const QString &text, QObject *parent)
+{
+    action = new QAction(icon, text, parent);
 }
 
-SimpleAction::SimpleAction(QAction* originAction, QObject* parent) {
-	
-	action = new QAction(parent);
-	action->setIcon(originAction->icon());
-	action->setText(originAction->text());
-	action->setData(originAction->data());
-	action->setToolTip(originAction->toolTip());
-	action->setWhatsThis(originAction->whatsThis());
+SimpleAction::SimpleAction(QAction *originAction, QObject *parent)
+{
+    action = new QAction(parent);
+    action->setIcon(originAction->icon());
+    action->setText(originAction->text());
+    action->setData(originAction->data());
+    action->setToolTip(originAction->toolTip());
+    action->setWhatsThis(originAction->whatsThis());
 }
 
-SimpleAction::~SimpleAction() {
-	delete action;
+SimpleAction::~SimpleAction()
+{
+    delete action;
 }
 
-QList<QAction*> SimpleAction::innerActions() {
-	QList<QAction*> actions;
-	actions.append(action);
-	
-	return actions;
+QList<QAction *> SimpleAction::innerActions()
+{
+    QList<QAction *> actions;
+    actions.append(action);
+
+    return actions;
 }
 
-QAction* SimpleAction::actionMenu() {
-	return action;
+QAction *SimpleAction::actionMenu()
+{
+    return action;
 }
-
-

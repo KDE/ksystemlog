@@ -21,7 +21,6 @@
 
 #include "generalConfigurationWidget.h"
 
-
 #include <QCheckBox>
 #include <QPushButton>
 #include <QButtonGroup>
@@ -34,121 +33,124 @@
 #include "globals.h"
 #include "ksystemlogConfig.h"
 
-class GeneralConfigurationWidgetPrivate {
+class GeneralConfigurationWidgetPrivate
+{
 public:
-	QButtonGroup* dateFormatGroup;
+    QButtonGroup *dateFormatGroup;
 };
 
-GeneralConfigurationWidget::GeneralConfigurationWidget() :
-	QWidget(),
-	d(new GeneralConfigurationWidgetPrivate())
-	{
+GeneralConfigurationWidget::GeneralConfigurationWidget()
+    : QWidget()
+    , d(new GeneralConfigurationWidgetPrivate())
+{
+    setupUi(this);
 
-	setupUi(this);
+    startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
+                            QVariant(QLatin1String("")));
+    foreach (LogMode *logMode, Globals::instance()->logModes()) {
+        // Ignore this special case
+        if (logMode->id() == QLatin1String("openLogMode"))
+            continue;
 
-	startupLogMode->addItem(QIcon::fromTheme( QLatin1String( NO_MODE_ICON) ), i18n("No Log Mode"), QVariant(QLatin1String( "" ) ));
-	foreach(LogMode* logMode, Globals::instance()->logModes()) {
-		//Ignore this special case
-		if (logMode->id() == QLatin1String( "openLogMode" ))
-			continue;
+        startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
+    }
 
-		startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
-	}
+    connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
 
-	connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
 
-	connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(deleteDuplicatedLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	connect(deleteDuplicatedLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(deleteProcessId, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	connect(deleteProcessId, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    d->dateFormatGroup = new QButtonGroup(this);
+    // d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
+    // d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
+    // d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
+    // d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
+    d->dateFormatGroup->addButton(formatShortDate, QLocale::ShortFormat);
+    d->dateFormatGroup->addButton(formatLongDate, QLocale::LongFormat);
 
-	d->dateFormatGroup = new QButtonGroup(this);
-  //d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
-  //d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
-  //d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
-  //d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
-  d->dateFormatGroup->addButton(formatShortDate, QLocale::ShortFormat);
-  d->dateFormatGroup->addButton(formatLongDate, QLocale::LongFormat);
+    connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
 
-	connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
-
-	addDateFormatExample();
+    addDateFormatExample();
 }
 
+GeneralConfigurationWidget::~GeneralConfigurationWidget()
+{
+    // dateFormatGroup is automatically deleted by Qt
 
-GeneralConfigurationWidget::~GeneralConfigurationWidget() {
-	//dateFormatGroup is automatically deleted by Qt
-
-	delete d;
+    delete d;
 }
 
-void GeneralConfigurationWidget::addDateFormatExample() {
-	foreach(QAbstractButton* button, d->dateFormatGroup->buttons()) {
-		QDateTime currentDateTime(QDateTime::currentDateTime());
+void GeneralConfigurationWidget::addDateFormatExample()
+{
+    foreach (QAbstractButton *button, d->dateFormatGroup->buttons()) {
+        QDateTime currentDateTime(QDateTime::currentDateTime());
 
-    //KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
-    QLocale::FormatType currentButtonFormat = (QLocale::FormatType) d->dateFormatGroup->id(button);
+        // KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
+        QLocale::FormatType currentButtonFormat = (QLocale::FormatType)d->dateFormatGroup->id(button);
 
-    //QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat, true);
-    QString formattedDate = QLocale().toString(QDateTime().currentDateTime(), currentButtonFormat);
+        // QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat,
+        // true);
+        QString formattedDate = QLocale().toString(QDateTime().currentDateTime(), currentButtonFormat);
 
-		button->setText( i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate) );
-	}
+        button->setText(i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate));
+    }
 }
 
 void GeneralConfigurationWidget::readConfig()
 {
-	for (int i=0; i<startupLogMode->count(); ++i) {
-		if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
-			startupLogMode->setCurrentIndex(i);
-			break;
-		}
-	}
+    for (int i = 0; i < startupLogMode->count(); ++i) {
+        if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
+            startupLogMode->setCurrentIndex(i);
+            break;
+        }
+    }
 
-	maxLines->setValue(KSystemLogConfig::maxLines());
+    maxLines->setValue(KSystemLogConfig::maxLines());
 
-	deleteDuplicatedLines->setChecked(KSystemLogConfig::deleteDuplicatedLines());
+    deleteDuplicatedLines->setChecked(KSystemLogConfig::deleteDuplicatedLines());
 
-	deleteProcessId->setChecked(KSystemLogConfig::deleteProcessIdentifier());
+    deleteProcessId->setChecked(KSystemLogConfig::deleteProcessIdentifier());
 
-	colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
+    colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
 
-  //KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
-  QLocale::FormatType dateFormat = (QLocale::FormatType) KSystemLogConfig::dateFormat();
-	QAbstractButton* selectedButton = d->dateFormatGroup->button(dateFormat);
-	selectedButton->setChecked(true);
+    // KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
+    QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
+    QAbstractButton *selectedButton = d->dateFormatGroup->button(dateFormat);
+    selectedButton->setChecked(true);
 }
 
-void GeneralConfigurationWidget::saveConfig() const {
-  logDebug() << "Save config from General preferences";
+void GeneralConfigurationWidget::saveConfig() const
+{
+    logDebug() << "Save config from General preferences";
 
-	KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
+    KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
 
-	KSystemLogConfig::setMaxLines(maxLines->value());
-	KSystemLogConfig::setDeleteDuplicatedLines(deleteDuplicatedLines->isChecked());
-	KSystemLogConfig::setDeleteProcessIdentifier(deleteProcessId->isChecked());
-	KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
+    KSystemLogConfig::setMaxLines(maxLines->value());
+    KSystemLogConfig::setDeleteDuplicatedLines(deleteDuplicatedLines->isChecked());
+    KSystemLogConfig::setDeleteProcessIdentifier(deleteProcessId->isChecked());
+    KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
 
-	KSystemLogConfig::setDateFormat(d->dateFormatGroup->checkedId());
-
+    KSystemLogConfig::setDateFormat(d->dateFormatGroup->checkedId());
 }
 
-void GeneralConfigurationWidget::defaultConfig() {
-	//TODO Find a way to read the configuration per default
-	readConfig();
+void GeneralConfigurationWidget::defaultConfig()
+{
+    // TODO Find a way to read the configuration per default
+    readConfig();
 }
 
-bool GeneralConfigurationWidget::isValid() const {
-  if (maxLines->value()>0) {
-    logDebug() << "General configuration valid";
-		return true;
-	}
+bool GeneralConfigurationWidget::isValid() const
+{
+    if (maxLines->value() > 0) {
+        logDebug() << "General configuration valid";
+        return true;
+    }
 
-  logDebug() << "General configuration not valid";
-	return false;
+    logDebug() << "General configuration not valid";
+    return false;
 }
-
-

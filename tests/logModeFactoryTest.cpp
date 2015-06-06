@@ -19,7 +19,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-
 #include <QTest>
 
 #include "testUtil.h"
@@ -37,45 +36,42 @@
 
 Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
-class LogModeFactoryTest: public QObject {
-
-	Q_OBJECT
+class LogModeFactoryTest : public QObject
+{
+    Q_OBJECT
 
 private slots:
 
-	void initTestCase();
-	
-	void testLogModes();
-	
-	void testReaderFactory();
-private:
-	TestUtil testUtil;
+    void initTestCase();
 
+    void testLogModes();
+
+    void testReaderFactory();
+
+private:
+    TestUtil testUtil;
 };
 
-
-void LogModeFactoryTest::initTestCase() {
-	testUtil.registerLogModeFactories();
+void LogModeFactoryTest::initTestCase()
+{
+    testUtil.registerLogModeFactories();
 }
 
+void LogModeFactoryTest::testLogModes()
+{
+    LogMode *systemLogMode = Globals::instance()->findLogMode(QLatin1String("systemLogMode"));
+    QVERIFY(systemLogMode);
 
-void LogModeFactoryTest::testLogModes() {
-	
-	LogMode* systemLogMode = Globals::instance()->findLogMode(QLatin1String("systemLogMode"));
-	QVERIFY(systemLogMode);
-
-	QCOMPARE(systemLogMode->id(), QString::fromLatin1("systemLogMode"));
-
+    QCOMPARE(systemLogMode->id(), QString::fromLatin1("systemLogMode"));
 }
 
-void LogModeFactoryTest::testReaderFactory() {
-	LogViewModel* model = NULL;
-	Analyzer* systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
-	
-	QVERIFY(systemAnalyzer);
-	QVERIFY(model);
+void LogModeFactoryTest::testReaderFactory()
+{
+    LogViewModel *model = NULL;
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
 
-
+    QVERIFY(systemAnalyzer);
+    QVERIFY(model);
 }
 
 QTEST_MAIN(LogModeFactoryTest)

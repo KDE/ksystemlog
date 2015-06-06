@@ -37,48 +37,48 @@
 #include "logModeItemBuilder.h"
 #include "openAnalyzer.h"
 
-OpenLogMode::OpenLogMode(QWidget* parent) :
-	LogMode(QLatin1String( OPEN_LOG_MODE_ID ), i18n("Log File"),QLatin1String( OPEN_MODE_ICON )),
-	parent(parent) {
+OpenLogMode::OpenLogMode(QWidget *parent)
+    : LogMode(QLatin1String(OPEN_LOG_MODE_ID), i18n("Log File"), QLatin1String(OPEN_MODE_ICON))
+    , parent(parent)
+{
+    d->logModeConfiguration = NULL;
 
-	d->logModeConfiguration = NULL;
+    d->logModeConfigurationWidget = NULL;
 
-	d->logModeConfigurationWidget = NULL;
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->itemBuilder = new LogModeItemBuilder();
-
-	d->action = NULL;
-
+    d->action = NULL;
 }
 
-OpenLogMode::~OpenLogMode() {
-
+OpenLogMode::~OpenLogMode()
+{
 }
 
-Analyzer* OpenLogMode::createAnalyzer() {
-	return new OpenAnalyzer(this);
+Analyzer *OpenLogMode::createAnalyzer()
+{
+    return new OpenAnalyzer(this);
 }
 
-QList<LogFile> OpenLogMode::createLogFiles() {
-	//Open a standard Filedialog
-  QUrl openingFileName(QFileDialog::getOpenFileUrl(parent, i18n("Open Location"), QUrl(), QString()));
-  logDebug() << "Opening file : " << openingFileName.url();
+QList<LogFile> OpenLogMode::createLogFiles()
+{
+    // Open a standard Filedialog
+    QUrl openingFileName(QFileDialog::getOpenFileUrl(parent, i18n("Open Location"), QUrl(), QString()));
+    logDebug() << "Opening file : " << openingFileName.url();
 
-	if (openingFileName.isEmpty()) {
-		return QList<LogFile>();
-	}
+    if (openingFileName.isEmpty()) {
+        return QList<LogFile>();
+    }
 
-	if (openingFileName.isValid()) {
-		LogFile logFile(openingFileName, Globals::instance()->informationLogLevel());
-		QList<LogFile> logFiles;
-		logFiles.append(logFile);
+    if (openingFileName.isValid()) {
+        LogFile logFile(openingFileName, Globals::instance()->informationLogLevel());
+        QList<LogFile> logFiles;
+        logFiles.append(logFile);
 
-		return logFiles;
+        return logFiles;
+    }
 
-	}
+    QString message(i18n("Malformed URL. Unable to open this file."));
+    KMessageBox::error(parent, message, i18n("Unable to open this file."), KMessageBox::Notify);
 
-	QString message(i18n("Malformed URL. Unable to open this file."));
-	KMessageBox::error(parent, message, i18n("Unable to open this file."), KMessageBox::Notify);
-
-	return QList<LogFile>();
+    return QList<LogFile>();
 }

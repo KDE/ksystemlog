@@ -33,55 +33,51 @@
 
 #include "ksystemlogConfig.h"
 
-class ApacheConfigurationPrivate {
+class ApacheConfigurationPrivate
+{
 public:
-	QStringList apachePaths;
+    QStringList apachePaths;
 
-	QStringList apacheAccessPaths;
+    QStringList apacheAccessPaths;
 };
 
-class ApacheConfiguration : public LogModeConfiguration {
+class ApacheConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    ApacheConfiguration()
+        : d(new ApacheConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("ApacheLogMode"));
 
-	public:
-		ApacheConfiguration() :
-			d(new ApacheConfigurationPrivate()) {
+        QStringList defaultApachePaths;
+        defaultApachePaths << QLatin1String("/var/log/apache2/error.log");
+        configuration->addItemStringList(QLatin1String("ApacheLogFilesPaths"), d->apachePaths,
+                                         defaultApachePaths, QLatin1String("ApacheLogFilesPaths"));
 
-			configuration->setCurrentGroup(QLatin1String( "ApacheLogMode" ));
+        QStringList defaultApacheAccessPaths;
+        defaultApacheAccessPaths << QLatin1String("/var/log/apache2/access.log");
+        configuration->addItemStringList(QLatin1String("ApacheAccessLogFilesPaths"), d->apacheAccessPaths,
+                                         defaultApacheAccessPaths,
+                                         QLatin1String("ApacheAccessLogFilesPaths"));
+    }
 
-			QStringList defaultApachePaths;
-			defaultApachePaths << QLatin1String( "/var/log/apache2/error.log" );
-			configuration->addItemStringList(QLatin1String( "ApacheLogFilesPaths" ), d->apachePaths, defaultApachePaths, QLatin1String( "ApacheLogFilesPaths" ));
+    virtual ~ApacheConfiguration() { delete d; }
 
-			QStringList defaultApacheAccessPaths;
-			defaultApacheAccessPaths << QLatin1String( "/var/log/apache2/access.log" );
-			configuration->addItemStringList(QLatin1String( "ApacheAccessLogFilesPaths" ), d->apacheAccessPaths, defaultApacheAccessPaths, QLatin1String( "ApacheAccessLogFilesPaths" ));
-		}
+    QStringList apachePaths() const { return d->apachePaths; }
 
-		virtual ~ApacheConfiguration() {
-			delete d;
-		}
+    QStringList apacheAccessPaths() const { return d->apacheAccessPaths; }
 
-		QStringList apachePaths() const {
-			return d->apachePaths;
-		}
+    void setApachePaths(const QStringList &apachePaths) { d->apachePaths = apachePaths; }
 
-		QStringList apacheAccessPaths() const {
-			return d->apacheAccessPaths;
-		}
+    void setApacheAccessPaths(const QStringList &apacheAccessPaths)
+    {
+        d->apacheAccessPaths = apacheAccessPaths;
+    }
 
-		void setApachePaths(const QStringList& apachePaths) {
-			d->apachePaths = apachePaths;
-		}
-
-		void setApacheAccessPaths(const QStringList& apacheAccessPaths) {
-			d->apacheAccessPaths = apacheAccessPaths;
-		}
-
-	private:
-		ApacheConfigurationPrivate* const d;
-
+private:
+    ApacheConfigurationPrivate *const d;
 };
 
 #endif // _APACHE_CONFIGURATION_H_

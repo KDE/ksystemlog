@@ -22,8 +22,6 @@
 #ifndef _OPEN_ANALYZER_H_
 #define _OPEN_ANALYZER_H_
 
-
-
 #include "syslogAnalyzer.h"
 
 #include "logging.h"
@@ -31,20 +29,17 @@
 
 #include "openLogMode.h"
 
-class OpenAnalyzer : public SyslogAnalyzer {
-	
-	Q_OBJECT
-	
-	public:
-		OpenAnalyzer(LogMode* logMode) :
-			SyslogAnalyzer(logMode) {
-			
-		}
-		
-		virtual ~OpenAnalyzer() {
-			
-		}
-		
+class OpenAnalyzer : public SyslogAnalyzer
+{
+    Q_OBJECT
+
+public:
+    OpenAnalyzer(LogMode *logMode)
+        : SyslogAnalyzer(logMode)
+    {
+    }
+
+    virtual ~OpenAnalyzer() {}
 };
 
 #endif
