@@ -29,7 +29,7 @@
 
 #include "logging.h"
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "processOutputLogFileReader.h"
@@ -37,13 +37,13 @@
 
 class LogMode;
 
-class KernelAnalyzer : public Analyzer
+class KernelAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     KernelAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
     {
         startupTime();
     }

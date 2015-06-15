@@ -19,60 +19,29 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#include "journaldFactory.h"
 
-#include <KLocalizedString>
-
-#include "logging.h"
-#include "ksystemlogConfig.h"
-
-#include "logViewModel.h"
+#include <QList>
 
 #include "logMode.h"
-#include "logFileReader.h"
+#include "logging.h"
 
-#include "logFile.h"
+#include "simpleAction.h"
+#include "journaldLogMode.h"
 
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+#include "logModeFactory.h"
+
+QList<LogMode *> JournaldModeFactory::createLogModes() const
 {
-    parsingPaused = false;
-
-    insertionLocking = new QMutex(QMutex::Recursive);
+    QList<LogMode *> logModes;
+    logModes.append(new JournaldLogMode());
+    return logModes;
 }
 
-Analyzer::~Analyzer()
+LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
-}
+    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
-bool Analyzer::isParsingPaused() const
-{
-    return parsingPaused;
-}
-
-void Analyzer::setParsingPaused(bool paused)
-{
-    parsingPaused = paused;
-
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
-    }
-
-    watchLogFiles(watching);
-}
-
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
-{
-    this->logViewModel = logViewModel;
+    return logModeAction;
 }

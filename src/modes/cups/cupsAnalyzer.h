@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "logging.h"
 
@@ -34,13 +34,13 @@
 
 #define DEBUG2_LOG_LEVEL_ICON "source"
 
-class CupsAnalyzer : public Analyzer
+class CupsAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     explicit CupsAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
     {
         initializeTypeLevels();
     }

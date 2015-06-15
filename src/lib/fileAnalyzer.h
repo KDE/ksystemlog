@@ -19,40 +19,70 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SYSLOG_ANALYZER_H_
-#define _SYSLOG_ANALYZER_H_
+#ifndef _FILEANALYZER_H_
+#define _FILEANALYZER_H_
 
+#include <QList>
+#include <QMutex>
 #include <QString>
+#include <QStringList>
 
-#include "fileAnalyzer.h"
+#include "globals.h"
+
+#include "logLine.h"
 
 #include "logFile.h"
+#include "logViewColumn.h"
+#include "logViewColumns.h"
 
+#include "analyzer.h"
+
+class LogViewModel;
 class LogFileReader;
-
 class LogMode;
-class LogLine;
 
-class SyslogAnalyzer : public FileAnalyzer
+class FileAnalyzer : public Analyzer
 {
     Q_OBJECT
 
 public:
-    explicit SyslogAnalyzer(LogMode *logMode);
+    explicit FileAnalyzer(LogMode *logMode);
 
-    virtual ~SyslogAnalyzer();
+    virtual ~FileAnalyzer();
 
-    virtual LogViewColumns initColumns();
+    virtual void watchLogFiles(bool enabled);
+
+    virtual void setLogFiles(const QList<LogFile> &logFiles);
 
 protected:
-    virtual LogFileReader *createLogFileReader(const LogFile &logFile);
-    virtual Analyzer::LogFileSortMode logFileSortMode();
-    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile);
+    virtual LogFileReader *createLogFileReader(const LogFile &logFile) = 0;
+    virtual Analyzer::LogFileSortMode logFileSortMode() = 0;
+
+    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) = 0;
 
 private:
-    inline QString undefinedHostName();
-    inline QString undefinedProcess();
-    inline LogLine *undefinedLogLine(const QString &message, const LogFile &originalFile);
+    inline void informOpeningProgress(int currentPosition, int total);
+
+    void deleteLogFiles();
+
+    /**
+     * Parse and insert the buffered lines in the model
+     * Returns the count of inserted lines
+     */
+    int insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode);
+
+    /**
+     * Parse and insert a line in the model
+     * Returns false if it was not inserted, true if it was
+     */
+    bool insertLine(const QString &buffer, const LogFile &originalFile, ReadingMode readingMode);
+
+private slots:
+    void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode,
+                        const QStringList &content);
+
+protected:
+    QList<LogFileReader *> logFileReaders;
 };
 
-#endif // _SYSLOG_ANALYZER_H_
+#endif // _FILEANALYZER_H_

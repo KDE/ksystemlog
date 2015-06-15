@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
@@ -36,13 +36,13 @@
 #define PROBED_LOG_LEVEL_ICON "favorites"
 #define NOT_IMPLEMENTED_LOG_LEVEL_ICON "document-new"
 
-class XorgAnalyzer : public Analyzer
+class XorgAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     XorgAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
         , currentDateTime(QDateTime::currentDateTime())
     {
         initializeTypeName();

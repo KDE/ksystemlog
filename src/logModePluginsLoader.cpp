@@ -42,6 +42,7 @@
 #include "acpidFactory.h"
 #include "xsessionFactory.h"
 #include "sambaFactory.h"
+#include "journaldFactory.h"
 
 LogModePluginsLoader::LogModePluginsLoader(QWidget *parent)
     : parent(parent)
@@ -92,4 +93,7 @@ void LogModePluginsLoader::loadPlugins()
 
     // XSession
     Globals::instance()->registerLogModeFactory(new XSessionLogModeFactory());
+
+    // Journald
+    Globals::instance()->registerLogModeFactory(new JournaldModeFactory());
 }

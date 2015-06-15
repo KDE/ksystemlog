@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "logging.h"
@@ -32,13 +32,13 @@
 
 #include "cupsPageLogMode.h"
 
-class CupsPageAnalyzer : public Analyzer
+class CupsPageAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     explicit CupsPageAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
         , cupsPageRegex(QLatin1String("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
     {
     }

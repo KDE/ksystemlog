@@ -42,7 +42,7 @@
 #include "ksystemlogConfig.h"
 
 SyslogAnalyzer::SyslogAnalyzer(LogMode *logMode)
-    : Analyzer(logMode)
+    : FileAnalyzer(logMode)
 {
 }
 

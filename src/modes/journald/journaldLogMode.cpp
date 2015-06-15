@@ -19,60 +19,48 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#include "journaldLogMode.h"
+
+#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "ksystemlogConfig.h"
-
-#include "logViewModel.h"
-
 #include "logMode.h"
-#include "logFileReader.h"
 
-#include "logFile.h"
+#include "journaldAnalyzer.h"
+#include "journaldConfigurationWidget.h"
+#include "journaldConfiguration.h"
 
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+#include "logModeItemBuilder.h"
+
+JournaldLogMode::JournaldLogMode()
+    : LogMode(QLatin1String(JOURNALD_LOG_MODE_ID), i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON))
 {
-    parsingPaused = false;
+    d->logModeConfiguration = new JournaldConfiguration();
 
-    insertionLocking = new QMutex(QMutex::Recursive);
+    d->logModeConfigurationWidget = new JournaldConfigurationWidget();
+
+    d->itemBuilder = new LogModeItemBuilder();
+
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Journald log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the system log in the current tab. This log is generally used by non-specialized processes "
+        "(like \"sudo\" or \"fsck\" commands)"));
 }
 
-Analyzer::~Analyzer()
+JournaldLogMode::~JournaldLogMode()
 {
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
 }
 
-bool Analyzer::isParsingPaused() const
+Analyzer *JournaldLogMode::createAnalyzer()
 {
-    return parsingPaused;
+    return new JournaldAnalyzer(this);
 }
 
-void Analyzer::setParsingPaused(bool paused)
+QList<LogFile> JournaldLogMode::createLogFiles()
 {
-    parsingPaused = paused;
-
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
-    }
-
-    watchLogFiles(watching);
-}
-
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
-{
-    this->logViewModel = logViewModel;
+    // No log file for journald.
+    return QList<LogFile>();
 }

@@ -19,60 +19,49 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#include "journaldAnalyzer.h"
+
+//#include <QStringList>
+//#include <QDateTime>
 
 #include <KLocalizedString>
 
-#include "logging.h"
-#include "ksystemlogConfig.h"
+//#include "globals.h"
+//#include "logging.h"
 
-#include "logViewModel.h"
+//#include "logLine.h"
+//#include "logMode.h"
+//#include "logLevel.h"
+//#include "logViewWidget.h"
 
-#include "logMode.h"
-#include "logFileReader.h"
+//#include "logViewModel.h"
 
-#include "logFile.h"
+//#include "parsingHelper.h"
 
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+//#include "ksystemlogConfig.h"
+
+JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
+    : Analyzer(logMode)
 {
-    parsingPaused = false;
-
-    insertionLocking = new QMutex(QMutex::Recursive);
 }
 
-Analyzer::~Analyzer()
+JournaldAnalyzer::~JournaldAnalyzer()
 {
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
 }
 
-bool Analyzer::isParsingPaused() const
+LogViewColumns JournaldAnalyzer::initColumns()
 {
-    return parsingPaused;
+    LogViewColumns columns;
+    columns.addColumn(LogViewColumn(i18n("Date"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Unit"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Message"), true, true));
+    return columns;
 }
 
-void Analyzer::setParsingPaused(bool paused)
+void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 {
-    parsingPaused = paused;
-
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
-    }
-
-    watchLogFiles(watching);
 }
 
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
+void JournaldAnalyzer::watchLogFiles(bool enabled)
 {
-    this->logViewModel = logViewModel;
 }

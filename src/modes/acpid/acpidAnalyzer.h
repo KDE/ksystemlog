@@ -24,19 +24,19 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
 #include "acpidLogMode.h"
 
-class AcpidAnalyzer : public Analyzer
+class AcpidAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     AcpidAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
     {
     }
 

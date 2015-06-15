@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "logging.h"
@@ -32,14 +32,14 @@
 
 #include "cupsPdfLogMode.h"
 
-class CupsPdfAnalyzer : public Analyzer
+class CupsPdfAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     // Fri Sep 30 21:58:37 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
     explicit CupsPdfAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
         , cupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
                        + QLatin1String("[ ]+\\[(\\w*)\\][ ]+(.*)"))
     { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)

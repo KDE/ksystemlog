@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "logging.h"
 
@@ -32,13 +32,13 @@
 #include "sambaLogMode.h"
 #include "parsingHelper.h"
 
-class SambaAnalyzer : public Analyzer
+class SambaAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     explicit SambaAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
     {
         currentLogLine = NULL;
     }

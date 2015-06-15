@@ -19,60 +19,36 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#ifndef _JOURNALD_LOG_MODE_H_
+#define _JOURNALD_LOG_MODE_H_
 
-#include <KLocalizedString>
+/**
+ * Journald Log Mode Identifier
+ */
+#define JOURNALD_LOG_MODE_ID "journaldLogMode"
 
-#include "logging.h"
-#include "ksystemlogConfig.h"
+/**
+ * System Log Icon
+ */
+#define JOURNALD_MODE_ICON "computer"
 
-#include "logViewModel.h"
-
-#include "logMode.h"
-#include "logFileReader.h"
+#include <QList>
 
 #include "logFile.h"
+#include "logMode.h"
 
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+class JournaldLogMode : public LogMode
 {
-    parsingPaused = false;
+    Q_OBJECT
 
-    insertionLocking = new QMutex(QMutex::Recursive);
-}
+public:
+    explicit JournaldLogMode();
 
-Analyzer::~Analyzer()
-{
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
-}
+    ~JournaldLogMode();
 
-bool Analyzer::isParsingPaused() const
-{
-    return parsingPaused;
-}
+    Analyzer *createAnalyzer();
 
-void Analyzer::setParsingPaused(bool paused)
-{
-    parsingPaused = paused;
+    QList<LogFile> createLogFiles();
+};
 
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
-    }
-
-    watchLogFiles(watching);
-}
-
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
-{
-    this->logViewModel = logViewModel;
-}
+#endif // _JOURNALD_LOG_MODE_H_

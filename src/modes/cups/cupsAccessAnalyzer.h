@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "logging.h"
@@ -32,13 +32,13 @@
 
 #include "cupsAccessLogMode.h"
 
-class CupsAccessAnalyzer : public Analyzer
+class CupsAccessAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     explicit CupsAccessAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
         , cupsAccessRegex(
               QLatin1String("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
     {

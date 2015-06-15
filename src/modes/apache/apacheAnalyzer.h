@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "logging.h"
 
@@ -32,13 +32,13 @@
 #include "apacheLogMode.h"
 #include "parsingHelper.h"
 
-class ApacheAnalyzer : public Analyzer
+class ApacheAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     explicit ApacheAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
     {
         initializeTypeLevels();
     }

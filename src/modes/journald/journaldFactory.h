@@ -19,60 +19,24 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#ifndef _JOURNALD_FACTORY_H_
+#define _JOURNALD_FACTORY_H_
 
-#include <KLocalizedString>
+#include <QList>
 
-#include "logging.h"
-#include "ksystemlogConfig.h"
+#include "logModeFactory.h"
 
-#include "logViewModel.h"
+class LogModeAction;
+class LogMode;
 
-#include "logMode.h"
-#include "logFileReader.h"
-
-#include "logFile.h"
-
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+class JournaldModeFactory : public LogModeFactory
 {
-    parsingPaused = false;
+    Q_OBJECT
 
-    insertionLocking = new QMutex(QMutex::Recursive);
-}
+public:
+    QList<LogMode *> createLogModes() const;
 
-Analyzer::~Analyzer()
-{
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
-}
+    LogModeAction *createLogModeAction() const;
+};
 
-bool Analyzer::isParsingPaused() const
-{
-    return parsingPaused;
-}
-
-void Analyzer::setParsingPaused(bool paused)
-{
-    parsingPaused = paused;
-
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
-    }
-
-    watchLogFiles(watching);
-}
-
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
-{
-    this->logViewModel = logViewModel;
-}
+#endif // _JOURNALD_FACTORY_H_

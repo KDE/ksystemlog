@@ -52,46 +52,20 @@ public:
 
     explicit Analyzer(LogMode *logMode);
 
-    ~Analyzer();
+    virtual ~Analyzer();
 
-    void watchLogFiles(bool enabled);
+    virtual void watchLogFiles(bool enabled) = 0;
 
-    void setLogFiles(const QList<LogFile> &logFiles);
+    virtual void setLogFiles(const QList<LogFile> &logFiles) = 0;
+
+    virtual LogViewColumns initColumns() = 0;
+
     void setLogViewModel(LogViewModel *logViewModel);
 
     bool isParsingPaused() const;
 
-    virtual LogViewColumns initColumns() = 0;
-
 public slots:
     void setParsingPaused(bool paused);
-
-protected:
-    virtual LogFileReader *createLogFileReader(const LogFile &logFile) = 0;
-    virtual Analyzer::LogFileSortMode logFileSortMode() = 0;
-
-    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) = 0;
-
-private:
-    inline void informOpeningProgress(int currentPosition, int total);
-
-    void deleteLogFiles();
-
-    /**
-     * Parse and insert the buffered lines in the model
-     * Returns the count of inserted lines
-     */
-    int insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode);
-
-    /**
-     * Parse and insert a line in the model
-     * Returns false if it was not inserted, true if it was
-     */
-    bool insertLine(const QString &buffer, const LogFile &originalFile, ReadingMode readingMode);
-
-private slots:
-    void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode,
-                        const QStringList &content);
 
 signals:
     void statusBarChanged(const QString &message);
@@ -111,8 +85,6 @@ protected:
     LogViewModel *logViewModel;
 
     LogMode *logMode;
-
-    QList<LogFileReader *> logFileReaders;
 
     QMutex *insertionLocking;
 

@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
@@ -32,13 +32,13 @@
 #include "xsessionLogMode.h"
 #include "xsessionConfiguration.h"
 
-class XSessionAnalyzer : public Analyzer
+class XSessionAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
 
 public:
     XSessionAnalyzer(LogMode *logMode)
-        : Analyzer(logMode)
+        : FileAnalyzer(logMode)
         , currentDateTime(QDateTime::currentDateTime())
     {
     }

@@ -19,60 +19,34 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "analyzer.h"
+#ifndef _JOURNALD_CONFIGURATION_H_
+#define _JOURNALD_CONFIGURATION_H_
 
-#include <KLocalizedString>
+#include <QStringList>
+
+#include "logModeConfiguration.h"
 
 #include "logging.h"
+#include "defaults.h"
+
+#include "journaldLogMode.h"
+
 #include "ksystemlogConfig.h"
 
-#include "logViewModel.h"
-
-#include "logMode.h"
-#include "logFileReader.h"
-
-#include "logFile.h"
-
-Analyzer::Analyzer(LogMode *logMode)
-    : QObject(NULL)
-    , logViewModel(NULL)
-    , logMode(logMode)
-    , logLineInternalIdGenerator(0)
+class JournaldConfiguration : public LogModeConfiguration
 {
-    parsingPaused = false;
+    Q_OBJECT
 
-    insertionLocking = new QMutex(QMutex::Recursive);
-}
-
-Analyzer::~Analyzer()
-{
-    // logMode is managed by Globals
-    // logViewModel is managed by LogViewWidget
-}
-
-bool Analyzer::isParsingPaused() const
-{
-    return parsingPaused;
-}
-
-void Analyzer::setParsingPaused(bool paused)
-{
-    parsingPaused = paused;
-
-    bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
-    if (parsingPaused == true) {
-        logDebug() << "Pausing reading";
-        watching = false;
-    } else {
-        logDebug() << "Relaunch reading";
-        watching = true;
+public:
+    JournaldConfiguration()
+//        : d(new XSessionConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
     }
 
-    watchLogFiles(watching);
-}
+    virtual ~JournaldConfiguration() {}
 
-void Analyzer::setLogViewModel(LogViewModel *logViewModel)
-{
-    this->logViewModel = logViewModel;
-}
+private:
+};
+
+#endif // _JOURNALD_CONFIGURATION_H_
