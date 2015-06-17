@@ -56,13 +56,9 @@ StatusBar::StatusBar(QWidget *parent)
 {
     d->lineCountLabel = new QLabel(QLatin1String(""), this);
     d->lineCountLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-
-    // TODO Set a vertical right border to separate each labels
-    /*
-    d->lineCountLabel->setFrameStyle(QFrame::Box | QFrame::Sunken);
+    d->lineCountLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     d->lineCountLabel->setLineWidth(2);
     d->lineCountLabel->setMidLineWidth(2);
-    */
     addPermanentWidget(d->lineCountLabel, 1);
 
     /*
@@ -97,6 +93,9 @@ StatusBar::StatusBar(QWidget *parent)
 
     d->lastModificationLabel = new QLabel(QLatin1String(""), this);
     d->lastModificationLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    d->lastModificationLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
+    d->lastModificationLabel->setLineWidth(2);
+    d->lastModificationLabel->setMidLineWidth(2);
     addPermanentWidget(d->lastModificationLabel, 1);
 }
 
