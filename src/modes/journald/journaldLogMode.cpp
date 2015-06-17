@@ -31,8 +31,7 @@
 #include "journaldAnalyzer.h"
 #include "journaldConfigurationWidget.h"
 #include "journaldConfiguration.h"
-
-#include "logModeItemBuilder.h"
+#include "journaldItemBuilder.h"
 
 JournaldLogMode::JournaldLogMode()
     : LogMode(QLatin1String(JOURNALD_LOG_MODE_ID), i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON))
@@ -41,7 +40,7 @@ JournaldLogMode::JournaldLogMode()
 
     d->logModeConfigurationWidget = new JournaldConfigurationWidget();
 
-    d->itemBuilder = new LogModeItemBuilder();
+    d->itemBuilder = new JournaldItemBuilder();
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Journald log."));

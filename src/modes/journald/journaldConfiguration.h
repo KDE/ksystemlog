@@ -39,7 +39,6 @@ class JournaldConfiguration : public LogModeConfiguration
 
 public:
     JournaldConfiguration()
-//        : d(new XSessionConfigurationPrivate())
     {
         configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
     }

@@ -36,9 +36,6 @@
 FileAnalyzer::FileAnalyzer(LogMode *logMode)
     : Analyzer(logMode)
 {
-    parsingPaused = false;
-
-    insertionLocking = new QMutex(QMutex::Recursive);
 }
 
 FileAnalyzer::~FileAnalyzer()
@@ -107,7 +104,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     }
 
     logDebug() << "Locking file modifications of " << logFileReader->logFile().url().path();
-    insertionLocking->lock();
+    insertionLocking.lock();
     logDebug() << "Unlocking file modifications of " << logFileReader->logFile().url().path();
 
     QTime benchmark;
@@ -115,7 +112,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
     int insertedLogLineCount;
 
-    logViewModel->startingMultipleInsertions(readingMode);
+    logViewModel->startingMultipleInsertions();
 
     if (readingMode == Analyzer::UpdatingRead) {
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::UpdatingRead);
@@ -148,7 +145,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
     logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 
-    insertionLocking->unlock();
+    insertionLocking.unlock();
 }
 
 int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode)
@@ -220,16 +217,4 @@ bool FileAnalyzer::insertLine(const QString &buffer, const LogFile &originalFile
     }
 
     return logViewModel->insertNewLogLine(line);
-}
-
-inline void FileAnalyzer::informOpeningProgress(int currentPosition, int total)
-{
-    int each = total / 100;
-    if (each == 0) {
-        return;
-    }
-
-    if (currentPosition % each == 0) {
-        emit openingProgressed();
-    }
 }

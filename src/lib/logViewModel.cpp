@@ -92,7 +92,7 @@ void LogViewModel::removeRecentStatusOfLogLines()
     }
 }
 
-void LogViewModel::startingMultipleInsertions(Analyzer::ReadingMode /*readingMode*/)
+void LogViewModel::startingMultipleInsertions()
 {
     bool hasLocked = false;
 

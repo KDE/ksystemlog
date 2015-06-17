@@ -216,6 +216,38 @@ LogLevel *Globals::emergencyLogLevel()
     return d->emergencyLogLevel;
 }
 
+LogLevel *Globals::logLevelByPriority(int id)
+{
+    switch (id)
+    {
+    case 0:
+        return emergencyLogLevel();
+        break;
+    case 1:
+        return alertLogLevel();
+        break;
+    case 2:
+        return criticalLogLevel();
+        break;
+    case 3:
+        return errorLogLevel();
+        break;
+    case 4:
+        return warningLogLevel();
+        break;
+    case 5:
+        return noticeLogLevel();
+        break;
+    case 6:
+        return informationLogLevel();
+        break;
+    case 7:
+        return debugLogLevel();
+        break;
+    }
+    return noLogLevel();
+}
+
 void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)
 {
     QList<LogMode *> logModes = logModeFactory->createLogModes();

@@ -53,7 +53,7 @@ public:
 
     bool isProcessingMultipleInsertions() const;
 
-    void startingMultipleInsertions(Analyzer::ReadingMode readingMode);
+    void startingMultipleInsertions();
     void endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount);
 
     QList<LogLine *> logLines();

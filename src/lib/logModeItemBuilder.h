@@ -44,7 +44,7 @@ protected:
     QString labelMessageFormat(const QString &label, const QString &value) const;
     QString messageFormat(const QString &message) const;
 
-    QString formatDate(const QDateTime &dateTime) const;
+    virtual QString formatDate(const QDateTime &dateTime) const;
 };
 
 #endif // _LOG_MODE_ITEM_BUILDER_H_

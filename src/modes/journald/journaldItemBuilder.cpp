@@ -19,65 +19,35 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _GLOBALS_H_
-#define _GLOBALS_H_
+#include "journaldItemBuilder.h"
 
-#include <QList>
+#include "logLine.h"
+
+#include <KLocalizedString>
+
 #include <QString>
 
-#include "logMode.h"
-#include "logModeFactory.h"
-
-class LogModeFactory;
-
-class LogMode;
-class LogModeAction;
-class LogLevel;
-
-class Reader;
-
-class GlobalsPrivate;
-
-class Globals
+QString JournaldItemBuilder::createFormattedText(LogLine *line) const
 {
-public:
-    static Globals *instance();
+    QString result;
 
-    ~Globals();
+    QListIterator<QString> it(line->logItems());
 
-    QList<LogLevel *> logLevels();
+    result.append(QLatin1String("<table>"));
+    result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+    result.append(labelMessageFormat(i18n("Priority:"), line->logLevel()->name()));
+    result.append(labelMessageFormat(i18n("Unit:"), it.next()));
+    result.append(QLatin1String("</table>"));
 
-    LogLevel *noLogLevel();
-    LogLevel *debugLogLevel();
-    LogLevel *informationLogLevel();
-    LogLevel *noticeLogLevel();
-    LogLevel *warningLogLevel();
-    LogLevel *errorLogLevel();
-    LogLevel *criticalLogLevel();
-    LogLevel *alertLogLevel();
-    LogLevel *emergencyLogLevel();
+    return result;
+}
 
-    LogLevel *logLevelByPriority(int id);
+QString JournaldItemBuilder::createToolTipText(LogLine *line) const
+{
+    return createFormattedText(line);
+}
 
-    /**
-     * Allow to add a new Reader for a new log mode
-     */
-    void registerLogModeFactory(LogModeFactory *logModeFactory);
-
-    QList<LogMode *> logModes();
-
-    QList<LogModeAction *> logModeActions();
-
-    LogMode *findLogMode(const QString &logModeName);
-
-private:
-    explicit Globals();
-
-    static Globals *self;
-
-    void setupLogLevels();
-
-    GlobalsPrivate *const d;
-};
-
-#endif
+QString JournaldItemBuilder::formatDate(const QDateTime &dateTime) const
+{
+    return dateTime.toString("dd.MM.yyyy hh:mm:ss:zzz");
+}

@@ -37,11 +37,10 @@ Analyzer::Analyzer(LogMode *logMode)
     : QObject(NULL)
     , logViewModel(NULL)
     , logMode(logMode)
+    , insertionLocking(QMutex::Recursive)
     , logLineInternalIdGenerator(0)
 {
     parsingPaused = false;
-
-    insertionLocking = new QMutex(QMutex::Recursive);
 }
 
 Analyzer::~Analyzer()
@@ -60,7 +59,7 @@ void Analyzer::setParsingPaused(bool paused)
     parsingPaused = paused;
 
     bool watching;
-    // If we resume the parsing, then parse files to know if new lines have been appended
+    // If we resume the parsing, then parse files to know if new lines have been appended.
     if (parsingPaused == true) {
         logDebug() << "Pausing reading";
         watching = false;
@@ -75,4 +74,16 @@ void Analyzer::setParsingPaused(bool paused)
 void Analyzer::setLogViewModel(LogViewModel *logViewModel)
 {
     this->logViewModel = logViewModel;
+}
+
+void Analyzer::informOpeningProgress(int currentPosition, int total)
+{
+    int each = total / 100;
+    if (each == 0) {
+        return;
+    }
+
+    if (currentPosition % each == 0) {
+        emit openingProgressed();
+    }
 }

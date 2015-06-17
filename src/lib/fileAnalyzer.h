@@ -61,8 +61,6 @@ protected:
     virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) = 0;
 
 private:
-    inline void informOpeningProgress(int currentPosition, int total);
-
     void deleteLogFiles();
 
     /**

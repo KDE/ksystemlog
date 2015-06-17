@@ -2,6 +2,7 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,16 +23,13 @@
 #ifndef _JOURNALD_ANALYZER_H_
 #define _JOURNALD_ANALYZER_H_
 
-#include <QString>
-
 #include "analyzer.h"
-
 #include "logFile.h"
 
-class LogFileReader;
+#include <QFutureWatcher>
+#include <QSocketNotifier>
 
-class LogMode;
-class LogLine;
+#include <systemd/sd-journal.h>
 
 class JournaldAnalyzer : public Analyzer
 {
@@ -47,6 +45,33 @@ public:
     virtual void setLogFiles(const QList<LogFile> &logFiles);
 
     virtual void watchLogFiles(bool enabled);
+
+private slots:
+  void readJournalInitialFinished();
+  void readJournalUpdateFinished();
+  void journalDescriptorUpdated(int fd);
+
+private:
+    struct JournalEntry {
+        QDateTime date;
+        QString unit;
+        QString message;
+        int priority;
+        QString bootID;
+    };
+
+    QList<JournalEntry> readJournal(const QStringList &filters, char *cursor);
+    JournalEntry readJournalEntry(sd_journal *journal) const;
+    int updateModel();
+
+    sd_journal *m_journal;
+    int m_journalFlags;
+    char *m_cursor;
+
+    QFutureWatcher<QList<JournalEntry>> *m_futureWatcher;
+    QFuture<QList<JournalEntry>> m_future;
+    QSocketNotifier *m_journalNotifier;
+    QList<JournalEntry> m_entries;
 };
 
 #endif // _JOURNALD_ANALYZER_H_

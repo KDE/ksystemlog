@@ -79,15 +79,12 @@ signals:
     void readEnded();
 
 protected:
-    // TODO Move those members to a D-pointer (and think about subclasses accesses)
+    void informOpeningProgress(int currentPosition, int total);
+
     bool parsingPaused;
-
     LogViewModel *logViewModel;
-
     LogMode *logMode;
-
-    QMutex *insertionLocking;
-
+    QMutex insertionLocking;
     long logLineInternalIdGenerator;
 };
 

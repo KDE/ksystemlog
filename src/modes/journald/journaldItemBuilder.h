@@ -19,65 +19,26 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _GLOBALS_H_
-#define _GLOBALS_H_
+#ifndef _JOURNALD_ITEM_BUILDER_H_
+#define _JOURNALD_ITEM_BUILDER_H_
 
-#include <QList>
-#include <QString>
+#include "logModeItemBuilder.h"
 
-#include "logMode.h"
-#include "logModeFactory.h"
+class LogLine;
 
-class LogModeFactory;
-
-class LogMode;
-class LogModeAction;
-class LogLevel;
-
-class Reader;
-
-class GlobalsPrivate;
-
-class Globals
+class JournaldItemBuilder : public LogModeItemBuilder
 {
 public:
-    static Globals *instance();
+    JournaldItemBuilder() {}
 
-    ~Globals();
+    virtual ~JournaldItemBuilder() {}
 
-    QList<LogLevel *> logLevels();
+    QString createFormattedText(LogLine *line) const;
 
-    LogLevel *noLogLevel();
-    LogLevel *debugLogLevel();
-    LogLevel *informationLogLevel();
-    LogLevel *noticeLogLevel();
-    LogLevel *warningLogLevel();
-    LogLevel *errorLogLevel();
-    LogLevel *criticalLogLevel();
-    LogLevel *alertLogLevel();
-    LogLevel *emergencyLogLevel();
+    QString createToolTipText(LogLine *line) const;
 
-    LogLevel *logLevelByPriority(int id);
-
-    /**
-     * Allow to add a new Reader for a new log mode
-     */
-    void registerLogModeFactory(LogModeFactory *logModeFactory);
-
-    QList<LogMode *> logModes();
-
-    QList<LogModeAction *> logModeActions();
-
-    LogMode *findLogMode(const QString &logModeName);
-
-private:
-    explicit Globals();
-
-    static Globals *self;
-
-    void setupLogLevels();
-
-    GlobalsPrivate *const d;
+protected:
+    QString formatDate(const QDateTime &dateTime) const;
 };
 
-#endif
+#endif // _JOURNALD_ITEM_BUILDER_H_

@@ -8,11 +8,12 @@ include_directories(
 )
 
 set(ksystemlog_journald_sources
-    journaldLogMode.cpp
+    journaldAnalyzer.cpp
     journaldConfiguration.cpp
     journaldConfigurationWidget.cpp
+    journaldItemBuilder.cpp
     journaldFactory.cpp
-    journaldAnalyzer.cpp
+    journaldLogMode.cpp
 )
 
 ki18n_wrap_ui(ksystemlog_journald_sources journaldConfigurationWidget.ui )
@@ -32,4 +33,5 @@ target_link_libraries(
     ksystemlog_lib
     ksystemlog_base_mode
     ksystemlog_config
+    systemd
 )

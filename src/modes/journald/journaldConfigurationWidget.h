@@ -59,16 +59,16 @@ public slots:
 
     void saveConfig()
     {
-        JournaldConfiguration *configuration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                                   ->logModeConfiguration<JournaldConfiguration *>();
+//        JournaldConfiguration *configuration = Globals::instance()
+//                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+//                                                   ->logModeConfiguration<JournaldConfiguration *>();
     }
 
     void readConfig()
     {
-        JournaldConfiguration *configuration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                                   ->logModeConfiguration<JournaldConfiguration *>();
+//        JournaldConfiguration *configuration = Globals::instance()
+//                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+//                                                   ->logModeConfiguration<JournaldConfiguration *>();
     }
 
     void defaultConfig()
@@ -81,11 +81,6 @@ protected:
     bool isValid() const
     {
         return true;
-        //        if (journaldUrlRequester->url().path().isEmpty() == false) {
-        //            return true;
-        //        }
-
-        //        return false;
     }
 };
 
