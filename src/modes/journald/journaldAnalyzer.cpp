@@ -39,11 +39,9 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
     m_journalFlags = 0;
     sd_journal_open(&m_journal, m_journalFlags);
 
-    m_futureWatcher = new QFutureWatcher<QList<JournalEntry>>;
-    connect(m_futureWatcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
-
     int fd = sd_journal_get_fd(m_journal);
     m_journalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
+    m_journalNotifier->setEnabled(false);
     connect(m_journalNotifier, SIGNAL(activated(int)), this, SLOT(journalDescriptorUpdated(int)));
 }
 
@@ -53,7 +51,6 @@ JournaldAnalyzer::~JournaldAnalyzer()
     sd_journal_close(m_journal);
     free(m_cursor);
     delete m_journalNotifier;
-    delete m_futureWatcher;
 }
 
 LogViewColumns JournaldAnalyzer::initColumns()
@@ -74,52 +71,67 @@ void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 void JournaldAnalyzer::watchLogFiles(bool enabled)
 {
     if (enabled) {
-        m_future = QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList(), m_cursor);
-        m_futureWatcher->setFuture(m_future);
+        JournalWatcher *watcher = new JournalWatcher();
+        connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
+        watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
     }
     m_journalNotifier->setEnabled(enabled);
 }
 
 void JournaldAnalyzer::readJournalInitialFinished()
 {
+    readJournalFinished(FullRead);
+}
+
+void JournaldAnalyzer::readJournalUpdateFinished()
+{
+    readJournalFinished(UpdatingRead);
+}
+
+void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
+{
+    JournalWatcher *watcher = static_cast<JournalWatcher *>(sender());
+    if (!watcher)
+        return;
+
+    watcher->deleteLater();
+
     if (parsingPaused) {
         logDebug() << "Parsing is paused, discarding journald entries.";
         return;
     }
 
-    if (m_future.result().size() == 0) {
+    QList<JournalEntry> entries = watcher->result();
+    if (entries.size() == 0) {
         logDebug() << "Received no entries";
         return;
     }
 
-    m_entries = m_future.result();
-
     insertionLocking.lock();
     logViewModel->startingMultipleInsertions();
 
-    emit statusBarChanged(i18n("Reading journald entries..."));
-
-    // Start the loading bar.
-    emit readFileStarted(*logMode, LogFile(), 0, 1);
+    if (FullRead == readingMode) {
+        emit statusBarChanged(i18n("Reading journald entries..."));
+        // Start displaying the loading bar.
+        emit readFileStarted(*logMode, LogFile(), 0, 1);
+    }
 
     // Add journald entries to the model.
-    int entriesInserted = updateModel();
+    int entriesInserted = updateModel(entries, readingMode);
 
-    emit statusBarChanged(i18n("Journald entires loaded successfully."));
+    logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
-    logViewModel->endingMultipleInsertions(FullRead, entriesInserted);
+    if (FullRead == readingMode) {
+        emit statusBarChanged(i18n("Journald entries loaded successfully."));
 
-    // Stop the loading bar.
-    emit readEnded();
+        // Stop displaying the loading bar.
+        emit readEnded();
+    }
 
     // Inform LogManager that new lines have been added.
     emit logUpdated(entriesInserted);
 
     insertionLocking.unlock();
-}
-
-void JournaldAnalyzer::readJournalUpdateFinished()
-{
 }
 
 void JournaldAnalyzer::journalDescriptorUpdated(int fd)
@@ -135,19 +147,18 @@ void JournaldAnalyzer::journalDescriptorUpdated(int fd)
         return;
     }
 
-//    // Read new entries in another thread
-//    if (!m_futureWatcher->isRunning()) {
-//        m_future = QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList(), m_cursor);
-//        m_futureWatcher->setFuture(m_future);
-//    }
+    JournalWatcher *watcher = new JournalWatcher();
+    connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
+    watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
 }
 
-QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStringList &filters, char *cursor)
+QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStringList &filters)
 {
+    QMutexLocker mutexLocker(&m_workerMutex);
     QList<JournalEntry> entryList;
-    int res;
     sd_journal *journal;
-    res = sd_journal_open(&journal, m_journalFlags);
+
+    int res = sd_journal_open(&journal, m_journalFlags);
     if (res < 0) {
         logWarning() << "Failed to access journald.";
         return QList<JournalEntry>();
@@ -158,29 +169,37 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
         res = sd_journal_add_match(journal, filter.toLatin1(), 0);
         if (res < 0) {
             logWarning() << "Failed to set journald filter.";
+            sd_journal_close(journal);
             return QList<JournalEntry>();
         }
     }
 
     // Seek to cursor.
-    if (cursor) {
-        res = sd_journal_seek_cursor(journal, cursor);
+    if (m_cursor) {
+        res = sd_journal_seek_cursor(journal, m_cursor);
         if (res < 0) {
             logWarning() << "Failed to seek journald cursor:" << res;
+            sd_journal_close(journal);
             return QList<JournalEntry>();
         }
 
-        res = sd_journal_test_cursor(journal, cursor);
+        res = sd_journal_next(journal);
+        if (res < 0) {
+            logWarning() << "Failed to access journald entry after seeking the cursor:" << res;
+            sd_journal_close(journal);
+            return QList<JournalEntry>();
+        }
+
+        res = sd_journal_test_cursor(journal, m_cursor);
         if (res <= 0) {
             logWarning() << "Journald cursor test failed:" << res;
+            sd_journal_close(journal);
             return QList<JournalEntry>();
         }
     }
 
-    // If journal contains lots of entries, read maximum allowed number of latest entries.
-    int allowedEntriesNum = KSystemLogConfig::maxLines();
-    int entriesNum = 0;
     // Determine number of entries from cursor to the end of the journal.
+    int entriesNum = 0;
     forever {
         res = sd_journal_next(journal);
         if (res < 0) {
@@ -194,22 +213,35 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
         entriesNum++;
     }
 
-    if (entriesNum > allowedEntriesNum) {
-        logDebug() << "Journald contains" << entriesNum << "entries, will read last" << allowedEntriesNum
-                   << "entries.";
-        int skipEntriesNum = entriesNum - allowedEntriesNum;
-        if (cursor) {
+    if (!entriesNum) {
+        sd_journal_close(journal);
+        return QList<JournalEntry>();
+    }
+
+    // Read number of entries allowed by KSystemLog configuration.
+    int maxEntriesNum = KSystemLogConfig::maxLines();
+    if (entriesNum > maxEntriesNum) {
+        logDebug() << "Journald contains" << entriesNum << "entries, will read last" << maxEntriesNum;
+        int skipEntriesNum = entriesNum - maxEntriesNum;
+        if (m_cursor) {
             // Jump over skipEntriesNum entries forward starting from cursor.
-            sd_journal_seek_cursor(journal, cursor);
+            sd_journal_seek_cursor(journal, m_cursor);
             res = sd_journal_next_skip(journal, skipEntriesNum);
         } else {
             sd_journal_seek_tail(journal);
             // Jump over skipEntriesNum entries backwards from the end of the journal.
-            res = sd_journal_previous_skip(journal, allowedEntriesNum + 1);
+            res = sd_journal_previous_skip(journal, maxEntriesNum + 1);
         }
         if (res < 0) {
             logWarning() << "Failed to skip journald entries.";
+            sd_journal_close(journal);
             return QList<JournalEntry>();
+        }
+    } else {
+        if (m_cursor) {
+            // Return to the first new entry.
+            sd_journal_seek_cursor(journal, m_cursor);
+            sd_journal_next(journal);
         }
     }
 
@@ -218,7 +250,7 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
         JournalEntry entry;
         res = sd_journal_next(journal);
         if (res < 0) {
-            logWarning() << "Failed to iterate to next journald entry.";
+            logWarning() << "Failed to access next journald entry.";
             break;
         }
         if (res == 0) {
@@ -278,18 +310,20 @@ JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *jo
     return entry;
 }
 
-int JournaldAnalyzer::updateModel()
+int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
 {
-    int entriesNum = m_entries.size();
+    int entriesNum = entries.size();
     for (int i = 0; i < entriesNum; i++) {
-        const JournalEntry &entry = m_entries.at(i);
+        const JournalEntry &entry = entries.at(i);
         QStringList itemComponents;
         itemComponents << entry.unit << entry.message;
         LogLine *line = new LogLine(logLineInternalIdGenerator++, entry.date, itemComponents, QString(),
                                     Globals::instance()->logLevelByPriority(entry.priority), logMode);
-        line->setRecent(false);
+        line->setRecent(readingMode == UpdatingRead);
         logViewModel->insertNewLogLine(line);
-        informOpeningProgress(i, entriesNum);
+
+        if (readingMode == FullRead)
+            informOpeningProgress(i, entriesNum);
     }
     return entriesNum;
 }

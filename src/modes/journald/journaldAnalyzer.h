@@ -47,9 +47,9 @@ public:
     virtual void watchLogFiles(bool enabled);
 
 private slots:
-  void readJournalInitialFinished();
-  void readJournalUpdateFinished();
-  void journalDescriptorUpdated(int fd);
+    void readJournalInitialFinished();
+    void readJournalUpdateFinished();
+    void journalDescriptorUpdated(int fd);
 
 private:
     struct JournalEntry {
@@ -60,18 +60,18 @@ private:
         QString bootID;
     };
 
-    QList<JournalEntry> readJournal(const QStringList &filters, char *cursor);
+    typedef QFutureWatcher<QList<JournalEntry>> JournalWatcher;
+
+    void readJournalFinished(ReadingMode readingMode);
+    QList<JournalEntry> readJournal(const QStringList &filters);
     JournalEntry readJournalEntry(sd_journal *journal) const;
-    int updateModel();
+    int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 
     sd_journal *m_journal;
     int m_journalFlags;
     char *m_cursor;
-
-    QFutureWatcher<QList<JournalEntry>> *m_futureWatcher;
-    QFuture<QList<JournalEntry>> m_future;
+    QMutex m_workerMutex;
     QSocketNotifier *m_journalNotifier;
-    QList<JournalEntry> m_entries;
 };
 
 #endif // _JOURNALD_ANALYZER_H_
