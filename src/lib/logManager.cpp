@@ -111,6 +111,11 @@ void LogManager::reload()
     logDebug() << "Log mode " << d->logMode->name() << " reloaded";
 }
 
+void LogManager::stopWatching()
+{
+    d->analyzer->watchLogFiles(false);
+}
+
 LogMode *LogManager::logMode()
 {
     return d->logMode;

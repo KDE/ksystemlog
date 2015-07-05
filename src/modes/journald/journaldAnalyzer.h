@@ -72,6 +72,9 @@ private:
     char *m_cursor;
     QMutex m_workerMutex;
     QSocketNotifier *m_journalNotifier;
+
+    bool m_forgetWatchers;
+    QList<JournalWatcher *> m_journalWatchers;
 };
 
 #endif // _JOURNALD_ANALYZER_H_

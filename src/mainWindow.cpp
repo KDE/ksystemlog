@@ -336,6 +336,10 @@ void MainWindow::updateReloading()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    LogManager *currentLogManager = d->tabs->activeLogManager();
+    if (currentLogManager) {
+        currentLogManager->stopWatching();
+    }
     logDebug() << "Saving configuration before exit...";
     qCDebug(KSYSTEMLOG) << "Saving configuration before exit...";
     // Write the config to the file

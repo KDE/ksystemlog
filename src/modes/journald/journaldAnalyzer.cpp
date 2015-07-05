@@ -34,6 +34,7 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
     : Analyzer(logMode)
 {
     m_cursor = nullptr;
+    m_forgetWatchers = true;
 
     // TODO: initialize necessary flags.
     m_journalFlags = 0;
@@ -47,10 +48,12 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
 
 JournaldAnalyzer::~JournaldAnalyzer()
 {
+    logDebug() << "will delete";
     m_journalNotifier->setEnabled(false);
     sd_journal_close(m_journal);
     free(m_cursor);
     delete m_journalNotifier;
+    logDebug() << "deleted";
 }
 
 LogViewColumns JournaldAnalyzer::initColumns()
@@ -70,12 +73,30 @@ void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 
 void JournaldAnalyzer::watchLogFiles(bool enabled)
 {
+    m_journalNotifier->setEnabled(enabled);
+
+    m_workerMutex.lock();
+    m_forgetWatchers = enabled;
+    m_workerMutex.unlock();
+
     if (enabled) {
         JournalWatcher *watcher = new JournalWatcher();
+        m_workerMutex.lock();
+        m_journalWatchers.append(watcher);
+        m_workerMutex.unlock();
+        logDebug() << "Run initial watcher" << watcher;
         connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
         watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
+    } else {
+        for (JournalWatcher *watcher : m_journalWatchers) {
+            logDebug() << "watch for" << watcher;
+            watcher->waitForFinished();
+            logDebug() << "~watch for" << watcher;
+        }
+        qDeleteAll(m_journalWatchers);
+        m_journalWatchers.clear();
+        logDebug() << "cleared all watchers";
     }
-    m_journalNotifier->setEnabled(enabled);
 }
 
 void JournaldAnalyzer::readJournalInitialFinished()
@@ -94,44 +115,51 @@ void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
     if (!watcher)
         return;
 
-    watcher->deleteLater();
+    logDebug() << "callback for" << watcher;
+
+    QList<JournalEntry> entries = watcher->result();
 
     if (parsingPaused) {
         logDebug() << "Parsing is paused, discarding journald entries.";
-        return;
-    }
-
-    QList<JournalEntry> entries = watcher->result();
-    if (entries.size() == 0) {
+    } else if (entries.size() == 0) {
         logDebug() << "Received no entries";
-        return;
+    } else {
+        insertionLocking.lock();
+        logViewModel->startingMultipleInsertions();
+
+        if (FullRead == readingMode) {
+            emit statusBarChanged(i18n("Reading journald entries..."));
+            // Start displaying the loading bar.
+            emit readFileStarted(*logMode, LogFile(), 0, 1);
+        }
+
+        // Add journald entries to the model.
+        int entriesInserted = updateModel(entries, readingMode);
+
+        logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
+
+        if (FullRead == readingMode) {
+            emit statusBarChanged(i18n("Journald entries loaded successfully."));
+
+            // Stop displaying the loading bar.
+            emit readEnded();
+        }
+
+        // Inform LogManager that new lines have been added.
+        emit logUpdated(entriesInserted);
+
+        insertionLocking.unlock();
     }
 
-    insertionLocking.lock();
-    logViewModel->startingMultipleInsertions();
-
-    if (FullRead == readingMode) {
-        emit statusBarChanged(i18n("Reading journald entries..."));
-        // Start displaying the loading bar.
-        emit readFileStarted(*logMode, LogFile(), 0, 1);
+    m_workerMutex.lock();
+    if (m_forgetWatchers) {
+        logDebug() << "self-removing watcher" << watcher;
+        m_journalWatchers.removeAll(watcher);
+        watcher->deleteLater();
+    } else {
+        logDebug() << "watcher" << watcher << "will stay";
     }
-
-    // Add journald entries to the model.
-    int entriesInserted = updateModel(entries, readingMode);
-
-    logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
-
-    if (FullRead == readingMode) {
-        emit statusBarChanged(i18n("Journald entries loaded successfully."));
-
-        // Stop displaying the loading bar.
-        emit readEnded();
-    }
-
-    // Inform LogManager that new lines have been added.
-    emit logUpdated(entriesInserted);
-
-    insertionLocking.unlock();
+    m_workerMutex.unlock();
 }
 
 void JournaldAnalyzer::journalDescriptorUpdated(int fd)
@@ -148,7 +176,11 @@ void JournaldAnalyzer::journalDescriptorUpdated(int fd)
     }
 
     JournalWatcher *watcher = new JournalWatcher();
+    m_workerMutex.lock();
+    m_journalWatchers.append(watcher);
+    m_workerMutex.unlock();
     connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
+    logDebug() << "Run watcher" << watcher;
     watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
 }
 
@@ -261,6 +293,9 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
         entryList.append(entry);
     }
 
+    // TODO CHECK memleak
+    if (m_cursor)
+        free(m_cursor);
     res = sd_journal_get_cursor(journal, &m_cursor);
     sd_journal_close(journal);
     if (entryList.size() > 0)

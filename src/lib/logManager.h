@@ -57,6 +57,7 @@ public:
     bool isParsingPaused() const;
 
     void reload();
+    void stopWatching();
 
 protected slots:
 
