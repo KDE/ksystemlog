@@ -107,10 +107,10 @@ protected:
     LogLevel *findLogLevel(const QString &level)
     {
         if (level == QLatin1String("ERROR"))
-            return Globals::instance()->errorLogLevel();
+            return Globals::instance().errorLogLevel();
 
         // level == "STATUS"
-        return Globals::instance()->informationLogLevel();
+        return Globals::instance().informationLogLevel();
     }
 };
 

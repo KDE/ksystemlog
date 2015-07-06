@@ -47,7 +47,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
 
     startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
-    foreach (LogMode *logMode, Globals::instance()->logModes()) {
+    foreach (LogMode *logMode, Globals::instance().logModes()) {
         // Ignore this special case
         if (logMode->id() == QLatin1String("openLogMode"))
             continue;

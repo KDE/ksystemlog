@@ -56,44 +56,44 @@ LogModePluginsLoader::~LogModePluginsLoader()
 void LogModePluginsLoader::loadPlugins()
 {
     // Open Log mode needs the current window to display error messages and open dialogs
-    Globals::instance()->registerLogModeFactory(new OpenLogModeFactory(parent));
+    Globals::instance().registerLogModeFactory(new OpenLogModeFactory(parent));
 
     // System
-    Globals::instance()->registerLogModeFactory(new SystemLogModeFactory());
+    Globals::instance().registerLogModeFactory(new SystemLogModeFactory());
 
     // Kernel
-    Globals::instance()->registerLogModeFactory(new KernelLogModeFactory());
+    Globals::instance().registerLogModeFactory(new KernelLogModeFactory());
 
     // Authentication
-    Globals::instance()->registerLogModeFactory(new AuthenticationLogModeFactory());
+    Globals::instance().registerLogModeFactory(new AuthenticationLogModeFactory());
 
     // Daemon
-    Globals::instance()->registerLogModeFactory(new DaemonLogModeFactory());
+    Globals::instance().registerLogModeFactory(new DaemonLogModeFactory());
 
     // Xorg
-    Globals::instance()->registerLogModeFactory(new XorgLogModeFactory());
+    Globals::instance().registerLogModeFactory(new XorgLogModeFactory());
 
     // Cron
-    Globals::instance()->registerLogModeFactory(new CronLogModeFactory());
+    Globals::instance().registerLogModeFactory(new CronLogModeFactory());
 
     // Apache
-    Globals::instance()->registerLogModeFactory(new ApacheLogModeFactory());
+    Globals::instance().registerLogModeFactory(new ApacheLogModeFactory());
 
     // Postfix
-    Globals::instance()->registerLogModeFactory(new PostfixLogModeFactory());
+    Globals::instance().registerLogModeFactory(new PostfixLogModeFactory());
 
     // Cups
-    Globals::instance()->registerLogModeFactory(new CupsLogModeFactory());
+    Globals::instance().registerLogModeFactory(new CupsLogModeFactory());
 
     // Samba
-    Globals::instance()->registerLogModeFactory(new SambaLogModeFactory());
+    Globals::instance().registerLogModeFactory(new SambaLogModeFactory());
 
     // Acpid
-    Globals::instance()->registerLogModeFactory(new AcpidLogModeFactory());
+    Globals::instance().registerLogModeFactory(new AcpidLogModeFactory());
 
     // XSession
-    Globals::instance()->registerLogModeFactory(new XSessionLogModeFactory());
+    Globals::instance().registerLogModeFactory(new XSessionLogModeFactory());
 
     // Journald
-    Globals::instance()->registerLogModeFactory(new JournaldModeFactory());
+    Globals::instance().registerLogModeFactory(new JournaldModeFactory());
 }

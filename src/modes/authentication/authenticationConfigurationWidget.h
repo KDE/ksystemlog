@@ -84,7 +84,7 @@ public slots:
     {
         AuthenticationConfiguration *authenticationConfiguration
             = Globals::instance()
-                  ->findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
+                  .findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
                   ->logModeConfiguration<AuthenticationConfiguration *>();
 
         authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().path());
@@ -94,7 +94,7 @@ public slots:
     {
         AuthenticationConfiguration *authenticationConfiguration
             = Globals::instance()
-                  ->findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
+                  .findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
                   ->logModeConfiguration<AuthenticationConfiguration *>();
 
         authenticationUrlRequester->setUrl(

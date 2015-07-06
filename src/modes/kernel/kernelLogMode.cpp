@@ -61,6 +61,6 @@ Analyzer *KernelLogMode::createAnalyzer()
 QList<LogFile> KernelLogMode::createLogFiles()
 {
     QList<LogFile> logFiles;
-    logFiles.append(LogFile(QUrl::fromLocalFile("/bin/dmesg"), Globals::instance()->informationLogLevel()));
+    logFiles.append(LogFile(QUrl::fromLocalFile("/bin/dmesg"), Globals::instance().informationLogLevel()));
     return logFiles;
 }

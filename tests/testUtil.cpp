@@ -47,8 +47,8 @@ TestUtil::~TestUtil()
 void TestUtil::registerLogModeFactories() const
 {
     logDebug() << "Registering existing log mode factories" << endl;
-    Globals::instance()->registerLogModeFactory(new SystemLogModeFactory());
-    Globals::instance()->registerLogModeFactory(new KernelLogModeFactory());
+    Globals::instance().registerLogModeFactory(new SystemLogModeFactory());
+    Globals::instance().registerLogModeFactory(new KernelLogModeFactory());
 }
 
 LogViewModel *TestUtil::defineLogViewModel(Analyzer *analyzer) const
@@ -63,7 +63,7 @@ LogViewModel *TestUtil::defineLogViewModel(Analyzer *analyzer) const
 
 Analyzer *TestUtil::createAnalyzer(const QString &logModeName, LogViewModel **model) const
 {
-    Analyzer *analyzer = Globals::instance()->findLogMode(logModeName)->createAnalyzer();
+    Analyzer *analyzer = Globals::instance().findLogMode(logModeName)->createAnalyzer();
 
     *model = defineLogViewModel(analyzer);
 
@@ -82,7 +82,7 @@ QList<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
     logDebug() << "Using log file name " << tempFile << endl;
     tempFile->setPermissions(QFile::WriteUser | QFile::ReadUser | QFile::ReadOwner | QFile::WriteOwner);
 
-    LogLevel *informationLogLevel = Globals::instance()->informationLogLevel();
+    LogLevel *informationLogLevel = Globals::instance().informationLogLevel();
 
     QList<LogFile> logFiles;
     LogFile logFile(QUrl::fromLocalFile(tempFile->fileName()), informationLogLevel);

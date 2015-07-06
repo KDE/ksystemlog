@@ -41,7 +41,7 @@ class GlobalsPrivate;
 class Globals
 {
 public:
-    static Globals *instance();
+    static Globals &instance();
 
     ~Globals();
 
@@ -72,8 +72,6 @@ public:
 
 private:
     explicit Globals();
-
-    static Globals *self;
 
     void setupLogLevels();
 

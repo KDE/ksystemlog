@@ -62,7 +62,7 @@ public slots:
     void saveConfig()
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
                                                        ->logModeConfiguration<DaemonConfiguration *>();
 
         daemonConfiguration->setDaemonPaths(fileList->paths());
@@ -71,7 +71,7 @@ public slots:
     void readConfig()
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
                                                        ->logModeConfiguration<DaemonConfiguration *>();
 
         fileList->removeAllItems();

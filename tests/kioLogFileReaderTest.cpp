@@ -63,7 +63,7 @@ void KioLogFileReaderTest::testKioLogFileReader()
 
     /// home/nicolas/test.txt
     LogFile logFile(QUrl::fromLocalFile("http://localhost/test.txt"),
-                    Globals::instance()->informationLogLevel());
+                    Globals::instance().informationLogLevel());
 
     KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
 

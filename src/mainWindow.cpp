@@ -193,7 +193,7 @@ MainWindow::MainWindow()
     LogManager *firstLogManager = d->tabs->createTab();
 
     if (KSystemLogConfig::startupLogMode().isEmpty() == false) {
-        d->tabs->load(Globals::instance()->findLogMode(KSystemLogConfig::startupLogMode()), firstLogManager);
+        d->tabs->load(Globals::instance().findLogMode(KSystemLogConfig::startupLogMode()), firstLogManager);
     }
 
     // Set focus to the list
@@ -329,7 +329,7 @@ void MainWindow::updateReloading()
     d->tabs->changeReloadingTab(currentView, !enabled);
 
     // Enables/Disables all Log Mode menus (useful for multiple actions menus)
-    foreach (LogModeAction *logModeAction, Globals::instance()->logModeActions()) {
+    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         logModeAction->actionMenu()->setEnabled(enabled);
     }
 }
@@ -444,7 +444,7 @@ void MainWindow::changeResumePauseAction(bool paused)
 void MainWindow::fileOpen()
 {
     // Launch the actualizing
-    d->tabs->load(Globals::instance()->findLogMode(QLatin1String("openLogMode")),
+    d->tabs->load(Globals::instance().findLogMode(QLatin1String("openLogMode")),
                   d->tabs->activeLogManager());
 }
 
@@ -803,7 +803,7 @@ void MainWindow::selectLogModeAction(bool)
     qDebug() << "selectLogModeAction2() called by" << selectedModeId;
 
     LogMode *currentMode = NULL;
-    foreach (LogMode *logMode, Globals::instance()->logModes()) {
+    foreach (LogMode *logMode, Globals::instance().logModes()) {
         if (logMode->id() == selectedModeId) {
             currentMode = logMode;
             break;
@@ -839,7 +839,7 @@ void MainWindow::setupLogModeMenu()
     KActionMenu *othersAction
         = new KActionMenu(QIcon::fromTheme(QLatin1String("preferences-other")), i18n("Others"), this);
 
-    foreach (LogModeAction *logModeAction, Globals::instance()->logModeActions()) {
+    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         if (logModeAction->category() == LogModeAction::RootCategory)
             menuLogModeActions.append(logModeAction->actionMenu());
         else if (logModeAction->category() == LogModeAction::ServicesCategory)
@@ -860,7 +860,7 @@ void MainWindow::setupLogActions()
 {
     // Sets up the log actions
 
-    foreach (LogModeAction *logModeAction, Globals::instance()->logModeActions()) {
+    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         foreach (QAction *action, logModeAction->innerActions()) {
             logDebug() << "adding action" << action->data().toString();
 

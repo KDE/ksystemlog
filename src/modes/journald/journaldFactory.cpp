@@ -40,7 +40,7 @@ QList<LogMode *> JournaldModeFactory::createLogModes() const
 
 LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
-    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
     return logModeAction;

@@ -106,7 +106,7 @@ public:
         logDebug() << "Saving config from Cron Options...";
 
         CronConfiguration *cronConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(CRON_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(CRON_LOG_MODE_ID))
                                                    ->logModeConfiguration<CronConfiguration *>();
         cronConfiguration->setCronPaths(fileList->paths());
 
@@ -120,7 +120,7 @@ public:
     void readConfig()
     {
         CronConfiguration *cronConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(CRON_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(CRON_LOG_MODE_ID))
                                                    ->logModeConfiguration<CronConfiguration *>();
 
         fileList->removeAllItems();

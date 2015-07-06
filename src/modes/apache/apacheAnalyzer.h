@@ -145,9 +145,9 @@ private:
 
     void initializeTypeLevels()
     {
-        mapTypeLevels[QLatin1String("notice")] = Globals::instance()->informationLogLevel();
-        mapTypeLevels[QLatin1String("warn")] = Globals::instance()->warningLogLevel();
-        mapTypeLevels[QLatin1String("error")] = Globals::instance()->errorLogLevel();
+        mapTypeLevels[QLatin1String("notice")] = Globals::instance().informationLogLevel();
+        mapTypeLevels[QLatin1String("warn")] = Globals::instance().warningLogLevel();
+        mapTypeLevels[QLatin1String("error")] = Globals::instance().errorLogLevel();
     }
 
     LogLevel *findLogLevel(const QString &type)
@@ -161,7 +161,7 @@ private:
             logCritical()
                 << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
                 << type << ")";
-            return Globals::instance()->noLogLevel();
+            return Globals::instance().noLogLevel();
         }
     }
 };

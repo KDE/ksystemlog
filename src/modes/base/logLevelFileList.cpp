@@ -95,7 +95,7 @@ void LogLevelFileList::addItem()
 
     QStringList paths = fileListHelper.findPaths(urls);
     foreach (const QString &path, paths) {
-        insertItem(Globals::instance()->informationLogLevel(), path);
+        insertItem(Globals::instance().informationLogLevel(), path);
     }
 
     emit fileListChanged();
@@ -115,7 +115,7 @@ void LogLevelFileList::changeItemType()
 
     LogLevelSelectionDialog logLevelSelectionDialog(this);
 
-    foreach (LogLevel *level, Globals::instance()->logLevels()) {
+    foreach (LogLevel *level, Globals::instance().logLevels()) {
         logLevelSelectionDialog.logLevels()->addItem(
             new QListWidgetItem(QIcon(level->pixmap()), level->name()));
     }
@@ -141,7 +141,7 @@ void LogLevelFileList::changeItemType()
 
 LogLevel *LogLevelFileList::level(int i)
 {
-    return Globals::instance()->logLevels().at(
+    return Globals::instance().logLevels().at(
         fileList->item(i)->data(LogLevelFileList::LogLevelRole).toInt());
 }
 
@@ -173,10 +173,10 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
         QString valueString = itString.next();
 
         LogLevel *level;
-        if (valueInt >= 0 && valueInt < (int)Globals::instance()->logLevels().count())
-            level = Globals::instance()->logLevels().at(valueInt);
+        if (valueInt >= 0 && valueInt < (int)Globals::instance().logLevels().count())
+            level = Globals::instance().logLevels().at(valueInt);
         else
-            level = Globals::instance()->informationLogLevel();
+            level = Globals::instance().informationLogLevel();
 
         insertItem(level, valueString);
     }

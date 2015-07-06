@@ -77,7 +77,7 @@ public:
         logDebug() << "Saving config from System Options...";
 
         SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
                                                        ->logModeConfiguration<SystemConfiguration *>();
         systemConfiguration->setLogFilesPaths(fileList->paths());
         systemConfiguration->setLogFilesLevels(fileList->levels());
@@ -86,7 +86,7 @@ public:
     void readConfig()
     {
         SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
                                                        ->logModeConfiguration<SystemConfiguration *>();
 
         fileList->removeAllItems();

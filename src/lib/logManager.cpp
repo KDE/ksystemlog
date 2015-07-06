@@ -216,11 +216,11 @@ void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
     QList<LogFile> logFiles;
 
     foreach (const QUrl &url, urls) {
-        logFiles.append(LogFile(url, Globals::instance()->informationLogLevel()));
+        logFiles.append(LogFile(url, Globals::instance().informationLogLevel()));
     }
 
     if (logFiles.isEmpty() == false) {
-        internalInitialize(Globals::instance()->findLogMode(QLatin1String("openLogMode")), logFiles);
+        internalInitialize(Globals::instance().findLogMode(QLatin1String("openLogMode")), logFiles);
 
         reload();
     }

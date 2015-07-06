@@ -90,11 +90,11 @@ public:
             // Ignore this : ") CMD (" (length = 7)
             message = message.right(message.length() - rightBracket - 7);
             message = message.simplified();
-            syslogLine->setLogLevel(Globals::instance()->informationLogLevel());
+            syslogLine->setLogLevel(Globals::instance().informationLogLevel());
         } else {
             // Ignore this : ") " (for INFO and STARTUP cases)
             message = message.right(message.length() - rightBracket - 2);
-            syslogLine->setLogLevel(Globals::instance()->noticeLogLevel());
+            syslogLine->setLogLevel(Globals::instance().noticeLogLevel());
         }
 
         list.append(message);

@@ -46,9 +46,9 @@ public:
         QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
 
         if (hasErrorKeywords(message))
-            syslogLine->setLogLevel(Globals::instance()->errorLogLevel());
+            syslogLine->setLogLevel(Globals::instance().errorLogLevel());
         else if (hasWarningKeywords(message))
-            syslogLine->setLogLevel(Globals::instance()->warningLogLevel());
+            syslogLine->setLogLevel(Globals::instance().warningLogLevel());
 
         return syslogLine;
     }

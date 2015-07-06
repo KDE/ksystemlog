@@ -116,7 +116,7 @@ protected:
         list.append(message);
 
         return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                           originalFile.url().path(), Globals::instance()->informationLogLevel(), logMode);
+                           originalFile.url().path(), Globals::instance().informationLogLevel(), logMode);
     }
 };
 

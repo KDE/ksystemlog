@@ -69,7 +69,7 @@ public slots:
         logDebug() << "Saving config from Apache Options...";
 
         ApacheConfiguration *apacheConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
                                                        ->logModeConfiguration<ApacheConfiguration *>();
         apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
         apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
@@ -84,7 +84,7 @@ public slots:
     void readConfig()
     {
         ApacheConfiguration *apacheConfiguration = Globals::instance()
-                                                       ->findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
+                                                       .findLogMode(QLatin1String(APACHE_LOG_MODE_ID))
                                                        ->logModeConfiguration<ApacheConfiguration *>();
 
         apacheFileList->removeAllItems();

@@ -60,7 +60,7 @@ public slots:
     void saveConfig()
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(XORG_LOG_MODE_ID))
                                                    ->logModeConfiguration<XorgConfiguration *>();
 
         xorgConfiguration->setXorgPaths(fileList->paths());
@@ -69,7 +69,7 @@ public slots:
     void readConfig()
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(XORG_LOG_MODE_ID))
                                                    ->logModeConfiguration<XorgConfiguration *>();
 
         fileList->removeAllItems();

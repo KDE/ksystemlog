@@ -48,12 +48,10 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
 
 JournaldAnalyzer::~JournaldAnalyzer()
 {
-    logDebug() << "will delete";
     m_journalNotifier->setEnabled(false);
     sd_journal_close(m_journal);
     free(m_cursor);
     delete m_journalNotifier;
-    logDebug() << "deleted";
 }
 
 LogViewColumns JournaldAnalyzer::initColumns()
@@ -84,18 +82,14 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
         m_workerMutex.lock();
         m_journalWatchers.append(watcher);
         m_workerMutex.unlock();
-        logDebug() << "Run initial watcher" << watcher;
         connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
         watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
     } else {
         for (JournalWatcher *watcher : m_journalWatchers) {
-            logDebug() << "watch for" << watcher;
             watcher->waitForFinished();
-            logDebug() << "~watch for" << watcher;
         }
         qDeleteAll(m_journalWatchers);
         m_journalWatchers.clear();
-        logDebug() << "cleared all watchers";
     }
 }
 
@@ -115,14 +109,12 @@ void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
     if (!watcher)
         return;
 
-    logDebug() << "callback for" << watcher;
-
     QList<JournalEntry> entries = watcher->result();
 
     if (parsingPaused) {
         logDebug() << "Parsing is paused, discarding journald entries.";
     } else if (entries.size() == 0) {
-        logDebug() << "Received no entries";
+        logDebug() << "Received no entries.";
     } else {
         insertionLocking.lock();
         logViewModel->startingMultipleInsertions();
@@ -153,11 +145,8 @@ void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
 
     m_workerMutex.lock();
     if (m_forgetWatchers) {
-        logDebug() << "self-removing watcher" << watcher;
         m_journalWatchers.removeAll(watcher);
         watcher->deleteLater();
-    } else {
-        logDebug() << "watcher" << watcher << "will stay";
     }
     m_workerMutex.unlock();
 }
@@ -180,7 +169,6 @@ void JournaldAnalyzer::journalDescriptorUpdated(int fd)
     m_journalWatchers.append(watcher);
     m_workerMutex.unlock();
     connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
-    logDebug() << "Run watcher" << watcher;
     watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
 }
 
@@ -353,7 +341,7 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
         QStringList itemComponents;
         itemComponents << entry.unit << entry.message;
         LogLine *line = new LogLine(logLineInternalIdGenerator++, entry.date, itemComponents, QString(),
-                                    Globals::instance()->logLevelByPriority(entry.priority), logMode);
+                                    Globals::instance().logLevelByPriority(entry.priority), logMode);
         line->setRecent(readingMode == UpdatingRead);
         logViewModel->insertNewLogLine(line);
 

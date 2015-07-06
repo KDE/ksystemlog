@@ -41,27 +41,26 @@ QList<LogMode *> SambaLogModeFactory::createLogModes() const
 
     SambaConfiguration *logModeConfiguration = new SambaConfiguration();
     SambaConfigurationWidget *logModeConfigurationWidget = new SambaConfigurationWidget();
-    SambaItemBuilder *itemBuilder = new SambaItemBuilder();
 
     QList<LogMode *> logModes;
-    logModes.append(new SambaLogMode(logModeConfiguration, logModeConfigurationWidget, itemBuilder));
-    logModes.append(new SambaAccessLogMode(logModeConfiguration, logModeConfigurationWidget, itemBuilder));
-    logModes.append(new NetbiosLogMode(logModeConfiguration, logModeConfigurationWidget, itemBuilder));
+    logModes.append(new SambaLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(new SambaAccessLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(new NetbiosLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
 
     return logModes;
 }
 
 LogModeAction *SambaLogModeFactory::createLogModeAction() const
 {
-    LogMode *sambaLogMode = Globals::instance()->findLogMode(QLatin1String(SAMBA_LOG_MODE_ID));
+    LogMode *sambaLogMode = Globals::instance().findLogMode(QLatin1String(SAMBA_LOG_MODE_ID));
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
     multipleActions->addInnerAction(sambaLogMode->action());
     multipleActions->addInnerAction(
-        Globals::instance()->findLogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID))->action());
+        Globals::instance().findLogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID))->action());
     multipleActions->addInnerAction(
-        Globals::instance()->findLogMode(QLatin1String(NETBIOS_LOG_MODE_ID))->action());
+        Globals::instance().findLogMode(QLatin1String(NETBIOS_LOG_MODE_ID))->action());
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

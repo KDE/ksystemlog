@@ -110,45 +110,45 @@ Reader* ReaderFactory::createReader(LogMode* logMode) {
 /*
 QList<LogFile> LogFilesFactory::createLogFiles(LogMode* logMode) {
 
-    else if (logMode==Globals::instance()->bootMode()) {
+    else if (logMode==Globals::instance().bootMode()) {
         QList<LogFile> list;
-        list.append(LogFilesFactory::instance()->getBootLogFile());
+        list.append(LogFilesFactory::instance().getBootLogFile());
         return list;
     }
 
-    else if (logMode==Globals::instance()->authenticationMode()) {
+    else if (logMode==Globals::instance().authenticationMode()) {
         QList<LogFile> list;
-        list.append(LogFilesFactory::instance()->getAuthenticationLogFile());
+        list.append(LogFilesFactory::instance().getAuthenticationLogFile());
         return list;
     }
 
-    else if (logMode==Globals::instance()->daemonMode()) {
+    else if (logMode==Globals::instance().daemonMode()) {
         return LogFilesFactory::getDaemonLogFiles();
     }
 
-    else if (logMode==Globals::instance()->cupsMode()) {
+    else if (logMode==Globals::instance().cupsMode()) {
         return LogFilesFactory::getCupsLogFiles();
     }
 
-    else if (logMode==Globals::instance()->cupsAccessMode()) {
+    else if (logMode==Globals::instance().cupsAccessMode()) {
         return LogFilesFactory::getCupsAccessLogFiles();
 
     }
 
-    else if (logMode==Globals::instance()->postfixMode()) {
+    else if (logMode==Globals::instance().postfixMode()) {
         return LogFilesFactory::getPostfixLogFiles();
     }
 
-    else if (logMode==Globals::instance()->sambaMode()) {
+    else if (logMode==Globals::instance().sambaMode()) {
         return LogFilesFactory::getSambaLogFiles();
     }
 
-    else if (logMode==Globals::instance()->sshMode()) {
+    else if (logMode==Globals::instance().sshMode()) {
         return LogFilesFactory::getSSHLogFiles();
     }
 
 
-    else if (logMode==Globals::instance()->xsessionMode()) {
+    else if (logMode==Globals::instance().xsessionMode()) {
         return LogFilesFactory::getXSessionLogFiles();
     }
 
@@ -210,12 +210,12 @@ QList<LogFile> LogFilesFactory::getXSessionLogFiles() {
 
 LogFile LogModeConfiguration::findGenericLogFile(const QString &file)
 {
-    LogLevel *level = Globals::instance()->informationLogLevel();
+    LogLevel *level = Globals::instance().informationLogLevel();
 
     QUrl url(file);
     if (!url.isValid()) {
         logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
-        return LogFile(QUrl(), Globals::instance()->noLogLevel());
+        return LogFile(QUrl(), Globals::instance().noLogLevel());
     }
 
     return LogFile(url, level);
@@ -237,7 +237,7 @@ QList<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &strin
     QList<LogFile> logFiles;
 
     // Default level used for No Mode logs
-    LogLevel *level = Globals::instance()->noLogLevel();
+    LogLevel *level = Globals::instance().noLogLevel();
 
     foreach (const QString &string, stringList) {
         QUrl url(string);

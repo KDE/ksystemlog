@@ -83,7 +83,7 @@ protected:
         if (logLineType != NULL) {
             string = string.remove(0, 5);
         } else {
-            logLineType = Globals::instance()->informationLogLevel();
+            logLineType = Globals::instance().informationLogLevel();
         }
 
         QStringList list;
@@ -109,14 +109,14 @@ private:
         xorgLevels[QLatin1String("(++)")]
             = new LogLevel(1004, i18n("From command Line"), QLatin1String(COMMAND_LINE_LOG_LEVEL_ICON),
                            QColor(179, 181, 214));
-        xorgLevels[QLatin1String("(!!)")] = Globals::instance()->noticeLogLevel();
-        xorgLevels[QLatin1String("(II)")] = Globals::instance()->informationLogLevel();
-        xorgLevels[QLatin1String("(WW)")] = Globals::instance()->warningLogLevel();
-        xorgLevels[QLatin1String("(EE)")] = Globals::instance()->errorLogLevel();
+        xorgLevels[QLatin1String("(!!)")] = Globals::instance().noticeLogLevel();
+        xorgLevels[QLatin1String("(II)")] = Globals::instance().informationLogLevel();
+        xorgLevels[QLatin1String("(WW)")] = Globals::instance().warningLogLevel();
+        xorgLevels[QLatin1String("(EE)")] = Globals::instance().errorLogLevel();
         xorgLevels[QLatin1String("(NI)")]
             = new LogLevel(1005, i18n("Not implemented"), QLatin1String(NOT_IMPLEMENTED_LOG_LEVEL_ICON),
                            QColor(136, 146, 240));
-        xorgLevels[QLatin1String("(\?\?)")] = Globals::instance()->noLogLevel();
+        xorgLevels[QLatin1String("(\?\?)")] = Globals::instance().noLogLevel();
     }
 
     LogLevel *findTypeName(const QString &type)

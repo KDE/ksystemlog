@@ -100,7 +100,7 @@ public slots:
     void saveConfig()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         configuration->setXSessionPath(xsessionUrlRequester->url().path());
@@ -110,7 +110,7 @@ public slots:
     void readConfig()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         xsessionUrlRequester->setUrl(QUrl::fromLocalFile(configuration->xsessionPath()));
@@ -139,7 +139,7 @@ private:
     void prepareXorgErrorsDescription()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         // Prepare Ignore Xorg Errors description

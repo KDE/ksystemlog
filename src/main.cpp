@@ -95,7 +95,7 @@ int main(int argc, char **argv)
 
                 // TODO Implement this kind of loading
                 // LogManager* firstLogManager = d->tabs->createTab();
-                // d->tabs->load(Globals::instance()->findLogMode("openLogMode"), firstLogManager);
+                // d->tabs->load(Globals::instance().findLogMode("openLogMode"), firstLogManager);
                 // Open log mode need to automatically find the passed url : args->url(i)
             }
         }

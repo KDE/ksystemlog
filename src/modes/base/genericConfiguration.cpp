@@ -96,10 +96,10 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles()
         int intValue = itInt.next();
         QString stringValue = itString.next();
 
-        if (intValue >= 0 && intValue < (int)Globals::instance()->logLevels().count())
-            level = Globals::instance()->logLevels().at(intValue);
+        if (intValue >= 0 && intValue < (int)Globals::instance().logLevels().count())
+            level = Globals::instance().logLevels().at(intValue);
         else
-            level = Globals::instance()->informationLogLevel();
+            level = Globals::instance().informationLogLevel();
 
         QUrl url(stringValue);
         if (!url.isValid()) {

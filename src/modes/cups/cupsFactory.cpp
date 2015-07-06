@@ -53,17 +53,17 @@ QList<LogMode *> CupsLogModeFactory::createLogModes() const
 
 LogModeAction *CupsLogModeFactory::createLogModeAction() const
 {
-    LogMode *cupsLogMode = Globals::instance()->findLogMode(QLatin1String(CUPS_LOG_MODE_ID));
+    LogMode *cupsLogMode = Globals::instance().findLogMode(QLatin1String(CUPS_LOG_MODE_ID));
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(CUPS_MODE_ICON)), i18n("Cups"), cupsLogMode);
     multipleActions->addInnerAction(cupsLogMode->action());
     multipleActions->addInnerAction(
-        Globals::instance()->findLogMode(QLatin1String(CUPS_ACCESS_LOG_MODE_ID))->action());
+        Globals::instance().findLogMode(QLatin1String(CUPS_ACCESS_LOG_MODE_ID))->action());
     multipleActions->addInnerAction(
-        Globals::instance()->findLogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID))->action());
+        Globals::instance().findLogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID))->action());
     multipleActions->addInnerAction(
-        Globals::instance()->findLogMode(QLatin1String(CUPS_PDF_LOG_MODE_ID))->action());
+        Globals::instance().findLogMode(QLatin1String(CUPS_PDF_LOG_MODE_ID))->action());
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

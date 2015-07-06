@@ -83,25 +83,17 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     // TODO Use this (need to connect to movedTab(int, int) signal and update the QList
     // setTabReorderingEnabled(true);
 
-    connect(this, SIGNAL(currentChanged(int)), this, SLOT(changeCurrentTab()));
+    connect(this, SIGNAL(currentChanged(int)), this, SLOT(changeCurrentTab(int)));
 }
 
 TabLogViewsWidget::~TabLogViewsWidget()
 {
-    // TODO Try to do not crash KSystemLog at exitting
-    /*
     QList<TabLogManager*> copy = d->tabLogManagers;
 
-    //Delete existing tabs and related tabLogManagers
-    foreach(TabLogManager* tabLogManager, copy) {
-    logDebug() << "Deleting " << tabLogManager->logManager()->logMode()->name();
-        removePage(tabLogManager->logManager()->usedView());
-
+    foreach (TabLogManager *tabLogManager, copy) {
         d->tabLogManagers.removeAll(tabLogManager);
         delete tabLogManager;
-    logDebug() << tabLogManager->logManager()->logMode()->name() << " deleted";
     }
-    */
 
     delete d;
 }
@@ -115,7 +107,6 @@ void TabLogViewsWidget::newTab(View *view)
 
     if (count() > 1)
         tabBar()->show();
-
     else
         tabBar()->hide();
 }
@@ -327,9 +318,12 @@ void TabLogViewsWidget::reloadAll()
     }
 }
 
-void TabLogViewsWidget::changeCurrentTab()
+void TabLogViewsWidget::changeCurrentTab(int index)
 {
     logDebug() << "Changing current tab...";
+
+    if (index == -1)
+        return;
 
     TabLogManager *tabLogManager = activeTabLogManager();
 

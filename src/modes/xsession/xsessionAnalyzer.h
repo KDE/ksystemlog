@@ -101,11 +101,11 @@ protected:
         // Find the right log level
         LogLevel *logLevel;
         if (hasErrorKeywords(message))
-            logLevel = Globals::instance()->errorLogLevel();
+            logLevel = Globals::instance().errorLogLevel();
         else if (hasWarningKeywords(message))
-            logLevel = Globals::instance()->warningLogLevel();
+            logLevel = Globals::instance().warningLogLevel();
         else
-            logLevel = Globals::instance()->informationLogLevel();
+            logLevel = Globals::instance().informationLogLevel();
 
         return new LogLine(logLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
                            originalFile.url().path(), logLevel, logMode);

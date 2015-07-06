@@ -59,7 +59,7 @@ void LogModeFactoryTest::initTestCase()
 
 void LogModeFactoryTest::testLogModes()
 {
-    LogMode *systemLogMode = Globals::instance()->findLogMode(QLatin1String("systemLogMode"));
+    LogMode *systemLogMode = Globals::instance().findLogMode(QLatin1String("systemLogMode"));
     QVERIFY(systemLogMode);
 
     QCOMPARE(systemLogMode->id(), QString::fromLatin1("systemLogMode"));

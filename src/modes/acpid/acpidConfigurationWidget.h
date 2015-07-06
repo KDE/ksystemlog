@@ -61,7 +61,7 @@ public slots:
     void saveConfig()
     {
         AcpidConfiguration *acpidConfiguration = Globals::instance()
-                                                     ->findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
                                                      ->logModeConfiguration<AcpidConfiguration *>();
 
         acpidConfiguration->setAcpidPaths(fileList->paths());
@@ -70,7 +70,7 @@ public slots:
     void readConfig()
     {
         AcpidConfiguration *acpidConfiguration = Globals::instance()
-                                                     ->findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
                                                      ->logModeConfiguration<AcpidConfiguration *>();
 
         fileList->removeAllItems();

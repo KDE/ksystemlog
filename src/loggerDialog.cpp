@@ -70,7 +70,7 @@ LoggerDialog::LoggerDialog(QWidget *parent)
 
     // Select the right priority
     for (int i = 0; i < priority->count(); ++i) {
-        if (priority->itemText(i) == Globals::instance()->noticeLogLevel()->name()) {
+        if (priority->itemText(i) == Globals::instance().noticeLogLevel()->name()) {
             priority->setCurrentIndex(i);
             break;
         }
@@ -133,32 +133,32 @@ void LoggerDialog::buildMaps()
     d->facilities[i18n("Local 7")] = QLatin1String("local7");
 
     // Fill the priority map
-    d->priorities[Globals::instance()->debugLogLevel()->name()] = QLatin1String("debug");
-    d->priorities[Globals::instance()->informationLogLevel()->name()] = QLatin1String("info");
-    d->priorities[Globals::instance()->noticeLogLevel()->name()] = QLatin1String("notice");
-    d->priorities[Globals::instance()->warningLogLevel()->name()] = QLatin1String("warning");
-    d->priorities[Globals::instance()->errorLogLevel()->name()] = QLatin1String("err");
-    d->priorities[Globals::instance()->criticalLogLevel()->name()] = QLatin1String("crit");
-    d->priorities[Globals::instance()->alertLogLevel()->name()] = QLatin1String("alert");
-    d->priorities[Globals::instance()->emergencyLogLevel()->name()] = QLatin1String("emerg");
+    d->priorities[Globals::instance().debugLogLevel()->name()] = QLatin1String("debug");
+    d->priorities[Globals::instance().informationLogLevel()->name()] = QLatin1String("info");
+    d->priorities[Globals::instance().noticeLogLevel()->name()] = QLatin1String("notice");
+    d->priorities[Globals::instance().warningLogLevel()->name()] = QLatin1String("warning");
+    d->priorities[Globals::instance().errorLogLevel()->name()] = QLatin1String("err");
+    d->priorities[Globals::instance().criticalLogLevel()->name()] = QLatin1String("crit");
+    d->priorities[Globals::instance().alertLogLevel()->name()] = QLatin1String("alert");
+    d->priorities[Globals::instance().emergencyLogLevel()->name()] = QLatin1String("emerg");
 
     // Fill the priority icon map
-    d->priorityIcons[Globals::instance()->debugLogLevel()->name()]
-        = Globals::instance()->debugLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->informationLogLevel()->name()]
-        = Globals::instance()->informationLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->noticeLogLevel()->name()]
-        = Globals::instance()->noticeLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->warningLogLevel()->name()]
-        = Globals::instance()->warningLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->errorLogLevel()->name()]
-        = Globals::instance()->errorLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->criticalLogLevel()->name()]
-        = Globals::instance()->criticalLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->alertLogLevel()->name()]
-        = Globals::instance()->alertLogLevel()->icon();
-    d->priorityIcons[Globals::instance()->emergencyLogLevel()->name()]
-        = Globals::instance()->emergencyLogLevel()->icon();
+    d->priorityIcons[Globals::instance().debugLogLevel()->name()]
+        = Globals::instance().debugLogLevel()->icon();
+    d->priorityIcons[Globals::instance().informationLogLevel()->name()]
+        = Globals::instance().informationLogLevel()->icon();
+    d->priorityIcons[Globals::instance().noticeLogLevel()->name()]
+        = Globals::instance().noticeLogLevel()->icon();
+    d->priorityIcons[Globals::instance().warningLogLevel()->name()]
+        = Globals::instance().warningLogLevel()->icon();
+    d->priorityIcons[Globals::instance().errorLogLevel()->name()]
+        = Globals::instance().errorLogLevel()->icon();
+    d->priorityIcons[Globals::instance().criticalLogLevel()->name()]
+        = Globals::instance().criticalLogLevel()->icon();
+    d->priorityIcons[Globals::instance().alertLogLevel()->name()]
+        = Globals::instance().alertLogLevel()->icon();
+    d->priorityIcons[Globals::instance().emergencyLogLevel()->name()]
+        = Globals::instance().emergencyLogLevel()->icon();
 }
 
 void LoggerDialog::textChanged()
@@ -220,7 +220,7 @@ void LoggerDialog::sendMessage()
 
     QString prioritySelected = priority->currentText();
 
-    if (prioritySelected != Globals::instance()->noLogLevel()->name()) {
+    if (prioritySelected != Globals::instance().noLogLevel()->name()) {
         arguments << QLatin1String("-p");
 
         QString p(d->facilities[facility->currentText()]);

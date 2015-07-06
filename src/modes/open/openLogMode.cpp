@@ -70,7 +70,7 @@ QList<LogFile> OpenLogMode::createLogFiles()
     }
 
     if (openingFileName.isValid()) {
-        LogFile logFile(openingFileName, Globals::instance()->informationLogLevel());
+        LogFile logFile(openingFileName, Globals::instance().informationLogLevel());
         QList<LogFile> logFiles;
         logFiles.append(logFile);
 

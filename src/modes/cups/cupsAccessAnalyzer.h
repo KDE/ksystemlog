@@ -112,11 +112,11 @@ protected:
     inline LogLevel *findLevel(const QString &status) const
     {
         if (status == QLatin1String("successful-ok"))
-            return Globals::instance()->informationLogLevel();
+            return Globals::instance().informationLogLevel();
         else if (status == QLatin1String("ignored"))
-            return Globals::instance()->warningLogLevel();
+            return Globals::instance().warningLogLevel();
 
-        return Globals::instance()->noticeLogLevel();
+        return Globals::instance().noticeLogLevel();
     }
 };
 

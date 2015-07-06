@@ -106,15 +106,15 @@ private:
     {
         mapTypeLevels[QLatin1Char('d')]
             = new LogLevel(20, i18n("debug 2"), QLatin1String(DEBUG2_LOG_LEVEL_ICON), QColor(169, 189, 165));
-        mapTypeLevels[QLatin1Char('D')] = Globals::instance()->debugLogLevel();
-        mapTypeLevels[QLatin1Char('I')] = Globals::instance()->informationLogLevel();
-        mapTypeLevels[QLatin1Char('N')] = Globals::instance()->noticeLogLevel();
-        mapTypeLevels[QLatin1Char('W')] = Globals::instance()->warningLogLevel();
-        mapTypeLevels[QLatin1Char('E')] = Globals::instance()->errorLogLevel();
-        mapTypeLevels[QLatin1Char('C')] = Globals::instance()->criticalLogLevel();
-        mapTypeLevels[QLatin1Char('A')] = Globals::instance()->alertLogLevel();
-        mapTypeLevels[QLatin1Char('X')] = Globals::instance()->emergencyLogLevel();
-        mapTypeLevels[QLatin1Char(' ')] = Globals::instance()->noLogLevel();
+        mapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
+        mapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();
+        mapTypeLevels[QLatin1Char('N')] = Globals::instance().noticeLogLevel();
+        mapTypeLevels[QLatin1Char('W')] = Globals::instance().warningLogLevel();
+        mapTypeLevels[QLatin1Char('E')] = Globals::instance().errorLogLevel();
+        mapTypeLevels[QLatin1Char('C')] = Globals::instance().criticalLogLevel();
+        mapTypeLevels[QLatin1Char('A')] = Globals::instance().alertLogLevel();
+        mapTypeLevels[QLatin1Char('X')] = Globals::instance().emergencyLogLevel();
+        mapTypeLevels[QLatin1Char(' ')] = Globals::instance().noLogLevel();
     }
 
     LogLevel *findLogLevel(const QChar &type)
@@ -127,7 +127,7 @@ private:
         } else {
             logCritical() << i18n(
                 "New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
-            return (Globals::instance()->noLogLevel());
+            return (Globals::instance().noLogLevel());
         }
     }
 };

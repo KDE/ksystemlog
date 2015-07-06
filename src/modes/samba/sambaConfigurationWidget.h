@@ -70,7 +70,7 @@ public slots:
         logDebug() << "Saving config from Samba Options...";
 
         SambaConfiguration *sambaConfiguration = Globals::instance()
-                                                     ->findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     .findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
                                                      ->logModeConfiguration<SambaConfiguration *>();
         sambaConfiguration->setSambaPaths(sambaFileList->paths(sambaPathsId));
         sambaConfiguration->setSambaAccessPaths(sambaFileList->paths(sambaAccessPathsId));
@@ -86,7 +86,7 @@ public slots:
     void readConfig()
     {
         SambaConfiguration *sambaConfiguration = Globals::instance()
-                                                     ->findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     .findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
                                                      ->logModeConfiguration<SambaConfiguration *>();
 
         sambaFileList->removeAllItems();

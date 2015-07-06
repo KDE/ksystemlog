@@ -72,7 +72,7 @@ public slots:
         logDebug() << "Saving config from Cups Options...";
 
         CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
                                                    ->logModeConfiguration<CupsConfiguration *>();
         cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
         cupsConfiguration->setCupsAccessPaths(cupsFileList->paths(cupsAccessPathsId));
@@ -89,7 +89,7 @@ public slots:
     void readConfig()
     {
         CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   ->findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
+                                                   .findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
                                                    ->logModeConfiguration<CupsConfiguration *>();
 
         cupsFileList->removeAllItems();

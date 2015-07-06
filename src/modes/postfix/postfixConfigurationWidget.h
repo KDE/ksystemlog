@@ -78,7 +78,7 @@ public:
         logDebug() << "Saving config from Postfix Options...";
 
         PostfixConfiguration *configuration = Globals::instance()
-                                                  ->findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  .findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
                                                   ->logModeConfiguration<PostfixConfiguration *>();
         configuration->setLogFilesPaths(fileList->paths());
         configuration->setLogFilesLevels(fileList->levels());
@@ -87,7 +87,7 @@ public:
     void readConfig()
     {
         PostfixConfiguration *configuration = Globals::instance()
-                                                  ->findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  .findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
                                                   ->logModeConfiguration<PostfixConfiguration *>();
 
         fileList->removeAllItems();

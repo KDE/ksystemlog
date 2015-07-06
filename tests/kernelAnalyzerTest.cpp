@@ -93,7 +93,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String("kernelLogMode"));
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
     KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
@@ -117,7 +117,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     assertedDateTime = assertedDateTime.addSecs(22);
     assertedDateTime = assertedDateTime.addMSecs(232);
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance()->informationLogLevel(),
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
                       assertedDateTime, items);
 
     testUtil.destroyReader(kernelAnalyzer);
@@ -129,7 +129,7 @@ void KernelAnalyzerTest::testSuseDmesg()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-    LogMode *logMode = Globals::instance()->findLogMode(QLatin1String("kernelLogMode"));
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
     KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
@@ -149,7 +149,7 @@ void KernelAnalyzerTest::testSuseDmesg()
 
     QStringList items = QStringList() << QLatin1String("r8169") << QLatin1String("eth0: link down");
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance()->informationLogLevel(),
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
                       kernelAnalyzer->findStartupTime(), items);
 
     testUtil.destroyReader(kernelAnalyzer);

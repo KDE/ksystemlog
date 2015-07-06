@@ -38,15 +38,12 @@
 #include "logModeConfiguration.h"
 #include "logModeConfigurationWidget.h"
 
-Globals *Globals::self = NULL;
+#include "logging.h"
 
-Globals *Globals::instance()
+Globals &Globals::instance()
 {
-    if (Globals::self == NULL) {
-        Globals::self = new Globals();
-    }
-
-    return Globals::self;
+    static Globals self;
+    return self;
 }
 
 class GlobalsPrivate
@@ -58,10 +55,6 @@ public:
     QMap<QString, LogMode *> logModes;
 
     QList<LogModeAction *> logModeActions;
-
-    /*
-    LogMode* noMode;
-    */
 
     /**
      * Existing Log levels. The id value corresponds to the index in the vector
@@ -91,15 +84,15 @@ Globals::Globals()
 
 Globals::~Globals()
 {
-    foreach (LogMode *logMode, d->logModes) {
-        delete logMode;
-    }
-    d->logModes.clear();
-
     foreach (LogModeAction *logModeAction, d->logModeActions) {
         delete logModeAction;
     }
     d->logModeActions.clear();
+
+    foreach (LogMode *logMode, d->logModes) {
+        delete logMode;
+    }
+    d->logModes.clear();
 
     foreach (LogLevel *logLevel, d->logLevels) {
         delete logLevel;
@@ -218,8 +211,7 @@ LogLevel *Globals::emergencyLogLevel()
 
 LogLevel *Globals::logLevelByPriority(int id)
 {
-    switch (id)
-    {
+    switch (id) {
     case 0:
         return emergencyLogLevel();
         break;

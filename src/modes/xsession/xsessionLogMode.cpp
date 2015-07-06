@@ -62,7 +62,7 @@ Analyzer *XSessionLogMode::createAnalyzer()
 QList<LogFile> XSessionLogMode::createLogFiles()
 {
     XSessionConfiguration *configuration = Globals::instance()
-                                               ->findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                               .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
                                                ->logModeConfiguration<XSessionConfiguration *>();
 
     QList<LogFile> logFiles;

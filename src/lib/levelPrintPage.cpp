@@ -60,7 +60,7 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
 
     int row = 0, col = 0;
 
-    foreach (LogLevel *level, Globals::instance()->logLevels()) {
+    foreach (LogLevel *level, Globals::instance().logLevels()) {
         QCheckBox *button = new QCheckBox(level->name()); //, m_btnGroup, 0
 
         levelCheckBoxes.append(button);
@@ -87,7 +87,7 @@ LevelPrintPage::~LevelPrintPage()
 /* QPrinter Port: comment out as dialog page is not currently being used, so not ported
 
 void LevelPrintPage::getOptions( QMap<QString,QString>& opts, bool incldef ) {
-    foreach(LogLevel* level, Globals::instance()->logLevels()) {
+    foreach(LogLevel* level, Globals::instance().logLevels()) {
         QString key = "kde-ksystemlog-print_" + level->name();
 
 
@@ -103,7 +103,7 @@ void LevelPrintPage::getOptions( QMap<QString,QString>& opts, bool incldef ) {
 }
 
 void LevelPrintPage::setOptions( const QMap<QString,QString>& opts ) {
-    foreach(LogLevel* level, Globals::instance()->logLevels()) {
+    foreach(LogLevel* level, Globals::instance().logLevels()) {
         QString key = "kde-ksystemlog-print_" + level->name();
         QString use = opts[ key ];
 

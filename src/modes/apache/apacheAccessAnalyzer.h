@@ -130,7 +130,7 @@ protected:
         list.append(url);
 
         return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().path(),
-                           Globals::instance()->informationLogLevel(), logMode);
+                           Globals::instance().informationLogLevel(), logMode);
     }
 };
 

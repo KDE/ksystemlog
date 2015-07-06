@@ -81,7 +81,7 @@ public slots:
 private slots:
     void changeTab(View *view, const QIcon &icon, const QString &label);
 
-    void changeCurrentTab();
+    void changeCurrentTab(int index);
     void changeTitleAddedLines(View *, int);
 
     void showContextMenu(const QPoint &cursorPosition);
