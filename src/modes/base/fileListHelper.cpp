@@ -148,7 +148,11 @@ QUrl FileListHelper::openUrl(const QString &originPath)
     fileDialog.setFileMode(QFileDialog::AnyFile);
 
     fileDialog.exec();
-    return fileDialog.selectedUrls().at(0);
+    QList<QUrl> urls = fileDialog.selectedUrls();
+    if (!urls.isEmpty())
+        return fileDialog.selectedUrls().at(0);
+    else
+        return QUrl();
 }
 
 QStringList FileListHelper::expandJoker(const QUrl &url)

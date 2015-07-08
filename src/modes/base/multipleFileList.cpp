@@ -264,6 +264,8 @@ void MultipleFileList::modifyItem(QTreeWidgetItem *item)
 
     // Open a standard Filedialog
     QUrl url = fileListHelper.openUrl(previousPath);
+    if (url.isEmpty())
+        return;
 
     QList<QUrl> urls;
     urls.append(url);
