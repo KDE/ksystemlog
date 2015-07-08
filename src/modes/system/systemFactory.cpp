@@ -41,6 +41,10 @@ QList<LogMode *> SystemLogModeFactory::createLogModes() const
 LogModeAction *SystemLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID));
+
+    if (!logMode->filesExist())
+        return nullptr;
+
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
     return logModeAction;

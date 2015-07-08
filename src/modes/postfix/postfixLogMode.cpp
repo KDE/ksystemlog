@@ -48,6 +48,9 @@ PostfixLogMode::PostfixLogMode()
     d->action->setWhatsThis(i18n(
         "Displays the Postfix log in the current tab. Postfix is the most known and used mail server in the "
         "Linux world."));
+
+
+    checkLogFilesPresence(logModeConfiguration<PostfixConfiguration *>()->logFilesPaths());
 }
 
 PostfixLogMode::~PostfixLogMode()

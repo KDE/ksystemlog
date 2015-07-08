@@ -47,6 +47,8 @@ ApacheLogMode::ApacheLogMode(ApacheConfiguration *apacheConfiguration,
     d->action->setToolTip(i18n("Display the Apache log."));
     d->action->setWhatsThis(
         i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
+
+    checkLogFilesPresence(apacheConfiguration->apachePaths());
 }
 
 ApacheLogMode::~ApacheLogMode()

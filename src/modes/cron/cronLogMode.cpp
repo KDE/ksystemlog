@@ -48,6 +48,9 @@ CronLogMode::CronLogMode()
         "Displays the planned tasks log in the current tab. Cron process is a program in charge of launching "
         "planned tasks on your system, like security checks, or auto-restarting of some services. Use this "
         "menu to see the recently launched processes."));
+
+    CronConfiguration *cronConfiguration = logModeConfiguration<CronConfiguration *>();
+    checkLogFilesPresence(cronConfiguration->cronPaths());
 }
 
 CronLogMode::~CronLogMode()

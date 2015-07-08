@@ -22,6 +22,7 @@
 #include "logMode.h"
 
 #include <QAction>
+#include <QFileInfo>
 
 #include <kiconloader.h>
 
@@ -34,6 +35,7 @@ LogMode::LogMode(const QString &id, const QString &name, const QString &iconName
     d->id = id;
     d->name = name;
     d->icon = SmallIcon(iconName);
+    d->logFilesExist = true;
 }
 
 LogMode::~LogMode()
@@ -70,6 +72,11 @@ LogModeItemBuilder *LogMode::itemBuilder() const
     return d->itemBuilder;
 }
 
+bool LogMode::filesExist() const
+{
+    return d->logFilesExist;
+}
+
 LogModeConfigurationWidget *LogMode::logModeConfigurationWidget() const
 {
     return d->logModeConfigurationWidget;
@@ -86,4 +93,14 @@ QAction *LogMode::createDefaultAction()
     action->setData(QVariant(d->id));
 
     return action;
+}
+
+void LogMode::checkLogFilesPresence(const QStringList &paths)
+{
+    d->logFilesExist = false;
+    for (const QString &path : paths) {
+        QFileInfo fileInfo(path);
+        if (fileInfo.exists())
+            d->logFilesExist = true;
+    }
 }

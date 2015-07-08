@@ -49,6 +49,9 @@ DaemonLogMode::DaemonLogMode()
         "Displays the daemons' logs in the current tab. The daemons are all processes launched in the "
         "background of the system. See this log if you want to know what occurs in the background of your "
         "system."));
+
+    DaemonConfiguration *configuration = logModeConfiguration<DaemonConfiguration *>();
+    checkLogFilesPresence(configuration->daemonPaths());
 }
 
 DaemonLogMode::~DaemonLogMode()

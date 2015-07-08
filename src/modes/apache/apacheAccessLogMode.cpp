@@ -49,6 +49,8 @@ ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration *apacheConfiguratio
     d->action->setWhatsThis(i18n(
         "Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. "
         "This log saves all requests performed by the Apache web server."));
+
+    checkLogFilesPresence(apacheConfiguration->apacheAccessPaths());
 }
 
 ApacheAccessLogMode::~ApacheAccessLogMode()

@@ -47,6 +47,8 @@ SambaLogMode::SambaLogMode(SambaConfiguration *sambaConfiguration,
     d->action->setWhatsThis(i18n(
         "Displays the Samba log in the current tab. Samba is the file sharing server which interacts with "
         "Microsoft Windows network."));
+
+    checkLogFilesPresence(sambaConfiguration->sambaPaths());
 }
 
 SambaLogMode::~SambaLogMode()

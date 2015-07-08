@@ -48,6 +48,8 @@ SystemLogMode::SystemLogMode()
     d->action->setWhatsThis(i18n(
         "Displays the system log in the current tab. This log is generally used by non-specialized processes "
         "(like \"sudo\" or \"fsck\" commands)"));
+
+    checkLogFilesPresence(logModeConfiguration<SystemConfiguration *>()->logFilesPaths());
 }
 
 SystemLogMode::~SystemLogMode()

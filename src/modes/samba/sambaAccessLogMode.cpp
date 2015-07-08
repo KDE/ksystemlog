@@ -49,6 +49,8 @@ SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration *sambaConfiguration,
     d->action->setWhatsThis(i18n(
         "Displays the Samba Access log in the current tab. This log mode allows you to see connections "
         "between your shares and remote hosts."));
+
+    checkLogFilesPresence(sambaConfiguration->sambaAccessPaths());
 }
 
 SambaAccessLogMode::~SambaAccessLogMode()

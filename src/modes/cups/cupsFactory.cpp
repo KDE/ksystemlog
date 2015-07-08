@@ -54,16 +54,32 @@ QList<LogMode *> CupsLogModeFactory::createLogModes() const
 LogModeAction *CupsLogModeFactory::createLogModeAction() const
 {
     LogMode *cupsLogMode = Globals::instance().findLogMode(QLatin1String(CUPS_LOG_MODE_ID));
+    LogMode *cupsAccessLogMode = Globals::instance().findLogMode(QLatin1String(CUPS_ACCESS_LOG_MODE_ID));
+    LogMode *cupsPageLogMode = Globals::instance().findLogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID));
+    LogMode *cupsPdfLogMode = Globals::instance().findLogMode(QLatin1String(CUPS_PDF_LOG_MODE_ID));
+
+    bool cupsLogsExist = cupsLogMode->filesExist();
+    bool cupsAccessLogsExist = cupsAccessLogMode->filesExist();
+    bool cupsPageLogsExist = cupsPageLogMode->filesExist();
+    bool cupsPdfLogsExist = cupsPdfLogMode->filesExist();
+
+    if (!cupsLogsExist && !cupsAccessLogsExist && !cupsPageLogsExist && !cupsPdfLogsExist)
+        return nullptr;
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(CUPS_MODE_ICON)), i18n("Cups"), cupsLogMode);
-    multipleActions->addInnerAction(cupsLogMode->action());
-    multipleActions->addInnerAction(
-        Globals::instance().findLogMode(QLatin1String(CUPS_ACCESS_LOG_MODE_ID))->action());
-    multipleActions->addInnerAction(
-        Globals::instance().findLogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID))->action());
-    multipleActions->addInnerAction(
-        Globals::instance().findLogMode(QLatin1String(CUPS_PDF_LOG_MODE_ID))->action());
+
+    if (cupsLogsExist)
+        multipleActions->addInnerAction(cupsLogMode->action());
+
+    if (cupsAccessLogsExist)
+        multipleActions->addInnerAction(cupsAccessLogMode->action());
+
+    if (cupsPageLogsExist)
+        multipleActions->addInnerAction(cupsPageLogMode->action());
+
+    if (cupsPdfLogsExist)
+        multipleActions->addInnerAction(cupsPdfLogMode->action());
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

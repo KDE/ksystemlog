@@ -48,6 +48,9 @@ AuthenticationLogMode::AuthenticationLogMode()
     d->action->setWhatsThis(i18n(
         "Displays the authentication log in the current tab. This log displays all logins made by each user "
         "of the system, and can help you to know if someone tried to crack your system."));
+
+    AuthenticationConfiguration *configuration = logModeConfiguration<AuthenticationConfiguration *>();
+    checkLogFilesPresence(QStringList() << configuration->authenticationPath());
 }
 
 AuthenticationLogMode::~AuthenticationLogMode()

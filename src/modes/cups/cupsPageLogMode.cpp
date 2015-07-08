@@ -49,6 +49,8 @@ CupsPageLogMode::CupsPageLogMode(CupsConfiguration *cupsConfiguration,
         "Displays the CUPS Page log in the current tab. CUPS is the program which manages printing on your "
         "computer. This log saves all requests performed to the CUPS embedded web server (default: "
         "<i>http://localhost:631</i>)."));
+
+    checkLogFilesPresence(cupsConfiguration->cupsPagePaths());
 }
 
 CupsPageLogMode::~CupsPageLogMode()

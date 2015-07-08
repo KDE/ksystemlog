@@ -41,6 +41,10 @@ QList<LogMode *> AcpidLogModeFactory::createLogModes() const
 LogModeAction *AcpidLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QLatin1String(ACPID_LOG_MODE_ID));
+
+    if (!logMode->filesExist())
+        return nullptr;
+
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
     logModeAction->setCategory(LogModeAction::OthersCategory);
 

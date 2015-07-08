@@ -43,9 +43,12 @@ QList<LogMode *> SambaLogModeFactory::createLogModes() const
     SambaConfigurationWidget *logModeConfigurationWidget = new SambaConfigurationWidget();
 
     QList<LogMode *> logModes;
-    logModes.append(new SambaLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
-    logModes.append(new SambaAccessLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
-    logModes.append(new NetbiosLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(
+        new SambaLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(
+        new SambaAccessLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(
+        new NetbiosLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
 
     return logModes;
 }
@@ -53,14 +56,27 @@ QList<LogMode *> SambaLogModeFactory::createLogModes() const
 LogModeAction *SambaLogModeFactory::createLogModeAction() const
 {
     LogMode *sambaLogMode = Globals::instance().findLogMode(QLatin1String(SAMBA_LOG_MODE_ID));
+    LogMode *sambaAccessLogMode = Globals::instance().findLogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID));
+    LogMode *sambaNetbiosLogMode = Globals::instance().findLogMode(QLatin1String(NETBIOS_LOG_MODE_ID));
+
+    bool sambaLogsExist = sambaLogMode->filesExist();
+    bool sambaAccessLogsExist = sambaAccessLogMode->filesExist();
+    bool sambaNetbiosLogsExist = sambaNetbiosLogMode->filesExist();
+
+    if (!sambaLogsExist && !sambaAccessLogsExist && !sambaNetbiosLogsExist)
+        return nullptr;
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
-    multipleActions->addInnerAction(sambaLogMode->action());
-    multipleActions->addInnerAction(
-        Globals::instance().findLogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID))->action());
-    multipleActions->addInnerAction(
-        Globals::instance().findLogMode(QLatin1String(NETBIOS_LOG_MODE_ID))->action());
+
+    if (sambaLogsExist)
+        multipleActions->addInnerAction(sambaLogMode->action());
+
+    if (sambaAccessLogsExist)
+        multipleActions->addInnerAction(sambaAccessLogMode->action());
+
+    if (sambaNetbiosLogsExist)
+        multipleActions->addInnerAction(sambaNetbiosLogMode->action());
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

@@ -48,6 +48,8 @@ CupsLogMode::CupsLogMode(CupsConfiguration *cupsConfiguration,
     d->action->setWhatsThis(i18n(
         "Displays the CUPS log in the current tab. CUPS is the program which manages printing on your "
         "computer."));
+
+    checkLogFilesPresence(cupsConfiguration->cupsPaths());
 }
 
 CupsLogMode::~CupsLogMode()

@@ -55,6 +55,8 @@ public:
     LogModeConfigurationWidget *logModeConfigurationWidget;
 
     LogModeConfiguration *logModeConfiguration;
+
+    bool logFilesExist;
 };
 
 class LogMode : public QObject
@@ -77,6 +79,11 @@ public:
     LogModeItemBuilder *itemBuilder() const;
 
     /**
+     * Returns true if at least one log file exists for this mode.
+     */
+    bool filesExist() const;
+
+    /**
      * Log mode configuration widget
      */
     LogModeConfigurationWidget *logModeConfigurationWidget() const;
@@ -94,6 +101,11 @@ public:
 
 protected:
     QAction *createDefaultAction();
+
+    /**
+     * Initializes the flag returned by filesExist().
+     */
+    void checkLogFilesPresence(const QStringList &paths);
 
     LogModePrivate *const d;
 
