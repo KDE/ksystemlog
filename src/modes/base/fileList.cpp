@@ -29,6 +29,7 @@
 #include <kmessagebox.h>
 #include <QIcon>
 #include <QMenu>
+#include <QFileInfo>
 
 #include "defaults.h"
 
@@ -41,6 +42,15 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     logDebug() << "Initializing file list...";
 
     setupUi(this);
+
+    warningBox = new KMessageWidget(this);
+    warningBox->setVisible(false);
+    warningBox->setMessageType(KMessageWidget::Warning);
+    warningBox->setText(i18n("Some log files are missing.\n"
+                             "If all log files are missing, this mode will be unavailable."));
+    warningBox->setCloseButtonVisible(false);
+    warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    vboxLayout->insertWidget(1, warningBox);
 
     description->setText(descriptionText);
 
@@ -227,9 +237,17 @@ QVBoxLayout *FileList::buttonsLayout()
 
 void FileList::addPaths(const QStringList &paths)
 {
+    bool missingFiles = false;
     foreach (const QString &path, paths) {
-        fileList->addItem(path);
+        QListWidgetItem *item = new QListWidgetItem(path);
+        QFileInfo checkFile(path);
+        if (!checkFile.exists()) {
+            item->setForeground(Qt::red);
+            missingFiles = true;
+        }
+        fileList->addItem(item);
     }
+    warningBox->setVisible(missingFiles);
 
     updateButtons();
 }

@@ -24,6 +24,8 @@
 
 #include <QWidget>
 
+#include <KMessageWidget>
+
 #include "fileListHelper.h"
 
 #include "ui_multipleFileListBase.h"
@@ -83,6 +85,10 @@ protected:
     FileListHelper fileListHelper;
 
     QButtonGroup addButtons;
+
+private:
+    KMessageWidget *warningBox;
+    bool missingFiles;
 };
 
 #endif //_MULTIPLE_FILE_LIST_H_

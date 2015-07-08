@@ -27,6 +27,7 @@
 #include "fileListHelper.h"
 
 #include "ui_fileListBase.h"
+#include <KMessageWidget>
 
 class QVBoxLayout;
 
@@ -78,6 +79,8 @@ protected:
     QVBoxLayout *buttonsLayout();
 
     FileListHelper fileListHelper;
+
+    KMessageWidget *warningBox;
 };
 
 #endif //_FILE_LIST_H_

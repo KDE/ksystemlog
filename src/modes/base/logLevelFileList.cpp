@@ -32,6 +32,7 @@
 #include <KLocalizedString>
 #include <kmessagebox.h>
 #include <QIcon>
+#include <QFileInfo>
 
 #include "defaults.h"
 
@@ -82,9 +83,11 @@ LogLevelFileList::~LogLevelFileList()
     // changeItem is managed automatically
 }
 
-void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText)
+void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool missing)
 {
     QListWidgetItem *item = new QListWidgetItem(QIcon(level->pixmap()), itemText, fileList);
+    if (missing)
+        item->setForeground(Qt::red);
     item->setData(LogLevelFileList::LogLevelRole, level->id());
 }
 
@@ -168,9 +171,18 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
     QListIterator<QString> itString(stringList);
     QListIterator<int> itInt = (valueList);
 
+    bool missingFiles = false;
+
     while (itString.hasNext()) {
         int valueInt = itInt.next();
         QString valueString = itString.next();
+        bool missingFile = false;
+
+        QFileInfo checkFile(valueString);
+        if (!checkFile.exists()) {
+            missingFiles = true;
+            missingFile = true;
+        }
 
         LogLevel *level;
         if (valueInt >= 0 && valueInt < (int)Globals::instance().logLevels().count())
@@ -178,8 +190,10 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
         else
             level = Globals::instance().informationLogLevel();
 
-        insertItem(level, valueString);
+        insertItem(level, valueString, missingFile);
     }
+
+    warningBox->setVisible(missingFiles);
 
     emit fileListChanged();
 }

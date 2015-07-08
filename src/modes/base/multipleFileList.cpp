@@ -28,8 +28,10 @@
 #include <KLocalizedString>
 #include <kactioncollection.h>
 #include <kmessagebox.h>
+
 #include <QIcon>
 #include <QMenu>
+#include <QFileInfo>
 
 #include "defaults.h"
 
@@ -42,6 +44,17 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     logDebug() << "Initializing multiple file list...";
 
     setupUi(this);
+
+    missingFiles = false;
+    warningBox = new KMessageWidget(this);
+    warningBox->setVisible(false);
+    warningBox->setMessageType(KMessageWidget::Warning);
+    warningBox->setText(
+        i18n("Some log files are missing.\n"
+             "If all log files for a category are missing, this category will be unavailable."));
+    warningBox->setCloseButtonVisible(false);
+    warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    vboxLayout->insertWidget(1, warningBox);
 
     description->setText(descriptionText);
 
@@ -227,6 +240,13 @@ void MultipleFileList::addItemInternal(QTreeWidgetItem *categoryItem, const QStr
 {
     logDebug() << "Adding" << path << "to" << categoryItem->text(0);
     QTreeWidgetItem *item = new QTreeWidgetItem(QStringList(path));
+
+    QFileInfo checkFile(path);
+    if (!checkFile.exists()) {
+        missingFiles = true;
+        item->setForeground(0, Qt::red);
+    }
+
     categoryItem->addChild(item);
     categoryItem->setExpanded(true);
 }
@@ -416,6 +436,7 @@ void MultipleFileList::addEmptyItem(QTreeWidgetItem *item)
 
 void MultipleFileList::addPaths(int category, const QStringList &paths)
 {
+    missingFiles = false;
     QTreeWidgetItem *categoryItem = fileList->topLevelItem(category);
 
     foreach (const QString &path, paths) {
@@ -425,6 +446,8 @@ void MultipleFileList::addPaths(int category, const QStringList &paths)
     updateEmptyItems();
 
     updateButtons();
+
+    warningBox->setVisible(missingFiles);
 }
 
 QStringList MultipleFileList::paths(int category)

@@ -43,7 +43,7 @@ public:
 private:
     LogLevel *level(int i);
 
-    void insertItem(LogLevel *level, const QString &itemText);
+    void insertItem(LogLevel *level, const QString &itemText, bool missing = false);
 
     static int LogLevelRole;
 
