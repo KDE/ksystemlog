@@ -51,14 +51,25 @@ public:
         QVBoxLayout *layout = new QVBoxLayout();
         this->setLayout(layout);
 
+        warningBox = new KMessageWidget(this);
+        warningBox->setVisible(false);
+        warningBox->setMessageType(KMessageWidget::Warning);
+        warningBox->setText(i18n("Log file is missing. Mode will be unavailable."));
+        warningBox->setCloseButtonVisible(false);
+        warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+
         // Authentication log file
         QGroupBox *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
-        QHBoxLayout *authenticationLayout = new QHBoxLayout();
+        QVBoxLayout *authenticationLayout = new QVBoxLayout();
+        QHBoxLayout *filePathLayout = new QHBoxLayout();
         authenticationBox->setLayout(authenticationLayout);
+
+        authenticationLayout->addWidget(warningBox);
+        authenticationLayout->addLayout(filePathLayout);
 
         layout->addWidget(authenticationBox);
 
-        authenticationLayout->addWidget(new QLabel(i18n("Authentication log file:")));
+        filePathLayout->addWidget(new QLabel(i18n("Authentication log file:")));
 
         authenticationUrlRequester = new KUrlRequester(authenticationBox);
         authenticationUrlRequester->setMode(KFile::File);
@@ -68,7 +79,7 @@ public:
         authenticationUrlRequester->setWhatsThis(i18n(
             "You can type or choose here the authentication log file. This file will be analyzed when you "
             "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
-        authenticationLayout->addWidget(authenticationUrlRequester);
+        filePathLayout->addWidget(authenticationUrlRequester);
 
         connect(authenticationUrlRequester, SIGNAL(textChanged(const QString &)), this,
                 SIGNAL(configurationChanged()));
@@ -97,8 +108,11 @@ public slots:
                   .findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
                   ->logModeConfiguration<AuthenticationConfiguration *>();
 
-        authenticationUrlRequester->setUrl(
-            QUrl::fromLocalFile(authenticationConfiguration->authenticationPath()));
+        QString path = authenticationConfiguration->authenticationPath();
+        QFileInfo fileInfo(path);
+        warningBox->setVisible(!fileInfo.exists());
+
+        authenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
     }
 
     void defaultConfig()
@@ -119,6 +133,7 @@ protected:
 
 private:
     KUrlRequester *authenticationUrlRequester;
+    KMessageWidget *warningBox;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H_
