@@ -52,29 +52,15 @@ public:
                                      i18n("X Session Log"))
     {
         setupUi(this);
-        /*
 
-        QVBoxLayout* layout = new QVBoxLayout();
-        this->setLayout(layout);
+        warningBox = new KMessageWidget(this);
+        warningBox->setVisible(false);
+        warningBox->setMessageType(KMessageWidget::Warning);
+        warningBox->setText(i18n("Log file is missing. Mode will be unavailable."));
+        warningBox->setCloseButtonVisible(false);
+        warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
 
-        //Authentication log file
-        QGroupBox* xsessionBox=new QGroupBox(i18n("X Session Log File"));
-        QGridLayout* xsessionLayout = new QGridLayout();
-        xsessionBox->setLayout(xsessionLayout);
-
-        layout->addWidget(xsessionBox);
-
-        xsessionLayout->addWidget(new QLabel(i18n("Log file:")), 0, 0);
-
-        xsessionUrlRequester=new KUrlRequester(xsessionBox);
-
-        xsessionLayout->addWidget(xsessionUrlRequester, 0, 1);
-
-        ignoreXorgErrors = new QCheckBox(i18n("Ignore Xorg Errors"), this);
-        xsessionLayout->addWidget(xsessionUrlRequester, 1, 0, 1, 2);
-
-        layout->addStretch();
-        */
+        verticalLayout->insertWidget(0, warningBox);
 
         xsessionUrlRequester->setToolTip(
             i18n("You can type or choose the X Session log file (example: <i>~/.xsession-errors</i>)."));
@@ -113,7 +99,11 @@ public slots:
                                                    .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
-        xsessionUrlRequester->setUrl(QUrl::fromLocalFile(configuration->xsessionPath()));
+        QString path = configuration->xsessionPath();
+        QFileInfo fileInfo(path);
+        warningBox->setVisible(!fileInfo.exists());
+
+        xsessionUrlRequester->setUrl(QUrl::fromLocalFile(path));
         ignoreXorgErrors->setChecked(configuration->isIgnoreXorgErrors());
 
         prepareXorgErrorsDescription();
@@ -158,6 +148,8 @@ private:
     }
 
     bool xorgErrorsDescriptionDefined;
+
+    KMessageWidget *warningBox;
 };
 
 #endif // _X_SESSION_CONFIGURATION_WIDGET_H_
