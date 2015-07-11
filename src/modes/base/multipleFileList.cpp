@@ -49,9 +49,8 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     warningBox = new KMessageWidget(this);
     warningBox->setVisible(false);
     warningBox->setMessageType(KMessageWidget::Warning);
-    warningBox->setText(
-        i18n("Some log files are missing.\n"
-             "If all log files for a category are missing, this category will be unavailable."));
+    warningBox->setText(i18n("Some log files do not exist.\n"
+                             "Modes with missing log files will be unavailable."));
     warningBox->setCloseButtonVisible(false);
     warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
     vboxLayout->insertWidget(1, warningBox);
@@ -167,7 +166,7 @@ bool MultipleFileList::isOneOfCategoryEmpty() const
         }
     }
 
-    logDebug() << "No category empty";
+    logDebug() << "No category is empty";
     return false;
 }
 

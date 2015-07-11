@@ -192,8 +192,17 @@ MainWindow::MainWindow()
 
     LogManager *firstLogManager = d->tabs->createTab();
 
-    if (KSystemLogConfig::startupLogMode().isEmpty() == false) {
-        d->tabs->load(Globals::instance().findLogMode(KSystemLogConfig::startupLogMode()), firstLogManager);
+    // Load selected mode only if its log files exist.
+    const QString &startupLogMode = KSystemLogConfig::startupLogMode();
+    if (startupLogMode.isEmpty() == false) {
+        LogMode *mode = Globals::instance().findLogMode(startupLogMode);
+        if (mode) {
+            if (mode->filesExist()) {
+                d->tabs->load(mode, firstLogManager);
+            } else {
+                logWarning() << mode->name() << "is selected by default, but log files do not exist.";
+            }
+        }
     }
 
     // Set focus to the list
@@ -417,9 +426,9 @@ void MainWindow::changeResumePauseAction(bool paused)
         d->resumePauseAction->setText(i18n("Resu&me"));
         d->resumePauseAction->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
         d->resumePauseAction->setToolTip(i18n("Resume the watching of the current log"));
-        d->resumePauseAction->setWhatsThis(i18n(
-            "Resumes the watching of the current log. This action is only available when the user has "
-            "already paused the reading."));
+        d->resumePauseAction->setWhatsThis(
+            i18n("Resumes the watching of the current log. This action is only available when the user has "
+                 "already paused the reading."));
         d->resumePauseAction->setChecked(true);
         actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL + Qt::Key_M);
     } else {
@@ -444,8 +453,7 @@ void MainWindow::changeResumePauseAction(bool paused)
 void MainWindow::fileOpen()
 {
     // Launch the actualizing
-    d->tabs->load(Globals::instance().findLogMode(QLatin1String("openLogMode")),
-                  d->tabs->activeLogManager());
+    d->tabs->load(Globals::instance().findLogMode(QLatin1String("openLogMode")), d->tabs->activeLogManager());
 }
 
 void MainWindow::showConfigurationDialog()
@@ -615,9 +623,9 @@ void MainWindow::setupActions()
     d->saveAction = actionCollection()->addAction(KStandardAction::SaveAs);
     // TODO Retrieve the system's shortcut of the save action (and not Save as...)
     d->saveAction->setToolTip(i18n("Save the selection to a file"));
-    d->saveAction->setWhatsThis(i18n(
-        "Saves the selection to a file. This action is useful if you want to create an attachment or a "
-        "backup of a particular log."));
+    d->saveAction->setWhatsThis(
+        i18n("Saves the selection to a file. This action is useful if you want to create an attachment or a "
+             "backup of a particular log."));
     d->saveAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(d->saveAction, Qt::CTRL + Qt::Key_S);
 
@@ -777,9 +785,9 @@ void MainWindow::setupActions()
     d->newLinesDisplayedAction = actionCollection()->addAction(QLatin1String("newLinesDisplayed"));
     d->newLinesDisplayedAction->setText(i18n("&Scroll to New Lines"));
     d->newLinesDisplayedAction->setToolTip(i18n("Scrolls or not to the new lines when the log changes"));
-    d->newLinesDisplayedAction->setWhatsThis(i18n(
-        "Scrolls or not to the new lines when the log changes. Check this option if you do not want the "
-        "application to scroll automatically at the bottom of the log each time it is refreshed."));
+    d->newLinesDisplayedAction->setWhatsThis(
+        i18n("Scrolls or not to the new lines when the log changes. Check this option if you do not want the "
+             "application to scroll automatically at the bottom of the log each time it is refreshed."));
     d->newLinesDisplayedAction->setCheckable(true);
     d->newLinesDisplayedAction->setChecked(KSystemLogConfig::newLinesDisplayed());
     connect(d->newLinesDisplayedAction, SIGNAL(toggled(bool)), this, SLOT(toggleNewLinesDisplaying(bool)));

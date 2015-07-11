@@ -46,7 +46,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     warningBox = new KMessageWidget(this);
     warningBox->setVisible(false);
     warningBox->setMessageType(KMessageWidget::Warning);
-    warningBox->setText(i18n("Some log files are missing.\n"
+    warningBox->setText(i18n("Some log files do not exist.\n"
                              "If all log files are missing, this mode will be unavailable."));
     warningBox->setCloseButtonVisible(false);
     warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));

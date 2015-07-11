@@ -56,7 +56,7 @@ public:
         warningBox = new KMessageWidget(this);
         warningBox->setVisible(false);
         warningBox->setMessageType(KMessageWidget::Warning);
-        warningBox->setText(i18n("Log file is missing. Mode will be unavailable."));
+        warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
         warningBox->setCloseButtonVisible(false);
         warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
 

@@ -25,6 +25,7 @@
 #include <QPushButton>
 #include <QButtonGroup>
 
+#include <KMessageWidget>
 #include <KLocalizedString>
 #include <QIcon>
 
@@ -37,6 +38,7 @@ class GeneralConfigurationWidgetPrivate
 {
 public:
     QButtonGroup *dateFormatGroup;
+    KMessageWidget *warningBox;
 };
 
 GeneralConfigurationWidget::GeneralConfigurationWidget()
@@ -44,6 +46,14 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     , d(new GeneralConfigurationWidgetPrivate())
 {
     setupUi(this);
+
+    d->warningBox = new KMessageWidget(this);
+    d->warningBox->setVisible(false);
+    d->warningBox->setMessageType(KMessageWidget::Warning);
+    d->warningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
+    d->warningBox->setCloseButtonVisible(false);
+    d->warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    vboxLayout->insertWidget(1, d->warningBox);
 
     startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
@@ -147,10 +157,28 @@ void GeneralConfigurationWidget::defaultConfig()
 bool GeneralConfigurationWidget::isValid() const
 {
     if (maxLines->value() > 0) {
-        logDebug() << "General configuration valid";
-        return true;
+        // Check if log files exist for selected mode.
+        QVariant modeID = startupLogMode->currentData();
+        if (!modeID.isNull()) {
+            QString modeString = modeID.toString();
+            LogMode *mode = Globals::instance().findLogMode(modeString);
+            if (mode) {
+                if (!mode->filesExist()) {
+                    logDebug() << "Log files are missing for mode" << mode->name();
+                    d->warningBox->setVisible(true);
+                } else {
+                    logDebug() << "General configuration is valid";
+                    d->warningBox->setVisible(false);
+                    return true;
+                }
+            } else {
+                // Empty log mode is selected.
+                d->warningBox->setVisible(false);
+                return true;
+            }
+        }
     }
 
-    logDebug() << "General configuration not valid";
+    logDebug() << "General configuration is not valid";
     return false;
 }
