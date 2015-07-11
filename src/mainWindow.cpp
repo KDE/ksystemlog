@@ -841,6 +841,8 @@ void MainWindow::setupLogModeMenu()
     // Sets up the Logs menu
 
     QList<QAction *> menuLogModeActions;
+    int serviceItems = 0;
+    int othersItems = 0;
 
     KActionMenu *servicesAction = new KActionMenu(
         QIcon::fromTheme(QLatin1String("preferences-system-session-services")), i18n("Services"), this);
@@ -848,16 +850,22 @@ void MainWindow::setupLogModeMenu()
         = new KActionMenu(QIcon::fromTheme(QLatin1String("preferences-other")), i18n("Others"), this);
 
     foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
-        if (logModeAction->category() == LogModeAction::RootCategory)
+        if (logModeAction->category() == LogModeAction::RootCategory) {
             menuLogModeActions.append(logModeAction->actionMenu());
-        else if (logModeAction->category() == LogModeAction::ServicesCategory)
+        } else if (logModeAction->category() == LogModeAction::ServicesCategory) {
+            serviceItems++;
             servicesAction->addAction(logModeAction->actionMenu());
-        else if (logModeAction->category() == LogModeAction::OthersCategory)
+        } else if (logModeAction->category() == LogModeAction::OthersCategory) {
             othersAction->addAction(logModeAction->actionMenu());
+            othersItems++;
+        }
     }
 
-    menuLogModeActions.append(servicesAction);
-    menuLogModeActions.append(othersAction);
+    if (serviceItems)
+        menuLogModeActions.append(servicesAction);
+
+    if (othersItems)
+        menuLogModeActions.append(othersAction);
 
     // Menu dynamic action list
     unplugActionList(QLatin1String("log_mode_list"));
