@@ -113,7 +113,8 @@ void LogManager::reload()
 
 void LogManager::stopWatching()
 {
-    d->analyzer->watchLogFiles(false);
+    if (d->analyzer)
+        d->analyzer->watchLogFiles(false);
 }
 
 LogMode *LogManager::logMode()
