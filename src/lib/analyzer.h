@@ -50,7 +50,7 @@ public:
     enum LogFileSortMode { AscendingSortedLogFile, FilteredLogFile, UnsortedLogFile };
     Q_DECLARE_FLAGS(LogFileSortModes, LogFileSortMode)
 
-    explicit Analyzer(LogMode *logMode);
+    explicit Analyzer(LogMode *mode);
 
     virtual ~Analyzer();
 

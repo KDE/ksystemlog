@@ -33,10 +33,10 @@
 
 #include "logFile.h"
 
-Analyzer::Analyzer(LogMode *logMode)
+Analyzer::Analyzer(LogMode *mode)
     : QObject(NULL)
     , logViewModel(NULL)
-    , logMode(logMode)
+    , logMode(mode)
     , insertionLocking(QMutex::Recursive)
     , logLineInternalIdGenerator(0)
 {
