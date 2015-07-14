@@ -93,6 +93,16 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
+QStringList JournaldAnalyzer::units() const
+{
+    return getUniqueFieldValues("_SYSTEMD_UNIT");
+}
+
+QStringList JournaldAnalyzer::syslogIdentifiers() const
+{
+    return getUniqueFieldValues("SYSLOG_IDENTIFIER");
+}
+
 void JournaldAnalyzer::readJournalInitialFinished()
 {
     readJournalFinished(FullRead);
@@ -281,7 +291,6 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
         entryList.append(entry);
     }
 
-    // TODO CHECK memleak
     if (m_cursor)
         free(m_cursor);
     res = sd_journal_get_cursor(journal, &m_cursor);
@@ -349,4 +358,31 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
             informOpeningProgress(i, entriesNum);
     }
     return entriesNum;
+}
+
+QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id) const
+{
+    QStringList units;
+    sd_journal *journal;
+    int res = sd_journal_open(&journal, m_journalFlags);
+    if (res == 0) {
+        const void *data;
+        size_t length;
+
+        // Get all unique field values. The order is not defined.
+        res = sd_journal_query_unique(journal, id.toLatin1().constData());
+        if (res == 0) {
+            SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
+            {
+                units.append(QString::fromLatin1((const char *)data, length).section("=", 1));
+            }
+        }
+
+        units.removeDuplicates();
+        units.sort();
+        sd_journal_close(journal);
+    } else {
+        logWarning() << "Failed to open the journal and extract unique values for field" << id;
+    }
+    return units;
 }
