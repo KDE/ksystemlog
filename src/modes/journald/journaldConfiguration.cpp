@@ -20,3 +20,44 @@
  ***************************************************************************/
 
 #include "journaldConfiguration.h"
+
+JournaldConfiguration::JournaldConfiguration()
+{
+    configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
+
+    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, false,
+                               QLatin1String("CurrentBootOnly"));
+
+    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, false,
+                               QLatin1String("CurrentUserProcesses"));
+
+    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, false,
+                               QLatin1String("SystemServices"));
+}
+bool JournaldConfiguration::displayCurrentBootOnly() const
+{
+    return m_displayCurrentBootOnly;
+}
+
+void JournaldConfiguration::setDisplayCurrentBootOnly(bool displayCurrentBootOnly)
+{
+    m_displayCurrentBootOnly = displayCurrentBootOnly;
+}
+bool JournaldConfiguration::displayCurrentUserProcesses() const
+{
+    return m_displayCurrentUserProcesses;
+}
+
+void JournaldConfiguration::setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses)
+{
+    m_displayCurrentUserProcesses = displayCurrentUserProcesses;
+}
+bool JournaldConfiguration::displaySystemServices() const
+{
+    return m_displaySystemServices;
+}
+
+void JournaldConfiguration::setDisplaySystemServices(bool displaySystemServices)
+{
+    m_displaySystemServices = displaySystemServices;
+}

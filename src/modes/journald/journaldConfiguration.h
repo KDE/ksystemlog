@@ -22,11 +22,8 @@
 #ifndef _JOURNALD_CONFIGURATION_H_
 #define _JOURNALD_CONFIGURATION_H_
 
-#include <QStringList>
-
 #include "logModeConfiguration.h"
 
-#include "logging.h"
 #include "defaults.h"
 
 #include "journaldLogMode.h"
@@ -38,14 +35,23 @@ class JournaldConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    JournaldConfiguration()
-    {
-        configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
-    }
+    JournaldConfiguration();
 
     virtual ~JournaldConfiguration() {}
 
+    bool displayCurrentBootOnly() const;
+    void setDisplayCurrentBootOnly(bool displayCurrentBootOnly);
+
+    bool displayCurrentUserProcesses() const;
+    void setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses);
+
+    bool displaySystemServices() const;
+    void setDisplaySystemServices(bool displaySystemServices);
+
 private:
+    bool m_displayCurrentBootOnly;
+    bool m_displayCurrentUserProcesses;
+    bool m_displaySystemServices;
 };
 
 #endif // _JOURNALD_CONFIGURATION_H_
