@@ -16,7 +16,29 @@
      <property name="title">
       <string>Journald options</string>
      </property>
-     <layout class="QGridLayout"/>
+     <layout class="QGridLayout">
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="currentUserEntries">
+        <property name="text">
+         <string>Display log entries of processes of the current user</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="lastBootOnly">
+        <property name="text">
+         <string>Display log entries from current boot only</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="systemEntries">
+        <property name="text">
+         <string>Display log entries of system services and the kernel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

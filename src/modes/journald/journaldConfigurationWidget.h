@@ -22,23 +22,7 @@
 #ifndef _JOURNALD_CONFIGURATION_WIDGET_H_
 #define _JOURNALD_CONFIGURATION_WIDGET_H_
 
-#include <QGroupBox>
-#include <QCheckBox>
-
-#include <KLocalizedString>
-//#include <kurlrequester.h>
-
-#include "globals.h"
-#include "logging.h"
-#include "fileList.h"
-
-#include "logLevel.h"
-
-#include "journaldConfiguration.h"
-#include "journaldLogMode.h"
-
 #include "logModeConfigurationWidget.h"
-
 #include "ui_journaldConfigurationWidget.h"
 
 class JournaldConfigurationWidget : public LogModeConfigurationWidget, public Ui::JournaldConfigurationWidget
@@ -46,42 +30,13 @@ class JournaldConfigurationWidget : public LogModeConfigurationWidget, public Ui
     Q_OBJECT
 
 public:
-    JournaldConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON),
-                                     i18n("Journald Log"))
-    {
-        setupUi(this);
-    }
-
+    JournaldConfigurationWidget();
     ~JournaldConfigurationWidget() {}
 
 public slots:
-
-    void saveConfig()
-    {
-//        JournaldConfiguration *configuration = Globals::instance()
-//                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-//                                                   ->logModeConfiguration<JournaldConfiguration *>();
-    }
-
-    void readConfig()
-    {
-//        JournaldConfiguration *configuration = Globals::instance()
-//                                                   ->findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-//                                                   ->logModeConfiguration<JournaldConfiguration *>();
-    }
-
-    void defaultConfig()
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
-
-protected:
-    bool isValid() const
-    {
-        return true;
-    }
+    void saveConfig();
+    void readConfig();
+    void defaultConfig();
 };
 
 #endif // _JOURNALD_CONFIGURATION_WIDGET_H_

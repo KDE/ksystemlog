@@ -20,3 +20,45 @@
  ***************************************************************************/
 
 #include "journaldConfigurationWidget.h"
+#include "journaldConfiguration.h"
+#include "globals.h"
+
+#include <KLocalizedString>
+
+JournaldConfigurationWidget::JournaldConfigurationWidget()
+    : LogModeConfigurationWidget(i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON),
+                                 i18n("Journald Log"))
+{
+    setupUi(this);
+
+    connect(lastBootOnly, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
+    connect(currentUserEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
+    connect(systemEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
+}
+
+void JournaldConfigurationWidget::saveConfig()
+{
+    JournaldConfiguration *configuration = Globals::instance()
+                                               .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                                               ->logModeConfiguration<JournaldConfiguration *>();
+
+    configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
+    configuration->setDisplayCurrentUserProcesses(currentUserEntries->isChecked());
+    configuration->setDisplaySystemServices(systemEntries->isChecked());
+}
+
+void JournaldConfigurationWidget::readConfig()
+{
+    JournaldConfiguration *configuration = Globals::instance()
+                                               .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                                               ->logModeConfiguration<JournaldConfiguration *>();
+
+    lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
+    currentUserEntries->setChecked(configuration->displayCurrentUserProcesses());
+    systemEntries->setChecked(configuration->displaySystemServices());
+}
+
+void JournaldConfigurationWidget::defaultConfig()
+{
+    readConfig();
+}
