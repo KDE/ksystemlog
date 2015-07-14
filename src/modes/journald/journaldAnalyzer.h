@@ -71,9 +71,12 @@ private:
     int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 
     QStringList getUniqueFieldValues(const QString id) const;
+    void fillCurrentBootID();
 
     sd_journal *m_journal;
     int m_journalFlags;
+    QString m_currentBootID;
+
     char *m_cursor;
     QMutex m_workerMutex;
     QSocketNotifier *m_journalNotifier;
