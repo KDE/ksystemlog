@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include "journaldAnalyzer.h"
+#include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
 #include "logging.h"
 #include "logViewModel.h"
@@ -36,8 +37,13 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
     m_cursor = nullptr;
     m_forgetWatchers = true;
 
-    // TODO: initialize necessary flags.
+    // Initialize journal access flags and open the journal.
     m_journalFlags = 0;
+    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    if (configuration->displayCurrentUserProcesses())
+        m_journalFlags |= SD_JOURNAL_CURRENT_USER;
+    if (configuration->displaySystemServices())
+        m_journalFlags |= SD_JOURNAL_SYSTEM;
     sd_journal_open(&m_journal, m_journalFlags);
 
     int fd = sd_journal_get_fd(m_journal);
