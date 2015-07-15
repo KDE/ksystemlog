@@ -184,8 +184,8 @@ MainWindow::MainWindow()
     // position, icon size, etc.
     setAutoSaveSettings();
 
-    // TODO Try to find an improvement of this _big_ hack to set its default size, the first time KSystemLog
-    // is loaded
+    d->configurationDialog = new ConfigurationDialog(this);
+    connect(d->configurationDialog, SIGNAL(configurationSaved()), d->tabs, SLOT(reloadAll()));
 
     // Show KSystemLog before loading the first log file
     show();
@@ -442,7 +442,7 @@ void MainWindow::changeResumePauseAction(bool paused)
         actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL + Qt::Key_P);
     }
 
-    // Be sur that the button will always have a good size
+    // Be sure that the button will always have a good size
     foreach (QWidget *widget, d->resumePauseAction->associatedWidgets()) {
         if (widget->sizeHint().width() > widget->size().width()) {
             widget->setMinimumSize(widget->sizeHint());
@@ -459,12 +459,6 @@ void MainWindow::fileOpen()
 void MainWindow::showConfigurationDialog()
 {
     logDebug() << "Showing configuration dialog...";
-
-    if (d->configurationDialog == NULL) {
-        d->configurationDialog = new ConfigurationDialog(this);
-        connect(d->configurationDialog, SIGNAL(configurationSaved()), d->tabs, SLOT(reloadAll()));
-    }
-
     d->configurationDialog->showConfiguration();
 }
 

@@ -36,8 +36,8 @@ public:
     QPixmap pixmap;
 };
 
-LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col)
-    : d(new LogLevelPrivate())
+LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col, QObject *parent)
+    : QObject(parent), d(new LogLevelPrivate())
 {
     d->id = id;
     d->name = nm;

@@ -39,27 +39,16 @@ class CupsAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit CupsAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-    {
-        initializeTypeLevels();
-    }
+    explicit CupsAnalyzer(LogMode *logMode);
 
-    virtual ~CupsAnalyzer() {}
+    virtual ~CupsAnalyzer();
 
-    LogViewColumns initColumns()
-    {
-        LogViewColumns columns;
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns();
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile);
 
-    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode();
 
     /*
      * Also sees :
@@ -82,54 +71,14 @@ protected:
      * E [15/Feb/2004:01:43:15 +0100] Scheduler shutting down due to SIGTERM.
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
-    {
-        QString line(logLine);
-
-        QChar level = logLine[0];
-
-        QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(logLine.mid(3, 26));
-
-        QString message = line.remove(0, 31);
-
-        QStringList list;
-        list.append(message);
-
-        return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().path(),
-                           findLogLevel(level), logMode);
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile);
 
 private:
     QMap<QChar, LogLevel *> mapTypeLevels;
 
-    void initializeTypeLevels()
-    {
-        mapTypeLevels[QLatin1Char('d')]
-            = new LogLevel(20, i18n("debug 2"), QLatin1String(DEBUG2_LOG_LEVEL_ICON), QColor(169, 189, 165));
-        mapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
-        mapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();
-        mapTypeLevels[QLatin1Char('N')] = Globals::instance().noticeLogLevel();
-        mapTypeLevels[QLatin1Char('W')] = Globals::instance().warningLogLevel();
-        mapTypeLevels[QLatin1Char('E')] = Globals::instance().errorLogLevel();
-        mapTypeLevels[QLatin1Char('C')] = Globals::instance().criticalLogLevel();
-        mapTypeLevels[QLatin1Char('A')] = Globals::instance().alertLogLevel();
-        mapTypeLevels[QLatin1Char('X')] = Globals::instance().emergencyLogLevel();
-        mapTypeLevels[QLatin1Char(' ')] = Globals::instance().noLogLevel();
-    }
+    void initializeTypeLevels();
 
-    LogLevel *findLogLevel(const QChar &type)
-    {
-        QMap<QChar, LogLevel *>::iterator it;
-
-        it = mapTypeLevels.find(type);
-        if (it != mapTypeLevels.end()) {
-            return (*it);
-        } else {
-            logCritical() << i18n(
-                "New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
-            return (Globals::instance().noLogLevel());
-        }
-    }
+    LogLevel *findLogLevel(const QChar &type);
 };
 
 #endif // _CUPS_ANALYZER_H_
