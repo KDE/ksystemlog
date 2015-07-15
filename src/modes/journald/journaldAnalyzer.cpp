@@ -98,6 +98,11 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
         }
         qDeleteAll(m_journalWatchers);
         m_journalWatchers.clear();
+
+        if (m_cursor) {
+            free(m_cursor);
+            m_cursor = nullptr;
+        }
     }
 }
 
