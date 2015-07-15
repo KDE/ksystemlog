@@ -38,8 +38,7 @@
 QList<LogMode *> CupsLogModeFactory::createLogModes() const
 {
     // Create the shared configuration and configuration widget between the logModes
-
-    CupsConfiguration *logModeConfiguration = new CupsConfiguration();
+    QSharedPointer<CupsConfiguration> logModeConfiguration = QSharedPointer<CupsConfiguration>(new CupsConfiguration());
     CupsConfigurationWidget *logModeConfigurationWidget = new CupsConfigurationWidget();
 
     QList<LogMode *> logModes;

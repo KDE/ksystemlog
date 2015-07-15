@@ -37,7 +37,7 @@ AuthenticationLogMode::AuthenticationLogMode()
     : LogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID), i18n("Authentication Log"),
               QLatin1String(AUTHENTICATION_MODE_ICON))
 {
-    d->logModeConfiguration = new AuthenticationConfiguration();
+    d->logModeConfiguration = QSharedPointer<AuthenticationConfiguration>(new AuthenticationConfiguration());
 
     d->logModeConfigurationWidget = new AuthenticationConfigurationWidget();
 

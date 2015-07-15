@@ -37,7 +37,7 @@
 SystemLogMode::SystemLogMode()
     : LogMode(QLatin1String(SYSTEM_LOG_MODE_ID), i18n("System Log"), QLatin1String(SYSTEM_MODE_ICON))
 {
-    d->logModeConfiguration = new SystemConfiguration();
+    d->logModeConfiguration = QSharedPointer<SystemConfiguration>(new SystemConfiguration());
 
     d->logModeConfigurationWidget = new SystemConfigurationWidget();
 

@@ -36,7 +36,7 @@
 JournaldLogMode::JournaldLogMode()
     : LogMode(QLatin1String(JOURNALD_LOG_MODE_ID), i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON))
 {
-    d->logModeConfiguration = new JournaldConfiguration();
+    d->logModeConfiguration = QSharedPointer<JournaldConfiguration>(new JournaldConfiguration());
 
     d->logModeConfigurationWidget = new JournaldConfigurationWidget();
 

@@ -37,7 +37,7 @@
 PostfixLogMode::PostfixLogMode()
     : LogMode(QLatin1String(POSTFIX_LOG_MODE_ID), i18n("Postfix Log"), QLatin1String(POSTFIX_MODE_ICON))
 {
-    d->logModeConfiguration = new PostfixConfiguration();
+    d->logModeConfiguration = QSharedPointer<PostfixConfiguration>(new PostfixConfiguration());
 
     d->logModeConfigurationWidget = new PostfixConfigurationWidget();
 

@@ -47,7 +47,7 @@ class NetbiosLogMode : public LogMode
     Q_OBJECT
 
 public:
-    explicit NetbiosLogMode(SambaConfiguration *sambaConfiguration,
+    explicit NetbiosLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                             SambaConfigurationWidget *sambaConfigurationWidget,
                             SambaItemBuilder *itemBuilder);
 

@@ -54,7 +54,7 @@ public:
 
     LogModeConfigurationWidget *logModeConfigurationWidget;
 
-    LogModeConfiguration *logModeConfiguration;
+    QSharedPointer<LogModeConfiguration> logModeConfiguration;
 
     bool logFilesExist;
 

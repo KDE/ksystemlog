@@ -92,7 +92,7 @@ LogModeConfigurationWidget *LogMode::logModeConfigurationWidget() const
 
 LogModeConfiguration *LogMode::innerConfiguration() const
 {
-    return d->logModeConfiguration;
+    return d->logModeConfiguration.data();
 }
 
 QAction *LogMode::createDefaultAction()

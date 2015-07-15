@@ -46,7 +46,7 @@ class CupsPdfLogMode : public LogMode
     Q_OBJECT
 
 public:
-    explicit CupsPdfLogMode(CupsConfiguration *cupsConfiguration,
+    explicit CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
                             CupsConfigurationWidget *cupsConfigurationWidget);
 
     ~CupsPdfLogMode();

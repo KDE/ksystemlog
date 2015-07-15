@@ -38,17 +38,14 @@
 QList<LogMode *> SambaLogModeFactory::createLogModes() const
 {
     // Create the shared configuration and configuration widget between the logModes
-
-    SambaConfiguration *logModeConfiguration = new SambaConfiguration();
-    SambaConfigurationWidget *logModeConfigurationWidget = new SambaConfigurationWidget();
+    QSharedPointer<SambaConfiguration> configuration
+        = QSharedPointer<SambaConfiguration>(new SambaConfiguration());
+    SambaConfigurationWidget *configurationWidget = new SambaConfigurationWidget();
 
     QList<LogMode *> logModes;
-    logModes.append(
-        new SambaLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
-    logModes.append(
-        new SambaAccessLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
-    logModes.append(
-        new NetbiosLogMode(logModeConfiguration, logModeConfigurationWidget, new SambaItemBuilder()));
+    logModes.append(new SambaLogMode(configuration, configurationWidget, new SambaItemBuilder()));
+    logModes.append(new SambaAccessLogMode(configuration, configurationWidget, new SambaItemBuilder()));
+    logModes.append(new NetbiosLogMode(configuration, configurationWidget, new SambaItemBuilder()));
 
     return logModes;
 }

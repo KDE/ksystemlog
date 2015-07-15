@@ -37,7 +37,7 @@
 DaemonLogMode::DaemonLogMode()
     : LogMode(QLatin1String(DAEMON_LOG_MODE_ID), i18n("Daemons' Logs"), QLatin1String(DAEMON_MODE_ICON))
 {
-    d->logModeConfiguration = new DaemonConfiguration();
+    d->logModeConfiguration = QSharedPointer<DaemonConfiguration>(new DaemonConfiguration());
 
     d->logModeConfigurationWidget = new DaemonConfigurationWidget();
 

@@ -33,7 +33,7 @@
 #include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
 
-CupsLogMode::CupsLogMode(CupsConfiguration *cupsConfiguration,
+CupsLogMode::CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
                          CupsConfigurationWidget *cupsConfigurationWidget)
     : LogMode(QLatin1String(CUPS_LOG_MODE_ID), i18n("Cups Log"), QLatin1String(CUPS_MODE_ICON))
 {

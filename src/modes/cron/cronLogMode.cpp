@@ -36,7 +36,7 @@
 CronLogMode::CronLogMode()
     : LogMode(QLatin1String(CRON_LOG_MODE_ID), i18n("Cron Log"), QLatin1String(CRON_MODE_ICON))
 {
-    d->logModeConfiguration = new CronConfiguration();
+    d->logModeConfiguration = QSharedPointer<CronConfiguration>(new CronConfiguration());
 
     d->logModeConfigurationWidget = new CronConfigurationWidget();
 

@@ -36,7 +36,7 @@
 XSessionLogMode::XSessionLogMode()
     : LogMode(QLatin1String(X_SESSION_LOG_MODE_ID), i18n("X Session Log"), QLatin1String(X_SESSION_MODE_ICON))
 {
-    d->logModeConfiguration = new XSessionConfiguration();
+    d->logModeConfiguration = QSharedPointer<XSessionConfiguration>(new XSessionConfiguration());
 
     d->logModeConfigurationWidget = new XSessionConfigurationWidget();
 
@@ -51,7 +51,7 @@ XSessionLogMode::XSessionLogMode()
         "write their output. See this log if you want to know why a program has crashed, or why your display "
         "manager (KDE, Gnome,...) has not started."));
 
-    XSessionConfiguration *configuration = dynamic_cast<XSessionConfiguration *>(d->logModeConfiguration);
+    XSessionConfiguration *configuration = logModeConfiguration<XSessionConfiguration *>();
     checkLogFilesPresence(QStringList() << configuration->xsessionPath());
 }
 

@@ -36,7 +36,7 @@
 AcpidLogMode::AcpidLogMode()
     : LogMode(QLatin1String(ACPID_LOG_MODE_ID), i18n("ACPI Log"), QLatin1String(ACPID_MODE_ICON))
 {
-    d->logModeConfiguration = new AcpidConfiguration();
+    d->logModeConfiguration = QSharedPointer<AcpidConfiguration>(new AcpidConfiguration());
 
     d->logModeConfigurationWidget = new AcpidConfigurationWidget();
 

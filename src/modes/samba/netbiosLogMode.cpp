@@ -33,7 +33,7 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
-NetbiosLogMode::NetbiosLogMode(SambaConfiguration *sambaConfiguration,
+NetbiosLogMode::NetbiosLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                                SambaConfigurationWidget *sambaConfigurationWidget,
                                SambaItemBuilder *itemBuilder)
     : LogMode(QLatin1String(NETBIOS_LOG_MODE_ID), i18n("Netbios Log"), QLatin1String(NETBIOS_MODE_ICON))

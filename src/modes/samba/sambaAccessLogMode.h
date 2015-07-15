@@ -47,7 +47,7 @@ class SambaAccessLogMode : public LogMode
     Q_OBJECT
 
 public:
-    explicit SambaAccessLogMode(SambaConfiguration *sambaConfiguration,
+    explicit SambaAccessLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                                 SambaConfigurationWidget *sambaConfigurationWidget,
                                 SambaItemBuilder *itemBuilder);
 

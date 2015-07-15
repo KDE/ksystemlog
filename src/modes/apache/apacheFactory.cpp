@@ -37,7 +37,7 @@ QList<LogMode *> ApacheLogModeFactory::createLogModes() const
 {
     // Create the shared configuration and configuration widget between the logModes
 
-    ApacheConfiguration *logModeConfiguration = new ApacheConfiguration();
+    QSharedPointer<ApacheConfiguration> logModeConfiguration = QSharedPointer<ApacheConfiguration>(new ApacheConfiguration());
     ApacheConfigurationWidget *logModeConfigurationWidget = new ApacheConfigurationWidget();
 
     QList<LogMode *> logModes;

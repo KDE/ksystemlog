@@ -36,7 +36,7 @@
 XorgLogMode::XorgLogMode()
     : LogMode(QLatin1String(XORG_LOG_MODE_ID), i18n("X.org Log"), QLatin1String(XORG_MODE_ICON))
 {
-    d->logModeConfiguration = new XorgConfiguration();
+    d->logModeConfiguration = QSharedPointer<XorgConfiguration>(new XorgConfiguration());
 
     d->logModeConfigurationWidget = new XorgConfigurationWidget();
 

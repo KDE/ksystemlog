@@ -33,7 +33,7 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
-SambaLogMode::SambaLogMode(SambaConfiguration *sambaConfiguration,
+SambaLogMode::SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                            SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
     : LogMode(QLatin1String(SAMBA_LOG_MODE_ID), i18n("Samba Log"), QLatin1String(SAMBA_MODE_ICON))
 {
