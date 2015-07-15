@@ -101,6 +101,7 @@ void LogManager::reload()
     logDebug() << "Reading log...";
 
     // Read the log files
+    d->analyzer->watchLogFiles(false);
     d->analyzer->watchLogFiles(true);
 
     emit statusBarChanged(i18n("Log successfully loaded."));
