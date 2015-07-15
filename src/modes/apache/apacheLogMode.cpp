@@ -42,6 +42,8 @@ ApacheLogMode::ApacheLogMode(ApacheConfiguration *apacheConfiguration,
 
     d->itemBuilder = new ApacheItemBuilder();
 
+    d->analyzer = new ApacheAnalyzer(this);
+
     // Apache Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Apache log."));
@@ -53,11 +55,6 @@ ApacheLogMode::ApacheLogMode(ApacheConfiguration *apacheConfiguration,
 
 ApacheLogMode::~ApacheLogMode()
 {
-}
-
-Analyzer *ApacheLogMode::createAnalyzer()
-{
-    return new ApacheAnalyzer(this);
 }
 
 QList<LogFile> ApacheLogMode::createLogFiles()

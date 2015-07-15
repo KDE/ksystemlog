@@ -51,8 +51,6 @@ public:
 
     ~CupsAccessLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

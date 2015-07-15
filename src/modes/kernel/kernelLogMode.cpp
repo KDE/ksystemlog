@@ -41,6 +41,8 @@ KernelLogMode::KernelLogMode()
 
     d->itemBuilder = new KernelItemBuilder();
 
+    d->analyzer = new KernelAnalyzer(this);
+
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the kernel log."));
     d->action->setWhatsThis(i18n(
@@ -51,11 +53,6 @@ KernelLogMode::KernelLogMode()
 
 KernelLogMode::~KernelLogMode()
 {
-}
-
-Analyzer *KernelLogMode::createAnalyzer()
-{
-    return new KernelAnalyzer(this);
 }
 
 QList<LogFile> KernelLogMode::createLogFiles()

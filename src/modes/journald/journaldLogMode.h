@@ -46,8 +46,6 @@ public:
 
     ~JournaldLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

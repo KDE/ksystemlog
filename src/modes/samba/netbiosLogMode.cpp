@@ -41,6 +41,7 @@ NetbiosLogMode::NetbiosLogMode(SambaConfiguration *sambaConfiguration,
     d->logModeConfiguration = sambaConfiguration;
     d->logModeConfigurationWidget = sambaConfigurationWidget;
     d->itemBuilder = itemBuilder;
+    d->analyzer = new SambaAnalyzer(this);
 
     // Netbios Log Action
     d->action = createDefaultAction();
@@ -54,11 +55,6 @@ NetbiosLogMode::NetbiosLogMode(SambaConfiguration *sambaConfiguration,
 
 NetbiosLogMode::~NetbiosLogMode()
 {
-}
-
-Analyzer *NetbiosLogMode::createAnalyzer()
-{
-    return new SambaAnalyzer(this);
 }
 
 QList<LogFile> NetbiosLogMode::createLogFiles()

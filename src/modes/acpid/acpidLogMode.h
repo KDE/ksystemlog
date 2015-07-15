@@ -47,8 +47,6 @@ public:
 
     ~AcpidLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

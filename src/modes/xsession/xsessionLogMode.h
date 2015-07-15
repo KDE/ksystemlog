@@ -47,8 +47,6 @@ public:
 
     ~XSessionLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

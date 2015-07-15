@@ -42,6 +42,8 @@ CupsPageLogMode::CupsPageLogMode(CupsConfiguration *cupsConfiguration,
 
     d->itemBuilder = new CupsPageItemBuilder();
 
+    d->analyzer = new CupsPageAnalyzer(this);
+
     // Cups Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the CUPS Page log."));
@@ -55,11 +57,6 @@ CupsPageLogMode::CupsPageLogMode(CupsConfiguration *cupsConfiguration,
 
 CupsPageLogMode::~CupsPageLogMode()
 {
-}
-
-Analyzer *CupsPageLogMode::createAnalyzer()
-{
-    return new CupsPageAnalyzer(this);
 }
 
 QList<LogFile> CupsPageLogMode::createLogFiles()

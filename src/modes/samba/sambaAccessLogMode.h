@@ -53,8 +53,6 @@ public:
 
     ~SambaAccessLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

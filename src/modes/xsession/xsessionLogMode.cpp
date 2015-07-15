@@ -42,6 +42,8 @@ XSessionLogMode::XSessionLogMode()
 
     d->itemBuilder = new XSessionItemBuilder();
 
+    d->analyzer = new XSessionAnalyzer(this);
+
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the X Session log."));
     d->action->setWhatsThis(i18n(
@@ -55,11 +57,6 @@ XSessionLogMode::XSessionLogMode()
 
 XSessionLogMode::~XSessionLogMode()
 {
-}
-
-Analyzer *XSessionLogMode::createAnalyzer()
-{
-    return new XSessionAnalyzer(this);
 }
 
 QList<LogFile> XSessionLogMode::createLogFiles()

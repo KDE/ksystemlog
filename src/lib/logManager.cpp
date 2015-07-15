@@ -40,7 +40,6 @@ class LogManagerPrivate
 
     LogMode *logMode;
 
-    Analyzer *analyzer;
     View *usedView;
 };
 
@@ -50,7 +49,6 @@ LogManager::LogManager(View *view)
     d->lastUpdate = QTime::currentTime();
 
     d->logMode = NULL;
-    d->analyzer = NULL;
 
     d->usedView = view;
     connect(d->usedView, SIGNAL(droppedUrls(QList<QUrl>)), this, SLOT(loadDroppedUrls(QList<QUrl>)));
@@ -96,13 +94,13 @@ void LogManager::reload()
     // Init the Log View
     logDebug() << "Initializing columns view...";
 
-    d->usedView->logViewWidget()->setColumns(d->analyzer->initColumns());
+    d->usedView->logViewWidget()->setColumns(d->logMode->analyzer()->initColumns());
 
     logDebug() << "Reading log...";
 
     // Read the log files
-    d->analyzer->watchLogFiles(false);
-    d->analyzer->watchLogFiles(true);
+    d->logMode->analyzer()->watchLogFiles(false);
+    d->logMode->analyzer()->watchLogFiles(true);
 
     emit statusBarChanged(i18n("Log successfully loaded."));
 
@@ -114,8 +112,7 @@ void LogManager::reload()
 
 void LogManager::stopWatching()
 {
-    if (d->analyzer)
-        d->analyzer->watchLogFiles(false);
+    d->logMode->analyzer()->watchLogFiles(false);
 }
 
 LogMode *LogManager::logMode()
@@ -145,9 +142,6 @@ void LogManager::cleanPreviousLogMode()
     logDebug() << "Cleaning previous LogMode...";
 
     d->logMode = NULL;
-
-    delete d->analyzer;
-    d->analyzer = NULL;
 }
 
 void LogManager::initialize(LogMode *mode)
@@ -167,21 +161,23 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     d->logMode = mode;
 
     // Find the Analyzer instance used for this new mode
-    d->analyzer = mode->createAnalyzer();
-    d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
+    mode->analyzer()->setLogViewModel(d->usedView->logViewWidget()->model());
 
-    connect(d->analyzer, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
-    connect(d->analyzer, SIGNAL(errorOccured(QString, QString)), this,
+    mode->analyzer()->disconnect();
+
+    connect(mode->analyzer(), SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+    connect(mode->analyzer(), SIGNAL(errorOccured(QString, QString)), this,
             SLOT(showErrorMessage(QString, QString)));
-    connect(d->analyzer, SIGNAL(logUpdated(int)), this, SLOT(updateLog(int)));
+    connect(mode->analyzer(), SIGNAL(logUpdated(int)), this, SLOT(updateLog(int)));
 
-    connect(d->analyzer, SIGNAL(readFileStarted(LogMode, LogFile, int, int)), d->usedView->loadingBar(),
+    connect(mode->analyzer(), SIGNAL(readFileStarted(LogMode, LogFile, int, int)), d->usedView->loadingBar(),
             SLOT(startLoading(LogMode, LogFile, int, int)));
-    connect(d->analyzer, SIGNAL(openingProgressed()), d->usedView->loadingBar(), SLOT(progressLoading()));
-    connect(d->analyzer, SIGNAL(readEnded()), d->usedView->loadingBar(), SLOT(endLoading()));
+    connect(mode->analyzer(), SIGNAL(openingProgressed()), d->usedView->loadingBar(),
+            SLOT(progressLoading()));
+    connect(mode->analyzer(), SIGNAL(readEnded()), d->usedView->loadingBar(), SLOT(endLoading()));
 
     // Find the log files used for this kind of mode, and set them to our log manager
-    d->analyzer->setLogFiles(logFiles);
+    mode->analyzer()->setLogFiles(logFiles);
 
     logDebug() << "LogManager initialized";
 }
@@ -198,7 +194,7 @@ void LogManager::setParsingPaused(bool paused)
         return;
     }
 
-    d->analyzer->setParsingPaused(paused);
+    d->logMode->analyzer()->setParsingPaused(paused);
 }
 
 bool LogManager::isParsingPaused() const
@@ -208,7 +204,7 @@ bool LogManager::isParsingPaused() const
         return false;
     }
 
-    return d->analyzer->isParsingPaused();
+    return d->logMode->analyzer()->isParsingPaused();
 }
 
 void LogManager::loadDroppedUrls(const QList<QUrl> &urls)

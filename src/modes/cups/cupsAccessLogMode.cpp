@@ -43,6 +43,8 @@ CupsAccessLogMode::CupsAccessLogMode(CupsConfiguration *cupsConfiguration,
 
     d->itemBuilder = new CupsAccessItemBuilder();
 
+    d->analyzer = new CupsAccessAnalyzer(this);
+
     // Cups Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the CUPS Web Server Access log."));
@@ -56,11 +58,6 @@ CupsAccessLogMode::CupsAccessLogMode(CupsConfiguration *cupsConfiguration,
 
 CupsAccessLogMode::~CupsAccessLogMode()
 {
-}
-
-Analyzer *CupsAccessLogMode::createAnalyzer()
-{
-    return new CupsAccessAnalyzer(this);
 }
 
 QList<LogFile> CupsAccessLogMode::createLogFiles()

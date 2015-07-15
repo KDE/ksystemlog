@@ -43,6 +43,8 @@ ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration *apacheConfiguratio
 
     d->itemBuilder = new ApacheAccessItemBuilder();
 
+    d->analyzer = new ApacheAccessAnalyzer(this);
+
     // Apache Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Apache Access log."));
@@ -55,11 +57,6 @@ ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration *apacheConfiguratio
 
 ApacheAccessLogMode::~ApacheAccessLogMode()
 {
-}
-
-Analyzer *ApacheAccessLogMode::createAnalyzer()
-{
-    return new ApacheAccessAnalyzer(this);
 }
 
 QList<LogFile> ApacheAccessLogMode::createLogFiles()

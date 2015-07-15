@@ -63,7 +63,7 @@ LogViewModel *TestUtil::defineLogViewModel(Analyzer *analyzer) const
 
 Analyzer *TestUtil::createAnalyzer(const QString &logModeName, LogViewModel **model) const
 {
-    Analyzer *analyzer = Globals::instance().findLogMode(logModeName)->createAnalyzer();
+    Analyzer *analyzer = Globals::instance().findLogMode(logModeName)->analyzer();
 
     *model = defineLogViewModel(analyzer);
 

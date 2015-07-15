@@ -52,8 +52,6 @@ public:
 
     ~SambaLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

@@ -43,6 +43,8 @@ SystemLogMode::SystemLogMode()
 
     d->itemBuilder = new LogModeItemBuilder();
 
+    d->analyzer = new SystemAnalyzer(this);
+
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the system log."));
     d->action->setWhatsThis(i18n(
@@ -54,11 +56,6 @@ SystemLogMode::SystemLogMode()
 
 SystemLogMode::~SystemLogMode()
 {
-}
-
-Analyzer *SystemLogMode::createAnalyzer()
-{
-    return new SystemAnalyzer(this);
 }
 
 QList<LogFile> SystemLogMode::createLogFiles()

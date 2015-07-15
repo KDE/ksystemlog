@@ -51,8 +51,6 @@ public:
 
     ~CupsPdfLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

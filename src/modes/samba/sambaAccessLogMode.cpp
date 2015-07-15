@@ -42,6 +42,7 @@ SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration *sambaConfiguration,
     d->logModeConfiguration = sambaConfiguration;
     d->logModeConfigurationWidget = sambaConfigurationWidget;
     d->itemBuilder = itemBuilder;
+    d->analyzer = new SambaAnalyzer(this);
 
     // Samba Log Action
     d->action = createDefaultAction();
@@ -55,11 +56,6 @@ SambaAccessLogMode::SambaAccessLogMode(SambaConfiguration *sambaConfiguration,
 
 SambaAccessLogMode::~SambaAccessLogMode()
 {
-}
-
-Analyzer *SambaAccessLogMode::createAnalyzer()
-{
-    return new SambaAnalyzer(this);
 }
 
 QList<LogFile> SambaAccessLogMode::createLogFiles()

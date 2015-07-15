@@ -46,8 +46,6 @@ public:
 
     ~CronLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

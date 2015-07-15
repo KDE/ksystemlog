@@ -34,7 +34,7 @@
 #include "logFile.h"
 
 Analyzer::Analyzer(LogMode *mode)
-    : QObject(NULL)
+    : QObject(mode)
     , logViewModel(NULL)
     , logMode(mode)
     , insertionLocking(QMutex::Recursive)

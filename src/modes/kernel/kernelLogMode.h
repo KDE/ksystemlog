@@ -48,8 +48,6 @@ public:
 
     ~KernelLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

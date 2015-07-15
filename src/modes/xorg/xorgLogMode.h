@@ -47,8 +47,6 @@ public:
 
     ~XorgLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

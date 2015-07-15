@@ -51,8 +51,6 @@ public:
 
     ~ApacheLogMode();
 
-    Analyzer *createAnalyzer();
-
     QList<LogFile> createLogFiles();
 };
 

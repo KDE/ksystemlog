@@ -42,6 +42,8 @@ JournaldLogMode::JournaldLogMode()
 
     d->itemBuilder = new JournaldItemBuilder();
 
+    d->analyzer = new JournaldAnalyzer(this);
+
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Journald log."));
     d->action->setWhatsThis(i18n(
@@ -51,11 +53,6 @@ JournaldLogMode::JournaldLogMode()
 
 JournaldLogMode::~JournaldLogMode()
 {
-}
-
-Analyzer *JournaldLogMode::createAnalyzer()
-{
-    return new JournaldAnalyzer(this);
 }
 
 QList<LogFile> JournaldLogMode::createLogFiles()
