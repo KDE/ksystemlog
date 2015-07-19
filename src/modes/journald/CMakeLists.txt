@@ -16,7 +16,7 @@ set(ksystemlog_journald_sources
     journaldLogMode.cpp
 )
 
-ki18n_wrap_ui(ksystemlog_journald_sources journaldConfigurationWidget.ui )
+ki18n_wrap_ui(ksystemlog_journald_sources journaldAddressDialog.ui journaldConfigurationWidget.ui )
 
 add_library(ksystemlog_journald STATIC ${ksystemlog_journald_sources})
 
