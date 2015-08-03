@@ -48,7 +48,30 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QListWidget" name="remoteJournalsListWidget"/>
+       <widget class="QTableWidget" name="remoteJournalsListWidget">
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Address</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Port</string>
+         </property>
+        </column>
+       </widget>
       </item>
       <item>
        <layout class="QGridLayout" name="buttonsGridLayout">
@@ -74,6 +97,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QPushButton" name="removeAddressButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Remove address</string>
           </property>
@@ -81,6 +107,9 @@
         </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="modifyAddressButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Modify address</string>
           </property>

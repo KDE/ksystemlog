@@ -31,9 +31,20 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
 {
     setupUi(this);
 
+    remoteJournalsListWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    connect(remoteJournalsListWidget, SIGNAL(itemSelectionChanged()), SLOT(updateButtons()));
+
     connect(lastBootOnly, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
     connect(currentUserEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
     connect(systemEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
+}
+
+void JournaldConfigurationWidget::updateButtons()
+{
+    auto selectedItems = remoteJournalsListWidget->selectedItems();
+    bool haveItems = (selectedItems.size() != 0);
+    modifyAddressButton->setEnabled(haveItems);
+    removeAddressButton->setEnabled(haveItems);
 }
 
 void JournaldConfigurationWidget::saveConfig()

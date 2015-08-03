@@ -34,6 +34,7 @@ public:
     ~JournaldConfigurationWidget() {}
 
 public slots:
+    void updateButtons();
     void saveConfig();
     void readConfig();
     void defaultConfig();
