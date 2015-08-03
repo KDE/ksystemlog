@@ -339,7 +339,7 @@ JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *jo
 
     res = sd_journal_get_data(journal, "MESSAGE", &data, &length);
     if (res == 0) {
-        entry.message = QString::fromLatin1((const char *)data, length).section("=", 1);
+        entry.message = QString::fromUtf8((const char *)data, length).section("=", 1);
     }
 
     res = sd_journal_get_data(journal, "PRIORITY", &data, &length);
