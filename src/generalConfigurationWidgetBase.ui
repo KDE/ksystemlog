@@ -13,42 +13,46 @@
   </property>
   <layout class="QVBoxLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox_4">
+    <widget class="QGroupBox" name="startupModeGroupbox">
      <property name="title">
       <string>Startup</string>
      </property>
-     <layout class="QHBoxLayout">
+     <layout class="QVBoxLayout" name="startupModeVerticalLayout">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Load this log mode at startup:</string>
-        </property>
-        <property name="buddy">
-         <cstring>startupLogMode</cstring>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="startupLogMode">
-        <property name="toolTip">
-         <string>The log mode which is loaded by default at startup</string>
-        </property>
-        <property name="whatsThis">
-         <string>The log mode loaded by default at startup. Choose 'No Log Mode' if you do not want this to happen.</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="startupModeHorizontalLayout">
+        <item>
+         <widget class="QLabel" name="startupModeLabel">
+          <property name="text">
+           <string>Load &amp;this log mode at startup:</string>
+          </property>
+          <property name="buddy">
+           <cstring>startupLogMode</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="startupLogMode">
+          <property name="toolTip">
+           <string>The log mode which is loaded by default at startup</string>
+          </property>
+          <property name="whatsThis">
+           <string>The log mode loaded by default at startup. Choose 'No Log Mode' if you do not want this to happen.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="linesNumberGroupbox">
      <property name="title">
       <string>Log Lines List</string>
      </property>
      <layout class="QVBoxLayout">
       <item>
-       <layout class="QHBoxLayout">
+       <layout class="QHBoxLayout" name="linesNumberLayout">
         <item>
          <widget class="QLabel" name="maxLinesLabel">
           <property name="text">
@@ -103,7 +107,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="optionsGroupbox">
      <property name="title">
       <string>Options</string>
      </property>
@@ -138,7 +142,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="dateFormatGroupbox">
      <property name="title">
       <string>Date Format</string>
      </property>
@@ -164,7 +168,7 @@
     </widget>
    </item>
    <item>
-    <spacer>
+    <spacer name="bottomSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>

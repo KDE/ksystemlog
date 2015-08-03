@@ -53,7 +53,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     d->warningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
     d->warningBox->setCloseButtonVisible(false);
     d->warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
-    vboxLayout->insertWidget(1, d->warningBox);
+    startupModeVerticalLayout->addWidget(d->warningBox);
 
     startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
