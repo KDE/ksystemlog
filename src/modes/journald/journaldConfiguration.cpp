@@ -2,6 +2,7 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -24,16 +25,12 @@
 JournaldConfiguration::JournaldConfiguration()
 {
     configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
-
-    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, false,
-                               QLatin1String("CurrentBootOnly"));
-
-    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, false,
-                               QLatin1String("CurrentUserProcesses"));
-
-    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, false,
-                               QLatin1String("SystemServices"));
+    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, false);
+    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, false);
+    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, false);
+    configuration->addItemStringList(QLatin1String("RemoteJournals"), m_remoteJournals);
 }
+
 bool JournaldConfiguration::displayCurrentBootOnly() const
 {
     return m_displayCurrentBootOnly;
@@ -43,6 +40,7 @@ void JournaldConfiguration::setDisplayCurrentBootOnly(bool displayCurrentBootOnl
 {
     m_displayCurrentBootOnly = displayCurrentBootOnly;
 }
+
 bool JournaldConfiguration::displayCurrentUserProcesses() const
 {
     return m_displayCurrentUserProcesses;
@@ -52,6 +50,7 @@ void JournaldConfiguration::setDisplayCurrentUserProcesses(bool displayCurrentUs
 {
     m_displayCurrentUserProcesses = displayCurrentUserProcesses;
 }
+
 bool JournaldConfiguration::displaySystemServices() const
 {
     return m_displaySystemServices;
@@ -60,4 +59,24 @@ bool JournaldConfiguration::displaySystemServices() const
 void JournaldConfiguration::setDisplaySystemServices(bool displaySystemServices)
 {
     m_displaySystemServices = displaySystemServices;
+}
+
+QList<JournaldConfiguration::RemoteJournalAddress> JournaldConfiguration::remoteJournals() const
+{
+    QList<RemoteJournalAddress> journals;
+    for (const QString addressItem : m_remoteJournals) {
+        RemoteJournalAddress addressInfo;
+        addressInfo.address = addressItem.section("|", 0, 0);
+        addressInfo.port = addressItem.section("|", 1);
+        journals.append(addressInfo);
+    }
+    return journals;
+}
+
+void JournaldConfiguration::setRemoteJournals(const QList<RemoteJournalAddress> &remoteJournals)
+{
+    m_remoteJournals.clear();
+    for (const RemoteJournalAddress &addressInfo : remoteJournals) {
+        m_remoteJournals.append(QString("%1|%2").arg(addressInfo.address).arg(addressInfo.port));
+    }
 }

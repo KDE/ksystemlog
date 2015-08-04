@@ -20,48 +20,26 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_CONFIGURATION_H_
-#define _JOURNALD_CONFIGURATION_H_
+#ifndef _JOURNALD_ADDRESS_DIALOG_H_
+#define _JOURNALD_ADDRESS_DIALOG_H_
 
-#include "logModeConfiguration.h"
+#include "ui_journaldAddressDialog.h"
 
-#include "defaults.h"
+#include <QDialog>
 
-#include "journaldLogMode.h"
-
-#include "ksystemlogConfig.h"
-
-class JournaldConfiguration : public LogModeConfiguration
+class JournaldAddressDialog : public QDialog, public Ui::JournaldAddressDialog
 {
     Q_OBJECT
 
 public:
-    JournaldConfiguration();
+    JournaldAddressDialog(QString title, QString address = QString(), QString port = QString(), QWidget *parent = 0);
+    ~JournaldAddressDialog() {}
 
-    virtual ~JournaldConfiguration() {}
+    QString address() const;
+    QString port() const;
 
-    bool displayCurrentBootOnly() const;
-    void setDisplayCurrentBootOnly(bool displayCurrentBootOnly);
-
-    bool displayCurrentUserProcesses() const;
-    void setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses);
-
-    bool displaySystemServices() const;
-    void setDisplaySystemServices(bool displaySystemServices);
-
-    struct RemoteJournalAddress {
-        QString address;
-        QString port;
-    };
-
-    QList<RemoteJournalAddress> remoteJournals() const;
-    void setRemoteJournals(const QList<RemoteJournalAddress> &remoteJournals);
-
-private:
-    bool m_displayCurrentBootOnly;
-    bool m_displayCurrentUserProcesses;
-    bool m_displaySystemServices;
-    QStringList m_remoteJournals;
+public slots:
+    virtual void accept();
 };
 
-#endif // _JOURNALD_CONFIGURATION_H_
+#endif // _JOURNALD_ADDRESS_DIALOG_H_

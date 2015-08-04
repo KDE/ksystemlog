@@ -20,48 +20,38 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_CONFIGURATION_H_
-#define _JOURNALD_CONFIGURATION_H_
+#include "journaldAddressDialog.h"
 
-#include "logModeConfiguration.h"
+const quint16 JournaldDefaultPort = 19531;
 
-#include "defaults.h"
-
-#include "journaldLogMode.h"
-
-#include "ksystemlogConfig.h"
-
-class JournaldConfiguration : public LogModeConfiguration
+JournaldAddressDialog::JournaldAddressDialog(QString title, QString address, QString port, QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
+    setupUi(this);
+    setWindowTitle(title);
+    addressLineEdit->setText(address);
+    if (!port.isEmpty())
+        portLineEdit->setText(port);
+}
 
-public:
-    JournaldConfiguration();
+QString JournaldAddressDialog::address() const
+{
+    return addressLineEdit->text();
+}
 
-    virtual ~JournaldConfiguration() {}
+QString JournaldAddressDialog::port() const
+{
+    return portLineEdit->text();
+}
 
-    bool displayCurrentBootOnly() const;
-    void setDisplayCurrentBootOnly(bool displayCurrentBootOnly);
-
-    bool displayCurrentUserProcesses() const;
-    void setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses);
-
-    bool displaySystemServices() const;
-    void setDisplaySystemServices(bool displaySystemServices);
-
-    struct RemoteJournalAddress {
-        QString address;
-        QString port;
-    };
-
-    QList<RemoteJournalAddress> remoteJournals() const;
-    void setRemoteJournals(const QList<RemoteJournalAddress> &remoteJournals);
-
-private:
-    bool m_displayCurrentBootOnly;
-    bool m_displayCurrentUserProcesses;
-    bool m_displaySystemServices;
-    QStringList m_remoteJournals;
-};
-
-#endif // _JOURNALD_CONFIGURATION_H_
+void JournaldAddressDialog::accept()
+{
+    if (addressLineEdit->text().isEmpty()) {
+        // Do not allow to enter empty address.
+        return;
+    }
+    if (portLineEdit->text().isEmpty()) {
+        portLineEdit->setText(QString::number(JournaldDefaultPort));
+    }
+    QDialog::accept();
+}

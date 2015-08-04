@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>JournaldAddressDialog</class>
+ <widget class="QDialog" name="JournaldAddressDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,9 +9,6 @@
     <width>260</width>
     <height>115</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Remote journal address</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -78,7 +75,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>JournaldAddressDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -94,7 +91,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>JournaldAddressDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

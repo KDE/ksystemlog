@@ -2,6 +2,7 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,10 +35,19 @@ public:
     ~JournaldConfigurationWidget() {}
 
 public slots:
-    void updateButtons();
     void saveConfig();
     void readConfig();
     void defaultConfig();
+
+private slots:
+    void updateButtons();
+    void addRemoteJournal();
+    void modifyRemoteJournal();
+    void removeRemoteJournal();
+    void tableItemClicked(int row);
+
+private:
+    bool haveJournalAddress(QString address, QString port) const;
 };
 
 #endif // _JOURNALD_CONFIGURATION_WIDGET_H_

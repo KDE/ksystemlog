@@ -1,7 +1,8 @@
 /***************************************************************************
- *   KApacheLog, a apache log viewer tool                                  *
+ *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,6 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
+#include "journaldAddressDialog.h"
 #include "journaldConfigurationWidget.h"
 #include "journaldConfiguration.h"
 #include "globals.h"
@@ -37,14 +39,11 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
     connect(lastBootOnly, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
     connect(currentUserEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
     connect(systemEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
-}
 
-void JournaldConfigurationWidget::updateButtons()
-{
-    auto selectedItems = remoteJournalsListWidget->selectedItems();
-    bool haveItems = (selectedItems.size() != 0);
-    modifyAddressButton->setEnabled(haveItems);
-    removeAddressButton->setEnabled(haveItems);
+    connect(addAddressButton, SIGNAL(clicked(bool)), SLOT(addRemoteJournal()));
+    connect(modifyAddressButton, SIGNAL(clicked(bool)), SLOT(modifyRemoteJournal()));
+    connect(removeAddressButton, SIGNAL(clicked(bool)), SLOT(removeRemoteJournal()));
+    connect(remoteJournalsListWidget, SIGNAL(cellDoubleClicked(int, int)), SLOT(tableItemClicked(int)));
 }
 
 void JournaldConfigurationWidget::saveConfig()
@@ -56,6 +55,17 @@ void JournaldConfigurationWidget::saveConfig()
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
     configuration->setDisplayCurrentUserProcesses(currentUserEntries->isChecked());
     configuration->setDisplaySystemServices(systemEntries->isChecked());
+
+    QList<JournaldConfiguration::RemoteJournalAddress> remoteJournals;
+    for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
+        QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
+        QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
+        JournaldConfiguration::RemoteJournalAddress addressInfo;
+        addressInfo.address = addressItem->text();
+        addressInfo.port = portItem->text();
+        remoteJournals.append(addressInfo);
+    }
+    configuration->setRemoteJournals(remoteJournals);
 }
 
 void JournaldConfigurationWidget::readConfig()
@@ -67,9 +77,80 @@ void JournaldConfigurationWidget::readConfig()
     lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
     currentUserEntries->setChecked(configuration->displayCurrentUserProcesses());
     systemEntries->setChecked(configuration->displaySystemServices());
+
+    remoteJournalsListWidget->clearContents();
+    QList<JournaldConfiguration::RemoteJournalAddress> remoteJournals = configuration->remoteJournals();
+    for (const JournaldConfiguration::RemoteJournalAddress &addressInfo : remoteJournals) {
+        remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
+        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
+                                          new QTableWidgetItem(addressInfo.address));
+        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1,
+                                          new QTableWidgetItem(addressInfo.port));
+    }
 }
 
 void JournaldConfigurationWidget::defaultConfig()
 {
     readConfig();
+}
+
+void JournaldConfigurationWidget::updateButtons()
+{
+    auto selectedItems = remoteJournalsListWidget->selectedItems();
+    bool haveItems = (selectedItems.size() != 0);
+    modifyAddressButton->setEnabled(haveItems);
+    removeAddressButton->setEnabled(haveItems);
+}
+
+void JournaldConfigurationWidget::addRemoteJournal()
+{
+    JournaldAddressDialog dialog(i18n("Add remote journal"));
+    if (dialog.exec() == QDialog::Accepted) {
+        QString address = dialog.address();
+        QString port = dialog.port();
+
+        if (!haveJournalAddress(address, port)) {
+            remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
+            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
+                                              new QTableWidgetItem(address));
+            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1,
+                                              new QTableWidgetItem(port));
+        }
+    }
+}
+
+void JournaldConfigurationWidget::modifyRemoteJournal()
+{
+    tableItemClicked(remoteJournalsListWidget->currentRow());
+}
+
+void JournaldConfigurationWidget::removeRemoteJournal()
+{
+    remoteJournalsListWidget->removeRow(remoteJournalsListWidget->currentRow());
+}
+
+void JournaldConfigurationWidget::tableItemClicked(int row)
+{
+    QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
+    QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
+    JournaldAddressDialog dialog(i18n("Modify remote journal"), addressItem->text(), portItem->text());
+    if (dialog.exec() == QDialog::Accepted) {
+        QString address = dialog.address();
+        QString port = dialog.port();
+        if (!haveJournalAddress(address, port)) {
+            addressItem->setText(address);
+            portItem->setText(port);
+        }
+    }
+}
+
+bool JournaldConfigurationWidget::haveJournalAddress(QString address, QString port) const
+{
+    for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
+        QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
+        QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
+        if ((addressItem->text() == address) && (portItem->text() == port))
+            return true;
+    }
+    return false;
 }
