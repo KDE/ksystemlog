@@ -106,12 +106,12 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
-QStringList JournaldAnalyzer::units() const
+QStringList JournaldAnalyzer::units()
 {
     return getUniqueFieldValues("_SYSTEMD_UNIT");
 }
 
-QStringList JournaldAnalyzer::syslogIdentifiers() const
+QStringList JournaldAnalyzer::syslogIdentifiers()
 {
     return getUniqueFieldValues("SYSLOG_IDENTIFIER");
 }
@@ -373,11 +373,11 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
     return entriesNum;
 }
 
-QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id) const
+QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id, int flags)
 {
     QStringList units;
     sd_journal *journal;
-    int res = sd_journal_open(&journal, m_journalFlags);
+    int res = sd_journal_open(&journal, flags);
     if (res == 0) {
         const void *data;
         size_t length;
@@ -409,7 +409,7 @@ void JournaldAnalyzer::fillCurrentBootID()
         return;
     }
 
-    QStringList bootIdentifiers = getUniqueFieldValues("_BOOT_ID");
+    QStringList bootIdentifiers = getUniqueFieldValues("_BOOT_ID", m_journalFlags);
     QMap<uint64_t, QString> identifiersByTime;
 
     // Iterate over boot IDs and get the oldest time for each boot ID.

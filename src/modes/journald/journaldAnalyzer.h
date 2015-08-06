@@ -46,8 +46,8 @@ public:
 
     virtual void watchLogFiles(bool enabled);
 
-    QStringList units() const;
-    QStringList syslogIdentifiers() const;
+    static QStringList units();
+    static QStringList syslogIdentifiers();
 
 private slots:
     void readJournalInitialFinished();
@@ -70,7 +70,7 @@ private:
     JournalEntry readJournalEntry(sd_journal *journal) const;
     int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 
-    QStringList getUniqueFieldValues(const QString id) const;
+    static QStringList getUniqueFieldValues(const QString id, int flags = 0);
     void fillCurrentBootID();
 
     sd_journal *m_journal;
