@@ -329,11 +329,11 @@ JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *jo
 
     res = sd_journal_get_data(journal, "SYSLOG_IDENTIFIER", &data, &length);
     if (res == 0) {
-        entry.unit = QString::fromLatin1((const char *)data, length).section("=", 1);
+        entry.unit = QString::fromUtf8((const char *)data, length).section("=", 1);
     } else {
         res = sd_journal_get_data(journal, "_SYSTEMD_UNIT", &data, &length);
         if (res == 0) {
-            entry.unit = QString::fromLatin1((const char *)data, length).section("=", 1);
+            entry.unit = QString::fromUtf8((const char *)data, length).section("=", 1);
         }
     }
 
@@ -344,12 +344,12 @@ JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *jo
 
     res = sd_journal_get_data(journal, "PRIORITY", &data, &length);
     if (res == 0) {
-        entry.priority = QString::fromLatin1((const char *)data, length).section("=", 1).toInt();
+        entry.priority = QString::fromUtf8((const char *)data, length).section("=", 1).toInt();
     }
 
     res = sd_journal_get_data(journal, "_BOOT_ID", &data, &length);
     if (res == 0) {
-        entry.bootID = QString::fromLatin1((const char *)data, length).section("=", 1);
+        entry.bootID = QString::fromUtf8((const char *)data, length).section("=", 1);
     }
 
     return entry;
@@ -387,7 +387,7 @@ QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id) const
         if (res == 0) {
             SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
             {
-                units.append(QString::fromLatin1((const char *)data, length).section("=", 1));
+                units.append(QString::fromUtf8((const char *)data, length).section("=", 1));
             }
         }
 
