@@ -43,8 +43,6 @@ DaemonLogMode::DaemonLogMode()
 
     d->itemBuilder = new LogModeItemBuilder();
 
-    d->analyzer = new SyslogAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the daemons' logs."));
     d->action->setWhatsThis(i18n(
@@ -58,6 +56,11 @@ DaemonLogMode::DaemonLogMode()
 
 DaemonLogMode::~DaemonLogMode()
 {
+}
+
+Analyzer *DaemonLogMode::createAnalyzer()
+{
+    return new SyslogAnalyzer(this);
 }
 
 QList<LogFile> DaemonLogMode::createLogFiles()

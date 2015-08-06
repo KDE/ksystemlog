@@ -42,8 +42,6 @@ CronLogMode::CronLogMode()
 
     d->itemBuilder = new CronItemBuilder();
 
-    d->analyzer = new CronAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the planned tasks log (Cron log)."));
     d->action->setWhatsThis(i18n(
@@ -57,6 +55,11 @@ CronLogMode::CronLogMode()
 
 CronLogMode::~CronLogMode()
 {
+}
+
+Analyzer *CronLogMode::createAnalyzer()
+{
+    return new CronAnalyzer(this);
 }
 
 QList<LogFile> CronLogMode::createLogFiles()

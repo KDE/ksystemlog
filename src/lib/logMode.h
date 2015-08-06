@@ -57,8 +57,6 @@ public:
     QSharedPointer<LogModeConfiguration> logModeConfiguration;
 
     bool logFilesExist;
-
-    Analyzer *analyzer;
 };
 
 class LogMode : public QObject
@@ -80,8 +78,6 @@ public:
 
     LogModeItemBuilder *itemBuilder() const;
 
-    Analyzer *analyzer();
-
     /**
      * Returns true if at least one log file exists for this mode.
      */
@@ -93,6 +89,10 @@ public:
     LogModeConfigurationWidget *logModeConfigurationWidget() const;
 
     template <typename T> T logModeConfiguration() { return static_cast<T>(innerConfiguration()); }
+    /**
+     * Create the Analyzer used to parse the log file
+     */
+    virtual Analyzer *createAnalyzer() = 0;
 
     /**
      * Create the log file list which will be read

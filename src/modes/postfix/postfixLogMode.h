@@ -46,6 +46,8 @@ public:
 
     ~PostfixLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 };
 

@@ -42,8 +42,6 @@ XorgLogMode::XorgLogMode()
 
     d->itemBuilder = new XorgItemBuilder();
 
-    d->analyzer = new XorgAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the X.org log."));
     d->action->setWhatsThis(i18n(
@@ -57,6 +55,11 @@ XorgLogMode::XorgLogMode()
 
 XorgLogMode::~XorgLogMode()
 {
+}
+
+Analyzer *XorgLogMode::createAnalyzer()
+{
+    return new XorgAnalyzer(this);
 }
 
 QList<LogFile> XorgLogMode::createLogFiles()

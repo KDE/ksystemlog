@@ -43,8 +43,6 @@ PostfixLogMode::PostfixLogMode()
 
     d->itemBuilder = new LogModeItemBuilder();
 
-    d->analyzer = new PostfixAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Postfix log."));
     d->action->setWhatsThis(i18n(
@@ -57,6 +55,11 @@ PostfixLogMode::PostfixLogMode()
 
 PostfixLogMode::~PostfixLogMode()
 {
+}
+
+Analyzer *PostfixLogMode::createAnalyzer()
+{
+    return new PostfixAnalyzer(this);
 }
 
 QList<LogFile> PostfixLogMode::createLogFiles()

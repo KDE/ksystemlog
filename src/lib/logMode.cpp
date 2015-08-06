@@ -28,7 +28,6 @@
 
 #include "multipleActions.h"
 #include "logModeItemBuilder.h"
-#include "analyzer.h"
 
 LogMode::LogMode(const QString &id, const QString &name, const QString &iconName)
     : d(new LogModePrivate())
@@ -41,11 +40,9 @@ LogMode::LogMode(const QString &id, const QString &name, const QString &iconName
 
 LogMode::~LogMode()
 {
-    if (d->action)
-        delete d->action;
+    delete d->action;
 
-    if (d->itemBuilder)
-        delete d->itemBuilder;
+    delete d->itemBuilder;
 
     delete d;
 }
@@ -73,11 +70,6 @@ QAction *LogMode::action() const
 LogModeItemBuilder *LogMode::itemBuilder() const
 {
     return d->itemBuilder;
-}
-
-Analyzer *LogMode::analyzer()
-{
-    return d->analyzer;
 }
 
 bool LogMode::filesExist() const

@@ -47,6 +47,8 @@ public:
 
     ~AuthenticationLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 };
 

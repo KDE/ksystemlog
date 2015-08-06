@@ -51,6 +51,8 @@ public:
 
     ~ApacheAccessLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 };
 

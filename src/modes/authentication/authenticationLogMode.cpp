@@ -43,8 +43,6 @@ AuthenticationLogMode::AuthenticationLogMode()
 
     d->itemBuilder = new LogModeItemBuilder();
 
-    d->analyzer = new AuthenticationAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the authentication log."));
     d->action->setWhatsThis(i18n(
@@ -57,6 +55,11 @@ AuthenticationLogMode::AuthenticationLogMode()
 
 AuthenticationLogMode::~AuthenticationLogMode()
 {
+}
+
+Analyzer *AuthenticationLogMode::createAnalyzer()
+{
+    return new AuthenticationAnalyzer(this);
 }
 
 QList<LogFile> AuthenticationLogMode::createLogFiles()

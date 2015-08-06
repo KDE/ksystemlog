@@ -42,8 +42,6 @@ AcpidLogMode::AcpidLogMode()
 
     d->itemBuilder = new AcpidItemBuilder();
 
-    d->analyzer = new AcpidAnalyzer(this);
-
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the ACPI log."));
     d->action->setWhatsThis(i18n(
@@ -56,6 +54,11 @@ AcpidLogMode::AcpidLogMode()
 
 AcpidLogMode::~AcpidLogMode()
 {
+}
+
+Analyzer *AcpidLogMode::createAnalyzer()
+{
+    return new AcpidAnalyzer(this);
 }
 
 QList<LogFile> AcpidLogMode::createLogFiles()

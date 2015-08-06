@@ -52,6 +52,8 @@ public:
 
     ~DaemonLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 };
 

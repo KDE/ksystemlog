@@ -43,8 +43,6 @@ ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &ap
 
     d->itemBuilder = new ApacheAccessItemBuilder();
 
-    d->analyzer = new ApacheAccessAnalyzer(this);
-
     // Apache Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Apache Access log."));
@@ -57,6 +55,11 @@ ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &ap
 
 ApacheAccessLogMode::~ApacheAccessLogMode()
 {
+}
+
+Analyzer *ApacheAccessLogMode::createAnalyzer()
+{
+    return new ApacheAccessAnalyzer(this);
 }
 
 QList<LogFile> ApacheAccessLogMode::createLogFiles()

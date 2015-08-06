@@ -42,8 +42,6 @@ CupsPdfLogMode::CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfigurat
 
     d->itemBuilder = new CupsPdfItemBuilder();
 
-    d->analyzer = new CupsPdfAnalyzer(this);
-
     // Cups Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the CUPS PDF log."));
@@ -57,6 +55,11 @@ CupsPdfLogMode::CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfigurat
 
 CupsPdfLogMode::~CupsPdfLogMode()
 {
+}
+
+Analyzer *CupsPdfLogMode::createAnalyzer()
+{
+    return new CupsPdfAnalyzer(this);
 }
 
 QList<LogFile> CupsPdfLogMode::createLogFiles()

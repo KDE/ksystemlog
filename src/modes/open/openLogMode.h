@@ -49,6 +49,8 @@ public:
 
     ~OpenLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 
 private:

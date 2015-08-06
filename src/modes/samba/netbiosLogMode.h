@@ -53,6 +53,8 @@ public:
 
     ~NetbiosLogMode();
 
+    Analyzer *createAnalyzer();
+
     QList<LogFile> createLogFiles();
 };
 

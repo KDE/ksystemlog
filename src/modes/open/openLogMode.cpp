@@ -46,12 +46,15 @@ OpenLogMode::OpenLogMode(QWidget *parent)
     d->itemBuilder = new LogModeItemBuilder();
 
     d->action = NULL;
-
-    d->analyzer = new OpenAnalyzer(this);
 }
 
 OpenLogMode::~OpenLogMode()
 {
+}
+
+Analyzer *OpenLogMode::createAnalyzer()
+{
+    return new OpenAnalyzer(this);
 }
 
 QList<LogFile> OpenLogMode::createLogFiles()
