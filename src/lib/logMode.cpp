@@ -40,9 +40,11 @@ LogMode::LogMode(const QString &id, const QString &name, const QString &iconName
 
 LogMode::~LogMode()
 {
-    delete d->action;
+    if (d->action)
+        delete d->action;
 
-    delete d->itemBuilder;
+    if (d->itemBuilder)
+        delete d->itemBuilder;
 
     delete d;
 }
