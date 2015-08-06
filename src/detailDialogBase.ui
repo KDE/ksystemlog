@@ -15,7 +15,7 @@
   <property name="whatsThis" >
    <string>This dialog displays detailed information about the currently selected log line.</string>
   </property>
-  <layout class="QGridLayout" >
+  <layout class="QGridLayout" rowstretch="0,1,0">
    <item row="1" column="0" colspan="2" >
     <widget class="KTextEdit" native="1" name="message" >
      <property name="sizePolicy" >
