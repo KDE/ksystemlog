@@ -20,7 +20,7 @@
  ***************************************************************************/
 
 #include "journaldFactory.h"
-#include "journaldAnalyzer.h"
+#include "journaldLocalAnalyzer.h"
 #include "journaldLogMode.h"
 #include "journaldConfiguration.h"
 #include "logMode.h"
@@ -69,7 +69,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by systemd unit.
     KActionMenu *filterActionMenu = new KActionMenu(i18n("Filter by systemd unit"), actionMenu);
-    QStringList units = JournaldAnalyzer::units();
+    QStringList units = JournaldLocalAnalyzer::units();
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
 
@@ -84,7 +84,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by syslog identifier.
     filterActionMenu = new KActionMenu(i18n("Filter by syslog identifier"), actionMenu);
-    QStringList syslogIDs = JournaldAnalyzer::syslogIdentifiers();
+    QStringList syslogIDs = JournaldLocalAnalyzer::syslogIdentifiers();
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
 

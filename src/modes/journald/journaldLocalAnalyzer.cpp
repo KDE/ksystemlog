@@ -20,7 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "journaldAnalyzer.h"
+#include "journaldLocalAnalyzer.h"
 #include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
 #include "logging.h"
@@ -31,7 +31,7 @@
 
 #include <QtConcurrent/QtConcurrent>
 
-JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
+JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode)
     : Analyzer(logMode)
 {
     m_cursor = nullptr;
@@ -54,7 +54,7 @@ JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
     fillCurrentBootID();
 }
 
-JournaldAnalyzer::~JournaldAnalyzer()
+JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
 {
     m_journalNotifier->setEnabled(false);
     sd_journal_close(m_journal);
@@ -62,7 +62,7 @@ JournaldAnalyzer::~JournaldAnalyzer()
     delete m_journalNotifier;
 }
 
-LogViewColumns JournaldAnalyzer::initColumns()
+LogViewColumns JournaldLocalAnalyzer::initColumns()
 {
     LogViewColumns columns;
     columns.addColumn(LogViewColumn(i18n("Date"), true, true));
@@ -71,13 +71,13 @@ LogViewColumns JournaldAnalyzer::initColumns()
     return columns;
 }
 
-void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+void JournaldLocalAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 {
     Q_UNUSED(logFiles)
     // Do nothing.
 }
 
-void JournaldAnalyzer::watchLogFiles(bool enabled)
+void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 {
     m_journalNotifier->setEnabled(enabled);
 
@@ -91,7 +91,7 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
         m_journalWatchers.append(watcher);
         m_workerMutex.unlock();
         connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
-        watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
+        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, QStringList()));
     } else {
         for (JournalWatcher *watcher : m_journalWatchers) {
             watcher->waitForFinished();
@@ -106,27 +106,27 @@ void JournaldAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
-QStringList JournaldAnalyzer::units()
+QStringList JournaldLocalAnalyzer::units()
 {
     return getUniqueFieldValues("_SYSTEMD_UNIT");
 }
 
-QStringList JournaldAnalyzer::syslogIdentifiers()
+QStringList JournaldLocalAnalyzer::syslogIdentifiers()
 {
     return getUniqueFieldValues("SYSLOG_IDENTIFIER");
 }
 
-void JournaldAnalyzer::readJournalInitialFinished()
+void JournaldLocalAnalyzer::readJournalInitialFinished()
 {
     readJournalFinished(FullRead);
 }
 
-void JournaldAnalyzer::readJournalUpdateFinished()
+void JournaldLocalAnalyzer::readJournalUpdateFinished()
 {
     readJournalFinished(UpdatingRead);
 }
 
-void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
+void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 {
     JournalWatcher *watcher = static_cast<JournalWatcher *>(sender());
     if (!watcher)
@@ -174,7 +174,7 @@ void JournaldAnalyzer::readJournalFinished(ReadingMode readingMode)
     m_workerMutex.unlock();
 }
 
-void JournaldAnalyzer::journalDescriptorUpdated(int fd)
+void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
 {
     logDebug() << "Journal updated";
     QFile file;
@@ -192,10 +192,10 @@ void JournaldAnalyzer::journalDescriptorUpdated(int fd)
     m_journalWatchers.append(watcher);
     m_workerMutex.unlock();
     connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
-    watcher->setFuture(QtConcurrent::run(this, &JournaldAnalyzer::readJournal, QStringList()));
+    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, QStringList()));
 }
 
-QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStringList &filters)
+QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(const QStringList &filters)
 {
     QMutexLocker mutexLocker(&m_workerMutex);
     QList<JournalEntry> entryList;
@@ -313,7 +313,7 @@ QList<JournaldAnalyzer::JournalEntry> JournaldAnalyzer::readJournal(const QStrin
     return entryList;
 }
 
-JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *journal) const
+JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_journal *journal) const
 {
     // Reads a single journal entry into JournalEntry structure.
     JournalEntry entry;
@@ -355,7 +355,7 @@ JournaldAnalyzer::JournalEntry JournaldAnalyzer::readJournalEntry(sd_journal *jo
     return entry;
 }
 
-int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
+int JournaldLocalAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
 {
     int entriesNum = entries.size();
     for (int i = 0; i < entriesNum; i++) {
@@ -373,7 +373,7 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
     return entriesNum;
 }
 
-QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id, int flags)
+QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int flags)
 {
     QStringList units;
     sd_journal *journal;
@@ -400,7 +400,7 @@ QStringList JournaldAnalyzer::getUniqueFieldValues(const QString id, int flags)
     return units;
 }
 
-void JournaldAnalyzer::fillCurrentBootID()
+void JournaldLocalAnalyzer::fillCurrentBootID()
 {
     sd_journal *journal;
     int res = sd_journal_open(&journal, 0);

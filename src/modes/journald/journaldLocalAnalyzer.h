@@ -31,14 +31,14 @@
 
 #include <systemd/sd-journal.h>
 
-class JournaldAnalyzer : public Analyzer
+class JournaldLocalAnalyzer : public Analyzer
 {
     Q_OBJECT
 
 public:
-    explicit JournaldAnalyzer(LogMode *logMode);
+    explicit JournaldLocalAnalyzer(LogMode *logMode);
 
-    virtual ~JournaldAnalyzer();
+    virtual ~JournaldLocalAnalyzer();
 
     virtual LogViewColumns initColumns();
 
