@@ -55,7 +55,7 @@ SambaLogMode::~SambaLogMode()
 {
 }
 
-Analyzer *SambaLogMode::createAnalyzer()
+Analyzer *SambaLogMode::createAnalyzer(const QVariant &options)
 {
     return new SambaAnalyzer(this);
 }

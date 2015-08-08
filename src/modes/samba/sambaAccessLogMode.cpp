@@ -57,7 +57,7 @@ SambaAccessLogMode::~SambaAccessLogMode()
 {
 }
 
-Analyzer *SambaAccessLogMode::createAnalyzer()
+Analyzer *SambaAccessLogMode::createAnalyzer(const QVariant &options)
 {
     return new SambaAnalyzer(this);
 }

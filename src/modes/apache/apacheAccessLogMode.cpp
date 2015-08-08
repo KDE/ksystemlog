@@ -57,7 +57,7 @@ ApacheAccessLogMode::~ApacheAccessLogMode()
 {
 }
 
-Analyzer *ApacheAccessLogMode::createAnalyzer()
+Analyzer *ApacheAccessLogMode::createAnalyzer(const QVariant &options)
 {
     return new ApacheAccessAnalyzer(this);
 }

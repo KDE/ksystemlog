@@ -62,7 +62,7 @@ void JournaldConfigurationWidget::saveConfig()
         QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
         JournaldConfiguration::RemoteJournalAddress addressInfo;
         addressInfo.address = addressItem->text();
-        addressInfo.port = portItem->text();
+        addressInfo.port = portItem->text().toUInt();
         remoteJournals.append(addressInfo);
     }
     configuration->setRemoteJournals(remoteJournals);
@@ -85,7 +85,7 @@ void JournaldConfigurationWidget::readConfig()
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
                                           new QTableWidgetItem(addressInfo.address));
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1,
-                                          new QTableWidgetItem(addressInfo.port));
+                                          new QTableWidgetItem(QString::number(addressInfo.port)));
     }
 }
 

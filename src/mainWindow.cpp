@@ -800,9 +800,10 @@ void MainWindow::selectLogModeAction(bool)
 {
     // qDebug() << "action selected" << action->data().toString();
 
-    QString selectedModeId = actionCollection()->action(QObject::sender()->objectName())->data().toString();
+    ActionData actionData = actionCollection()->action(QObject::sender()->objectName())->data().value<ActionData>();
+    QString selectedModeId = actionData.first;
 
-    qDebug() << "selectLogModeAction2() called by" << selectedModeId;
+    logDebug() << "selectLogModeAction() called by" << selectedModeId;
 
     LogMode *currentMode = NULL;
     foreach (LogMode *logMode, Globals::instance().logModes()) {
@@ -819,15 +820,7 @@ void MainWindow::selectLogModeAction(bool)
 
     logDebug() << "Selecting " << currentMode->name() << " (" << currentMode->id() << ")";
 
-    /*
-    //If the user uses the middle button OR left button + shift OR left button + control : = it opens the log
-    in a new tab
-    if (state==Qt::MidButton || (state==Qt::ControlModifier+Qt::LeftButton) ||
-    (state==Qt::ShiftModifier+Qt::LeftButton))
-      createTab();
-    */
-
-    d->tabs->load(currentMode, d->tabs->activeLogManager());
+    d->tabs->load(currentMode, d->tabs->activeLogManager(), actionData.second);
 }
 
 void MainWindow::setupLogModeMenu()

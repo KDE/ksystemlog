@@ -57,7 +57,7 @@ CupsPdfLogMode::~CupsPdfLogMode()
 {
 }
 
-Analyzer *CupsPdfLogMode::createAnalyzer()
+Analyzer *CupsPdfLogMode::createAnalyzer(const QVariant &options)
 {
     return new CupsPdfAnalyzer(this);
 }

@@ -51,7 +51,7 @@ KernelLogMode::~KernelLogMode()
 {
 }
 
-Analyzer *KernelLogMode::createAnalyzer()
+Analyzer *KernelLogMode::createAnalyzer(const QVariant &options)
 {
     return new KernelAnalyzer(this);
 }

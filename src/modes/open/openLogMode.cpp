@@ -52,7 +52,7 @@ OpenLogMode::~OpenLogMode()
 {
 }
 
-Analyzer *OpenLogMode::createAnalyzer()
+Analyzer *OpenLogMode::createAnalyzer(const QVariant &options)
 {
     return new OpenAnalyzer(this);
 }

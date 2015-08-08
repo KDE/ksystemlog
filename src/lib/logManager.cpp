@@ -150,12 +150,12 @@ void LogManager::cleanPreviousLogMode()
     d->analyzer = NULL;
 }
 
-void LogManager::initialize(LogMode *mode)
+void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
 {
-    internalInitialize(mode, mode->createLogFiles());
+    internalInitialize(mode, mode->createLogFiles(), analyzerOptions);
 }
 
-void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles)
+void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions)
 {
     logDebug() << "Initializing LogManager...";
 
@@ -167,7 +167,7 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     d->logMode = mode;
 
     // Find the Analyzer instance used for this new mode
-    d->analyzer = mode->createAnalyzer();
+    d->analyzer = mode->createAnalyzer(analyzerOptions);
     d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
 
     connect(d->analyzer, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));

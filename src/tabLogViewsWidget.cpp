@@ -270,7 +270,7 @@ void TabLogViewsWidget::closeTab()
     delete currentTabLogManager;
 }
 
-void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager)
+void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVariant &analyzerOptions)
 {
     logDebug() << "Loading a new mode : " << logMode->name();
 
@@ -280,7 +280,7 @@ void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager)
     }
 
     // The manager is now using the Log mode passed in parameter
-    manager->initialize(logMode);
+    manager->initialize(logMode, analyzerOptions);
 
     // Launch the reading
     manager->reload();

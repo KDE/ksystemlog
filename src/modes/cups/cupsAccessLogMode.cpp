@@ -58,7 +58,7 @@ CupsAccessLogMode::~CupsAccessLogMode()
 {
 }
 
-Analyzer *CupsAccessLogMode::createAnalyzer()
+Analyzer *CupsAccessLogMode::createAnalyzer(const QVariant &options)
 {
     return new CupsAccessAnalyzer(this);
 }

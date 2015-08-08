@@ -20,16 +20,14 @@
  ***************************************************************************/
 
 #include "journaldFactory.h"
-
-#include <QList>
-
+#include "journaldAnalyzer.h"
+#include "journaldLogMode.h"
+#include "journaldConfiguration.h"
 #include "logMode.h"
 #include "logging.h"
+#include "multipleActions.h"
 
-#include "simpleAction.h"
-#include "journaldLogMode.h"
-
-#include "logModeFactory.h"
+#include <KLocalizedString>
 
 QList<LogMode *> JournaldModeFactory::createLogModes() const
 {
@@ -41,7 +39,76 @@ QList<LogMode *> JournaldModeFactory::createLogModes() const
 LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
-    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 
-    return logModeAction;
+    MultipleActions *multipleActions = new MultipleActions(
+        QIcon::fromTheme(QLatin1String(JOURNALD_LOG_MODE_ID)), i18n("Journald"), logMode);
+
+    ActionData actionData;
+    actionData.first = logMode->id();
+
+    JournaldAnalyzerOptions options;
+    options.analyzerType = JournaldAnalyzerType::Local;
+
+    actionData.second = QVariant::fromValue(options);
+
+    KActionMenu *actionMenu = new KActionMenu(i18n("Local journal"), multipleActions);
+
+    // Add "All messages" action.
+    QAction *action = new QAction(i18n("All messages"), actionMenu);
+    action->setData(QVariant::fromValue(actionData));
+    actionMenu->addAction(action);
+
+    // Add separator.
+    action = new QAction(actionMenu);
+    action->setSeparator(true);
+    actionMenu->addAction(action);
+
+    // Add filtering by systemd unit.
+    KActionMenu *filterActionMenu = new KActionMenu(i18n("Filter by systemd unit"), actionMenu);
+    QStringList units = JournaldAnalyzer::units();
+    for (const QString &unit : units) {
+        action = new QAction(unit, filterActionMenu);
+
+        options.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
+        actionData.second = QVariant::fromValue(options);
+        action->setData(QVariant::fromValue(actionData));
+
+        filterActionMenu->addAction(action);
+    }
+    actionMenu->addAction(filterActionMenu);
+
+    // Add filtering by syslog identifier.
+    filterActionMenu = new KActionMenu(i18n("Filter by syslog identifier"), actionMenu);
+    QStringList syslogIDs = JournaldAnalyzer::syslogIdentifiers();
+    for (const QString &id : syslogIDs) {
+        action = new QAction(id, filterActionMenu);
+
+        options.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
+        actionData.second = QVariant::fromValue(options);
+        action->setData(QVariant::fromValue(actionData));
+
+        filterActionMenu->addAction(action);
+    }
+    actionMenu->addAction(filterActionMenu);
+
+    multipleActions->addInnerAction(actionMenu);
+
+    options.analyzerType = JournaldAnalyzerType::Network;
+
+    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    auto remoteJournals = configuration->remoteJournals();
+    for (const auto &addressInfo : remoteJournals) {
+        actionMenu = new KActionMenu(QString("%1:%2").arg(addressInfo.address).arg(addressInfo.port),
+                                     multipleActions);
+
+        action = new QAction(i18n("Connect"), actionMenu);
+        options.address = addressInfo.address;
+        options.port = addressInfo.port;
+        action->setData(QVariant::fromValue(actionData));
+        actionMenu->addAction(action);
+
+        multipleActions->addInnerAction(actionMenu);
+    }
+
+    return multipleActions;
 }

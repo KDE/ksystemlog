@@ -51,7 +51,7 @@ public:
 
     struct RemoteJournalAddress {
         QString address;
-        QString port;
+        quint16 port;
     };
 
     QList<RemoteJournalAddress> remoteJournals() const;

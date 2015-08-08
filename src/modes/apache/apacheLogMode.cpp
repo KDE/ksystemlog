@@ -55,7 +55,7 @@ ApacheLogMode::~ApacheLogMode()
 {
 }
 
-Analyzer *ApacheLogMode::createAnalyzer()
+Analyzer *ApacheLogMode::createAnalyzer(const QVariant &options)
 {
     return new ApacheAnalyzer(this);
 }

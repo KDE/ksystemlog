@@ -57,7 +57,7 @@ XSessionLogMode::~XSessionLogMode()
 {
 }
 
-Analyzer *XSessionLogMode::createAnalyzer()
+Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 {
     return new XSessionAnalyzer(this);
 }

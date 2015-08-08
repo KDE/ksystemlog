@@ -56,7 +56,7 @@ NetbiosLogMode::~NetbiosLogMode()
 {
 }
 
-Analyzer *NetbiosLogMode::createAnalyzer()
+Analyzer *NetbiosLogMode::createAnalyzer(const QVariant &options)
 {
     return new SambaAnalyzer(this);
 }

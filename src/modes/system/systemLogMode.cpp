@@ -56,7 +56,7 @@ SystemLogMode::~SystemLogMode()
 {
 }
 
-Analyzer *SystemLogMode::createAnalyzer()
+Analyzer *SystemLogMode::createAnalyzer(const QVariant &options)
 {
     return new SystemAnalyzer(this);
 }

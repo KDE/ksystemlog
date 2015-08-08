@@ -24,6 +24,7 @@
 
 #include <QTabWidget>
 #include <QList>
+#include <QVariant>
 
 class QString;
 class QIcon;
@@ -48,7 +49,7 @@ public:
 
     LogManager *activeLogManager();
 
-    void load(LogMode *logMode, LogManager *manager);
+    void load(LogMode *logMode, LogManager *manager, const QVariant &analyzerOptions = QVariant());
 
 public slots:
 

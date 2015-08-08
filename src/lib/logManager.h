@@ -51,7 +51,7 @@ public:
 
     LogMode *logMode();
 
-    void initialize(LogMode *mode);
+    void initialize(LogMode *mode, const QVariant &analyzerOptions = QVariant());
 
     void setParsingPaused(bool paused);
     bool isParsingPaused() const;
@@ -78,7 +78,7 @@ private slots:
     void loadDroppedUrls(const QList<QUrl> &urls);
 
 private:
-    void internalInitialize(LogMode *mode, const QList<LogFile> &logFiles);
+    void internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions = QVariant());
 
     void cleanPreviousLogMode();
 

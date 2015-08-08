@@ -58,7 +58,7 @@ DaemonLogMode::~DaemonLogMode()
 {
 }
 
-Analyzer *DaemonLogMode::createAnalyzer()
+Analyzer *DaemonLogMode::createAnalyzer(const QVariant &options)
 {
     return new SyslogAnalyzer(this);
 }

@@ -52,7 +52,7 @@ public:
 
     ~DaemonLogMode();
 
-    Analyzer *createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
     QList<LogFile> createLogFiles();
 };

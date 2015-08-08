@@ -57,7 +57,7 @@ XorgLogMode::~XorgLogMode()
 {
 }
 
-Analyzer *XorgLogMode::createAnalyzer()
+Analyzer *XorgLogMode::createAnalyzer(const QVariant &options)
 {
     return new XorgAnalyzer(this);
 }

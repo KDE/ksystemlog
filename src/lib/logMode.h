@@ -36,6 +36,9 @@ class LogModeConfigurationWidget;
 
 class QAction;
 
+typedef QPair<QString, QVariant> ActionData;
+Q_DECLARE_METATYPE(ActionData)
+
 // TODO Do not let this class visible to other classes (except sub-classes)
 class LogModePrivate
 {
@@ -92,7 +95,7 @@ public:
     /**
      * Create the Analyzer used to parse the log file
      */
-    virtual Analyzer *createAnalyzer() = 0;
+    virtual Analyzer *createAnalyzer(const QVariant &options = QVariant()) = 0;
 
     /**
      * Create the log file list which will be read

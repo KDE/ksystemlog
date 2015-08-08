@@ -57,7 +57,7 @@ CupsPageLogMode::~CupsPageLogMode()
 {
 }
 
-Analyzer *CupsPageLogMode::createAnalyzer()
+Analyzer *CupsPageLogMode::createAnalyzer(const QVariant &options)
 {
     return new CupsPageAnalyzer(this);
 }

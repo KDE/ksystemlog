@@ -21,8 +21,6 @@
 
 #include "journaldLogMode.h"
 
-#include <QList>
-
 #include <KLocalizedString>
 
 #include "logging.h"
@@ -51,8 +49,18 @@ JournaldLogMode::~JournaldLogMode()
 {
 }
 
-Analyzer *JournaldLogMode::createAnalyzer()
+Analyzer *JournaldLogMode::createAnalyzer(const QVariant &options)
 {
+    JournaldAnalyzerOptions analyzerOptions = options.value<JournaldAnalyzerOptions>();
+    switch (analyzerOptions.analyzerType) {
+        case JournaldAnalyzerType::Local:
+            break;
+        case JournaldAnalyzerType::Network:
+            break;
+        default:
+            break;
+    }
+
     return new JournaldAnalyzer(this);
 }
 

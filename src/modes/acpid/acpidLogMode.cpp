@@ -56,7 +56,7 @@ AcpidLogMode::~AcpidLogMode()
 {
 }
 
-Analyzer *AcpidLogMode::createAnalyzer()
+Analyzer *AcpidLogMode::createAnalyzer(const QVariant &options)
 {
     return new AcpidAnalyzer(this);
 }

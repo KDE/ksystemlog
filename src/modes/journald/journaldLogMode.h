@@ -37,6 +37,15 @@
 #include "logFile.h"
 #include "logMode.h"
 
+enum class JournaldAnalyzerType { Local, Network };
+struct JournaldAnalyzerOptions {
+    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
+    QString filter;
+    QString address;
+    quint16 port;
+};
+Q_DECLARE_METATYPE(JournaldAnalyzerOptions)
+
 class JournaldLogMode : public LogMode
 {
     Q_OBJECT
@@ -46,7 +55,7 @@ public:
 
     ~JournaldLogMode();
 
-    Analyzer *createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
     QList<LogFile> createLogFiles();
 };

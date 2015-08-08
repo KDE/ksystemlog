@@ -57,7 +57,7 @@ AuthenticationLogMode::~AuthenticationLogMode()
 {
 }
 
-Analyzer *AuthenticationLogMode::createAnalyzer()
+Analyzer *AuthenticationLogMode::createAnalyzer(const QVariant &options)
 {
     return new AuthenticationAnalyzer(this);
 }
