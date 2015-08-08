@@ -93,7 +93,7 @@ QAction *LogMode::createDefaultAction()
 {
     QAction *action = new QAction(d->icon, d->name, this);
     ActionData data;
-    data.first = d->id;
+    data.id = d->id;
     action->setData(QVariant::fromValue(data));
 
     return action;

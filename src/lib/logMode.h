@@ -36,7 +36,11 @@ class LogModeConfigurationWidget;
 
 class QAction;
 
-typedef QPair<QString, QVariant> ActionData;
+struct ActionData {
+    QString id;
+    bool addToActionCollection = true;
+    QVariant analyzerOptions;
+};
 Q_DECLARE_METATYPE(ActionData)
 
 // TODO Do not let this class visible to other classes (except sub-classes)

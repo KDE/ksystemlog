@@ -43,13 +43,16 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     MultipleActions *multipleActions = new MultipleActions(
         QIcon::fromTheme(QLatin1String(JOURNALD_LOG_MODE_ID)), i18n("Journald"), logMode);
 
+    // Do not add journald submenu actions into action collection.
+    // There are too many of them and submenu contents sometimes gets changed.
     ActionData actionData;
-    actionData.first = logMode->id();
+    actionData.id = logMode->id();
+    actionData.addToActionCollection = false;
 
     JournaldAnalyzerOptions options;
     options.analyzerType = JournaldAnalyzerType::Local;
 
-    actionData.second = QVariant::fromValue(options);
+    actionData.analyzerOptions = QVariant::fromValue(options);
 
     KActionMenu *actionMenu = new KActionMenu(i18n("Local journal"), multipleActions);
 
@@ -57,6 +60,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     QAction *action = new QAction(i18n("All messages"), actionMenu);
     action->setData(QVariant::fromValue(actionData));
     actionMenu->addAction(action);
+    multipleActions->addInnerAction(action, false, true);
 
     // Add separator.
     action = new QAction(actionMenu);
@@ -70,10 +74,11 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         action = new QAction(unit, filterActionMenu);
 
         options.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
-        actionData.second = QVariant::fromValue(options);
+        actionData.analyzerOptions = QVariant::fromValue(options);
         action->setData(QVariant::fromValue(actionData));
 
         filterActionMenu->addAction(action);
+        multipleActions->addInnerAction(action, false, true);
     }
     actionMenu->addAction(filterActionMenu);
 
@@ -84,14 +89,15 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         action = new QAction(id, filterActionMenu);
 
         options.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
-        actionData.second = QVariant::fromValue(options);
+        actionData.analyzerOptions = QVariant::fromValue(options);
         action->setData(QVariant::fromValue(actionData));
 
         filterActionMenu->addAction(action);
+        multipleActions->addInnerAction(action, false, true);
     }
     actionMenu->addAction(filterActionMenu);
 
-    multipleActions->addInnerAction(actionMenu);
+    multipleActions->addInnerAction(actionMenu, true, false);
 
     options.analyzerType = JournaldAnalyzerType::Network;
 
@@ -106,9 +112,14 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         options.port = addressInfo.port;
         action->setData(QVariant::fromValue(actionData));
         actionMenu->addAction(action);
+        multipleActions->addInnerAction(action, false, true);
 
-        multipleActions->addInnerAction(actionMenu);
+        multipleActions->addInnerAction(actionMenu, true, false);
     }
+
+    // Add default log action with icon.
+    // Don't put in into the menu, but allow it to be added into action collection and placed on the toolbar.
+    multipleActions->addInnerAction(logMode->action(), false, true);
 
     return multipleActions;
 }

@@ -56,7 +56,7 @@ public:
      * This method is not called addAction() to avoid name collision with
      * parent class
      */
-    void addInnerAction(QAction *action);
+    void addInnerAction(QAction *action, bool addToMenu = true, bool addToInnerActionsList = true);
 
 private:
     QList<QAction *> actions;

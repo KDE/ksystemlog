@@ -798,12 +798,13 @@ void MainWindow::setupActions()
 
 void MainWindow::selectLogModeAction(bool)
 {
-    // qDebug() << "action selected" << action->data().toString();
+    //    ActionData actionData
+    //        = actionCollection()->action(QObject::sender()->objectName())->data().value<ActionData>();
+    QAction *action = qobject_cast<QAction *>(sender());
+    ActionData actionData = action->data().value<ActionData>();
+    QString selectedModeId = actionData.id;
 
-    ActionData actionData = actionCollection()->action(QObject::sender()->objectName())->data().value<ActionData>();
-    QString selectedModeId = actionData.first;
-
-    logDebug() << "selectLogModeAction() called by" << selectedModeId;
+    logDebug() << "Selected action" << selectedModeId;
 
     LogMode *currentMode = NULL;
     foreach (LogMode *logMode, Globals::instance().logModes()) {
@@ -820,13 +821,12 @@ void MainWindow::selectLogModeAction(bool)
 
     logDebug() << "Selecting " << currentMode->name() << " (" << currentMode->id() << ")";
 
-    d->tabs->load(currentMode, d->tabs->activeLogManager(), actionData.second);
+    d->tabs->load(currentMode, d->tabs->activeLogManager(), actionData.analyzerOptions);
 }
 
 void MainWindow::setupLogModeMenu()
 {
-    // Sets up the Logs menu
-
+    // Sets up the Logs menu.
     QList<QAction *> menuLogModeActions;
     int serviceItems = 0;
     int othersItems = 0;
@@ -861,13 +861,13 @@ void MainWindow::setupLogModeMenu()
 
 void MainWindow::setupLogActions()
 {
-    // Sets up the log actions
-
+    // Sets up log mode actions.
     foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         foreach (QAction *action, logModeAction->innerActions()) {
-            logDebug() << "adding action" << action->data().toString();
-
-            action = actionCollection()->addAction(action->data().toString(), action);
+            ActionData actionData = action->data().value<ActionData>();
+            logDebug() << "Adding action" << actionData.id;
+            if (actionData.addToActionCollection)
+                action = actionCollection()->addAction(actionData.id, action);
             connect(action, SIGNAL(triggered(bool)), this, SLOT(selectLogModeAction(bool)));
         }
     }
