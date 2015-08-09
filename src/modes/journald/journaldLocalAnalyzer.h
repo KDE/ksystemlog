@@ -36,7 +36,7 @@ class JournaldLocalAnalyzer : public Analyzer
     Q_OBJECT
 
 public:
-    explicit JournaldLocalAnalyzer(LogMode *logMode);
+    explicit JournaldLocalAnalyzer(LogMode *logMode, QString filter = QString());
 
     virtual ~JournaldLocalAnalyzer();
 
@@ -76,6 +76,7 @@ private:
     sd_journal *m_journal;
     int m_journalFlags;
     QString m_currentBootID;
+    QStringList m_filters;
 
     char *m_cursor;
     QMutex m_workerMutex;

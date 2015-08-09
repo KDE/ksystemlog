@@ -54,6 +54,7 @@ Analyzer *JournaldLogMode::createAnalyzer(const QVariant &options)
     JournaldAnalyzerOptions analyzerOptions = options.value<JournaldAnalyzerOptions>();
     switch (analyzerOptions.analyzerType) {
     case JournaldAnalyzerType::Local:
+        return new JournaldLocalAnalyzer(this, analyzerOptions.filter);
         break;
     case JournaldAnalyzerType::Network:
         break;

@@ -31,7 +31,7 @@
 
 #include <QtConcurrent/QtConcurrent>
 
-JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode)
+JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
     : Analyzer(logMode)
 {
     m_cursor = nullptr;
@@ -51,7 +51,13 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode)
     m_journalNotifier->setEnabled(false);
     connect(m_journalNotifier, SIGNAL(activated(int)), this, SLOT(journalDescriptorUpdated(int)));
 
-    fillCurrentBootID();
+    if (configuration->displayCurrentBootOnly()) {
+        fillCurrentBootID();
+        m_filters << QString("_BOOT_ID=%1").arg(m_currentBootID);
+    }
+
+    if (!filter.isEmpty())
+        m_filters << filter;
 }
 
 JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
@@ -91,7 +97,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
         m_journalWatchers.append(watcher);
         m_workerMutex.unlock();
         connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
-        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, QStringList()));
+        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
     } else {
         for (JournalWatcher *watcher : m_journalWatchers) {
             watcher->waitForFinished();
@@ -192,7 +198,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
     m_journalWatchers.append(watcher);
     m_workerMutex.unlock();
     connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
-    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, QStringList()));
+    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
 }
 
 QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(const QStringList &filters)
@@ -285,6 +291,9 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
             // Return to the first new entry.
             sd_journal_seek_cursor(journal, m_cursor);
             sd_journal_next(journal);
+        } else {
+            // Return to the beginning of the journal.
+            sd_journal_seek_head(journal);
         }
     }
 
