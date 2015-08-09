@@ -8,13 +8,14 @@ include_directories(
 )
 
 set(ksystemlog_journald_sources
-    journaldLocalAnalyzer.cpp
     journaldAddressDialog.cpp
     journaldConfiguration.cpp
     journaldConfigurationWidget.cpp
-    journaldItemBuilder.cpp
     journaldFactory.cpp
+    journaldItemBuilder.cpp
+    journaldLocalAnalyzer.cpp
     journaldLogMode.cpp
+    journaldNetworkAnalyzer.cpp
 )
 
 ki18n_wrap_ui(ksystemlog_journald_sources journaldAddressDialog.ui journaldConfigurationWidget.ui )

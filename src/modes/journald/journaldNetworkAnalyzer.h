@@ -2,6 +2,7 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,45 +20,31 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_LOG_MODE_H_
-#define _JOURNALD_LOG_MODE_H_
+#ifndef _JOURNALD_NETWORK_ANALYZER_H_
+#define _JOURNALD_NETWORK_ANALYZER_H_
 
-/**
- * Journald Log Mode Identifier
- */
-#define JOURNALD_LOG_MODE_ID "journaldLogMode"
-
-/**
- * System Log Icon
- */
-#define JOURNALD_MODE_ICON "computer"
-
-#include <QList>
-
+#include "analyzer.h"
 #include "logFile.h"
-#include "logMode.h"
 
-enum class JournaldAnalyzerType { Local, Network };
-struct JournaldAnalyzerOptions {
-    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
-    QString filter;
-    QString address;
-    quint16 port = 0;
-};
-Q_DECLARE_METATYPE(JournaldAnalyzerOptions)
+#include <QFutureWatcher>
+#include <QSocketNotifier>
 
-class JournaldLogMode : public LogMode
+#include <systemd/sd-journal.h>
+
+class JournaldNetworkAnalyzer : public Analyzer
 {
     Q_OBJECT
 
 public:
-    explicit JournaldLogMode();
+    explicit JournaldNetworkAnalyzer(LogMode *logMode, QString host, quint16 port, QString filter = QString());
 
-    ~JournaldLogMode();
+    virtual ~JournaldNetworkAnalyzer();
 
-    Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant());
+    virtual LogViewColumns initColumns();
 
-    QList<LogFile> createLogFiles();
+    virtual void setLogFiles(const QList<LogFile> &logFiles);
+
+    virtual void watchLogFiles(bool enabled);
 };
 
-#endif // _JOURNALD_LOG_MODE_H_
+#endif // _JOURNALD_NETWORK_ANALYZER_H_

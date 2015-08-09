@@ -27,6 +27,7 @@
 #include "logMode.h"
 
 #include "journaldLocalAnalyzer.h"
+#include "journaldNetworkAnalyzer.h"
 #include "journaldConfigurationWidget.h"
 #include "journaldConfiguration.h"
 #include "journaldItemBuilder.h"
@@ -49,14 +50,16 @@ JournaldLogMode::~JournaldLogMode()
 {
 }
 
-Analyzer *JournaldLogMode::createAnalyzer(const QVariant &options)
+Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
 {
-    JournaldAnalyzerOptions analyzerOptions = options.value<JournaldAnalyzerOptions>();
-    switch (analyzerOptions.analyzerType) {
+    JournaldAnalyzerOptions options = analyzerOptions.value<JournaldAnalyzerOptions>();
+//    logDebug() << "create analyzer" << options.address << options.port << (int)options.analyzerType;
+    switch (options.analyzerType) {
     case JournaldAnalyzerType::Local:
-        return new JournaldLocalAnalyzer(this, analyzerOptions.filter);
+        return new JournaldLocalAnalyzer(this, options.filter);
         break;
     case JournaldAnalyzerType::Network:
+        return new JournaldNetworkAnalyzer(this, options.address, options.port, options.filter);
         break;
     default:
         break;

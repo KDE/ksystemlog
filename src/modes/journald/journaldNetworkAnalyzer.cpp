@@ -2,6 +2,7 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2015 by Vyacheslav Matyushin                            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,45 +20,39 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_LOG_MODE_H_
-#define _JOURNALD_LOG_MODE_H_
-
-/**
- * Journald Log Mode Identifier
- */
-#define JOURNALD_LOG_MODE_ID "journaldLogMode"
-
-/**
- * System Log Icon
- */
-#define JOURNALD_MODE_ICON "computer"
-
-#include <QList>
-
+#include "journaldNetworkAnalyzer.h"
+#include "journaldConfiguration.h"
+#include "ksystemlogConfig.h"
+#include "logging.h"
+#include "logViewModel.h"
 #include "logFile.h"
-#include "logMode.h"
 
-enum class JournaldAnalyzerType { Local, Network };
-struct JournaldAnalyzerOptions {
-    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
-    QString filter;
-    QString address;
-    quint16 port = 0;
-};
-Q_DECLARE_METATYPE(JournaldAnalyzerOptions)
+#include <KLocalizedString>
 
-class JournaldLogMode : public LogMode
+JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString host, quint16 port, QString filter)
+    : Analyzer(logMode)
 {
-    Q_OBJECT
+}
 
-public:
-    explicit JournaldLogMode();
+JournaldNetworkAnalyzer::~JournaldNetworkAnalyzer()
+{
+}
 
-    ~JournaldLogMode();
+LogViewColumns JournaldNetworkAnalyzer::initColumns()
+{
+    LogViewColumns columns;
+    columns.addColumn(LogViewColumn(i18n("Date"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Unit"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Message"), true, true));
+    return columns;
+}
 
-    Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant());
+void JournaldNetworkAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+{
+    Q_UNUSED(logFiles)
+    // Do nothing.
+}
 
-    QList<LogFile> createLogFiles();
-};
-
-#endif // _JOURNALD_LOG_MODE_H_
+void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
+{
+}

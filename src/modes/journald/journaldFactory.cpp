@@ -49,10 +49,10 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     actionData.id = logMode->id();
     actionData.addToActionCollection = false;
 
-    JournaldAnalyzerOptions options;
-    options.analyzerType = JournaldAnalyzerType::Local;
+    JournaldAnalyzerOptions analyzerOptions;
+    analyzerOptions.analyzerType = JournaldAnalyzerType::Local;
 
-    actionData.analyzerOptions = QVariant::fromValue(options);
+    actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
 
     KActionMenu *actionMenu = new KActionMenu(i18n("Local journal"), multipleActions);
 
@@ -73,8 +73,8 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
 
-        options.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
-        actionData.analyzerOptions = QVariant::fromValue(options);
+        analyzerOptions.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
+        actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
 
         filterActionMenu->addAction(action);
@@ -88,8 +88,8 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
 
-        options.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
-        actionData.analyzerOptions = QVariant::fromValue(options);
+        analyzerOptions.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
+        actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
 
         filterActionMenu->addAction(action);
@@ -99,8 +99,10 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     multipleActions->addInnerAction(actionMenu, true, false);
 
-    options.analyzerType = JournaldAnalyzerType::Network;
+    analyzerOptions.analyzerType = JournaldAnalyzerType::Network;
+    analyzerOptions.filter.clear();
 
+    // Create remote journal submenus.
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     auto remoteJournals = configuration->remoteJournals();
     for (const auto &addressInfo : remoteJournals) {
@@ -108,8 +110,9 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
                                      multipleActions);
 
         action = new QAction(i18n("Connect"), actionMenu);
-        options.address = addressInfo.address;
-        options.port = addressInfo.port;
+        analyzerOptions.address = addressInfo.address;
+        analyzerOptions.port = addressInfo.port;
+        actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
         actionMenu->addAction(action);
         multipleActions->addInnerAction(action, false, true);
