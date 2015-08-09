@@ -182,7 +182,7 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 
 void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
 {
-    logDebug() << "Journal updated";
+    logDebug() << "Journal was updated";
     QFile file;
     file.open(fd, QIODevice::ReadOnly);
     file.readAll();
@@ -209,17 +209,48 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
 
     int res = sd_journal_open(&journal, m_journalFlags);
     if (res < 0) {
-        logWarning() << "Failed to access journald.";
+        logWarning() << "Failed to access the journal.";
         return QList<JournalEntry>();
     }
 
+    if (prepareJournalReading(journal, filters)) {
+        // Iterate over filtered entries.
+        forever {
+            JournalEntry entry;
+            res = sd_journal_next(journal);
+            if (res < 0) {
+                logWarning() << "Failed to access next journal entry.";
+                break;
+            }
+            if (res == 0) {
+                // Reached last journal entry.
+                break;
+            }
+            entry = readJournalEntry(journal);
+            entryList.append(entry);
+        }
+
+        if (m_cursor)
+            free(m_cursor);
+        res = sd_journal_get_cursor(journal, &m_cursor);
+    }
+
+    sd_journal_close(journal);
+    if (entryList.size() > 0)
+        logDebug() << "Read" << entryList.size() << "journal entries.";
+    return entryList;
+}
+
+bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QStringList &filters)
+{
+    int res;
+
     // Set entries filter.
     for (const QString &filter : filters) {
-        res = sd_journal_add_match(journal, filter.toLatin1(), 0);
+        res = sd_journal_add_match(journal, filter.toUtf8(), 0);
         if (res < 0) {
-            logWarning() << "Failed to set journald filter.";
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
+            logWarning() << "Failed to set journal filter.";
+            return false;
         }
     }
 
@@ -227,8 +258,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
     res = sd_journal_seek_tail(journal);
     if (res < 0) {
         logWarning() << "Failed to seek journal tail.";
-        sd_journal_close(journal);
-        return QList<JournalEntry>();
+        return false;
     }
 
     // Read number of entries allowed by KSystemLog configuration.
@@ -244,18 +274,15 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
 
             res = sd_journal_previous(journal);
             if (res < 0) {
-                logWarning() << "Failed to seek to previous journal entry:" << res;
-                sd_journal_close(journal);
-                return QList<JournalEntry>();
+                logWarning() << "Failed to seek previous journal entry.";
+                return false;
             }
 
             res = sd_journal_test_cursor(journal, m_cursor);
             if (res > 0) {
-                logDebug() << "Found cursor at entry num" << entriesNum;
                 if (entriesNum == 1) {
-                    logDebug() << "NO UPDATES!";
-                    sd_journal_close(journal);
-                    return QList<JournalEntry>();
+                    // No new entries are found.
+                    return false;
                 }
                 // Latest journal entry before journal update is found.
                 break;
@@ -265,41 +292,15 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
         // Jump over maxEntriesNum entries backwards from the end of the journal.
         res = sd_journal_previous_skip(journal, maxEntriesNum + 1);
         if (res < 0) {
-            // Seek failed, this is probably because journal
-            // contains smaller number of entries then KSystemLog window can fit.
-            // Start reading entries from the beginning.
+            // Seek failed. Read entries from the beginning.
             res = sd_journal_seek_head(journal);
             if (res < 0) {
                 logWarning() << "Failed to seek journal head.";
-                sd_journal_close(journal);
-                return QList<JournalEntry>();
+                return false;
             }
         }
     }
-
-    // Iterate over filtered entries.
-    forever {
-        JournalEntry entry;
-        res = sd_journal_next(journal);
-        if (res < 0) {
-            logWarning() << "Failed to access next journald entry.";
-            break;
-        }
-        if (res == 0) {
-            // Reached the end.
-            break;
-        }
-        entry = readJournalEntry(journal);
-        entryList.append(entry);
-    }
-
-    if (m_cursor)
-        free(m_cursor);
-    res = sd_journal_get_cursor(journal, &m_cursor);
-    sd_journal_close(journal);
-    if (entryList.size() > 0)
-        logDebug() << "Read" << entryList.size() << "journald entries.";
-    return entryList;
+    return true;
 }
 
 JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_journal *journal) const
@@ -372,7 +373,7 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int fl
         size_t length;
 
         // Get all unique field values. The order is not defined.
-        res = sd_journal_query_unique(journal, id.toLatin1());
+        res = sd_journal_query_unique(journal, id.toUtf8());
         if (res == 0) {
             SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
             {
@@ -407,7 +408,7 @@ void JournaldLocalAnalyzer::fillCurrentBootID()
         sd_journal_flush_matches(journal);
 
         // Filter by bootID.
-        res = sd_journal_add_match(journal, QString("_BOOT_ID=%1").arg(bootID).toLatin1(), 0);
+        res = sd_journal_add_match(journal, QString("_BOOT_ID=%1").arg(bootID).toUtf8(), 0);
         if (res < 0)
             logWarning() << "Failed to filter the journal by boot ID" << bootID;
 

@@ -67,6 +67,7 @@ private:
 
     void readJournalFinished(ReadingMode readingMode);
     QList<JournalEntry> readJournal(const QStringList &filters);
+    bool prepareJournalReading(sd_journal *journal, const QStringList &filters);
     JournalEntry readJournalEntry(sd_journal *journal) const;
     int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 
