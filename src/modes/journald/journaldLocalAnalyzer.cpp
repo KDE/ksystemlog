@@ -213,20 +213,21 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
         return QList<JournalEntry>();
     }
 
-    //    // Set entries filter.
-    //    for (const QString &filter : filters) {
-    //        res = sd_journal_add_match(journal, filter.toLatin1(), 0);
-    //        if (res < 0) {
-    //            logWarning() << "Failed to set journald filter.";
-    //            sd_journal_close(journal);
-    //            return QList<JournalEntry>();
-    //        }
-    //    }
+    // Set entries filter.
+    for (const QString &filter : filters) {
+        res = sd_journal_add_match(journal, filter.toLatin1(), 0);
+        if (res < 0) {
+            logWarning() << "Failed to set journald filter.";
+            sd_journal_close(journal);
+            return QList<JournalEntry>();
+        }
+    }
 
     // Go to the latest journal entry.
     res = sd_journal_seek_tail(journal);
     if (res < 0) {
         logWarning() << "Failed to seek journal tail.";
+        sd_journal_close(journal);
         return QList<JournalEntry>();
     }
 
