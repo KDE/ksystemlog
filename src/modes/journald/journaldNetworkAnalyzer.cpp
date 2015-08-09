@@ -29,9 +29,19 @@
 
 #include <KLocalizedString>
 
-JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString host, quint16 port, QString filter)
+JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString address, quint16 port,
+                                                 QString filter)
     : Analyzer(logMode)
 {
+    // TODO: add support for HTTPS. Process sslErrors().
+    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    m_url = QString("http://%1:%2/entries?").arg(address).arg(port);
+    if (configuration->displayCurrentBootOnly())
+        m_url.append("boot");
+    m_url.append("&follow");
+    if (!filter.isEmpty())
+        m_url.append("&" + filter);
+    m_reply = nullptr;
 }
 
 JournaldNetworkAnalyzer::~JournaldNetworkAnalyzer()
@@ -55,4 +65,47 @@ void JournaldNetworkAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 
 void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 {
+    if (enabled) {
+        m_data.clear();
+        QNetworkRequest request(m_url);
+        request.setRawHeader("Accept", "application/json");
+        m_reply = m_networkManager.get(request);
+        connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
+        connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
+        connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),
+                SLOT(error(QNetworkReply::NetworkError)));
+        connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)),
+                SLOT(updateDataReadProgress(qint64, qint64)));
+    } else {
+        if (m_reply) {
+            m_reply->abort();
+            m_reply->deleteLater();
+            m_reply = nullptr;
+        }
+    }
+}
+
+void JournaldNetworkAnalyzer::httpFinished()
+{
+    logDebug() << "Finished!";
+}
+
+void JournaldNetworkAnalyzer::httpReadyRead()
+{
+    QByteArray chunk = m_reply->readAll();
+    logDebug() << "httpReadyRead" << m_data.size();
+    logDebug() << chunk;
+
+//    m_data.append(m_reply->readAll());
+//    logDebug() << "httpReadyRead" << m_data.size();
+}
+
+void JournaldNetworkAnalyzer::updateDataReadProgress(qint64 bytesRead, qint64 totalBytes)
+{
+    logDebug() << "updateDataReadProgress" << bytesRead << totalBytes;
+}
+
+void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
+{
+    logWarning() << "Network error:" << code;
 }

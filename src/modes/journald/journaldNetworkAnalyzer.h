@@ -26,17 +26,15 @@
 #include "analyzer.h"
 #include "logFile.h"
 
-#include <QFutureWatcher>
-#include <QSocketNotifier>
-
-#include <systemd/sd-journal.h>
+#include <QtNetwork/QtNetwork>
 
 class JournaldNetworkAnalyzer : public Analyzer
 {
     Q_OBJECT
 
 public:
-    explicit JournaldNetworkAnalyzer(LogMode *logMode, QString host, quint16 port, QString filter = QString());
+    explicit JournaldNetworkAnalyzer(LogMode *logMode, QString address, quint16 port,
+                                     QString filter = QString());
 
     virtual ~JournaldNetworkAnalyzer();
 
@@ -45,6 +43,18 @@ public:
     virtual void setLogFiles(const QList<LogFile> &logFiles);
 
     virtual void watchLogFiles(bool enabled);
+
+private slots:
+    void httpFinished();
+    void httpReadyRead();
+    void updateDataReadProgress(qint64 bytesRead, qint64 totalBytes);
+    void error(QNetworkReply::NetworkError code);
+
+private:
+    QString m_url;
+    QNetworkAccessManager m_networkManager;
+    QNetworkReply *m_reply;
+    QByteArray m_data;
 };
 
 #endif // _JOURNALD_NETWORK_ANALYZER_H_
