@@ -213,87 +213,66 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
         return QList<JournalEntry>();
     }
 
-    // Set entries filter.
-    for (const QString &filter : filters) {
-        res = sd_journal_add_match(journal, filter.toLatin1(), 0);
-        if (res < 0) {
-            logWarning() << "Failed to set journald filter.";
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
-        }
-    }
+    //    // Set entries filter.
+    //    for (const QString &filter : filters) {
+    //        res = sd_journal_add_match(journal, filter.toLatin1(), 0);
+    //        if (res < 0) {
+    //            logWarning() << "Failed to set journald filter.";
+    //            sd_journal_close(journal);
+    //            return QList<JournalEntry>();
+    //        }
+    //    }
 
-    // Seek to cursor.
-    if (m_cursor) {
-        res = sd_journal_seek_cursor(journal, m_cursor);
-        if (res < 0) {
-            logWarning() << "Failed to seek journald cursor:" << res;
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
-        }
-
-        res = sd_journal_next(journal);
-        if (res < 0) {
-            logWarning() << "Failed to access journald entry after seeking the cursor:" << res;
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
-        }
-
-        res = sd_journal_test_cursor(journal, m_cursor);
-        if (res <= 0) {
-            logWarning() << "Journald cursor test failed:" << res;
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
-        }
-    }
-
-    // Determine number of entries from cursor to the end of the journal.
-    int entriesNum = 0;
-    forever {
-        res = sd_journal_next(journal);
-        if (res < 0) {
-            logWarning() << "Failed to iterate to next journald entry.";
-            break;
-        }
-        if (res == 0) {
-            // Reached the end.
-            break;
-        }
-        entriesNum++;
-    }
-
-    if (!entriesNum) {
-        sd_journal_close(journal);
+    // Go to the latest journal entry.
+    res = sd_journal_seek_tail(journal);
+    if (res < 0) {
+        logWarning() << "Failed to seek journal tail.";
         return QList<JournalEntry>();
     }
 
     // Read number of entries allowed by KSystemLog configuration.
     int maxEntriesNum = KSystemLogConfig::maxLines();
-    if (entriesNum > maxEntriesNum) {
-        logDebug() << "Journald contains" << entriesNum << "entries, will read last" << maxEntriesNum;
-        int skipEntriesNum = entriesNum - maxEntriesNum;
-        if (m_cursor) {
-            // Jump over skipEntriesNum entries forward starting from cursor.
-            sd_journal_seek_cursor(journal, m_cursor);
-            res = sd_journal_next_skip(journal, skipEntriesNum);
-        } else {
-            sd_journal_seek_tail(journal);
-            // Jump over skipEntriesNum entries backwards from the end of the journal.
-            res = sd_journal_previous_skip(journal, maxEntriesNum + 1);
-        }
-        if (res < 0) {
-            logWarning() << "Failed to skip journald entries.";
-            sd_journal_close(journal);
-            return QList<JournalEntry>();
+
+    // Seek to cursor.
+    if (m_cursor) {
+        int entriesNum = 0;
+        // Continue searching for the oldest entry until
+        // either cursor is found or maximum number of entries is traversed.
+        while (entriesNum < maxEntriesNum) {
+            entriesNum++;
+
+            res = sd_journal_previous(journal);
+            if (res < 0) {
+                logWarning() << "Failed to seek to previous journal entry:" << res;
+                sd_journal_close(journal);
+                return QList<JournalEntry>();
+            }
+
+            res = sd_journal_test_cursor(journal, m_cursor);
+            if (res > 0) {
+                logDebug() << "Found cursor at entry num" << entriesNum;
+                if (entriesNum == 1) {
+                    logDebug() << "NO UPDATES!";
+                    sd_journal_close(journal);
+                    return QList<JournalEntry>();
+                }
+                // Latest journal entry before journal update is found.
+                break;
+            }
         }
     } else {
-        if (m_cursor) {
-            // Return to the first new entry.
-            sd_journal_seek_cursor(journal, m_cursor);
-            sd_journal_next(journal);
-        } else {
-            // Return to the beginning of the journal.
-            sd_journal_seek_head(journal);
+        // Jump over maxEntriesNum entries backwards from the end of the journal.
+        res = sd_journal_previous_skip(journal, maxEntriesNum + 1);
+        if (res < 0) {
+            // Seek failed, this is probably because journal
+            // contains smaller number of entries then KSystemLog window can fit.
+            // Start reading entries from the beginning.
+            res = sd_journal_seek_head(journal);
+            if (res < 0) {
+                logWarning() << "Failed to seek journal head.";
+                sd_journal_close(journal);
+                return QList<JournalEntry>();
+            }
         }
     }
 
