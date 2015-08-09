@@ -198,6 +198,12 @@ void LogManager::setParsingPaused(bool paused)
         return;
     }
 
+    if (!paused) {
+        // Current analyzer implementations just perform full reload when resuming.
+        // Clear the log view to avoid duplicating entries.
+        d->usedView->logViewWidget()->model()->clear();
+        d->usedView->logViewWidget()->setColumns(d->analyzer->initColumns());
+    }
     d->analyzer->setParsingPaused(paused);
 }
 
