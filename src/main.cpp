@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral("0.4"),
                      i18n("System Logs Viewer for KDE"), KAboutLicense::GPL_V2,
-                     i18n("(C) 2007, Nicolas Ternisien"),
+                     i18n("(C) 2007-2015, Nicolas Ternisien"),
                      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
                           "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
                      QStringLiteral("https://www.kde.org/applications/system/ksystemlog/"), QString());
@@ -51,6 +51,8 @@ int main(int argc, char **argv)
     about.addAuthor(i18n("Nicolas Ternisien"), i18n("Main developer"),
                     QStringLiteral("nicolas.ternisien@gmail.com"),
                     QStringLiteral("http://www.forum-software.org"));
+    about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"),
+                    QStringLiteral("v.matyushin@gmail.com"));
     about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));
 
     KAboutData::setApplicationData(about);
