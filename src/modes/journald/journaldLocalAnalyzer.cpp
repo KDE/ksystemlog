@@ -319,27 +319,27 @@ JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_j
 
     res = sd_journal_get_data(journal, "SYSLOG_IDENTIFIER", &data, &length);
     if (res == 0) {
-        entry.unit = QString::fromUtf8((const char *)data, length).section("=", 1);
+        entry.unit = QString::fromUtf8((const char *)data, length).section('=', 1);
     } else {
         res = sd_journal_get_data(journal, "_SYSTEMD_UNIT", &data, &length);
         if (res == 0) {
-            entry.unit = QString::fromUtf8((const char *)data, length).section("=", 1);
+            entry.unit = QString::fromUtf8((const char *)data, length).section('=', 1);
         }
     }
 
     res = sd_journal_get_data(journal, "MESSAGE", &data, &length);
     if (res == 0) {
-        entry.message = QString::fromUtf8((const char *)data, length).section("=", 1);
+        entry.message = QString::fromUtf8((const char *)data, length).section('=', 1);
     }
 
     res = sd_journal_get_data(journal, "PRIORITY", &data, &length);
     if (res == 0) {
-        entry.priority = QString::fromUtf8((const char *)data, length).section("=", 1).toInt();
+        entry.priority = QString::fromUtf8((const char *)data, length).section('=', 1).toInt();
     }
 
     res = sd_journal_get_data(journal, "_BOOT_ID", &data, &length);
     if (res == 0) {
-        entry.bootID = QString::fromUtf8((const char *)data, length).section("=", 1);
+        entry.bootID = QString::fromUtf8((const char *)data, length).section('=', 1);
     }
 
     return entry;
@@ -377,7 +377,7 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int fl
         if (res == 0) {
             SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
             {
-                units.append(QString::fromUtf8((const char *)data, length).section("=", 1));
+                units.append(QString::fromUtf8((const char *)data, length).section('=', 1));
             }
         }
 

@@ -66,8 +66,8 @@ QList<JournaldConfiguration::RemoteJournalAddress> JournaldConfiguration::remote
     QList<RemoteJournalAddress> journals;
     for (const QString addressItem : m_remoteJournals) {
         RemoteJournalAddress addressInfo;
-        addressInfo.address = addressItem.section("|", 0, 0);
-        addressInfo.port = addressItem.section("|", 1).toUInt();
+        addressInfo.address = addressItem.section('|', 0, 0);
+        addressInfo.port = addressItem.section('|', 1).toUInt();
         journals.append(addressInfo);
     }
     return journals;
