@@ -37,8 +37,8 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     m_url = QString("http://%1:%2/entries?").arg(address).arg(port);
     if (configuration->displayCurrentBootOnly())
-        m_url.append("boot");
-    m_url.append("&follow");
+        m_url.append("boot&");
+    m_url.append("follow");
     if (!filter.isEmpty())
         m_url.append("&" + filter);
     m_reply = nullptr;
