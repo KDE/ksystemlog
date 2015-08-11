@@ -41,8 +41,8 @@ public:
               QLatin1String(POSTFIX_LOG_MODE_ID),
               QStringList() << QLatin1String("/var/log/mail.log") << QLatin1String("/var/log/mail.info")
                             << QLatin1String("/var/log/mail.warn") << QLatin1String("/var/log/mail.err"),
-              QList<int>() << NOTICE_LOG_LEVEL_ID << INFORMATION_LOG_LEVEL_ID << WARNING_LOG_LEVEL_ID
-                           << ERROR_LOG_LEVEL_ID)
+              QList<int>() << Globals::NOTICE_LOG_LEVEL_ID << Globals::INFORMATION_LOG_LEVEL_ID << Globals::WARNING_LOG_LEVEL_ID
+                           << Globals::ERROR_LOG_LEVEL_ID)
     {
     }
 

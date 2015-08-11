@@ -24,6 +24,7 @@
 
 #include <QList>
 #include <QString>
+#include <QMetaEnum>
 
 #include "logMode.h"
 #include "logModeFactory.h"
@@ -38,12 +39,27 @@ class Reader;
 
 class GlobalsPrivate;
 
-class Globals
+class Globals : QObject
 {
+    Q_OBJECT
+
 public:
     static Globals &instance();
 
     ~Globals();
+
+    enum LogLevelIds {
+        NONE_LOG_LEVEL_ID = 0,
+        DEBUG_LOG_LEVEL_ID,
+        INFORMATION_LOG_LEVEL_ID,
+        NOTICE_LOG_LEVEL_ID,
+        WARNING_LOG_LEVEL_ID,
+        ERROR_LOG_LEVEL_ID,
+        CRITICAL_LOG_LEVEL_ID,
+        ALERT_LOG_LEVEL_ID,
+        EMERGENCY_LOG_LEVEL_ID
+    };
+    Q_ENUM(LogLevelIds)
 
     QList<LogLevel *> logLevels();
 
@@ -58,6 +74,8 @@ public:
     LogLevel *emergencyLogLevel();
 
     LogLevel *logLevelByPriority(int id);
+
+    QMetaEnum &logLevelsMetaEnum() const;
 
     /**
      * Allow to add a new Reader for a new log mode

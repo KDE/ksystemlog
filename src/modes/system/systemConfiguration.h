@@ -39,7 +39,7 @@ public:
     SystemConfiguration()
         : GenericLogModeConfiguration(QLatin1String(SYSTEM_LOG_MODE_ID),
                                       QStringList() << QLatin1String("/var/log/syslog"),
-                                      QList<int>() << INFORMATION_LOG_LEVEL_ID)
+                                      QList<int>() << Globals::INFORMATION_LOG_LEVEL_ID)
     {
         /*
         <default>/var/log/messages,/var/log/syslog,/var/log/debug</default>

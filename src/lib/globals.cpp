@@ -56,6 +56,8 @@ public:
 
     QList<LogModeAction *> logModeActions;
 
+    QMetaEnum logLevelsMetaEnum;
+
     /**
      * Existing Log levels. The id value corresponds to the index in the vector
      */
@@ -124,6 +126,9 @@ void Globals::setupLogModes() {
 
 void Globals::setupLogLevels()
 {
+    int index = metaObject()->indexOfEnumerator("LogLevelIds");
+    d->logLevelsMetaEnum = metaObject()->enumerator(index);
+
     d->noLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QLatin1String("help-contents"),
                                  QColor(208, 210, 220));
     d->logLevels.append(d->noLogLevel);
@@ -238,6 +243,11 @@ LogLevel *Globals::logLevelByPriority(int id)
         break;
     }
     return noLogLevel();
+}
+
+QMetaEnum &Globals::logLevelsMetaEnum() const
+{
+    return d->logLevelsMetaEnum;
 }
 
 void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)

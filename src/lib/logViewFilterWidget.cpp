@@ -26,6 +26,11 @@
 #include <QString>
 #include <QHBoxLayout>
 
+#include <QComboBox>
+#include <QStyledItemDelegate>
+#include <QMetaEnum>
+#include <QStandardItemModel>
+
 #include <kcombobox.h>
 #include <kiconloader.h>
 #include <KLocalizedString>
@@ -34,6 +39,22 @@
 
 #include "logViewColumn.h"
 #include "logging.h"
+#include "logLevel.h"
+
+class ComboBoxDelegate : public QStyledItemDelegate
+{
+public:
+    ComboBoxDelegate(QWidget *parent)
+        : QStyledItemDelegate(parent)
+    {
+    }
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+    {
+        QStyleOptionViewItem &refToNonConstOption = const_cast<QStyleOptionViewItem &>(option);
+        refToNonConstOption.showDecorationSelected = false;
+        QStyledItemDelegate::paint(painter, refToNonConstOption, index);
+    }
+};
 
 class LogViewFilterWidgetPrivate
 {
@@ -44,6 +65,10 @@ public:
      * Filter of the column list
      */
     KComboBox *filterList;
+
+    QComboBox *priorities;
+
+    QStandardItemModel *prioritiesModel;
 };
 
 LogViewWidgetSearchLine::LogViewWidgetSearchLine()
@@ -90,6 +115,33 @@ LogViewFilterWidget::LogViewFilterWidget()
     initSearchListFilter();
 
     filterBarLayout->addWidget(d->filterList);
+
+    d->priorities = new QComboBox(this);
+    ComboBoxDelegate *delegate = new ComboBoxDelegate(d->priorities);
+    d->priorities->setItemDelegate(delegate);
+    filterBarLayout->addWidget(d->priorities);
+
+    QMetaEnum &metaEnum = Globals::instance().logLevelsMetaEnum();
+
+    d->prioritiesModel = new QStandardItemModel(d->priorities);
+    d->priorities->setModel(d->prioritiesModel);
+
+    QStandardItem *item = new QStandardItem(i18n("Select priorities"));
+    item->setSelectable(false);
+    d->prioritiesModel->appendRow(item);
+
+    for (int i = metaEnum.keyCount() - 1; i >= 0; i--) {
+        int id = metaEnum.value(i);
+        LogLevel *logLevel = Globals::instance().logLevelByPriority(id);
+
+        QStandardItem *item = new QStandardItem(logLevel->name());
+        item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+        item->setData(Qt::Checked, Qt::CheckStateRole);
+        item->setData(metaEnum.value(i), Qt::UserRole);
+        item->setData(QVariant(logLevel->color()), Qt::ForegroundRole);
+
+        d->prioritiesModel->appendRow(item);
+    }
 }
 
 LogViewFilterWidget::~LogViewFilterWidget()
