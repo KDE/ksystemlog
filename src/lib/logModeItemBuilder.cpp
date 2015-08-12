@@ -51,6 +51,7 @@ void LogModeItemBuilder::prepareItem(LogViewWidgetItem *item) const
     LogLine *line = item->logLine();
 
     item->setText(0, formatDate(line->time()));
+    item->setData(0, Qt::UserRole, line->logLevel()->id());
 
     int i = 1;
     foreach (const QString &label, line->logItems()) {
