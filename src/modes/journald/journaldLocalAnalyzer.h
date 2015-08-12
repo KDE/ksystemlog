@@ -72,7 +72,6 @@ private:
     int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 
     static QStringList getUniqueFieldValues(const QString id, int flags = 0);
-    void fillCurrentBootID();
 
     sd_journal *m_journal;
     int m_journalFlags;

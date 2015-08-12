@@ -52,7 +52,10 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
     connect(m_journalNotifier, SIGNAL(activated(int)), this, SLOT(journalDescriptorUpdated(int)));
 
     if (configuration->displayCurrentBootOnly()) {
-        fillCurrentBootID();
+        QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
+        file.open(QIODevice::ReadOnly);
+        m_currentBootID = file.readAll().trimmed();
+        m_currentBootID.remove(QChar('-'));
         m_filters << QString("_BOOT_ID=%1").arg(m_currentBootID);
     }
 
@@ -388,50 +391,4 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int fl
         logWarning() << "Failed to open the journal and extract unique values for field" << id;
     }
     return units;
-}
-
-void JournaldLocalAnalyzer::fillCurrentBootID()
-{
-    sd_journal *journal;
-    int res = sd_journal_open(&journal, 0);
-    if (res < 0) {
-        logWarning() << "Failed to open the journal and extract current boot ID.";
-        return;
-    }
-
-    QStringList bootIdentifiers = getUniqueFieldValues("_BOOT_ID", m_journalFlags);
-    QMap<uint64_t, QString> identifiersByTime;
-
-    // Iterate over boot IDs and get the oldest time for each boot ID.
-    for (const QString &bootID : bootIdentifiers) {
-        // Flush previous journal filters.
-        sd_journal_flush_matches(journal);
-
-        // Filter by bootID.
-        res = sd_journal_add_match(journal, QString("_BOOT_ID=%1").arg(bootID).toUtf8(), 0);
-        if (res < 0)
-            logWarning() << "Failed to filter the journal by boot ID" << bootID;
-
-        // Find the oldest entry within this bootID.
-        res = sd_journal_seek_head(journal);
-        if (res < 0)
-            logWarning() << "Failed to seek journal head after filtering by boot ID" << bootID;
-
-        res = sd_journal_next(journal);
-        if (res < 1)
-            logWarning() << "Failed to go to next entry after filtering by boot ID" << bootID;
-
-        // Get the date for this entry.
-        uint64_t time;
-        res = sd_journal_get_realtime_usec(journal, &time);
-        if (res == 0) {
-            identifiersByTime[time] = bootID;
-        } else {
-            logWarning() << "Failed to get entry time after filtering by boot ID" << bootID;
-        }
-    }
-    sd_journal_close(journal);
-
-    uint64_t newestTime = identifiersByTime.keys().last();
-    m_currentBootID = identifiersByTime[newestTime];
 }
