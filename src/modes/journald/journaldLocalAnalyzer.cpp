@@ -53,10 +53,13 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
 
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
-        file.open(QIODevice::ReadOnly);
-        m_currentBootID = file.readAll().trimmed();
-        m_currentBootID.remove(QChar('-'));
-        m_filters << QString("_BOOT_ID=%1").arg(m_currentBootID);
+        if (file.open(QIODevice::ReadOnly)) {
+            m_currentBootID = file.readAll().trimmed();
+            m_currentBootID.remove(QChar('-'));
+            m_filters << QString("_BOOT_ID=%1").arg(m_currentBootID);
+        } else {
+            logWarning() << "Journald analyzer failed to open /proc/sys/kernel/random/boot_id";
+        }
     }
 
     if (!filter.isEmpty())
