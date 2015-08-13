@@ -40,8 +40,11 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
 
-    MultipleActions *multipleActions = new MultipleActions(
-        QIcon::fromTheme(QLatin1String(JOURNALD_LOG_MODE_ID)), i18n("Journald"), logMode);
+    MultipleActions *multipleActions
+        = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
+
+    QIcon filterIcon = QIcon::fromTheme(QLatin1String("view-filter"));
+    QIcon remoteIcon = QIcon::fromTheme(QLatin1String("preferences-system-network-sharing"));
 
     // Do not add journald submenu actions into action collection.
     // There are too many of them and submenu contents sometimes gets changed.
@@ -54,10 +57,11 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
 
-    KActionMenu *actionMenu = new KActionMenu(i18n("Local journal"), multipleActions);
+    KActionMenu *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")),
+                                              i18n("Local journal"), multipleActions);
 
     // Add "All messages" action.
-    QAction *action = new QAction(i18n("All messages"), actionMenu);
+    QAction *action = new QAction(filterIcon, i18n("All messages"), actionMenu);
     action->setData(QVariant::fromValue(actionData));
     actionMenu->addAction(action);
     multipleActions->addInnerAction(action, false, true);
@@ -68,7 +72,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     actionMenu->addAction(action);
 
     // Add filtering by systemd unit.
-    KActionMenu *filterActionMenu = new KActionMenu(i18n("Filter by systemd unit"), actionMenu);
+    KActionMenu *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
     QStringList units = JournaldLocalAnalyzer::units();
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
@@ -83,7 +87,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     actionMenu->addAction(filterActionMenu);
 
     // Add filtering by syslog identifier.
-    filterActionMenu = new KActionMenu(i18n("Filter by syslog identifier"), actionMenu);
+    filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
     QStringList syslogIDs = JournaldLocalAnalyzer::syslogIdentifiers();
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
@@ -102,14 +106,18 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     analyzerOptions.analyzerType = JournaldAnalyzerType::Network;
     analyzerOptions.filter.clear();
 
+    action = new QAction(multipleActions);
+    action->setSeparator(true);
+    multipleActions->addInnerAction(action, true, false);
+
     // Create remote journal submenus.
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     auto remoteJournals = configuration->remoteJournals();
     for (const auto &addressInfo : remoteJournals) {
-        actionMenu = new KActionMenu(QString("%1:%2").arg(addressInfo.address).arg(addressInfo.port),
-                                     multipleActions);
+        QString menuText = QString("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
+        actionMenu = new KActionMenu(remoteIcon, menuText, multipleActions);
 
-        action = new QAction(i18n("Connect"), actionMenu);
+        action = new QAction(QIcon::fromTheme(QLatin1String("network-connect")), i18n("Connect"), actionMenu);
         analyzerOptions.address = addressInfo.address;
         analyzerOptions.port = addressInfo.port;
         actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
