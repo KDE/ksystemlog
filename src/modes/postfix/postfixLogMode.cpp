@@ -59,6 +59,7 @@ PostfixLogMode::~PostfixLogMode()
 
 Analyzer *PostfixLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new PostfixAnalyzer(this);
 }
 

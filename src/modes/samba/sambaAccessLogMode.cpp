@@ -59,6 +59,7 @@ SambaAccessLogMode::~SambaAccessLogMode()
 
 Analyzer *SambaAccessLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new SambaAnalyzer(this);
 }
 

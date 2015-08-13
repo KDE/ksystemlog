@@ -53,6 +53,7 @@ KernelLogMode::~KernelLogMode()
 
 Analyzer *KernelLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new KernelAnalyzer(this);
 }
 

@@ -54,6 +54,7 @@ OpenLogMode::~OpenLogMode()
 
 Analyzer *OpenLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new OpenAnalyzer(this);
 }
 

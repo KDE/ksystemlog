@@ -58,6 +58,7 @@ SystemLogMode::~SystemLogMode()
 
 Analyzer *SystemLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new SystemAnalyzer(this);
 }
 

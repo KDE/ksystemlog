@@ -58,6 +58,7 @@ CupsLogMode::~CupsLogMode()
 
 Analyzer *CupsLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new CupsAnalyzer(this);
 }
 

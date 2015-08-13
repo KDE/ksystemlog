@@ -59,6 +59,7 @@ XorgLogMode::~XorgLogMode()
 
 Analyzer *XorgLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new XorgAnalyzer(this);
 }
 

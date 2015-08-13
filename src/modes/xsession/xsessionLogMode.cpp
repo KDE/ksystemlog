@@ -59,6 +59,7 @@ XSessionLogMode::~XSessionLogMode()
 
 Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new XSessionAnalyzer(this);
 }
 

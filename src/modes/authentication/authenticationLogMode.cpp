@@ -59,6 +59,7 @@ AuthenticationLogMode::~AuthenticationLogMode()
 
 Analyzer *AuthenticationLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new AuthenticationAnalyzer(this);
 }
 

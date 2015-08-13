@@ -59,6 +59,7 @@ CupsPageLogMode::~CupsPageLogMode()
 
 Analyzer *CupsPageLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new CupsPageAnalyzer(this);
 }
 

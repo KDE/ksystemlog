@@ -59,6 +59,7 @@ CronLogMode::~CronLogMode()
 
 Analyzer *CronLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new CronAnalyzer(this);
 }
 

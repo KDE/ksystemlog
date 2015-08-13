@@ -60,6 +60,7 @@ DaemonLogMode::~DaemonLogMode()
 
 Analyzer *DaemonLogMode::createAnalyzer(const QVariant &options)
 {
+    Q_UNUSED(options)
     return new SyslogAnalyzer(this);
 }
 
