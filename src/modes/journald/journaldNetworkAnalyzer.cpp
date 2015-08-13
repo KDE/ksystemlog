@@ -67,8 +67,10 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 {
     if (enabled) {
         m_data.clear();
+        int maxEntriesNum = KSystemLogConfig::maxLines();
         QNetworkRequest request(m_url);
         request.setRawHeader("Accept", "application/json");
+        request.setRawHeader("Range", QString("entries=:-%1:%2").arg(maxEntriesNum - 1).arg(maxEntriesNum).toUtf8());
         m_reply = m_networkManager.get(request);
         connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
         connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
