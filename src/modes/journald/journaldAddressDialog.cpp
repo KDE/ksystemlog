@@ -24,7 +24,7 @@
 
 const quint16 JournaldDefaultPort = 19531;
 
-JournaldAddressDialog::JournaldAddressDialog(QString title, QString address, QString port, QWidget *parent)
+JournaldAddressDialog::JournaldAddressDialog(QWidget *parent, QString title, QString address, QString port)
     : QDialog(parent)
 {
     setupUi(this);

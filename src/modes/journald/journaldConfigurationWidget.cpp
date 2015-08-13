@@ -104,7 +104,7 @@ void JournaldConfigurationWidget::updateButtons()
 
 void JournaldConfigurationWidget::addRemoteJournal()
 {
-    JournaldAddressDialog dialog(i18n("Add remote journal"));
+    JournaldAddressDialog dialog(this, i18n("Add remote journal"));
     if (dialog.exec() == QDialog::Accepted) {
         QString address = dialog.address();
         QString port = dialog.port();
@@ -133,7 +133,7 @@ void JournaldConfigurationWidget::tableItemClicked(int row)
 {
     QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
     QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
-    JournaldAddressDialog dialog(i18n("Modify remote journal"), addressItem->text(), portItem->text());
+    JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text());
     if (dialog.exec() == QDialog::Accepted) {
         QString address = dialog.address();
         QString port = dialog.port();
