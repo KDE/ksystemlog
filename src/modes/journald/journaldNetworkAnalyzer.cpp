@@ -35,12 +35,19 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
 {
     // TODO: add support for HTTPS. Process sslErrors().
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
-    m_url = QString("http://%1:%2/entries?").arg(address).arg(port);
+
+    QString urlMain = QString("http://%1:%2/").arg(address).arg(port);
+
+    m_entriesUrl = urlMain + "entries?";
     if (configuration->displayCurrentBootOnly())
-        m_url.append("boot&");
-    m_url.append("follow");
+        m_entriesUrl.append("boot&");
+    m_entriesUrl.append("follow");
     if (!filter.isEmpty())
-        m_url.append("&" + filter);
+        m_entriesUrl.append("&" + filter);
+
+    m_syslogIdUrl = urlMain + "fields/SYSLOG_IDENTIFIER";
+    m_systemdUnitsUrl = urlMain + "fields/_SYSTEMD_UNIT";
+
     m_reply = nullptr;
 }
 
@@ -67,17 +74,7 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 {
     if (enabled) {
         m_data.clear();
-        int maxEntriesNum = KSystemLogConfig::maxLines();
-        QNetworkRequest request(m_url);
-        request.setRawHeader("Accept", "application/json");
-        request.setRawHeader("Range", QString("entries=:-%1:%2").arg(maxEntriesNum - 1).arg(maxEntriesNum).toUtf8());
-        m_reply = m_networkManager.get(request);
-        connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
-        connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
-        connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),
-                SLOT(error(QNetworkReply::NetworkError)));
-        connect(m_reply, SIGNAL(downloadProgress(qint64, qint64)),
-                SLOT(updateDataReadProgress(qint64, qint64)));
+        sendRequest(RequestType::SyslogIds);
     } else {
         if (m_reply) {
             m_reply->abort();
@@ -89,25 +86,77 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 
 void JournaldNetworkAnalyzer::httpFinished()
 {
-    logDebug() << "Finished!";
+    QByteArray data = m_reply->readAll();
+    QString identifiersString = QString::fromUtf8(data);
+    QStringList identifiersList = identifiersString.split('\n', QString::SkipEmptyParts);
+    switch (m_currentRequest) {
+    case RequestType::SyslogIds:
+        m_syslogIdentifiers = identifiersList;
+        m_syslogIdentifiers.sort();
+        logDebug() << "Got syslogs:";
+        logDebug() << m_syslogIdentifiers;
+        sendRequest(RequestType::Units);
+        break;
+    case RequestType::Units:
+        m_systemdUnits = identifiersList;
+        m_systemdUnits.sort();
+        logDebug() << "Got units:";
+        logDebug() << m_systemdUnits;
+        sendRequest(RequestType::Entries);
+        break;
+    default:
+        break;
+    }
 }
 
 void JournaldNetworkAnalyzer::httpReadyRead()
 {
-    QByteArray chunk = m_reply->readAll();
-    logDebug() << "httpReadyRead" << m_data.size();
-    logDebug() << chunk;
+    if (m_currentRequest == RequestType::Entries) {
+        QByteArray chunk = m_reply->readAll();
+        logDebug() << chunk;
 
-//    m_data.append(m_reply->readAll());
-//    logDebug() << "httpReadyRead" << m_data.size();
-}
-
-void JournaldNetworkAnalyzer::updateDataReadProgress(qint64 bytesRead, qint64 totalBytes)
-{
-    logDebug() << "updateDataReadProgress" << bytesRead << totalBytes;
+        //    m_data.append(m_reply->readAll());
+        //    logDebug() << "httpReadyRead" << m_data.size();
+    }
 }
 
 void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
 {
+    // TODO: handle errors
     logWarning() << "Network error:" << code;
+}
+
+void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
+{
+    if (m_reply)
+        m_reply->deleteLater();
+
+    m_currentRequest = requestType;
+
+    QNetworkRequest request;
+    QString url;
+
+    switch (requestType) {
+    case RequestType::SyslogIds:
+        url = m_syslogIdUrl;
+        break;
+    case RequestType::Units:
+        url = m_systemdUnitsUrl;
+        break;
+    case RequestType::Entries: {
+        url = m_entriesUrl;
+        int entries = KSystemLogConfig::maxLines();
+        request.setRawHeader("Accept", "application/json");
+        request.setRawHeader("Range", QString("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
+    } break;
+    default:
+        break;
+    }
+
+    request.setUrl(url);
+    logDebug() << "Journal network analyzer requested" << url;
+    m_reply = m_networkManager.get(request);
+    connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
+    connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(error(QNetworkReply::NetworkError)));
 }

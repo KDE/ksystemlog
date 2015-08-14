@@ -47,11 +47,21 @@ public:
 private slots:
     void httpFinished();
     void httpReadyRead();
-    void updateDataReadProgress(qint64 bytesRead, qint64 totalBytes);
     void error(QNetworkReply::NetworkError code);
 
 private:
-    QString m_url;
+    enum class RequestType { SyslogIds, Units, Entries };
+
+    void sendRequest(RequestType requestType);
+
+    RequestType m_currentRequest;
+    QString m_entriesUrl;
+    QString m_syslogIdUrl;
+    QString m_systemdUnitsUrl;
+
+    QStringList m_syslogIdentifiers;
+    QStringList m_systemdUnits;
+
     QNetworkAccessManager m_networkManager;
     QNetworkReply *m_reply;
     QByteArray m_data;
