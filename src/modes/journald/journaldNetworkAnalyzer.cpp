@@ -38,12 +38,19 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
 
     QString urlMain = QString("http://%1:%2/").arg(address).arg(port);
 
-    m_entriesUrl = urlMain + "entries?";
-    if (configuration->displayCurrentBootOnly())
-        m_entriesUrl.append("boot&");
-    m_entriesUrl.append("follow");
-    if (!filter.isEmpty())
-        m_entriesUrl.append("&" + filter);
+    m_entriesUrlUpdating = urlMain + "entries?";
+    m_entriesUrlFull = m_entriesUrlUpdating;
+
+    if (configuration->displayCurrentBootOnly()) {
+        m_entriesUrlUpdating.append("boot&");
+        m_entriesUrlFull.append("boot");
+    }
+
+    m_entriesUrlUpdating.append("follow");
+    if (!filter.isEmpty()) {
+        m_entriesUrlUpdating.append("&" + filter);
+        m_entriesUrlFull.append("&" + filter);
+    }
 
     m_syslogIdUrl = urlMain + "fields/SYSLOG_IDENTIFIER";
     m_systemdUnitsUrl = urlMain + "fields/_SYSTEMD_UNIT";
@@ -87,7 +94,7 @@ void JournaldNetworkAnalyzer::httpFinished()
             sendRequest(RequestType::EntriesUpdate);
         else {
             logWarning() << "Network journal analyzer failed to extract cursor string. "
-                            "Updates will be unavailable";
+                            "Updates will be unavailable.";
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
@@ -176,8 +183,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         if (FullRead == readingMode) {
             emit statusBarChanged(i18n("Reading journald entries..."));
             // Start displaying the loading bar.
-            LogFile fakeLogFile(QUrl(m_entriesUrl), Globals::instance().noLogLevel());
-            emit readFileStarted(*logMode, fakeLogFile, 0, 1);
+            emit readFileStarted(*logMode, LogFile(), 0, 1);
         }
 
         // Add journald entries to the model.
@@ -217,13 +223,13 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
         url = m_systemdUnitsUrl;
         break;
     case RequestType::EntriesFull: {
-        url = m_entriesUrl;
+        url = m_entriesUrlFull;
         int entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QString("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;
     case RequestType::EntriesUpdate:
-        url = m_entriesUrl;
+        url = m_entriesUrlUpdating;
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QString("entries=%1").arg(m_cursor).toUtf8());
     default:

@@ -55,7 +55,8 @@ private:
     void sendRequest(RequestType requestType);
 
     RequestType m_currentRequest;
-    QString m_entriesUrl;
+    QString m_entriesUrlFull;
+    QString m_entriesUrlUpdating;
     QString m_syslogIdUrl;
     QString m_systemdUnitsUrl;
 
