@@ -64,7 +64,6 @@ private:
 
     QNetworkAccessManager m_networkManager;
     QNetworkReply *m_reply;
-    QByteArray m_data;
     QString m_cursor;
 };
 

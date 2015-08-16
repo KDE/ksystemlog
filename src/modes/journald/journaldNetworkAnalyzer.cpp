@@ -58,7 +58,6 @@ JournaldNetworkAnalyzer::~JournaldNetworkAnalyzer()
 void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 {
     if (enabled) {
-        m_data.clear();
         sendRequest(RequestType::SyslogIds);
     } else {
         if (m_reply) {
@@ -97,7 +96,7 @@ void JournaldNetworkAnalyzer::httpFinished()
         case RequestType::SyslogIds:
             m_syslogIdentifiers = identifiersList;
             m_syslogIdentifiers.sort();
-            logDebug() << "Got syslogs:";
+            logDebug() << "Got syslog identifiers:";
             logDebug() << m_syslogIdentifiers;
             sendRequest(RequestType::Units);
             break;
@@ -112,12 +111,10 @@ void JournaldNetworkAnalyzer::httpFinished()
             break;
         }
     }
-    logDebug() << "Finished";
 }
 
 void JournaldNetworkAnalyzer::httpReadyRead()
 {
-    logDebug() << m_reply->bytesAvailable();
     if (m_currentRequest == RequestType::EntriesUpdate) {
         QByteArray data = m_reply->readAll();
         parseEntries(data, UpdatingRead);
@@ -132,9 +129,14 @@ void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
 
 void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMode readingMode)
 {
+    if (parsingPaused) {
+        logDebug() << "Parsing is paused, discarding journald entries.";
+        return;
+    }
+
     QList<QByteArray> items = data.split('{');
+    QList<JournalEntry> entries;
     for (int i = 0; i < items.size(); i++) {
-        // TODO: skip the last item. Receive it in update request.
         QByteArray &item = items[i];
         if (item.isEmpty())
             continue;
@@ -144,9 +146,56 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         if (jsonError.error != 0)
             continue;
         QJsonObject object = doc.object();
-        if (i == items.size() - 1)
+
+        if ((readingMode == FullRead) && (i == items.size() - 1)) {
             m_cursor = object["__CURSOR"].toString();
-        //            logDebug() << object["MESSAGE"].toString();
+            break;
+        }
+
+        JournalEntry entry;
+        quint64 timestampUsec = object["__REALTIME_TIMESTAMP"].toVariant().value<quint64>();
+        entry.date.setMSecsSinceEpoch(timestampUsec / 1000);
+        // TODO: fix unicode strings.
+        entry.message = object["MESSAGE"].toString();
+        entry.priority = object["PRIORITY"].toVariant().value<int>();
+        entry.bootID = object["_BOOT_ID"].toString();
+        QString unit = object["SYSLOG_IDENTIFIER"].toString();
+        if (unit.isEmpty())
+            unit = object["_SYSTEMD_UNIT"].toString();
+        entry.unit = unit;
+
+        entries << entry;
+    }
+
+    if (entries.size() == 0) {
+        logDebug() << "Received no entries.";
+    } else {
+        insertionLocking.lock();
+        logViewModel->startingMultipleInsertions();
+
+        if (FullRead == readingMode) {
+            emit statusBarChanged(i18n("Reading journald entries..."));
+            // Start displaying the loading bar.
+            LogFile fakeLogFile(QUrl(m_entriesUrl), Globals::instance().noLogLevel());
+            emit readFileStarted(*logMode, fakeLogFile, 0, 1);
+        }
+
+        // Add journald entries to the model.
+        int entriesInserted = updateModel(entries, readingMode);
+
+        logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
+
+        if (FullRead == readingMode) {
+            emit statusBarChanged(i18n("Journald entries loaded successfully."));
+
+            // Stop displaying the loading bar.
+            emit readEnded();
+        }
+
+        // Inform LogManager that new lines have been added.
+        emit logUpdated(entriesInserted);
+
+        insertionLocking.unlock();
     }
 }
 
