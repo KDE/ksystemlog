@@ -31,7 +31,7 @@
 
 JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString address, quint16 port,
                                                  QString filter)
-    : Analyzer(logMode)
+    : JournaldAnalyzer(logMode)
 {
     // TODO: add support for HTTPS. Process sslErrors().
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
@@ -55,21 +55,6 @@ JournaldNetworkAnalyzer::~JournaldNetworkAnalyzer()
 {
 }
 
-LogViewColumns JournaldNetworkAnalyzer::initColumns()
-{
-    LogViewColumns columns;
-    columns.addColumn(LogViewColumn(i18n("Date"), true, true));
-    columns.addColumn(LogViewColumn(i18n("Unit"), true, true));
-    columns.addColumn(LogViewColumn(i18n("Message"), true, true));
-    return columns;
-}
-
-void JournaldNetworkAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
-{
-    Q_UNUSED(logFiles)
-    // Do nothing.
-}
-
 void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
 {
     if (enabled) {
@@ -84,39 +69,58 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
+QStringList JournaldNetworkAnalyzer::units()
+{
+    return m_systemdUnits;
+}
+
+QStringList JournaldNetworkAnalyzer::syslogIdentifiers()
+{
+    return m_syslogIdentifiers;
+}
+
 void JournaldNetworkAnalyzer::httpFinished()
 {
     QByteArray data = m_reply->readAll();
-    QString identifiersString = QString::fromUtf8(data);
-    QStringList identifiersList = identifiersString.split('\n', QString::SkipEmptyParts);
-    switch (m_currentRequest) {
-    case RequestType::SyslogIds:
-        m_syslogIdentifiers = identifiersList;
-        m_syslogIdentifiers.sort();
-        logDebug() << "Got syslogs:";
-        logDebug() << m_syslogIdentifiers;
-        sendRequest(RequestType::Units);
-        break;
-    case RequestType::Units:
-        m_systemdUnits = identifiersList;
-        m_systemdUnits.sort();
-        logDebug() << "Got units:";
-        logDebug() << m_systemdUnits;
-        sendRequest(RequestType::Entries);
-        break;
-    default:
-        break;
+    if (m_currentRequest == RequestType::EntriesFull) {
+        parseEntries(data, FullRead);
+        if (!m_cursor.isEmpty())
+            sendRequest(RequestType::EntriesUpdate);
+        else {
+            logWarning() << "Network journal analyzer failed to extract cursor string. "
+                            "Updates will be unavailable";
+        }
+    } else {
+        QString identifiersString = QString::fromUtf8(data);
+        QStringList identifiersList = identifiersString.split('\n', QString::SkipEmptyParts);
+        switch (m_currentRequest) {
+        case RequestType::SyslogIds:
+            m_syslogIdentifiers = identifiersList;
+            m_syslogIdentifiers.sort();
+            logDebug() << "Got syslogs:";
+            logDebug() << m_syslogIdentifiers;
+            sendRequest(RequestType::Units);
+            break;
+        case RequestType::Units:
+            m_systemdUnits = identifiersList;
+            m_systemdUnits.sort();
+            logDebug() << "Got units:";
+            logDebug() << m_systemdUnits;
+            sendRequest(RequestType::EntriesFull);
+            break;
+        default:
+            break;
+        }
     }
+    logDebug() << "Finished";
 }
 
 void JournaldNetworkAnalyzer::httpReadyRead()
 {
-    if (m_currentRequest == RequestType::Entries) {
-        QByteArray chunk = m_reply->readAll();
-        logDebug() << chunk;
-
-        //    m_data.append(m_reply->readAll());
-        //    logDebug() << "httpReadyRead" << m_data.size();
+    logDebug() << m_reply->bytesAvailable();
+    if (m_currentRequest == RequestType::EntriesUpdate) {
+        QByteArray data = m_reply->readAll();
+        parseEntries(data, UpdatingRead);
     }
 }
 
@@ -124,6 +128,26 @@ void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
 {
     // TODO: handle errors
     logWarning() << "Network error:" << code;
+}
+
+void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMode readingMode)
+{
+    QList<QByteArray> items = data.split('{');
+    for (int i = 0; i < items.size(); i++) {
+        // TODO: skip the last item. Receive it in update request.
+        QByteArray &item = items[i];
+        if (item.isEmpty())
+            continue;
+        item.prepend('{');
+        QJsonParseError jsonError;
+        QJsonDocument doc = QJsonDocument::fromJson(item, &jsonError);
+        if (jsonError.error != 0)
+            continue;
+        QJsonObject object = doc.object();
+        if (i == items.size() - 1)
+            m_cursor = object["__CURSOR"].toString();
+        //            logDebug() << object["MESSAGE"].toString();
+    }
 }
 
 void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
@@ -143,12 +167,17 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     case RequestType::Units:
         url = m_systemdUnitsUrl;
         break;
-    case RequestType::Entries: {
+    case RequestType::EntriesFull: {
         url = m_entriesUrl;
         int entries = KSystemLogConfig::maxLines();
+        entries = 300;
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QString("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;
+    case RequestType::EntriesUpdate:
+        url = m_entriesUrl;
+        request.setRawHeader("Accept", "application/json");
+        request.setRawHeader("Range", QString("entries=%1").arg(m_cursor).toUtf8());
     default:
         break;
     }

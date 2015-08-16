@@ -23,12 +23,11 @@
 #ifndef _JOURNALD_NETWORK_ANALYZER_H_
 #define _JOURNALD_NETWORK_ANALYZER_H_
 
-#include "analyzer.h"
-#include "logFile.h"
+#include "journaldAnalyzer.h"
 
 #include <QtNetwork/QtNetwork>
 
-class JournaldNetworkAnalyzer : public Analyzer
+class JournaldNetworkAnalyzer : public JournaldAnalyzer
 {
     Q_OBJECT
 
@@ -38,11 +37,11 @@ public:
 
     virtual ~JournaldNetworkAnalyzer();
 
-    virtual LogViewColumns initColumns();
-
-    virtual void setLogFiles(const QList<LogFile> &logFiles);
-
     virtual void watchLogFiles(bool enabled);
+
+    virtual QStringList units();
+
+    virtual QStringList syslogIdentifiers();
 
 private slots:
     void httpFinished();
@@ -50,8 +49,9 @@ private slots:
     void error(QNetworkReply::NetworkError code);
 
 private:
-    enum class RequestType { SyslogIds, Units, Entries };
+    enum class RequestType { SyslogIds, Units, EntriesFull, EntriesUpdate };
 
+    void parseEntries(QByteArray &data, ReadingMode readingMode);
     void sendRequest(RequestType requestType);
 
     RequestType m_currentRequest;
@@ -65,6 +65,7 @@ private:
     QNetworkAccessManager m_networkManager;
     QNetworkReply *m_reply;
     QByteArray m_data;
+    QString m_cursor;
 };
 
 #endif // _JOURNALD_NETWORK_ANALYZER_H_

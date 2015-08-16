@@ -9,6 +9,7 @@ include_directories(
 
 set(ksystemlog_journald_sources
     journaldAddressDialog.cpp
+    journaldAnalyzer.cpp
     journaldConfiguration.cpp
     journaldConfigurationWidget.cpp
     journaldFactory.cpp

@@ -20,61 +20,50 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_LOCAL_ANALYZER_H_
-#define _JOURNALD_LOCAL_ANALYZER_H_
-
 #include "journaldAnalyzer.h"
+#include "logViewModel.h"
+#include "logFile.h"
 
-#include <QFutureWatcher>
-#include <QSocketNotifier>
+#include <KLocalizedString>
 
-#include <systemd/sd-journal.h>
-
-class JournaldLocalAnalyzer : public JournaldAnalyzer
+JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
+    : Analyzer(logMode)
 {
-    Q_OBJECT
+}
 
-public:
-    explicit JournaldLocalAnalyzer(LogMode *logMode, QString filter = QString());
+JournaldAnalyzer::~JournaldAnalyzer()
+{
+}
 
-    virtual ~JournaldLocalAnalyzer();
+LogViewColumns JournaldAnalyzer::initColumns()
+{
+    LogViewColumns columns;
+    columns.addColumn(LogViewColumn(i18n("Date"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Unit"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Message"), true, true));
+    return columns;
+}
 
-    virtual void watchLogFiles(bool enabled);
+void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+{
+    Q_UNUSED(logFiles)
+    // Do nothing.
+}
 
-    virtual QStringList units();
+int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
+{
+    int entriesNum = entries.size();
+    for (int i = 0; i < entriesNum; i++) {
+        const JournalEntry &entry = entries.at(i);
+        QStringList itemComponents;
+        itemComponents << entry.unit << entry.message;
+        LogLine *line = new LogLine(logLineInternalIdGenerator++, entry.date, itemComponents, QString(),
+                                    Globals::instance().logLevelByPriority(entry.priority), logMode);
+        line->setRecent(readingMode == UpdatingRead);
+        logViewModel->insertNewLogLine(line);
 
-    virtual QStringList syslogIdentifiers();
-
-    static QStringList unitsStatic();
-
-    static QStringList syslogIdentifiersStatic();
-
-private slots:
-    void readJournalInitialFinished();
-    void readJournalUpdateFinished();
-    void journalDescriptorUpdated(int fd);
-
-private:
-    typedef QFutureWatcher<QList<JournalEntry>> JournalWatcher;
-
-    void readJournalFinished(ReadingMode readingMode);
-    QList<JournalEntry> readJournal(const QStringList &filters);
-    bool prepareJournalReading(sd_journal *journal, const QStringList &filters);
-    JournalEntry readJournalEntry(sd_journal *journal) const;
-
-    static QStringList getUniqueFieldValues(const QString id, int flags = 0);
-
-    QStringList m_filters;
-    sd_journal *m_journal;
-    int m_journalFlags;
-    QString m_currentBootID;
-
-    char *m_cursor;
-    QMutex m_workerMutex;
-    QSocketNotifier *m_journalNotifier;
-
-    bool m_forgetWatchers;
-    QList<JournalWatcher *> m_journalWatchers;
-};
-
-#endif // _JOURNALD_LOCAL_ANALYZER_H_
+        if (readingMode == FullRead)
+            informOpeningProgress(i, entriesNum);
+    }
+    return entriesNum;
+}

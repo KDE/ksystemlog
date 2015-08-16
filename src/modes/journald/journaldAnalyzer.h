@@ -20,61 +20,41 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_LOCAL_ANALYZER_H_
-#define _JOURNALD_LOCAL_ANALYZER_H_
+#ifndef _JOURNALD_ANALYZER_H_
+#define _JOURNALD_ANALYZER_H_
 
-#include "journaldAnalyzer.h"
+#include "analyzer.h"
+#include "logFile.h"
 
-#include <QFutureWatcher>
-#include <QSocketNotifier>
-
-#include <systemd/sd-journal.h>
-
-class JournaldLocalAnalyzer : public JournaldAnalyzer
+class JournaldAnalyzer : public Analyzer
 {
     Q_OBJECT
 
 public:
-    explicit JournaldLocalAnalyzer(LogMode *logMode, QString filter = QString());
+    explicit JournaldAnalyzer(LogMode *logMode);
 
-    virtual ~JournaldLocalAnalyzer();
+    virtual ~JournaldAnalyzer();
 
-    virtual void watchLogFiles(bool enabled);
+    virtual LogViewColumns initColumns();
 
-    virtual QStringList units();
+    virtual void setLogFiles(const QList<LogFile> &logFiles);
 
-    virtual QStringList syslogIdentifiers();
+    virtual void watchLogFiles(bool enabled) = 0;
 
-    static QStringList unitsStatic();
+    virtual QStringList units() = 0;
 
-    static QStringList syslogIdentifiersStatic();
+    virtual QStringList syslogIdentifiers() = 0;
 
-private slots:
-    void readJournalInitialFinished();
-    void readJournalUpdateFinished();
-    void journalDescriptorUpdated(int fd);
+protected:
+    struct JournalEntry {
+        QDateTime date;
+        QString unit;
+        QString message;
+        int priority;
+        QString bootID;
+    };
 
-private:
-    typedef QFutureWatcher<QList<JournalEntry>> JournalWatcher;
-
-    void readJournalFinished(ReadingMode readingMode);
-    QList<JournalEntry> readJournal(const QStringList &filters);
-    bool prepareJournalReading(sd_journal *journal, const QStringList &filters);
-    JournalEntry readJournalEntry(sd_journal *journal) const;
-
-    static QStringList getUniqueFieldValues(const QString id, int flags = 0);
-
-    QStringList m_filters;
-    sd_journal *m_journal;
-    int m_journalFlags;
-    QString m_currentBootID;
-
-    char *m_cursor;
-    QMutex m_workerMutex;
-    QSocketNotifier *m_journalNotifier;
-
-    bool m_forgetWatchers;
-    QList<JournalWatcher *> m_journalWatchers;
+    int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 };
 
-#endif // _JOURNALD_LOCAL_ANALYZER_H_
+#endif // _JOURNALD_ANALYZER_H_

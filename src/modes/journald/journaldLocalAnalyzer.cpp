@@ -25,14 +25,13 @@
 #include "ksystemlogConfig.h"
 #include "logging.h"
 #include "logViewModel.h"
-#include "logFile.h"
 
 #include <KLocalizedString>
 
 #include <QtConcurrent/QtConcurrent>
 
 JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
-    : Analyzer(logMode)
+    : JournaldAnalyzer(logMode)
 {
     m_cursor = nullptr;
     m_forgetWatchers = true;
@@ -74,21 +73,6 @@ JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
     delete m_journalNotifier;
 }
 
-LogViewColumns JournaldLocalAnalyzer::initColumns()
-{
-    LogViewColumns columns;
-    columns.addColumn(LogViewColumn(i18n("Date"), true, true));
-    columns.addColumn(LogViewColumn(i18n("Unit"), true, true));
-    columns.addColumn(LogViewColumn(i18n("Message"), true, true));
-    return columns;
-}
-
-void JournaldLocalAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
-{
-    Q_UNUSED(logFiles)
-    // Do nothing.
-}
-
 void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 {
     m_journalNotifier->setEnabled(enabled);
@@ -120,10 +104,20 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 
 QStringList JournaldLocalAnalyzer::units()
 {
+    return JournaldLocalAnalyzer::unitsStatic();
+}
+
+QStringList JournaldLocalAnalyzer::unitsStatic()
+{
     return getUniqueFieldValues("_SYSTEMD_UNIT");
 }
 
 QStringList JournaldLocalAnalyzer::syslogIdentifiers()
+{
+    return JournaldLocalAnalyzer::syslogIdentifiersStatic();
+}
+
+QStringList JournaldLocalAnalyzer::syslogIdentifiersStatic()
 {
     return getUniqueFieldValues("SYSLOG_IDENTIFIER");
 }
@@ -188,7 +182,7 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 
 void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
 {
-    logDebug() << "Journal was updated";
+    logDebug() << "Journal was updated.";
     QFile file;
     file.open(fd, QIODevice::ReadOnly);
     file.readAll();
@@ -349,24 +343,6 @@ JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_j
     }
 
     return entry;
-}
-
-int JournaldLocalAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
-{
-    int entriesNum = entries.size();
-    for (int i = 0; i < entriesNum; i++) {
-        const JournalEntry &entry = entries.at(i);
-        QStringList itemComponents;
-        itemComponents << entry.unit << entry.message;
-        LogLine *line = new LogLine(logLineInternalIdGenerator++, entry.date, itemComponents, QString(),
-                                    Globals::instance().logLevelByPriority(entry.priority), logMode);
-        line->setRecent(readingMode == UpdatingRead);
-        logViewModel->insertNewLogLine(line);
-
-        if (readingMode == FullRead)
-            informOpeningProgress(i, entriesNum);
-    }
-    return entriesNum;
 }
 
 QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int flags)

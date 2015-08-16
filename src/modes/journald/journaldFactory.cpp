@@ -73,7 +73,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by systemd unit.
     KActionMenu *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
-    QStringList units = JournaldLocalAnalyzer::units();
+    QStringList units = JournaldLocalAnalyzer::unitsStatic();
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
 
@@ -88,7 +88,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by syslog identifier.
     filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
-    QStringList syslogIDs = JournaldLocalAnalyzer::syslogIdentifiers();
+    QStringList syslogIDs = JournaldLocalAnalyzer::syslogIdentifiersStatic();
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
 
