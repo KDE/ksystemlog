@@ -219,7 +219,6 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     case RequestType::EntriesFull: {
         url = m_entriesUrl;
         int entries = KSystemLogConfig::maxLines();
-        entries = 300;
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QString("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;
