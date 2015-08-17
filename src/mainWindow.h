@@ -117,6 +117,7 @@ private slots:
 
     void changeResumePauseAction(bool paused);
     void selectLogModeAction(bool);
+    void recreateActions();
 
 private:
     void loadLogModePlugins();

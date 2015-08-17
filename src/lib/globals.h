@@ -88,6 +88,8 @@ public:
 
     LogMode *findLogMode(const QString &logModeName);
 
+    void recreateLogModeActions();
+
 private:
     explicit Globals();
 

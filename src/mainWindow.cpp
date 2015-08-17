@@ -824,6 +824,14 @@ void MainWindow::selectLogModeAction(bool)
     d->tabs->load(currentMode, d->tabs->activeLogManager(), actionData.analyzerOptions);
 }
 
+void MainWindow::recreateActions()
+{
+    unplugActionList(QLatin1String("log_mode_list"));
+    Globals::instance().recreateLogModeActions();
+    setupLogActions();
+    setupLogModeMenu();
+}
+
 void MainWindow::setupLogModeMenu()
 {
     // Sets up the Logs menu.
@@ -865,9 +873,10 @@ void MainWindow::setupLogActions()
     foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         foreach (QAction *action, logModeAction->innerActions()) {
             ActionData actionData = action->data().value<ActionData>();
-            logDebug() << "Adding action" << actionData.id;
-            if (actionData.addToActionCollection)
+            if (actionData.addToActionCollection) {
+                logDebug() << "Adding action" << actionData.id;
                 action = actionCollection()->addAction(actionData.id, action);
+            }
             connect(action, SIGNAL(triggered(bool)), this, SLOT(selectLogModeAction(bool)));
         }
     }

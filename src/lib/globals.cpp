@@ -63,6 +63,8 @@ public:
      */
     QList<LogLevel *> logLevels;
 
+    QList<LogModeFactory *> factories;
+
     /**
      * These value are only pointers to item of the previous vector,
      * they are provided for convenience
@@ -101,28 +103,13 @@ Globals::~Globals()
     }
     d->logLevels.clear();
 
+    foreach (LogModeFactory *factory, d->factories) {
+        delete factory;
+    }
+    d->factories.clear();
+
     delete d;
 }
-
-/*
-void Globals::setupLogModes() {
-    d->noMode=new LogMode("noLogMode", i18n("No Log"), NO_MODE_ICON);
-    d->logModes.append(d->noMode);
-
-    d->sambaMode=new LogMode("sambaLogMode", i18n("Samba Log"), SAMBA_MODE_ICON);
-    d->logModes.append(d->sambaMode);
-
-    d->cupsMode=new LogMode("cupsLogMode", i18n("CUPS Log"), CUPS_MODE_ICON);
-    d->logModes.append(d->cupsMode);
-
-    d->cupsAccessMode=new LogMode("cupsAccessLogMode", i18n("CUPS Access Log"), CUPS_ACCESS_MODE_ICON);
-    d->logModes.append(d->cupsAccessMode);
-
-    d->postfixMode=new LogMode("postfixLogMode", i18n("Postfix Log"), POSTFIX_MODE_ICON);
-    d->logModes.append(d->postfixMode);
-
-}
-*/
 
 void Globals::setupLogLevels()
 {
@@ -265,12 +252,29 @@ void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)
         d->logModeActions.append(logModeAction);
     }
 
-    delete logModeFactory;
+    d->factories.append(logModeFactory);
 }
 
 LogMode *Globals::findLogMode(const QString &logModeName)
 {
     return d->logModes.value(logModeName);
+}
+
+void Globals::recreateLogModeActions()
+{
+    // Delete existing log mode actions.
+    foreach (LogModeAction *logModeAction, d->logModeActions) {
+        delete logModeAction;
+    }
+    d->logModeActions.clear();
+
+    // Create new log mode action for each log mode.
+    foreach (LogModeFactory *factory, d->factories) {
+        LogModeAction *logModeAction = factory->createLogModeAction();
+        if (logModeAction != NULL) {
+            d->logModeActions.append(logModeAction);
+        }
+    }
 }
 
 QList<LogModeAction *> Globals::logModeActions()
