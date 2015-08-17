@@ -34,6 +34,9 @@ public:
     JournaldConfigurationWidget();
     ~JournaldConfigurationWidget() {}
 
+signals:
+    void configSaved();
+
 public slots:
     void saveConfig();
     void readConfig();

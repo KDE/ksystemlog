@@ -106,6 +106,9 @@ public:
      */
     virtual QList<LogFile> createLogFiles() = 0;
 
+signals:
+    void menuChanged();
+
 protected:
     QAction *createDefaultAction();
 

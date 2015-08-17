@@ -66,6 +66,8 @@ void JournaldConfigurationWidget::saveConfig()
         remoteJournals.append(addressInfo);
     }
     configuration->setRemoteJournals(remoteJournals);
+
+    emit configSaved();
 }
 
 void JournaldConfigurationWidget::readConfig()

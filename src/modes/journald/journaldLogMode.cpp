@@ -38,6 +38,7 @@ JournaldLogMode::JournaldLogMode()
     d->logModeConfiguration = QSharedPointer<JournaldConfiguration>(new JournaldConfiguration());
 
     d->logModeConfigurationWidget = new JournaldConfigurationWidget();
+    connect(d->logModeConfigurationWidget, SIGNAL(configSaved()), SIGNAL(menuChanged()));
 
     d->itemBuilder = new JournaldItemBuilder();
 
@@ -53,7 +54,6 @@ JournaldLogMode::~JournaldLogMode()
 Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
 {
     JournaldAnalyzerOptions options = analyzerOptions.value<JournaldAnalyzerOptions>();
-//    logDebug() << "create analyzer" << options.address << options.port << (int)options.analyzerType;
     switch (options.analyzerType) {
     case JournaldAnalyzerType::Local:
         return new JournaldLocalAnalyzer(this, options.filter);

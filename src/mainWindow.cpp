@@ -207,6 +207,10 @@ MainWindow::MainWindow()
 
     // Set focus to the list
     firstLogManager->usedView()->logViewWidget()->setFocus();
+
+    foreach (LogMode *logMode, Globals::instance().logModes()) {
+        connect(logMode, SIGNAL(menuChanged()), SLOT(recreateActions()));
+    }
 }
 
 void MainWindow::loadLogModePlugins()
