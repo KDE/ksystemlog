@@ -135,6 +135,10 @@ void JournaldNetworkAnalyzer::httpReadyRead()
 
 void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
 {
+    if (parsingPaused) {
+        return;
+    }
+
     // TODO: handle errors
     emit statusChanged(m_baseUrl + " - " + i18n("Connection error"));
     logWarning() << "Network error:" << code;
