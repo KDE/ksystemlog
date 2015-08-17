@@ -42,6 +42,7 @@ class LogManagerPrivate
 
     Analyzer *analyzer;
     View *usedView;
+    QString analyzerStatus;
 };
 
 LogManager::LogManager(View *view)
@@ -123,6 +124,14 @@ LogMode *LogManager::logMode()
     return d->logMode;
 }
 
+QString LogManager::title() const
+{
+    if (!d->analyzerStatus.isEmpty())
+        return d->logMode->name() + " - " + d->analyzerStatus;
+    else
+        return d->logMode->name();
+}
+
 const QTime &LogManager::lastUpdate() const
 {
     return d->lastUpdate;
@@ -148,6 +157,8 @@ void LogManager::cleanPreviousLogMode()
 
     delete d->analyzer;
     d->analyzer = NULL;
+
+    d->analyzerStatus.clear();
 }
 
 void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
@@ -155,7 +166,8 @@ void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
     internalInitialize(mode, mode->createLogFiles(), analyzerOptions);
 }
 
-void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions)
+void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles,
+                                    const QVariant &analyzerOptions)
 {
     logDebug() << "Initializing LogManager...";
 
@@ -169,6 +181,11 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     // Find the Analyzer instance used for this new mode
     d->analyzer = mode->createAnalyzer(analyzerOptions);
     d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
+    connect(d->analyzer, &Analyzer::statusChanged, this, [this](const QString &status) {
+        d->analyzerStatus = status;
+        emit tabTitleChanged(d->usedView, d->logMode->icon(), title());
+        emit windowTitleChanged(title());
+    });
 
     connect(d->analyzer, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
     connect(d->analyzer, SIGNAL(errorOccured(QString, QString)), this,

@@ -36,9 +36,9 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
     // TODO: add support for HTTPS. Process sslErrors().
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
-    QString urlMain = QString("http://%1:%2/").arg(address).arg(port);
+    m_baseUrl = QString("http://%1:%2/").arg(address).arg(port);
 
-    m_entriesUrlUpdating = urlMain + "entries?";
+    m_entriesUrlUpdating = m_baseUrl + "entries?";
     m_entriesUrlFull = m_entriesUrlUpdating;
 
     if (configuration->displayCurrentBootOnly()) {
@@ -52,8 +52,8 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
         m_entriesUrlFull.append("&" + filter);
     }
 
-    m_syslogIdUrl = urlMain + "fields/SYSLOG_IDENTIFIER";
-    m_systemdUnitsUrl = urlMain + "fields/_SYSTEMD_UNIT";
+    m_syslogIdUrl = m_baseUrl + "fields/SYSLOG_IDENTIFIER";
+    m_systemdUnitsUrl = m_baseUrl + "fields/_SYSTEMD_UNIT";
 
     m_reply = nullptr;
 }
@@ -67,6 +67,7 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
     if (enabled) {
         sendRequest(RequestType::SyslogIds);
     } else {
+        m_cursor.clear();
         if (m_reply) {
             m_reply->abort();
             m_reply->deleteLater();
@@ -89,12 +90,15 @@ void JournaldNetworkAnalyzer::httpFinished()
 {
     QByteArray data = m_reply->readAll();
     if (m_currentRequest == RequestType::EntriesFull) {
-        parseEntries(data, FullRead);
+        if (data.size()) {
+            parseEntries(data, FullRead);
+            emit statusChanged(m_baseUrl + " - " + i18n("Connected"));
+        }
         if (!m_cursor.isEmpty())
             sendRequest(RequestType::EntriesUpdate);
         else {
             logWarning() << "Network journal analyzer failed to extract cursor string. "
-                            "Updates will be unavailable.";
+                            "Journal updates will be unavailable.";
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
@@ -131,6 +135,7 @@ void JournaldNetworkAnalyzer::httpReadyRead()
 void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
 {
     // TODO: handle errors
+    emit statusChanged(m_baseUrl + " - " + i18n("Connection error"));
     logWarning() << "Network error:" << code;
 }
 

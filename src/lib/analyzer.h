@@ -70,6 +70,7 @@ public slots:
 signals:
     void statusBarChanged(const QString &message);
     void errorOccured(const QString &title, const QString &message);
+    void statusChanged(const QString &status);
 
     void openingProgressed();
 

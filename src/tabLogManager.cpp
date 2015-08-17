@@ -75,7 +75,7 @@ QString TabLogManager::title()
     if (d->newLinesCount == 0)
         return logModeName();
     else
-        return i18nc("Log mode name (added lines count)", "%1 (%2)", d->logManager->logMode()->name(),
+        return i18nc("Log mode name (added lines count)", "%1 (%2)", d->logManager->title(),
                      d->newLinesCount);
 }
 
@@ -84,5 +84,5 @@ QString TabLogManager::logModeName()
     if (d->logManager->logMode() == NULL)
         return i18nc("Newly created tab", "Empty Log");
     else
-        return d->logManager->logMode()->name();
+        return d->logManager->title();
 }

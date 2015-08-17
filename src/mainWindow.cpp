@@ -509,7 +509,7 @@ void MainWindow::changeCurrentTab()
         changeWindowTitle(i18nc("Newly created tab", "Empty Log"));
         enabledAction = false;
     } else {
-        changeWindowTitle(currentManager->logMode()->name());
+        changeWindowTitle(currentManager->title());
         enabledAction = true;
     }
 
