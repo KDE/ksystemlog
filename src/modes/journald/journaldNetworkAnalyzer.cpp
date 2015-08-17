@@ -68,6 +68,7 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
         sendRequest(RequestType::SyslogIds);
     } else {
         m_cursor.clear();
+        emit statusChanged(m_baseUrl);
         if (m_reply) {
             m_reply->abort();
             m_reply->deleteLater();
