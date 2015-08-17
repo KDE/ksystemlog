@@ -25,9 +25,9 @@
 JournaldConfiguration::JournaldConfiguration()
 {
     configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
-    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, false);
-    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, false);
-    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, false);
+    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, true);
+    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, true);
+    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, true);
     configuration->addItemStringList(QLatin1String("RemoteJournals"), m_remoteJournals);
 }
 
