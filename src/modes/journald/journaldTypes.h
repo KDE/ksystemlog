@@ -20,55 +20,26 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_LOG_MODE_H_
-#define _JOURNALD_LOG_MODE_H_
+#ifndef _JOURNALD_TYPES_H_
+#define _JOURNALD_TYPES_H_
 
-/**
- * Journald Log Mode Identifier
- */
-#define JOURNALD_LOG_MODE_ID "journaldLogMode"
-
-/**
- * Journald Log Icon
- */
-#define JOURNALD_MODE_ICON "computer"
-
-#include <QList>
-
-#include "logFile.h"
-#include "logMode.h"
-
-#include "journaldTypes.h"
-
-using namespace JournaldTypes;
-
-enum class JournaldAnalyzerType { Local, Network };
-struct JournaldAnalyzerOptions {
-    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
-    QString filter;
+namespace JournaldTypes
+{
+struct JournalAddress {
     QString address;
     quint16 port = 0;
+    bool https = false;
 };
-Q_DECLARE_METATYPE(JournaldAnalyzerOptions)
 
-class JournaldLogMode : public LogMode
+struct JournalFilters {
+    QStringList syslogIdentifiers;
+    QStringList systemdUnits;
+};
+
+inline bool operator<(const JournalAddress &a1, const JournalAddress &a2)
 {
-    Q_OBJECT
+    return ((a1.address < a2.address) && (a1.port < a2.port));
+}
+}
 
-public:
-    explicit JournaldLogMode();
-
-    ~JournaldLogMode();
-
-    Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant());
-
-    QList<LogFile> createLogFiles();
-
-    void updateJournalFilters(const JournalAddress &address, const JournalFilters &filters);
-    JournalFilters filters(const JournalAddress &address) const;
-
-private:
-    QMap<JournalAddress, JournalFilters> m_remoteJournalFilters;
-};
-
-#endif // _JOURNALD_LOG_MODE_H_
+#endif // _JOURNALD_TYPES_H_
