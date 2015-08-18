@@ -41,18 +41,22 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
 
     m_baseUrl = QString("http://%1:%2/").arg(address).arg(port);
 
-    m_entriesUrlUpdating = m_baseUrl + "entries?";
+    m_entriesUrlUpdating = m_baseUrl + "entries";
     m_entriesUrlFull = m_entriesUrlUpdating;
 
+    QString filterPrefix;
     if (configuration->displayCurrentBootOnly()) {
-        m_entriesUrlUpdating.append("boot&");
-        m_entriesUrlFull.append("boot");
+        m_entriesUrlUpdating.append("?boot&follow");
+        m_entriesUrlFull.append("?boot");
+        filterPrefix = "&";
+    } else {
+        m_entriesUrlUpdating.append("?follow");
+        filterPrefix = "?";
     }
 
-    m_entriesUrlUpdating.append("follow");
     if (!filter.isEmpty()) {
         m_entriesUrlUpdating.append("&" + filter);
-        m_entriesUrlFull.append("&" + filter);
+        m_entriesUrlFull.append(filterPrefix + filter);
     }
 
     m_syslogIdUrl = m_baseUrl + "fields/SYSLOG_IDENTIFIER";
