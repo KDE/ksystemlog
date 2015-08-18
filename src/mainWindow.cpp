@@ -833,6 +833,7 @@ void MainWindow::recreateActions()
     unplugActionList(QLatin1String("log_mode_list"));
     Globals::instance().recreateLogModeActions();
     setupLogActions();
+    setupGUI();
     setupLogModeMenu();
 }
 

@@ -33,6 +33,9 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
                                                  QString filter)
     : JournaldAnalyzer(logMode)
 {
+    m_address.address = address;
+    m_address.port = port;
+
     // TODO: add support for HTTPS. Process sslErrors().
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
@@ -77,12 +80,12 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
-QStringList JournaldNetworkAnalyzer::units()
+QStringList JournaldNetworkAnalyzer::units() const
 {
     return m_systemdUnits;
 }
 
-QStringList JournaldNetworkAnalyzer::syslogIdentifiers()
+QStringList JournaldNetworkAnalyzer::syslogIdentifiers() const
 {
     return m_syslogIdentifiers;
 }
@@ -108,17 +111,21 @@ void JournaldNetworkAnalyzer::httpFinished()
         case RequestType::SyslogIds:
             m_syslogIdentifiers = identifiersList;
             m_syslogIdentifiers.sort();
-            logDebug() << "Got syslog identifiers:";
-            logDebug() << m_syslogIdentifiers;
             sendRequest(RequestType::Units);
             break;
-        case RequestType::Units:
+        case RequestType::Units: {
             m_systemdUnits = identifiersList;
             m_systemdUnits.sort();
-            logDebug() << "Got units:";
-            logDebug() << m_systemdUnits;
+            JournaldLogMode *journalLogMode = dynamic_cast<JournaldLogMode *>(logMode);
+            JournalFilters filters;
+            filters.syslogIdentifiers = m_syslogIdentifiers;
+            filters.systemdUnits = m_systemdUnits;
+            journalLogMode->updateJournalFilters(m_address, filters);
+            // Regenerate the "Logs" submenu to include new syslog identifiers and systemd units.
+            emit logMode->menuChanged();
             sendRequest(RequestType::EntriesFull);
             break;
+        }
         default:
             break;
         }

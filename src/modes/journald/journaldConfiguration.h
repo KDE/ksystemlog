@@ -27,9 +27,12 @@
 
 #include "defaults.h"
 
+#include "journaldTypes.h"
 #include "journaldLogMode.h"
 
 #include "ksystemlogConfig.h"
+
+using namespace JournaldTypes;
 
 class JournaldConfiguration : public LogModeConfiguration
 {
@@ -49,13 +52,8 @@ public:
     bool displaySystemServices() const;
     void setDisplaySystemServices(bool displaySystemServices);
 
-    struct RemoteJournalAddress {
-        QString address;
-        quint16 port;
-    };
-
-    QList<RemoteJournalAddress> remoteJournals() const;
-    void setRemoteJournals(const QList<RemoteJournalAddress> &remoteJournals);
+    QList<JournalAddress> remoteJournals() const;
+    void setRemoteJournals(const QList<JournalAddress> &remoteJournals);
 
 private:
     bool m_displayCurrentBootOnly;

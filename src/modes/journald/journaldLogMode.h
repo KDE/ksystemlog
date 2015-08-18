@@ -28,7 +28,7 @@
 #define JOURNALD_LOG_MODE_ID "journaldLogMode"
 
 /**
- * System Log Icon
+ * Journald Log Icon
  */
 #define JOURNALD_MODE_ICON "computer"
 
@@ -36,6 +36,10 @@
 
 #include "logFile.h"
 #include "logMode.h"
+
+#include "journaldTypes.h"
+
+using namespace JournaldTypes;
 
 enum class JournaldAnalyzerType { Local, Network };
 struct JournaldAnalyzerOptions {
@@ -58,6 +62,12 @@ public:
     Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant());
 
     QList<LogFile> createLogFiles();
+
+    void updateJournalFilters(const JournalAddress &address, const JournalFilters &filters);
+    JournalFilters filters(const JournalAddress &address) const;
+
+private:
+    QMap<JournalAddress, JournalFilters> m_remoteJournalFilters;
 };
 
 #endif // _JOURNALD_LOG_MODE_H_

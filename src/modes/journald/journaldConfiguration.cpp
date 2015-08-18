@@ -61,11 +61,11 @@ void JournaldConfiguration::setDisplaySystemServices(bool displaySystemServices)
     m_displaySystemServices = displaySystemServices;
 }
 
-QList<JournaldConfiguration::RemoteJournalAddress> JournaldConfiguration::remoteJournals() const
+QList<JournalAddress> JournaldConfiguration::remoteJournals() const
 {
-    QList<RemoteJournalAddress> journals;
+    QList<JournalAddress> journals;
     for (const QString addressItem : m_remoteJournals) {
-        RemoteJournalAddress addressInfo;
+        JournalAddress addressInfo;
         addressInfo.address = addressItem.section('|', 0, 0);
         addressInfo.port = addressItem.section('|', 1).toUInt();
         journals.append(addressInfo);
@@ -73,10 +73,10 @@ QList<JournaldConfiguration::RemoteJournalAddress> JournaldConfiguration::remote
     return journals;
 }
 
-void JournaldConfiguration::setRemoteJournals(const QList<RemoteJournalAddress> &remoteJournals)
+void JournaldConfiguration::setRemoteJournals(const QList<JournalAddress> &remoteJournals)
 {
     m_remoteJournals.clear();
-    for (const RemoteJournalAddress &addressInfo : remoteJournals) {
+    for (const JournalAddress &addressInfo : remoteJournals) {
         m_remoteJournals.append(QString("%1|%2").arg(addressInfo.address).arg(addressInfo.port));
     }
 }

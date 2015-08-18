@@ -41,9 +41,9 @@ public:
 
     virtual void watchLogFiles(bool enabled);
 
-    virtual QStringList units();
+    virtual QStringList units() const;
 
-    virtual QStringList syslogIdentifiers();
+    virtual QStringList syslogIdentifiers() const;
 
     static QStringList unitsStatic();
 

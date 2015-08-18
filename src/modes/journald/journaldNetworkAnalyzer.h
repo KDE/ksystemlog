@@ -24,6 +24,9 @@
 #define _JOURNALD_NETWORK_ANALYZER_H_
 
 #include "journaldAnalyzer.h"
+#include "journaldTypes.h"
+
+using namespace JournaldTypes;
 
 #include <QtNetwork/QtNetwork>
 
@@ -39,9 +42,9 @@ public:
 
     virtual void watchLogFiles(bool enabled);
 
-    virtual QStringList units();
+    virtual QStringList units() const;
 
-    virtual QStringList syslogIdentifiers();
+    virtual QStringList syslogIdentifiers() const;
 
 private slots:
     void httpFinished();
@@ -67,6 +70,7 @@ private:
     QNetworkAccessManager m_networkManager;
     QNetworkReply *m_reply;
     QString m_cursor;
+    JournalAddress m_address;
 };
 
 #endif // _JOURNALD_NETWORK_ANALYZER_H_

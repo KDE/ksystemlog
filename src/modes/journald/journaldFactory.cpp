@@ -38,7 +38,8 @@ QList<LogMode *> JournaldModeFactory::createLogModes() const
 
 LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID));
+    JournaldLogMode *logMode = dynamic_cast<JournaldLogMode *>(
+        Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID)));
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
@@ -124,6 +125,48 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         action->setData(QVariant::fromValue(actionData));
         actionMenu->addAction(action);
         multipleActions->addInnerAction(action, false, true);
+
+        // Add separator.
+        action = new QAction(actionMenu);
+        action->setSeparator(true);
+        actionMenu->addAction(action);
+
+        // Add filtering by systemd unit.
+        JournalFilters filters = logMode->filters(addressInfo);
+        if (!filters.systemdUnits.isEmpty()) {
+            KActionMenu *filterActionMenu
+                = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
+
+            for (const QString &unit : filters.systemdUnits) {
+                action = new QAction(unit, filterActionMenu);
+
+                analyzerOptions.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
+                actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
+                action->setData(QVariant::fromValue(actionData));
+
+                filterActionMenu->addAction(action);
+                multipleActions->addInnerAction(action, false, true);
+            }
+            actionMenu->addAction(filterActionMenu);
+        }
+
+        // Add filtering by syslog identifier.
+        if (!filters.syslogIdentifiers.isEmpty()) {
+            KActionMenu *filterActionMenu
+                = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
+
+            for (const QString &id : filters.syslogIdentifiers) {
+                action = new QAction(id, filterActionMenu);
+
+                analyzerOptions.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
+                actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
+                action->setData(QVariant::fromValue(actionData));
+
+                filterActionMenu->addAction(action);
+                multipleActions->addInnerAction(action, false, true);
+            }
+            actionMenu->addAction(filterActionMenu);
+        }
 
         multipleActions->addInnerAction(actionMenu, true, false);
     }

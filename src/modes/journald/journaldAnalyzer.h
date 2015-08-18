@@ -41,9 +41,9 @@ public:
 
     virtual void watchLogFiles(bool enabled) = 0;
 
-    virtual QStringList units() = 0;
+    virtual QStringList units() const = 0;
 
-    virtual QStringList syslogIdentifiers() = 0;
+    virtual QStringList syslogIdentifiers() const = 0;
 
 protected:
     struct JournalEntry {

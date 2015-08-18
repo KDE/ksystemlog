@@ -56,11 +56,11 @@ void JournaldConfigurationWidget::saveConfig()
     configuration->setDisplayCurrentUserProcesses(currentUserEntries->isChecked());
     configuration->setDisplaySystemServices(systemEntries->isChecked());
 
-    QList<JournaldConfiguration::RemoteJournalAddress> remoteJournals;
+    QList<JournalAddress> remoteJournals;
     for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
         QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
         QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
-        JournaldConfiguration::RemoteJournalAddress addressInfo;
+        JournalAddress addressInfo;
         addressInfo.address = addressItem->text();
         addressInfo.port = portItem->text().toUInt();
         remoteJournals.append(addressInfo);
@@ -81,8 +81,8 @@ void JournaldConfigurationWidget::readConfig()
     systemEntries->setChecked(configuration->displaySystemServices());
 
     remoteJournalsListWidget->clearContents();
-    QList<JournaldConfiguration::RemoteJournalAddress> remoteJournals = configuration->remoteJournals();
-    for (const JournaldConfiguration::RemoteJournalAddress &addressInfo : remoteJournals) {
+    QList<JournalAddress> remoteJournals = configuration->remoteJournals();
+    for (const JournalAddress &addressInfo : remoteJournals) {
         remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
                                           new QTableWidgetItem(addressInfo.address));

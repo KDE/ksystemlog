@@ -73,3 +73,13 @@ QList<LogFile> JournaldLogMode::createLogFiles()
     // No log file for journald.
     return QList<LogFile>();
 }
+
+void JournaldLogMode::updateJournalFilters(const JournalAddress &address, const JournalFilters &filters)
+{
+    m_remoteJournalFilters[address] = filters;
+}
+
+JournalFilters JournaldLogMode::filters(const JournalAddress &address) const
+{
+    return m_remoteJournalFilters[address];
+}

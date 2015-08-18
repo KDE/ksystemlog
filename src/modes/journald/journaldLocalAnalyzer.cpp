@@ -102,7 +102,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
     }
 }
 
-QStringList JournaldLocalAnalyzer::units()
+QStringList JournaldLocalAnalyzer::units() const
 {
     return JournaldLocalAnalyzer::unitsStatic();
 }
@@ -112,7 +112,7 @@ QStringList JournaldLocalAnalyzer::unitsStatic()
     return getUniqueFieldValues("_SYSTEMD_UNIT");
 }
 
-QStringList JournaldLocalAnalyzer::syslogIdentifiers()
+QStringList JournaldLocalAnalyzer::syslogIdentifiers() const
 {
     return JournaldLocalAnalyzer::syslogIdentifiersStatic();
 }
