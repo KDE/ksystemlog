@@ -65,6 +65,7 @@ private:
     static QStringList getUniqueFieldValues(const QString id, int flags = 0);
 
     QStringList m_filters;
+    QString m_filterName;
     sd_journal *m_journal;
     int m_journalFlags;
     QString m_currentBootID;

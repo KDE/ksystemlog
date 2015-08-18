@@ -61,8 +61,10 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
         }
     }
 
-    if (!filter.isEmpty())
+    if (!filter.isEmpty()) {
         m_filters << filter;
+        m_filterName = filter.section('=', 1);
+    }
 }
 
 JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
@@ -206,6 +208,10 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
     QMutexLocker mutexLocker(&m_workerMutex);
     QList<JournalEntry> entryList;
     sd_journal *journal;
+
+    if (!m_filterName.isEmpty()) {
+        emit statusChanged(m_filterName);
+    }
 
     int res = sd_journal_open(&journal, m_journalFlags);
     if (res < 0) {
