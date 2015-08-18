@@ -36,7 +36,9 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
     m_address.address = address;
     m_address.port = port;
 
-    // TODO: add support for HTTPS. Process sslErrors().
+    connect(&m_networkManager, SIGNAL(sslErrors(QNetworkReply *, QList<QSslError>)),
+            SLOT(sslErrors(QNetworkReply *, QList<QSslError>)));
+
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
     m_baseUrl = QString("http://%1:%2/").arg(address).arg(port);
@@ -146,7 +148,7 @@ void JournaldNetworkAnalyzer::httpReadyRead()
     }
 }
 
-void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
+void JournaldNetworkAnalyzer::httpError(QNetworkReply::NetworkError code)
 {
     if (parsingPaused) {
         return;
@@ -155,6 +157,12 @@ void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
     // TODO: handle errors
     updateStatus(i18n("Connection error"));
     logWarning() << "Network error:" << code;
+}
+
+void JournaldNetworkAnalyzer::sslErrors(QNetworkReply *reply, const QList<QSslError> &errors)
+{
+    Q_UNUSED(errors)
+    reply->ignoreSslErrors();
 }
 
 void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMode readingMode)
@@ -264,7 +272,8 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     m_reply = m_networkManager.get(request);
     connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
     connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(error(QNetworkReply::NetworkError)));
+    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),
+            SLOT(httpError(QNetworkReply::NetworkError)));
 }
 
 void JournaldNetworkAnalyzer::updateStatus(QString status)

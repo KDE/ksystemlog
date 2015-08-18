@@ -49,7 +49,8 @@ public:
 private slots:
     void httpFinished();
     void httpReadyRead();
-    void error(QNetworkReply::NetworkError code);
+    void httpError(QNetworkReply::NetworkError code);
+    void sslErrors(QNetworkReply *reply, const QList<QSslError> &errors);
 
 private:
     enum class RequestType { SyslogIds, Units, EntriesFull, EntriesUpdate };
