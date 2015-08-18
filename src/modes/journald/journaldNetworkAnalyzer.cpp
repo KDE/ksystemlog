@@ -58,6 +58,8 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
     m_syslogIdUrl = m_baseUrl + "fields/SYSLOG_IDENTIFIER";
     m_systemdUnitsUrl = m_baseUrl + "fields/_SYSTEMD_UNIT";
 
+    m_filterName = filter.section('=', 1);
+
     m_reply = nullptr;
 }
 
@@ -71,7 +73,7 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
         sendRequest(RequestType::SyslogIds);
     } else {
         m_cursor.clear();
-        emit statusChanged(m_baseUrl);
+        updateStatus(QString());
         if (m_reply) {
             m_reply->abort();
             m_reply->deleteLater();
@@ -96,7 +98,7 @@ void JournaldNetworkAnalyzer::httpFinished()
     if (m_currentRequest == RequestType::EntriesFull) {
         if (data.size()) {
             parseEntries(data, FullRead);
-            emit statusChanged(m_baseUrl + " - " + i18n("Connected"));
+            updateStatus(i18n("Connected"));
         }
         if (!m_cursor.isEmpty())
             sendRequest(RequestType::EntriesUpdate);
@@ -147,7 +149,7 @@ void JournaldNetworkAnalyzer::error(QNetworkReply::NetworkError code)
     }
 
     // TODO: handle errors
-    emit statusChanged(m_baseUrl + " - " + i18n("Connection error"));
+    updateStatus(i18n("Connection error"));
     logWarning() << "Network error:" << code;
 }
 
@@ -259,4 +261,16 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
     connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
     connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)), SLOT(error(QNetworkReply::NetworkError)));
+}
+
+void JournaldNetworkAnalyzer::updateStatus(QString status)
+{
+    QString newStatus = m_baseUrl;
+    if (!m_filterName.isEmpty()) {
+        newStatus += " - " + m_filterName;
+    }
+    if (!status.isEmpty()) {
+        newStatus += " - " + status;
+    }
+    emit statusChanged(newStatus);
 }

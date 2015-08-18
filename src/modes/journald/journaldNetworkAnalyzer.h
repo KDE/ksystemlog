@@ -57,6 +57,8 @@ private:
     void parseEntries(QByteArray &data, ReadingMode readingMode);
     void sendRequest(RequestType requestType);
 
+    void updateStatus(QString status);
+
     RequestType m_currentRequest;
     QString m_baseUrl;
     QString m_entriesUrlFull;
@@ -71,6 +73,7 @@ private:
     QNetworkReply *m_reply;
     QString m_cursor;
     JournalAddress m_address;
+    QString m_filterName;
 };
 
 #endif // _JOURNALD_NETWORK_ANALYZER_H_
