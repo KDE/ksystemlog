@@ -71,6 +71,11 @@
           <string>Port</string>
          </property>
         </column>
+        <column>
+         <property name="text">
+          <string notr="true">HTTPS</string>
+         </property>
+        </column>
        </widget>
       </item>
       <item>

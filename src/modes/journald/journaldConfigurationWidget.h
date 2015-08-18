@@ -50,7 +50,7 @@ private slots:
     void tableItemClicked(int row);
 
 private:
-    bool haveJournalAddress(QString address, QString port) const;
+    bool haveJournalAddress(QString address, QString port, bool httpsEnabled) const;
 };
 
 #endif // _JOURNALD_CONFIGURATION_WIDGET_H_

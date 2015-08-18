@@ -32,11 +32,12 @@ class JournaldAddressDialog : public QDialog, public Ui::JournaldAddressDialog
     Q_OBJECT
 
 public:
-    JournaldAddressDialog(QWidget *parent, QString title, QString address = QString(), QString port = QString());
+    JournaldAddressDialog(QWidget *parent, QString title, QString address = QString(), QString port = QString(), bool httpsEnabled = false);
     ~JournaldAddressDialog() {}
 
     QString address() const;
     QString port() const;
+    bool httpsEnabled() const;
 
 public slots:
     virtual void accept();
