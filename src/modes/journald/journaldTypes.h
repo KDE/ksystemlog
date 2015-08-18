@@ -31,15 +31,23 @@ struct JournalAddress {
     bool https = false;
 };
 
+inline bool operator<(const JournalAddress &a1, const JournalAddress &a2)
+{
+    return ((a1.address < a2.address) && (a1.port < a2.port));
+}
+
 struct JournalFilters {
     QStringList syslogIdentifiers;
     QStringList systemdUnits;
 };
 
-inline bool operator<(const JournalAddress &a1, const JournalAddress &a2)
-{
-    return ((a1.address < a2.address) && (a1.port < a2.port));
-}
+enum class JournaldAnalyzerType { Local, Network };
+
+struct JournaldAnalyzerOptions {
+    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
+    QString filter;
+    JournalAddress address;
+};
 }
 
 #endif // _JOURNALD_TYPES_H_

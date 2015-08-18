@@ -29,19 +29,20 @@
 
 #include <KLocalizedString>
 
-JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString address, quint16 port,
-                                                 QString filter)
+JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const JournaldAnalyzerOptions &options)
     : JournaldAnalyzer(logMode)
 {
-    m_address.address = address;
-    m_address.port = port;
+    m_address = options.address;
 
     connect(&m_networkManager, SIGNAL(sslErrors(QNetworkReply *, QList<QSslError>)),
             SLOT(sslErrors(QNetworkReply *, QList<QSslError>)));
 
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
-    m_baseUrl = QString("http://%1:%2/").arg(address).arg(port);
+    m_baseUrl = QString("%1://%2:%3/")
+                    .arg(m_address.https ? "https" : "http")
+                    .arg(m_address.address)
+                    .arg(m_address.port);
 
     m_entriesUrlUpdating = m_baseUrl + "entries";
     m_entriesUrlFull = m_entriesUrlUpdating;
@@ -56,15 +57,15 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, QString addre
         filterPrefix = "?";
     }
 
-    if (!filter.isEmpty()) {
-        m_entriesUrlUpdating.append("&" + filter);
-        m_entriesUrlFull.append(filterPrefix + filter);
+    if (!options.filter.isEmpty()) {
+        m_entriesUrlUpdating.append("&" + options.filter);
+        m_entriesUrlFull.append(filterPrefix + options.filter);
     }
 
     m_syslogIdUrl = m_baseUrl + "fields/SYSLOG_IDENTIFIER";
     m_systemdUnitsUrl = m_baseUrl + "fields/_SYSTEMD_UNIT";
 
-    m_filterName = filter.section('=', 1);
+    m_filterName = options.filter.section('=', 1);
 
     m_reply = nullptr;
 }

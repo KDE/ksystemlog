@@ -119,8 +119,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         actionMenu = new KActionMenu(remoteIcon, menuText, multipleActions);
 
         action = new QAction(QIcon::fromTheme(QLatin1String("network-connect")), i18n("Connect"), actionMenu);
-        analyzerOptions.address = addressInfo.address;
-        analyzerOptions.port = addressInfo.port;
+        analyzerOptions.address = addressInfo;
         actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
         actionMenu->addAction(action);

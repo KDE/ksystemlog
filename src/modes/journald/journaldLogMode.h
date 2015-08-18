@@ -42,13 +42,6 @@
 
 using namespace JournaldTypes;
 
-enum class JournaldAnalyzerType { Local, Network };
-struct JournaldAnalyzerOptions {
-    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
-    QString filter;
-    QString address;
-    quint16 port = 0;
-};
 Q_DECLARE_METATYPE(JournaldAnalyzerOptions)
 
 class JournaldLogMode : public LogMode

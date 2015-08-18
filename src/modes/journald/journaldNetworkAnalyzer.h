@@ -35,8 +35,7 @@ class JournaldNetworkAnalyzer : public JournaldAnalyzer
     Q_OBJECT
 
 public:
-    explicit JournaldNetworkAnalyzer(LogMode *logMode, QString address, quint16 port,
-                                     QString filter = QString());
+    explicit JournaldNetworkAnalyzer(LogMode *logMode, const JournaldAnalyzerOptions &options);
 
     virtual ~JournaldNetworkAnalyzer();
 
