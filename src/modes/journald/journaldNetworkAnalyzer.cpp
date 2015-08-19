@@ -203,6 +203,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
                 stringBytes.append(a[i].toVariant().value<char>());
             entry.message = QString::fromUtf8(stringBytes);
         }
+        entry.message.remove(QRegularExpression(ConsoleColorEscapeSequence));
         entry.priority = object["PRIORITY"].toVariant().value<int>();
         entry.bootID = object["_BOOT_ID"].toString();
         QString unit = object["SYSLOG_IDENTIFIER"].toString();

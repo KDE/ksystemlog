@@ -20,35 +20,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_TYPES_H_
-#define _JOURNALD_TYPES_H_
-
-#include <QStringList>
+#include "journaldTypes.h"
 
 namespace JournaldTypes
 {
-struct JournalAddress {
-    QString address;
-    quint16 port = 0;
-    bool https = false;
-};
-
-bool operator<(const JournalAddress &a1, const JournalAddress &a2);
-
-struct JournalFilters {
-    QStringList syslogIdentifiers;
-    QStringList systemdUnits;
-};
-
-enum class JournaldAnalyzerType { Local, Network };
-
-struct JournaldAnalyzerOptions {
-    JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;
-    QString filter;
-    JournalAddress address;
-};
-
-extern const char *ConsoleColorEscapeSequence;
+bool operator<(const JournalAddress &a1, const JournalAddress &a2)
+{
+    return ((a1.address < a2.address) && (a1.port < a2.port));
 }
 
-#endif // _JOURNALD_TYPES_H_
+const char *ConsoleColorEscapeSequence = "\x1B.+m{1}";
+}

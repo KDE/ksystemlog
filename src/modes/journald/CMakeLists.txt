@@ -17,6 +17,7 @@ set(ksystemlog_journald_sources
     journaldLocalAnalyzer.cpp
     journaldLogMode.cpp
     journaldNetworkAnalyzer.cpp
+    journaldTypes.cpp
 )
 
 ki18n_wrap_ui(ksystemlog_journald_sources journaldAddressDialog.ui journaldConfigurationWidget.ui )

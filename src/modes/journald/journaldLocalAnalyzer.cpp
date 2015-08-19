@@ -336,6 +336,7 @@ JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_j
     res = sd_journal_get_data(journal, "MESSAGE", &data, &length);
     if (res == 0) {
         entry.message = QString::fromUtf8((const char *)data, length).section('=', 1);
+        entry.message.remove(QRegularExpression(ConsoleColorEscapeSequence));
     }
 
     res = sd_journal_get_data(journal, "PRIORITY", &data, &length);
