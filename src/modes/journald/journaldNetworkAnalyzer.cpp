@@ -194,8 +194,15 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         JournalEntry entry;
         quint64 timestampUsec = object["__REALTIME_TIMESTAMP"].toVariant().value<quint64>();
         entry.date.setMSecsSinceEpoch(timestampUsec / 1000);
-        // TODO: fix unicode strings.
         entry.message = object["MESSAGE"].toString();
+        if (entry.message.isEmpty()) {
+            // MESSAGE field contains a JSON array of bytes.
+            QByteArray stringBytes;
+            QJsonArray a = object["MESSAGE"].toArray();
+            for (int i = 0; i < a.size(); i++)
+                stringBytes.append(a[i].toVariant().value<char>());
+            entry.message = QString::fromUtf8(stringBytes);
+        }
         entry.priority = object["PRIORITY"].toVariant().value<int>();
         entry.bootID = object["_BOOT_ID"].toString();
         QString unit = object["SYSLOG_IDENTIFIER"].toString();
