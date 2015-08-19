@@ -267,6 +267,7 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
 
     manager->usedView()->logViewWidget()->addAction(d->copyAction);
     manager->usedView()->logViewWidget()->addAction(d->saveAction);
+    manager->usedView()->logViewWidget()->addAction(d->sendMailAction);
 
     separator = new QAction(this);
     separator->setSeparator(true);
