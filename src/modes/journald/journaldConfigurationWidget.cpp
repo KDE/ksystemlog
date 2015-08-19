@@ -86,6 +86,10 @@ void JournaldConfigurationWidget::readConfig()
     systemEntries->setChecked(configuration->displaySystemServices());
 
     remoteJournalsListWidget->clearContents();
+    while (remoteJournalsListWidget->rowCount() > 0) {
+        remoteJournalsListWidget->removeRow(0);
+    }
+
     QList<JournalAddress> remoteJournals = configuration->remoteJournals();
     for (const JournalAddress &addressInfo : remoteJournals) {
         if (haveJournalAddress(addressInfo.address, QString::number(addressInfo.port), addressInfo.https))
@@ -153,7 +157,8 @@ void JournaldConfigurationWidget::tableItemClicked(int row)
     QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
     QTableWidgetItem *httpsItem = remoteJournalsListWidget->item(row, 2);
     bool httpsEnabled = (Qt::Checked == httpsItem->checkState());
-    JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text(), httpsEnabled);
+    JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text(),
+                                 httpsEnabled);
     if (dialog.exec() == QDialog::Accepted) {
         QString address = dialog.address();
         QString port = dialog.port();
