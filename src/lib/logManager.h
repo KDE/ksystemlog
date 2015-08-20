@@ -61,6 +61,8 @@ public:
     void reload();
     void stopWatching();
 
+    const QVariant &analyzerOptions() const;
+
 protected slots:
 
     void updateLog(int lineCount);

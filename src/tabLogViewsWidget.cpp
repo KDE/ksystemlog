@@ -88,7 +88,7 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
 
 TabLogViewsWidget::~TabLogViewsWidget()
 {
-    QList<TabLogManager*> copy = d->tabLogManagers;
+    QList<TabLogManager *> copy = d->tabLogManagers;
 
     foreach (TabLogManager *tabLogManager, copy) {
         d->tabLogManagers.removeAll(tabLogManager);
@@ -314,7 +314,8 @@ void TabLogViewsWidget::reloadAll()
         }
 
         // Do a full loading of other log modes (needed if log files have been modified)
-        load(tabLogManager->logManager()->logMode(), tabLogManager->logManager());
+        load(tabLogManager->logManager()->logMode(), tabLogManager->logManager(),
+             tabLogManager->logManager()->analyzerOptions());
     }
 }
 

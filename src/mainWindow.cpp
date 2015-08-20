@@ -803,8 +803,6 @@ void MainWindow::setupActions()
 
 void MainWindow::selectLogModeAction(bool)
 {
-    //    ActionData actionData
-    //        = actionCollection()->action(QObject::sender()->objectName())->data().value<ActionData>();
     QAction *action = qobject_cast<QAction *>(sender());
     ActionData actionData = action->data().value<ActionData>();
     QString selectedModeId = actionData.id;

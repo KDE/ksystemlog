@@ -43,6 +43,7 @@ class LogManagerPrivate
     Analyzer *analyzer;
     View *usedView;
     QString analyzerStatus;
+    QVariant analyzerOptions;
 };
 
 LogManager::LogManager(View *view)
@@ -119,6 +120,11 @@ void LogManager::stopWatching()
         d->analyzer->watchLogFiles(false);
 }
 
+const QVariant &LogManager::analyzerOptions() const
+{
+    return d->analyzerOptions;
+}
+
 LogMode *LogManager::logMode()
 {
     return d->logMode;
@@ -174,6 +180,8 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     logDebug() << "Using files" << logFiles;
 
     cleanPreviousLogMode();
+
+    d->analyzerOptions = analyzerOptions;
 
     // Use the new mode
     d->logMode = mode;
