@@ -49,15 +49,17 @@ public:
     ~Globals();
 
     enum LogLevelIds {
-        NONE_LOG_LEVEL_ID = 0,
-        DEBUG_LOG_LEVEL_ID,
-        INFORMATION_LOG_LEVEL_ID,
-        NOTICE_LOG_LEVEL_ID,
-        WARNING_LOG_LEVEL_ID,
-        ERROR_LOG_LEVEL_ID,
-        CRITICAL_LOG_LEVEL_ID,
+        EMERGENCY_LOG_LEVEL_ID = 0,
         ALERT_LOG_LEVEL_ID,
-        EMERGENCY_LOG_LEVEL_ID
+        CRITICAL_LOG_LEVEL_ID,
+        ERROR_LOG_LEVEL_ID,
+        WARNING_LOG_LEVEL_ID,
+        NOTICE_LOG_LEVEL_ID,
+        INFORMATION_LOG_LEVEL_ID,
+        DEBUG_LOG_LEVEL_ID,
+        NONE_LOG_LEVEL_ID,
+
+        LOG_LEVEL_NUM
     };
     Q_ENUM(LogLevelIds)
 

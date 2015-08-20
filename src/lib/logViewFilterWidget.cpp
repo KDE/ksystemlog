@@ -20,6 +20,10 @@
  ***************************************************************************/
 
 #include "logViewFilterWidget.h"
+#include "logViewWidget.h"
+#include "logViewColumn.h"
+#include "logging.h"
+#include "logLevel.h"
 
 #include <QLabel>
 #include <QPushButton>
@@ -34,12 +38,6 @@
 #include <kcombobox.h>
 #include <kiconloader.h>
 #include <KLocalizedString>
-
-#include "logViewWidget.h"
-
-#include "logViewColumn.h"
-#include "logging.h"
-#include "logLevel.h"
 
 class ComboBoxDelegate : public QStyledItemDelegate
 {
@@ -66,18 +64,33 @@ public:
      */
     KComboBox *filterList;
 
-    QComboBox *priorities;
+    QComboBox *prioritiesComboBox;
 
     QStandardItemModel *prioritiesModel;
 };
 
+class LogViewWidgetSearchLinePrivate
+{
+public:
+    bool priorities[Globals::LOG_LEVEL_NUM];
+
+    LogViewWidgetSearchLinePrivate()
+    {
+        // Show all priorities.
+        for (int i = 0; i < Globals::LOG_LEVEL_NUM; i++)
+            priorities[i] = true;
+    }
+};
+
 LogViewWidgetSearchLine::LogViewWidgetSearchLine()
     : KTreeWidgetSearchLine()
+    , d(new LogViewWidgetSearchLinePrivate())
 {
 }
 
 LogViewWidgetSearchLine::~LogViewWidgetSearchLine()
 {
+    delete d;
 }
 
 void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
@@ -87,12 +100,30 @@ void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
     emit treeWidgetUpdated();
 }
 
+void LogViewWidgetSearchLine::setPriorityEnabled(int priority, bool enabled)
+{
+    if ((priority < 0) || (priority > Globals::LOG_LEVEL_NUM))
+        return;
+    d->priorities[priority] = enabled;
+    updateSearch(QString());
+}
+
+bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QString &pattern) const
+{
+    // Hide item if its priority is not enabled.
+    int priority = item->data(0, Qt::UserRole).toInt();
+    if ((priority >= 0) && (priority < Globals::LOG_LEVEL_NUM)) {
+        if (!d->priorities[priority])
+            return false;
+    }
+    return KTreeWidgetSearchLine::itemMatches(item, pattern);
+}
+
 LogViewFilterWidget::LogViewFilterWidget()
     : d(new LogViewFilterWidgetPrivate())
 {
     QHBoxLayout *filterBarLayout = new QHBoxLayout();
     filterBarLayout->setMargin(0);
-    // filterBarLayout->setSpacing(-1);
     setLayout(filterBarLayout);
 
     d->filterLine = new LogViewWidgetSearchLine();
@@ -116,21 +147,24 @@ LogViewFilterWidget::LogViewFilterWidget()
 
     filterBarLayout->addWidget(d->filterList);
 
-    d->priorities = new QComboBox(this);
-    ComboBoxDelegate *delegate = new ComboBoxDelegate(d->priorities);
-    d->priorities->setItemDelegate(delegate);
-    filterBarLayout->addWidget(d->priorities);
+    d->prioritiesComboBox = new QComboBox(this);
+    ComboBoxDelegate *delegate = new ComboBoxDelegate(d->prioritiesComboBox);
+    d->prioritiesComboBox->setItemDelegate(delegate);
+    filterBarLayout->addWidget(d->prioritiesComboBox);
 
     QMetaEnum &metaEnum = Globals::instance().logLevelsMetaEnum();
 
-    d->prioritiesModel = new QStandardItemModel(d->priorities);
-    d->priorities->setModel(d->prioritiesModel);
+    d->prioritiesModel = new QStandardItemModel(d->prioritiesComboBox);
+    d->prioritiesComboBox->setModel(d->prioritiesModel);
 
     QStandardItem *item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
     d->prioritiesModel->appendRow(item);
+    connect(d->prioritiesModel, SIGNAL(itemChanged(QStandardItem *)),
+            SLOT(prioritiesChanged(QStandardItem *)));
 
-    for (int i = metaEnum.keyCount() - 1; i >= 0; i--) {
+    // Don't add last enum value into combobox.
+    for (int i = 0; i < metaEnum.keyCount() - 1; i++) {
         int id = metaEnum.value(i);
         LogLevel *logLevel = Globals::instance().logLevelByPriority(id);
 
@@ -203,6 +237,17 @@ void LogViewFilterWidget::changeColumnFilter(int column)
     filterColumns.append(d->filterList->currentIndex() - 1);
 
     d->filterLine->setSearchColumns(filterColumns);
+}
+
+void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
+{
+    int priority = item->data(Qt::UserRole).toInt();
+    bool priorityEnabled = (item->checkState() == Qt::Checked);
+    d->filterLine->setPriorityEnabled(priority, priorityEnabled);
+    if (priorityEnabled)
+        logDebug() << "Show entries with priority" << priority;
+    else
+        logDebug() << "Hide entries with priority" << priority;
 }
 
 KComboBox *LogViewFilterWidget::filterList()

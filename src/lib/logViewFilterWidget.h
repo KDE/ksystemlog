@@ -23,6 +23,7 @@
 #define LOG_VIEW_FILTER_WIDGET_H
 
 #include <QWidget>
+#include <QStandardItem>
 
 #include <ktreewidgetsearchline.h>
 
@@ -32,6 +33,7 @@ class LogViewWidget;
 class LogViewWidgetSearchLine;
 class KComboBox;
 
+class LogViewWidgetSearchLinePrivate;
 class LogViewFilterWidgetPrivate;
 
 class LogViewFilterWidget : public QWidget
@@ -51,6 +53,7 @@ public slots:
 
 private slots:
     void changeColumnFilter(int column);
+    void prioritiesChanged(QStandardItem *item);
 
 signals:
     void treeWidgetUpdated();
@@ -70,15 +73,22 @@ public:
 
     ~LogViewWidgetSearchLine();
 
-public:
     // Silence compiler warning
     using KTreeWidgetSearchLine::updateSearch;
 
     // Reimplemented just to send a signal _AFTER_ the tree updating
     void updateSearch(const QString &pattern = QString());
 
+    void setPriorityEnabled(int priority, bool enabled);
+
+protected:
+    virtual bool itemMatches(const QTreeWidgetItem *item, const QString &pattern) const;
+
 signals:
     void treeWidgetUpdated();
+
+private:
+    LogViewWidgetSearchLinePrivate *const d;
 };
 
 #endif // LOG_VIEW_FILTER_WIDGET_H
