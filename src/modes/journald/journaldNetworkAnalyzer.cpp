@@ -151,13 +151,14 @@ void JournaldNetworkAnalyzer::httpReadyRead()
 
 void JournaldNetworkAnalyzer::httpError(QNetworkReply::NetworkError code)
 {
-    if (parsingPaused) {
+    if (parsingPaused)
         return;
-    }
 
-    // TODO: handle errors
+    if (code == QNetworkReply::OperationCanceledError)
+        return;
+
     updateStatus(i18n("Connection error"));
-    logWarning() << "Network error:" << code;
+    logWarning() << "Network journald connection error:" << code;
 }
 
 void JournaldNetworkAnalyzer::sslErrors(QNetworkReply *reply, const QList<QSslError> &errors)
