@@ -11,7 +11,7 @@
 	<group name="KSystemLogGeneral">
 		<entry name="StartupLogMode" type="String">
 			<label>Load this log mode at startup.</label>
-			<default>systemLogMode</default>
+			<default>journaldLogMode</default>
 		</entry>
 
 		<entry name="MaxLines" type="Int">
