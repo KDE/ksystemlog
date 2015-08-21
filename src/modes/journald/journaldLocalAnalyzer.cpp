@@ -69,9 +69,8 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
 
 JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
 {
-    m_journalNotifier->setEnabled(false);
+    watchLogFiles(false);
     sd_journal_close(m_journal);
-    free(m_cursor);
     delete m_journalNotifier;
 }
 
