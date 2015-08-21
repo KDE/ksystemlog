@@ -46,8 +46,3 @@ QString JournaldItemBuilder::createToolTipText(LogLine *line) const
 {
     return createFormattedText(line);
 }
-
-QString JournaldItemBuilder::formatDate(const QDateTime &dateTime) const
-{
-    return dateTime.toString("dd.MM.yyyy hh:mm:ss:zzz");
-}

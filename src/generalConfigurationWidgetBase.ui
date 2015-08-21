@@ -164,6 +164,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QRadioButton" name="formatPreciseDate">
+        <property name="text">
+         <string>&amp;Precise date format</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

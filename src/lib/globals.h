@@ -63,6 +63,10 @@ public:
     };
     Q_ENUM(LogLevelIds)
 
+    enum DateFormat { LongFormat = 0, ShortFormat, PreciseFormat };
+
+    QString formatDate(DateFormat format, const QDateTime &dateTime) const;
+
     QList<LogLevel *> logLevels();
 
     LogLevel *noLogLevel();

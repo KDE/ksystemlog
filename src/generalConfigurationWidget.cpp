@@ -76,12 +76,9 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
     d->dateFormatGroup = new QButtonGroup(this);
-    // d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
-    // d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
-    // d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
-    // d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
-    d->dateFormatGroup->addButton(formatShortDate, QLocale::ShortFormat);
-    d->dateFormatGroup->addButton(formatLongDate, QLocale::LongFormat);
+    d->dateFormatGroup->addButton(formatLongDate, Globals::LongFormat);
+    d->dateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
+    d->dateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
 
     connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
 
@@ -98,16 +95,9 @@ GeneralConfigurationWidget::~GeneralConfigurationWidget()
 void GeneralConfigurationWidget::addDateFormatExample()
 {
     foreach (QAbstractButton *button, d->dateFormatGroup->buttons()) {
-        QDateTime currentDateTime(QDateTime::currentDateTime());
-
-        // KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
-        QLocale::FormatType currentButtonFormat = (QLocale::FormatType)d->dateFormatGroup->id(button);
-
-        // QString formattedDate = KLocale::global()->formatDateTime(currentDateTime, currentButtonFormat,
-        // true);
-        QString formattedDate = QLocale().toString(QDateTime().currentDateTime(), currentButtonFormat);
-
-        button->setText(i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate));
+        Globals::DateFormat currentButtonFormat = (Globals::DateFormat)d->dateFormatGroup->id(button);
+        QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
+        button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
     }
 }
 

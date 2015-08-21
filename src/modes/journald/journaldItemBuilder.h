@@ -36,9 +36,6 @@ public:
     QString createFormattedText(LogLine *line) const;
 
     QString createToolTipText(LogLine *line) const;
-
-protected:
-    QString formatDate(const QDateTime &dateTime) const;
 };
 
 #endif // _JOURNALD_ITEM_BUILDER_H_

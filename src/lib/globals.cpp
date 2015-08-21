@@ -111,6 +111,22 @@ Globals::~Globals()
     delete d;
 }
 
+QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTime) const
+{
+    switch (format) {
+    case LongFormat:
+    case ShortFormat:
+        return QLocale().toString(dateTime, (QLocale::FormatType)format);
+        break;
+    case PreciseFormat:
+        return dateTime.toString("dd.MM.yyyy hh:mm:ss:zzz");
+        break;
+    default:
+        break;
+    }
+    return QLocale().toString(dateTime, QLocale::ShortFormat);
+}
+
 void Globals::setupLogLevels()
 {
     int index = metaObject()->indexOfEnumerator("LogLevelIds");
