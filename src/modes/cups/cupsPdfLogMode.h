@@ -32,7 +32,6 @@
  */
 #define CUPS_PDF_MODE_ICON "application-pdf"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class CupsConfiguration;
 class CupsConfigurationWidget;
 
-class CupsPdfLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class CupsPdfLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit CupsPdfLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget);
+    explicit CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
+                            CupsConfigurationWidget *cupsConfigurationWidget);
 
-	~CupsPdfLogMode();
+    ~CupsPdfLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _CUPS_PDF_LOG_MODE_H_
-

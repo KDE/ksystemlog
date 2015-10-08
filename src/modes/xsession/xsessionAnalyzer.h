@@ -22,9 +22,9 @@
 #ifndef _X_SESSION_ANALYZER_H_
 #define _X_SESSION_ANALYZER_H_
 
-#include <klocale.h>
+#include <KLocalizedString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
@@ -32,128 +32,119 @@
 #include "xsessionLogMode.h"
 #include "xsessionConfiguration.h"
 
-class XSessionAnalyzer : public Analyzer {
-	Q_OBJECT
+class XSessionAnalyzer : public FileAnalyzer
+{
+    Q_OBJECT
 
-	public:
-		XSessionAnalyzer(LogMode* logMode) :
-			Analyzer(logMode),
-			currentDateTime(QDateTime::currentDateTime())
-			{
+public:
+    XSessionAnalyzer(LogMode *logMode)
+        : FileAnalyzer(logMode)
+        , currentDateTime(QDateTime::currentDateTime())
+    {
+    }
 
-		}
+    virtual ~XSessionAnalyzer() {}
 
-		virtual ~XSessionAnalyzer() {
+    LogViewColumns initColumns()
+    {
+        LogViewColumns columns;
 
-		}
+        columns.addColumn(LogViewColumn(i18n("Line"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Program"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
 
-		LogViewColumns initColumns() {
-			LogViewColumns columns;
+        columns.setGroupByDay(false);
+        columns.setGroupByHour(false);
 
-			columns.addColumn(LogViewColumn(i18n("Line"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Program"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+        return columns;
+    }
 
-			columns.setGroupByDay(false);
-			columns.setGroupByHour(false);
+protected:
+    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
 
-			return columns;
-		}
+    Analyzer::LogFileSortMode logFileSortMode()
+    {
+        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+        if (configuration->isIgnoreXorgErrors())
+            return Analyzer::FilteredLogFile;
+        else
+            return Analyzer::AscendingSortedLogFile;
+    }
 
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile)
+    {
+        int classPrototypePosition = logLine.indexOf(QLatin1String("::"));
+        int programPos = logLine.indexOf(QLatin1Char(':'));
 
-	protected:
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new LocalLogFileReader(logFile);
-		}
+        // If the first found : is the begin of a :: (example: QFile::at:) then we move to the next :
+        if (classPrototypePosition != -1 && programPos == classPrototypePosition) {
+            programPos = logLine.indexOf(QLatin1Char(':'), classPrototypePosition + 2);
+        }
 
-		Analyzer::LogFileSortMode logFileSortMode() {
-			XSessionConfiguration* configuration = logMode->logModeConfiguration<XSessionConfiguration*>();
-			if (configuration->isIgnoreXorgErrors())
-				return Analyzer::FilteredLogFile;
-			else
-				return Analyzer::AscendingSortedLogFile;
-		}
+        QString program;
+        QString message;
+        if (programPos == -1) {
+            program = QLatin1String("");
+            message = logLine.simplified();
+        } else {
+            program = logLine.left(programPos);
+            message = logLine.right(logLine.length() - programPos - 1);
+        }
 
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
-			int classPrototypePosition=logLine.indexOf(QLatin1String( "::" ));
-			int programPos=logLine.indexOf(QLatin1Char( ':' ));
+        message = message.simplified();
 
-			//If the first found : is the begin of a :: (example: QFile::at:) then we move to the next :
-			if (classPrototypePosition != -1 && programPos==classPrototypePosition) {
-				programPos=logLine.indexOf(QLatin1Char( ':' ), classPrototypePosition+2);
-			}
+        // Do not add this line if this is a X error that the user wants to ignore
+        if (isXorgError(program) == true) {
+            return NULL;
+        }
 
-			QString program;
-			QString message;
-			if (programPos==-1) {
-				program = QLatin1String( "" );
-				message = logLine.simplified();
-			}
-			else {
-				program = logLine.left(programPos);
-				message = logLine.right(logLine.length()-programPos-1);
-			}
+        // Find the right log level
+        LogLevel *logLevel;
+        if (hasErrorKeywords(message))
+            logLevel = Globals::instance().errorLogLevel();
+        else if (hasWarningKeywords(message))
+            logLevel = Globals::instance().warningLogLevel();
+        else
+            logLevel = Globals::instance().informationLogLevel();
 
-			message = message.simplified();
+        return new LogLine(logLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
+                           originalFile.url().path(), logLevel, logMode);
+    }
 
-			//Do not add this line if this is a X error that the user wants to ignore
-			if (isXorgError(program) == true) {
-				return NULL;
-			}
+private:
+    bool isXorgError(const QString &program)
+    {
+        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+        if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
+            return true;
 
-			//Find the right log level
-			LogLevel* logLevel;
-			if (hasErrorKeywords(message))
-				logLevel = Globals::instance()->errorLogLevel();
-			else if (hasWarningKeywords(message))
-				logLevel = Globals::instance()->warningLogLevel();
-			else
-				logLevel = Globals::instance()->informationLogLevel();
+        return false;
+    }
 
+    bool hasWarningKeywords(const QString &message)
+    {
+        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+        return hasKeywords(message, configuration->warningKeywords());
+    }
 
+    bool hasErrorKeywords(const QString &message)
+    {
+        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+        return hasKeywords(message, configuration->errorKeywords());
+    }
 
-			return new LogLine(
-					logLineInternalIdGenerator++,
-					currentDateTime,
-					QStringList() << program << message,
-					originalFile.url().path(),
-					logLevel,
-					logMode
-			);
-		}
+    bool hasKeywords(const QString &message, const QStringList &keywords)
+    {
+        foreach (const QString &keyword, keywords) {
+            if (message.contains(keyword, Qt::CaseInsensitive)) {
+                return true;
+            }
+        }
 
-	private:
-		bool isXorgError(const QString& program) {
-			XSessionConfiguration* configuration = logMode->logModeConfiguration<XSessionConfiguration*>();
-			if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
-				return true;
+        return false;
+    }
 
-			return false;
-		}
-
-		bool hasWarningKeywords(const QString& message) {
-			XSessionConfiguration* configuration = logMode->logModeConfiguration<XSessionConfiguration*>();
-			return hasKeywords(message, configuration->warningKeywords());
-		}
-
-		bool hasErrorKeywords(const QString& message) {
-			XSessionConfiguration* configuration = logMode->logModeConfiguration<XSessionConfiguration*>();
-			return hasKeywords(message, configuration->errorKeywords());
-		}
-
-		bool hasKeywords(const QString& message, const QStringList& keywords) {
-			foreach(const QString& keyword, keywords) {
-				if (message.contains(keyword, Qt::CaseInsensitive)) {
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-
-		QDateTime currentDateTime;
-
+    QDateTime currentDateTime;
 };
 
 #endif // _X_SESSION_ANALYZER_H_

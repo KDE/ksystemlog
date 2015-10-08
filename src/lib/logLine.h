@@ -25,8 +25,6 @@
 #include <QStringList>
 #include <QDateTime>
 
-#include <kurl.h>
-
 #include "globals.h"
 
 #include "logLevel.h"
@@ -38,55 +36,48 @@ class LogViewWidgetItem;
 
 class LogLinePrivate;
 
-class LogLine {
-	
-	public:
-		LogLine(
-				long internalId,
-				const QDateTime& dateTime, 
-				const QStringList& logItems, 
-				const QString& originalFile, 
-				LogLevel* level, 
-				LogMode* logMode
-		);
+class LogLine
+{
+public:
+    LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems,
+            const QString &originalFile, LogLevel *level, LogMode *logMode);
 
-		virtual ~LogLine();
-		
-		bool isOlderThan(const LogLine& other) const;
-		bool isNewerThan(const LogLine& other) const;
-				
-		bool equals(const LogLine& other) const;
+    virtual ~LogLine();
 
-		bool isSameTime(const LogLine& other) const;
+    bool isOlderThan(const LogLine &other) const;
+    bool isNewerThan(const LogLine &other) const;
 
-		LogLevel* logLevel() const;
-		
-		long internalId() const;
-		QDateTime time() const;
-		QStringList logItems() const;
-		QString sourceFileName() const;
-		
-		LogMode* logMode() const;
+    bool equals(const LogLine &other) const;
 
-		bool itemExists() const;
+    bool isSameTime(const LogLine &other) const;
 
-		void setLogItems(const QStringList& logItems);
-		void setLogLevel(LogLevel* level);
-		void setLogMode(LogMode* logMode);
-		
-		void setRecent(bool recent);
-		void setItem(LogViewWidgetItem* item);
+    LogLevel *logLevel() const;
 
-		QString formattedText();
-		
-		QString exportToText() const;
+    long internalId() const;
+    QDateTime time() const;
+    QStringList logItems() const;
+    QString sourceFileName() const;
 
-	protected:
-		LogLinePrivate* const d;
-		
-	private:
-		void initializeItem();
+    LogMode *logMode() const;
 
+    bool itemExists() const;
+
+    void setLogItems(const QStringList &logItems);
+    void setLogLevel(LogLevel *level);
+    void setLogMode(LogMode *logMode);
+
+    void setRecent(bool recent);
+    void setItem(LogViewWidgetItem *item);
+
+    QString formattedText();
+
+    QString exportToText() const;
+
+protected:
+    LogLinePrivate *const d;
+
+private:
+    void initializeItem();
 };
 
 #endif

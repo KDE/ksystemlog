@@ -25,11 +25,11 @@
 #include <QRegExp>
 #include <QFile>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"
 #include "processOutputLogFileReader.h"
@@ -37,130 +37,120 @@
 
 class LogMode;
 
-class KernelAnalyzer : public Analyzer {
+class KernelAnalyzer : public FileAnalyzer
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    KernelAnalyzer(LogMode *logMode)
+        : FileAnalyzer(logMode)
+    {
+        startupTime();
+    }
 
-	public:
+    virtual ~KernelAnalyzer() {}
 
-		KernelAnalyzer(LogMode* logMode) :
-			Analyzer(logMode) {
+    LogViewColumns initColumns()
+    {
+        LogViewColumns columns;
+        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Component"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
 
-			startupTime();
-		}
+        return columns;
+    }
 
-		virtual ~KernelAnalyzer() {
+protected:
+    LogFileReader *createLogFileReader(const LogFile &logFile)
+    {
+        return new ProcessOutputLogFileReader(logFile);
+    }
 
-		}
+    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
 
-		LogViewColumns initColumns() {
-			LogViewColumns columns;
-			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Component"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+    void startupTime()
+    {
+        QFile file(QLatin1String(UPTIME_FILE));
 
-			return columns;
-		}
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
 
-	protected:
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new ProcessOutputLogFileReader(logFile);
-		}
+        QTextStream in(&file);
+        QString line = in.readLine();
 
-		Analyzer::LogFileSortMode logFileSortMode() {
-			return Analyzer::AscendingSortedLogFile;
-		}
+        // Format : 1618.72 1382.98 (uptime / something)
+        QStringList times = line.split(QLatin1String(" "));
 
-		void startupTime() {
-			QFile file(QLatin1String( UPTIME_FILE ));
+        QString secondsString = times.at(0);
+        QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1String(".")));
+        long updateSeconds = pureSecondsString.toLong();
 
-			file.open(QIODevice::ReadOnly | QIODevice::Text);
+        startupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
+        logDebug() << "Startup time : " << startupDateTime;
+    }
 
-			QTextStream in(&file);
-			QString line = in.readLine();
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    {
+        QRegExp timeRegex(QLatin1String("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
 
-			//Format : 1618.72 1382.98 (uptime / something)
-			QStringList times = line.split(QLatin1String( " " ));
+        //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
+        //			QRegExp messageRegexp(timeRegex + "(.*)");
 
-			QString secondsString = times.at(0);
-			QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1String( "." )));
-			long updateSeconds = pureSecondsString.toLong();
+        QDateTime dateTime(startupDateTime);
+        QStringList messages;
 
-			startupDateTime = QDateTime::currentDateTime().addSecs(- updateSeconds);
-			logDebug() << "Startup time : " << startupDateTime << endl;
+        int timeExists = timeRegex.indexIn(logLine);
 
-		}
+        // If we have the date, we are able to update the start date
+        if (timeExists != -1) {
+            // logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
+            dateTime = dateTime.addSecs(timeRegex.cap(1).toInt());
+            dateTime = dateTime.addMSecs(timeRegex.cap(2).toInt() / 1000);
 
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			QRegExp timeRegex(QLatin1String( "\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)" ));
+            parseComponentMessage(timeRegex.cap(3), messages);
 
-//			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
-//			QRegExp messageRegexp(timeRegex + "(.*)");
+        }
+        // Else, the date will never change
+        else {
+            parseComponentMessage(logLine, messages);
+        }
 
-			QDateTime dateTime(startupDateTime);
-			QStringList messages;
+        /*
+  logDebug() << "--------------------------------";
+  logDebug() << logLine;
+  logDebug() << "Secs : " << dateTime.time().second();
+  logDebug() << "MSec : " << dateTime.time().msec();
+  logDebug() << "Comp : " << messages.at(0);
+  logDebug() << "Msg  : " << messages.at(1);
+  logDebug() << "--------------------------------";
+        */
 
-			int timeExists = timeRegex.indexIn(logLine);
+        LogLine *line
+            = new LogLine(logLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().path(),
+                          Globals::instance().informationLogLevel(), logMode);
 
-			//If we have the date, we are able to update the start date
-			if (timeExists != -1) {
+        return line;
+    }
 
-				//logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt() << endl;
-				dateTime = dateTime.addSecs( timeRegex.cap(1).toInt() );
-				dateTime = dateTime.addMSecs( timeRegex.cap(2).toInt()/1000 );
+    inline void parseComponentMessage(const QString &logLine, QStringList &messages)
+    {
+        QString message(logLine);
+        QString component;
 
-				parseComponentMessage(timeRegex.cap(3), messages);
+        int doublePointPosition = message.indexOf(QLatin1String(":"));
 
-			}
-			//Else, the date will never change
-			else {
-				parseComponentMessage(logLine, messages);
-			}
+        // Estimate the max size of a component
+        if (doublePointPosition != -1 && doublePointPosition < 20) {
+            component = message.left(doublePointPosition);
+            // Remove component length + ": "
+            message = message.remove(0, doublePointPosition + 2);
+        }
 
-			/*
-			logDebug() << "--------------------------------" << endl;
-			logDebug() << logLine << endl;
-			logDebug() << "Secs : " << dateTime.time().second() << endl;
-			logDebug() << "MSec : " << dateTime.time().msec() << endl;
-			logDebug() << "Comp : " << messages.at(0) << endl;
-			logDebug() << "Msg  : " << messages.at(1) << endl;
-			logDebug() << "--------------------------------" << endl;
-			*/
+        messages.append(component);
+        messages.append(message.simplified());
+    }
 
-			LogLine* line = new LogLine(
-					logLineInternalIdGenerator++,
-					dateTime,
-					messages,
-					originalLogFile.url().path(),
-					Globals::instance()->informationLogLevel(),
-					logMode
-			);
-
-			return line;
-		}
-
-		inline void parseComponentMessage(const QString& logLine, QStringList& messages) {
-			QString message(logLine);
-			QString component;
-
-			int doublePointPosition = message.indexOf(QLatin1String( ":" ));
-
-			//Estimate the max size of a component
-			if (doublePointPosition != -1 && doublePointPosition < 20) {
-				component = message.left(doublePointPosition);
-				//Remove component length + ": "
-				message = message.remove(0, doublePointPosition +2);
-
-			}
-
-			messages.append( component );
-			messages.append( message.simplified() );
-
-		}
-
-	protected:
-		QDateTime startupDateTime;
-
+protected:
+    QDateTime startupDateTime;
 };
 
 #endif

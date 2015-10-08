@@ -38,20 +38,18 @@
 
 #include "logMode.h"
 
-class XorgLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class XorgLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit XorgLogMode();
+    explicit XorgLogMode();
 
-	~XorgLogMode();
+    ~XorgLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _XORG_LOG_MODE_H_
-

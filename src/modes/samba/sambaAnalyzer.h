@@ -22,10 +22,9 @@
 #ifndef _SAMBA_ANALYZER_H_
 #define _SAMBA_ANALYZER_H_
 
+#include <KLocalizedString>
 
-#include <klocale.h>
-
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "logging.h"
 
@@ -33,157 +32,138 @@
 #include "sambaLogMode.h"
 #include "parsingHelper.h"
 
-class SambaAnalyzer : public Analyzer {
+class SambaAnalyzer : public FileAnalyzer
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    explicit SambaAnalyzer(LogMode *logMode)
+        : FileAnalyzer(logMode)
+    {
+        currentLogLine = NULL;
+    }
 
-	public:
-		explicit SambaAnalyzer(LogMode* logMode) :
-			Analyzer(logMode) {
+    virtual ~SambaAnalyzer() {}
 
-			currentLogLine = NULL;
-		}
+    LogViewColumns initColumns()
+    {
+        LogViewColumns columns;
 
-		virtual ~SambaAnalyzer() {
+        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+        columns.addColumn(LogViewColumn(i18n("Source File"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Function"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Line"), true, true));
+        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
 
-		}
+        return columns;
+    }
 
-		LogViewColumns initColumns() {
-			LogViewColumns columns;
+protected:
+    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
 
-			columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-			columns.addColumn(LogViewColumn(i18n("Source File"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Function"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Line"), true, true));
-			columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
 
-			return columns;
-		}
+    /*
+     * Log line examples :
+     * [2005/06/27 21:06:01, 0] nmbd/nmbd.c:main(668)
+     * Netbios nameserver version 3.0.14a started.
+     * Copyright Andrew Tridgell and the Samba Team 1994-2004
+     * [2005/06/27 21:11:46, 0] nmbd/nmbd_become_lmb.c:become_local_master_stage2(396)
+     *  *****
+     *  Samba name server STEAKHACHE is now a local master browser for workgroup MAISON on subnet 192.168.1.33
+     *
+     *  *****
+     * [2005/06/28 06:41:03, 0] nmbd/nmbd.c:terminate(56)
+     * Got SIGTERM: going down...
+     * [2005/06/28 18:08:11, 0] nmbd/nmbd.c:main(668)
+     * Netbios nameserver version 3.0.14a started.
+     * Copyright Andrew Tridgell and the Samba Team 1994-2004
+     *
+     * Note:
+     * This analyzer nevers return the last line of a log file because it's never sure
+     * that the last file line is the last message of the current log line.
+     * So the previous last line will be returned at the next file update,
+     */
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    {
+        QString line(logLine);
 
+        // The Date
+        int dateBegin = line.indexOf(QLatin1String("["));
+        int dateEnd = line.indexOf(QLatin1String("]"));
 
+        if (dateBegin != -1) {
+            QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
-	protected:
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new LocalLogFileReader(logFile);
-		}
+            QString year = strDate.mid(0, 4);
+            QString month = strDate.mid(5, 2);
+            QString day = strDate.mid(8, 2);
 
-		Analyzer::LogFileSortMode logFileSortMode() {
-			return Analyzer::AscendingSortedLogFile;
-		}
+            QString hour = strDate.mid(11, 2);
+            QString min = strDate.mid(14, 2);
+            QString sec = strDate.mid(17, 2);
 
+            QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
+            QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-		/*
-		 * Log line examples :
-		 * [2005/06/27 21:06:01, 0] nmbd/nmbd.c:main(668)
-		 * Netbios nameserver version 3.0.14a started.
-		 * Copyright Andrew Tridgell and the Samba Team 1994-2004
-		 * [2005/06/27 21:11:46, 0] nmbd/nmbd_become_lmb.c:become_local_master_stage2(396)
-		 *  *****
-		 *  Samba name server STEAKHACHE is now a local master browser for workgroup MAISON on subnet 192.168.1.33
-		 *
-		 *  *****
-		 * [2005/06/28 06:41:03, 0] nmbd/nmbd.c:terminate(56)
-		 * Got SIGTERM: going down...
-		 * [2005/06/28 18:08:11, 0] nmbd/nmbd.c:main(668)
-		 * Netbios nameserver version 3.0.14a started.
-		 * Copyright Andrew Tridgell and the Samba Team 1994-2004
-		 *
-		 * Note:
-		 * This analyzer nevers return the last line of a log file because it's never sure
-		 * that the last file line is the last message of the current log line.
-		 * So the previous last line will be returned at the next file update,
-		 */
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalLogFile) {
-			QString line(logLine);
+            line = line.remove(0, dateEnd + 2);
 
+            // The source file
+            int doubleDot;
+            doubleDot = line.indexOf(QLatin1String(":"));
+            QString file = line.left(doubleDot);
+            line = line.remove(0, doubleDot + 1);
 
-			//The Date
-			int dateBegin=line.indexOf(QLatin1String( "[" ));
-			int dateEnd=line.indexOf(QLatin1String( "]" ));
+            // The function
+            int bracket = line.indexOf(QLatin1String("("));
+            QString function = line.left(bracket);
+            line = line.remove(0, bracket + 1);
 
-			if (dateBegin != -1) {
+            // The line number
+            bracket = line.indexOf(QLatin1String(")"));
+            QString lineNumber = line.left(bracket);
 
-				QString strDate=line.mid(dateBegin+1, dateEnd-dateBegin-1);
+            // Remove the first return character and the two useless space of the first message line
+            line = line.remove(0, bracket + 4);
 
-				QString year=strDate.mid(0, 4);
-				QString month=strDate.mid(5, 2);
-				QString day=strDate.mid(8, 2);
+            QStringList list;
+            list.append(file);
+            list.append(function);
+            list.append(lineNumber);
 
-				QString hour=strDate.mid(11, 2);
-				QString min=strDate.mid(14, 2);
-				QString sec=strDate.mid(17, 2);
+            logDebug() << "Creating new line " << endl;
 
-				QDate date=QDate(year.toInt(), month.toInt(), day.toInt());
-				QTime time=QTime(hour.toInt(), min.toInt(), sec.toInt());
+            LogLine *returnedLogLine = currentLogLine;
 
-				line=line.remove(0, dateEnd+2);
+            currentLogLine = new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
+                                         originalLogFile.url().path(),
+                                         Globals::instance().informationLogLevel(), logMode);
 
+            return returnedLogLine;
+        }
 
-				//The source file
-				int doubleDot;
-				doubleDot=line.indexOf(QLatin1String( ":" ));
-				QString file=line.left(doubleDot);
-				line=line.remove(0, doubleDot+1);
+        if (line.indexOf(QLatin1String("  ")) != -1) {
+            if (currentLogLine != NULL) {
+                QStringList list = currentLogLine->logItems();
 
-				//The function
-				int bracket=line.indexOf(QLatin1String( "(" ));
-				QString function=line.left(bracket);
-				line=line.remove(0, bracket+1);
+                // A line has already been added
+                if (list.count() == 4) {
+                    QString currentMessage = list.takeLast();
+                    list.append(currentMessage + QLatin1String("\n") + line.simplified());
+                }
+                // First time we add a line for the current Log line
+                else {
+                    list.append(line.simplified());
+                }
 
-				//The line number
-				bracket=line.indexOf(QLatin1String( ")" ));
-				QString lineNumber=line.left(bracket);
+                currentLogLine->setLogItems(list);
+            }
+        }
 
-				//Remove the first return character and the two useless space of the first message line
-				line=line.remove(0, bracket+4);
+        return NULL;
+    }
 
-				QStringList list;
-				list.append(file);
-				list.append(function);
-				list.append(lineNumber);
-
-				logDebug() << "Creating new line " <<  endl;
-
-				LogLine* returnedLogLine = currentLogLine;
-
-				currentLogLine = new LogLine(
-						logLineInternalIdGenerator++,
-						QDateTime(date, time),
-						list,
-						originalLogFile.url().path(),
-						Globals::instance()->informationLogLevel(),
-						logMode
-				);
-
-				return returnedLogLine;
-			}
-
-			if (line.indexOf(QLatin1String( "  " )) != -1) {
-				if (currentLogLine != NULL) {
-
-					QStringList list = currentLogLine->logItems();
-
-
-					//A line has already been added
-					if (list.count() == 4) {
-						QString currentMessage = list.takeLast();
-						list.append(currentMessage + QLatin1String( "\n" ) + line.simplified());
-					}
-					//First time we add a line for the current Log line
-					else {
-						list.append(line.simplified());
-					}
-
-					currentLogLine->setLogItems(list);
-
-				}
-			}
-
-			return NULL;
-		}
-
-		LogLine* currentLogLine;
-
+    LogLine *currentLogLine;
 };
 
 #endif // _SAMBA_ANALYZER_H_

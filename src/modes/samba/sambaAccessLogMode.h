@@ -32,7 +32,6 @@
  */
 #define SAMBA_ACCESS_MODE_ICON "network-workgroup"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -43,20 +42,20 @@ class SambaConfiguration;
 class SambaConfigurationWidget;
 class SambaItemBuilder;
 
-class SambaAccessLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class SambaAccessLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit SambaAccessLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder);
+    explicit SambaAccessLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
+                                SambaConfigurationWidget *sambaConfigurationWidget,
+                                SambaItemBuilder *itemBuilder);
 
-	~SambaAccessLogMode();
+    ~SambaAccessLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _SAMBA_ACCESS_LOG_MODE_H_
-

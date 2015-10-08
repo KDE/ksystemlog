@@ -32,64 +32,63 @@ class LogViewWidget;
 
 class LogViewModelPrivate;
 
-class LogViewModel : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogViewModel(LogViewWidget* logViewWidget);
-		
-		virtual ~LogViewModel();
+class LogViewModel : public QObject
+{
+    Q_OBJECT
 
-		/**
-		 * Clear the model
-		 */
-		void clear();
-		
-		bool insertNewLogLine(LogLine* line);
+public:
+    LogViewModel(LogViewWidget *logViewWidget);
 
-		int itemCount() const;
-		bool isEmpty() const;
-		
-		bool isProcessingMultipleInsertions() const;
-		
-		void startingMultipleInsertions(Analyzer::ReadingMode readingMode);
-		void endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount);
+    virtual ~LogViewModel();
 
-		QList<LogLine*> logLines();
-		
-	signals:
-		void processingMultipleInsertions(bool currentlyInserting);
-		
-	private:
-		/**
-		 * Prevent crossed multiple insertions between each LogFileReaders
-		 */ 
-		bool lockMultipleInsertions();
-		
-		void setFirstReadProcessed();
+    /**
+     * Clear the model
+     */
+    void clear();
 
-		bool logLineAlreadyExists(LogLine* line) const;
-		
-		bool isNewer(LogLine* line) const;
-		
-		/**
-		 * Remove the oldest line
-		 */
-		void removeOldestLogLine();
+    bool insertNewLogLine(LogLine *line);
 
-		/**
-		 * Insert this line
-		 */
-		void insert(LogLine* line);
+    int itemCount() const;
+    bool isEmpty() const;
 
-		/**
-		 * Remove recent status on previously new log lines
-		 */
-		void removeRecentStatusOfLogLines();
-		
-		LogViewModelPrivate* const d;
+    bool isProcessingMultipleInsertions() const;
 
+    void startingMultipleInsertions();
+    void endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount);
+
+    QList<LogLine *> logLines();
+
+signals:
+    void processingMultipleInsertions(bool currentlyInserting);
+
+private:
+    /**
+     * Prevent crossed multiple insertions between each LogFileReaders
+     */
+    bool lockMultipleInsertions();
+
+    void setFirstReadProcessed();
+
+    bool logLineAlreadyExists(LogLine *line) const;
+
+    bool isNewer(LogLine *line) const;
+
+    /**
+     * Remove the oldest line
+     */
+    void removeOldestLogLine();
+
+    /**
+     * Insert this line
+     */
+    void insert(LogLine *line);
+
+    /**
+     * Remove recent status on previously new log lines
+     */
+    void removeRecentStatusOfLogLines();
+
+    LogViewModelPrivate *const d;
 };
 
 #endif //_LOG_VIEW_MODEL_H_

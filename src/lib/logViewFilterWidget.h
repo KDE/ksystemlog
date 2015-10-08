@@ -23,6 +23,7 @@
 #define LOG_VIEW_FILTER_WIDGET_H
 
 #include <QWidget>
+#include <QStandardItem>
 
 #include <ktreewidgetsearchline.h>
 
@@ -32,56 +33,62 @@ class LogViewWidget;
 class LogViewWidgetSearchLine;
 class KComboBox;
 
+class LogViewWidgetSearchLinePrivate;
 class LogViewFilterWidgetPrivate;
 
-class LogViewFilterWidget : public QWidget {
-
-	Q_OBJECT
+class LogViewFilterWidget : public QWidget
+{
+    Q_OBJECT
 
 public:
-	LogViewFilterWidget();
+    LogViewFilterWidget();
 
-	~LogViewFilterWidget();
-	
-	KComboBox* filterList();
-	LogViewWidgetSearchLine* filterLine();
+    ~LogViewFilterWidget();
+
+    KComboBox *filterList();
+    LogViewWidgetSearchLine *filterLine();
 
 public slots:
-	void updateFilterColumns(const LogViewColumns& list);
+    void updateFilterColumns(const LogViewColumns &list);
 
 private slots:
-	void changeColumnFilter(int column);
+    void changeColumnFilter(int column);
+    void prioritiesChanged(QStandardItem *item);
 
 signals:
-	void treeWidgetUpdated();
+    void treeWidgetUpdated();
 
 private:
-	void initSearchListFilter();
+    void initSearchListFilter();
 
-	LogViewFilterWidgetPrivate* const d;
-
-
+    LogViewFilterWidgetPrivate *const d;
 };
 
-
-class LogViewWidgetSearchLine : public KTreeWidgetSearchLine {
-
-	Q_OBJECT
+class LogViewWidgetSearchLine : public KTreeWidgetSearchLine
+{
+    Q_OBJECT
 
 public:
-	LogViewWidgetSearchLine();
+    LogViewWidgetSearchLine();
 
-	~LogViewWidgetSearchLine();
-	
-public:
-	/**
-	 * Reimplemented just to send a signal _AFTER_ the tree updating
-	 */
-	void updateSearch(const QString& pattern = QString());
+    ~LogViewWidgetSearchLine();
+
+    // Silence compiler warning
+    using KTreeWidgetSearchLine::updateSearch;
+
+    // Reimplemented just to send a signal _AFTER_ the tree updating
+    void updateSearch(const QString &pattern = QString());
+
+    void setPriorityEnabled(int priority, bool enabled);
+
+protected:
+    virtual bool itemMatches(const QTreeWidgetItem *item, const QString &pattern) const;
 
 signals:
-	void treeWidgetUpdated();
+    void treeWidgetUpdated();
 
+private:
+    LogViewWidgetSearchLinePrivate *const d;
 };
 
-#endif //LOG_VIEW_FILTER_WIDGET_H
+#endif // LOG_VIEW_FILTER_WIDGET_H

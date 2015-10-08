@@ -30,22 +30,23 @@
 #include "openLogMode.h"
 #include "logModeItemBuilder.h"
 
-
-OpenLogModeFactory::OpenLogModeFactory(QWidget* parent) :
-	parent(parent) {
-	
+OpenLogModeFactory::OpenLogModeFactory(QWidget *parent)
+    : parent(parent)
+{
 }
 
-OpenLogModeFactory::~OpenLogModeFactory() {
-	
+OpenLogModeFactory::~OpenLogModeFactory()
+{
 }
 
-QList<LogMode*> OpenLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new OpenLogMode(parent));
-	return logModes;
+QList<LogMode *> OpenLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new OpenLogMode(parent));
+    return logModes;
 }
 
-LogModeAction* OpenLogModeFactory::createLogModeAction() const {
-	return NULL;
+LogModeAction *OpenLogModeFactory::createLogModeAction() const
+{
+    return NULL;
 }

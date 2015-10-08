@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,33 +33,38 @@
 #include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
 
+CupsPageLogMode::CupsPageLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
+                                 CupsConfigurationWidget *cupsConfigurationWidget)
+    : LogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID), i18n("Cups Page Log"), QLatin1String(CUPS_PAGE_MODE_ICON))
+{
+    d->logModeConfiguration = cupsConfiguration;
+    d->logModeConfigurationWidget = cupsConfigurationWidget;
 
-CupsPageLogMode::CupsPageLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget) :
-	LogMode(QLatin1String( CUPS_PAGE_LOG_MODE_ID ), i18n("Cups Page Log"), QLatin1String( CUPS_PAGE_MODE_ICON )) {
+    d->itemBuilder = new CupsPageItemBuilder();
 
-	d->logModeConfiguration = cupsConfiguration;
-	d->logModeConfigurationWidget = cupsConfigurationWidget;
+    // Cups Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the CUPS Page log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the CUPS Page log in the current tab. CUPS is the program which manages printing on your "
+        "computer. This log saves all requests performed to the CUPS embedded web server (default: "
+        "<i>http://localhost:631</i>)."));
 
-	d->itemBuilder = new CupsPageItemBuilder();
-
-	//Cups Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the CUPS Page log."));
-	d->action->setWhatsThis(i18n("Displays the CUPS Page log in the current tab. CUPS is the program which manages printing on your computer. This log saves all requests performed to the CUPS embedded web server (default: <i>http://localhost:631</i>)."));
-
+    checkLogFilesPresence(cupsConfiguration->cupsPagePaths());
 }
 
-
-
-CupsPageLogMode::~CupsPageLogMode() {
-
+CupsPageLogMode::~CupsPageLogMode()
+{
 }
 
-Analyzer* CupsPageLogMode::createAnalyzer() {
-	return new CupsPageAnalyzer(this);
+Analyzer *CupsPageLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new CupsPageAnalyzer(this);
 }
 
-QList<LogFile> CupsPageLogMode::createLogFiles() {
-	CupsConfiguration* cupsConfiguration = logModeConfiguration<CupsConfiguration*>();
-	return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPagePaths());
+QList<LogFile> CupsPageLogMode::createLogFiles()
+{
+    CupsConfiguration *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
+    return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPagePaths());
 }

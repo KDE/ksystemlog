@@ -21,18 +21,17 @@
 
 #include "logViewExport.h"
 
+#include <QApplication>
 #include <QPainter>
 #include <QClipboard>
-#include <QtGui/QPrinter>
-#include <QtGui/QPrintDialog>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QFileDialog>
 
-#include <kapplication.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <ktoolinvocation.h>
 #include <kmessagebox.h>
-#include <kfiledialog.h>
 #include <kfilterdev.h>
-#include <kdeprintdialog.h>
 
 #include "logging.h"
 
@@ -42,233 +41,241 @@
 
 #include "levelPrintPage.h"
 
-LogViewExport::LogViewExport(QWidget* parent, LogViewWidget* logViewWidget) :
-	parent(parent), logViewWidget(logViewWidget) {
-
+LogViewExport::LogViewExport(QWidget *parent, LogViewWidget *logViewWidget)
+    : parent(parent)
+    , logViewWidget(logViewWidget)
+{
 }
 
-LogViewExport::~LogViewExport() {
-
+LogViewExport::~LogViewExport()
+{
 }
 
-void LogViewExport::sendMail() {
-	logDebug() << "Exporting to mail..." << endl;
+void LogViewExport::sendMail()
+{
+    logDebug() << "Exporting to mail...";
 
-	QString body(i18n("Here are my logs:\n"));
+    QString body(i18n("Here are my logs:\n"));
 
-	body+=i18n("---------------------------------------\n");
+    body += i18n("---------------------------------------\n");
 
-	int i=0;
-	QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-	while ( *it != NULL) {
-		LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
+    int i = 0;
+    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    while (*it != NULL) {
+        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
-		body+= item->logLine()->exportToText();
-		body+=QLatin1Char( '\n' );
+        body += item->logLine()->exportToText();
+        body += QLatin1Char('\n');
 
-		++it;
-		++i;
-	}
+        ++it;
+        ++i;
+    }
 
-	body+=i18n("---------------------------------------\n");
+    body += i18n("---------------------------------------\n");
 
-	//Too much lines selected
-	if (i>1000) {
-		KMessageBox::sorry(parent, i18n("You have selected too many lines. Please only select important log lines."), i18n("Too Many Lines Selected"));
-		return;
-	}
+    // Too much lines selected
+    if (i > 1000) {
+        KMessageBox::sorry(parent,
+                           i18n("You have selected too many lines. Please only select important log lines."),
+                           i18n("Too Many Lines Selected"));
+        return;
+    }
 
-	// Parameters list of this method
-	//const QString &   to,
-	//const QString &   cc,
-	//const QString &   bcc,
-	//const QString &   subject,
-	//const QString &   body,
-	//const QString &   messageFile,
-	//const QStringList &   attachURLs,
-	//const QCString &   startup_id
-	KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
+    // Parameters list of this method
+    // const QString &   to,
+    // const QString &   cc,
+    // const QString &   bcc,
+    // const QString &   subject,
+    // const QString &   body,
+    // const QString &   messageFile,
+    // const QStringList &   attachURLs,
+    // const QCString &   startup_id
+    // KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log
+    // Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
+    KToolInvocation::invokeMailer(QLatin1String(""), QLatin1String(""), QLatin1String(""),
+                                  i18n("Log Lines of my problem"), body, QLatin1String(""), QStringList(),
+                                  QByteArray());
 }
 
-void LogViewExport::printSelection() {
-	logDebug() << "Printing selection..." << endl;
+void LogViewExport::printSelection()
+{
+    logDebug() << "Printing selection...";
 
-	QPrinter printer;
+    QPrinter printer;
 
-	// do some printer initialization
-	printer.setFullPage( true);
+    // do some printer initialization
+    printer.setFullPage(true);
 
-	/*
-	 LevelPrintPage* dialogPage = new LevelPrintPage(parent);
-	 printer.addDialogPage(dialogPage);
-	 */
+    /*
+     LevelPrintPage* dialogPage = new LevelPrintPage(parent);
+     printer.addDialogPage(dialogPage);
+     */
 
-	// initialize the printer using the print dialog
-	QPrintDialog *printDialog = KdePrint::createPrintDialog(&printer, parent);
-	if (printDialog->exec() == false) {
-		delete printDialog;
-		return;
-	}
-	delete printDialog;
+    // initialize the printer using the print dialog
+    QPrintDialog *printDialog = new QPrintDialog(&printer, parent);
+    if (printDialog->exec() == false) {
+        delete printDialog;
+        return;
+    }
+    delete printDialog;
 
-	// create a painter to paint on the printer object
-	QPainter painter;
+    // create a painter to paint on the printer object
+    QPainter painter;
 
-	// start painting
-	painter.begin( &printer );
+    // start painting
+    painter.begin(&printer);
 
-	QPen originalPen(painter.pen());
+    QPen originalPen(painter.pen());
 
-	int dpiy = painter.device()->logicalDpiY();
-	int margin = (int) ( (2/2.54)*dpiy ); // 2 cm margins
-	QRect printView(margin, margin, painter.device()->width() - 2*margin, painter.device()->height() - 2*margin );
+    int dpiy = painter.device()->logicalDpiY();
+    int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
+    QRect printView(margin, margin, painter.device()->width() - 2 * margin,
+                    painter.device()->height() - 2 * margin);
 
-	int page = 1;
+    int page = 1;
 
-	int i = 0;
-	int movement = 0;
+    int i = 0;
+    int movement = 0;
 
-	QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-	while ( *it != NULL) {
-		LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
+    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    while (*it != NULL) {
+        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
-		/*
-		 if(qtItem==NULL)
-		 {
-		 painter.setPen(originalPen);
-		 printPageNumber(painter, printView, movement, page);
-		 break;
-		 }*/
+        /*
+         if(qtItem==NULL)
+         {
+         painter.setPen(originalPen);
+         printPageNumber(painter, printView, movement, page);
+         break;
+         }*/
 
-		QString body = item->logLine()->exportToText();
-		//body+= "\n";
+        QString body = item->logLine()->exportToText();
+        // body+= "\n";
 
-		/* QPrinter Port: comment out as dialog page is not currently being used, so not ported
-		QString strUseColor = printer.option("kde-ksystemlog-print_"+ item->logLine()->logLevel()->name());
-		int use = strUseColor.toInt();
-		if (use) {
-			QPen pen(originalPen);
-			pen.setColor(item->logLine()->logLevel()->color());
-			painter.setPen(pen);
-		} else {*/
-			painter.setPen(originalPen);
-		//}
+        /* QPrinter Port: comment out as dialog page is not currently being used, so not ported
+        QString strUseColor = printer.option("kde-ksystemlog-print_"+ item->logLine()->logLevel()->name());
+        int use = strUseColor.toInt();
+        if (use) {
+            QPen pen(originalPen);
+            pen.setColor(item->logLine()->logLevel()->color());
+            painter.setPen(pen);
+        } else {*/
+        painter.setPen(originalPen);
+        //}
 
-		painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
+        painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
 
-		int fontHeight = painter.fontMetrics().height();
-		int lines = painter.fontMetrics().width(body) / printView.width() + 1;
-		int moveBy = (fontHeight + 2) * lines;
-		painter.translate(0, moveBy);
+        int fontHeight = painter.fontMetrics().height();
+        int lines = painter.fontMetrics().width(body) / printView.width() + 1;
+        int moveBy = (fontHeight + 2) * lines;
+        painter.translate(0, moveBy);
 
-		movement = movement + moveBy;
-		if (movement + margin >= printView.height()) {
-			painter.setPen(originalPen);
-			printPageNumber(painter, printView, movement, page);
-			printer.newPage();
-			page++;
-			movement = 0;
-		}
+        movement = movement + moveBy;
+        if (movement + margin >= printView.height()) {
+            painter.setPen(originalPen);
+            printPageNumber(painter, printView, movement, page);
+            printer.newPage();
+            page++;
+            movement = 0;
+        }
 
-		++it;
-		++i;
-	}
+        ++it;
+        ++i;
+    }
 
-	// stop painting, this will automatically send the print data to the printer
-	painter.end();
-
+    // stop painting, this will automatically send the print data to the printer
+    painter.end();
 }
 
-void LogViewExport::printPageNumber(QPainter& painter, QRect& printView, int movement, int page) {
-	logDebug() << "Printing page number..." << endl;
+void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int movement, int page)
+{
+    logDebug() << "Printing page number...";
 
-	painter.translate(0, -movement);
-	printView.moveTo(QPoint(0, printView.height()) );
-	painter.translate( 0, -printView.height() );
-	painter.drawText(printView.right() - painter.fontMetrics().width(QString::number(page) ), printView.bottom()+ painter.fontMetrics().ascent() + 5, QString::number(page) );
-
+    painter.translate(0, -movement);
+    printView.moveTo(QPoint(0, printView.height()));
+    painter.translate(0, -printView.height());
+    painter.drawText(printView.right() - painter.fontMetrics().width(QString::number(page)),
+                     printView.bottom() + painter.fontMetrics().ascent() + 5, QString::number(page));
 }
 
-void LogViewExport::copyToClipboard() {
-	logDebug() << "Copying to clipboard..." << endl;
+void LogViewExport::copyToClipboard()
+{
+    logDebug() << "Copying to clipboard...";
 
-	int nbCopied=0;
-	QString text;
+    int nbCopied = 0;
+    QString text;
 
-	QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-	while ( *it != NULL) {
-		LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
+    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    while (*it != NULL) {
+        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
-		//Copy the item content to the text string
-		text.append(item->logLine()->exportToText());
-		text.append(QLatin1Char( '\n' ));
+        // Copy the item content to the text string
+        text.append(item->logLine()->exportToText());
+        text.append(QLatin1Char('\n'));
 
-		it++;
-		nbCopied++;
+        it++;
+        nbCopied++;
+    }
 
-	}
+    // Copy text value only if it is not empty
+    if (nbCopied == 0) {
+        emit statusBarChanged(i18n("No items selected. Nothing copied to clipboard."));
+    } else {
+        // Copy both to clipboard and X11-selection
+        QApplication::clipboard()->setText(text, QClipboard::Clipboard);
+        QApplication::clipboard()->setText(text, QClipboard::Selection);
 
-	//Copy text value only if it is not empty
-	if (nbCopied==0) {
-		emit statusBarChanged(i18n("No items selected. Nothing copied to clipboard."));
-	} else {
-		//Copy both to clipboard and X11-selection
-		QApplication::clipboard()->setText(text, QClipboard::Clipboard);
-		QApplication::clipboard()->setText(text, QClipboard::Selection);
+        emit statusBarChanged(
+            i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
+    }
 
-		emit statusBarChanged(i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
-	}
-
-	logDebug() << "Copied " << nbCopied << " log lines" << endl;
-
+    logDebug() << "Copied " << nbCopied << " log lines";
 }
 
-void LogViewExport::fileSave() {
-	logDebug() << "Saving to a file..." << endl;
+void LogViewExport::fileSave()
+{
+    logDebug() << "Saving to a file...";
 
-	QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
 
-	//No item selected
-	if ( *it == NULL) {
-		emit statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
-		return;
-	}
+    // No item selected
+    if (*it == NULL) {
+        emit statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
+        return;
+    }
 
-	QString filename = KFileDialog::getSaveFileName(KUrl(), QString(), parent);
-	if (filename.isEmpty() == true) {
-		return;
-	}
+    QString filename
+        = QFileDialog::getSaveFileName(parent, i18n("Save selected log entries to..."), QString());
+    if (filename.isEmpty() == true) {
+        return;
+    }
 
-	QIODevice* ioDev = KFilterDev::deviceForFile(filename);
-	if (ioDev->open(QIODevice::WriteOnly)) {
-		QTextStream stream(ioDev);
+    QFile *ioDev = new QFile(filename);
 
-		int nbCopied=0;
+    if (ioDev->open(QIODevice::WriteOnly)) {
+        QTextStream stream(ioDev);
 
-		while ( *it != NULL) {
-			LogViewWidgetItem* item=static_cast<LogViewWidgetItem*> (*it);
+        int nbCopied = 0;
 
-			//Copy the item content to the stream
-			stream << item->logLine()->exportToText() << '\n';
+        while (*it != NULL) {
+            LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
-			//Retrieve the next item
-			it++;
-			nbCopied++;
+            // Copy the item content to the stream
+            stream << item->logLine()->exportToText() << '\n';
 
-		}
+            // Retrieve the next item
+            it++;
+            nbCopied++;
+        }
 
-		ioDev->close();
+        ioDev->close();
 
-		delete ioDev;
+        delete ioDev;
 
-		emit statusBarChanged(i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
-	}
-	else {
-		QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
-		KMessageBox::error(parent, message, i18n("Unable to save file."));
-	}
-
-
+        emit statusBarChanged(
+            i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
+    } else {
+        QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
+        KMessageBox::error(parent, message, i18n("Unable to save file."));
+    }
 }
-
-#include "logViewExport.moc"

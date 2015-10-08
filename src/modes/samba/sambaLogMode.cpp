@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,30 +33,36 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
+SambaLogMode::SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
+                           SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
+    : LogMode(QLatin1String(SAMBA_LOG_MODE_ID), i18n("Samba Log"), QLatin1String(SAMBA_MODE_ICON))
+{
+    d->logModeConfiguration = sambaConfiguration;
+    d->logModeConfigurationWidget = sambaConfigurationWidget;
+    d->itemBuilder = itemBuilder;
 
-SambaLogMode::SambaLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) :
-	LogMode(QLatin1String( SAMBA_LOG_MODE_ID ), i18n("Samba Log"),QLatin1String( SAMBA_MODE_ICON )) {
+    // Samba Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Samba log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the Samba log in the current tab. Samba is the file sharing server which interacts with "
+        "Microsoft Windows network."));
 
-	d->logModeConfiguration = sambaConfiguration;
-	d->logModeConfigurationWidget = sambaConfigurationWidget;
-	d->itemBuilder = itemBuilder;
-
-	//Samba Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Samba log."));
-	d->action->setWhatsThis(i18n("Displays the Samba log in the current tab. Samba is the file sharing server which interacts with Microsoft Windows network."));
-
+    checkLogFilesPresence(sambaConfiguration->sambaPaths());
 }
 
-SambaLogMode::~SambaLogMode() {
-
+SambaLogMode::~SambaLogMode()
+{
 }
 
-Analyzer* SambaLogMode::createAnalyzer() {
-	return new SambaAnalyzer(this);
+Analyzer *SambaLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new SambaAnalyzer(this);
 }
 
-QList<LogFile> SambaLogMode::createLogFiles() {
-	SambaConfiguration* sambaConfiguration = logModeConfiguration<SambaConfiguration*>();
-	return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaPaths());
+QList<LogFile> SambaLogMode::createLogFiles()
+{
+    SambaConfiguration *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
+    return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaPaths());
 }

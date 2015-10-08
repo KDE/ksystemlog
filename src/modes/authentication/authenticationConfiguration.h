@@ -33,60 +33,55 @@
 
 #include "ksystemlogConfig.h"
 
-class AuthenticationConfigurationPrivate {
+class AuthenticationConfigurationPrivate
+{
 public:
-	QString authenticationPath;
+    QString authenticationPath;
 
-	QStringList warningKeywords;
-	QStringList errorKeywords;
+    QStringList warningKeywords;
+    QStringList errorKeywords;
 };
 
-class AuthenticationConfiguration : public LogModeConfiguration {
+class AuthenticationConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    AuthenticationConfiguration()
+        : d(new AuthenticationConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("AuthenticationLogMode"));
 
-	public:
-		AuthenticationConfiguration() :
-			d(new AuthenticationConfigurationPrivate()) {
+        QString defaultAuthenticationPath(QLatin1String("/var/log/auth.log"));
+        configuration->addItemString(QLatin1String("LogFilePath"), d->authenticationPath,
+                                     defaultAuthenticationPath, QLatin1String("LogFilePath"));
 
-			configuration->setCurrentGroup(QLatin1String( "AuthenticationLogMode" ));
+        QStringList defaultWarningKeywords;
+        defaultWarningKeywords.append(QLatin1String("failed"));
+        configuration->addItemStringList(QLatin1String("WarningKeywords"), d->warningKeywords,
+                                         defaultWarningKeywords, QLatin1String("WarningKeywords"));
 
-			QString defaultAuthenticationPath(QLatin1String( "/var/log/auth.log" ));
-			configuration->addItemString(QLatin1String( "LogFilePath" ), d->authenticationPath, defaultAuthenticationPath, QLatin1String( "LogFilePath" ));
+        QStringList defaultErrorKeywords;
+        defaultErrorKeywords.append(QLatin1String("error"));
+        configuration->addItemStringList(QLatin1String("ErrorKeywords"), d->errorKeywords,
+                                         defaultErrorKeywords, QLatin1String("ErrorKeywords"));
+    }
 
-			QStringList defaultWarningKeywords;
-			defaultWarningKeywords.append(QLatin1String( "failed" ));
-			configuration->addItemStringList(QLatin1String( "WarningKeywords" ), d->warningKeywords, defaultWarningKeywords, QLatin1String( "WarningKeywords" ));
+    virtual ~AuthenticationConfiguration() { delete d; }
 
-			QStringList defaultErrorKeywords;
-			defaultErrorKeywords.append(QLatin1String( "error" ));
-			configuration->addItemStringList(QLatin1String( "ErrorKeywords" ), d->errorKeywords, defaultErrorKeywords, QLatin1String( "ErrorKeywords" ));
+    QString authenticationPath() const { return d->authenticationPath; }
 
-		}
+    void setAuthenticationPath(const QString &authenticationPath)
+    {
+        d->authenticationPath = authenticationPath;
+    }
 
-		virtual ~AuthenticationConfiguration() {
-			delete d;
-		}
+    QStringList warningKeywords() const { return d->warningKeywords; }
 
-		QString authenticationPath() const {
-			return d->authenticationPath;
-		}
+    QStringList errorKeywords() const { return d->errorKeywords; }
 
-		void setAuthenticationPath(const QString& authenticationPath) {
-			d->authenticationPath = authenticationPath;
-		}
-
-		QStringList warningKeywords() const {
-			return d->warningKeywords;
-		}
-
-		QStringList errorKeywords() const {
-			return d->errorKeywords;
-		}
-
-	private:
-		AuthenticationConfigurationPrivate* const d;
-
+private:
+    AuthenticationConfigurationPrivate *const d;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_H_

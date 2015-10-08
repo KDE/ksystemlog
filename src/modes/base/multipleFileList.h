@@ -23,68 +23,72 @@
 #define _MULTIPLE_FILE_LIST_H_
 
 #include <QWidget>
-#include <kurl.h>
+
+#include <KMessageWidget>
 
 #include "fileListHelper.h"
 
 #include "ui_multipleFileListBase.h"
 
+class MultipleFileList : public QWidget, public Ui::MultipleFileListBase
+{
+    Q_OBJECT
 
-class MultipleFileList : public QWidget, public Ui::MultipleFileListBase {
+public:
+    MultipleFileList(QWidget *parent, const QString &descriptionText);
+    virtual ~MultipleFileList();
 
-	Q_OBJECT
-	
-	public:
-		MultipleFileList(QWidget* parent, const QString& descriptionText);
-		virtual ~MultipleFileList();
-		
-		bool isOneOfCategoryEmpty() const;
-		
-		QStringList paths(int categoryIndex);
+    bool isOneOfCategoryEmpty() const;
 
-		void addPaths(int categoryIndex, const QStringList& paths);
-		
-		int addCategory(const QString& itemName, const QString& buttonName);
-		
-	public slots:
-		void removeAllItems();
-		
-	signals:
-		void fileListChanged();
+    QStringList paths(int categoryIndex);
 
-	private slots:
-		
-		void updateButtons();
-		
-		void removeSelectedItem();
-		void moveUpItem();
-		void moveDownItem();
-		
-	protected slots:
-		virtual void addItem(int category);
-		
-		void modifyItem();
-		void modifyItem(QTreeWidgetItem* item);
-		
-	protected:
-		void addItemInternal(QTreeWidgetItem* categoryItem, const QString& path);
-		void moveItem(int direction);
-		void unselectAllItems();
-		
-		void updateEmptyItems();
-		void removeEmptyItems();
+    void addPaths(int categoryIndex, const QStringList &paths);
 
-		void addEmptyItem(QTreeWidgetItem* item);
-		bool isEmptyItem(QTreeWidgetItem* item) const;
+    int addCategory(const QString &itemName, const QString &buttonName);
 
-		bool isFileListsEmpty() const;
-		int categoryCount(int index) const;
+public slots:
+    void removeAllItems();
 
-		QTreeWidgetItem* findCategoryOfChild(QTreeWidgetItem* childItem);
-		
-		FileListHelper fileListHelper;
-		
-		QButtonGroup addButtons;
+signals:
+    void fileListChanged();
+
+private slots:
+
+    void updateButtons();
+
+    void removeSelectedItem();
+    void moveUpItem();
+    void moveDownItem();
+
+protected slots:
+    virtual void addItem(int category);
+
+    void modifyItem();
+    void modifyItem(QTreeWidgetItem *item);
+
+protected:
+    void addItemInternal(QTreeWidgetItem *categoryItem, const QString &path);
+    void moveItem(int direction);
+    void unselectAllItems();
+
+    void updateEmptyItems();
+    void removeEmptyItems();
+
+    void addEmptyItem(QTreeWidgetItem *item);
+    bool isEmptyItem(QTreeWidgetItem *item) const;
+
+    bool isFileListsEmpty() const;
+    int categoryCount(int index) const;
+
+    QTreeWidgetItem *findCategoryOfChild(QTreeWidgetItem *childItem);
+
+    FileListHelper fileListHelper;
+
+    QButtonGroup addButtons;
+
+private:
+    KMessageWidget *warningBox;
+    bool missingFiles;
 };
 
 #endif //_MULTIPLE_FILE_LIST_H_

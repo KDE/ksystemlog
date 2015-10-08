@@ -22,8 +22,7 @@
 #ifndef _ACPID_CONFIGURATION_WIDGET_H_
 #define _ACPID_CONFIGURATION_WIDGET_H_
 
-
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "globals.h"
 #include "logging.h"
@@ -38,64 +37,65 @@
 
 class FileList;
 
-class AcpidConfigurationWidget : public LogModeConfigurationWidget {
+class AcpidConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    AcpidConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Acpid Log"), QLatin1String(ACPID_MODE_ICON), i18n("Acpid Log"))
+    {
+        QHBoxLayout *layout = new QHBoxLayout();
+        this->setLayout(layout);
 
-	public:
-		AcpidConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Acpid Log"), QLatin1String( ACPID_MODE_ICON ), i18n("Acpid Log"))
-			{
+        fileList
+            = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
+        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        layout->addWidget(fileList);
+    }
 
-			QHBoxLayout* layout = new QHBoxLayout();
-			this->setLayout(layout);
+    ~AcpidConfigurationWidget() {}
 
-			fileList=new FileList(this,	i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>")
-			);
-			connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
-			layout->addWidget(fileList);
-		}
+public slots:
 
+    void saveConfig()
+    {
+        AcpidConfiguration *acpidConfiguration = Globals::instance()
+                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     ->logModeConfiguration<AcpidConfiguration *>();
 
+        acpidConfiguration->setAcpidPaths(fileList->paths());
+    }
 
-		~AcpidConfigurationWidget() {
+    void readConfig()
+    {
+        AcpidConfiguration *acpidConfiguration = Globals::instance()
+                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     ->logModeConfiguration<AcpidConfiguration *>();
 
-		}
+        fileList->removeAllItems();
 
-	public slots:
+        fileList->addPaths(acpidConfiguration->acpidPaths());
+    }
 
-		void saveConfig() {
-			AcpidConfiguration* acpidConfiguration = Globals::instance()->findLogMode(QLatin1String(ACPID_LOG_MODE_ID ))->logModeConfiguration<AcpidConfiguration*>();
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-			acpidConfiguration->setAcpidPaths(fileList->paths());
-		}
+protected:
+    bool isValid() const
+    {
+        if (fileList->isEmpty() == false) {
+            return true;
+        }
 
-		void readConfig() {
-			AcpidConfiguration* acpidConfiguration = Globals::instance()->findLogMode(QLatin1String( ACPID_LOG_MODE_ID ))->logModeConfiguration<AcpidConfiguration*>();
+        return false;
+    }
 
-			fileList->removeAllItems();
-
-			fileList->addPaths(acpidConfiguration->acpidPaths());
-		}
-
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
-
-	protected:
-		bool isValid() const {
-			if (fileList->isEmpty()==false) {
-				return true;
-			}
-
-			return false;
-
-		}
-
-	private:
-		FileList* fileList;
-
+private:
+    FileList *fileList;
 };
 
 #endif // _ACPID_CONFIGURATION_WIDGET_H_

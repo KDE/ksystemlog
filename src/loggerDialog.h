@@ -24,34 +24,33 @@
 
 #include <QWidget>
 
-
 #include "ui_loggerDialogBase.h"
 
 class LoggerDialogPrivate;
 
-class LoggerDialog: public QDialog, public Ui::LoggerDialogBase {
-	Q_OBJECT
-	public:
-		explicit LoggerDialog(QWidget* parent = NULL);
-	
-		virtual ~LoggerDialog();
-		
-		void initialize();
-		
-	protected slots:
-		void sendMessage();
-		
-		void textChanged();
-		
-		void changeTagActivation(bool activation);
-		void changeFileActivation(bool activation);
-		void changeMessageActivation(bool activation);
-		
-	private:
-		void buildMaps();
-		
-		LoggerDialogPrivate* const d;
+class LoggerDialog : public QDialog, public Ui::LoggerDialogBase
+{
+    Q_OBJECT
+public:
+    explicit LoggerDialog(QWidget *parent = NULL);
 
+    virtual ~LoggerDialog();
+
+    void initialize();
+
+protected slots:
+    void sendMessage();
+
+    void textChanged();
+
+    void changeTagActivation(bool activation);
+    void changeFileActivation(bool activation);
+    void changeMessageActivation(bool activation);
+
+private:
+    void buildMaps();
+
+    LoggerDialogPrivate *const d;
 };
 
 #endif // _LOGGER_DIALOG_H_

@@ -32,7 +32,6 @@
  */
 #define CUPS_MODE_ICON "document-print"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class CupsConfiguration;
 class CupsConfigurationWidget;
 
-class CupsLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class CupsLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit CupsLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget);
+    explicit CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
+                         CupsConfigurationWidget *cupsConfigurationWidget);
 
-	~CupsLogMode();
+    ~CupsLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _CUPS_LOG_MODE_H_
-

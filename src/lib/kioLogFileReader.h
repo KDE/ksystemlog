@@ -28,8 +28,9 @@
 
 #include "logFile.h"
 
-namespace KIO {
-	class Job;
+namespace KIO
+{
+class Job;
 }
 
 class KioLogFileReaderPrivate;
@@ -37,33 +38,33 @@ class KioLogFileReaderPrivate;
 /**
  * TODO Inherits from LogFileReader
  */
-class KioLogFileReader : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		
-		KioLogFileReader(const LogFile& logFile);
-		
-		virtual ~KioLogFileReader();
-		
-		void open();
-		void close();
+class KioLogFileReader : public QObject
+{
+    Q_OBJECT
 
-	signals:
-		void lineRead(const QString&);
+public:
+    KioLogFileReader(const LogFile &logFile);
 
-	private slots:
-		void openDone(KIO::Job* job);
-		void closeDone(KIO::Job* job);
-		void dataReceived(KIO::Job* job, const QByteArray& data);
-		void mimetypeReceived(KIO::Job* job, const QString& type);
-		
-		void watchFile(const QString& path);
-	private:
-		void emitCompleteLines();
-		
-		KioLogFileReaderPrivate* const d;
+    virtual ~KioLogFileReader();
+
+    void open();
+    void close();
+
+signals:
+    void lineRead(const QString &);
+
+private slots:
+    void openDone(KIO::Job *job);
+    void closeDone(KIO::Job *job);
+    void dataReceived(KIO::Job *job, const QByteArray &data);
+    void mimetypeReceived(KIO::Job *job, const QString &type);
+
+    void watchFile(const QString &path);
+
+private:
+    void emitCompleteLines();
+
+    KioLogFileReaderPrivate *const d;
 };
 
 #endif // _KIO_LOG_FILE_READER_H_

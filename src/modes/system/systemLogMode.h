@@ -37,20 +37,18 @@
 #include "logFile.h"
 #include "logMode.h"
 
-class SystemLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class SystemLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit SystemLogMode();
+    explicit SystemLogMode();
 
-	~SystemLogMode();
+    ~SystemLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _SYSTEM_LOG_MODE_H_
-

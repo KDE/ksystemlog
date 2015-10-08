@@ -22,47 +22,41 @@
 #ifndef _POSTFIX_ANALYZER_H_
 #define _POSTFIX_ANALYZER_H_
 
-#include <klocale.h>
-
 #include "syslogAnalyzer.h"
 
 #include "logMode.h"
 #include "logging.h"
 
-class PostfixAnalyzer : public SyslogAnalyzer {
-	
-	Q_OBJECT
-	
-	public:
+class PostfixAnalyzer : public SyslogAnalyzer
+{
+    Q_OBJECT
 
-		PostfixAnalyzer(LogMode* logMode) :
-			SyslogAnalyzer(logMode) {
+public:
+    PostfixAnalyzer(LogMode *logMode)
+        : SyslogAnalyzer(logMode)
+    {
+    }
 
-		}
+    virtual ~PostfixAnalyzer() {}
 
-		virtual ~PostfixAnalyzer() {
-			
-		}
+    /*
+     * Just a test of multilines log lines (and it works well !)
+     */
+    /*
+    LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
+        LogLine* syslogLine = SyslogAnalyzer::parseMessage(logLine, originalFile);
 
-		/*
-		 * Just a test of multilines log lines (and it works well !)
-		 */
-		/*
-		LogLine* parseMessage(const QString& logLine, const LogFile& originalFile) {
-			LogLine* syslogLine = SyslogAnalyzer::parseMessage(logLine, originalFile);
-			
-			QStringList items = syslogLine->logItems();
-			QString message = items.takeLast();
-			
-			items.append(message + "\n" + message);
-			
-			logDebug() << "Coucou" << items.at(items.count()-1) << endl;
-			
-			syslogLine->setLogItems(items);
-			return syslogLine;
-		}
-		*/
+        QStringList items = syslogLine->logItems();
+        QString message = items.takeLast();
 
+        items.append(message + "\n" + message);
+
+  logDebug() << "Coucou" << items.at(items.count()-1);
+
+        syslogLine->setLogItems(items);
+        return syslogLine;
+    }
+    */
 };
 
 #endif

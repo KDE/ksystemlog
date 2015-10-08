@@ -28,24 +28,23 @@
 class LogViewWidgetItem;
 class LogLine;
 
-class LogModeItemBuilder {
+class LogModeItemBuilder
+{
+public:
+    LogModeItemBuilder();
 
-	public:
-		LogModeItemBuilder();
-		
-		virtual ~LogModeItemBuilder();
-		
-		virtual void prepareItem(LogViewWidgetItem* item) const;
+    virtual ~LogModeItemBuilder();
 
-		virtual QString createFormattedText(LogLine* line) const;
-		virtual QString createToolTipText(LogLine* line) const;
+    virtual void prepareItem(LogViewWidgetItem *item) const;
 
-	protected:
-		QString labelMessageFormat(const QString& label, const QString& value) const;
-		QString messageFormat(const QString& message) const;
-		
-		QString formatDate(const QDateTime& dateTime) const;
+    virtual QString createFormattedText(LogLine *line) const;
+    virtual QString createToolTipText(LogLine *line) const;
 
+protected:
+    QString labelMessageFormat(const QString &label, const QString &value) const;
+    QString messageFormat(const QString &message) const;
+
+    virtual QString formatDate(const QDateTime &dateTime) const;
 };
 
 #endif // _LOG_MODE_ITEM_BUILDER_H_

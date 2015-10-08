@@ -22,9 +22,7 @@
 #ifndef LOG_VIEW_WIDGET_ITEM_H
 #define LOG_VIEW_WIDGET_ITEM_H
 
-
 #include <QTreeWidgetItem>
-
 
 #include "globals.h"
 
@@ -34,24 +32,22 @@ class LogViewWidget;
 
 class LogLine;
 
-class LogViewWidgetItem: public QTreeWidgetItem {
-	
-	public:
-		LogViewWidgetItem(LogViewWidget* logViewWidget, LogLine* line);
+class LogViewWidgetItem : public QTreeWidgetItem
+{
+public:
+    LogViewWidgetItem(LogViewWidget *logViewWidget, LogLine *line);
 
-		~LogViewWidgetItem();
-		
-		bool operator<(const QTreeWidgetItem & other) const;
+    ~LogViewWidgetItem();
 
-		LogLine* logLine() const;
-		
-		void toggleToolTip(bool displayed);
+    bool operator<(const QTreeWidgetItem &other) const;
 
-		
-	private:
-		//TODO Move this log line to QTreeWidgetItem::data() method 
-		LogLine* line;
+    LogLine *logLine() const;
 
+    void toggleToolTip(bool displayed);
+
+private:
+    // TODO Move this log line to QTreeWidgetItem::data() method
+    LogLine *line;
 };
 
 #endif // LOG_VIEW_WIDGET_ITEM_H

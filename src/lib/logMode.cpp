@@ -22,61 +22,89 @@
 #include "logMode.h"
 
 #include <QAction>
+#include <QFileInfo>
 
 #include <kiconloader.h>
 
 #include "multipleActions.h"
 #include "logModeItemBuilder.h"
 
-LogMode::LogMode(const QString& id, const QString& name, const QString& iconName) :
-	d(new LogModePrivate()) {
-	
-	d->id = id;
-	d->name = name;
-	d->icon = SmallIcon(iconName);
+LogMode::LogMode(const QString &id, const QString &name, const QString &iconName)
+    : d(new LogModePrivate())
+{
+    d->id = id;
+    d->name = name;
+    d->icon = SmallIcon(iconName);
+    d->logFilesExist = true;
 }
 
-LogMode::~LogMode() {
-	delete d->action;
-	
-	delete d->itemBuilder;
-	
-	delete d;
+LogMode::~LogMode()
+{
+    if (d->action)
+        delete d->action;
+
+    if (d->itemBuilder)
+        delete d->itemBuilder;
+
+    delete d;
 }
 
-QString LogMode::id() const {
-	return d->id;
+QString LogMode::id() const
+{
+    return d->id;
 }
 
-QString LogMode::name() const {
-	return d->name;
+QString LogMode::name() const
+{
+    return d->name;
 }
 
-QPixmap LogMode::icon() const {
-	return d->icon;
+QPixmap LogMode::icon() const
+{
+    return d->icon;
 }
 
-QAction* LogMode::action() const {
-	return d->action;
+QAction *LogMode::action() const
+{
+    return d->action;
 }
 
-LogModeItemBuilder* LogMode::itemBuilder() const {
-	return d->itemBuilder;
+LogModeItemBuilder *LogMode::itemBuilder() const
+{
+    return d->itemBuilder;
 }
 
-LogModeConfigurationWidget* LogMode::logModeConfigurationWidget() const {
-	return d->logModeConfigurationWidget;
+bool LogMode::filesExist() const
+{
+    return d->logFilesExist;
 }
 
-LogModeConfiguration* LogMode::innerConfiguration() const {
-	return d->logModeConfiguration;
+LogModeConfigurationWidget *LogMode::logModeConfigurationWidget() const
+{
+    return d->logModeConfigurationWidget;
 }
 
-QAction* LogMode::createDefaultAction() {
-	QAction* action = new QAction(d->icon, d->name, this);
-	action->setData(QVariant(d->id));
-	
-	return action;
+LogModeConfiguration *LogMode::innerConfiguration() const
+{
+    return d->logModeConfiguration.data();
 }
 
-#include "logMode.moc"
+QAction *LogMode::createDefaultAction()
+{
+    QAction *action = new QAction(d->icon, d->name, this);
+    ActionData data;
+    data.id = d->id;
+    action->setData(QVariant::fromValue(data));
+
+    return action;
+}
+
+void LogMode::checkLogFilesPresence(const QStringList &paths)
+{
+    d->logFilesExist = false;
+    for (const QString &path : paths) {
+        QFileInfo fileInfo(path);
+        if (fileInfo.exists())
+            d->logFilesExist = true;
+    }
+}

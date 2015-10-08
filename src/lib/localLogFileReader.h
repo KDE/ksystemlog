@@ -29,40 +29,37 @@
 
 #include "logFileReader.h"
 
-
 class LocalLogFileReaderPrivate;
 
-class LocalLogFileReader : public LogFileReader {
-	
-	Q_OBJECT
-	
-	public:
-		
-		LocalLogFileReader(const LogFile& logFile);
-		
-		virtual ~LocalLogFileReader();
+class LocalLogFileReader : public LogFileReader
+{
+    Q_OBJECT
 
-		void watchFile(bool enable);
-		
-		void setPreviousFilePosition(long previousFilePosition);
+public:
+    LocalLogFileReader(const LogFile &logFile);
 
-	private slots:
-		void logFileModified();
-		
-	private:
-		void init();
-		
-		QIODevice* open();
-		void close(QIODevice* inputDevice);
-		
-		QStringList readContent(QIODevice* inputDevice);
-		
-	protected:
-		LocalLogFileReader(LocalLogFileReaderPrivate& dd, const LogFile& logFile);
+    virtual ~LocalLogFileReader();
 
-	private:
-		Q_DECLARE_PRIVATE(LocalLogFileReader)
-		
+    void watchFile(bool enable);
+
+    void setPreviousFilePosition(long previousFilePosition);
+
+private slots:
+    void logFileModified();
+
+private:
+    void init();
+
+    QIODevice *open();
+    void close(QIODevice *inputDevice);
+
+    QStringList readContent(QIODevice *inputDevice);
+
+protected:
+    LocalLogFileReader(LocalLogFileReaderPrivate &dd, const LogFile &logFile);
+
+private:
+    Q_DECLARE_PRIVATE(LocalLogFileReader)
 };
 
 #endif // _LOCAL_LOG_FILE_READER_H_

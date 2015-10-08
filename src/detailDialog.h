@@ -28,32 +28,31 @@ class LogViewWidget;
 
 #include "ui_detailDialogBase.h"
 
-class DetailDialog : public QDialog, public Ui::DetailDialogBase {
+class DetailDialog : public QDialog, public Ui::DetailDialogBase
+{
+    Q_OBJECT
 
-	Q_OBJECT
-	
-	public:
-		explicit DetailDialog(QWidget *parent);
-		
-		~DetailDialog();
-		
-	public slots:
-		void selectionChanged(LogViewWidget* logViewWidget);
-		
-	private slots:
-		void previousItem();
-		void nextItem();
-		
-	private:
-		void updateDetails();
-		
-		/**
-		 * Method that replaces the bugged itemAbove() and itemBelow() methods
-		 */
-		void moveToItem(int direction);
-	
-		LogViewWidget* logViewWidget;
+public:
+    explicit DetailDialog(QWidget *parent);
 
+    ~DetailDialog();
+
+public slots:
+    void selectionChanged(LogViewWidget *logViewWidget);
+
+private slots:
+    void previousItem();
+    void nextItem();
+
+private:
+    void updateDetails();
+
+    /**
+     * Method that replaces the bugged itemAbove() and itemBelow() methods
+     */
+    void moveToItem(int direction);
+
+    LogViewWidget *logViewWidget;
 };
 
 #endif //_DETAIL_DIALOG_H_

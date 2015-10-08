@@ -32,7 +32,6 @@
  */
 #define APACHE_ACCESS_MODE_ICON "network-server"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class ApacheConfiguration;
 class ApacheConfigurationWidget;
 
-class ApacheAccessLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class ApacheAccessLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit ApacheAccessLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget);
+    explicit ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
+                                 ApacheConfigurationWidget *apacheConfigurationWidget);
 
-	~ApacheAccessLogMode();
+    ~ApacheAccessLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _APACHE_ACCESS_LOG_MODE_H_
-

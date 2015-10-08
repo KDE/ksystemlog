@@ -26,16 +26,14 @@
 
 #include "logModeFactory.h"
 
-class SambaLogModeFactory : public LogModeFactory {
-	
-	Q_OBJECT
-	
-	public:
+class SambaLogModeFactory : public LogModeFactory
+{
+    Q_OBJECT
 
-		QList<LogMode*> createLogModes() const;
+public:
+    QList<LogMode *> createLogModes() const;
 
-		LogModeAction* createLogModeAction() const;
+    LogModeAction *createLogModeAction() const;
 };
 
 #endif // _SAMBA_LOG_MODE_FACTORY_H_
-

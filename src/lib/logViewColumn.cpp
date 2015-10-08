@@ -19,72 +19,74 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-
 #include "logViewColumn.h"
-
 
 #include <QString>
 #include <QDataStream>
 
-
-#include <kurl.h>
-#include <kvbox.h>
 #include <kiconloader.h>
 
-class LogViewColumnPrivate {
+class LogViewColumnPrivate
+{
 public:
-	QString columnName;
-	
-	bool filtered;
-	bool grouped;
+    QString columnName;
 
+    bool filtered;
+    bool grouped;
 };
 
-LogViewColumn::LogViewColumn(const QString& name, bool filtered, bool grouped) :
-	d(new LogViewColumnPrivate()) {
-	
-	d->columnName = name;
-	d->filtered = filtered;
-	d->grouped = grouped;
+LogViewColumn::LogViewColumn(const QString &name, bool filtered, bool grouped)
+    : d(new LogViewColumnPrivate())
+{
+    d->columnName = name;
+    d->filtered = filtered;
+    d->grouped = grouped;
 }
 
-LogViewColumn::LogViewColumn(const LogViewColumn& column) :
-	d(new LogViewColumnPrivate()) {
-	
-	d->columnName = column.columnName();
-	d->filtered = column.isFiltered();
-	d->grouped = column.isGrouped();
+LogViewColumn::LogViewColumn(const LogViewColumn &column)
+    : d(new LogViewColumnPrivate())
+{
+    d->columnName = column.columnName();
+    d->filtered = column.isFiltered();
+    d->grouped = column.isGrouped();
 }
 
-LogViewColumn::~LogViewColumn() {
-	delete d;
+LogViewColumn::~LogViewColumn()
+{
+    delete d;
 }
 
-QString LogViewColumn::columnName() const {
-	return d->columnName;
+QString LogViewColumn::columnName() const
+{
+    return d->columnName;
 }
 
-bool LogViewColumn::isGrouped() const {
-	return d->grouped;
+bool LogViewColumn::isGrouped() const
+{
+    return d->grouped;
 }
-bool LogViewColumn::isFiltered() const {
-	return d->filtered;
-}
-
-LogViewColumn& LogViewColumn::operator=(const LogViewColumn& column) {
-	d->columnName = column.columnName();
-	d->grouped = column.isGrouped();
-	d->filtered = column.isFiltered();
-	
-	return *this;
+bool LogViewColumn::isFiltered() const
+{
+    return d->filtered;
 }
 
-QDataStream& operator<< (QDataStream& out, const LogViewColumn& column) {
-	out << column.columnName();
-	return out;
+LogViewColumn &LogViewColumn::operator=(const LogViewColumn &column)
+{
+    d->columnName = column.columnName();
+    d->grouped = column.isGrouped();
+    d->filtered = column.isFiltered();
+
+    return *this;
 }
 
-QDebug& operator<< (QDebug& out, const LogViewColumn& column) {
-	out << column.columnName();
-	return out;
+QDataStream &operator<<(QDataStream &out, const LogViewColumn &column)
+{
+    out << column.columnName();
+    return out;
+}
+
+QDebug &operator<<(QDebug &out, const LogViewColumn &column)
+{
+    out << column.columnName();
+    return out;
 }

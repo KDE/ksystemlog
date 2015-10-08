@@ -28,34 +28,32 @@
 
 class LogViewWidget;
 
-class LogViewExport : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogViewExport(QWidget* parent, LogViewWidget* logViewWidget);
+class LogViewExport : public QObject
+{
+    Q_OBJECT
 
-		virtual ~LogViewExport();
+public:
+    LogViewExport(QWidget *parent, LogViewWidget *logViewWidget);
 
-		void copyToClipboard();
+    virtual ~LogViewExport();
 
-		void fileSave();
-		
-		void sendMail();
-		
-		void printSelection();
-		
-	signals:
-		void statusBarChanged(const QString& message);
+    void copyToClipboard();
 
-	private:
-		
-		void printPageNumber(QPainter& painter, QRect& printView, int movement, int page);
+    void fileSave();
 
-		QWidget* parent;
-		
-		LogViewWidget* logViewWidget;
+    void sendMail();
+
+    void printSelection();
+
+signals:
+    void statusBarChanged(const QString &message);
+
+private:
+    void printPageNumber(QPainter &painter, QRect &printView, int movement, int page);
+
+    QWidget *parent;
+
+    LogViewWidget *logViewWidget;
 };
-
 
 #endif //_LOG_VIEW_EXPORT_H_

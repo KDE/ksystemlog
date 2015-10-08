@@ -29,17 +29,14 @@
 class LogModeAction;
 class LogMode;
 
-class CronLogModeFactory : public LogModeFactory {
-	
-	Q_OBJECT
-	
-	public:
+class CronLogModeFactory : public LogModeFactory
+{
+    Q_OBJECT
 
-		QList<LogMode*> createLogModes() const;
+public:
+    QList<LogMode *> createLogModes() const;
 
-		LogModeAction* createLogModeAction() const;
-
+    LogModeAction *createLogModeAction() const;
 };
 
 #endif // _CRON_FACTORY_H_
-

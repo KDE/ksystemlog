@@ -25,7 +25,7 @@
 #include <QList>
 #include <QMap>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "defaults.h"
 #include "logLevel.h"
@@ -38,188 +38,262 @@
 #include "logModeConfiguration.h"
 #include "logModeConfigurationWidget.h"
 
-Globals* Globals::self = NULL;
+#include "logging.h"
 
-Globals* Globals::instance() {
-	if (Globals::self == NULL) {
-		Globals::self = new Globals();
-	}
-
-	return Globals::self;
+Globals &Globals::instance()
+{
+    static Globals self;
+    return self;
 }
 
-class GlobalsPrivate {
+class GlobalsPrivate
+{
 public:
+    /**
+     * Existing Log modes.
+     */
+    QMap<QString, LogMode *> logModes;
 
-	/**
-	 * Existing Log modes.
-	 */
-	QMap<QString, LogMode*> logModes;
+    QList<LogModeAction *> logModeActions;
 
-	QList<LogModeAction*> logModeActions;
+    QMetaEnum logLevelsMetaEnum;
 
-	/*
-	LogMode* noMode;
-	*/
+    /**
+     * Existing Log levels. The id value corresponds to the index in the vector
+     */
+    QList<LogLevel *> logLevels;
 
-	/**
-	 * Existing Log levels. The id value corresponds to the index in the vector
-	 */
-	QList<LogLevel*> logLevels;
+    QList<LogModeFactory *> factories;
 
-	/**
-	 * These value are only pointers to item of the previous vector,
-	 * they are provided for convenience
-	 */
-	LogLevel* noLogLevel;
-	LogLevel* debugLogLevel;
-	LogLevel* informationLogLevel;
-	LogLevel* noticeLogLevel;
-	LogLevel* warningLogLevel;
-	LogLevel* errorLogLevel;
-	LogLevel* criticalLogLevel;
-	LogLevel* alertLogLevel;
-	LogLevel* emergencyLogLevel;
-
+    /**
+     * These value are only pointers to item of the previous vector,
+     * they are provided for convenience
+     */
+    LogLevel *noLogLevel;
+    LogLevel *debugLogLevel;
+    LogLevel *informationLogLevel;
+    LogLevel *noticeLogLevel;
+    LogLevel *warningLogLevel;
+    LogLevel *errorLogLevel;
+    LogLevel *criticalLogLevel;
+    LogLevel *alertLogLevel;
+    LogLevel *emergencyLogLevel;
 };
 
-Globals::Globals() :
-	d(new GlobalsPrivate()) {
-
-	setupLogLevels();
-
+Globals::Globals()
+    : d(new GlobalsPrivate())
+{
+    setupLogLevels();
 }
 
-Globals::~Globals() {
+Globals::~Globals()
+{
+    foreach (LogModeAction *logModeAction, d->logModeActions) {
+        delete logModeAction;
+    }
+    d->logModeActions.clear();
 
-	foreach(LogMode* logMode, d->logModes) {
-		delete logMode;
-	}
-	d->logModes.clear();
+    foreach (LogMode *logMode, d->logModes) {
+        delete logMode;
+    }
+    d->logModes.clear();
 
-	foreach(LogModeAction* logModeAction, d->logModeActions) {
-		delete logModeAction;
-	}
-	d->logModeActions.clear();
+    foreach (LogLevel *logLevel, d->logLevels) {
+        delete logLevel;
+    }
+    d->logLevels.clear();
 
-	foreach(LogLevel* logLevel, d->logLevels) {
-		delete logLevel;
-	}
-	d->logLevels.clear();
+    foreach (LogModeFactory *factory, d->factories) {
+        delete factory;
+    }
+    d->factories.clear();
 
-	delete d;
-
+    delete d;
 }
 
-/*
-void Globals::setupLogModes() {
-	d->noMode=new LogMode("noLogMode", i18n("No Log"), NO_MODE_ICON);
-	d->logModes.append(d->noMode);
-
-	d->sambaMode=new LogMode("sambaLogMode", i18n("Samba Log"), SAMBA_MODE_ICON);
-	d->logModes.append(d->sambaMode);
-
-	d->cupsMode=new LogMode("cupsLogMode", i18n("CUPS Log"), CUPS_MODE_ICON);
-	d->logModes.append(d->cupsMode);
-
-	d->cupsAccessMode=new LogMode("cupsAccessLogMode", i18n("CUPS Access Log"), CUPS_ACCESS_MODE_ICON);
-	d->logModes.append(d->cupsAccessMode);
-
-	d->postfixMode=new LogMode("postfixLogMode", i18n("Postfix Log"), POSTFIX_MODE_ICON);
-	d->logModes.append(d->postfixMode);
-
-}
-*/
-
-void Globals::setupLogLevels() {
-	d->noLogLevel=new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QLatin1String( "help-contents" ), QColor(208, 210, 220));
-	d->logLevels.append(d->noLogLevel);
-
-	d->debugLogLevel=new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QLatin1String( "attach" ), QColor(156, 157, 165));
-	d->logLevels.append(d->debugLogLevel);
-
-	d->informationLogLevel=new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QLatin1String( "dialog-information" ), QColor(36, 49, 103) /*QColor(0, 0, 0)*/);
-	d->logLevels.append(d->informationLogLevel);
-
-	d->noticeLogLevel=new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QLatin1String( "book2" ), QColor(36, 138, 22));
-	d->logLevels.append(d->noticeLogLevel);
-
-	d->warningLogLevel=new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QLatin1String( "dialog-warning" ), QColor(238, 144, 21));
-	d->logLevels.append(d->warningLogLevel);
-
-	d->errorLogLevel=new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QLatin1String( "dialog-close" ), QColor(173, 28, 28));
-	d->logLevels.append(d->errorLogLevel);
-
-	d->criticalLogLevel=new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QLatin1String( "exec" ), QColor(214, 26, 26));
-	d->logLevels.append(d->criticalLogLevel);
-
-	d->alertLogLevel=new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QLatin1String( "bell" ), QColor(214, 0, 0));
-	d->logLevels.append(d->alertLogLevel);
-
-	d->emergencyLogLevel=new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"), QLatin1String( "application-exit" ), QColor(255, 0, 0));
-	d->logLevels.append(d->emergencyLogLevel);
-
+QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTime) const
+{
+    switch (format) {
+    case LongFormat:
+    case ShortFormat:
+        return QLocale().toString(dateTime, (QLocale::FormatType)format);
+        break;
+    case PreciseFormat:
+        return dateTime.toString("dd.MM.yyyy hh:mm:ss:zzz");
+        break;
+    default:
+        break;
+    }
+    return QLocale().toString(dateTime, QLocale::ShortFormat);
 }
 
+void Globals::setupLogLevels()
+{
+    int index = metaObject()->indexOfEnumerator("LogLevelIds");
+    d->logLevelsMetaEnum = metaObject()->enumerator(index);
 
-QList<LogMode*> Globals::logModes() {
-	return d->logModes.values();
-}
+    d->noLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QLatin1String("help-contents"),
+                                 QColor(208, 210, 220));
+    d->logLevels.append(d->noLogLevel);
 
-QList<LogLevel*> Globals::logLevels() {
-	return d->logLevels;
-}
+    d->debugLogLevel
+        = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QLatin1String("attach"), QColor(156, 157, 165));
+    d->logLevels.append(d->debugLogLevel);
 
+    d->informationLogLevel
+        = new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QLatin1String("dialog-information"),
+                       QColor(36, 49, 103) /*QColor(0, 0, 0)*/);
+    d->logLevels.append(d->informationLogLevel);
 
-LogLevel* Globals::noLogLevel() {
-	return d->noLogLevel;
-}
-LogLevel* Globals::debugLogLevel() {
-	return d->debugLogLevel;
-}
-LogLevel* Globals::informationLogLevel() {
-	return d->informationLogLevel;
-}
-LogLevel* Globals::noticeLogLevel() {
-	return d->noticeLogLevel;
-}
-LogLevel* Globals::warningLogLevel() {
-	return d->warningLogLevel;
-}
-LogLevel* Globals::errorLogLevel() {
-	return d->errorLogLevel;
-}
-LogLevel* Globals::criticalLogLevel() {
-	return d->criticalLogLevel;
-}
-LogLevel* Globals::alertLogLevel() {
-	return d->alertLogLevel;
-}
-LogLevel* Globals::emergencyLogLevel() {
-	return d->emergencyLogLevel;
-}
+    d->noticeLogLevel
+        = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QLatin1String("book2"), QColor(36, 138, 22));
+    d->logLevels.append(d->noticeLogLevel);
 
-void Globals::registerLogModeFactory(LogModeFactory* logModeFactory) {
-	QList<LogMode*> logModes = logModeFactory->createLogModes();
+    d->warningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QLatin1String("dialog-warning"),
+                                      QColor(238, 144, 21));
+    d->logLevels.append(d->warningLogLevel);
 
-	foreach (LogMode* logMode, logModes) {
-		//Log mode
-		d->logModes.insert(logMode->id(), logMode);
-	}
+    d->errorLogLevel
+        = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QLatin1String("dialog-close"), QColor(173, 28, 28));
+    d->logLevels.append(d->errorLogLevel);
 
-	//Log mode Actions
-	LogModeAction* logModeAction = logModeFactory->createLogModeAction();
-	if (logModeAction != NULL) {
-		d->logModeActions.append(logModeAction);
-	}
+    d->criticalLogLevel
+        = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QLatin1String("exec"), QColor(214, 26, 26));
+    d->logLevels.append(d->criticalLogLevel);
 
-	delete logModeFactory;
+    d->alertLogLevel
+        = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QLatin1String("bell"), QColor(214, 0, 0));
+    d->logLevels.append(d->alertLogLevel);
+
+    d->emergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"),
+                                        QLatin1String("application-exit"), QColor(255, 0, 0));
+    d->logLevels.append(d->emergencyLogLevel);
 }
 
-LogMode* Globals::findLogMode(const QString& logModeName) {
-	return d->logModes.value(logModeName);
+QList<LogMode *> Globals::logModes()
+{
+    return d->logModes.values();
 }
 
-QList<LogModeAction*> Globals::logModeActions() {
-	return d->logModeActions;
+QList<LogLevel *> Globals::logLevels()
+{
+    return d->logLevels;
+}
+
+LogLevel *Globals::noLogLevel()
+{
+    return d->noLogLevel;
+}
+LogLevel *Globals::debugLogLevel()
+{
+    return d->debugLogLevel;
+}
+LogLevel *Globals::informationLogLevel()
+{
+    return d->informationLogLevel;
+}
+LogLevel *Globals::noticeLogLevel()
+{
+    return d->noticeLogLevel;
+}
+LogLevel *Globals::warningLogLevel()
+{
+    return d->warningLogLevel;
+}
+LogLevel *Globals::errorLogLevel()
+{
+    return d->errorLogLevel;
+}
+LogLevel *Globals::criticalLogLevel()
+{
+    return d->criticalLogLevel;
+}
+LogLevel *Globals::alertLogLevel()
+{
+    return d->alertLogLevel;
+}
+LogLevel *Globals::emergencyLogLevel()
+{
+    return d->emergencyLogLevel;
+}
+
+LogLevel *Globals::logLevelByPriority(int id)
+{
+    switch (id) {
+    case 0:
+        return emergencyLogLevel();
+        break;
+    case 1:
+        return alertLogLevel();
+        break;
+    case 2:
+        return criticalLogLevel();
+        break;
+    case 3:
+        return errorLogLevel();
+        break;
+    case 4:
+        return warningLogLevel();
+        break;
+    case 5:
+        return noticeLogLevel();
+        break;
+    case 6:
+        return informationLogLevel();
+        break;
+    case 7:
+        return debugLogLevel();
+        break;
+    }
+    return noLogLevel();
+}
+
+QMetaEnum &Globals::logLevelsMetaEnum() const
+{
+    return d->logLevelsMetaEnum;
+}
+
+void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)
+{
+    QList<LogMode *> logModes = logModeFactory->createLogModes();
+
+    foreach (LogMode *logMode, logModes) {
+        // Log mode
+        d->logModes.insert(logMode->id(), logMode);
+    }
+
+    // Log mode Actions
+    LogModeAction *logModeAction = logModeFactory->createLogModeAction();
+    if (logModeAction != NULL) {
+        d->logModeActions.append(logModeAction);
+    }
+
+    d->factories.append(logModeFactory);
+}
+
+LogMode *Globals::findLogMode(const QString &logModeName)
+{
+    return d->logModes.value(logModeName);
+}
+
+void Globals::recreateLogModeActions()
+{
+    // Delete existing log mode actions.
+    foreach (LogModeAction *logModeAction, d->logModeActions) {
+        delete logModeAction;
+    }
+    d->logModeActions.clear();
+
+    // Create new log mode action for each log mode.
+    foreach (LogModeFactory *factory, d->factories) {
+        LogModeAction *logModeAction = factory->createLogModeAction();
+        if (logModeAction != NULL) {
+            d->logModeActions.append(logModeAction);
+        }
+    }
+}
+
+QList<LogModeAction *> Globals::logModeActions()
+{
+    return d->logModeActions;
 }

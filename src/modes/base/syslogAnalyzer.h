@@ -24,7 +24,7 @@
 
 #include <QString>
 
-#include "analyzer.h"
+#include "fileAnalyzer.h"
 
 #include "logFile.h"
 
@@ -33,26 +33,26 @@ class LogFileReader;
 class LogMode;
 class LogLine;
 
-class SyslogAnalyzer : public Analyzer {
-	
-	Q_OBJECT
-	
-	public:
-		explicit SyslogAnalyzer(LogMode* logMode);
-		
-		virtual ~SyslogAnalyzer();
-		
-		virtual LogViewColumns initColumns();
-		
-	protected:
-		virtual LogFileReader* createLogFileReader(const LogFile& logFile);
-		virtual Analyzer::LogFileSortMode logFileSortMode();
-		virtual LogLine* parseMessage(const QString& logLine, const LogFile& originalFile);
-		
-	private:
-		inline QString undefinedHostName();
-		inline QString undefinedProcess();
-		inline LogLine* undefinedLogLine(const QString& message, const LogFile& originalFile);
+class SyslogAnalyzer : public FileAnalyzer
+{
+    Q_OBJECT
+
+public:
+    explicit SyslogAnalyzer(LogMode *logMode);
+
+    virtual ~SyslogAnalyzer();
+
+    virtual LogViewColumns initColumns();
+
+protected:
+    virtual LogFileReader *createLogFileReader(const LogFile &logFile);
+    virtual Analyzer::LogFileSortMode logFileSortMode();
+    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile);
+
+private:
+    inline QString undefinedHostName();
+    inline QString undefinedProcess();
+    inline LogLine *undefinedLogLine(const QString &message, const LogFile &originalFile);
 };
 
 #endif // _SYSLOG_ANALYZER_H_

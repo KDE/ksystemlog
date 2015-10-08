@@ -21,8 +21,7 @@
 
 #include "apacheFactory.h"
 
-
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "multipleActions.h"
 #include "logMode.h"
@@ -34,29 +33,40 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
-QList<LogMode*> ApacheLogModeFactory::createLogModes() const {
+QList<LogMode *> ApacheLogModeFactory::createLogModes() const
+{
+    // Create the shared configuration and configuration widget between the logModes
 
-	//Create the shared configuration and configuration widget between the logModes
+    QSharedPointer<ApacheConfiguration> logModeConfiguration = QSharedPointer<ApacheConfiguration>(new ApacheConfiguration());
+    ApacheConfigurationWidget *logModeConfigurationWidget = new ApacheConfigurationWidget();
 
-	ApacheConfiguration* logModeConfiguration = new ApacheConfiguration();
-	ApacheConfigurationWidget* logModeConfigurationWidget = new ApacheConfigurationWidget();
+    QList<LogMode *> logModes;
+    logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
+    logModes.append(new ApacheAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
 
-	QList<LogMode*> logModes;
-	logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
-	logModes.append(new ApacheAccessLogMode(logModeConfiguration, logModeConfigurationWidget));
-
-	return logModes;
+    return logModes;
 }
 
-LogModeAction* ApacheLogModeFactory::createLogModeAction() const {
-	LogMode* apacheLogMode = Globals::instance()->findLogMode(QLatin1String( APACHE_LOG_MODE_ID ));
+LogModeAction *ApacheLogModeFactory::createLogModeAction() const
+{
+    LogMode *apacheLogMode = Globals::instance().findLogMode(QLatin1String(APACHE_LOG_MODE_ID));
+    LogMode *apacheAccessLogMode = Globals::instance().findLogMode(QLatin1String(APACHE_ACCESS_LOG_MODE_ID));
 
-	MultipleActions* multipleActions = new MultipleActions(KIcon( QLatin1String(APACHE_MODE_ICON) ), i18n("Apache"), apacheLogMode);
-	multipleActions->addInnerAction(apacheLogMode->action());
-	multipleActions->addInnerAction(Globals::instance()->findLogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ))->action());
+    bool apacheLogsExist = apacheLogMode->filesExist();
+    bool apacheAccessLogsExist = apacheAccessLogMode->filesExist();
 
-	multipleActions->setInToolBar(false);
-	multipleActions->setCategory(LogModeAction::ServicesCategory);
+    if (!apacheLogsExist && !apacheAccessLogsExist)
+        return nullptr;
 
-	return multipleActions;
+    MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QLatin1String(APACHE_MODE_ICON)),
+                                                           i18n("Apache"), apacheLogMode);
+    if (apacheLogsExist)
+        multipleActions->addInnerAction(apacheLogMode->action());
+
+    if (apacheAccessLogsExist)
+        multipleActions->addInnerAction(apacheAccessLogMode->action());
+
+    multipleActions->setCategory(LogModeAction::ServicesCategory);
+
+    return multipleActions;
 }

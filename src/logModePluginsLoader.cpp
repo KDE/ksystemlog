@@ -26,7 +26,7 @@
 #include "logging.h"
 #include "defaults.h"
 
-//Includes existing log modes
+// Includes existing log modes
 #include "openFactory.h"
 
 #include "systemFactory.h"
@@ -42,55 +42,58 @@
 #include "acpidFactory.h"
 #include "xsessionFactory.h"
 #include "sambaFactory.h"
+#include "journaldFactory.h"
 
-
-LogModePluginsLoader::LogModePluginsLoader(QWidget* parent) :
-	parent(parent) {
-
+LogModePluginsLoader::LogModePluginsLoader(QWidget *parent)
+    : parent(parent)
+{
 }
 
-LogModePluginsLoader::~LogModePluginsLoader() {
-
+LogModePluginsLoader::~LogModePluginsLoader()
+{
 }
 
-void LogModePluginsLoader::loadPlugins() {
-	//Open Log mode needs the current window to display error messages and open dialogs
-	Globals::instance()->registerLogModeFactory(new OpenLogModeFactory(parent));
-	
-	//System
-	Globals::instance()->registerLogModeFactory(new SystemLogModeFactory());
-	
-	//Kernel
-	Globals::instance()->registerLogModeFactory(new KernelLogModeFactory());
-	
-	//Authentication
-	Globals::instance()->registerLogModeFactory(new AuthenticationLogModeFactory());
-	
-	//Daemon
-	Globals::instance()->registerLogModeFactory(new DaemonLogModeFactory());
-	
-	//Xorg
-	Globals::instance()->registerLogModeFactory(new XorgLogModeFactory());
-	
-	//Cron
-	Globals::instance()->registerLogModeFactory(new CronLogModeFactory());
-	
-	//Apache
-	Globals::instance()->registerLogModeFactory(new ApacheLogModeFactory());
-	
-	//Postfix
-	Globals::instance()->registerLogModeFactory(new PostfixLogModeFactory());
-	
-	//Cups
-	Globals::instance()->registerLogModeFactory(new CupsLogModeFactory());
-	
-	//Samba
-	Globals::instance()->registerLogModeFactory(new SambaLogModeFactory());
-	
-	//Acpid
-	Globals::instance()->registerLogModeFactory(new AcpidLogModeFactory());
-	
-	//XSession
-	Globals::instance()->registerLogModeFactory(new XSessionLogModeFactory());
+void LogModePluginsLoader::loadPlugins()
+{
+    // Open Log mode needs the current window to display error messages and open dialogs
+    Globals::instance().registerLogModeFactory(new OpenLogModeFactory(parent));
 
+    // System
+    Globals::instance().registerLogModeFactory(new SystemLogModeFactory());
+
+    // Kernel
+    Globals::instance().registerLogModeFactory(new KernelLogModeFactory());
+
+    // Authentication
+    Globals::instance().registerLogModeFactory(new AuthenticationLogModeFactory());
+
+    // Daemon
+    Globals::instance().registerLogModeFactory(new DaemonLogModeFactory());
+
+    // Xorg
+    Globals::instance().registerLogModeFactory(new XorgLogModeFactory());
+
+    // Cron
+    Globals::instance().registerLogModeFactory(new CronLogModeFactory());
+
+    // Apache
+    Globals::instance().registerLogModeFactory(new ApacheLogModeFactory());
+
+    // Postfix
+    Globals::instance().registerLogModeFactory(new PostfixLogModeFactory());
+
+    // Cups
+    Globals::instance().registerLogModeFactory(new CupsLogModeFactory());
+
+    // Samba
+    Globals::instance().registerLogModeFactory(new SambaLogModeFactory());
+
+    // Acpid
+    Globals::instance().registerLogModeFactory(new AcpidLogModeFactory());
+
+    // XSession
+    Globals::instance().registerLogModeFactory(new XSessionLogModeFactory());
+
+    // Journald
+    Globals::instance().registerLogModeFactory(new JournaldModeFactory());
 }

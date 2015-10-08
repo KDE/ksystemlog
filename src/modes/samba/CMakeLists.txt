@@ -20,7 +20,7 @@ set(ksystemlog_samba_sources
 	
 )
 
-kde4_add_library(ksystemlog_samba STATIC ${ksystemlog_samba_sources})
+add_library(ksystemlog_samba STATIC ${ksystemlog_samba_sources})
 
 add_dependencies(
 	ksystemlog_samba
@@ -30,7 +30,7 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_samba
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode
 	ksystemlog_config

@@ -25,7 +25,7 @@
 #include <QHBoxLayout>
 #include <QGroupBox>
 
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kurlrequester.h>
 
 #include "globals.h"
@@ -39,77 +39,101 @@
 
 #include "logModeConfigurationWidget.h"
 
+class AuthenticationConfigurationWidget : public LogModeConfigurationWidget
+{
+    Q_OBJECT
 
-class AuthenticationConfigurationWidget : public LogModeConfigurationWidget {
+public:
+    AuthenticationConfigurationWidget()
+        : LogModeConfigurationWidget(i18n("Authentication Log"), QLatin1String(AUTHENTICATION_MODE_ICON),
+                                     i18n("Authentication Log"))
+    {
+        QVBoxLayout *layout = new QVBoxLayout();
+        this->setLayout(layout);
 
-	Q_OBJECT
+        warningBox = new KMessageWidget(this);
+        warningBox->setVisible(false);
+        warningBox->setMessageType(KMessageWidget::Warning);
+        warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
+        warningBox->setCloseButtonVisible(false);
+        warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
 
-	public:
-		AuthenticationConfigurationWidget() :
-			LogModeConfigurationWidget(i18n("Authentication Log"),QLatin1String(  AUTHENTICATION_MODE_ICON ), i18n("Authentication Log"))
-			{
+        // Authentication log file
+        QGroupBox *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
+        QVBoxLayout *authenticationLayout = new QVBoxLayout();
+        QHBoxLayout *filePathLayout = new QHBoxLayout();
+        authenticationBox->setLayout(authenticationLayout);
 
-			QVBoxLayout* layout = new QVBoxLayout();
-			this->setLayout(layout);
+        authenticationLayout->addWidget(warningBox);
+        authenticationLayout->addLayout(filePathLayout);
 
-			//Authentication log file
-			QGroupBox* authenticationBox=new QGroupBox(i18n("Authentication Log File"));
-			QHBoxLayout* authenticationLayout = new QHBoxLayout();
-			authenticationBox->setLayout(authenticationLayout);
+        layout->addWidget(authenticationBox);
 
-			layout->addWidget(authenticationBox);
+        filePathLayout->addWidget(new QLabel(i18n("Authentication log file:")));
 
-			authenticationLayout->addWidget(new QLabel(i18n("Authentication log file:")));
+        authenticationUrlRequester = new KUrlRequester(authenticationBox);
+        authenticationUrlRequester->setMode(KFile::File);
 
-			authenticationUrlRequester=new KUrlRequester(authenticationBox);
-			authenticationUrlRequester->setMode(KFile::File);
+        authenticationUrlRequester->setToolTip(
+            i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
+        authenticationUrlRequester->setWhatsThis(i18n(
+            "You can type or choose here the authentication log file. This file will be analyzed when you "
+            "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
+        filePathLayout->addWidget(authenticationUrlRequester);
 
-			authenticationUrlRequester->setToolTip(i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
-			authenticationUrlRequester->setWhatsThis(i18n("You can type or choose here the authentication log file. This file will be analyzed when you select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
-			authenticationLayout->addWidget(authenticationUrlRequester);
+        connect(authenticationUrlRequester, SIGNAL(textChanged(const QString &)), this,
+                SIGNAL(configurationChanged()));
 
-			connect(authenticationUrlRequester, SIGNAL(textChanged(const QString&)), this, SIGNAL(configurationChanged()));
+        layout->addStretch();
+    }
 
-			layout->addStretch();
+    ~AuthenticationConfigurationWidget() {}
 
-		}
+public slots:
 
-		~AuthenticationConfigurationWidget() {
+    void saveConfig()
+    {
+        AuthenticationConfiguration *authenticationConfiguration
+            = Globals::instance()
+                  .findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
+                  ->logModeConfiguration<AuthenticationConfiguration *>();
 
-		}
+        authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().path());
+    }
 
-	public slots:
+    void readConfig()
+    {
+        AuthenticationConfiguration *authenticationConfiguration
+            = Globals::instance()
+                  .findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID))
+                  ->logModeConfiguration<AuthenticationConfiguration *>();
 
-		void saveConfig() {
-			AuthenticationConfiguration* authenticationConfiguration = Globals::instance()->findLogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ))->logModeConfiguration<AuthenticationConfiguration*>();
+        QString path = authenticationConfiguration->authenticationPath();
+        QFileInfo fileInfo(path);
+        warningBox->setVisible(!fileInfo.exists());
 
-			authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().path());
-		}
+        authenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
+    }
 
-		void readConfig() {
-			AuthenticationConfiguration* authenticationConfiguration = Globals::instance()->findLogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ))->logModeConfiguration<AuthenticationConfiguration*>();
+    void defaultConfig()
+    {
+        // TODO Find a way to read the configuration per default
+        readConfig();
+    }
 
-			authenticationUrlRequester->setUrl(KUrl(authenticationConfiguration->authenticationPath()));
-		}
+protected:
+    bool isValid() const
+    {
+        if (authenticationUrlRequester->url().path().isEmpty() == false) {
+            return true;
+        }
 
-		void defaultConfig() {
-			//TODO Find a way to read the configuration per default
-			readConfig();
-		}
+        return false;
+    }
 
-	protected:
-		bool isValid() const {
-			if (authenticationUrlRequester->url().path().isEmpty()==false) {
-				return true;
-			}
-
-			return false;
-
-		}
-
-	private:
-		KUrlRequester* authenticationUrlRequester;
-
+private:
+    KUrlRequester *authenticationUrlRequester;
+    KMessageWidget *warningBox;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H_

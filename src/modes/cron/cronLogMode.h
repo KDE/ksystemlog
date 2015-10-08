@@ -37,20 +37,18 @@
 #include "logFile.h"
 #include "logMode.h"
 
-class CronLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class CronLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit CronLogMode();
+    explicit CronLogMode();
 
-	~CronLogMode();
+    ~CronLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _CRON_LOG_MODE_H_
-

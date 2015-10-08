@@ -19,74 +19,89 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include <kapplication.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <klocale.h>
-#include <kurl.h>
+#include <QApplication>
+#include <QCommandLineParser>
+
+#include <KAboutData>
+#include <KLocalizedString>
 
 #include "mainWindow.h"
 #include "logging.h"
 
-int main(int argc, char** argv) {
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog", QtWarningMsg)
 
-	KAboutData about(
-			"ksystemlog",
-			0,
-			ki18n("KSystemlog"),
-			"0.4",
-			ki18n("System Logs Viewer for KDE"),
-			KAboutData::License_GPL_V2,
-			ki18n("(C) 2007, Nicolas Ternisien"),
-			ki18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
-			"http://ksystemlog.forum-software.org",
-			"nicolas.ternisien@gmail.com"
-	);
+int main(int argc, char **argv)
+{
+    // Enable debug output:
+    // QLoggingCategory::setFilterRules(QStringLiteral("ksystemlog.debug = true"));
 
-	about.addAuthor(
-			ki18n("Nicolas Ternisien"),
-			ki18n("Main developer"),
-			"nicolas.ternisien@gmail.com",
-			"http://www.forum-software.org"
-	);
+    QApplication app(argc, argv);
 
-	about.setProgramIconName(QLatin1String( "utilities-log-viewer" ));
-	about.addCredit(ki18n("Bojan Djurkovic"), ki18n("Log Printing"), "dbojan@gmail.com");
+    KLocalizedString::setApplicationDomain("ksystemlog");
 
-	KCmdLineArgs::init(argc, argv, &about);
+    KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral("0.4"),
+                     i18n("System Logs Viewer for KDE"), KAboutLicense::GPL_V2,
+                     i18n("(C) 2007-2015, Nicolas Ternisien"),
+                     i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
+                          "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
+                     QStringLiteral("https://www.kde.org/applications/system/ksystemlog/"), QString());
 
-	KCmdLineOptions options;
-	options.add("+[URL]", ki18n("Document to open"));
+    about.setOrganizationDomain("kde.org");
 
-	KCmdLineArgs::addCmdLineOptions( options );
+    about.addAuthor(i18n("Nicolas Ternisien"), i18n("Main developer"),
+                    QStringLiteral("nicolas.ternisien@gmail.com"),
+                    QStringLiteral("http://www.forum-software.org"));
+    about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"),
+                    QStringLiteral("v.matyushin@gmail.com"));
+    about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));
 
-	KApplication app;
+    KAboutData::setApplicationData(about);
 
-	//See if we are starting with session management
-	if (app.isSessionRestored()) {
-		RESTORE(KSystemLog::MainWindow);
-	}
-	else {
-		//No session... Just start up normally
-		KCmdLineArgs* args=KCmdLineArgs::parsedArgs();
-		if (args->count()==0) {
-			new KSystemLog::MainWindow();
-		}
-		else {
-			/*KSystemLog::MainWindow* mainWindow;*/
-			new KSystemLog::MainWindow();
-			for (int i = 0; i < args->count(); i++) {
-				logDebug() << "Loading file " << args->url(i) << endl;
-				//TODO Implement this kind of loading
-				//LogManager* firstLogManager = d->tabs->createTab();
-				//d->tabs->load(Globals::instance()->findLogMode("openLogMode"), firstLogManager);
-				//Open log mode need to automatically find the passed url : args->url(i)
+    app.setApplicationName(about.componentName());
+    app.setApplicationDisplayName(about.displayName());
+    app.setOrganizationDomain(about.organizationDomain());
+    app.setApplicationVersion(about.version());
 
-			}
-		}
+    QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String("utilities-log-viewer")));
 
-		args->clear();
-	}
+    QCommandLineParser parser;
+    about.setupCommandLine(&parser);
+    parser.setApplicationDescription(about.shortDescription());
+    parser.addHelpOption();
+    parser.addVersionOption();
 
-	return app.exec();
+    // url to open
+    parser.addPositionalArgument(QStringLiteral("URL"), i18n("Document to open."));
+
+    // do the command line parsing
+    parser.process(app);
+
+    // handle standard options
+    about.processCommandLine(&parser);
+
+    // See if we are starting with session management
+    if (app.isSessionRestored()) {
+        RESTORE(KSystemLog::MainWindow);
+    } else {
+        // No session... Just start up normally
+
+        const QStringList args = parser.positionalArguments();
+
+        if (args.count() == 0) {
+            new KSystemLog::MainWindow();
+        } else {
+            // KSystemLog::MainWindow* mainWindow;
+            new KSystemLog::MainWindow();
+            for (int i = 0; i < args.count(); i++) {
+                logDebug() << "Loading file " << args.at(i);
+
+                // TODO Implement this kind of loading
+                // LogManager* firstLogManager = d->tabs->createTab();
+                // d->tabs->load(Globals::instance().findLogMode("openLogMode"), firstLogManager);
+                // Open log mode need to automatically find the passed url : args->url(i)
+            }
+        }
+    }
+
+    return app.exec();
 }

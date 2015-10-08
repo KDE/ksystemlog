@@ -30,7 +30,7 @@
 /**
  * Acpid Log Icon
  */
-#define ACPID_MODE_ICON "battery"
+#define ACPID_MODE_ICON "preferences-system-power-management"
 
 #include <QList>
 
@@ -38,20 +38,18 @@
 
 #include "logMode.h"
 
-class AcpidLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class AcpidLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit AcpidLogMode();
+    explicit AcpidLogMode();
 
-	~AcpidLogMode();
+    ~AcpidLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _ACPID_LOG_MODE_H_
-

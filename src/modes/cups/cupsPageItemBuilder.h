@@ -26,7 +26,7 @@
 
 #include "logModeItemBuilder.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -34,38 +34,34 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class CupsPageItemBuilder : public LogModeItemBuilder {
+class CupsPageItemBuilder : public LogModeItemBuilder
+{
+public:
+    CupsPageItemBuilder() {}
 
-	public:
-		CupsPageItemBuilder() {
+    virtual ~CupsPageItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~CupsPageItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Printer:"), it.next()));
+        result.append(labelMessageFormat(i18n("Username:"), it.next()));
+        result.append(labelMessageFormat(i18n("Job Id:"), it.next()));
+        result.append(labelMessageFormat(i18n("Page Number:"), it.next()));
+        result.append(labelMessageFormat(i18n("Num Copies:"), it.next()));
+        result.append(labelMessageFormat(i18n("Job Billing:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Printer:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Username:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Job Id:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Page Number:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Num Copies:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Job Billing:"), it.next() ));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
+        return result;
+    }
 };
 
 #endif // _CUPS_PAGE_ITEM_BUILDER_H_

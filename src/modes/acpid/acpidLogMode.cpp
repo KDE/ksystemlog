@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,30 +33,37 @@
 #include "acpidConfigurationWidget.h"
 #include "acpidConfiguration.h"
 
-AcpidLogMode::AcpidLogMode() :
-	LogMode(QLatin1String( ACPID_LOG_MODE_ID ), i18n("ACPI Log"),QLatin1String( ACPID_MODE_ICON )) {
+AcpidLogMode::AcpidLogMode()
+    : LogMode(QLatin1String(ACPID_LOG_MODE_ID), i18n("ACPI Log"), QLatin1String(ACPID_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<AcpidConfiguration>(new AcpidConfiguration());
 
-	d->logModeConfiguration = new AcpidConfiguration();
+    d->logModeConfigurationWidget = new AcpidConfigurationWidget();
 
-	d->logModeConfigurationWidget = new AcpidConfigurationWidget();
+    d->itemBuilder = new AcpidItemBuilder();
 
-	d->itemBuilder = new AcpidItemBuilder();
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the ACPI log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
+        "computer, like notebook batteries, reset buttons..."));
 
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the ACPI log."));
-	d->action->setWhatsThis(i18n("Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your computer, like notebook batteries, reset buttons..."));
-
+    AcpidConfiguration *configuration = logModeConfiguration<AcpidConfiguration *>();
+    checkLogFilesPresence(configuration->acpidPaths());
 }
 
-AcpidLogMode::~AcpidLogMode() {
-
+AcpidLogMode::~AcpidLogMode()
+{
 }
 
-Analyzer* AcpidLogMode::createAnalyzer() {
-	return new AcpidAnalyzer(this);
+Analyzer *AcpidLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new AcpidAnalyzer(this);
 }
 
-QList<LogFile> AcpidLogMode::createLogFiles() {
-	AcpidConfiguration* configuration = logModeConfiguration<AcpidConfiguration*>();
-	return configuration->findNoModeLogFiles(configuration->acpidPaths());
+QList<LogFile> AcpidLogMode::createLogFiles()
+{
+    AcpidConfiguration *configuration = logModeConfiguration<AcpidConfiguration *>();
+    return configuration->findNoModeLogFiles(configuration->acpidPaths());
 }

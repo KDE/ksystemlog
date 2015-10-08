@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,33 +33,43 @@
 #include "xsessionConfigurationWidget.h"
 #include "xsessionConfiguration.h"
 
-XSessionLogMode::XSessionLogMode() :
-    LogMode(QLatin1String( X_SESSION_LOG_MODE_ID ), i18n("X Session Log"), QLatin1String( X_SESSION_MODE_ICON )) {
+XSessionLogMode::XSessionLogMode()
+    : LogMode(QLatin1String(X_SESSION_LOG_MODE_ID), i18n("X Session Log"), QLatin1String(X_SESSION_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<XSessionConfiguration>(new XSessionConfiguration());
 
-	d->logModeConfiguration = new XSessionConfiguration();
+    d->logModeConfigurationWidget = new XSessionConfigurationWidget();
 
-	d->logModeConfigurationWidget = new XSessionConfigurationWidget();
+    d->itemBuilder = new XSessionItemBuilder();
 
-	d->itemBuilder = new XSessionItemBuilder();
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the X Session log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the X Session log in the current tab. X Session log is the place where graphical programs "
+        "write their output. See this log if you want to know why a program has crashed, or why your display "
+        "manager (KDE, Gnome,...) has not started."));
 
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the X Session log."));
-	d->action->setWhatsThis(i18n("Displays the X Session log in the current tab. X Session log is the place where graphical programs write their output. See this log if you want to know why a program has crashed, or why your display manager (KDE, Gnome,...) has not started."));
-
+    XSessionConfiguration *configuration = logModeConfiguration<XSessionConfiguration *>();
+    checkLogFilesPresence(QStringList() << configuration->xsessionPath());
 }
 
-XSessionLogMode::~XSessionLogMode() {
-
+XSessionLogMode::~XSessionLogMode()
+{
 }
 
-Analyzer* XSessionLogMode::createAnalyzer() {
-	return new XSessionAnalyzer(this);
+Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new XSessionAnalyzer(this);
 }
 
-QList<LogFile> XSessionLogMode::createLogFiles() {
-	XSessionConfiguration* configuration = Globals::instance()->findLogMode(QLatin1String( X_SESSION_LOG_MODE_ID ))->logModeConfiguration<XSessionConfiguration*>();
+QList<LogFile> XSessionLogMode::createLogFiles()
+{
+    XSessionConfiguration *configuration = Globals::instance()
+                                               .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                               ->logModeConfiguration<XSessionConfiguration *>();
 
-	QList<LogFile> logFiles;
-	logFiles.append(configuration->findGenericLogFile(configuration->xsessionPath()));
-	return logFiles;
+    QList<LogFile> logFiles;
+    logFiles.append(configuration->findGenericLogFile(configuration->xsessionPath()));
+    return logFiles;
 }

@@ -32,7 +32,6 @@
  */
 #define CUPS_PAGE_MODE_ICON "document-new"
 
-
 #include <QList>
 
 #include "logFile.h"
@@ -42,20 +41,19 @@
 class CupsConfiguration;
 class CupsConfigurationWidget;
 
-class CupsPageLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class CupsPageLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit CupsPageLogMode(CupsConfiguration* cupsConfiguration, CupsConfigurationWidget* cupsConfigurationWidget);
+    explicit CupsPageLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
+                             CupsConfigurationWidget *cupsConfigurationWidget);
 
-	~CupsPageLogMode();
+    ~CupsPageLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _CUPS_PAGE_LOG_MODE_H_
-

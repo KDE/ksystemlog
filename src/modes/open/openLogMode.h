@@ -32,9 +32,7 @@
  */
 #define OPEN_MODE_ICON "document-open"
 
-
 #include <QList>
-
 
 #include "logFile.h"
 
@@ -42,22 +40,21 @@
 
 class QWidget;
 
-class OpenLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class OpenLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit OpenLogMode(QWidget* parent);
+    explicit OpenLogMode(QWidget *parent);
 
-	~OpenLogMode();
+    ~OpenLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
+    QList<LogFile> createLogFiles();
 
 private:
-	QWidget* parent;
+    QWidget *parent;
 };
 
 #endif // _OPEN_LOG_MODE_H_
-

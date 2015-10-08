@@ -22,7 +22,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-//Qt includes
+// Qt includes
 #include <QWidget>
 
 #include "globals.h"
@@ -33,7 +33,6 @@
 class QDropEvent;
 class QDragEnterEvent;
 
-
 class LoadingBar;
 
 class LogViewWidget;
@@ -41,52 +40,50 @@ class LogViewSearchWidget;
 
 class ViewPrivate;
 
-class View : public QWidget {
-	
-	Q_OBJECT
+class View : public QWidget
+{
+    Q_OBJECT
 
-	public:
-		explicit View(QWidget *parent);
-	
-		virtual ~View();
-		
-		LogViewWidget* logViewWidget() const;
+public:
+    explicit View(QWidget *parent);
 
-		LoadingBar* loadingBar() const;
-		
-		LogViewSearchWidget* logViewSearch() const;
+    virtual ~View();
 
-		QSize sizeHint() const;
-		
-	public slots:
-		void displayLoadingBar(bool display);
-		
-		void toggleLogViewFilter(bool display);
-		void toggleLogViewSearch(bool display);
+    LogViewWidget *logViewWidget() const;
 
-	protected:
-		/**
-		 * Method which contains the action to do when receiving a drag and drop event
-		 */
-		void dragEnterEvent(QDragEnterEvent* event);
-		
-		/**
-		 * Method which accepts 
-		 */
-		void dropEvent(QDropEvent *event);
-		
-	private slots:
-		void unselectHiddenItems();
-		
-	signals:
-		void searchFilterChanged();
-		
-		void droppedUrls(const KUrl::List& urls);
-		
-	private:
-		ViewPrivate* const d;
-	
+    LoadingBar *loadingBar() const;
+
+    LogViewSearchWidget *logViewSearch() const;
+
+    QSize sizeHint() const;
+
+public slots:
+    void displayLoadingBar(bool display);
+
+    void toggleLogViewFilter(bool display);
+    void toggleLogViewSearch(bool display);
+
+protected:
+    /**
+     * Method which contains the action to do when receiving a drag and drop event
+     */
+    void dragEnterEvent(QDragEnterEvent *event);
+
+    /**
+     * Method which accepts
+     */
+    void dropEvent(QDropEvent *event);
+
+private slots:
+    void unselectHiddenItems();
+
+signals:
+    void searchFilterChanged();
+
+    void droppedUrls(const QList<QUrl> &urls);
+
+private:
+    ViewPrivate *const d;
 };
 
 #endif // VIEW_H
-

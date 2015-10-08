@@ -21,9 +21,7 @@
 
 #include "tabLogManager.h"
 
-
-
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -33,55 +31,58 @@
 #include "defaults.h"
 #include "logManager.h"
 
-class TabLogManagerPrivate {
+class TabLogManagerPrivate
+{
 public:
-	LogManager* logManager;
-	int newLinesCount;
-	
+    LogManager *logManager;
+    int newLinesCount;
 };
 
-TabLogManager::TabLogManager(LogManager* logManager) :
-	d(new TabLogManagerPrivate()) {
+TabLogManager::TabLogManager(LogManager *logManager)
+    : d(new TabLogManagerPrivate())
+{
+    d->logManager = logManager;
 
-	d->logManager = logManager;
-	
-	d->newLinesCount = 0;
+    d->newLinesCount = 0;
 }
 
-TabLogManager::~TabLogManager() {
+TabLogManager::~TabLogManager()
+{
+    delete d->logManager->usedView();
 
-	delete d->logManager->usedView();
+    delete d->logManager;
 
-	delete d->logManager;
-	
-	delete d;
+    delete d;
 }
 
-
-LogManager* TabLogManager::logManager() {
-	return d->logManager;
+LogManager *TabLogManager::logManager()
+{
+    return d->logManager;
 }
 
-void TabLogManager::addNewLinesCount(int newLines) {
-	d->newLinesCount += newLines;
+void TabLogManager::addNewLinesCount(int newLines)
+{
+    d->newLinesCount += newLines;
 }
 
-void TabLogManager::initNewLinesCount() {
-	d->newLinesCount = 0;
+void TabLogManager::initNewLinesCount()
+{
+    d->newLinesCount = 0;
 }
 
-QString TabLogManager::title() {
-	if (d->newLinesCount == 0)
-		return logModeName();
-	else
-		return i18nc("Log mode name (added lines count)", "%1 (%2)", d->logManager->logMode()->name(), d->newLinesCount);
+QString TabLogManager::title()
+{
+    if (d->newLinesCount == 0)
+        return logModeName();
+    else
+        return i18nc("Log mode name (added lines count)", "%1 (%2)", d->logManager->title(),
+                     d->newLinesCount);
 }
 
-QString TabLogManager::logModeName() {
-	if (d->logManager->logMode() == NULL)
-		return i18nc("Newly created tab", "Empty Log");
-	else 
-		return d->logManager->logMode()->name();
+QString TabLogManager::logModeName()
+{
+    if (d->logManager->logMode() == NULL)
+        return i18nc("Newly created tab", "Empty Log");
+    else
+        return d->logManager->title();
 }
-
-#include "tabLogManager.moc"

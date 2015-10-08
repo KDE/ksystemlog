@@ -25,30 +25,28 @@
 
 #include "logging.h"
 
-LogFileReader::LogFileReader(const LogFile& logFile) :
-	d_ptr(new LogFileReaderPrivate) {
-	
-	Q_D(LogFileReader);
-	d->logFile = logFile;
-
+LogFileReader::LogFileReader(const LogFile &logFile)
+    : d_ptr(new LogFileReaderPrivate)
+{
+    Q_D(LogFileReader);
+    d->logFile = logFile;
 }
 
-LogFileReader::LogFileReader(LogFileReaderPrivate& dd, const LogFile& logFile) : 
-	d_ptr(&dd) {
-	
-	Q_D(LogFileReader);
-	d->logFile = logFile;
-
+LogFileReader::LogFileReader(LogFileReaderPrivate &dd, const LogFile &logFile)
+    : d_ptr(&dd)
+{
+    Q_D(LogFileReader);
+    d->logFile = logFile;
 }
- 
-LogFileReader::~LogFileReader() {
+
+LogFileReader::~LogFileReader()
+{
     delete d_ptr;
 }
 
-LogFile LogFileReader::logFile() const {
-	//const LogFileReaderPrivate * const d = d_func();
-	Q_D(const LogFileReader);
-	return d->logFile;
+LogFile LogFileReader::logFile() const
+{
+    // const LogFileReaderPrivate * const d = d_func();
+    Q_D(const LogFileReader);
+    return d->logFile;
 }
-
-#include "logFileReader.moc"

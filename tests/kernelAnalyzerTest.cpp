@@ -22,10 +22,8 @@
 #include <QList>
 #include <QStringList>
 #include <QThread>
+#include <QTest>
 
-#include <qtest_kde.h>
-
-#include <kurl.h>
 #include <kdirwatch.h>
 
 #include "testUtil.h"
@@ -45,134 +43,118 @@
 #include "kernelAnalyzer.h"
 #include "localLogFileReader.h"
 
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
+
 /**
  * Reimplements the Kernel Analyzer using a Local File Reader
  */
-class KernelAnalyzerLocalReader : public KernelAnalyzer {
-	public:
-	
-	KernelAnalyzerLocalReader(LogMode* logMode) :
-		KernelAnalyzer(logMode) {
+class KernelAnalyzerLocalReader : public KernelAnalyzer
+{
+public:
+    KernelAnalyzerLocalReader(LogMode *logMode)
+        : KernelAnalyzer(logMode)
+    {
+    }
 
-	}
+    virtual ~KernelAnalyzerLocalReader() {}
 
-	virtual ~KernelAnalyzerLocalReader() {
+    QDateTime findStartupTime() { return startupDateTime; }
 
-	}
-
-	QDateTime findStartupTime() {
-		return startupDateTime;
-	}
-	
-	protected:
-		LogFileReader* createLogFileReader(const LogFile& logFile) {
-			return new LocalLogFileReader(logFile);
-		}
-	
+protected:
+    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
 };
 
+class KernelAnalyzerTest : public QObject
+{
+    Q_OBJECT
 
-class KernelAnalyzerTest : public QObject {
-
-	Q_OBJECT
-	
 private slots:
-	
-	void initTestCase();
-	
-	void testUbuntuDmesg();
-	void testSuseDmesg();
+
+    void initTestCase();
+
+    void testUbuntuDmesg();
+    void testSuseDmesg();
 
 private:
-	void compareWithMinTime(QList<LogLine*> lines, const QDateTime& minTime);
-	
-private:
-	TestUtil testUtil;
+    void compareWithMinTime(QList<LogLine *> lines, const QDateTime &minTime);
 
+private:
+    TestUtil testUtil;
 };
 
-void KernelAnalyzerTest::initTestCase() {
-	testUtil.registerLogModeFactories();
+void KernelAnalyzerTest::initTestCase()
+{
+    testUtil.registerLogModeFactories();
 }
 
-void KernelAnalyzerTest::testUbuntuDmesg() {
+void KernelAnalyzerTest::testUbuntuDmesg()
+{
+    // Specifical configuration
+    KSystemLogConfig::setMaxLines(1000);
+    KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-	//Specifical configuration
-	KSystemLogConfig::setMaxLines(1000);
-	KSystemLogConfig::setDeleteDuplicatedLines(false);
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
+    KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
+    LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String("kernelLogMode"));
-	KernelAnalyzerLocalReader* kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
-	LogViewModel* model = testUtil.defineLogViewModel(kernelAnalyzer);
-	
-	QVERIFY(kernelAnalyzer);
-	QVERIFY(model);
+    QVERIFY(kernelAnalyzer);
+    QVERIFY(model);
 
-	QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/ubuntu.dmesg"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/ubuntu.dmesg"));
 
-	kernelAnalyzer->setLogFiles(logFiles);
+    kernelAnalyzer->setLogFiles(logFiles);
 
-	kernelAnalyzer->watchLogFiles(true);
+    kernelAnalyzer->watchLogFiles(true);
 
-	QCOMPARE(model->itemCount(), 25);
-	QCOMPARE(model->isEmpty(), false);
+    QCOMPARE(model->itemCount(), 25);
+    QCOMPARE(model->isEmpty(), false);
 
-	QList<LogLine*> logLines = model->logLines();
+    QList<LogLine *> logLines = model->logLines();
 
-	QStringList items = QStringList() << QLatin1String("ADDRCONF(NETDEV_UP)") << QLatin1String("eth0: link is not ready");
-	QDateTime assertedDateTime = kernelAnalyzer->findStartupTime();
-	assertedDateTime = assertedDateTime.addSecs(22);
-	assertedDateTime = assertedDateTime.addMSecs(232);
+    QStringList items = QStringList() << QLatin1String("ADDRCONF(NETDEV_UP)")
+                                      << QLatin1String("eth0: link is not ready");
+    QDateTime assertedDateTime = kernelAnalyzer->findStartupTime();
+    assertedDateTime = assertedDateTime.addSecs(22);
+    assertedDateTime = assertedDateTime.addMSecs(232);
 
-	testUtil.testLine(
-			logLines.at(0), 
-			logFiles.at(0).url().path(), 
-			Globals::instance()->informationLogLevel(), 
-			assertedDateTime, 
-			items
-	);
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
+                      assertedDateTime, items);
 
-	testUtil.destroyReader(kernelAnalyzer);
+    testUtil.destroyReader(kernelAnalyzer);
 }
 
-void KernelAnalyzerTest::testSuseDmesg() {
+void KernelAnalyzerTest::testSuseDmesg()
+{
+    // Specifical configuration
+    KSystemLogConfig::setMaxLines(1000);
+    KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-	//Specifical configuration
-	KSystemLogConfig::setMaxLines(1000);
-	KSystemLogConfig::setDeleteDuplicatedLines(false);
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
+    KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
+    LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String("kernelLogMode"));
-	KernelAnalyzerLocalReader* kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
-	LogViewModel* model = testUtil.defineLogViewModel(kernelAnalyzer);
-	
-	QVERIFY(kernelAnalyzer);
-	QVERIFY(model);
+    QVERIFY(kernelAnalyzer);
+    QVERIFY(model);
 
-	QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/suse.dmesg"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/suse.dmesg"));
 
-	kernelAnalyzer->setLogFiles(logFiles);
+    kernelAnalyzer->setLogFiles(logFiles);
 
-	kernelAnalyzer->watchLogFiles(true);
+    kernelAnalyzer->watchLogFiles(true);
 
-	QCOMPARE(model->itemCount(), 23);
-	QCOMPARE(model->isEmpty(), false);
+    QCOMPARE(model->itemCount(), 23);
+    QCOMPARE(model->isEmpty(), false);
 
-	QList<LogLine*> logLines = model->logLines();
+    QList<LogLine *> logLines = model->logLines();
 
-	QStringList items = QStringList() << QLatin1String("r8169") << QLatin1String("eth0: link down");
+    QStringList items = QStringList() << QLatin1String("r8169") << QLatin1String("eth0: link down");
 
-	testUtil.testLine(
-			logLines.at(0), 
-			logFiles.at(0).url().path(), 
-			Globals::instance()->informationLogLevel(), 
-			kernelAnalyzer->findStartupTime(), 
-			items
-	);
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
+                      kernelAnalyzer->findStartupTime(), items);
 
-	testUtil.destroyReader(kernelAnalyzer);
+    testUtil.destroyReader(kernelAnalyzer);
 }
 
-
-QTEST_KDEMAIN(KernelAnalyzerTest, GUI)
+QTEST_MAIN(KernelAnalyzerTest)
 
 #include "kernelAnalyzerTest.moc"

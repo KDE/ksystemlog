@@ -21,36 +21,32 @@
 
 #include "logModeAction.h"
 
-class LogModeActionPrivate {
+class LogModeActionPrivate
+{
 public:
-	bool inToolBar;
-	
-	LogModeAction::Category category;
+    bool inToolBar;
+
+    LogModeAction::Category category;
 };
 
-LogModeAction::LogModeAction() :
-	d(new LogModeActionPrivate()) {
-	
-	d->inToolBar = true;
-	d->category = LogModeAction::RootCategory;
+LogModeAction::LogModeAction()
+    : d(new LogModeActionPrivate())
+{
+    d->inToolBar = true;
+    d->category = LogModeAction::RootCategory;
 }
 
-LogModeAction::~LogModeAction() {
-	delete d;
+LogModeAction::~LogModeAction()
+{
+    delete d;
 }
 
-void LogModeAction::setInToolBar(bool inToolBar) {
-	d->inToolBar = inToolBar;
+void LogModeAction::setCategory(LogModeAction::Category category)
+{
+    d->category = category;
 }
 
-bool LogModeAction::isInToolBar() {
-	return d->inToolBar;
-}
-
-void LogModeAction::setCategory(LogModeAction::Category category) {
-	d->category = category;
-}
-
-LogModeAction::Category LogModeAction::category() {
-	return d->category;
+LogModeAction::Category LogModeAction::category()
+{
+    return d->category;
 }

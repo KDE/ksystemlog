@@ -32,42 +32,36 @@
 
 #include "xorgLogMode.h"
 
-class XorgConfigurationPrivate {
+class XorgConfigurationPrivate
+{
 public:
-	QStringList xorgPaths;
+    QStringList xorgPaths;
 };
 
-class XorgConfiguration : public LogModeConfiguration {
+class XorgConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    XorgConfiguration()
+        : d(new XorgConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("XorgLogMode"));
 
-	public:
-		XorgConfiguration() :
-			d(new XorgConfigurationPrivate()) {
+        QStringList defaultXorgPaths;
+        defaultXorgPaths << QLatin1String("/var/log/Xorg.0.log");
+        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->xorgPaths, defaultXorgPaths,
+                                         QLatin1String("LogFilesPaths"));
+    }
 
-			configuration->setCurrentGroup(QLatin1String( "XorgLogMode" ));
+    virtual ~XorgConfiguration() { delete d; }
 
-			QStringList defaultXorgPaths;
-			defaultXorgPaths << QLatin1String( "/var/log/Xorg.0.log" );
-			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->xorgPaths, defaultXorgPaths, QLatin1String( "LogFilesPaths" ));
+    QStringList xorgPaths() const { return d->xorgPaths; }
 
-		}
+    void setXorgPaths(const QStringList &xorgPaths) { d->xorgPaths = xorgPaths; }
 
-		virtual ~XorgConfiguration() {
-			delete d;
-		}
-
-		QStringList xorgPaths() const {
-			return d->xorgPaths;
-		}
-
-		void setXorgPaths(const QStringList& xorgPaths) {
-			d->xorgPaths = xorgPaths;
-		}
-
-	private:
-		XorgConfigurationPrivate* const d;
-
+private:
+    XorgConfigurationPrivate *const d;
 };
 
 #endif // _XORG_CONFIGURATION_H_

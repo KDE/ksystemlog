@@ -25,103 +25,113 @@
 #include <QList>
 
 #include "logging.h"
-#include <kurl.h>
 
 #include "globals.h"
 #include "logViewColumn.h"
 
-class LogViewColumnsPrivate {
+class LogViewColumnsPrivate
+{
 public:
-
-	QList<LogViewColumn> columns;
-	bool groupByLogLevel;
-	bool groupByDay;
-	bool groupByHour;
-	bool groupByLogFile;
-
+    QList<LogViewColumn> columns;
+    bool groupByLogLevel;
+    bool groupByDay;
+    bool groupByHour;
+    bool groupByLogFile;
 };
 
-LogViewColumns::LogViewColumns() :
-	d(new LogViewColumnsPrivate()) {
-	
-	d->groupByLogLevel = true;
-	d->groupByDay = true;
-	d->groupByHour = true;
-	d->groupByLogFile = true;
-
-
-}
-	
-LogViewColumns::~LogViewColumns() {
-	delete d;
+LogViewColumns::LogViewColumns()
+    : d(new LogViewColumnsPrivate())
+{
+    d->groupByLogLevel = true;
+    d->groupByDay = true;
+    d->groupByHour = true;
+    d->groupByLogFile = true;
 }
 
-void LogViewColumns::setGroupByLogLevel(bool value) {
-	d->groupByLogLevel=value;
+LogViewColumns::~LogViewColumns()
+{
+    delete d;
 }
 
-void LogViewColumns::setGroupByDay(bool value) {
-	d->groupByDay=value;
+void LogViewColumns::setGroupByLogLevel(bool value)
+{
+    d->groupByLogLevel = value;
 }
 
-void LogViewColumns::setGroupByHour(bool value) {
-	d->groupByHour=value;
+void LogViewColumns::setGroupByDay(bool value)
+{
+    d->groupByDay = value;
 }
 
-void LogViewColumns::setGroupByLogFile(bool value) {
-	d->groupByLogFile=value;
+void LogViewColumns::setGroupByHour(bool value)
+{
+    d->groupByHour = value;
 }
 
-
-bool LogViewColumns::isGroupByLogLevel() const {
-	return d->groupByLogLevel;
+void LogViewColumns::setGroupByLogFile(bool value)
+{
+    d->groupByLogFile = value;
 }
 
-bool LogViewColumns::isGroupByDay() const {
-	return d->groupByDay;
+bool LogViewColumns::isGroupByLogLevel() const
+{
+    return d->groupByLogLevel;
 }
 
-bool LogViewColumns::isGroupByHour() const {
-	return d->groupByHour;
+bool LogViewColumns::isGroupByDay() const
+{
+    return d->groupByDay;
 }
 
-bool LogViewColumns::isGroupByLogFile() const {
-	return d->groupByLogFile;
+bool LogViewColumns::isGroupByHour() const
+{
+    return d->groupByHour;
 }
 
-QStringList LogViewColumns::toStringList() const {
-	QStringList columnNames;
-	
-	foreach (const LogViewColumn& column, d->columns) {
-		columnNames.append(column.columnName());
-	}
-		
-	return columnNames;
+bool LogViewColumns::isGroupByLogFile() const
+{
+    return d->groupByLogFile;
 }
 
-void LogViewColumns::addColumn(const LogViewColumn& column) {
-	d->columns.append(column);
+QStringList LogViewColumns::toStringList() const
+{
+    QStringList columnNames;
+
+    foreach (const LogViewColumn &column, d->columns) {
+        columnNames.append(column.columnName());
+    }
+
+    return columnNames;
 }
 
-QList<LogViewColumn> LogViewColumns::columns() const {
-	return d->columns;
+void LogViewColumns::addColumn(const LogViewColumn &column)
+{
+    d->columns.append(column);
 }
 
-LogViewColumns& LogViewColumns::operator=(const LogViewColumns& columns) {
-	d->columns = columns.columns();
-	d->groupByLogLevel = columns.isGroupByLogLevel();
-	d->groupByDay = columns.isGroupByDay();
-	d->groupByHour = columns.isGroupByHour();
-	d->groupByLogFile = columns.isGroupByLogFile();
-
-	return *this;
+QList<LogViewColumn> LogViewColumns::columns() const
+{
+    return d->columns;
 }
 
-QDataStream & operator<< (QDataStream& out, const LogViewColumns& columns) {
-	out << columns.columns();
-	return out;
+LogViewColumns &LogViewColumns::operator=(const LogViewColumns &columns)
+{
+    d->columns = columns.columns();
+    d->groupByLogLevel = columns.isGroupByLogLevel();
+    d->groupByDay = columns.isGroupByDay();
+    d->groupByHour = columns.isGroupByHour();
+    d->groupByLogFile = columns.isGroupByLogFile();
+
+    return *this;
 }
-QDebug & operator<< (QDebug& out, const LogViewColumns& columns) {
-	out << columns.columns();
-	return out;
+
+QDataStream &operator<<(QDataStream &out, const LogViewColumns &columns)
+{
+    out << columns.columns();
+    return out;
+}
+QDebug &operator<<(QDebug &out, const LogViewColumns &columns)
+{
+    out << columns.columns();
+    return out;
 }

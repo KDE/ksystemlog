@@ -39,20 +39,18 @@
 #include "logFile.h"
 #include "logMode.h"
 
-class KernelLogMode : public LogMode {
-	
-	Q_OBJECT
-	
+class KernelLogMode : public LogMode
+{
+    Q_OBJECT
+
 public:
-	explicit KernelLogMode();
+    explicit KernelLogMode();
 
-	~KernelLogMode();
+    ~KernelLogMode();
 
-	Analyzer* createAnalyzer();
+    Analyzer *createAnalyzer(const QVariant &options = QVariant());
 
-	QList<LogFile> createLogFiles();
-
+    QList<LogFile> createLogFiles();
 };
 
 #endif // _KERNEL_LOG_MODE_H_
-

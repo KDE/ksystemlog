@@ -24,7 +24,7 @@
 
 #include <QString>
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -36,58 +36,54 @@
 
 class LogLine;
 
-class XSessionItemBuilder : public LogModeItemBuilder {
+class XSessionItemBuilder : public LogModeItemBuilder
+{
+public:
+    XSessionItemBuilder() {}
 
-	public:
-		XSessionItemBuilder() {
+    virtual ~XSessionItemBuilder() {}
 
-		}
+    void prepareItem(LogViewWidgetItem *item) const
+    {
+        LogLine *line = item->logLine();
 
-		virtual ~XSessionItemBuilder() {
+        item->setText(0, QLatin1String(""));
 
-		}
+        int i = 1;
+        foreach (const QString &label, line->logItems()) {
+            item->setText(i, label);
+            i++;
+        }
 
+        item->setIcon(0, QIcon(line->logLevel()->pixmap()));
+    }
 
-		void prepareItem(LogViewWidgetItem* item) const {
-			LogLine* line=item->logLine();
+    QString createToolTipText(LogLine *line) const
+    {
+        QString result;
 
-			item->setText(0, QLatin1String( "" ));
+        QListIterator<QString> it(line->logItems());
 
-			int i=1;
-			foreach(const QString &label, line->logItems()) {
-				item->setText(i, label);
-				i++;
-			}
+        result.append(QLatin1String("<table>"));
 
-			item->setIcon(0, QIcon(line->logLevel()->pixmap()));
-		}
+        QString type = it.next();
+        if (type.isEmpty())
+            result.append(labelMessageFormat(i18n("Program:"), i18n("none")));
+        else
+            result.append(labelMessageFormat(i18n("Program:"), type));
 
-		QString createToolTipText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
+        return result;
+    }
 
-			QString type=it.next();
-			if (type.isEmpty())
-				result.append(labelMessageFormat(i18n("Program:"), i18n("none")));
-			else
-				result.append(labelMessageFormat(i18n("Program:"), type ));
-
-			result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
-
-
-		QString createFormattedText(LogLine* line) const {
-			//It uses the same formating than the tool tip
-			return createToolTipText(line);
-		}
-
+    QString createFormattedText(LogLine *line) const
+    {
+        // It uses the same formating than the tool tip
+        return createToolTipText(line);
+    }
 };
 
 #endif // _X_SESSION_ITEM_BUILDER_H_

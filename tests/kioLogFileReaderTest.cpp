@@ -20,9 +20,9 @@
  ***************************************************************************/
 
 #include <QList>
+#include <QTest>
 
-#include <qtest_kde.h>
-#include <kurl.h>
+//#include <qtest_kde.h>
 
 #include "logFile.h"
 #include "kioLogFileReader.h"
@@ -31,55 +31,54 @@
 
 #include "logging.h"
 
-class KioLogFileReaderTest: public QObject {
+Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
 
-	Q_OBJECT
+class KioLogFileReaderTest : public QObject
+{
+    Q_OBJECT
 
 private slots:
 
-	void initTestCase();
-	
-	void testKioLogFileReader();
-	
-	void readLine(const QString& line);
+    void initTestCase();
+
+    void testKioLogFileReader();
+
+    void readLine(const QString &line);
 
 private:
-	TestUtil testUtil;
-
+    TestUtil testUtil;
 };
 
-
-void KioLogFileReaderTest::initTestCase() {
-	logDebug() << "Hello" << endl;
+void KioLogFileReaderTest::initTestCase()
+{
+    logDebug() << "Hello" << endl;
 }
 
+void KioLogFileReaderTest::testKioLogFileReader()
+{
+    /*
+    QList<LogFile> logFiles = testUtil.createLogFiles(":/logs/logFileReader/file.txt");
+    LogFile logFile = logFiles.first();
+    */
 
-void KioLogFileReaderTest::testKioLogFileReader() {
-	/*
-	QList<LogFile> logFiles = testUtil.createLogFiles(":/logs/logFileReader/file.txt");
-	LogFile logFile = logFiles.first();
-	*/
-	
-	///home/nicolas/test.txt
-	LogFile logFile(KUrl("http://localhost/test.txt"), Globals::instance()->informationLogLevel());
-	
-	KioLogFileReader* logFileReader = new KioLogFileReader(logFile);
-	
-	logFileReader->open();
-	
+    /// home/nicolas/test.txt
+    LogFile logFile(QUrl::fromLocalFile("http://localhost/test.txt"),
+                    Globals::instance().informationLogLevel());
 
-	connect(logFileReader, SIGNAL(lineRead(QString)), this, SLOT(readLine(QString)));
-	
-	QTest::qWait(100000);
-	
-	
+    KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
 
+    logFileReader->open();
+
+    connect(logFileReader, SIGNAL(lineRead(QString)), this, SLOT(readLine(QString)));
+
+    QTest::qWait(100000);
 }
 
-void KioLogFileReaderTest::readLine(const QString& line) {
-	logDebug() << "Line " << line << endl;
+void KioLogFileReaderTest::readLine(const QString &line)
+{
+    logDebug() << "Line " << line << endl;
 }
 
-QTEST_KDEMAIN(KioLogFileReaderTest, GUI)
+QTEST_MAIN(KioLogFileReaderTest)
 
-#include "logFileReaderTest.moc"
+#include "kioLogFileReaderTest.moc"

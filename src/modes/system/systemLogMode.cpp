@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -35,29 +34,35 @@
 
 #include "logModeItemBuilder.h"
 
-SystemLogMode::SystemLogMode() :
-	LogMode(QLatin1String( SYSTEM_LOG_MODE_ID ), i18n("System Log"),QLatin1String( SYSTEM_MODE_ICON )) {
+SystemLogMode::SystemLogMode()
+    : LogMode(QLatin1String(SYSTEM_LOG_MODE_ID), i18n("System Log"), QLatin1String(SYSTEM_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<SystemConfiguration>(new SystemConfiguration());
 
-	d->logModeConfiguration = new SystemConfiguration();
+    d->logModeConfigurationWidget = new SystemConfigurationWidget();
 
-	d->logModeConfigurationWidget = new SystemConfigurationWidget();
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->itemBuilder = new LogModeItemBuilder();
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the system log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the system log in the current tab. This log is generally used by non-specialized processes "
+        "(like \"sudo\" or \"fsck\" commands)"));
 
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the system log."));
-	d->action->setWhatsThis(i18n("Displays the system log in the current tab. This log is generally used by non-specialized processes (like \"sudo\" or \"fsck\" commands)"));
-
+    checkLogFilesPresence(logModeConfiguration<SystemConfiguration *>()->logFilesPaths());
 }
 
-SystemLogMode::~SystemLogMode() {
-
+SystemLogMode::~SystemLogMode()
+{
 }
 
-Analyzer* SystemLogMode::createAnalyzer() {
-	return new SystemAnalyzer(this);
+Analyzer *SystemLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new SystemAnalyzer(this);
 }
 
-QList<LogFile> SystemLogMode::createLogFiles() {
-	return logModeConfiguration<SystemConfiguration*>()->findGenericLogFiles();
+QList<LogFile> SystemLogMode::createLogFiles()
+{
+    return logModeConfiguration<SystemConfiguration *>()->findGenericLogFiles();
 }

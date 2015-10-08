@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,13 +31,21 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> KernelLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new KernelLogMode());
-	return logModes;
+QList<LogMode *> KernelLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new KernelLogMode());
+    return logModes;
 }
 
-LogModeAction* KernelLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( KERNEL_LOG_MODE_ID ));
-	return new SimpleAction(logMode->action(), logMode);
+LogModeAction *KernelLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(KERNEL_LOG_MODE_ID));
+
+    if (!logMode->filesExist())
+        return nullptr;
+
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+
+    return logModeAction;
 }

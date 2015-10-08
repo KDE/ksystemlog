@@ -21,74 +21,78 @@
 
 #include "logFile.h"
 
-
 #include "logging.h"
 
-class LogFilePrivate {
-	
+class LogFilePrivate
+{
 public:
-	KUrl url;
-	
-	LogLevel* defaultLogLevel;
+    QUrl url;
 
+    LogLevel *defaultLogLevel;
 };
 
-LogFile::LogFile() :
-	d(new LogFilePrivate()) {
-	//Nothing to do
+LogFile::LogFile()
+    : d(new LogFilePrivate())
+{
+    // Nothing to do
 }
 
-LogFile::LogFile(const LogFile& logFile) :
-	QObject(),
-	d(new LogFilePrivate()) {
-
-	d->url = logFile.url();
-	d->defaultLogLevel = logFile.defaultLogLevel();
+LogFile::LogFile(const LogFile &logFile)
+    : QObject()
+    , d(new LogFilePrivate())
+{
+    d->url = logFile.url();
+    d->defaultLogLevel = logFile.defaultLogLevel();
 }
 
-LogFile::LogFile(const KUrl& url, LogLevel* defaultLogLevel) :
-	d(new LogFilePrivate()) {
-
-	d->url = url;
-	d->defaultLogLevel = defaultLogLevel;
+LogFile::LogFile(const QUrl &url, LogLevel *defaultLogLevel)
+    : d(new LogFilePrivate())
+{
+    d->url = url;
+    d->defaultLogLevel = defaultLogLevel;
 }
 
-LogFile::~LogFile() {
-	//defaultLogLevel is managed by Globals
-	
-	delete d;
+LogFile::~LogFile()
+{
+    // defaultLogLevel is managed by Globals
+
+    delete d;
 }
 
-bool LogFile::operator==(const LogFile& other) {
-	if (d->url == other.url() && d->defaultLogLevel == other.defaultLogLevel())
-		return true;
-	
-	return false;
+bool LogFile::operator==(const LogFile &other)
+{
+    if (d->url == other.url() && d->defaultLogLevel == other.defaultLogLevel())
+        return true;
+
+    return false;
 }
 
-LogFile& LogFile::operator=(const LogFile& logFile) {
-	d->url = logFile.url();
-	d->defaultLogLevel = logFile.defaultLogLevel();
-	
-	return *this;
+LogFile &LogFile::operator=(const LogFile &logFile)
+{
+    d->url = logFile.url();
+    d->defaultLogLevel = logFile.defaultLogLevel();
+
+    return *this;
 }
 
-KUrl LogFile::url() const {
-	return d->url;
+QUrl LogFile::url() const
+{
+    return d->url;
 }
 
-LogLevel* LogFile::defaultLogLevel() const {
-	return d->defaultLogLevel;
+LogLevel *LogFile::defaultLogLevel() const
+{
+    return d->defaultLogLevel;
 }
 
-QDataStream& operator<< (QDataStream& out, const LogFile& logFile) {
-	out << logFile.url().path();
-	return out;
+QDataStream &operator<<(QDataStream &out, const LogFile &logFile)
+{
+    out << logFile.url().path();
+    return out;
 }
 
-QDebug& operator<< (QDebug& out, const LogFile& logFile) {
-	out << logFile.url().path();
-	return out;
+QDebug &operator<<(QDebug &out, const LogFile &logFile)
+{
+    out << logFile.url().path();
+    return out;
 }
-
-#include "logFile.moc"

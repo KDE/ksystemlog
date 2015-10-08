@@ -24,14 +24,12 @@
 
 #include "logFile.h"
 
-class LogFileReaderPrivate {
-	
+class LogFileReaderPrivate
+{
 public:
-	virtual ~LogFileReaderPrivate() {
-		
-	}
-	
-	LogFile logFile;
+    virtual ~LogFileReaderPrivate() {}
+
+    LogFile logFile;
 };
 
 #endif // _LOG_FILE_READER_PRIVATE_H_

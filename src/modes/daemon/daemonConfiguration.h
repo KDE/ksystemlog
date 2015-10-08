@@ -31,42 +31,36 @@
 
 #include "ksystemlogConfig.h"
 
-class DaemonConfigurationPrivate {
+class DaemonConfigurationPrivate
+{
 public:
-	QStringList daemonPaths;
+    QStringList daemonPaths;
 };
 
-class DaemonConfiguration : public LogModeConfiguration {
+class DaemonConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    DaemonConfiguration()
+        : d(new DaemonConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("DaemonLogMode"));
 
-	public:
-		DaemonConfiguration() :
-			d(new DaemonConfigurationPrivate()) {
+        QStringList defaultDaemonPaths;
+        defaultDaemonPaths << QLatin1String("/var/log/daemon.log");
+        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->daemonPaths, defaultDaemonPaths,
+                                         QLatin1String("LogFilesPaths"));
+    }
 
-			configuration->setCurrentGroup(QLatin1String( "DaemonLogMode" ));
+    virtual ~DaemonConfiguration() { delete d; }
 
-			QStringList defaultDaemonPaths;
-			defaultDaemonPaths << QLatin1String( "/var/log/daemon.log" );
-			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->daemonPaths, defaultDaemonPaths, QLatin1String( "LogFilesPaths" ));
+    QStringList daemonPaths() const { return d->daemonPaths; }
 
-		}
+    void setDaemonPaths(const QStringList &daemonPaths) { d->daemonPaths = daemonPaths; }
 
-		virtual ~DaemonConfiguration() {
-			delete d;
-		}
-
-		QStringList daemonPaths() const {
-			return d->daemonPaths;
-		}
-
-		void setDaemonPaths(const QStringList& daemonPaths) {
-			d->daemonPaths = daemonPaths;
-		}
-
-	private:
-		DaemonConfigurationPrivate* const d;
-
+private:
+    DaemonConfigurationPrivate *const d;
 };
 
 #endif // _DAEMON_CONFIGURATION_H_

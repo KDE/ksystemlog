@@ -16,7 +16,7 @@ set(ksystemlog_authentication_sources
 	authenticationFactory.cpp
 )
 
-kde4_add_library(ksystemlog_authentication STATIC ${ksystemlog_authentication_sources})
+add_library(ksystemlog_authentication STATIC ${ksystemlog_authentication_sources})
 
 add_dependencies(
 	ksystemlog_authentication
@@ -26,8 +26,10 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_authentication
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode 
 	ksystemlog_config
+
+        KF5::KIOWidgets
 )

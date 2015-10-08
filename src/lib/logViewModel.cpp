@@ -21,7 +21,6 @@
 
 #include "logViewModel.h"
 
-
 #include "view.h"
 #include "logLine.h"
 
@@ -33,223 +32,228 @@
 
 #include "ksystemlogConfig.h"
 
-class LogViewModelPrivate {
+class LogViewModelPrivate
+{
 public:
-	
-	LogViewWidget* logViewWidget;
-	
-	LogViewWidgetItem* oldestItem;
-	
-	int concurrentMultipleInsertions;
+    LogViewWidget *logViewWidget;
 
+    LogViewWidgetItem *oldestItem;
+
+    int concurrentMultipleInsertions;
 };
 
-LogViewModel::LogViewModel(LogViewWidget* logViewWidget) :
-	QObject(logViewWidget),
-	d(new LogViewModelPrivate())
-	{
-	
-	d->logViewWidget = logViewWidget;
-	d->oldestItem = NULL;
+LogViewModel::LogViewModel(LogViewWidget *logViewWidget)
+    : QObject(logViewWidget)
+    , d(new LogViewModelPrivate())
+{
+    d->logViewWidget = logViewWidget;
+    d->oldestItem = NULL;
 
-	d->concurrentMultipleInsertions = 0;
-
+    d->concurrentMultipleInsertions = 0;
 }
 
-LogViewModel::~LogViewModel() {
-	delete d;
+LogViewModel::~LogViewModel()
+{
+    delete d;
 }
 
+bool LogViewModel::logLineAlreadyExists(LogLine *line) const
+{
+    LogViewWidgetItem *item = d->logViewWidget->findItem(line);
+    if (item != NULL)
+        return true;
 
-bool LogViewModel::logLineAlreadyExists(LogLine* line) const {
-	LogViewWidgetItem* item = d->logViewWidget->findItem(line);
-	if (item!=NULL)
-		return true;
-	
-	return false;
+    return false;
 }
 
-QList<LogLine*> LogViewModel::logLines() {
-	return d->logViewWidget->logLines();
+QList<LogLine *> LogViewModel::logLines()
+{
+    return d->logViewWidget->logLines();
 }
 
-int LogViewModel::itemCount() const {
-	return d->logViewWidget->itemCount();
+int LogViewModel::itemCount() const
+{
+    return d->logViewWidget->itemCount();
 }
 
-bool LogViewModel::isEmpty() const {
-	if (d->logViewWidget->itemCount() == 0)
-		return true;
-	
-	return false;
+bool LogViewModel::isEmpty() const
+{
+    if (d->logViewWidget->itemCount() == 0)
+        return true;
+
+    return false;
 }
 
-void LogViewModel::removeRecentStatusOfLogLines() {
-	//The older lines are no longer recent
-	foreach(LogViewWidgetItem* item, d->logViewWidget->items()) {
-		item->logLine()->setRecent(false);
-	}
+void LogViewModel::removeRecentStatusOfLogLines()
+{
+    // The older lines are no longer recent
+    foreach (LogViewWidgetItem *item, d->logViewWidget->items()) {
+        item->logLine()->setRecent(false);
+    }
 }
 
+void LogViewModel::startingMultipleInsertions()
+{
+    bool hasLocked = false;
 
-void LogViewModel::startingMultipleInsertions(Analyzer::ReadingMode /*readingMode*/) {
-	bool hasLocked = false;
-	
-	//Check the lock before adding this as locker
-	if (lockMultipleInsertions() == true) {
-		hasLocked = true;
-	}
-	
-	//Add a lock
-	d->concurrentMultipleInsertions++;
-	
-	if (hasLocked == true) {
-		logDebug() << "Starting multiple insertions..." << endl;
-		
-		emit( processingMultipleInsertions(true) );
-		
-		d->logViewWidget->setUpdatesEnabled(false);
-	
-		//Remove all recent states of previous log lines
-		removeRecentStatusOfLogLines();
-	}
+    // Check the lock before adding this as locker
+    if (lockMultipleInsertions() == true) {
+        hasLocked = true;
+    }
 
+    // Add a lock
+    d->concurrentMultipleInsertions++;
+
+    if (hasLocked == true) {
+        logDebug() << "Starting multiple insertions...";
+
+        emit(processingMultipleInsertions(true));
+
+        d->logViewWidget->setUpdatesEnabled(false);
+
+        // Remove all recent states of previous log lines
+        removeRecentStatusOfLogLines();
+    }
 }
 
-void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount) {
-	//Remove a lock
-	d->concurrentMultipleInsertions--;
-	
-	if (lockMultipleInsertions() == true) {
-		logDebug() << "Ending multiple insertions..." << endl;
-		
-		//Scroll to the newest item if some lines have been added
-		if (insertedLogLineCount>0) {
-			d->logViewWidget->scrollToNewestItem();
-		}
-		
-		if (readingMode == Analyzer::FullRead) {
-			d->logViewWidget->resizeColumns();
-		}
-		
-		logDebug() << "Enabling log view widget refresh..." << endl;
-		d->logViewWidget->setUpdatesEnabled(true);
-		
-		emit( processingMultipleInsertions(false) );
-	}
+void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount)
+{
+    // Remove a lock
+    d->concurrentMultipleInsertions--;
+
+    if (lockMultipleInsertions() == true) {
+        logDebug() << "Ending multiple insertions...";
+
+        // Scroll to the newest item if some lines have been added
+        if (insertedLogLineCount > 0) {
+            d->logViewWidget->scrollToNewestItem();
+        }
+
+        if (readingMode == Analyzer::FullRead) {
+            d->logViewWidget->resizeColumns();
+        }
+
+        logDebug() << "Enabling log view widget refresh...";
+        d->logViewWidget->setUpdatesEnabled(true);
+
+        emit(processingMultipleInsertions(false));
+    }
 }
 
-bool LogViewModel::lockMultipleInsertions() {
-	if (d->concurrentMultipleInsertions == 0) {
-		return true;
-	}
-	
-	//Debug messages
-	if (d->concurrentMultipleInsertions > 0) {
-		logDebug() << "Existing multiple insertions request is still active" << endl;
-	}
-	else if  (d->concurrentMultipleInsertions < 0) {
-		logError() << "Existing multiple insertions forgot to call this method" << endl;
-	}
-	
-	return false;
+bool LogViewModel::lockMultipleInsertions()
+{
+    if (d->concurrentMultipleInsertions == 0) {
+        return true;
+    }
+
+    // Debug messages
+    if (d->concurrentMultipleInsertions > 0) {
+        logDebug() << "Existing multiple insertions request is still active";
+    } else if (d->concurrentMultipleInsertions < 0) {
+        logCritical() << "Existing multiple insertions forgot to call this method";
+    }
+
+    return false;
 }
 
-bool LogViewModel::isProcessingMultipleInsertions() const {
-	if (d->concurrentMultipleInsertions == 0)
-		return false;
-	else
-		return true;
+bool LogViewModel::isProcessingMultipleInsertions() const
+{
+    if (d->concurrentMultipleInsertions == 0)
+        return false;
+    else
+        return true;
 }
 
-void LogViewModel::clear() {
-	d->logViewWidget->clear();
-	
-	//Reinit Oldest item
-	d->oldestItem = NULL;
+void LogViewModel::clear()
+{
+    d->logViewWidget->clear();
+
+    // Reinit Oldest item
+    d->oldestItem = NULL;
 }
 
-bool LogViewModel::isNewer(LogLine* newLine) const {
-	//No element in the list in this case
-	if (d->oldestItem==NULL)
-		return true;
-	
-	if (newLine->isNewerThan( *(d->oldestItem->logLine()) ) )
-		return true;
-	
-	return false;
+bool LogViewModel::isNewer(LogLine *newLine) const
+{
+    // No element in the list in this case
+    if (d->oldestItem == NULL)
+        return true;
+
+    if (newLine->isNewerThan(*(d->oldestItem->logLine())))
+        return true;
+
+    return false;
 }
 
-void LogViewModel::removeOldestLogLine() {
-	//logDebug() << "Removing oldest log line" << endl;
-	
-	if (isEmpty()==true) {
-		return;
-	}
+void LogViewModel::removeOldestLogLine()
+{
+    // logDebug() << "Removing oldest log line";
 
-	if (d->oldestItem==NULL) {
-		logWarning() << "Oldest item is null" << endl;
-		return;
-	}
+    if (isEmpty() == true) {
+        return;
+    }
 
-	//Remove the oldest item from the list
-	d->logViewWidget->takeTopLevelItem(d->logViewWidget->indexOfTopLevelItem(d->oldestItem));
-	
-	delete d->oldestItem;
-	d->oldestItem = NULL;
+    if (d->oldestItem == NULL) {
+        logWarning() << "Oldest item is null";
+        return;
+    }
 
-	//Find the next oldest item
-	foreach(LogViewWidgetItem* item, d->logViewWidget->items()) {
-		if (d->oldestItem==NULL) {
-			d->oldestItem = item;
-			continue;
-		}
-	
-		if (d->oldestItem->logLine()->isNewerThan( *(item->logLine()) )) {
-			d->oldestItem = item;
-		}
-	}
+    // Remove the oldest item from the list
+    d->logViewWidget->takeTopLevelItem(d->logViewWidget->indexOfTopLevelItem(d->oldestItem));
+
+    delete d->oldestItem;
+    d->oldestItem = NULL;
+
+    // Find the next oldest item
+    foreach (LogViewWidgetItem *item, d->logViewWidget->items()) {
+        if (d->oldestItem == NULL) {
+            d->oldestItem = item;
+            continue;
+        }
+
+        if (d->oldestItem->logLine()->isNewerThan(*(item->logLine()))) {
+            d->oldestItem = item;
+        }
+    }
 }
 
-void LogViewModel::insert(LogLine* line) {
-	//The item is automatically added to the LogViewWidget
-	LogViewWidgetItem* item = new LogViewWidgetItem(d->logViewWidget, line);
-	
-	//Update the oldest item
-	if (d->oldestItem==NULL) {
-		d->oldestItem = item;
-	}
-	else if (d->oldestItem->logLine()->isNewerThan(*line)) {
-		d->oldestItem = item;
-	}
+void LogViewModel::insert(LogLine *line)
+{
+    // The item is automatically added to the LogViewWidget
+    LogViewWidgetItem *item = new LogViewWidgetItem(d->logViewWidget, line);
+
+    // Update the oldest item
+    if (d->oldestItem == NULL) {
+        d->oldestItem = item;
+    } else if (d->oldestItem->logLine()->isNewerThan(*line)) {
+        d->oldestItem = item;
+    }
 }
 
-bool LogViewModel::insertNewLogLine(LogLine* line) {
-	//If the Delete Duplicated Line option is checked
-	if (KSystemLogConfig::deleteDuplicatedLines()==true) {
-		if (logLineAlreadyExists(line)==true) {
-			delete line;
-			return false;
-		}
-	}
+bool LogViewModel::insertNewLogLine(LogLine *line)
+{
+    // If the Delete Duplicated Line option is checked
+    if (KSystemLogConfig::deleteDuplicatedLines() == true) {
+        if (logLineAlreadyExists(line) == true) {
+            delete line;
+            return false;
+        }
+    }
 
-	//If there is still space in the buffer
-	if (itemCount()<KSystemLogConfig::maxLines()) {
-		insert(line);
+    // If there is still space in the buffer
+    if (itemCount() < KSystemLogConfig::maxLines()) {
+        insert(line);
 
-		return true;
-	}
-	//If the line is newer, it can be inserted
-	else if (isNewer(line)==true) {
-		removeOldestLogLine();
-		insert(line);
-		
-		return true;
-	}
+        return true;
+    }
+    // If the line is newer, it can be inserted
+    else if (isNewer(line) == true) {
+        removeOldestLogLine();
+        insert(line);
 
-	//logDebug() << "Do not insert an old line : " << line->logItems() << endl;
-	
-	return false;
+        return true;
+    }
+
+    // logDebug() << "Do not insert an old line : " << line->logItems();
+
+    return false;
 }
-
-#include "logViewModel.moc"

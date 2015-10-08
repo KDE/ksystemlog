@@ -16,12 +16,12 @@ set(ksystemlog_base_mode_sources
 	syslogAnalyzer.cpp
 )
 
-kde4_add_ui_files(ksystemlog_base_mode_sources fileListBase.ui )
-kde4_add_ui_files(ksystemlog_base_mode_sources multipleFileListBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode_sources fileListBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode_sources multipleFileListBase.ui )
 
-kde4_add_ui_files(ksystemlog_base_mode_sources logLevelSelectionDialogBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode_sources logLevelSelectionDialogBase.ui )
 
-kde4_add_library(ksystemlog_base_mode STATIC ${ksystemlog_base_mode_sources})
+add_library(ksystemlog_base_mode STATIC ${ksystemlog_base_mode_sources})
 
 add_dependencies(
 	ksystemlog_base_mode 
@@ -30,7 +30,9 @@ add_dependencies(
 
 target_link_libraries(
 	ksystemlog_base_mode
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_config
+
+        KF5::XmlGui
 )

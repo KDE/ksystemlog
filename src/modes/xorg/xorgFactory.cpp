@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,16 +31,23 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> XorgLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new XorgLogMode());
-	return logModes;
+QList<LogMode *> XorgLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new XorgLogMode());
+    return logModes;
 }
 
-LogModeAction* XorgLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( XORG_LOG_MODE_ID ));
-	SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
-	logModeAction->setCategory(LogModeAction::ServicesCategory);
+LogModeAction *XorgLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(XORG_LOG_MODE_ID));
 
-	return logModeAction;
+    if (!logMode->filesExist())
+        return nullptr;
+
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+
+    logModeAction->setCategory(LogModeAction::ServicesCategory);
+
+    return logModeAction;
 }

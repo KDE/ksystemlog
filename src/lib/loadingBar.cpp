@@ -21,6 +21,7 @@
 
 #include "loadingBar.h"
 
+#include <QApplication>
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
@@ -28,101 +29,101 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include <klocale.h>
-#include <kapplication.h>
+#include <KLocalizedString>
 #include <kiconloader.h>
 
-class LoadingBarPrivate {
+class LoadingBarPrivate
+{
 public:
-	//Attributes managing the position in the files loading of each log
-	int fileCount;
-	int currentFileIndex;
-	
-	bool firstLoading;
-	
-	QLabel* label;
-	
-	QProgressBar* progressBar;
+    // Attributes managing the position in the files loading of each log
+    int fileCount;
+    int currentFileIndex;
 
+    bool firstLoading;
+
+    QLabel *label;
+
+    QProgressBar *progressBar;
 };
 
-LoadingBar::LoadingBar(QWidget* parent) :
-	QWidget(parent),
-	d(new LoadingBarPrivate())
-	{
-	
-	d->firstLoading = true;
-	
-	QHBoxLayout* widgetLayout = new QHBoxLayout();
-	setLayout(widgetLayout);
-	
-	widgetLayout->addStretch();
-	
-	QVBoxLayout* layout = new QVBoxLayout();
-	widgetLayout->addLayout(layout);
-	
-	widgetLayout->addStretch();
-	
-	d->label = new QLabel(i18n("Loading Progress..."));
-	d->label->setMinimumWidth(250);
-	layout->addWidget(d->label, 1, Qt::AlignBottom);
+LoadingBar::LoadingBar(QWidget *parent)
+    : QWidget(parent)
+    , d(new LoadingBarPrivate())
+{
+    d->firstLoading = true;
 
-	d->progressBar = new QProgressBar();
-	d->progressBar->setRange(0, 100);
-	d->progressBar->setMinimumWidth(250);
-	layout->addWidget(d->progressBar, 1, Qt::AlignCenter | Qt::AlignTop);
+    QHBoxLayout *widgetLayout = new QHBoxLayout();
+    setLayout(widgetLayout);
 
+    widgetLayout->addStretch();
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    widgetLayout->addLayout(layout);
+
+    widgetLayout->addStretch();
+
+    d->label = new QLabel(i18n("Loading Progress..."));
+    d->label->setMinimumWidth(250);
+    layout->addWidget(d->label, 1, Qt::AlignBottom);
+
+    d->progressBar = new QProgressBar();
+    d->progressBar->setRange(0, 100);
+    d->progressBar->setMinimumWidth(250);
+    layout->addWidget(d->progressBar, 1, Qt::AlignCenter | Qt::AlignTop);
 }
 
-LoadingBar::~LoadingBar() {
-	delete d;
+LoadingBar::~LoadingBar()
+{
+    delete d;
 }
 
-
-QProgressBar* LoadingBar::progressBar() {
-	return d->progressBar;
+QProgressBar *LoadingBar::progressBar()
+{
+    return d->progressBar;
 }
 
-void LoadingBar::startLoading(const LogMode& logMode, const LogFile& logFile, int fileIndex, int fileCount) {
-	emit displayed(true);
-	
-	d->progressBar->setValue(0);
-	
-	//Several files to load
-	if (fileCount>1 && fileIndex>=1) {
-		if (d->firstLoading)
-			d->label->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
-						"Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
-						fileCount, logMode.name(), logFile.url().path(), fileIndex));
-		else
-			d->label->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
-						"Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
-						fileCount, logMode.name(), logFile.url().path(), fileIndex));
-	}
-	//Only one file
-	else {
-		if (d->firstLoading)
-			d->label->setText(i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
-		else
-			d->label->setText(i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
-	}
+void LoadingBar::startLoading(const LogMode &logMode, const LogFile &logFile, int fileIndex, int fileCount)
+{
+    emit displayed(true);
 
+    d->progressBar->setValue(0);
+
+    // Several files to load
+    if (fileCount > 1 && fileIndex >= 1) {
+        if (d->firstLoading)
+            d->label->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
+                                    "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
+                                    logMode.name(), logFile.url().path(), fileIndex));
+        else
+            d->label->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
+                                    "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
+                                    logMode.name(), logFile.url().path(), fileIndex));
+    }
+    // Only one file
+    else {
+        if (d->firstLoading)
+            d->label->setText(
+                i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
+        else
+            d->label->setText(
+                i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
+    }
 }
 
-void LoadingBar::endLoading() {
-	emit displayed(false);
-	
-	d->progressBar->setValue(100);
-	
-	//If the endLoading has been called one time, it means it has already been loaded
-	d->firstLoading=false;
+void LoadingBar::endLoading()
+{
+    emit displayed(false);
 
+    d->progressBar->setValue(100);
+
+    // If the endLoading has been called one time, it means it has already been loaded
+    d->firstLoading = false;
 }
 
-void LoadingBar::progressLoading() {
-	d->progressBar->setValue( d->progressBar->value() + 1 );
+void LoadingBar::progressLoading()
+{
+    d->progressBar->setValue(d->progressBar->value() + 1);
 
-	kapp->processEvents();
+    // kapp->processEvents();
+    qApp->processEvents();
 }
-
-#include "loadingBar.moc"

@@ -17,7 +17,7 @@ set(ksystemlog_xorg_sources
 	xorgFactory.cpp
 )
 
-kde4_add_library(ksystemlog_xorg STATIC ${ksystemlog_xorg_sources})
+add_library(ksystemlog_xorg STATIC ${ksystemlog_xorg_sources})
 
 add_dependencies(
 	ksystemlog_xorg
@@ -28,7 +28,7 @@ add_dependencies(
 
 target_link_libraries(
     ksystemlog_xorg
-	${KDE4_KDEUI_LIBS}
+	
 	ksystemlog_lib
 	ksystemlog_base_mode 
 	ksystemlog_config

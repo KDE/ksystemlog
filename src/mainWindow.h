@@ -22,15 +22,14 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
-#include <QList>
-
-//KDE includes
-#include <kapplication.h>
+// KDE includes
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
-#include <kmenu.h>
+#include <QMenu>
 
 #include <ktoggleaction.h>
+
+#include "logModeAction.h"
 
 class QAction;
 
@@ -41,102 +40,100 @@ class View;
 
 class TabLogViewsWidget;
 
-namespace KSystemLog {
-
+namespace KSystemLog
+{
 class MainWindowPrivate;
 
 /**
  * This class serves as the main window for ksystemlog.  It handles the
  * menus, toolbars, and status bars.
  */
-class MainWindow : public KXmlGuiWindow {
+class MainWindow : public KXmlGuiWindow
+{
+    Q_OBJECT
 
-	Q_OBJECT
-	
-	public:
-		/**
-		 * Default Constructor
-		 */
-		MainWindow();
-		
-		/**
-		 * Default Destructor
-		 */
-		virtual ~MainWindow();
-		
-		TabLogViewsWidget* tabs();
-	
-	protected:
-		/**
-		 * This function is called when it is time for the app to save its
-		 * properties for session management purposes.
-		 */
-		void saveProperties(KConfigGroup& configuration);
-		
-		/**
-		 * This function is called when this app is restored.  The KConfig
-		 * object points to the session management config file that was saved
-		 * with @ref saveProperties
-		 */
-		void readProperties(const KConfigGroup& configuration);
+public:
+    /**
+     * Default Constructor
+     */
+    MainWindow();
 
-		/**
-		 * Reimplemented to save configuration when closing.
-		 */
-		void closeEvent(QCloseEvent *event);
-		
-	public slots:
-		void changeStatusBar(const QString& text);
-		void changeWindowTitle(const QString& text);
+    /**
+     * Default Destructor
+     */
+    virtual ~MainWindow();
 
-		void updateStatusBar();
-		
-		void prepareCreatedLogManager(LogManager* logManager);
+    TabLogViewsWidget *tabs();
 
-	private slots:
-		void fileOpen();
-		
-		void showConfigurationDialog();
-		void showDetailsDialog();
-		void showLogMessageDialog();
-		
-		//Transmits signals to active LogManager
-		void showSearchBar();
-		void findNext();
-		void findPrevious();
+protected:
+    /**
+     * This function is called when it is time for the app to save its
+     * properties for session management purposes.
+     */
+    void saveProperties(KConfigGroup &configuration);
 
-		void updateSelection(); 
-		void updateReloading();
-		
-		void toggleFilterBar();
-		
-		void toggleItemTooltip(bool enabled);
-		void toggleNewLinesDisplaying(bool displayed);
-		void toggleResumePauseParsing(bool paused);
+    /**
+     * This function is called when this app is restored.  The KConfig
+     * object points to the session management config file that was saved
+     * with @ref saveProperties
+     */
+    void readProperties(const KConfigGroup &configuration);
 
-		void changeCurrentTab();
-		
-		void changeResumePauseAction(bool paused);
-		void selectLogModeAction(QAction* action);
-		
-	private:
-		
-		void loadLogModePlugins();
-		
-		void setupStatusBar();
-		
-		void setupTabLogViews();
-		
-		void setupActions();
-		void setupLogActions();
-		
-		void updateDetailDialog();
-		
-		MainWindowPrivate* const d;
+    /**
+     * Reimplemented to save configuration when closing.
+     */
+    void closeEvent(QCloseEvent *event);
 
+public slots:
+    void changeStatusBar(const QString &text);
+    void changeWindowTitle(const QString &text);
+
+    void updateStatusBar();
+
+    void prepareCreatedLogManager(LogManager *logManager);
+
+private slots:
+    void fileOpen();
+
+    void showConfigurationDialog();
+    void showDetailsDialog();
+    void showLogMessageDialog();
+
+    // Transmits signals to active LogManager
+    void showSearchBar();
+    void findNext();
+    void findPrevious();
+
+    void updateSelection();
+    void updateReloading();
+
+    void toggleFilterBar();
+
+    void toggleItemTooltip(bool enabled);
+    void toggleNewLinesDisplaying(bool displayed);
+    void toggleResumePauseParsing(bool paused);
+
+    void changeCurrentTab();
+
+    void changeResumePauseAction(bool paused);
+    void selectLogModeAction(bool);
+    void recreateActions();
+
+private:
+    void loadLogModePlugins();
+
+    void setupStatusBar();
+
+    void setupTabLogViews();
+
+    void setupActions();
+    void setupLogModeMenu();
+    void setupLogActions();
+
+    void updateDetailDialog();
+
+    MainWindowPrivate *const d;
 };
-
 }
 
-#endif //MAIN_WINDOW_H
-
+#endif // MAIN_WINDOW_H

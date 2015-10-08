@@ -23,14 +23,12 @@
 
 #include <QString>
 #include <QList>
+#include <QFileDialog>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include <ktoggleaction.h>
-#include <klocale.h>
-#include <kurl.h>
-#include <kfiledialog.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 
 #include "logging.h"
@@ -39,48 +37,47 @@
 #include "logModeItemBuilder.h"
 #include "openAnalyzer.h"
 
-OpenLogMode::OpenLogMode(QWidget* parent) :
-	LogMode(QLatin1String( OPEN_LOG_MODE_ID ), i18n("Log File"),QLatin1String( OPEN_MODE_ICON )),
-	parent(parent) {
+OpenLogMode::OpenLogMode(QWidget *parent)
+    : LogMode(QLatin1String(OPEN_LOG_MODE_ID), i18n("Log File"), QLatin1String(OPEN_MODE_ICON))
+    , parent(parent)
+{
+    d->logModeConfigurationWidget = NULL;
 
-	d->logModeConfiguration = NULL;
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->logModeConfigurationWidget = NULL;
-
-	d->itemBuilder = new LogModeItemBuilder();
-
-	d->action = NULL;
-
+    d->action = NULL;
 }
 
-OpenLogMode::~OpenLogMode() {
-
+OpenLogMode::~OpenLogMode()
+{
 }
 
-Analyzer* OpenLogMode::createAnalyzer() {
-	return new OpenAnalyzer(this);
+Analyzer *OpenLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new OpenAnalyzer(this);
 }
 
-QList<LogFile> OpenLogMode::createLogFiles() {
-	//Open a standard Filedialog
-	KUrl openingFileName(KFileDialog::getOpenUrl(KUrl(), QString(), parent, i18n("Open Location")));
-	logDebug() << "Opening file : " << openingFileName.url() << endl;
+QList<LogFile> OpenLogMode::createLogFiles()
+{
+    // Open a standard Filedialog
+    QUrl openingFileName(QFileDialog::getOpenFileUrl(parent, i18n("Open Location"), QUrl(), QString()));
+    logDebug() << "Opening file : " << openingFileName.url();
 
-	if (openingFileName.isEmpty()) {
-		return QList<LogFile>();
-	}
+    if (openingFileName.isEmpty()) {
+        return QList<LogFile>();
+    }
 
-	if (openingFileName.isValid()) {
-		LogFile logFile(openingFileName, Globals::instance()->informationLogLevel());
-		QList<LogFile> logFiles;
-		logFiles.append(logFile);
+    if (openingFileName.isValid()) {
+        LogFile logFile(openingFileName, Globals::instance().informationLogLevel());
+        QList<LogFile> logFiles;
+        logFiles.append(logFile);
 
-		return logFiles;
+        return logFiles;
+    }
 
-	}
+    QString message(i18n("Malformed URL. Unable to open this file."));
+    KMessageBox::error(parent, message, i18n("Unable to open this file."), KMessageBox::Notify);
 
-	QString message(i18n("Malformed URL. Unable to open this file."));
-	KMessageBox::error(parent, message, i18n("Unable to open this file."), KMessageBox::Notify);
-
-	return QList<LogFile>();
+    return QList<LogFile>();
 }

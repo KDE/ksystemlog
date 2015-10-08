@@ -25,38 +25,37 @@
 #include <QObject>
 #include <QDataStream>
 #include <QDebug>
-
-#include <kurl.h>
+#include <QUrl>
 
 class LogLevel;
 
 class LogFilePrivate;
 
-class LogFile : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogFile();
-		
-		LogFile(const LogFile& logFile);
-		LogFile(const KUrl& url, LogLevel* defaultLogLevel);
-		
-		virtual ~LogFile();
+class LogFile : public QObject
+{
+    Q_OBJECT
 
-		bool operator==(const LogFile& other);
-		
-		LogFile& operator=(const LogFile& column);
-		
-		KUrl url() const;
-		
-		LogLevel* defaultLogLevel() const;
+public:
+    LogFile();
 
-	private:
-		LogFilePrivate* const d;
+    LogFile(const LogFile &logFile);
+    LogFile(const QUrl &url, LogLevel *defaultLogLevel);
+
+    virtual ~LogFile();
+
+    bool operator==(const LogFile &other);
+
+    LogFile &operator=(const LogFile &column);
+
+    QUrl url() const;
+
+    LogLevel *defaultLogLevel() const;
+
+private:
+    LogFilePrivate *const d;
 };
 
-QDataStream & operator<< (QDataStream& out, const LogFile& column);
-QDebug & operator<< (QDebug& out, const LogFile& column);
+QDataStream &operator<<(QDataStream &out, const LogFile &column);
+QDebug &operator<<(QDebug &out, const LogFile &column);
 
 #endif // _LOG_FILE_H_

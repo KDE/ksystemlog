@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,30 +33,37 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
+NetbiosLogMode::NetbiosLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
+                               SambaConfigurationWidget *sambaConfigurationWidget,
+                               SambaItemBuilder *itemBuilder)
+    : LogMode(QLatin1String(NETBIOS_LOG_MODE_ID), i18n("Netbios Log"), QLatin1String(NETBIOS_MODE_ICON))
+{
+    d->logModeConfiguration = sambaConfiguration;
+    d->logModeConfigurationWidget = sambaConfigurationWidget;
+    d->itemBuilder = itemBuilder;
 
-NetbiosLogMode::NetbiosLogMode(SambaConfiguration* sambaConfiguration, SambaConfigurationWidget* sambaConfigurationWidget, SambaItemBuilder* itemBuilder) :
-	LogMode(QLatin1String( NETBIOS_LOG_MODE_ID ), i18n("Netbios Log"), QLatin1String( NETBIOS_MODE_ICON )) {
+    // Netbios Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Netbios log."));
+    d->action->setWhatsThis(
+        i18n("Displays the Netbios log in the current tab. Netbios is the file sharing protocol developed by "
+             "Microsoft."));
 
-	d->logModeConfiguration = sambaConfiguration;
-	d->logModeConfigurationWidget = sambaConfigurationWidget;
-	d->itemBuilder = itemBuilder;
-
-	//Netbios Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Netbios log."));
-	d->action->setWhatsThis(i18n("Displays the Netbios log in the current tab. Netbios is the file sharing protocol developed by Microsoft."));
-
+    checkLogFilesPresence(sambaConfiguration->netbiosPaths());
 }
 
-NetbiosLogMode::~NetbiosLogMode() {
-
+NetbiosLogMode::~NetbiosLogMode()
+{
 }
 
-Analyzer* NetbiosLogMode::createAnalyzer() {
-	return new SambaAnalyzer(this);
+Analyzer *NetbiosLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new SambaAnalyzer(this);
 }
 
-QList<LogFile> NetbiosLogMode::createLogFiles() {
-	SambaConfiguration* sambaConfiguration = logModeConfiguration<SambaConfiguration*>();
-	return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->netbiosPaths());
+QList<LogFile> NetbiosLogMode::createLogFiles()
+{
+    SambaConfiguration *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
+    return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->netbiosPaths());
 }

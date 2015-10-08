@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,30 +33,38 @@
 #include "xorgConfigurationWidget.h"
 #include "xorgConfiguration.h"
 
-XorgLogMode::XorgLogMode() :
-	LogMode(QLatin1String( XORG_LOG_MODE_ID ), i18n("X.org Log"),QLatin1String( XORG_MODE_ICON )) {
+XorgLogMode::XorgLogMode()
+    : LogMode(QLatin1String(XORG_LOG_MODE_ID), i18n("X.org Log"), QLatin1String(XORG_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<XorgConfiguration>(new XorgConfiguration());
 
-	d->logModeConfiguration = new XorgConfiguration();
+    d->logModeConfigurationWidget = new XorgConfigurationWidget();
 
-	d->logModeConfigurationWidget = new XorgConfigurationWidget();
+    d->itemBuilder = new XorgItemBuilder();
 
-	d->itemBuilder = new XorgItemBuilder();
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the X.org log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the X.org log in the current tab. X.org is the service which displays on screen your "
+        "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
+        "accelerations or why your input device is not recognized."));
 
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the X.org log."));
-	d->action->setWhatsThis(i18n("Displays the X.org log in the current tab. X.org is the service which displays on screen your desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D accelerations or why your input device is not recognized."));
-
+    XorgConfiguration *configuration = logModeConfiguration<XorgConfiguration *>();
+    checkLogFilesPresence(configuration->xorgPaths());
 }
 
-XorgLogMode::~XorgLogMode() {
-
+XorgLogMode::~XorgLogMode()
+{
 }
 
-Analyzer* XorgLogMode::createAnalyzer() {
-	return new XorgAnalyzer(this);
+Analyzer *XorgLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new XorgAnalyzer(this);
 }
 
-QList<LogFile> XorgLogMode::createLogFiles() {
-	XorgConfiguration* configuration = logModeConfiguration<XorgConfiguration*>();
-	return configuration->findNoModeLogFiles(configuration->xorgPaths());
+QList<LogFile> XorgLogMode::createLogFiles()
+{
+    XorgConfiguration *configuration = logModeConfiguration<XorgConfiguration *>();
+    return configuration->findNoModeLogFiles(configuration->xorgPaths());
 }

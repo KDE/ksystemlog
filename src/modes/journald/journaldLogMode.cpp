@@ -1,0 +1,85 @@
+/***************************************************************************
+ *   KSystemLog, a system log viewer tool                                  *
+ *   Copyright (C) 2007 by Nicolas Ternisien                               *
+ *   nicolas.ternisien@gmail.com                                           *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
+ ***************************************************************************/
+
+#include "journaldLogMode.h"
+
+#include <KLocalizedString>
+
+#include "logging.h"
+#include "logMode.h"
+
+#include "journaldLocalAnalyzer.h"
+#include "journaldNetworkAnalyzer.h"
+#include "journaldConfigurationWidget.h"
+#include "journaldConfiguration.h"
+#include "journaldItemBuilder.h"
+
+JournaldLogMode::JournaldLogMode()
+    : LogMode(QLatin1String(JOURNALD_LOG_MODE_ID), i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<JournaldConfiguration>(new JournaldConfiguration());
+
+    d->logModeConfigurationWidget = new JournaldConfigurationWidget();
+    connect(d->logModeConfigurationWidget, SIGNAL(configSaved()), SIGNAL(menuChanged()));
+
+    d->itemBuilder = new JournaldItemBuilder();
+
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Journald log."));
+    d->action->setWhatsThis(i18n("Displays the journald log in the current tab."));
+}
+
+JournaldLogMode::~JournaldLogMode()
+{
+}
+
+Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
+{
+    JournaldAnalyzerOptions options = analyzerOptions.value<JournaldAnalyzerOptions>();
+    switch (options.analyzerType) {
+    case JournaldAnalyzerType::Local:
+        return new JournaldLocalAnalyzer(this, options.filter);
+        break;
+    case JournaldAnalyzerType::Network:
+        return new JournaldNetworkAnalyzer(this, options);
+        break;
+    default:
+        break;
+    }
+
+    return new JournaldLocalAnalyzer(this);
+}
+
+QList<LogFile> JournaldLogMode::createLogFiles()
+{
+    // No log file for journald.
+    return QList<LogFile>();
+}
+
+void JournaldLogMode::updateJournalFilters(const JournalAddress &address, const JournalFilters &filters)
+{
+    m_remoteJournalFilters[address] = filters;
+}
+
+JournalFilters JournaldLogMode::filters(const JournalAddress &address) const
+{
+    return m_remoteJournalFilters[address];
+}

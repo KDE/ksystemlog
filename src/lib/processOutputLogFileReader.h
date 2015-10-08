@@ -34,40 +34,38 @@ class QProcess;
 
 class ProcessOutputLogFileReaderPrivate;
 
-class ProcessOutputLogFileReader : public LogFileReader {
-	
-	Q_OBJECT
-	
-	public:
-		
-		ProcessOutputLogFileReader(const LogFile& logFile);
-		
-		virtual ~ProcessOutputLogFileReader();
+class ProcessOutputLogFileReader : public LogFileReader
+{
+    Q_OBJECT
 
-		void watchFile(bool enable);
-		
-		void setPreviousFilePosition(long previousFilePosition);
+public:
+    ProcessOutputLogFileReader(const LogFile &logFile);
 
-	private slots:
-		void startProcess();
-		
-		void logFileModified();
-		
-		void emitProcessOutput(int, QProcess::ExitStatus);
-		
-	private:
-		void init();
-		
-		void closeProcess();
-		
-		void emptyBuffer();
-		
-	protected:
-		ProcessOutputLogFileReader(ProcessOutputLogFileReaderPrivate& dd, const LogFile& logFile);
+    virtual ~ProcessOutputLogFileReader();
 
-	private:
-		Q_DECLARE_PRIVATE(ProcessOutputLogFileReader)
-		
+    void watchFile(bool enable);
+
+    void setPreviousFilePosition(long previousFilePosition);
+
+private slots:
+    void startProcess();
+
+    void logFileModified();
+
+    void emitProcessOutput(int, QProcess::ExitStatus);
+
+private:
+    void init();
+
+    void closeProcess();
+
+    void emptyBuffer();
+
+protected:
+    ProcessOutputLogFileReader(ProcessOutputLogFileReaderPrivate &dd, const LogFile &logFile);
+
+private:
+    Q_DECLARE_PRIVATE(ProcessOutputLogFileReader)
 };
 
 #endif // _PROCESS_OUTPUT_LOG_FILE_READER_H_

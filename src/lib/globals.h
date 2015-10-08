@@ -24,11 +24,10 @@
 
 #include <QList>
 #include <QString>
+#include <QMetaEnum>
 
 #include "logMode.h"
 #include "logModeFactory.h"
-
-
 
 class LogModeFactory;
 
@@ -40,44 +39,69 @@ class Reader;
 
 class GlobalsPrivate;
 
-class Globals {
-	public:
-		static Globals* instance();
+class Globals : QObject
+{
+    Q_OBJECT
 
-		~Globals();
-		
-		QList<LogLevel*> logLevels();
-		
-		LogLevel* noLogLevel();
-		LogLevel* debugLogLevel();
-		LogLevel* informationLogLevel();
-		LogLevel* noticeLogLevel();
-		LogLevel* warningLogLevel();
-		LogLevel* errorLogLevel();
-		LogLevel* criticalLogLevel();
-		LogLevel* alertLogLevel();
-		LogLevel* emergencyLogLevel();
-		
-		/**
-		 * Allow to add a new Reader for a new log mode
-		 */
-		void registerLogModeFactory(LogModeFactory* logModeFactory);
-		
-		QList<LogMode*> logModes();
-		
-		QList<LogModeAction*> logModeActions();
-		
-		LogMode* findLogMode(const QString& logModeName);
-		
-	private:
-		explicit Globals();
-		
-		static Globals* self;
-		
-		void setupLogLevels();
+public:
+    static Globals &instance();
 
-		GlobalsPrivate* const d;
+    ~Globals();
 
+    enum LogLevelIds {
+        EMERGENCY_LOG_LEVEL_ID = 0,
+        ALERT_LOG_LEVEL_ID,
+        CRITICAL_LOG_LEVEL_ID,
+        ERROR_LOG_LEVEL_ID,
+        WARNING_LOG_LEVEL_ID,
+        NOTICE_LOG_LEVEL_ID,
+        INFORMATION_LOG_LEVEL_ID,
+        DEBUG_LOG_LEVEL_ID,
+        NONE_LOG_LEVEL_ID,
+
+        LOG_LEVEL_NUM
+    };
+    Q_ENUM(LogLevelIds)
+
+    enum DateFormat { LongFormat = 0, ShortFormat, PreciseFormat };
+
+    QString formatDate(DateFormat format, const QDateTime &dateTime) const;
+
+    QList<LogLevel *> logLevels();
+
+    LogLevel *noLogLevel();
+    LogLevel *debugLogLevel();
+    LogLevel *informationLogLevel();
+    LogLevel *noticeLogLevel();
+    LogLevel *warningLogLevel();
+    LogLevel *errorLogLevel();
+    LogLevel *criticalLogLevel();
+    LogLevel *alertLogLevel();
+    LogLevel *emergencyLogLevel();
+
+    LogLevel *logLevelByPriority(int id);
+
+    QMetaEnum &logLevelsMetaEnum() const;
+
+    /**
+     * Allow to add a new Reader for a new log mode
+     */
+    void registerLogModeFactory(LogModeFactory *logModeFactory);
+
+    QList<LogMode *> logModes();
+
+    QList<LogModeAction *> logModeActions();
+
+    LogMode *findLogMode(const QString &logModeName);
+
+    void recreateLogModeActions();
+
+private:
+    explicit Globals();
+
+    void setupLogLevels();
+
+    GlobalsPrivate *const d;
 };
 
 #endif

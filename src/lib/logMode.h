@@ -36,77 +36,94 @@ class LogModeConfigurationWidget;
 
 class QAction;
 
+struct ActionData {
+    QString id;
+    bool addToActionCollection = true;
+    QVariant analyzerOptions;
+};
+Q_DECLARE_METATYPE(ActionData)
 
-//TODO Do not let this class visible to other classes (except sub-classes)
-class LogModePrivate {
+// TODO Do not let this class visible to other classes (except sub-classes)
+class LogModePrivate
+{
 public:
-	QString id;
-	
-	QString name;
-	
-	QString iconName;
+    QString id;
 
-	QPixmap icon;
-	
-	QAction* action;
-	
-	LogModeItemBuilder* itemBuilder;
-	
-	LogModeConfigurationWidget* logModeConfigurationWidget;
+    QString name;
 
-	LogModeConfiguration* logModeConfiguration;
+    QString iconName;
+
+    QPixmap icon;
+
+    QAction *action;
+
+    LogModeItemBuilder *itemBuilder;
+
+    LogModeConfigurationWidget *logModeConfigurationWidget;
+
+    QSharedPointer<LogModeConfiguration> logModeConfiguration;
+
+    bool logFilesExist;
 };
 
-class LogMode : public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogMode(const QString& id, const QString& name, const QString& iconName);
+class LogMode : public QObject
+{
+    Q_OBJECT
 
-		virtual ~LogMode();
+public:
+    LogMode(const QString &id, const QString &name, const QString &iconName);
 
-		QString id() const;
-		
-		QString name() const;
-		
-		QPixmap icon() const;
-		
-		QAction* action() const;
-		
-		LogModeItemBuilder* itemBuilder() const;
+    virtual ~LogMode();
 
-		/**
-		 * Log mode configuration widget
-		 */
-		LogModeConfigurationWidget* logModeConfigurationWidget() const;
+    QString id() const;
 
-		template <typename T>
-		T logModeConfiguration() {
-				return static_cast<T>( innerConfiguration() );
-		}
-		/**
-		 * Create the Analyzer used to parse the log file
-		 */
-		virtual Analyzer* createAnalyzer() = 0;
-		
-		/**
-		 * Create the log file list which will be read
-		 */
-		virtual QList<LogFile> createLogFiles() = 0;
+    QString name() const;
 
-	protected:
-		QAction* createDefaultAction();
-		
-		LogModePrivate* const d;
-		
-	private:
-		/**
-		 * Log Mode Configuration
-		 */
-		LogModeConfiguration* innerConfiguration() const;
+    QPixmap icon() const;
 
+    QAction *action() const;
+
+    LogModeItemBuilder *itemBuilder() const;
+
+    /**
+     * Returns true if at least one log file exists for this mode.
+     */
+    bool filesExist() const;
+
+    /**
+     * Log mode configuration widget
+     */
+    LogModeConfigurationWidget *logModeConfigurationWidget() const;
+
+    template <typename T> T logModeConfiguration() { return static_cast<T>(innerConfiguration()); }
+    /**
+     * Create the Analyzer used to parse the log file
+     */
+    virtual Analyzer *createAnalyzer(const QVariant &options = QVariant()) = 0;
+
+    /**
+     * Create the log file list which will be read
+     */
+    virtual QList<LogFile> createLogFiles() = 0;
+
+signals:
+    void menuChanged();
+
+protected:
+    QAction *createDefaultAction();
+
+    /**
+     * Initializes the flag returned by filesExist().
+     */
+    void checkLogFilesPresence(const QStringList &paths);
+
+    LogModePrivate *const d;
+
+private:
+    /**
+     * Log Mode Configuration
+     */
+    LogModeConfiguration *innerConfiguration() const;
 };
 
-
-#endif //LOG_MODE_H
+#endif // LOG_MODE_H

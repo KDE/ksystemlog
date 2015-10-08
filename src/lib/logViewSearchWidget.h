@@ -32,55 +32,51 @@ class LogViewWidgetItem;
 
 class LogViewSearchWidgetPrivate;
 
-class LogViewSearchWidget : public QWidget, public Ui::LogViewSearchWidgetBase {
-
-	Q_OBJECT
+class LogViewSearchWidget : public QWidget, public Ui::LogViewSearchWidgetBase
+{
+    Q_OBJECT
 
 public:
-	LogViewSearchWidget();
-	
-	~LogViewSearchWidget();
+    LogViewSearchWidget();
 
-	void setTreeWidget(LogViewWidget* logViewWidget);
-	
+    ~LogViewSearchWidget();
+
+    void setTreeWidget(LogViewWidget *logViewWidget);
+
 public slots:
-	void displaySearch();
-	
-	void findFirst();
-        
-        void findFirst(const QString &);	
-	void findNext();
-	void findPrevious();
-	
+    void displaySearch();
+
+    void findFirst();
+
+    void findFirst(const QString &);
+    void findNext();
+    void findPrevious();
+
 private slots:
-	void hideMessage();
-	
-	void highlightAll();
-	
+    void hideMessage();
+
+    void highlightAll();
+
 private:
-	enum Direction {
-	        Next,
-	        Previous
-	    };
+    enum Direction { Next, Previous };
     Q_DECLARE_FLAGS(Directions, Direction)
-	    
-	void showMessage(const QString& text, const QString& iconText);
-    
-	void internalFind(LogViewWidgetItem* fromItem, Direction direction);
-	
-	void setSearchLineNotFound(bool notFound);
-	void unselectAll();
-	bool findItem(LogViewWidgetItem* item);
-	
-	bool compareItem(LogViewWidgetItem* item);
-	
-	void unlightAll();
 
-	inline void initIterator(QTreeWidgetItemIterator& it, Direction direction);
-	inline void iteratorJump(QTreeWidgetItemIterator& it, Direction direction);
-	
-	LogViewSearchWidgetPrivate* const d;
+    void showMessage(const QString &text, const QString &iconText);
 
+    void internalFind(LogViewWidgetItem *fromItem, Direction direction);
+
+    void setSearchLineNotFound(bool notFound);
+    void unselectAll();
+    bool findItem(LogViewWidgetItem *item);
+
+    bool compareItem(LogViewWidgetItem *item);
+
+    void unlightAll();
+
+    inline void initIterator(QTreeWidgetItemIterator &it, Direction direction);
+    inline void iteratorJump(QTreeWidgetItemIterator &it, Direction direction);
+
+    LogViewSearchWidgetPrivate *const d;
 };
 
 #endif //_LOG_VIEW_SEARCH_WIDGET_H_

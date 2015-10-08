@@ -28,38 +28,29 @@
 
 class LogModeActionPrivate;
 
-class LogModeAction : public QObject {
-	
-	Q_OBJECT
-	
+class LogModeAction : public QObject
+{
+    Q_OBJECT
+
 public:
-	
-	enum Category {
-			RootCategory,
-	        ServicesCategory,
-	        OthersCategory
-	    };
+    enum Category { RootCategory, ServicesCategory, OthersCategory };
+
     Q_DECLARE_FLAGS(Categories, Category)
 
     LogModeAction();
-    
-	virtual ~LogModeAction();
-	
-	virtual QList<QAction*> innerActions() = 0;
-	
-	virtual QAction* actionMenu() = 0;
-	
-	void setInToolBar(bool inToolBar);
-	
-	bool isInToolBar();
-	
-	void setCategory(Category category);
-	
-	Category category();
-	
-private:
-	LogModeActionPrivate* const d;
 
+    virtual ~LogModeAction();
+
+    virtual QList<QAction *> innerActions() = 0;
+
+    virtual QAction *actionMenu() = 0;
+
+    void setCategory(Category category);
+
+    Category category();
+
+private:
+    LogModeActionPrivate *const d;
 };
 
 #endif // _LOG_MODE_ACTION_H_

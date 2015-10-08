@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,33 +33,41 @@
 #include "authenticationConfigurationWidget.h"
 #include "authenticationConfiguration.h"
 
-AuthenticationLogMode::AuthenticationLogMode() :
-	LogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ), i18n("Authentication Log"),QLatin1String( AUTHENTICATION_MODE_ICON )) {
+AuthenticationLogMode::AuthenticationLogMode()
+    : LogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID), i18n("Authentication Log"),
+              QLatin1String(AUTHENTICATION_MODE_ICON))
+{
+    d->logModeConfiguration = QSharedPointer<AuthenticationConfiguration>(new AuthenticationConfiguration());
 
-	d->logModeConfiguration = new AuthenticationConfiguration();
+    d->logModeConfigurationWidget = new AuthenticationConfigurationWidget();
 
-	d->logModeConfigurationWidget = new AuthenticationConfigurationWidget();
+    d->itemBuilder = new LogModeItemBuilder();
 
-	d->itemBuilder = new LogModeItemBuilder();
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the authentication log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the authentication log in the current tab. This log displays all logins made by each user "
+        "of the system, and can help you to know if someone tried to crack your system."));
 
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the authentication log."));
-	d->action->setWhatsThis(i18n("Displays the authentication log in the current tab. This log displays all logins made by each user of the system, and can help you to know if someone tried to crack your system."));
-
+    AuthenticationConfiguration *configuration = logModeConfiguration<AuthenticationConfiguration *>();
+    checkLogFilesPresence(QStringList() << configuration->authenticationPath());
 }
 
-AuthenticationLogMode::~AuthenticationLogMode() {
-
+AuthenticationLogMode::~AuthenticationLogMode()
+{
 }
 
-Analyzer* AuthenticationLogMode::createAnalyzer() {
-	return new AuthenticationAnalyzer(this);
+Analyzer *AuthenticationLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new AuthenticationAnalyzer(this);
 }
 
-QList<LogFile> AuthenticationLogMode::createLogFiles() {
-	AuthenticationConfiguration* configuration = logModeConfiguration<AuthenticationConfiguration*>();
+QList<LogFile> AuthenticationLogMode::createLogFiles()
+{
+    AuthenticationConfiguration *configuration = logModeConfiguration<AuthenticationConfiguration *>();
 
-	QList<LogFile> logFiles;
-	logFiles.append(configuration->findGenericLogFile(configuration->authenticationPath()));
-	return logFiles;
+    QList<LogFile> logFiles;
+    logFiles.append(configuration->findGenericLogFile(configuration->authenticationPath()));
+    return logFiles;
 }

@@ -24,19 +24,19 @@
 
 #include <QObject>
 
-class LogModePluginsLoader: public QObject {
-	
-	Q_OBJECT
-	
-	public:
-		LogModePluginsLoader(QWidget* parent);
-	
-		~LogModePluginsLoader();
+class LogModePluginsLoader : public QObject
+{
+    Q_OBJECT
 
-		void loadPlugins();
+public:
+    LogModePluginsLoader(QWidget *parent);
 
-	private:
-		QWidget* parent;
+    ~LogModePluginsLoader();
+
+    void loadPlugins();
+
+private:
+    QWidget *parent;
 };
 
 #endif //_LOG_MODE_PLUGINS_LOADER_H_

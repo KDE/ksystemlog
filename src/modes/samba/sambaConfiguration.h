@@ -33,69 +33,59 @@
 
 #include "ksystemlogConfig.h"
 
-class SambaConfigurationPrivate {
+class SambaConfigurationPrivate
+{
 public:
-	QStringList sambaPaths;
+    QStringList sambaPaths;
 
-	QStringList sambaAccessPaths;
+    QStringList sambaAccessPaths;
 
-	QStringList netbiosPaths;
+    QStringList netbiosPaths;
 };
 
-class SambaConfiguration : public LogModeConfiguration {
+class SambaConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    SambaConfiguration()
+        : d(new SambaConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("SambaLogMode"));
 
-	public:
-		SambaConfiguration() :
-			d(new SambaConfigurationPrivate()) {
+        QStringList defaultSambaPaths;
+        defaultSambaPaths << QLatin1String("/var/log/samba/log.smbd");
+        configuration->addItemStringList(QLatin1String("SambaLogFilesPaths"), d->sambaPaths,
+                                         defaultSambaPaths, QLatin1String("SambaLogFilesPaths"));
 
-			configuration->setCurrentGroup(QLatin1String( "SambaLogMode" ));
+        QStringList defaultSambaAccessPaths;
+        defaultSambaAccessPaths << QLatin1String("/var/log/samba/log.localhost")
+                                << QLatin1String("/var/log/samba/log.127.0.0.1");
+        configuration->addItemStringList(QLatin1String("SambaAccessLogFilesPaths"), d->sambaAccessPaths,
+                                         defaultSambaAccessPaths, QLatin1String("SambaAccessLogFilesPaths"));
 
-			QStringList defaultSambaPaths;
-			defaultSambaPaths << QLatin1String( "/var/log/samba/log.smbd" );
-			configuration->addItemStringList(QLatin1String( "SambaLogFilesPaths" ), d->sambaPaths, defaultSambaPaths, QLatin1String( "SambaLogFilesPaths" ));
+        QStringList defaultNetbiosPaths;
+        defaultNetbiosPaths << QLatin1String("/var/log/samba/log.nmbd");
+        configuration->addItemStringList(QLatin1String("NetbiosLogFilesPaths"), d->netbiosPaths,
+                                         defaultNetbiosPaths, QLatin1String("NetbiosLogFilesPaths"));
+    }
 
-			QStringList defaultSambaAccessPaths;
-			defaultSambaAccessPaths << QLatin1String( "/var/log/samba/log.localhost" )  << QLatin1String( "/var/log/samba/log.127.0.0.1" );
-			configuration->addItemStringList(QLatin1String( "SambaAccessLogFilesPaths" ), d->sambaAccessPaths, defaultSambaAccessPaths, QLatin1String( "SambaAccessLogFilesPaths" ));
+    virtual ~SambaConfiguration() { delete d; }
 
-			QStringList defaultNetbiosPaths;
-			defaultNetbiosPaths << QLatin1String( "/var/log/samba/log.nmbd" );
-			configuration->addItemStringList(QLatin1String( "NetbiosLogFilesPaths" ), d->netbiosPaths, defaultNetbiosPaths, QLatin1String( "NetbiosLogFilesPaths" ));
-		}
+    QStringList sambaPaths() const { return d->sambaPaths; }
 
-		virtual ~SambaConfiguration() {
-			delete d;
-		}
+    QStringList sambaAccessPaths() const { return d->sambaAccessPaths; }
 
-		QStringList sambaPaths() const {
-			return d->sambaPaths;
-		}
+    QStringList netbiosPaths() const { return d->netbiosPaths; }
 
-		QStringList sambaAccessPaths() const {
-			return d->sambaAccessPaths;
-		}
+    void setSambaPaths(const QStringList &sambaPaths) { d->sambaPaths = sambaPaths; }
 
-		QStringList netbiosPaths() const {
-			return d->netbiosPaths;
-		}
+    void setNetbiosPaths(const QStringList &netbiosPaths) { d->netbiosPaths = netbiosPaths; }
 
-		void setSambaPaths(const QStringList& sambaPaths) {
-			d->sambaPaths = sambaPaths;
-		}
+    void setSambaAccessPaths(const QStringList &sambaAccessPaths) { d->sambaAccessPaths = sambaAccessPaths; }
 
-		void setNetbiosPaths(const QStringList& netbiosPaths) {
-			d->netbiosPaths = netbiosPaths;
-		}
-
-		void setSambaAccessPaths(const QStringList& sambaAccessPaths) {
-			d->sambaAccessPaths = sambaAccessPaths;
-		}
-
-	private:
-		SambaConfigurationPrivate* const d;
-
+private:
+    SambaConfigurationPrivate *const d;
 };
 
 #endif // _SAMBA_CONFIGURATION_H_

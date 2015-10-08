@@ -23,7 +23,6 @@
 
 #include <QList>
 
-
 #include "logMode.h"
 #include "logging.h"
 
@@ -32,15 +31,21 @@
 
 #include "logModeFactory.h"
 
-QList<LogMode*> AuthenticationLogModeFactory::createLogModes() const {
-	QList<LogMode*> logModes;
-	logModes.append(new AuthenticationLogMode());
-	return logModes;
+QList<LogMode *> AuthenticationLogModeFactory::createLogModes() const
+{
+    QList<LogMode *> logModes;
+    logModes.append(new AuthenticationLogMode());
+    return logModes;
 }
 
-LogModeAction* AuthenticationLogModeFactory::createLogModeAction() const {
-	LogMode* logMode = Globals::instance()->findLogMode(QLatin1String( AUTHENTICATION_LOG_MODE_ID ));
-	SimpleAction* logModeAction = new SimpleAction(logMode->action(), logMode);
+LogModeAction *AuthenticationLogModeFactory::createLogModeAction() const
+{
+    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(AUTHENTICATION_LOG_MODE_ID));
 
-	return logModeAction;
+    if (!logMode->filesExist())
+        return nullptr;
+
+    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+
+    return logModeAction;
 }

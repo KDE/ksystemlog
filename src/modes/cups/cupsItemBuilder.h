@@ -26,7 +26,7 @@
 
 #include "logModeItemBuilder.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -34,30 +34,26 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class CupsItemBuilder : public LogModeItemBuilder {
+class CupsItemBuilder : public LogModeItemBuilder
+{
+public:
+    CupsItemBuilder() {}
 
-	public:
-		CupsItemBuilder() {
+    virtual ~CupsItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~CupsItemBuilder() {
+        result.append(QLatin1String("<table>"));
 
-		}
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-		}
+        return result;
+    }
 };
-
 
 #endif // _CUPS_ITEM_BUILDER_H_

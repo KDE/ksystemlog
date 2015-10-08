@@ -33,42 +33,36 @@
 
 #include "ksystemlogConfig.h"
 
-class AcpidConfigurationPrivate {
+class AcpidConfigurationPrivate
+{
 public:
-	QStringList acpidPaths;
+    QStringList acpidPaths;
 };
 
-class AcpidConfiguration : public LogModeConfiguration {
+class AcpidConfiguration : public LogModeConfiguration
+{
+    Q_OBJECT
 
-	Q_OBJECT
+public:
+    AcpidConfiguration()
+        : d(new AcpidConfigurationPrivate())
+    {
+        configuration->setCurrentGroup(QLatin1String("AcpidLogMode"));
 
-	public:
-		AcpidConfiguration() :
-			d(new AcpidConfigurationPrivate()) {
+        QStringList defaultAcpidPaths;
+        defaultAcpidPaths << QLatin1String("/var/log/acpid");
+        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->acpidPaths, defaultAcpidPaths,
+                                         QLatin1String("LogFilesPaths"));
+    }
 
-			configuration->setCurrentGroup(QLatin1String( "AcpidLogMode" ));
+    virtual ~AcpidConfiguration() { delete d; }
 
-			QStringList defaultAcpidPaths;
-			defaultAcpidPaths << QLatin1String( "/var/log/acpid" );
-			configuration->addItemStringList(QLatin1String( "LogFilesPaths" ), d->acpidPaths, defaultAcpidPaths, QLatin1String( "LogFilesPaths" ));
+    QStringList acpidPaths() const { return d->acpidPaths; }
 
-		}
+    void setAcpidPaths(const QStringList &acpidPaths) { d->acpidPaths = acpidPaths; }
 
-		virtual ~AcpidConfiguration() {
-			delete d;
-		}
-
-		QStringList acpidPaths() const {
-			return d->acpidPaths;
-		}
-
-		void setAcpidPaths(const QStringList& acpidPaths) {
-			d->acpidPaths = acpidPaths;
-		}
-
-	private:
-		AcpidConfigurationPrivate* const d;
-
+private:
+    AcpidConfigurationPrivate *const d;
 };
 
 #endif // _ACPID_CONFIGURATION_H_

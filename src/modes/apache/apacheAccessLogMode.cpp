@@ -23,8 +23,7 @@
 
 #include <QList>
 
-#include <kicon.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 #include "logMode.h"
@@ -34,31 +33,38 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
+ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
+                                         ApacheConfigurationWidget *apacheConfigurationWidget)
+    : LogMode(QLatin1String(APACHE_ACCESS_LOG_MODE_ID), i18n("Apache Access Log"),
+              QLatin1String(APACHE_ACCESS_MODE_ICON))
+{
+    d->logModeConfiguration = apacheConfiguration;
+    d->logModeConfigurationWidget = apacheConfigurationWidget;
 
-ApacheAccessLogMode::ApacheAccessLogMode(ApacheConfiguration* apacheConfiguration, ApacheConfigurationWidget* apacheConfigurationWidget) :
-	LogMode(QLatin1String( APACHE_ACCESS_LOG_MODE_ID ), i18n("Apache Access Log"), QLatin1String( APACHE_ACCESS_MODE_ICON )) {
+    d->itemBuilder = new ApacheAccessItemBuilder();
 
-	d->logModeConfiguration = apacheConfiguration;
-	d->logModeConfigurationWidget = apacheConfigurationWidget;
+    // Apache Log Action
+    d->action = createDefaultAction();
+    d->action->setToolTip(i18n("Display the Apache Access log."));
+    d->action->setWhatsThis(i18n(
+        "Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. "
+        "This log saves all requests performed by the Apache web server."));
 
-	d->itemBuilder = new ApacheAccessItemBuilder();
-
-	//Apache Log Action
-	d->action = createDefaultAction();
-	d->action->setToolTip(i18n("Display the Apache Access log."));
-	d->action->setWhatsThis(i18n("Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. This log saves all requests performed by the Apache web server."));
-
+    checkLogFilesPresence(apacheConfiguration->apacheAccessPaths());
 }
 
-ApacheAccessLogMode::~ApacheAccessLogMode() {
-
+ApacheAccessLogMode::~ApacheAccessLogMode()
+{
 }
 
-Analyzer* ApacheAccessLogMode::createAnalyzer() {
-	return new ApacheAccessAnalyzer(this);
+Analyzer *ApacheAccessLogMode::createAnalyzer(const QVariant &options)
+{
+    Q_UNUSED(options)
+    return new ApacheAccessAnalyzer(this);
 }
 
-QList<LogFile> ApacheAccessLogMode::createLogFiles() {
-	ApacheConfiguration* apacheConfiguration = logModeConfiguration<ApacheConfiguration*>();
-	return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apacheAccessPaths());
+QList<LogFile> ApacheAccessLogMode::createLogFiles()
+{
+    ApacheConfiguration *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
+    return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apacheAccessPaths());
 }

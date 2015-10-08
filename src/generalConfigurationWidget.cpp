@@ -21,129 +21,154 @@
 
 #include "generalConfigurationWidget.h"
 
-
 #include <QCheckBox>
 #include <QPushButton>
 #include <QButtonGroup>
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
+#include <KMessageWidget>
+#include <KLocalizedString>
+#include <QIcon>
 
 #include "logging.h"
 #include "defaults.h"
 #include "globals.h"
 #include "ksystemlogConfig.h"
 
-class GeneralConfigurationWidgetPrivate {
+class GeneralConfigurationWidgetPrivate
+{
 public:
-	QButtonGroup* dateFormatGroup;
+    QButtonGroup *dateFormatGroup;
+    KMessageWidget *warningBox;
 };
 
-GeneralConfigurationWidget::GeneralConfigurationWidget() :
-	QWidget(),
-	d(new GeneralConfigurationWidgetPrivate())
-	{
+GeneralConfigurationWidget::GeneralConfigurationWidget()
+    : QWidget()
+    , d(new GeneralConfigurationWidgetPrivate())
+{
+    setupUi(this);
 
-	setupUi(this);
+    d->warningBox = new KMessageWidget(this);
+    d->warningBox->setVisible(false);
+    d->warningBox->setMessageType(KMessageWidget::Warning);
+    d->warningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
+    d->warningBox->setCloseButtonVisible(false);
+    d->warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    startupModeVerticalLayout->addWidget(d->warningBox);
 
-	startupLogMode->addItem(KIcon( QLatin1String( NO_MODE_ICON) ), i18n("No Log Mode"), QVariant(QLatin1String( "" ) ));
-	foreach(LogMode* logMode, Globals::instance()->logModes()) {
-		//Ignore this special case
-		if (logMode->id() == QLatin1String( "openLogMode" ))
-			continue;
+    startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
+                            QVariant(QLatin1String("")));
+    foreach (LogMode *logMode, Globals::instance().logModes()) {
+        // Ignore this special case
+        if (logMode->id() == QLatin1String("openLogMode"))
+            continue;
 
-		startupLogMode->addItem(KIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
-	}
+        startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
+    }
 
-	connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
 
-	connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
 
-	connect(deleteDuplicatedLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(deleteDuplicatedLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	connect(deleteProcessId, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(deleteProcessId, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
 
-	d->dateFormatGroup = new QButtonGroup(this);
-	d->dateFormatGroup->addButton(formatShortDate, KLocale::ShortDate);
-	d->dateFormatGroup->addButton(formatLongDate, KLocale::LongDate);
-	d->dateFormatGroup->addButton(formatFancyShortDate, KLocale::FancyShortDate);
-	d->dateFormatGroup->addButton(formatFancyLongDate, KLocale::FancyLongDate);
+    d->dateFormatGroup = new QButtonGroup(this);
+    d->dateFormatGroup->addButton(formatLongDate, Globals::LongFormat);
+    d->dateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
+    d->dateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
 
-	connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
+    connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
 
-	addDateFormatExample();
+    addDateFormatExample();
 }
 
+GeneralConfigurationWidget::~GeneralConfigurationWidget()
+{
+    // dateFormatGroup is automatically deleted by Qt
 
-GeneralConfigurationWidget::~GeneralConfigurationWidget() {
-	//dateFormatGroup is automatically deleted by Qt
-
-	delete d;
+    delete d;
 }
 
-void GeneralConfigurationWidget::addDateFormatExample() {
-	foreach(QAbstractButton* button, d->dateFormatGroup->buttons()) {
-		QDateTime currentDateTime(QDateTime::currentDateTime());
-
-		KLocale::DateFormat currentButtonFormat = (KLocale::DateFormat) d->dateFormatGroup->id(button);
-
-		QString formattedDate = KGlobal::locale()->formatDateTime(currentDateTime, currentButtonFormat, true);
-
-		button->setText( i18nc("Date format Option (Date example)", "%1 (%2)", button->text(), formattedDate) );
-	}
+void GeneralConfigurationWidget::addDateFormatExample()
+{
+    foreach (QAbstractButton *button, d->dateFormatGroup->buttons()) {
+        Globals::DateFormat currentButtonFormat = (Globals::DateFormat)d->dateFormatGroup->id(button);
+        QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
+        button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
+    }
 }
 
-void GeneralConfigurationWidget::readConfig() {
-	for (int i=0; i<startupLogMode->count(); ++i) {
-		if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
-			startupLogMode->setCurrentIndex(i);
-			break;
-		}
-	}
+void GeneralConfigurationWidget::readConfig()
+{
+    for (int i = 0; i < startupLogMode->count(); ++i) {
+        if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
+            startupLogMode->setCurrentIndex(i);
+            break;
+        }
+    }
 
-	maxLines->setValue(KSystemLogConfig::maxLines());
+    maxLines->setValue(KSystemLogConfig::maxLines());
 
-	deleteDuplicatedLines->setChecked(KSystemLogConfig::deleteDuplicatedLines());
+    deleteDuplicatedLines->setChecked(KSystemLogConfig::deleteDuplicatedLines());
 
-	deleteProcessId->setChecked(KSystemLogConfig::deleteProcessIdentifier());
+    deleteProcessId->setChecked(KSystemLogConfig::deleteProcessIdentifier());
 
-	colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
+    colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
 
-	KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
-	QAbstractButton* selectedButton = d->dateFormatGroup->button(dateFormat);
-	selectedButton->setChecked(true);
+    // KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
+    QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
+    QAbstractButton *selectedButton = d->dateFormatGroup->button(dateFormat);
+    selectedButton->setChecked(true);
 }
 
-void GeneralConfigurationWidget::saveConfig() const {
-	logDebug() << "Save config from General preferences" << endl;
+void GeneralConfigurationWidget::saveConfig() const
+{
+    logDebug() << "Save config from General preferences";
 
-	KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
+    KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
 
-	KSystemLogConfig::setMaxLines(maxLines->value());
-	KSystemLogConfig::setDeleteDuplicatedLines(deleteDuplicatedLines->isChecked());
-	KSystemLogConfig::setDeleteProcessIdentifier(deleteProcessId->isChecked());
-	KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
+    KSystemLogConfig::setMaxLines(maxLines->value());
+    KSystemLogConfig::setDeleteDuplicatedLines(deleteDuplicatedLines->isChecked());
+    KSystemLogConfig::setDeleteProcessIdentifier(deleteProcessId->isChecked());
+    KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
 
-	KSystemLogConfig::setDateFormat(d->dateFormatGroup->checkedId());
-
+    KSystemLogConfig::setDateFormat(d->dateFormatGroup->checkedId());
 }
 
-void GeneralConfigurationWidget::defaultConfig() {
-	//TODO Find a way to read the configuration per default
-	readConfig();
+void GeneralConfigurationWidget::defaultConfig()
+{
+    // TODO Find a way to read the configuration per default
+    readConfig();
 }
 
-bool GeneralConfigurationWidget::isValid() const {
-	if (maxLines->value()>0) {
-		logDebug() << "General configuration valid" << endl;
-		return true;
-	}
+bool GeneralConfigurationWidget::isValid() const
+{
+    if (maxLines->value() > 0) {
+        // Check if log files exist for selected mode.
+        QVariant modeID = startupLogMode->currentData();
+        if (!modeID.isNull()) {
+            QString modeString = modeID.toString();
+            LogMode *mode = Globals::instance().findLogMode(modeString);
+            if (mode) {
+                if (!mode->filesExist()) {
+                    logDebug() << "Log files are missing for mode" << mode->name();
+                    d->warningBox->setVisible(true);
+                } else {
+                    logDebug() << "General configuration is valid";
+                    d->warningBox->setVisible(false);
+                    return true;
+                }
+            } else {
+                // Empty log mode is selected.
+                d->warningBox->setVisible(false);
+                return true;
+            }
+        }
+    }
 
-	logDebug() << "General configuration not valid" << endl;
-	return false;
+    logDebug() << "General configuration is not valid";
+    return false;
 }
-
-#include "generalConfigurationWidget.moc"

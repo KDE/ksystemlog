@@ -26,7 +26,7 @@
 
 #include "logModeItemBuilder.h"
 
-#include <klocale.h>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -34,36 +34,31 @@
 #include "logViewWidgetItem.h"
 #include "logMode.h"
 
-class SambaItemBuilder : public LogModeItemBuilder {
+class SambaItemBuilder : public LogModeItemBuilder
+{
+public:
+    SambaItemBuilder() {}
 
-	public:
-		SambaItemBuilder() {
+    virtual ~SambaItemBuilder() {}
 
-		}
+    QString createFormattedText(LogLine *line) const
+    {
+        QString result;
 
-		virtual ~SambaItemBuilder() {
+        QListIterator<QString> it(line->logItems());
 
-		}
+        result.append(QLatin1String("<table>"));
 
-		QString createFormattedText(LogLine* line) const {
-			QString result;
+        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
+        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
+        result.append(labelMessageFormat(i18n("Source File:"), it.next()));
+        result.append(labelMessageFormat(i18n("Function:"), it.next()));
+        result.append(labelMessageFormat(i18n("Line:"), it.next()));
 
-			QListIterator<QString> it(line->logItems());
+        result.append(QLatin1String("</table>"));
 
-			result.append(QLatin1String( "<table>" ));
-
-			result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-			result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-			result.append(labelMessageFormat(i18n("Source File:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Function:"), it.next() ));
-			result.append(labelMessageFormat(i18n("Line:"), it.next() ));
-
-			result.append(QLatin1String( "</table>" ));
-
-			return result;
-
-		}
+        return result;
+    }
 };
-
 
 #endif // _SAMBA_ITEM_BUILDER_H_
