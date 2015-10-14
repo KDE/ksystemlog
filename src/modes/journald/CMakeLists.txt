@@ -37,5 +37,5 @@ target_link_libraries(
     ksystemlog_lib
     ksystemlog_base_mode
     ksystemlog_config
-    systemd
+    ${JOURNALD_LIBRARIES}
 )

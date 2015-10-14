@@ -5,7 +5,7 @@ set (QT_MIN_VERSION "5.2.0")
 set (KF5_MIN_VERSION "5.0.0")
 
 find_package (ECM 1.7.0 REQUIRED NO_MODULE)
-set (CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 add_definitions(-DTRANSLATION_DOMAIN="ksystemlog")
 
@@ -35,6 +35,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Completion
     TextWidgets
 )
+
+find_package(Journald)
 
 include(CheckIncludeFile)
 include(CheckIncludeFiles)
@@ -72,6 +74,8 @@ add_custom_target(
 # cmake -D CMAKE_VERBOSE_MAKEFILE=true .
 ##
 
+
+
 ########### Subfolders ##########
 
 add_subdirectory(src)
@@ -93,7 +97,9 @@ add_subdirectory(src/modes/apache)
 add_subdirectory(src/modes/postfix)
 add_subdirectory(src/modes/samba)
 add_subdirectory(src/modes/cups)
-add_subdirectory(src/modes/journald)
+if (${JOURNALD_FOUND})
+    add_subdirectory(src/modes/journald)
+endif (${JOURNALD_FOUND})
 
 add_subdirectory(tests)
 add_subdirectory(doc)
