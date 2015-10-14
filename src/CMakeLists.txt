@@ -61,12 +61,16 @@ target_link_libraries(ksystemlog
     ksystemlog_xsession
     ksystemlog_postfix
     ksystemlog_cups
-    ksystemlog_journald
     ksystemlog_samba
 
     KF5::Archive
     KF5::TextWidgets
 )
+
+if (${JOURNALD_FOUND})
+target_link_libraries(ksystemlog
+    ksystemlog_journald)
+endif(${JOURNALD_FOUND})
 
 ########### Installation ###############
 
