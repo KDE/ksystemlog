@@ -74,7 +74,9 @@ add_custom_target(
 # cmake -D CMAKE_VERBOSE_MAKEFILE=true .
 ##
 
-
+if (${JOURNALD_FOUND})
+    add_definitions(-DHAVE_JOURNALD)
+endif (${JOURNALD_FOUND})
 
 ########### Subfolders ##########
 

@@ -95,5 +95,7 @@ void LogModePluginsLoader::loadPlugins()
     Globals::instance().registerLogModeFactory(new XSessionLogModeFactory());
 
     // Journald
+#ifdef HAVE_JOURNALD
     Globals::instance().registerLogModeFactory(new JournaldModeFactory());
+#endif
 }
