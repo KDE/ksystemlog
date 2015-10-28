@@ -34,7 +34,7 @@
 #include "xsessionConfiguration.h"
 
 XSessionLogMode::XSessionLogMode()
-    : LogMode(QLatin1String(X_SESSION_LOG_MODE_ID), i18n("X Session Log"), QLatin1String(X_SESSION_MODE_ICON))
+    : LogMode(QStringLiteral(X_SESSION_LOG_MODE_ID), i18n("X Session Log"), QStringLiteral(X_SESSION_MODE_ICON))
 {
     d->logModeConfiguration = QSharedPointer<XSessionConfiguration>(new XSessionConfiguration());
 
@@ -66,7 +66,7 @@ Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 QList<LogFile> XSessionLogMode::createLogFiles()
 {
     XSessionConfiguration *configuration = Globals::instance()
-                                               .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                               .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                                ->logModeConfiguration<XSessionConfiguration *>();
 
     QList<LogFile> logFiles;

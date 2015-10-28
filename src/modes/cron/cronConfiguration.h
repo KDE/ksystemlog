@@ -49,16 +49,16 @@ public:
     CronConfiguration()
         : d(new CronConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("CronLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("CronLogMode"));
 
         QStringList defaultCronPaths;
-        defaultCronPaths << QLatin1String("/var/log/syslog");
-        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->cronPaths, defaultCronPaths,
-                                         QLatin1String("LogFilesPaths"));
+        defaultCronPaths << QStringLiteral("/var/log/syslog");
+        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->cronPaths, defaultCronPaths,
+                                         QStringLiteral("LogFilesPaths"));
 
-        QString defaultProcessFilter(QLatin1String("/usr/sbin/cron"));
-        configuration->addItemString(QLatin1String("ProcessFilter"), d->processFilter, defaultProcessFilter,
-                                     QLatin1String("ProcessFilter"));
+        QString defaultProcessFilter(QStringLiteral("/usr/sbin/cron"));
+        configuration->addItemString(QStringLiteral("ProcessFilter"), d->processFilter, defaultProcessFilter,
+                                     QStringLiteral("ProcessFilter"));
     }
 
     virtual ~CronConfiguration() { delete d; }

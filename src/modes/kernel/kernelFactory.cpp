@@ -40,7 +40,7 @@ QList<LogMode *> KernelLogModeFactory::createLogModes() const
 
 LogModeAction *KernelLogModeFactory::createLogModeAction() const
 {
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(KERNEL_LOG_MODE_ID));
+    LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(KERNEL_LOG_MODE_ID));
 
     if (!logMode->filesExist())
         return nullptr;

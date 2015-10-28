@@ -59,7 +59,7 @@ KioLogFileReader::KioLogFileReader(const LogFile &logFile)
 
     d->fileWatch = new KDirWatch(this);
 
-    connect(d->fileWatch, SIGNAL(dirty(QString)), this, SLOT(watchFile(QString)));
+    connect(d->fileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);
     d->fileWatch->addFile(logFile.url().path());
     /*
     d->fileWatch.setInterval(1000);
@@ -79,13 +79,13 @@ void KioLogFileReader::open()
     logDebug() << "Opening...";
     d->fileJob = KIO::open(d->logFile.url(), QIODevice::ReadOnly | QIODevice::Text);
 
-    connect(d->fileJob, SIGNAL(open(KIO::Job *)), this, SLOT(openDone(KIO::Job *)));
+    connect(d->fileJob, &KIO::FileJob::open, this, &KioLogFileReader::openDone);
     connect(d->fileJob, SIGNAL(close(KIO::Job *)), this, SLOT(closeDone(KIO::Job *)));
 
-    connect(d->fileJob, SIGNAL(data(KIO::Job *, QByteArray)), this,
-            SLOT(dataReceived(KIO::Job *, QByteArray)));
-    connect(d->fileJob, SIGNAL(mimetype(KIO::Job *, QString)), this,
-            SLOT(mimetypeReceived(KIO::Job *, QString)));
+    connect(d->fileJob, &KIO::FileJob::data, this,
+            &KioLogFileReader::dataReceived);
+    connect(d->fileJob, &KIO::FileJob::mimetype, this,
+            &KioLogFileReader::mimetypeReceived);
 
     logDebug() << "File opened.";
 }

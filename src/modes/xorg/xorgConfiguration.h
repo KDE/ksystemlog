@@ -46,12 +46,12 @@ public:
     XorgConfiguration()
         : d(new XorgConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("XorgLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("XorgLogMode"));
 
         QStringList defaultXorgPaths;
-        defaultXorgPaths << QLatin1String("/var/log/Xorg.0.log");
-        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->xorgPaths, defaultXorgPaths,
-                                         QLatin1String("LogFilesPaths"));
+        defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
+        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->xorgPaths, defaultXorgPaths,
+                                         QStringLiteral("LogFilesPaths"));
     }
 
     virtual ~XorgConfiguration() { delete d; }

@@ -50,21 +50,21 @@ public:
     AuthenticationConfiguration()
         : d(new AuthenticationConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("AuthenticationLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
 
-        QString defaultAuthenticationPath(QLatin1String("/var/log/auth.log"));
-        configuration->addItemString(QLatin1String("LogFilePath"), d->authenticationPath,
-                                     defaultAuthenticationPath, QLatin1String("LogFilePath"));
+        QString defaultAuthenticationPath(QStringLiteral("/var/log/auth.log"));
+        configuration->addItemString(QStringLiteral("LogFilePath"), d->authenticationPath,
+                                     defaultAuthenticationPath, QStringLiteral("LogFilePath"));
 
         QStringList defaultWarningKeywords;
-        defaultWarningKeywords.append(QLatin1String("failed"));
-        configuration->addItemStringList(QLatin1String("WarningKeywords"), d->warningKeywords,
-                                         defaultWarningKeywords, QLatin1String("WarningKeywords"));
+        defaultWarningKeywords.append(QStringLiteral("failed"));
+        configuration->addItemStringList(QStringLiteral("WarningKeywords"), d->warningKeywords,
+                                         defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
         QStringList defaultErrorKeywords;
-        defaultErrorKeywords.append(QLatin1String("error"));
-        configuration->addItemStringList(QLatin1String("ErrorKeywords"), d->errorKeywords,
-                                         defaultErrorKeywords, QLatin1String("ErrorKeywords"));
+        defaultErrorKeywords.append(QStringLiteral("error"));
+        configuration->addItemStringList(QStringLiteral("ErrorKeywords"), d->errorKeywords,
+                                         defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
     }
 
     virtual ~AuthenticationConfiguration() { delete d; }

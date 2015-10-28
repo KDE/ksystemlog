@@ -90,8 +90,8 @@ void ConfigurationDialog::setupLogModeConfigurations()
         addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(),
                 logModeConfigurationWidget->iconName(), logModeConfigurationWidget->header(), false);
 
-        connect(logModeConfigurationWidget, SIGNAL(configurationChanged()), this,
-                SLOT(updateConfiguration()));
+        connect(logModeConfigurationWidget, &LogModeConfigurationWidget::configurationChanged, this,
+                &ConfigurationDialog::updateConfiguration);
     }
 }
 
@@ -106,10 +106,10 @@ void ConfigurationDialog::setupGeneralConfiguration()
 {
     d->generalConfiguration = new GeneralConfigurationWidget();
 
-    addPage(d->generalConfiguration, i18n("General"), QLatin1String("applications-system"), i18n("General"),
+    addPage(d->generalConfiguration, i18n("General"), QStringLiteral("applications-system"), i18n("General"),
             false);
 
-    connect(d->generalConfiguration, SIGNAL(configurationChanged()), this, SLOT(updateConfiguration()));
+    connect(d->generalConfiguration, &GeneralConfigurationWidget::configurationChanged, this, &ConfigurationDialog::updateConfiguration);
 }
 
 void ConfigurationDialog::updateSettings()

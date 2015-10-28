@@ -62,14 +62,14 @@ void KioLogFileReaderTest::testKioLogFileReader()
     */
 
     /// home/nicolas/test.txt
-    LogFile logFile(QUrl::fromLocalFile("http://localhost/test.txt"),
+    LogFile logFile(QUrl::fromLocalFile(QStringLiteral("http://localhost/test.txt")),
                     Globals::instance().informationLogLevel());
 
     KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
 
     logFileReader->open();
 
-    connect(logFileReader, SIGNAL(lineRead(QString)), this, SLOT(readLine(QString)));
+    connect(logFileReader, &KioLogFileReader::lineRead, this, &KioLogFileReaderTest::readLine);
 
     QTest::qWait(100000);
 }

@@ -40,7 +40,7 @@ QList<LogMode *> CronLogModeFactory::createLogModes() const
 
 LogModeAction *CronLogModeFactory::createLogModeAction() const
 {
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(CRON_LOG_MODE_ID));
+    LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(CRON_LOG_MODE_ID));
 
     if (!logMode->filesExist())
         return nullptr;

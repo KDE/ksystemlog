@@ -46,7 +46,7 @@ class CronConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     CronConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Cron Log"), QLatin1String(CRON_MODE_ICON), i18n("Cron Log"))
+        : LogModeConfigurationWidget(i18n("Cron Log"), QStringLiteral(CRON_MODE_ICON), i18n("Cron Log"))
     {
         QVBoxLayout *layout = new QVBoxLayout();
         this->setLayout(layout);
@@ -57,15 +57,15 @@ public:
 
         fileList = new FileList(this, description);
 
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(fileList);
 
         processFilterGroup = new QGroupBox(i18n("Enable Process Filtering"));
         processFilterGroup->setCheckable(true);
 
-        connect(processFilterGroup, SIGNAL(clicked(bool)), this, SLOT(toggleProcessFilterEnabling(bool)));
-        connect(processFilterGroup, SIGNAL(clicked(bool)), this, SIGNAL(configurationChanged()));
+        connect(processFilterGroup, &QGroupBox::clicked, this, &CronConfigurationWidget::toggleProcessFilterEnabling);
+        connect(processFilterGroup, &QGroupBox::clicked, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(processFilterGroup);
 
@@ -77,7 +77,7 @@ public:
         processFilter = new QLineEdit(this);
 
         processFilterLabel->setBuddy(processFilter);
-        connect(processFilter, SIGNAL(textEdited(const QString &)), this, SIGNAL(configurationChanged()));
+        connect(processFilter, &QLineEdit::textEdited, this, &LogModeConfigurationWidget::configurationChanged);
 
         processFilterLayout->addWidget(processFilterLabel);
         processFilterLayout->addWidget(processFilter);
@@ -106,7 +106,7 @@ public:
         logDebug() << "Saving config from Cron Options...";
 
         CronConfiguration *cronConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(CRON_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
                                                    ->logModeConfiguration<CronConfiguration *>();
         cronConfiguration->setCronPaths(fileList->paths());
 
@@ -120,7 +120,7 @@ public:
     void readConfig()
     {
         CronConfiguration *cronConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(CRON_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
                                                    ->logModeConfiguration<CronConfiguration *>();
 
         fileList->removeAllItems();

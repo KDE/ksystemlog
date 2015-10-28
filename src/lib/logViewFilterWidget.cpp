@@ -133,7 +133,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
     QLabel *filterIcon = new QLabel();
-    filterIcon->setPixmap(SmallIcon(QLatin1String("view-filter")));
+    filterIcon->setPixmap(SmallIcon(QStringLiteral("view-filter")));
     filterIcon->setBuddy(d->filterLine);
     filterBarLayout->addWidget(filterIcon);
 
@@ -160,8 +160,8 @@ LogViewFilterWidget::LogViewFilterWidget()
     QStandardItem *item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
     d->prioritiesModel->appendRow(item);
-    connect(d->prioritiesModel, SIGNAL(itemChanged(QStandardItem *)),
-            SLOT(prioritiesChanged(QStandardItem *)));
+    connect(d->prioritiesModel, &QStandardItemModel::itemChanged,
+            this, &LogViewFilterWidget::prioritiesChanged);
 
     // Don't add last enum value into combobox.
     for (int i = 0; i < metaEnum.keyCount() - 1; i++) {

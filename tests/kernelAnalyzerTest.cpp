@@ -93,14 +93,14 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
+    LogMode *logMode = Globals::instance().findLogMode(QStringLiteral("kernelLogMode"));
     KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/ubuntu.dmesg"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/ubuntu.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 
@@ -111,8 +111,8 @@ void KernelAnalyzerTest::testUbuntuDmesg()
 
     QList<LogLine *> logLines = model->logLines();
 
-    QStringList items = QStringList() << QLatin1String("ADDRCONF(NETDEV_UP)")
-                                      << QLatin1String("eth0: link is not ready");
+    QStringList items = QStringList() << QStringLiteral("ADDRCONF(NETDEV_UP)")
+                                      << QStringLiteral("eth0: link is not ready");
     QDateTime assertedDateTime = kernelAnalyzer->findStartupTime();
     assertedDateTime = assertedDateTime.addSecs(22);
     assertedDateTime = assertedDateTime.addMSecs(232);
@@ -129,14 +129,14 @@ void KernelAnalyzerTest::testSuseDmesg()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String("kernelLogMode"));
+    LogMode *logMode = Globals::instance().findLogMode(QStringLiteral("kernelLogMode"));
     KernelAnalyzerLocalReader *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/kernel/suse.dmesg"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/suse.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 
@@ -147,7 +147,7 @@ void KernelAnalyzerTest::testSuseDmesg()
 
     QList<LogLine *> logLines = model->logLines();
 
-    QStringList items = QStringList() << QLatin1String("r8169") << QLatin1String("eth0: link down");
+    QStringList items = QStringList() << QStringLiteral("r8169") << QStringLiteral("eth0: link down");
 
     testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
                       kernelAnalyzer->findStartupTime(), items);

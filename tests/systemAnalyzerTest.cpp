@@ -76,11 +76,11 @@ void SystemAnalyzerTest::testOneLine()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/default/one-line.log"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/one-line.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -91,8 +91,8 @@ void SystemAnalyzerTest::testOneLine()
 
     QList<LogLine *> logLines = model->logLines();
 
-    QStringList items = QStringList() << QLatin1String("localhost") << QLatin1String("kernel")
-                                      << QLatin1String("[11663.656000] eth1: no IPv6 routers present");
+    QStringList items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel")
+                                      << QStringLiteral("[11663.656000] eth1: no IPv6 routers present");
 
     const int year = QDate::currentDate().year();
     testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
@@ -107,14 +107,14 @@ void SystemAnalyzerTest::testTwoLines()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
     // Specifical configuration
     KSystemLogConfig::setMaxLines(1000);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/default/two-lines.log"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/two-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -130,14 +130,14 @@ void SystemAnalyzerTest::testMultipleLines()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
     // Specifical configuration
     KSystemLogConfig::setMaxLines(1000);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/system/system.log"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/system.log"));
     LogFile logFile = logFiles.at(0);
 
     systemAnalyzer->setLogFiles(logFiles);
@@ -168,8 +168,8 @@ void SystemAnalyzerTest::testMultipleLines()
     QCOMPARE(arguments.at(0).toInt(), 24);
 
     QStringList addedLines;
-    addedLines << QLatin1String("Aug 18 17:04:28 localhost test: Test line 1");
-    addedLines << QLatin1String("Aug 18 17:04:30 localhost test: Test line 2");
+    addedLines << QStringLiteral("Aug 18 17:04:28 localhost test: Test line 1");
+    addedLines << QStringLiteral("Aug 18 17:04:30 localhost test: Test line 2");
 
     testUtil.addLogLines(logFile.url().path(), addedLines);
 
@@ -188,7 +188,7 @@ void SystemAnalyzerTest::testStrangeLines()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
@@ -196,7 +196,7 @@ void SystemAnalyzerTest::testStrangeLines()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteProcessIdentifier(false);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/system/strange-lines.log"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/strange-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -213,37 +213,37 @@ void SystemAnalyzerTest::testStrangeLines()
     QSKIP("This test/code is broken");
 
     // Classical log line
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("kernel")
-                          << QLatin1String("Kernel panic");
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel")
+                          << QStringLiteral("Kernel panic");
     testUtil.testLine(model->logLines().at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 10), QTime(17, 04, 28)), items);
 
     //-- MARK -- log line
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("syslog")
-                          << QLatin1String("-- MARK --");
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("syslog")
+                          << QStringLiteral("-- MARK --");
     testUtil.testLine(model->logLines().at(1), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 11), QTime(13, 49, 38)), items);
 
     // Last message repeated n time log line
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("syslog")
-                          << QLatin1String("last message repeated 4 times");
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("syslog")
+                          << QStringLiteral("last message repeated 4 times");
     testUtil.testLine(model->logLines().at(2), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 12), QTime(18, 10, 32)), items);
 
     //"Aug 13 17:04:28 testprocess: Say ouhou  " -> No host name
-    items = QStringList() << undefined << QLatin1String("testprocess") << QLatin1String("Say ouhou  ");
+    items = QStringList() << undefined << QStringLiteral("testprocess") << QStringLiteral("Say ouhou  ");
     testUtil.testLine(model->logLines().at(3), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 13), QTime(17, 04, 28)), items);
 
     //"Aug 14 17:04:28 localhost kernel say ouhou" -> No process name and not a syslog message
-    items = QStringList() << QLatin1String("localhost") << undefined << QLatin1String("kernel say ouhou");
+    items = QStringList() << QStringLiteral("localhost") << undefined << QStringLiteral("kernel say ouhou");
     testUtil.testLine(model->logLines().at(4), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 14), QTime(17, 04, 28)), items);
 
     //"Aug 15 22:39:01 localhost /USR/SBIN/CRON[9433]: (root) CMD (  [ -d /var/lib/php5 ] && find
     ///var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)" -> Long log line
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("/USR/SBIN/CRON[9433]")
-                          << QLatin1String(
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("/USR/SBIN/CRON[9433]")
+                          << QStringLiteral(
                                  "(root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin "
                                  "+$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)");
     testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
@@ -254,7 +254,7 @@ void SystemAnalyzerTest::testStrangeLines()
     QCOMPARE(model->logLines().at(6)->logItems(), items);
 
     //"" -> Empty line
-    items = QStringList() << undefined << undefined << QLatin1String("blablalbla");
+    items = QStringList() << undefined << undefined << QStringLiteral("blablalbla");
     QCOMPARE(model->logLines().at(7)->logItems(), items);
 
     testUtil.destroyReader(systemAnalyzer);
@@ -264,7 +264,7 @@ void SystemAnalyzerTest::testDeleteProcessIdentifier()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
@@ -273,7 +273,7 @@ void SystemAnalyzerTest::testDeleteProcessIdentifier()
     KSystemLogConfig::setDeleteProcessIdentifier(true);
 
     QList<LogFile> logFiles
-        = testUtil.createLogFiles(QLatin1String(":/testFiles/system/delete-process-identifier.log"));
+        = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/delete-process-identifier.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -284,12 +284,12 @@ void SystemAnalyzerTest::testDeleteProcessIdentifier()
     QStringList items;
 
     // Cron log line
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("/USR/SBIN/CRON")
-                          << QLatin1String("Hello");
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("/USR/SBIN/CRON")
+                          << QStringLiteral("Hello");
     QCOMPARE(model->logLines().at(0)->logItems(), items);
 
     //"f" process
-    items = QStringList() << QLatin1String("localhost") << QLatin1String("f") << QLatin1String("Ola");
+    items = QStringList() << QStringLiteral("localhost") << QStringLiteral("f") << QStringLiteral("Ola");
     QCOMPARE(model->logLines().at(1)->logItems(), items);
 
     testUtil.destroyReader(systemAnalyzer);
@@ -299,14 +299,14 @@ void SystemAnalyzerTest::testMaxLines()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
     // Specifical configuration
     KSystemLogConfig::setMaxLines(5);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QLatin1String(":/testFiles/system/max-lines.log"));
+    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/max-lines.log"));
     LogFile logFile = logFiles.at(0);
 
     systemAnalyzer->setLogFiles(logFiles);
@@ -320,7 +320,7 @@ void SystemAnalyzerTest::testMaxLines()
 
     QStringList addedLines;
 
-    addedLines << QLatin1String("Aug 18 10:00:00 localhost test: Line 8");
+    addedLines << QStringLiteral("Aug 18 10:00:00 localhost test: Line 8");
     testUtil.addLogLines(logFile.url().path(), addedLines);
 
     QCOMPARE(model->itemCount(), 5);
@@ -330,16 +330,16 @@ void SystemAnalyzerTest::testMaxLines()
     KSystemLogConfig::setMaxLines(6);
 
     addedLines.clear();
-    addedLines << QLatin1String("Aug 18 10:00:00 localhost test: Line 9");
-    addedLines << QLatin1String("Aug 18 19:00:00 localhost test: Line 10");
+    addedLines << QStringLiteral("Aug 18 10:00:00 localhost test: Line 9");
+    addedLines << QStringLiteral("Aug 18 19:00:00 localhost test: Line 10");
     testUtil.addLogLines(logFile.url().path(), addedLines);
 
     QCOMPARE(model->itemCount(), 6);
     compareWithMinTime(model->logLines(), QDateTime(QDate(2007, 8, 18), QTime(11, 0, 0)));
 
     addedLines.clear();
-    addedLines << QLatin1String("Aug 18 20:00:00 localhost test: Line 11");
-    addedLines << QLatin1String("Aug 18 21:00:00 localhost test: Line 12");
+    addedLines << QStringLiteral("Aug 18 20:00:00 localhost test: Line 11");
+    addedLines << QStringLiteral("Aug 18 21:00:00 localhost test: Line 12");
     testUtil.addLogLines(logFile.url().path(), addedLines);
 
     QCOMPARE(model->itemCount(), 6);
@@ -366,7 +366,7 @@ void SystemAnalyzerTest::testRemoveDuplicates()
 {
     LogViewModel *model = NULL;
 
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
@@ -375,7 +375,7 @@ void SystemAnalyzerTest::testRemoveDuplicates()
     KSystemLogConfig::setDeleteDuplicatedLines(true);
 
     QList<LogFile> logFiles
-        = testUtil.createLogFiles(QLatin1String(":/testFiles/system/duplicate-lines.log"));
+        = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/duplicate-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 

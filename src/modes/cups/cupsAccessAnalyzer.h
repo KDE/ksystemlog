@@ -40,7 +40,7 @@ public:
     explicit CupsAccessAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
         , cupsAccessRegex(
-              QLatin1String("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
+              QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
     {
     }
 

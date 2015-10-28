@@ -73,7 +73,7 @@ void ProcessOutputLogFileReader::init()
     d->process = NULL;
 
     d->processUpdater.setInterval(PROCESS_OUTPUT_UPDATER_INTERVAL);
-    connect(&(d->processUpdater), SIGNAL(timeout()), this, SLOT(startProcess()));
+    connect(&(d->processUpdater), &QTimer::timeout, this, &ProcessOutputLogFileReader::startProcess);
 
     logDebug() << "Using process name " << d->logFile.url().path();
 }
@@ -114,7 +114,7 @@ void ProcessOutputLogFileReader::startProcess()
     logDebug() << "Starting process...";
 
     d->process = new QProcess();
-    connect(d->process, SIGNAL(readyReadStandardOutput()), this, SLOT(logFileModified()));
+    connect(d->process, &QProcess::readyReadStandardOutput, this, &ProcessOutputLogFileReader::logFileModified);
     connect(d->process, SIGNAL(finished(int, QProcess::ExitStatus)), this,
             SLOT(emitProcessOutput(int, QProcess::ExitStatus)));
 

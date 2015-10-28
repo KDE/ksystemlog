@@ -55,7 +55,7 @@ LogManager::LogManager(View *view)
     d->analyzer = NULL;
 
     d->usedView = view;
-    connect(d->usedView, SIGNAL(droppedUrls(QList<QUrl>)), this, SLOT(loadDroppedUrls(QList<QUrl>)));
+    connect(d->usedView, &View::droppedUrls, this, &LogManager::loadDroppedUrls);
 }
 
 LogManager::~LogManager()
@@ -195,15 +195,15 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
         emit windowTitleChanged(title());
     });
 
-    connect(d->analyzer, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
-    connect(d->analyzer, SIGNAL(errorOccured(QString, QString)), this,
-            SLOT(showErrorMessage(QString, QString)));
-    connect(d->analyzer, SIGNAL(logUpdated(int)), this, SLOT(updateLog(int)));
+    connect(d->analyzer, &Analyzer::statusBarChanged, this, &LogManager::statusBarChanged);
+    connect(d->analyzer, &Analyzer::errorOccured, this,
+            &LogManager::showErrorMessage);
+    connect(d->analyzer, &Analyzer::logUpdated, this, &LogManager::updateLog);
 
-    connect(d->analyzer, SIGNAL(readFileStarted(LogMode, LogFile, int, int)), d->usedView->loadingBar(),
-            SLOT(startLoading(LogMode, LogFile, int, int)));
-    connect(d->analyzer, SIGNAL(openingProgressed()), d->usedView->loadingBar(), SLOT(progressLoading()));
-    connect(d->analyzer, SIGNAL(readEnded()), d->usedView->loadingBar(), SLOT(endLoading()));
+    connect(d->analyzer, &Analyzer::readFileStarted, d->usedView->loadingBar(),
+            &LoadingBar::startLoading);
+    connect(d->analyzer, &Analyzer::openingProgressed, d->usedView->loadingBar(), &LoadingBar::progressLoading);
+    connect(d->analyzer, &Analyzer::readEnded, d->usedView->loadingBar(), &LoadingBar::endLoading);
 
     // Find the log files used for this kind of mode, and set them to our log manager
     d->analyzer->setLogFiles(logFiles);
@@ -253,7 +253,7 @@ void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
     }
 
     if (logFiles.isEmpty() == false) {
-        internalInitialize(Globals::instance().findLogMode(QLatin1String("openLogMode")), logFiles);
+        internalInitialize(Globals::instance().findLogMode(QStringLiteral("openLogMode")), logFiles);
 
         reload();
     }

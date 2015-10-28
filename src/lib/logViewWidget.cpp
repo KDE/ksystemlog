@@ -74,13 +74,13 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     // lines in <b>bold</b> are the last added to the list.</p>"));
 
     QStringList headerLabels;
-    headerLabels.append(QLatin1String("Date"));
-    headerLabels.append(QLatin1String("Message"));
+    headerLabels.append(QStringLiteral("Date"));
+    headerLabels.append(QStringLiteral("Message"));
 
     d->logViewModel = new LogViewModel(this);
     d->headersTogglingActions = new QActionGroup(this);
     d->headersTogglingActions->setExclusive(false);
-    connect(d->headersTogglingActions, SIGNAL(triggered(QAction *)), this, SLOT(toggleHeader(QAction *)));
+    connect(d->headersTogglingActions, &QActionGroup::triggered, this, &LogViewWidget::toggleHeader);
 
     setHeaderLabels(headerLabels);
 

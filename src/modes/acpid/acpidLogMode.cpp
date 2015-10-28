@@ -34,7 +34,7 @@
 #include "acpidConfiguration.h"
 
 AcpidLogMode::AcpidLogMode()
-    : LogMode(QLatin1String(ACPID_LOG_MODE_ID), i18n("ACPI Log"), QLatin1String(ACPID_MODE_ICON))
+    : LogMode(QStringLiteral(ACPID_LOG_MODE_ID), i18n("ACPI Log"), QStringLiteral(ACPID_MODE_ICON))
 {
     d->logModeConfiguration = QSharedPointer<AcpidConfiguration>(new AcpidConfiguration());
 

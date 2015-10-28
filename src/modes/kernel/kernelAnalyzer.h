@@ -70,7 +70,7 @@ protected:
 
     void startupTime()
     {
-        QFile file(QLatin1String(UPTIME_FILE));
+        QFile file(QStringLiteral(UPTIME_FILE));
 
         file.open(QIODevice::ReadOnly | QIODevice::Text);
 
@@ -78,7 +78,7 @@ protected:
         QString line = in.readLine();
 
         // Format : 1618.72 1382.98 (uptime / something)
-        QStringList times = line.split(QLatin1String(" "));
+        QStringList times = line.split(QStringLiteral(" "));
 
         QString secondsString = times.at(0);
         QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1String(".")));
@@ -90,7 +90,7 @@ protected:
 
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
     {
-        QRegExp timeRegex(QLatin1String("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
+        QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
 
         //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
         //			QRegExp messageRegexp(timeRegex + "(.*)");

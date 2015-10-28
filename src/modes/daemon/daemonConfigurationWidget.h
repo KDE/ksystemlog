@@ -43,7 +43,7 @@ class DaemonConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     DaemonConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Daemons' Logs"), QLatin1String(DAEMON_MODE_ICON),
+        : LogModeConfigurationWidget(i18n("Daemons' Logs"), QStringLiteral(DAEMON_MODE_ICON),
                                      i18n("Daemons' Logs"))
     {
         QHBoxLayout *layout = new QHBoxLayout();
@@ -51,7 +51,7 @@ public:
 
         fileList = new FileList(
             this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
         layout->addWidget(fileList);
     }
 
@@ -62,7 +62,7 @@ public slots:
     void saveConfig()
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       .findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
                                                        ->logModeConfiguration<DaemonConfiguration *>();
 
         daemonConfiguration->setDaemonPaths(fileList->paths());
@@ -71,7 +71,7 @@ public slots:
     void readConfig()
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       .findLogMode(QLatin1String(DAEMON_LOG_MODE_ID))
+                                                       .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
                                                        ->logModeConfiguration<DaemonConfiguration *>();
 
         fileList->removeAllItems();

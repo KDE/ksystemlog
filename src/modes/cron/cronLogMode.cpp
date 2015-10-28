@@ -34,7 +34,7 @@
 #include "cronItemBuilder.h"
 
 CronLogMode::CronLogMode()
-    : LogMode(QLatin1String(CRON_LOG_MODE_ID), i18n("Cron Log"), QLatin1String(CRON_MODE_ICON))
+    : LogMode(QStringLiteral(CRON_LOG_MODE_ID), i18n("Cron Log"), QStringLiteral(CRON_MODE_ICON))
 {
     d->logModeConfiguration = QSharedPointer<CronConfiguration>(new CronConfiguration());
 

@@ -41,7 +41,7 @@ class SambaConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     SambaConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Samba Log"), QLatin1String(SAMBA_MODE_ICON), i18n("Samba Log"))
+        : LogModeConfigurationWidget(i18n("Samba Log"), QStringLiteral(SAMBA_MODE_ICON), i18n("Samba Log"))
     {
         QHBoxLayout *layout = new QHBoxLayout();
         this->setLayout(layout);
@@ -56,7 +56,7 @@ public:
             = sambaFileList->addCategory(i18n("Samba Access Log Files"), i18n("Add Samba Access File..."));
         netbiosPathsId = sambaFileList->addCategory(i18n("Netbios Log Files"), i18n("Add Netbios File..."));
 
-        connect(sambaFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(sambaFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(sambaFileList);
     }
@@ -70,7 +70,7 @@ public slots:
         logDebug() << "Saving config from Samba Options...";
 
         SambaConfiguration *sambaConfiguration = Globals::instance()
-                                                     .findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
                                                      ->logModeConfiguration<SambaConfiguration *>();
         sambaConfiguration->setSambaPaths(sambaFileList->paths(sambaPathsId));
         sambaConfiguration->setSambaAccessPaths(sambaFileList->paths(sambaAccessPathsId));
@@ -86,7 +86,7 @@ public slots:
     void readConfig()
     {
         SambaConfiguration *sambaConfiguration = Globals::instance()
-                                                     .findLogMode(QLatin1String(SAMBA_LOG_MODE_ID))
+                                                     .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
                                                      ->logModeConfiguration<SambaConfiguration *>();
 
         sambaFileList->removeAllItems();

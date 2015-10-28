@@ -74,7 +74,7 @@ void LocalLogFileReader::init()
     Q_D(LocalLogFileReader);
 
     d->watch = new KDirWatch();
-    connect(d->watch, SIGNAL(dirty(QString)), this, SLOT(logFileModified()));
+    connect(d->watch, &KDirWatch::dirty, this, &LocalLogFileReader::logFileModified);
 
     // Init current file position
     d->previousFilePosition = 0;

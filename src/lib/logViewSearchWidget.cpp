@@ -62,31 +62,31 @@ LogViewSearchWidget::LogViewSearchWidget()
     d->messageHidingTimer = new QTimer(this);
     d->messageHidingTimer->setSingleShot(true);
     d->messageHidingTimer->setInterval(2000);
-    connect(d->messageHidingTimer, SIGNAL(timeout()), this, SLOT(hideMessage()));
+    connect(d->messageHidingTimer, &QTimer::timeout, this, &LogViewSearchWidget::hideMessage);
 
     // The message widget is hidden by default
     hideMessage();
 
-    closeButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-close")));
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(hide()));
+    closeButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
+    connect(closeButton, &QAbstractButton::clicked, this, &QWidget::hide);
 
-    next->setIcon(QIcon::fromTheme(QLatin1String("arrow-down")));
-    connect(next, SIGNAL(clicked()), this, SLOT(findNext()));
+    next->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
+    connect(next, &QAbstractButton::clicked, this, &LogViewSearchWidget::findNext);
 
-    previous->setIcon(QIcon::fromTheme(QLatin1String("arrow-up")));
-    connect(previous, SIGNAL(clicked()), this, SLOT(findPrevious()));
+    previous->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
+    connect(previous, &QAbstractButton::clicked, this, &LogViewSearchWidget::findPrevious);
 
     searchLabel->setBuddy(searchLine);
 
     connect(searchLine, SIGNAL(textEdited(QString)), this, SLOT(findFirst(QString)));
-    connect(searchLine, SIGNAL(textEdited(QString)), this, SLOT(highlightAll()));
+    connect(searchLine, &QLineEdit::textEdited, this, &LogViewSearchWidget::highlightAll);
 
-    connect(searchLine, SIGNAL(returnPressed()), this, SLOT(findNext()));
+    connect(searchLine, &QLineEdit::returnPressed, this, &LogViewSearchWidget::findNext);
 
     connect(caseSensitive, SIGNAL(clicked()), this, SLOT(findFirst()));
 
-    connect(caseSensitive, SIGNAL(clicked()), this, SLOT(highlightAll()));
-    connect(highlightAllButton, SIGNAL(clicked()), this, SLOT(highlightAll()));
+    connect(caseSensitive, &QAbstractButton::clicked, this, &LogViewSearchWidget::highlightAll);
+    connect(highlightAllButton, &QAbstractButton::clicked, this, &LogViewSearchWidget::highlightAll);
 
     findFirst(searchLine->text());
 }
@@ -185,7 +185,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
 
             bool found = findItem(item);
             if (found == true) {
-                showMessage(i18n("Reached end of list."), QLatin1String("dialog-information"));
+                showMessage(i18n("Reached end of list."), QStringLiteral("dialog-information"));
                 return;
             }
 
@@ -267,7 +267,7 @@ void LogViewSearchWidget::setSearchLineNotFound(bool notFound)
     searchLine->setPalette(palette);
 
     if (notFound == true)
-        showMessage(i18n("Phrase not found."), QLatin1String("dialog-error"));
+        showMessage(i18n("Phrase not found."), QStringLiteral("dialog-error"));
     else
         hideMessage();
 }

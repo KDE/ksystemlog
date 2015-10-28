@@ -49,15 +49,15 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     warningBox->setText(i18n("Some log files do not exist.\n"
                              "If all log files are missing, this mode will be unavailable."));
     warningBox->setCloseButtonVisible(false);
-    warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     vboxLayout->insertWidget(1, warningBox);
 
     description->setText(descriptionText);
 
-    fileListHelper.prepareButton(add, QIcon::fromTheme(QLatin1String("document-new")), this, SLOT(addItem()),
+    fileListHelper.prepareButton(add, QIcon::fromTheme(QStringLiteral("document-new")), this, SLOT(addItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(modify, QIcon::fromTheme(QLatin1String("document-open")), this,
+    fileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
                                  SLOT(modifyItem()), fileList);
 
     // Add a separator in the FileList
@@ -65,22 +65,22 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     separator->setSeparator(true);
     fileList->addAction(separator);
 
-    fileListHelper.prepareButton(remove, QIcon::fromTheme(QLatin1String("list-remove")), this,
+    fileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
                                  SLOT(removeSelectedItem()), fileList);
 
-    fileListHelper.prepareButton(up, QIcon::fromTheme(QLatin1String("go-up")), this, SLOT(moveUpItem()),
+    fileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(down, QIcon::fromTheme(QLatin1String("go-down")), this, SLOT(moveDownItem()),
+    fileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(removeAll, QIcon::fromTheme(QLatin1String("trash-empty")), this,
+    fileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
                                  SLOT(removeAllItems()), fileList);
 
-    connect(fileList, SIGNAL(itemSelectionChanged()), this, SLOT(updateButtons()));
+    connect(fileList, &QListWidget::itemSelectionChanged, this, &FileList::updateButtons);
     connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
             SLOT(modifyItem(QListWidgetItem *)));
-    connect(this, SIGNAL(fileListChanged()), this, SLOT(updateButtons()));
+    connect(this, &FileList::fileListChanged, this, &FileList::updateButtons);
 
     updateButtons();
 

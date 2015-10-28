@@ -80,18 +80,18 @@ View::View(QWidget *parent)
     this->setLayout(topLayout);
 
     d->logViewFilterWidget = new LogViewFilterWidget();
-    connect(d->logViewFilterWidget->filterLine(), SIGNAL(treeWidgetUpdated()), this,
-            SIGNAL(searchFilterChanged()));
-    connect(d->logViewFilterWidget->filterLine(), SIGNAL(treeWidgetUpdated()), this,
-            SLOT(unselectHiddenItems()));
+    connect(d->logViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
+            &View::searchFilterChanged);
+    connect(d->logViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
+            &View::unselectHiddenItems);
 
     d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
 
     topLayout->addWidget(d->logViewFilterWidget);
 
     d->logViewWidget = new LogViewWidget(this);
-    connect(d->logViewWidget, SIGNAL(columnsChanged(LogViewColumns)), d->logViewFilterWidget,
-            SLOT(updateFilterColumns(LogViewColumns)));
+    connect(d->logViewWidget, &LogViewWidget::columnsChanged, d->logViewFilterWidget,
+            &LogViewFilterWidget::updateFilterColumns);
 
     d->logViewFilterWidget->filterLine()->setTreeWidget(d->logViewWidget);
     topLayout->addWidget(d->logViewWidget);
@@ -105,7 +105,7 @@ View::View(QWidget *parent)
     topLayout->addWidget(d->logViewSearchWidget);
 
     d->loadingBar = new LoadingBar();
-    connect(d->loadingBar, SIGNAL(displayed(bool)), this, SLOT(displayLoadingBar(bool)));
+    connect(d->loadingBar, &LoadingBar::displayed, this, &View::displayLoadingBar);
 
     topLayout->addWidget(d->loadingBar);
     d->loadingBar->hide();

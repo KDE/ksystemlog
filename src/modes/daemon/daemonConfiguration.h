@@ -45,12 +45,12 @@ public:
     DaemonConfiguration()
         : d(new DaemonConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("DaemonLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
 
         QStringList defaultDaemonPaths;
-        defaultDaemonPaths << QLatin1String("/var/log/daemon.log");
-        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->daemonPaths, defaultDaemonPaths,
-                                         QLatin1String("LogFilesPaths"));
+        defaultDaemonPaths << QStringLiteral("/var/log/daemon.log");
+        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->daemonPaths, defaultDaemonPaths,
+                                         QStringLiteral("LogFilesPaths"));
     }
 
     virtual ~DaemonConfiguration() { delete d; }

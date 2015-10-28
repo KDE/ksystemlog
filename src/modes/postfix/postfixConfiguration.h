@@ -38,9 +38,9 @@ class PostfixConfiguration : public GenericLogModeConfiguration
 public:
     PostfixConfiguration()
         : GenericLogModeConfiguration(
-              QLatin1String(POSTFIX_LOG_MODE_ID),
-              QStringList() << QLatin1String("/var/log/mail.log") << QLatin1String("/var/log/mail.info")
-                            << QLatin1String("/var/log/mail.warn") << QLatin1String("/var/log/mail.err"),
+              QStringLiteral(POSTFIX_LOG_MODE_ID),
+              QStringList() << QStringLiteral("/var/log/mail.log") << QStringLiteral("/var/log/mail.info")
+                            << QStringLiteral("/var/log/mail.warn") << QStringLiteral("/var/log/mail.err"),
               QList<int>() << Globals::NOTICE_LOG_LEVEL_ID << Globals::INFORMATION_LOG_LEVEL_ID << Globals::WARNING_LOG_LEVEL_ID
                            << Globals::ERROR_LOG_LEVEL_ID)
     {

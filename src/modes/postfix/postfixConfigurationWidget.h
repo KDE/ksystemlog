@@ -45,7 +45,7 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     PostfixConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Postfix Log"), QLatin1String(POSTFIX_MODE_ICON),
+        : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
                                      i18n("Postfix Log"))
     {
         QVBoxLayout *layout = new QVBoxLayout();
@@ -55,7 +55,7 @@ public:
 
         fileList = new LogLevelFileList(this, description);
 
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(fileList);
     }
@@ -78,7 +78,7 @@ public:
         logDebug() << "Saving config from Postfix Options...";
 
         PostfixConfiguration *configuration = Globals::instance()
-                                                  .findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
                                                   ->logModeConfiguration<PostfixConfiguration *>();
         configuration->setLogFilesPaths(fileList->paths());
         configuration->setLogFilesLevels(fileList->levels());
@@ -87,7 +87,7 @@ public:
     void readConfig()
     {
         PostfixConfiguration *configuration = Globals::instance()
-                                                  .findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID))
+                                                  .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
                                                   ->logModeConfiguration<PostfixConfiguration *>();
 
         fileList->removeAllItems();

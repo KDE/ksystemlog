@@ -81,11 +81,11 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
         LogFileReader *logFileReader = createLogFileReader(logFile);
         logFileReaders.append(logFileReader);
 
-        connect(logFileReader, SIGNAL(contentChanged(LogFileReader *, Analyzer::ReadingMode, QStringList)),
-                this, SLOT(logFileChanged(LogFileReader *, Analyzer::ReadingMode, QStringList)));
-        connect(logFileReader, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
-        connect(logFileReader, SIGNAL(errorOccured(QString, QString)), this,
-                SIGNAL(errorOccured(QString, QString)));
+        connect(logFileReader, &LogFileReader::contentChanged,
+                this, &FileAnalyzer::logFileChanged);
+        connect(logFileReader, &LogFileReader::statusBarChanged, this, &Analyzer::statusBarChanged);
+        connect(logFileReader, &LogFileReader::errorOccured, this,
+                &Analyzer::errorOccured);
     }
 }
 

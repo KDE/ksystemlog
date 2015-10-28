@@ -42,14 +42,14 @@ class XorgConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     XorgConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("X.org Log"), QLatin1String(XORG_MODE_ICON), i18n("X.org Log"))
+        : LogModeConfigurationWidget(i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON), i18n("X.org Log"))
     {
         QHBoxLayout *layout = new QHBoxLayout();
         this->setLayout(layout);
 
         fileList
             = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
         layout->addWidget(fileList);
     }
 
@@ -60,7 +60,7 @@ public slots:
     void saveConfig()
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
                                                    ->logModeConfiguration<XorgConfiguration *>();
 
         xorgConfiguration->setXorgPaths(fileList->paths());
@@ -69,7 +69,7 @@ public slots:
     void readConfig()
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(XORG_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
                                                    ->logModeConfiguration<XorgConfiguration *>();
 
         fileList->removeAllItems();

@@ -36,7 +36,7 @@
 NetbiosLogMode::NetbiosLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                                SambaConfigurationWidget *sambaConfigurationWidget,
                                SambaItemBuilder *itemBuilder)
-    : LogMode(QLatin1String(NETBIOS_LOG_MODE_ID), i18n("Netbios Log"), QLatin1String(NETBIOS_MODE_ICON))
+    : LogMode(QStringLiteral(NETBIOS_LOG_MODE_ID), i18n("Netbios Log"), QStringLiteral(NETBIOS_MODE_ICON))
 {
     d->logModeConfiguration = sambaConfiguration;
     d->logModeConfigurationWidget = sambaConfigurationWidget;

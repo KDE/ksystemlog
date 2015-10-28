@@ -103,8 +103,8 @@ QString LogModeItemBuilder::labelMessageFormat(const QString &label, const QStri
 QString LogModeItemBuilder::messageFormat(const QString &message) const
 {
     QString transformation(message);
-    transformation.replace(QRegExp(QLatin1String("&")), QLatin1String("&amp;"));
-    transformation.replace(QRegExp(QLatin1String("<")), QLatin1String("&lt;"));
-    transformation.replace(QRegExp(QLatin1String(">")), QLatin1String("&gt;"));
+    transformation.replace(QRegExp(QStringLiteral("&")), QStringLiteral("&amp;"));
+    transformation.replace(QRegExp(QStringLiteral("<")), QStringLiteral("&lt;"));
+    transformation.replace(QRegExp(QStringLiteral(">")), QStringLiteral("&gt;"));
     return transformation;
 }

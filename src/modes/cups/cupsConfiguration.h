@@ -53,27 +53,27 @@ public:
     CupsConfiguration()
         : d(new CupsConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("CupsLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("CupsLogMode"));
 
         QStringList defaultCupsPaths;
-        defaultCupsPaths << QLatin1String("/var/log/cups/error_log");
-        configuration->addItemStringList(QLatin1String("CupsLogFilesPaths"), d->cupsPaths, defaultCupsPaths,
-                                         QLatin1String("CupsLogFilesPaths"));
+        defaultCupsPaths << QStringLiteral("/var/log/cups/error_log");
+        configuration->addItemStringList(QStringLiteral("CupsLogFilesPaths"), d->cupsPaths, defaultCupsPaths,
+                                         QStringLiteral("CupsLogFilesPaths"));
 
         QStringList defaultCupsAccessPaths;
-        defaultCupsAccessPaths << QLatin1String("/var/log/cups/access_log");
-        configuration->addItemStringList(QLatin1String("CupsAccessLogFilesPaths"), d->cupsAccessPaths,
-                                         defaultCupsAccessPaths, QLatin1String("CupsAccessLogFilesPaths"));
+        defaultCupsAccessPaths << QStringLiteral("/var/log/cups/access_log");
+        configuration->addItemStringList(QStringLiteral("CupsAccessLogFilesPaths"), d->cupsAccessPaths,
+                                         defaultCupsAccessPaths, QStringLiteral("CupsAccessLogFilesPaths"));
 
         QStringList defaultCupsPagePaths;
-        defaultCupsPagePaths << QLatin1String("/var/log/cups/page_log");
-        configuration->addItemStringList(QLatin1String("CupsPageLogFilesPaths"), d->cupsPagePaths,
-                                         defaultCupsPagePaths, QLatin1String("CupsPageLogFilesPaths"));
+        defaultCupsPagePaths << QStringLiteral("/var/log/cups/page_log");
+        configuration->addItemStringList(QStringLiteral("CupsPageLogFilesPaths"), d->cupsPagePaths,
+                                         defaultCupsPagePaths, QStringLiteral("CupsPageLogFilesPaths"));
 
         QStringList defaultCupsPdfPaths;
-        defaultCupsPdfPaths << QLatin1String("/var/log/cups/cups-pdf_log");
-        configuration->addItemStringList(QLatin1String("CupsPdfLogFilesPaths"), d->cupsPdfPaths,
-                                         defaultCupsPdfPaths, QLatin1String("CupsPdfLogFilesPaths"));
+        defaultCupsPdfPaths << QStringLiteral("/var/log/cups/cups-pdf_log");
+        configuration->addItemStringList(QStringLiteral("CupsPdfLogFilesPaths"), d->cupsPdfPaths,
+                                         defaultCupsPdfPaths, QStringLiteral("CupsPdfLogFilesPaths"));
     }
 
     virtual ~CupsConfiguration() { delete d; }

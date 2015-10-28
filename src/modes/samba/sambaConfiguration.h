@@ -51,23 +51,23 @@ public:
     SambaConfiguration()
         : d(new SambaConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("SambaLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("SambaLogMode"));
 
         QStringList defaultSambaPaths;
-        defaultSambaPaths << QLatin1String("/var/log/samba/log.smbd");
-        configuration->addItemStringList(QLatin1String("SambaLogFilesPaths"), d->sambaPaths,
-                                         defaultSambaPaths, QLatin1String("SambaLogFilesPaths"));
+        defaultSambaPaths << QStringLiteral("/var/log/samba/log.smbd");
+        configuration->addItemStringList(QStringLiteral("SambaLogFilesPaths"), d->sambaPaths,
+                                         defaultSambaPaths, QStringLiteral("SambaLogFilesPaths"));
 
         QStringList defaultSambaAccessPaths;
-        defaultSambaAccessPaths << QLatin1String("/var/log/samba/log.localhost")
-                                << QLatin1String("/var/log/samba/log.127.0.0.1");
-        configuration->addItemStringList(QLatin1String("SambaAccessLogFilesPaths"), d->sambaAccessPaths,
-                                         defaultSambaAccessPaths, QLatin1String("SambaAccessLogFilesPaths"));
+        defaultSambaAccessPaths << QStringLiteral("/var/log/samba/log.localhost")
+                                << QStringLiteral("/var/log/samba/log.127.0.0.1");
+        configuration->addItemStringList(QStringLiteral("SambaAccessLogFilesPaths"), d->sambaAccessPaths,
+                                         defaultSambaAccessPaths, QStringLiteral("SambaAccessLogFilesPaths"));
 
         QStringList defaultNetbiosPaths;
-        defaultNetbiosPaths << QLatin1String("/var/log/samba/log.nmbd");
-        configuration->addItemStringList(QLatin1String("NetbiosLogFilesPaths"), d->netbiosPaths,
-                                         defaultNetbiosPaths, QLatin1String("NetbiosLogFilesPaths"));
+        defaultNetbiosPaths << QStringLiteral("/var/log/samba/log.nmbd");
+        configuration->addItemStringList(QStringLiteral("NetbiosLogFilesPaths"), d->netbiosPaths,
+                                         defaultNetbiosPaths, QStringLiteral("NetbiosLogFilesPaths"));
     }
 
     virtual ~SambaConfiguration() { delete d; }

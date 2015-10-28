@@ -38,7 +38,7 @@
 #include "openAnalyzer.h"
 
 OpenLogMode::OpenLogMode(QWidget *parent)
-    : LogMode(QLatin1String(OPEN_LOG_MODE_ID), i18n("Log File"), QLatin1String(OPEN_MODE_ICON))
+    : LogMode(QStringLiteral(OPEN_LOG_MODE_ID), i18n("Log File"), QStringLiteral(OPEN_MODE_ICON))
     , parent(parent)
 {
     d->logModeConfigurationWidget = NULL;

@@ -62,7 +62,7 @@ int main(int argc, char **argv)
     app.setOrganizationDomain(about.organizationDomain());
     app.setApplicationVersion(about.version());
 
-    QApplication::setWindowIcon(QIcon::fromTheme(QLatin1String("utilities-log-viewer")));
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("utilities-log-viewer")));
 
     QCommandLineParser parser;
     about.setupCommandLine(&parser);

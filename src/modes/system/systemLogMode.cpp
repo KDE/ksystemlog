@@ -35,7 +35,7 @@
 #include "logModeItemBuilder.h"
 
 SystemLogMode::SystemLogMode()
-    : LogMode(QLatin1String(SYSTEM_LOG_MODE_ID), i18n("System Log"), QLatin1String(SYSTEM_MODE_ICON))
+    : LogMode(QStringLiteral(SYSTEM_LOG_MODE_ID), i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON))
 {
     d->logModeConfiguration = QSharedPointer<SystemConfiguration>(new SystemConfiguration());
 

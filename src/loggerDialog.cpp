@@ -47,16 +47,16 @@ LoggerDialog::LoggerDialog(QWidget *parent)
 {
     setupUi(this);
 
-    connect(buttonOK, SIGNAL(clicked()), this, SLOT(sendMessage()));
-    connect(buttonCancel, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(buttonOK, &QAbstractButton::clicked, this, &LoggerDialog::sendMessage);
+    connect(buttonCancel, &QAbstractButton::clicked, this, &QWidget::hide);
 
-    connect(tagActivation, SIGNAL(toggled(bool)), this, SLOT(changeTagActivation(bool)));
-    connect(fileActivation, SIGNAL(toggled(bool)), this, SLOT(changeFileActivation(bool)));
-    connect(messageActivation, SIGNAL(toggled(bool)), this, SLOT(changeMessageActivation(bool)));
+    connect(tagActivation, &QAbstractButton::toggled, this, &LoggerDialog::changeTagActivation);
+    connect(fileActivation, &QAbstractButton::toggled, this, &LoggerDialog::changeFileActivation);
+    connect(messageActivation, &QAbstractButton::toggled, this, &LoggerDialog::changeMessageActivation);
 
-    connect(file, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
-    connect(message, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
-    connect(tag, SIGNAL(textChanged(QString)), this, SLOT(textChanged()));
+    connect(file, &KUrlRequester::textChanged, this, &LoggerDialog::textChanged);
+    connect(message, &QLineEdit::textChanged, this, &LoggerDialog::textChanged);
+    connect(tag, &QLineEdit::textChanged, this, &LoggerDialog::textChanged);
 
     buildMaps();
 
@@ -110,37 +110,37 @@ void LoggerDialog::initialize()
 void LoggerDialog::buildMaps()
 {
     // Fill the facility map
-    d->facilities[i18n("Authentication")] = QLatin1String("auth");
-    d->facilities[i18n("Private Authentication")] = QLatin1String("authpriv");
-    d->facilities[i18n("Cron")] = QLatin1String("cron");
-    d->facilities[i18n("Daemon")] = QLatin1String("daemon");
-    d->facilities[i18n("FTP")] = QLatin1String("ftp");
-    d->facilities[i18n("Kernel")] = QLatin1String("kern");
-    d->facilities[i18n("LPR")] = QLatin1String("lpr");
-    d->facilities[i18n("Mail")] = QLatin1String("mail");
-    d->facilities[i18n("News")] = QLatin1String("news");
-    d->facilities[i18n("Syslog")] = QLatin1String("syslog");
-    d->facilities[i18n("User")] = QLatin1String("user");
-    d->facilities[i18n("UUCP")] = QLatin1String("uucp");
+    d->facilities[i18n("Authentication")] = QStringLiteral("auth");
+    d->facilities[i18n("Private Authentication")] = QStringLiteral("authpriv");
+    d->facilities[i18n("Cron")] = QStringLiteral("cron");
+    d->facilities[i18n("Daemon")] = QStringLiteral("daemon");
+    d->facilities[i18n("FTP")] = QStringLiteral("ftp");
+    d->facilities[i18n("Kernel")] = QStringLiteral("kern");
+    d->facilities[i18n("LPR")] = QStringLiteral("lpr");
+    d->facilities[i18n("Mail")] = QStringLiteral("mail");
+    d->facilities[i18n("News")] = QStringLiteral("news");
+    d->facilities[i18n("Syslog")] = QStringLiteral("syslog");
+    d->facilities[i18n("User")] = QStringLiteral("user");
+    d->facilities[i18n("UUCP")] = QStringLiteral("uucp");
 
-    d->facilities[i18n("Local 0")] = QLatin1String("local0");
-    d->facilities[i18n("Local 1")] = QLatin1String("local1");
-    d->facilities[i18n("Local 2")] = QLatin1String("local2");
-    d->facilities[i18n("Local 3")] = QLatin1String("local3");
-    d->facilities[i18n("Local 4")] = QLatin1String("local4");
-    d->facilities[i18n("Local 5")] = QLatin1String("local5");
-    d->facilities[i18n("Local 6")] = QLatin1String("local6");
-    d->facilities[i18n("Local 7")] = QLatin1String("local7");
+    d->facilities[i18n("Local 0")] = QStringLiteral("local0");
+    d->facilities[i18n("Local 1")] = QStringLiteral("local1");
+    d->facilities[i18n("Local 2")] = QStringLiteral("local2");
+    d->facilities[i18n("Local 3")] = QStringLiteral("local3");
+    d->facilities[i18n("Local 4")] = QStringLiteral("local4");
+    d->facilities[i18n("Local 5")] = QStringLiteral("local5");
+    d->facilities[i18n("Local 6")] = QStringLiteral("local6");
+    d->facilities[i18n("Local 7")] = QStringLiteral("local7");
 
     // Fill the priority map
-    d->priorities[Globals::instance().debugLogLevel()->name()] = QLatin1String("debug");
-    d->priorities[Globals::instance().informationLogLevel()->name()] = QLatin1String("info");
-    d->priorities[Globals::instance().noticeLogLevel()->name()] = QLatin1String("notice");
-    d->priorities[Globals::instance().warningLogLevel()->name()] = QLatin1String("warning");
-    d->priorities[Globals::instance().errorLogLevel()->name()] = QLatin1String("err");
-    d->priorities[Globals::instance().criticalLogLevel()->name()] = QLatin1String("crit");
-    d->priorities[Globals::instance().alertLogLevel()->name()] = QLatin1String("alert");
-    d->priorities[Globals::instance().emergencyLogLevel()->name()] = QLatin1String("emerg");
+    d->priorities[Globals::instance().debugLogLevel()->name()] = QStringLiteral("debug");
+    d->priorities[Globals::instance().informationLogLevel()->name()] = QStringLiteral("info");
+    d->priorities[Globals::instance().noticeLogLevel()->name()] = QStringLiteral("notice");
+    d->priorities[Globals::instance().warningLogLevel()->name()] = QStringLiteral("warning");
+    d->priorities[Globals::instance().errorLogLevel()->name()] = QStringLiteral("err");
+    d->priorities[Globals::instance().criticalLogLevel()->name()] = QStringLiteral("crit");
+    d->priorities[Globals::instance().alertLogLevel()->name()] = QStringLiteral("alert");
+    d->priorities[Globals::instance().emergencyLogLevel()->name()] = QStringLiteral("emerg");
 
     // Fill the priority icon map
     d->priorityIcons[Globals::instance().debugLogLevel()->name()]
@@ -209,11 +209,11 @@ void LoggerDialog::sendMessage()
     QStringList arguments;
 
     if (useProcessIdentifier->isChecked()) {
-        arguments << QLatin1String("-i");
+        arguments << QStringLiteral("-i");
     }
 
     if (tagActivation->isChecked()) {
-        arguments << QLatin1String("-t");
+        arguments << QStringLiteral("-t");
 
         arguments << tag->text();
     }
@@ -221,7 +221,7 @@ void LoggerDialog::sendMessage()
     QString prioritySelected = priority->currentText();
 
     if (prioritySelected != Globals::instance().noLogLevel()->name()) {
-        arguments << QLatin1String("-p");
+        arguments << QStringLiteral("-p");
 
         QString p(d->facilities[facility->currentText()]);
         p += QLatin1Char('.');
@@ -232,7 +232,7 @@ void LoggerDialog::sendMessage()
 
     // If we read the content of a file
     if (fileActivation->isChecked()) {
-        arguments << QLatin1String("-f");
+        arguments << QStringLiteral("-f");
 
         arguments << file->url().path();
     }
@@ -243,7 +243,7 @@ void LoggerDialog::sendMessage()
     }
 
     // QProcess::Block, QProcess::Stdout
-    process.start(QLatin1String("logger"), arguments);
+    process.start(QStringLiteral("logger"), arguments);
 
     // If the launching of the command failed
     if (process.error() == QProcess::FailedToStart) {

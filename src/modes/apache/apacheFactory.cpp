@@ -49,8 +49,8 @@ QList<LogMode *> ApacheLogModeFactory::createLogModes() const
 
 LogModeAction *ApacheLogModeFactory::createLogModeAction() const
 {
-    LogMode *apacheLogMode = Globals::instance().findLogMode(QLatin1String(APACHE_LOG_MODE_ID));
-    LogMode *apacheAccessLogMode = Globals::instance().findLogMode(QLatin1String(APACHE_ACCESS_LOG_MODE_ID));
+    LogMode *apacheLogMode = Globals::instance().findLogMode(QStringLiteral(APACHE_LOG_MODE_ID));
+    LogMode *apacheAccessLogMode = Globals::instance().findLogMode(QStringLiteral(APACHE_ACCESS_LOG_MODE_ID));
 
     bool apacheLogsExist = apacheLogMode->filesExist();
     bool apacheAccessLogsExist = apacheAccessLogMode->filesExist();
@@ -58,7 +58,7 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
     if (!apacheLogsExist && !apacheAccessLogsExist)
         return nullptr;
 
-    MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QLatin1String(APACHE_MODE_ICON)),
+    MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
                                                            i18n("Apache"), apacheLogMode);
     if (apacheLogsExist)
         multipleActions->addInnerAction(apacheLogMode->action());

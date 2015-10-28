@@ -43,14 +43,14 @@ class AcpidConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     AcpidConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Acpid Log"), QLatin1String(ACPID_MODE_ICON), i18n("Acpid Log"))
+        : LogModeConfigurationWidget(i18n("Acpid Log"), QStringLiteral(ACPID_MODE_ICON), i18n("Acpid Log"))
     {
         QHBoxLayout *layout = new QHBoxLayout();
         this->setLayout(layout);
 
         fileList
             = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
         layout->addWidget(fileList);
     }
 
@@ -61,7 +61,7 @@ public slots:
     void saveConfig()
     {
         AcpidConfiguration *acpidConfiguration = Globals::instance()
-                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
                                                      ->logModeConfiguration<AcpidConfiguration *>();
 
         acpidConfiguration->setAcpidPaths(fileList->paths());
@@ -70,7 +70,7 @@ public slots:
     void readConfig()
     {
         AcpidConfiguration *acpidConfiguration = Globals::instance()
-                                                     .findLogMode(QLatin1String(ACPID_LOG_MODE_ID))
+                                                     .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
                                                      ->logModeConfiguration<AcpidConfiguration *>();
 
         fileList->removeAllItems();

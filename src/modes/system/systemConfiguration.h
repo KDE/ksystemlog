@@ -37,8 +37,8 @@ class SystemConfiguration : public GenericLogModeConfiguration
 
 public:
     SystemConfiguration()
-        : GenericLogModeConfiguration(QLatin1String(SYSTEM_LOG_MODE_ID),
-                                      QStringList() << QLatin1String("/var/log/syslog"),
+        : GenericLogModeConfiguration(QStringLiteral(SYSTEM_LOG_MODE_ID),
+                                      QStringList() << QStringLiteral("/var/log/syslog"),
                                       QList<int>() << Globals::INFORMATION_LOG_LEVEL_ID)
     {
         /*

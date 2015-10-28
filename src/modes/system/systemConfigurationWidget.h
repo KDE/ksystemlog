@@ -45,7 +45,7 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     SystemConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("System Log"), QLatin1String(SYSTEM_MODE_ICON), i18n("System Log"))
+        : LogModeConfigurationWidget(i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON), i18n("System Log"))
     {
         QVBoxLayout *layout = new QVBoxLayout();
         this->setLayout(layout);
@@ -54,7 +54,7 @@ public:
 
         fileList = new LogLevelFileList(this, description);
 
-        connect(fileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(fileList);
     }
@@ -77,7 +77,7 @@ public:
         logDebug() << "Saving config from System Options...";
 
         SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       .findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
                                                        ->logModeConfiguration<SystemConfiguration *>();
         systemConfiguration->setLogFilesPaths(fileList->paths());
         systemConfiguration->setLogFilesLevels(fileList->levels());
@@ -86,7 +86,7 @@ public:
     void readConfig()
     {
         SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       .findLogMode(QLatin1String(SYSTEM_LOG_MODE_ID))
+                                                       .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
                                                        ->logModeConfiguration<SystemConfiguration *>();
 
         fileList->removeAllItems();

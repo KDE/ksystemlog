@@ -48,7 +48,7 @@ class XSessionConfigurationWidget : public LogModeConfigurationWidget,
 
 public:
     XSessionConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("X Session Log"), QLatin1String(X_SESSION_MODE_ICON),
+        : LogModeConfigurationWidget(i18n("X Session Log"), QStringLiteral(X_SESSION_MODE_ICON),
                                      i18n("X Session Log"))
     {
         setupUi(this);
@@ -58,7 +58,7 @@ public:
         warningBox->setMessageType(KMessageWidget::Warning);
         warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
         warningBox->setCloseButtonVisible(false);
-        warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+        warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
 
         verticalLayout->insertWidget(0, warningBox);
 
@@ -70,11 +70,11 @@ public:
         xsessionUrlRequester->setMode(KFile::File);
         xsessionUrlRequester->setEnabled(true);
 
-        connect(xsessionUrlRequester, SIGNAL(textChanged(const QString &)), this,
-                SIGNAL(configurationChanged()));
-        connect(ignoreXorgErrors, SIGNAL(stateChanged(int)), this, SIGNAL(configurationChanged()));
+        connect(xsessionUrlRequester, &KUrlRequester::textChanged, this,
+                &LogModeConfigurationWidget::configurationChanged);
+        connect(ignoreXorgErrors, &QCheckBox::stateChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-        connect(ignoreXorgErrors, SIGNAL(toggled(bool)), xorgErrorsDescription, SLOT(setEnabled(bool)));
+        connect(ignoreXorgErrors, &QAbstractButton::toggled, xorgErrorsDescription, &QWidget::setEnabled);
 
         xorgErrorsDescriptionDefined = false;
     }
@@ -86,7 +86,7 @@ public slots:
     void saveConfig()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         configuration->setXSessionPath(xsessionUrlRequester->url().path());
@@ -96,7 +96,7 @@ public slots:
     void readConfig()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         QString path = configuration->xsessionPath();
@@ -129,7 +129,7 @@ private:
     void prepareXorgErrorsDescription()
     {
         XSessionConfiguration *configuration = Globals::instance()
-                                                   .findLogMode(QLatin1String(X_SESSION_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
         // Prepare Ignore Xorg Errors description

@@ -49,18 +49,18 @@ public:
     ApacheConfiguration()
         : d(new ApacheConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("ApacheLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
 
         QStringList defaultApachePaths;
-        defaultApachePaths << QLatin1String("/var/log/apache2/error.log");
-        configuration->addItemStringList(QLatin1String("ApacheLogFilesPaths"), d->apachePaths,
-                                         defaultApachePaths, QLatin1String("ApacheLogFilesPaths"));
+        defaultApachePaths << QStringLiteral("/var/log/apache2/error.log");
+        configuration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), d->apachePaths,
+                                         defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
 
         QStringList defaultApacheAccessPaths;
-        defaultApacheAccessPaths << QLatin1String("/var/log/apache2/access.log");
-        configuration->addItemStringList(QLatin1String("ApacheAccessLogFilesPaths"), d->apacheAccessPaths,
+        defaultApacheAccessPaths << QStringLiteral("/var/log/apache2/access.log");
+        configuration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), d->apacheAccessPaths,
                                          defaultApacheAccessPaths,
-                                         QLatin1String("ApacheAccessLogFilesPaths"));
+                                         QStringLiteral("ApacheAccessLogFilesPaths"));
     }
 
     virtual ~ApacheConfiguration() { delete d; }

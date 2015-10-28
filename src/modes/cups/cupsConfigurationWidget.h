@@ -41,7 +41,7 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget
 
 public:
     CupsConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Cups Log"), QLatin1String(CUPS_MODE_ICON),
+        : LogModeConfigurationWidget(i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON),
                                      i18n("Cups &amp; Cups Web Server Log"))
     {
         QHBoxLayout *layout = new QHBoxLayout();
@@ -58,7 +58,7 @@ public:
             = cupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
         cupsPdfPathsId = cupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
 
-        connect(cupsFileList, SIGNAL(fileListChanged()), this, SIGNAL(configurationChanged()));
+        connect(cupsFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
         layout->addWidget(cupsFileList);
     }
@@ -72,7 +72,7 @@ public slots:
         logDebug() << "Saving config from Cups Options...";
 
         CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
                                                    ->logModeConfiguration<CupsConfiguration *>();
         cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
         cupsConfiguration->setCupsAccessPaths(cupsFileList->paths(cupsAccessPathsId));
@@ -89,7 +89,7 @@ public slots:
     void readConfig()
     {
         CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   .findLogMode(QLatin1String(CUPS_LOG_MODE_ID))
+                                                   .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
                                                    ->logModeConfiguration<CupsConfiguration *>();
 
         cupsFileList->removeAllItems();

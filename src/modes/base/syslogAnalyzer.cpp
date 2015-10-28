@@ -103,11 +103,11 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     // Time
     QString stringTime(line.left(8));
-    int h = stringTime.left(2).toInt();
+    int h = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
-    int m = stringTime.left(2).toInt();
+    int m = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
-    int s = stringTime.left(2).toInt();
+    int s = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
 
     QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
@@ -163,7 +163,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     else {
         if (line.contains(QLatin1String("last message repeated"))
             || line.contains(QLatin1String("-- MARK --"))) {
-            process = QLatin1String("syslog");
+            process = QStringLiteral("syslog");
         } else {
             process = undefinedProcess();
         }

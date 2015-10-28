@@ -34,7 +34,7 @@
 #include "xorgConfiguration.h"
 
 XorgLogMode::XorgLogMode()
-    : LogMode(QLatin1String(XORG_LOG_MODE_ID), i18n("X.org Log"), QLatin1String(XORG_MODE_ICON))
+    : LogMode(QStringLiteral(XORG_LOG_MODE_ID), i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON))
 {
     d->logModeConfiguration = QSharedPointer<XorgConfiguration>(new XorgConfiguration());
 

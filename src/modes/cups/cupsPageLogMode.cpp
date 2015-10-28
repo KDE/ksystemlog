@@ -35,7 +35,7 @@
 
 CupsPageLogMode::CupsPageLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
                                  CupsConfigurationWidget *cupsConfigurationWidget)
-    : LogMode(QLatin1String(CUPS_PAGE_LOG_MODE_ID), i18n("Cups Page Log"), QLatin1String(CUPS_PAGE_MODE_ICON))
+    : LogMode(QStringLiteral(CUPS_PAGE_LOG_MODE_ID), i18n("Cups Page Log"), QStringLiteral(CUPS_PAGE_MODE_ICON))
 {
     d->logModeConfiguration = cupsConfiguration;
     d->logModeConfigurationWidget = cupsConfigurationWidget;

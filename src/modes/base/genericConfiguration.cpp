@@ -46,11 +46,11 @@ GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configur
     logDebug() << "Using Configuration Group : " << configurationGroup;
     configuration->setCurrentGroup(configurationGroup);
 
-    configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
-                                     QLatin1String("LogFilesPaths"));
+    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
+                                     QStringLiteral("LogFilesPaths"));
 
-    configuration->addItemIntList(QLatin1String("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
-                                  QLatin1String("LogFilesLevels"));
+    configuration->addItemIntList(QStringLiteral("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
+                                  QStringLiteral("LogFilesLevels"));
 }
 
 GenericLogModeConfiguration::~GenericLogModeConfiguration()

@@ -57,7 +57,7 @@ QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon
 
     // Assert that when an action is triggered, the related button sends a clicked() event
     //(the button is the QObject which is connected to custom slots)
-    connect(action, SIGNAL(triggered(bool)), button, SLOT(click()));
+    connect(action, &QAction::triggered, button, &QAbstractButton::click);
 
     return action;
 }

@@ -36,8 +36,8 @@
 SambaAccessLogMode::SambaAccessLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                                        SambaConfigurationWidget *sambaConfigurationWidget,
                                        SambaItemBuilder *itemBuilder)
-    : LogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID), i18n("Samba Access Log"),
-              QLatin1String(SAMBA_ACCESS_MODE_ICON))
+    : LogMode(QStringLiteral(SAMBA_ACCESS_LOG_MODE_ID), i18n("Samba Access Log"),
+              QStringLiteral(SAMBA_ACCESS_MODE_ICON))
 {
     d->logModeConfiguration = sambaConfiguration;
     d->logModeConfigurationWidget = sambaConfigurationWidget;

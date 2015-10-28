@@ -59,19 +59,19 @@ LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
     buttonsLayout()->insertWidget(2, changeItem);
 
     QAction *action = fileListHelper.prepareButtonAndAction(
-        changeItem, QIcon::fromTheme(QLatin1String("favorites")), this, SLOT(changeItemType()));
+        changeItem, QIcon::fromTheme(QStringLiteral("favorites")), this, SLOT(changeItemType()));
 
     // Insert the action just after the "Modify File" action
     fileList->insertAction(fileList->actions().at(2), action);
 
     changeItem->setEnabled(false);
 
-    connect(fileList, SIGNAL(itemSelectionChanged()), this, SLOT(updateSpecificButtons()));
-    connect(this, SIGNAL(fileListChanged()), this, SLOT(updateSpecificButtons()));
+    connect(fileList, &QListWidget::itemSelectionChanged, this, &LogLevelFileList::updateSpecificButtons);
+    connect(this, &FileList::fileListChanged, this, &LogLevelFileList::updateSpecificButtons);
 
     disconnect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
                SLOT(modifyItem(QListWidgetItem *)));
-    connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(changeItemType()));
+    connect(fileList, &QListWidget::itemDoubleClicked, this, &LogLevelFileList::changeItemType);
 
     updateSpecificButtons();
 

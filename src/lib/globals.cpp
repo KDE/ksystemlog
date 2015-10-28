@@ -119,7 +119,7 @@ QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTim
         return QLocale().toString(dateTime, (QLocale::FormatType)format);
         break;
     case PreciseFormat:
-        return dateTime.toString("dd.MM.yyyy hh:mm:ss:zzz");
+        return dateTime.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss:zzz"));
         break;
     default:
         break;
@@ -132,41 +132,41 @@ void Globals::setupLogLevels()
     int index = metaObject()->indexOfEnumerator("LogLevelIds");
     d->logLevelsMetaEnum = metaObject()->enumerator(index);
 
-    d->noLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QLatin1String("help-contents"),
+    d->noLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("help-contents"),
                                  QColor(208, 210, 220));
     d->logLevels.append(d->noLogLevel);
 
     d->debugLogLevel
-        = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QLatin1String("attach"), QColor(156, 157, 165));
+        = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QStringLiteral("attach"), QColor(156, 157, 165));
     d->logLevels.append(d->debugLogLevel);
 
     d->informationLogLevel
-        = new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QLatin1String("dialog-information"),
+        = new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QStringLiteral("dialog-information"),
                        QColor(36, 49, 103) /*QColor(0, 0, 0)*/);
     d->logLevels.append(d->informationLogLevel);
 
     d->noticeLogLevel
-        = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QLatin1String("book2"), QColor(36, 138, 22));
+        = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QStringLiteral("book2"), QColor(36, 138, 22));
     d->logLevels.append(d->noticeLogLevel);
 
-    d->warningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QLatin1String("dialog-warning"),
+    d->warningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QStringLiteral("dialog-warning"),
                                       QColor(238, 144, 21));
     d->logLevels.append(d->warningLogLevel);
 
     d->errorLogLevel
-        = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QLatin1String("dialog-close"), QColor(173, 28, 28));
+        = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QStringLiteral("dialog-close"), QColor(173, 28, 28));
     d->logLevels.append(d->errorLogLevel);
 
     d->criticalLogLevel
-        = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QLatin1String("exec"), QColor(214, 26, 26));
+        = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QStringLiteral("exec"), QColor(214, 26, 26));
     d->logLevels.append(d->criticalLogLevel);
 
     d->alertLogLevel
-        = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QLatin1String("bell"), QColor(214, 0, 0));
+        = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QStringLiteral("bell"), QColor(214, 0, 0));
     d->logLevels.append(d->alertLogLevel);
 
     d->emergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"),
-                                        QLatin1String("application-exit"), QColor(255, 0, 0));
+                                        QStringLiteral("application-exit"), QColor(255, 0, 0));
     d->logLevels.append(d->emergencyLogLevel);
 }
 

@@ -42,15 +42,15 @@ DetailDialog::DetailDialog(QWidget *parent)
     setupUi(this);
 
     previous->setText(i18n("&Previous"));
-    previous->setIcon(QIcon::fromTheme(QLatin1String("arrow-up")));
-    connect(previous, SIGNAL(clicked()), this, SLOT(previousItem()));
+    previous->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
+    connect(previous, &QAbstractButton::clicked, this, &DetailDialog::previousItem);
 
     next->setText(i18n("&Next"));
-    next->setIcon(QIcon::fromTheme(QLatin1String("arrow-down")));
-    connect(next, SIGNAL(clicked()), this, SLOT(nextItem()));
+    next->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
+    connect(next, &QAbstractButton::clicked, this, &DetailDialog::nextItem);
 
     KGuiItem::assign(closeButton, KStandardGuiItem::close());
-    connect(closeButton, SIGNAL(clicked()), this, SLOT(close()));
+    connect(closeButton, &QAbstractButton::clicked, this, &QWidget::close);
 }
 
 DetailDialog::~DetailDialog()

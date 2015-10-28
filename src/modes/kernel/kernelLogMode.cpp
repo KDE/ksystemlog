@@ -33,7 +33,7 @@
 #include "kernelItemBuilder.h"
 
 KernelLogMode::KernelLogMode()
-    : LogMode(QLatin1String(KERNEL_LOG_MODE_ID), i18n("Kernel Log"), QLatin1String(KERNEL_MODE_ICON))
+    : LogMode(QStringLiteral(KERNEL_LOG_MODE_ID), i18n("Kernel Log"), QStringLiteral(KERNEL_MODE_ICON))
 {
     d->logModeConfigurationWidget = NULL;
 
@@ -60,6 +60,6 @@ Analyzer *KernelLogMode::createAnalyzer(const QVariant &options)
 QList<LogFile> KernelLogMode::createLogFiles()
 {
     QList<LogFile> logFiles;
-    logFiles.append(LogFile(QUrl::fromLocalFile("/bin/dmesg"), Globals::instance().informationLogLevel()));
+    logFiles.append(LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel()));
     return logFiles;
 }

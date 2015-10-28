@@ -59,7 +59,7 @@ void LogModeFactoryTest::initTestCase()
 
 void LogModeFactoryTest::testLogModes()
 {
-    LogMode *systemLogMode = Globals::instance().findLogMode(QLatin1String("systemLogMode"));
+    LogMode *systemLogMode = Globals::instance().findLogMode(QStringLiteral("systemLogMode"));
     QVERIFY(systemLogMode);
 
     QCOMPARE(systemLogMode->id(), QString::fromLatin1("systemLogMode"));
@@ -68,7 +68,7 @@ void LogModeFactoryTest::testLogModes()
 void LogModeFactoryTest::testReaderFactory()
 {
     LogViewModel *model = NULL;
-    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QLatin1String("systemLogMode"), &model);
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
 
     QVERIFY(systemAnalyzer);
     QVERIFY(model);

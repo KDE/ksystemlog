@@ -39,7 +39,7 @@ class CupsPageAnalyzer : public FileAnalyzer
 public:
     explicit CupsPageAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
-        , cupsPageRegex(QLatin1String("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
+        , cupsPageRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
     {
     }
 

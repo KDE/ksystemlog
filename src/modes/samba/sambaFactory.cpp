@@ -52,9 +52,9 @@ QList<LogMode *> SambaLogModeFactory::createLogModes() const
 
 LogModeAction *SambaLogModeFactory::createLogModeAction() const
 {
-    LogMode *sambaLogMode = Globals::instance().findLogMode(QLatin1String(SAMBA_LOG_MODE_ID));
-    LogMode *sambaAccessLogMode = Globals::instance().findLogMode(QLatin1String(SAMBA_ACCESS_LOG_MODE_ID));
-    LogMode *sambaNetbiosLogMode = Globals::instance().findLogMode(QLatin1String(NETBIOS_LOG_MODE_ID));
+    LogMode *sambaLogMode = Globals::instance().findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID));
+    LogMode *sambaAccessLogMode = Globals::instance().findLogMode(QStringLiteral(SAMBA_ACCESS_LOG_MODE_ID));
+    LogMode *sambaNetbiosLogMode = Globals::instance().findLogMode(QStringLiteral(NETBIOS_LOG_MODE_ID));
 
     bool sambaLogsExist = sambaLogMode->filesExist();
     bool sambaAccessLogsExist = sambaAccessLogMode->filesExist();
@@ -64,7 +64,7 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
         return nullptr;
 
     MultipleActions *multipleActions
-        = new MultipleActions(QIcon::fromTheme(QLatin1String(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
+        = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
 
     if (sambaLogsExist)
         multipleActions->addInnerAction(sambaLogMode->action());

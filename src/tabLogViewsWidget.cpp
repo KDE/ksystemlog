@@ -55,15 +55,15 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     d->contextMenu = NULL;
 
     QPushButton *tabNewTabButton
-        = new QPushButton(SmallIcon(QLatin1String("tab-new")), QLatin1String(""), this);
-    connect(tabNewTabButton, SIGNAL(clicked()), this, SLOT(createTab()));
+        = new QPushButton(SmallIcon(QStringLiteral("tab-new")), QLatin1String(""), this);
+    connect(tabNewTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::createTab);
 
     tabNewTabButton->setToolTip(i18n("Create a new tab"));
     tabNewTabButton->setWhatsThis(i18n("Creates a new tab which can display another log."));
 
     QPushButton *tabCloseTabButton
-        = new QPushButton(SmallIcon(QLatin1String("tab-close")), QLatin1String(""), this);
-    connect(tabCloseTabButton, SIGNAL(clicked()), this, SLOT(closeTab()));
+        = new QPushButton(SmallIcon(QStringLiteral("tab-close")), QLatin1String(""), this);
+    connect(tabCloseTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::closeTab);
 
     tabCloseTabButton->setToolTip(i18n("Close the current tab"));
     tabCloseTabButton->setWhatsThis(i18n("Closes the current tab."));
@@ -83,7 +83,7 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     // TODO Use this (need to connect to movedTab(int, int) signal and update the QList
     // setTabReorderingEnabled(true);
 
-    connect(this, SIGNAL(currentChanged(int)), this, SLOT(changeCurrentTab(int)));
+    connect(this, &QTabWidget::currentChanged, this, &TabLogViewsWidget::changeCurrentTab);
 }
 
 TabLogViewsWidget::~TabLogViewsWidget()
@@ -103,7 +103,7 @@ void TabLogViewsWidget::newTab(View *view)
     logDebug() << "Inserting to a new tab the view ";
 
     // Add a tab at the end of the widget
-    insertTab(count(), view, SmallIcon(QLatin1String(NO_MODE_ICON)), i18n("No Log"));
+    insertTab(count(), view, SmallIcon(QStringLiteral(NO_MODE_ICON)), i18n("No Log"));
 
     if (count() > 1)
         tabBar()->show();
@@ -228,9 +228,9 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
     LogManager *logManager = new LogManager(view);
 
     // Signals from LogManager to Main Class
-    connect(logManager, SIGNAL(tabTitleChanged(View *, QIcon, QString)), this,
-            SLOT(changeTab(View *, QIcon, QString)));
-    connect(logManager, SIGNAL(logUpdated(View *, int)), this, SLOT(changeTitleAddedLines(View *, int)));
+    connect(logManager, &LogManager::tabTitleChanged, this,
+            &TabLogViewsWidget::changeTab);
+    connect(logManager, &LogManager::logUpdated, this, &TabLogViewsWidget::changeTitleAddedLines);
 
     TabLogManager *tabLogManager = new TabLogManager(logManager);
     d->tabLogManagers.append(tabLogManager);
@@ -343,7 +343,7 @@ void TabLogViewsWidget::changeReloadingTab(View *view, bool reloading)
     TabLogManager *tabLogManager = findRelatedTabLogManager(view);
 
     if (reloading == true)
-        changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme(QLatin1String("view-refresh")),
+        changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme(QStringLiteral("view-refresh")),
                   tabLogManager->title());
     else
         changeTab(tabLogManager->logManager()->usedView(),
@@ -383,33 +383,33 @@ void TabLogViewsWidget::selectAllCurrentView()
 void TabLogViewsWidget::fileSaveCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-    connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+    connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.fileSave();
 }
 
 void TabLogViewsWidget::copyToClipboardCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-    connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+    connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.copyToClipboard();
 }
 void TabLogViewsWidget::sendMailCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-    connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+    connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.sendMail();
 }
 void TabLogViewsWidget::printSelectionCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
-    connect(&logViewExport, SIGNAL(statusBarChanged(QString)), this, SIGNAL(statusBarChanged(QString)));
+    connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.printSelection();
 }
 
 QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode)
 {
     if (logMode == NULL)
-        return QIcon::fromTheme(QLatin1String(NO_MODE_ICON));
+        return QIcon::fromTheme(QStringLiteral(NO_MODE_ICON));
     else
         return logMode->icon();
 }

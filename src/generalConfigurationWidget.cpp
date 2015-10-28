@@ -52,10 +52,10 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     d->warningBox->setMessageType(KMessageWidget::Warning);
     d->warningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
     d->warningBox->setCloseButtonVisible(false);
-    d->warningBox->setIcon(QIcon::fromTheme(QLatin1String("dialog-warning")));
+    d->warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     startupModeVerticalLayout->addWidget(d->warningBox);
 
-    startupLogMode->addItem(QIcon::fromTheme(QLatin1String(NO_MODE_ICON)), i18n("No Log Mode"),
+    startupLogMode->addItem(QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
     foreach (LogMode *logMode, Globals::instance().logModes()) {
         // Ignore this special case
@@ -69,11 +69,11 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
 
     connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
 
-    connect(deleteDuplicatedLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(deleteDuplicatedLines, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
 
-    connect(deleteProcessId, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(deleteProcessId, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
 
-    connect(colorizeLogLines, SIGNAL(clicked()), this, SIGNAL(configurationChanged()));
+    connect(colorizeLogLines, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
 
     d->dateFormatGroup = new QButtonGroup(this);
     d->dateFormatGroup->addButton(formatLongDate, Globals::LongFormat);

@@ -69,7 +69,7 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
 void CupsAnalyzer::initializeTypeLevels()
 {
-    mapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QLatin1String(DEBUG2_LOG_LEVEL_ICON),
+    mapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QStringLiteral(DEBUG2_LOG_LEVEL_ICON),
                                                    QColor(169, 189, 165), this);
     mapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
     mapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();

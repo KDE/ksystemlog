@@ -47,12 +47,12 @@ public:
     AcpidConfiguration()
         : d(new AcpidConfigurationPrivate())
     {
-        configuration->setCurrentGroup(QLatin1String("AcpidLogMode"));
+        configuration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
 
         QStringList defaultAcpidPaths;
-        defaultAcpidPaths << QLatin1String("/var/log/acpid");
-        configuration->addItemStringList(QLatin1String("LogFilesPaths"), d->acpidPaths, defaultAcpidPaths,
-                                         QLatin1String("LogFilesPaths"));
+        defaultAcpidPaths << QStringLiteral("/var/log/acpid");
+        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->acpidPaths, defaultAcpidPaths,
+                                         QStringLiteral("LogFilesPaths"));
     }
 
     virtual ~AcpidConfiguration() { delete d; }

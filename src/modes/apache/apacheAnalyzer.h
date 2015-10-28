@@ -89,7 +89,7 @@ protected:
         if (line.indexOf(QLatin1String("[client")) == 0) {
             date = QDate::currentDate();
             time = QTime::currentTime();
-            level = QLatin1String("notice");
+            level = QStringLiteral("notice");
         } else {
             // The Date
             int dateBegin = line.indexOf(QLatin1String("["));
@@ -145,9 +145,9 @@ private:
 
     void initializeTypeLevels()
     {
-        mapTypeLevels[QLatin1String("notice")] = Globals::instance().informationLogLevel();
-        mapTypeLevels[QLatin1String("warn")] = Globals::instance().warningLogLevel();
-        mapTypeLevels[QLatin1String("error")] = Globals::instance().errorLogLevel();
+        mapTypeLevels[QStringLiteral("notice")] = Globals::instance().informationLogLevel();
+        mapTypeLevels[QStringLiteral("warn")] = Globals::instance().warningLogLevel();
+        mapTypeLevels[QStringLiteral("error")] = Globals::instance().errorLogLevel();
     }
 
     LogLevel *findLogLevel(const QString &type)

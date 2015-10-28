@@ -40,7 +40,7 @@ QList<LogMode *> PostfixLogModeFactory::createLogModes() const
 
 LogModeAction *PostfixLogModeFactory::createLogModeAction() const
 {
-    LogMode *logMode = Globals::instance().findLogMode(QLatin1String(POSTFIX_LOG_MODE_ID));
+    LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID));
 
     if (!logMode->filesExist())
         return nullptr;
