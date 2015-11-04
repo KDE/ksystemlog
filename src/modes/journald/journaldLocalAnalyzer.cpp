@@ -48,7 +48,8 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
     int fd = sd_journal_get_fd(m_journal);
     m_journalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
     m_journalNotifier->setEnabled(false);
-    connect(m_journalNotifier, SIGNAL(activated(int)), this, SLOT(journalDescriptorUpdated(int)));
+    connect(m_journalNotifier, &QSocketNotifier::activated, this,
+            &JournaldLocalAnalyzer::journalDescriptorUpdated);
 
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
@@ -87,7 +88,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
         m_workerMutex.lock();
         m_journalWatchers.append(watcher);
         m_workerMutex.unlock();
-        connect(watcher, SIGNAL(finished()), this, SLOT(readJournalInitialFinished()));
+        connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalInitialFinished);
         watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
     } else {
         for (JournalWatcher *watcher : m_journalWatchers) {
@@ -198,7 +199,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
     m_workerMutex.lock();
     m_journalWatchers.append(watcher);
     m_workerMutex.unlock();
-    connect(watcher, SIGNAL(finished()), this, SLOT(readJournalUpdateFinished()));
+    connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalUpdateFinished);
     watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
 }
 

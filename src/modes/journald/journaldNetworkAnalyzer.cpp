@@ -34,8 +34,7 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const Journal
 {
     m_address = options.address;
 
-    connect(&m_networkManager, SIGNAL(sslErrors(QNetworkReply *, QList<QSslError>)),
-            SLOT(sslErrors(QNetworkReply *, QList<QSslError>)));
+    connect(&m_networkManager, &QNetworkAccessManager::sslErrors, this, &JournaldNetworkAnalyzer::sslErrors);
 
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
@@ -280,10 +279,10 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     request.setUrl(url);
     logDebug() << "Journal network analyzer requested" << url;
     m_reply = m_networkManager.get(request);
-    connect(m_reply, SIGNAL(finished()), SLOT(httpFinished()));
-    connect(m_reply, SIGNAL(readyRead()), SLOT(httpReadyRead()));
-    connect(m_reply, SIGNAL(error(QNetworkReply::NetworkError)),
-            SLOT(httpError(QNetworkReply::NetworkError)));
+    connect(m_reply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
+    connect(m_reply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
+    connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
+            this, &JournaldNetworkAnalyzer::httpError);
 }
 
 void JournaldNetworkAnalyzer::updateStatus(QString status)

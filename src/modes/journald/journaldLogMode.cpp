@@ -38,7 +38,8 @@ JournaldLogMode::JournaldLogMode()
     d->logModeConfiguration = QSharedPointer<JournaldConfiguration>(new JournaldConfiguration());
 
     d->logModeConfigurationWidget = new JournaldConfigurationWidget();
-    connect(d->logModeConfigurationWidget, SIGNAL(configSaved()), SIGNAL(menuChanged()));
+    connect(qobject_cast<JournaldConfigurationWidget *>(d->logModeConfigurationWidget),
+            &JournaldConfigurationWidget::configSaved, this, &JournaldLogMode::menuChanged);
 
     d->itemBuilder = new JournaldItemBuilder();
 

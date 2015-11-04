@@ -36,16 +36,22 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
     setupUi(this);
 
     remoteJournalsListWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    connect(remoteJournalsListWidget, SIGNAL(itemSelectionChanged()), SLOT(updateButtons()));
+    connect(remoteJournalsListWidget, &QTableWidget::itemSelectionChanged, this,
+            &JournaldConfigurationWidget::updateButtons);
 
-    connect(lastBootOnly, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
-    connect(currentUserEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
-    connect(systemEntries, SIGNAL(stateChanged(int)), SIGNAL(configurationChanged()));
+    connect(lastBootOnly, &QCheckBox::stateChanged, this, &JournaldConfigurationWidget::configurationChanged);
+    connect(currentUserEntries, &QCheckBox::stateChanged, this,
+            &JournaldConfigurationWidget::configurationChanged);
+    connect(systemEntries, &QCheckBox::stateChanged, this,
+            &JournaldConfigurationWidget::configurationChanged);
 
-    connect(addAddressButton, SIGNAL(clicked(bool)), SLOT(addRemoteJournal()));
-    connect(modifyAddressButton, SIGNAL(clicked(bool)), SLOT(modifyRemoteJournal()));
-    connect(removeAddressButton, SIGNAL(clicked(bool)), SLOT(removeRemoteJournal()));
-    connect(remoteJournalsListWidget, SIGNAL(cellDoubleClicked(int, int)), SLOT(tableItemClicked(int)));
+    connect(addAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::addRemoteJournal);
+    connect(modifyAddressButton, &QPushButton::clicked, this,
+            &JournaldConfigurationWidget::modifyRemoteJournal);
+    connect(removeAddressButton, &QPushButton::clicked, this,
+            &JournaldConfigurationWidget::removeRemoteJournal);
+    connect(remoteJournalsListWidget, &QTableWidget::cellDoubleClicked, this,
+            &JournaldConfigurationWidget::tableItemClicked);
 }
 
 void JournaldConfigurationWidget::saveConfig()
