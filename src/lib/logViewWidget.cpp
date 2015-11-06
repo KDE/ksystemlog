@@ -38,30 +38,12 @@
 
 #include "ksystemlogConfig.h"
 
-class PriorityFilterModel : public QSortFilterProxyModel
-{
-public:
-    PriorityFilterModel(QObject *parent = 0)
-        : QSortFilterProxyModel(parent)
-    {
-    }
-
-protected:
-    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
-    {
-        QModelIndex firstColumnIndex = sourceModel()->index(sourceRow, 0, sourceParent);
-        return (sourceModel()->data(firstColumnIndex, Qt::UserRole).toInt() > 4);
-    }
-};
-
 class LogViewWidgetPrivate
 {
 public:
     LogViewModel *logViewModel;
 
     QActionGroup *headersTogglingActions;
-
-//    PriorityFilterModel *filterModel;
 };
 
 LogViewWidget::LogViewWidget(QWidget *parent)
@@ -103,10 +85,6 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     setContextMenuPolicy(Qt::ActionsContextMenu);
-
-//    d->filterModel = new PriorityFilterModel(this);
-//    d->filterModel->setSourceModel(QTreeWidget::model());
-//    setModel(d->filterModel);
 }
 
 LogViewWidget::~LogViewWidget()
