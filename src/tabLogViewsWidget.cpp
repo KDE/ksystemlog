@@ -155,7 +155,10 @@ TabLogManager *TabLogViewsWidget::activeTabLogManager()
 
 LogManager *TabLogViewsWidget::activeLogManager()
 {
-    return activeTabLogManager()->logManager();
+    TabLogManager *tabLogManager = activeTabLogManager();
+    if (tabLogManager)
+        return tabLogManager->logManager();
+    return nullptr;
 }
 
 LogManager *TabLogViewsWidget::createTab()
@@ -228,8 +231,7 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
     LogManager *logManager = new LogManager(view);
 
     // Signals from LogManager to Main Class
-    connect(logManager, &LogManager::tabTitleChanged, this,
-            &TabLogViewsWidget::changeTab);
+    connect(logManager, &LogManager::tabTitleChanged, this, &TabLogViewsWidget::changeTab);
     connect(logManager, &LogManager::logUpdated, this, &TabLogViewsWidget::changeTitleAddedLines);
 
     TabLogManager *tabLogManager = new TabLogManager(logManager);

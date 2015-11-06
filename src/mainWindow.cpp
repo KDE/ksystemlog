@@ -496,6 +496,9 @@ void MainWindow::changeCurrentTab()
 
     LogManager *currentManager = d->tabs->activeLogManager();
 
+    if (!currentManager)
+        return;
+
     // If the tab changed, the selection changes too
     updateSelection();
 
