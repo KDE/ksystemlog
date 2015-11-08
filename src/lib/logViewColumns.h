@@ -32,6 +32,7 @@ class LogViewColumns
 {
 public:
     LogViewColumns();
+    LogViewColumns(const LogViewColumns &columns);
 
     ~LogViewColumns();
 

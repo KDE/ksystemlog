@@ -40,7 +40,7 @@ public:
 
 GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup,
                                                          const QStringList &defaultLogFilesPaths,
-                                                         const QList<int> defaultLogFilesLevels)
+                                                         const QList<int> &defaultLogFilesLevels)
     : d(new GenericLogModeConfigurationPrivate())
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;

@@ -245,7 +245,7 @@ LogViewWidgetItem *LogViewWidget::lastSelectedItem()
     while (*it) {
         item = (*it);
 
-        it++;
+        ++it;
     }
 
     // Returns the last selected item or NULL is there is no item selected

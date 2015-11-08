@@ -354,7 +354,7 @@ void MultipleFileList::removeAllItems()
             delete childItem;
         }
 
-        it++;
+        ++it;
     }
 
     updateEmptyItems();
@@ -462,7 +462,7 @@ QStringList MultipleFileList::paths(int category)
             paths.append(item->text(0));
         }
 
-        it++;
+        ++it;
     }
 
     return paths;

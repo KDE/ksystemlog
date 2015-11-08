@@ -117,19 +117,19 @@ void LogLevelFileList::changeItemType()
     logDebug() << "Changing item type...";
 
     LogLevelSelectionDialog logLevelSelectionDialog(this);
+    QListWidget *logLevels = logLevelSelectionDialog.logLevels();
 
     foreach (LogLevel *level, Globals::instance().logLevels()) {
-        logLevelSelectionDialog.logLevels()->addItem(
-            new QListWidgetItem(QIcon(level->pixmap()), level->name()));
+        logLevels->addItem(new QListWidgetItem(QIcon(level->pixmap()), level->name()));
     }
 
     int choice = logLevelSelectionDialog.exec();
 
     if (choice == QDialog::Accepted) {
-        QList<QListWidgetItem *> selectedLogLevels = logLevelSelectionDialog.logLevels()->selectedItems();
+        QList<QListWidgetItem *> selectedLogLevels = logLevels->selectedItems();
         if (selectedLogLevels.isEmpty() == false) {
             QListWidgetItem *logLevel = selectedLogLevels.at(0);
-            int selectedLogLevel = logLevelSelectionDialog.logLevels()->row(logLevel);
+            int selectedLogLevel = logLevels->row(logLevel);
 
             QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
             foreach (QListWidgetItem *item, selectedItems) {

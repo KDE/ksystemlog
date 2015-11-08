@@ -76,8 +76,6 @@ protected:
      */
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
     {
-        QString line(logLine);
-
         int firstPosition = cupsPdfRegex.indexIn(logLine);
         if (firstPosition == -1) {
             logDebug() << "Unable to parse line " << logLine;

@@ -37,7 +37,7 @@ class GenericLogModeConfiguration : public LogModeConfiguration
 
 public:
     GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths,
-                                const QList<int> defaultLogFilesLevels);
+                                const QList<int> &defaultLogFilesLevels);
     virtual ~GenericLogModeConfiguration();
 
     QStringList logFilesPaths() const;

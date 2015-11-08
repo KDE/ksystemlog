@@ -85,12 +85,13 @@ void LocalLogFileReader::init()
 void LocalLogFileReader::watchFile(bool enable)
 {
     Q_D(LocalLogFileReader);
+    QString filePath = d->logFile.url().path();
 
     if (enable == true) {
-        logDebug() << "Monitoring file : " << d->logFile.url().path();
+        logDebug() << "Monitoring file : " << filePath;
 
-        if (d->watch->contains(d->logFile.url().path()) == false) {
-            d->watch->addFile(d->logFile.url().path());
+        if (d->watch->contains(filePath) == false) {
+            d->watch->addFile(filePath);
         }
 
         // Reinit current file position
@@ -99,13 +100,14 @@ void LocalLogFileReader::watchFile(bool enable)
         // If we enable the watching, then we first try to see if new lines have appeared
         logFileModified();
     } else {
-        d->watch->removeFile(d->logFile.url().path());
+        d->watch->removeFile(filePath);
     }
 }
 
 QIODevice *LocalLogFileReader::open()
 {
     Q_D(LocalLogFileReader);
+    QString filePath = d->logFile.url().path();
 
     if (d->logFile.url().isValid() == false) {
         QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
@@ -114,16 +116,16 @@ QIODevice *LocalLogFileReader::open()
     }
 
     QMimeDatabase db;
-    QString mimeType = db.mimeTypeForFile(d->logFile.url().path(), QMimeDatabase::MatchContent).name();
+    QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
-    logDebug() << d->logFile.url().path() << " : " << mimeType;
+    logDebug() << filePath << " : " << mimeType;
     QIODevice *inputDevice;
 
     // Try to see if this file exists
-    QFile *file = new QFile(d->logFile.url().path());
+    QFile *file = new QFile(filePath);
     // If the file does not exist
     if (!file->exists()) {
-        QString message(i18n("The file '%1' does not exist.", d->logFile.url().path()));
+        QString message(i18n("The file '%1' does not exist.", filePath));
         emit errorOccured(i18n("File Does Not Exist"), message);
         emit statusBarChanged(message);
         delete file;
@@ -140,13 +142,11 @@ QIODevice *LocalLogFileReader::open()
     else {
         logDebug() << "Using KFilterDev input device";
 
-        // inputDevice = KFilterDev::deviceForFile(d->logFile.url().path(), mimeType);
-        inputDevice = new KCompressionDevice(d->logFile.url().path(),
-                                             KFilterDev::compressionTypeForMimeType(mimeType));
+        // inputDevice = KFilterDev::deviceForFile(filePath, mimeType);
+        inputDevice = new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType));
 
         if (inputDevice == NULL) {
-            QString message(
-                i18n("Unable to uncompress the '%2' format of '%1'.", d->logFile.url().path(), mimeType));
+            QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
             emit errorOccured(i18n("Unable to Uncompress File"), message);
             emit statusBarChanged(message);
             return NULL;
@@ -154,8 +154,7 @@ QIODevice *LocalLogFileReader::open()
     }
 
     if (!inputDevice->open(QIODevice::ReadOnly)) {
-        QString message(
-            i18n("You do not have sufficient permissions to read '%1'.", d->logFile.url().path()));
+        QString message(i18n("You do not have sufficient permissions to read '%1'.", filePath));
         emit errorOccured(i18n("Insufficient Permissions"), message);
         emit statusBarChanged(message);
         delete inputDevice;

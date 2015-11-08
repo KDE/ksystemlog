@@ -45,7 +45,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
         m_journalFlags |= SD_JOURNAL_SYSTEM;
     sd_journal_open(&m_journal, m_journalFlags);
 
-    int fd = sd_journal_get_fd(m_journal);
+    qintptr fd = sd_journal_get_fd(m_journal);
     m_journalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
     m_journalNotifier->setEnabled(false);
     connect(m_journalNotifier, &QSocketNotifier::activated, this,
@@ -236,9 +236,8 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
             entryList.append(entry);
         }
 
-        if (m_cursor)
-            free(m_cursor);
-        res = sd_journal_get_cursor(journal, &m_cursor);
+        free(m_cursor);
+        sd_journal_get_cursor(journal, &m_cursor);
     }
 
     sd_journal_close(journal);

@@ -81,31 +81,29 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
         LogFileReader *logFileReader = createLogFileReader(logFile);
         logFileReaders.append(logFileReader);
 
-        connect(logFileReader, &LogFileReader::contentChanged,
-                this, &FileAnalyzer::logFileChanged);
+        connect(logFileReader, &LogFileReader::contentChanged, this, &FileAnalyzer::logFileChanged);
         connect(logFileReader, &LogFileReader::statusBarChanged, this, &Analyzer::statusBarChanged);
-        connect(logFileReader, &LogFileReader::errorOccured, this,
-                &Analyzer::errorOccured);
+        connect(logFileReader, &LogFileReader::errorOccured, this, &Analyzer::errorOccured);
     }
 }
 
 void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode,
-                              const QStringList &content)
+                                  const QStringList &content)
 {
+    QString filePath = logFileReader->logFile().url().path();
     if (readingMode == Analyzer::FullRead)
-        logDebug() << "File " << logFileReader->logFile().url().path() << " has been modified on full read.";
+        logDebug() << "File " << filePath << " has been modified on full read.";
     else
-        logDebug() << "File " << logFileReader->logFile().url().path()
-                   << " has been modified on partial read";
+        logDebug() << "File " << filePath << " has been modified on partial read";
 
     if (parsingPaused == true) {
         logDebug() << "Pause enabled. Nothing read.";
         return;
     }
 
-    logDebug() << "Locking file modifications of " << logFileReader->logFile().url().path();
+    logDebug() << "Locking file modifications of " << filePath;
     insertionLocking.lock();
-    logDebug() << "Unlocking file modifications of " << logFileReader->logFile().url().path();
+    logDebug() << "Unlocking file modifications of " << filePath;
 
     QTime benchmark;
     benchmark.start();
@@ -117,9 +115,9 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     if (readingMode == Analyzer::UpdatingRead) {
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::UpdatingRead);
     } else {
-        logDebug() << "Reading file " << logFileReader->logFile().url().path();
+        logDebug() << "Reading file " << filePath;
 
-        emit statusBarChanged(i18n("Opening '%1'...", logFileReader->logFile().url().path()));
+        emit statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
         emit readFileStarted(*logMode, logFileReader->logFile(),
@@ -128,8 +126,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
-        emit statusBarChanged(
-            i18n("Log file '%1' loaded successfully.", logFileReader->logFile().url().path()));
+        emit statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
     }
 
     logViewModel->endingMultipleInsertions(readingMode, insertedLogLineCount);
@@ -141,14 +138,15 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     emit logUpdated(insertedLogLineCount);
 
     // Inform MainWindow status bar
-    emit statusBarChanged(i18n("Log file '%1' has changed.", logFileReader->logFile().url().path()));
+    emit statusBarChanged(i18n("Log file '%1' has changed.", filePath));
 
     logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 
     insertionLocking.unlock();
 }
 
-int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode)
+int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile,
+                              ReadingMode readingMode)
 {
     logDebug() << "Inserting lines...";
 

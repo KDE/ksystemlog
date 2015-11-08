@@ -48,6 +48,16 @@ LogViewColumns::LogViewColumns()
     d->groupByLogFile = true;
 }
 
+LogViewColumns::LogViewColumns(const LogViewColumns &columns)
+    : d(new LogViewColumnsPrivate())
+{
+    d->columns = columns.columns();
+    d->groupByLogLevel = columns.isGroupByLogLevel();
+    d->groupByDay = columns.isGroupByDay();
+    d->groupByHour = columns.isGroupByHour();
+    d->groupByLogFile = columns.isGroupByLogFile();
+}
+
 LogViewColumns::~LogViewColumns()
 {
     delete d;

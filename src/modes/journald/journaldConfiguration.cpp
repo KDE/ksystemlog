@@ -24,6 +24,10 @@
 
 JournaldConfiguration::JournaldConfiguration()
 {
+    m_displayCurrentBootOnly = true;
+    m_displayCurrentUserProcesses = true;
+    m_displaySystemServices = true;
+
     configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
     configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, true);
     configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, true);

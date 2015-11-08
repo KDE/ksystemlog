@@ -1,4 +1,4 @@
-/***************************************************************************
+﻿/***************************************************************************
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
@@ -127,10 +127,11 @@ void LogViewExport::printSelection()
 
     QPen originalPen(painter.pen());
 
-    int dpiy = painter.device()->logicalDpiY();
+    QPaintDevice *painterDevice = painter.device();
+    int dpiy = painterDevice->logicalDpiY();
     int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
-    QRect printView(margin, margin, painter.device()->width() - 2 * margin,
-                    painter.device()->height() - 2 * margin);
+    QRect printView(margin, margin, painterDevice->width() - 2 * margin,
+                    painterDevice->height() - 2 * margin);
 
     int page = 1;
 
@@ -140,36 +141,13 @@ void LogViewExport::printSelection()
     QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != NULL) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
-
-        /*
-         if(qtItem==NULL)
-         {
-         painter.setPen(originalPen);
-         printPageNumber(painter, printView, movement, page);
-         break;
-         }*/
-
         QString body = item->logLine()->exportToText();
-        // body+= "\n";
-
-        /* QPrinter Port: comment out as dialog page is not currently being used, so not ported
-        QString strUseColor = printer.option("kde-ksystemlog-print_"+ item->logLine()->logLevel()->name());
-        int use = strUseColor.toInt();
-        if (use) {
-            QPen pen(originalPen);
-            pen.setColor(item->logLine()->logLevel()->color());
-            painter.setPen(pen);
-        } else {*/
         painter.setPen(originalPen);
-        //}
-
         painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
-
         int fontHeight = painter.fontMetrics().height();
         int lines = painter.fontMetrics().width(body) / printView.width() + 1;
         int moveBy = (fontHeight + 2) * lines;
         painter.translate(0, moveBy);
-
         movement = movement + moveBy;
         if (movement + margin >= printView.height()) {
             painter.setPen(originalPen);
@@ -178,7 +156,6 @@ void LogViewExport::printSelection()
             page++;
             movement = 0;
         }
-
         ++it;
         ++i;
     }
@@ -213,7 +190,7 @@ void LogViewExport::copyToClipboard()
         text.append(item->logLine()->exportToText());
         text.append(QLatin1Char('\n'));
 
-        it++;
+        ++it;
         nbCopied++;
     }
 
@@ -264,7 +241,7 @@ void LogViewExport::fileSave()
             stream << item->logLine()->exportToText() << '\n';
 
             // Retrieve the next item
-            it++;
+            ++it;
             nbCopied++;
         }
 

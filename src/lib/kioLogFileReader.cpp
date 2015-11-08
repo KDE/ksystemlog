@@ -38,6 +38,8 @@ class KioLogFileReaderPrivate
 public:
     KioLogFileReaderPrivate(const LogFile &file)
         : logFile(file)
+        , fileJob(nullptr)
+        , fileWatch(nullptr)
     {
     }
 
