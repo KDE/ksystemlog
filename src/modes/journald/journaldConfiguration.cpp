@@ -25,13 +25,11 @@
 JournaldConfiguration::JournaldConfiguration()
 {
     m_displayCurrentBootOnly = true;
-    m_displayCurrentUserProcesses = true;
-    m_displaySystemServices = true;
+    m_entriesType = EntriesAll;
 
     configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
     configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, true);
-    configuration->addItemBool(QLatin1String("CurrentUserProcesses"), m_displayCurrentUserProcesses, true);
-    configuration->addItemBool(QLatin1String("SystemServices"), m_displaySystemServices, true);
+    configuration->addItemInt(QLatin1String("EntriesType"), m_entriesType);
     configuration->addItemStringList(QLatin1String("RemoteJournals"), m_remoteJournals);
 }
 
@@ -45,24 +43,16 @@ void JournaldConfiguration::setDisplayCurrentBootOnly(bool displayCurrentBootOnl
     m_displayCurrentBootOnly = displayCurrentBootOnly;
 }
 
-bool JournaldConfiguration::displayCurrentUserProcesses() const
+JournaldConfiguration::EntriesType JournaldConfiguration::entriesType()
 {
-    return m_displayCurrentUserProcesses;
+    if ((m_entriesType < EntriesAll) || (m_entriesType > EntriesSystem))
+        m_entriesType = EntriesAll;
+    return static_cast<EntriesType>(m_entriesType);
 }
 
-void JournaldConfiguration::setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses)
+void JournaldConfiguration::setEntriesType(JournaldConfiguration::EntriesType entriesType)
 {
-    m_displayCurrentUserProcesses = displayCurrentUserProcesses;
-}
-
-bool JournaldConfiguration::displaySystemServices() const
-{
-    return m_displaySystemServices;
-}
-
-void JournaldConfiguration::setDisplaySystemServices(bool displaySystemServices)
-{
-    m_displaySystemServices = displaySystemServices;
+    m_entriesType = entriesType;
 }
 
 QList<JournalAddress> JournaldConfiguration::remoteJournals() const

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>450</width>
-    <height>450</height>
+    <height>350</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -17,13 +17,6 @@
       <string>Journald options</string>
      </property>
      <layout class="QGridLayout">
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="currentUserEntries">
-        <property name="text">
-         <string>Display log entries of processes of the current user</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0">
        <widget class="QCheckBox" name="lastBootOnly">
         <property name="text">
@@ -31,11 +24,23 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="systemEntries">
-        <property name="text">
-         <string>Display log entries of system services and the kernel</string>
-        </property>
+      <item row="1" column="0">
+       <widget class="QComboBox" name="entriesTypeComboBox">
+        <item>
+         <property name="text">
+          <string>Display all log entries</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Display log entries of processes of the current user</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Display log entries of system services and the kernel</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>

@@ -39,26 +39,23 @@ class JournaldConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    JournaldConfiguration();
+    enum EntriesType { EntriesAll = 0, EntriesCurrentUser = 1, EntriesSystem = 2 };
 
+    JournaldConfiguration();
     virtual ~JournaldConfiguration() {}
 
     bool displayCurrentBootOnly() const;
     void setDisplayCurrentBootOnly(bool displayCurrentBootOnly);
 
-    bool displayCurrentUserProcesses() const;
-    void setDisplayCurrentUserProcesses(bool displayCurrentUserProcesses);
-
-    bool displaySystemServices() const;
-    void setDisplaySystemServices(bool displaySystemServices);
+    EntriesType entriesType();
+    void setEntriesType(EntriesType entriesType);
 
     QList<JournalAddress> remoteJournals() const;
     void setRemoteJournals(const QList<JournalAddress> &remoteJournals);
 
 private:
     bool m_displayCurrentBootOnly;
-    bool m_displayCurrentUserProcesses;
-    bool m_displaySystemServices;
+    int m_entriesType;
     QStringList m_remoteJournals;
 };
 

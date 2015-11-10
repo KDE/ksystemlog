@@ -39,10 +39,18 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
     // Initialize journal access flags and open the journal.
     m_journalFlags = 0;
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
-    if (configuration->displayCurrentUserProcesses())
+    switch (configuration->entriesType()) {
+    case JournaldConfiguration::EntriesAll:
+        break;
+    case JournaldConfiguration::EntriesCurrentUser:
         m_journalFlags |= SD_JOURNAL_CURRENT_USER;
-    if (configuration->displaySystemServices())
+        break;
+    case JournaldConfiguration::EntriesSystem:
         m_journalFlags |= SD_JOURNAL_SYSTEM;
+        break;
+    default:
+        break;
+    }
     sd_journal_open(&m_journal, m_journalFlags);
 
     qintptr fd = sd_journal_get_fd(m_journal);

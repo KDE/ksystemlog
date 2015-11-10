@@ -40,9 +40,7 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
             &JournaldConfigurationWidget::updateButtons);
 
     connect(lastBootOnly, &QCheckBox::stateChanged, this, &JournaldConfigurationWidget::configurationChanged);
-    connect(currentUserEntries, &QCheckBox::stateChanged, this,
-            &JournaldConfigurationWidget::configurationChanged);
-    connect(systemEntries, &QCheckBox::stateChanged, this,
+    connect(entriesTypeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
             &JournaldConfigurationWidget::configurationChanged);
 
     connect(addAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::addRemoteJournal);
@@ -61,8 +59,7 @@ void JournaldConfigurationWidget::saveConfig()
                                                ->logModeConfiguration<JournaldConfiguration *>();
 
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
-    configuration->setDisplayCurrentUserProcesses(currentUserEntries->isChecked());
-    configuration->setDisplaySystemServices(systemEntries->isChecked());
+    configuration->setEntriesType((JournaldConfiguration::EntriesType)entriesTypeComboBox->currentIndex());
 
     QList<JournalAddress> remoteJournals;
     for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
@@ -88,8 +85,7 @@ void JournaldConfigurationWidget::readConfig()
                                                ->logModeConfiguration<JournaldConfiguration *>();
 
     lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
-    currentUserEntries->setChecked(configuration->displayCurrentUserProcesses());
-    systemEntries->setChecked(configuration->displaySystemServices());
+    entriesTypeComboBox->setCurrentIndex(configuration->entriesType());
 
     remoteJournalsListWidget->clearContents();
     while (remoteJournalsListWidget->rowCount() > 0) {
