@@ -23,6 +23,7 @@
 #define _GLOBALS_H_
 
 #include <QList>
+#include <QObject>
 #include <QString>
 #include <QMetaEnum>
 
