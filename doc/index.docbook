@@ -296,7 +296,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 
 	<para>
 	&ksystemlog; can also be found in the following folder of the &kde; Git Repository :
-	<ulink url="https://projects.kde.org/projects/kde/kdeadmin/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
+	<ulink url="https://quickgit.kde.org/?p=ksystemlog.git">&ksystemlog; in the &kde; repository</ulink>
 	</para>
 
 </appendix>
