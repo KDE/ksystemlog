@@ -25,6 +25,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include "ksystemlog_version.h"
 #include "mainWindow.h"
 #include "logging.h"
 
@@ -39,7 +40,7 @@ int main(int argc, char **argv)
 
     KLocalizedString::setApplicationDomain("ksystemlog");
 
-    KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral("0.4"),
+    KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral(KSYSTEMLOG_VERSION_STRING),
                      i18n("System Logs Viewer for KDE"), KAboutLicense::GPL_V2,
                      i18n("(C) 2007-2015, Nicolas Ternisien"),
                      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
