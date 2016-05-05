@@ -102,7 +102,7 @@ void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
 
 void LogViewWidgetSearchLine::setPriorityEnabled(int priority, bool enabled)
 {
-    if ((priority < 0) || (priority > Globals::LOG_LEVEL_NUM))
+    if ((priority < 0) || (priority >= Globals::LOG_LEVEL_NUM))
         return;
     d->priorities[priority] = enabled;
     updateSearch(QString());
