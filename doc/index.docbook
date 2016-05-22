@@ -287,16 +287,11 @@ It is also designed for advanced users who want to quickly see problems occuring
 </chapter>
 
 <appendix id="installation">
-	<title>How to obtain and install &ksystemlog;</title>
+	<title>How to obtain &ksystemlog; code</title>
 
 	<para>
-	&ksystemlog; has its own home page <ulink url="http://ksystemlog.forum-software.org">http://ksystemlog.forum-software.org</ulink>.
-	Please refer to the instructions on the home page since they will contain up-to-date information about how to obtain &ksystemlog;.
-	</para>
-
-	<para>
-	&ksystemlog; can also be found in the following folder of the &kde; Git Repository :
-	<ulink url="https://quickgit.kde.org/?p=ksystemlog.git">&ksystemlog; in the &kde; repository</ulink>
+	&ksystemlog; code can be found in the following folder of the &kde; Git Repository:
+	<ulink url="https://commits.kde.org/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
 	</para>
 
 </appendix>
