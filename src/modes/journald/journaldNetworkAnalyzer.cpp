@@ -276,7 +276,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
         break;
     }
 
-    request.setUrl(url);
+    request.setUrl(QUrl(url));
     logDebug() << "Journal network analyzer requested" << url;
     m_reply = m_networkManager.get(request);
     connect(m_reply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
