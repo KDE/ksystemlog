@@ -35,7 +35,7 @@ find_library(JOURNALD_LIBRARY NAMES systemd
 set(JOURNALD_LIBRARIES ${JOURNALD_LIBRARY})
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(BlueZ DEFAULT_MSG JOURNALD_LIBRARY JOURNALD_INCLUDE_DIR)
+find_package_handle_standard_args(Journald DEFAULT_MSG JOURNALD_LIBRARY JOURNALD_INCLUDE_DIR)
 
 include(FeatureSummary)
 set_package_properties(Journald PROPERTIES URL https://github.com/systemd
