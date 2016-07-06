@@ -2,6 +2,8 @@
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
+ *   Copyright (C) 2016 by Harald Sitter                                   *
+ *   sitter@kde.org                                                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -43,8 +45,6 @@ private slots:
 
     void testKioLogFileReader();
 
-    void readLine(const QString &line);
-
 private:
     TestUtil testUtil;
 };
@@ -56,27 +56,24 @@ void KioLogFileReaderTest::initTestCase()
 
 void KioLogFileReaderTest::testKioLogFileReader()
 {
-    /*
-    QList<LogFile> logFiles = testUtil.createLogFiles(":/logs/logFileReader/file.txt");
-    LogFile logFile = logFiles.first();
-    */
-
-    /// home/nicolas/test.txt
-    LogFile logFile(QUrl::fromLocalFile(QStringLiteral("http://localhost/test.txt")),
+    QString fixturePath = QFINDTESTDATA("testFiles/logFileReader/file.txt");
+    LogFile logFile(QUrl::fromLocalFile(fixturePath),
                     Globals::instance().informationLogLevel());
 
     KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
-
     logFileReader->open();
 
-    connect(logFileReader, &KioLogFileReader::lineRead, this, &KioLogFileReaderTest::readLine);
-
-    QTest::qWait(100000);
-}
-
-void KioLogFileReaderTest::readLine(const QString &line)
-{
-    logDebug() << "Line " << line << endl;
+    connect(logFileReader, &KioLogFileReader::lineRead, this, [=](const QString &line) {
+        logDebug() << "Line " << line << endl;
+        static QFile file(fixturePath);
+        static bool open = false;
+        if (!open) {
+            QVERIFY(file.open(QIODevice::ReadOnly | QIODevice::Text));
+            open = true;
+        }
+        static QTextStream stream(&file);
+        QCOMPARE(line, stream.readLine());
+    });
 }
 
 QTEST_MAIN(KioLogFileReaderTest)
