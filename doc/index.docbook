@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY ksystemlog "<application>KSystemLog</application>">
-<!ENTITY kappname "&ksystemlog;"><!-- replace kapp here -->
-<!ENTITY package "kdeadmin">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
@@ -30,11 +27,11 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-06-08</date>
-<releaseinfo>0.4 (&kde; 4.11)</releaseinfo>
+<date>2016-04-17</date>
+<releaseinfo>0.4 (Applications 16.04)</releaseinfo>
 
 <abstract>
-<para>&ksystemlog; is a system log viewer tool for &kde;. This program is developed for beginner users
+<para>&ksystemlog; is a system log viewer tool by &kde;. This program is developed for beginner users
 who don't know how to find information about their system or where the log files are located.
 It is also designed for advanced users who want to quickly see problems occuring on their server.
 </para>
@@ -55,7 +52,18 @@ It is also designed for advanced users who want to quickly see problems occuring
 </keywordset>
 
 </bookinfo>
-
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
 <chapter id="using_ksystemlog">
 	<title>Using &ksystemlog;</title>
 
@@ -105,6 +113,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 				<listitem><simpara>Group by different criteria (log level, log file, process, hour, ...)</simpara></listitem>
 				<listitem><simpara>Detailed information for each log lines</simpara></listitem>
 				<listitem><simpara>Adding a log entry manually</simpara></listitem>
+				<listitem><simpara>Filtering by priority</simpara></listitem>
 			</itemizedlist>
 
 			<para>
@@ -124,7 +133,7 @@ It is also designed for advanced users who want to quickly see problems occuring
 				<listitem><simpara>Daemons logs</simpara></listitem>
 				<listitem><simpara>Cron logs</simpara></listitem>
 				<listitem><simpara>XSessions logs</simpara></listitem>
-
+				<listitem><simpara>Systemd / Journald logs</simpara></listitem>
 			</itemizedlist>
 
 			<para>
@@ -231,6 +240,13 @@ It is also designed for advanced users who want to quickly see problems occuring
 				</para>
 
 			</sect3>
+			<sect3 id="send_email">
+				<title>Send logd via email</title>
+				<para>
+				The context menu has an action <guilabel>Send E-Mail selection</guilabel>. Select relevant lines in the log and use this action to open the composer window of your default email client prefilled with the selection.
+				</para>
+
+			</sect3>
 		</sect2>
 	<sect2 id="monitoring_management">
 		<title>Monitoring Management</title>
@@ -285,16 +301,6 @@ It is also designed for advanced users who want to quickly see problems occuring
 	&underGPL;        	 <!-- GPL License -->
 
 </chapter>
-
-<appendix id="installation">
-	<title>How to obtain &ksystemlog; code</title>
-
-	<para>
-	&ksystemlog; code can be found in the following folder of the &kde; Git Repository:
-	<ulink url="https://commits.kde.org/ksystemlog">&ksystemlog; in the &kde; repository</ulink>
-	</para>
-
-</appendix>
 
 &documentation.index;
 </book>
