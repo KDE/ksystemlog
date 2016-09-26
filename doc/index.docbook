@@ -243,7 +243,7 @@ Hide menu entries and actions for modes with missing log files
 			<sect3 id="send_email">
 				<title>Send logd via email</title>
 				<para>
-				The context menu has an action <guilabel>Send E-Mail selection</guilabel>. Select relevant lines in the log and use this action to open the composer window of your default email client prefilled with the selection.
+				The context menu has an action <guilabel>Email Selection</guilabel>. Select relevant lines in the log and use this action to open the composer window of your default email client prefilled with the selection.
 				</para>
 
 			</sect3>
