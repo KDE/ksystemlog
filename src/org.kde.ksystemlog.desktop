@@ -69,7 +69,6 @@ Name[zh_TW]=KSystemLog
 
 Comment=System log viewer tool
 Comment[ar]=أداة لعرض سجلّات النّظام
-Comment[ast]=Ferramienta de visor de rexistros del sistema
 Comment[bg]=Инструмент за преглеждане на системните дневници
 Comment[bs]=Alat za pregled sistemski zabilješki
 Comment[ca]=Eina de visualització dels registres del sistema
@@ -130,7 +129,6 @@ Comment[zh_TW]=系統紀錄檢視工具
 
 GenericName=System Log Viewer
 GenericName[ar]=عارض سجلّات النّظام
-GenericName[ast]=Visor de rexistros del sistema
 GenericName[bg]=Преглед на системните дневници
 GenericName[bs]=Preglednik sistemskih bilješki
 GenericName[ca]=Visor dels registres del sistema
