@@ -46,8 +46,8 @@ XSessionLogMode::XSessionLogMode()
     d->action->setToolTip(i18n("Display the X Session log."));
     d->action->setWhatsThis(i18n(
         "Displays the X Session log in the current tab. X Session log is the place where graphical programs "
-        "write their output. See this log if you want to know why a program has crashed, or why your display "
-        "manager (KDE, Gnome,...) has not started."));
+        "write their output. See this log if you want to know why a program has crashed, or why your desktop "
+        "environment (Plasma, Gnome, Unity, Xfce, LXQt, ...) has not started."));
 
     XSessionConfiguration *configuration = logModeConfiguration<XSessionConfiguration *>();
     checkLogFilesPresence(QStringList() << configuration->xsessionPath());
