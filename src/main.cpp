@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("ksystemlog");
 
     KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral(KSYSTEMLOG_VERSION_STRING),
-                     i18n("System Logs Viewer for KDE"), KAboutLicense::GPL_V2,
+                     i18n("System Logs Viewer by KDE"), KAboutLicense::GPL_V2,
                      i18n("(C) 2007-2015, Nicolas Ternisien"),
                      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
                           "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
