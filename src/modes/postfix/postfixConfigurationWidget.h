@@ -62,7 +62,7 @@ public:
 
     virtual ~PostfixConfigurationWidget() {}
 
-    bool isValid() const
+    bool isValid() const Q_DECL_OVERRIDE
     {
         if (fileList->isEmpty() == false) {
             logDebug() << "Postfix configuration valid";
@@ -73,7 +73,7 @@ public:
         return false;
     }
 
-    void saveConfig()
+    void saveConfig() Q_DECL_OVERRIDE
     {
         logDebug() << "Saving config from Postfix Options...";
 
@@ -84,7 +84,7 @@ public:
         configuration->setLogFilesLevels(fileList->levels());
     }
 
-    void readConfig()
+    void readConfig() Q_DECL_OVERRIDE
     {
         PostfixConfiguration *configuration = Globals::instance()
                                                   .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
@@ -95,7 +95,7 @@ public:
         fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
     }
 
-    void defaultConfig()
+    void defaultConfig() Q_DECL_OVERRIDE
     {
         // TODO Find a way to read the configuration per default
         readConfig();

@@ -49,9 +49,9 @@ public:
 
     ~OpenLogMode();
 
-    Analyzer *createAnalyzer(const QVariant &options = QVariant());
+    Analyzer *createAnalyzer(const QVariant &options = QVariant()) Q_DECL_OVERRIDE;
 
-    QList<LogFile> createLogFiles();
+    QList<LogFile> createLogFiles() Q_DECL_OVERRIDE;
 
 private:
     QWidget *parent;

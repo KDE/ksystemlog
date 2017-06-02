@@ -43,7 +43,7 @@ public:
 
     virtual ~AcpidItemBuilder() {}
 
-    QString createFormattedText(LogLine *line) const
+    QString createFormattedText(LogLine *line) const Q_DECL_OVERRIDE
     {
         QString result;
 

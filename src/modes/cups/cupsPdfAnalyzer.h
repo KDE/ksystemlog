@@ -47,7 +47,7 @@ public:
 
     virtual ~CupsPdfAnalyzer() {}
 
-    LogViewColumns initColumns()
+    LogViewColumns initColumns() Q_DECL_OVERRIDE
     {
         LogViewColumns columns;
 
@@ -60,9 +60,9 @@ public:
 protected:
     QRegExp cupsPdfRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
 
     /*
      * http://www.physik.uni-wuerzburg.de/~vrbehr/cups-pdf/documentation.shtml (cups-pdf_log)
@@ -74,7 +74,7 @@ protected:
      * Fri Sep 30 21:58:37 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
      * Sat Oct  1 09:11:45 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
     {
         int firstPosition = cupsPdfRegex.indexIn(logLine);
         if (firstPosition == -1) {

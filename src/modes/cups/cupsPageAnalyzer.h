@@ -45,7 +45,7 @@ public:
 
     virtual ~CupsPageAnalyzer() {}
 
-    LogViewColumns initColumns()
+    LogViewColumns initColumns() Q_DECL_OVERRIDE
     {
         LogViewColumns columns;
 
@@ -63,9 +63,9 @@ public:
 protected:
     QRegExp cupsPageRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
 
     /*
      * http://www.cups.org/documentation.php/ref-page_log.html
@@ -74,7 +74,7 @@ protected:
      * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123
      * DeskJet root 2 [20/May/1999:19:21:05 +0000] 2 1 acme-123
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
     {
         int firstPosition = cupsPageRegex.indexIn(logLine);
         if (firstPosition == -1) {

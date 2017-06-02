@@ -31,9 +31,9 @@ class CupsLogModeFactory : public LogModeFactory
     Q_OBJECT
 
 public:
-    QList<LogMode *> createLogModes() const;
+    QList<LogMode *> createLogModes() const Q_DECL_OVERRIDE;
 
-    LogModeAction *createLogModeAction() const;
+    LogModeAction *createLogModeAction() const Q_DECL_OVERRIDE;
 };
 
 #endif // _CUPS_LOG_MODE_FACTORY_H_

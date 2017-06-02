@@ -70,19 +70,19 @@ protected:
      * This function is called when it is time for the app to save its
      * properties for session management purposes.
      */
-    void saveProperties(KConfigGroup &configuration);
+    void saveProperties(KConfigGroup &configuration) Q_DECL_OVERRIDE;
 
     /**
      * This function is called when this app is restored.  The KConfig
      * object points to the session management config file that was saved
      * with @ref saveProperties
      */
-    void readProperties(const KConfigGroup &configuration);
+    void readProperties(const KConfigGroup &configuration) Q_DECL_OVERRIDE;
 
     /**
      * Reimplemented to save configuration when closing.
      */
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 
 public slots:
     void changeStatusBar(const QString &text);

@@ -46,9 +46,9 @@ public:
 
     ~CronLogMode();
 
-    Analyzer *createAnalyzer(const QVariant &options = QVariant());
+    Analyzer *createAnalyzer(const QVariant &options = QVariant()) Q_DECL_OVERRIDE;
 
-    QList<LogFile> createLogFiles();
+    QList<LogFile> createLogFiles() Q_DECL_OVERRIDE;
 };
 
 #endif // _CRON_LOG_MODE_H_

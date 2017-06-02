@@ -43,7 +43,7 @@ public:
 
     virtual ~ProcessOutputLogFileReader();
 
-    void watchFile(bool enable);
+    void watchFile(bool enable) Q_DECL_OVERRIDE;
 
     void setPreviousFilePosition(long previousFilePosition);
 

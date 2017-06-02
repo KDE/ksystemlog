@@ -44,7 +44,7 @@ public:
 
     virtual ~ApacheAccessAnalyzer() {}
 
-    LogViewColumns initColumns()
+    LogViewColumns initColumns() Q_DECL_OVERRIDE
     {
         LogViewColumns columns;
 
@@ -63,11 +63,11 @@ public:
     }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
     {
         QString line(logLine);
 

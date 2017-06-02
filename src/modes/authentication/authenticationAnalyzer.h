@@ -39,7 +39,7 @@ public:
 
     virtual ~AuthenticationAnalyzer() {}
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile)
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
     {
         LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
 

@@ -43,7 +43,7 @@ public:
 
     virtual ~XSessionItemBuilder() {}
 
-    void prepareItem(LogViewWidgetItem *item) const
+    void prepareItem(LogViewWidgetItem *item) const Q_DECL_OVERRIDE
     {
         LogLine *line = item->logLine();
 
@@ -58,7 +58,7 @@ public:
         item->setIcon(0, QIcon(line->logLevel()->pixmap()));
     }
 
-    QString createToolTipText(LogLine *line) const
+    QString createToolTipText(LogLine *line) const Q_DECL_OVERRIDE
     {
         QString result;
 
@@ -79,7 +79,7 @@ public:
         return result;
     }
 
-    QString createFormattedText(LogLine *line) const
+    QString createFormattedText(LogLine *line) const Q_DECL_OVERRIDE
     {
         // It uses the same formating than the tool tip
         return createToolTipText(line);

@@ -43,9 +43,9 @@ public:
 
     virtual ~SimpleAction();
 
-    QList<QAction *> innerActions();
+    QList<QAction *> innerActions() Q_DECL_OVERRIDE;
 
-    QAction *actionMenu();
+    QAction *actionMenu() Q_DECL_OVERRIDE;
 
 private:
     QAction *action;

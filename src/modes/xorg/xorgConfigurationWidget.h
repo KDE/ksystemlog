@@ -57,7 +57,7 @@ public:
 
 public slots:
 
-    void saveConfig()
+    void saveConfig() Q_DECL_OVERRIDE
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
                                                    .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
@@ -66,7 +66,7 @@ public slots:
         xorgConfiguration->setXorgPaths(fileList->paths());
     }
 
-    void readConfig()
+    void readConfig() Q_DECL_OVERRIDE
     {
         XorgConfiguration *xorgConfiguration = Globals::instance()
                                                    .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
@@ -77,14 +77,14 @@ public slots:
         fileList->addPaths(xorgConfiguration->xorgPaths());
     }
 
-    void defaultConfig()
+    void defaultConfig() Q_DECL_OVERRIDE
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
 protected:
-    bool isValid() const
+    bool isValid() const Q_DECL_OVERRIDE
     {
         if (fileList->isEmpty() == false) {
             return true;

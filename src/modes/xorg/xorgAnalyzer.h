@@ -45,14 +45,14 @@ public:
 
     virtual ~XorgAnalyzer();
 
-    LogViewColumns initColumns();
+    LogViewColumns initColumns() Q_DECL_OVERRIDE;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile);
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE;
 
-    Analyzer::LogFileSortMode logFileSortMode();
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE;
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile);
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) Q_DECL_OVERRIDE;
 
 private:
     QMap<QString, LogLevel *> xorgLevels;

@@ -67,7 +67,7 @@ public:
 
 public slots:
 
-    void saveConfig()
+    void saveConfig() Q_DECL_OVERRIDE
     {
         logDebug() << "Saving config from Cups Options...";
 
@@ -80,13 +80,13 @@ public slots:
         cupsConfiguration->setCupsPdfPaths(cupsFileList->paths(cupsPdfPathsId));
     }
 
-    void defaultConfig()
+    void defaultConfig() Q_DECL_OVERRIDE
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
-    void readConfig()
+    void readConfig() Q_DECL_OVERRIDE
     {
         CupsConfiguration *cupsConfiguration = Globals::instance()
                                                    .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
@@ -101,7 +101,7 @@ public slots:
     }
 
 protected:
-    bool isValid() const
+    bool isValid() const Q_DECL_OVERRIDE
     {
         if (cupsFileList->isOneOfCategoryEmpty() == true) {
             logDebug() << "Cups configuration not valid";

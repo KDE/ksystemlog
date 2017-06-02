@@ -41,7 +41,7 @@ public:
     LogViewWidget(QWidget *parent = NULL);
 
     virtual ~LogViewWidget();
-    virtual void selectAll();
+    void selectAll() Q_DECL_OVERRIDE;
     void setColumns(const LogViewColumns &columns);
 
     int itemCount() const;

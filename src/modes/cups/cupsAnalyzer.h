@@ -43,12 +43,12 @@ public:
 
     virtual ~CupsAnalyzer();
 
-    LogViewColumns initColumns();
+    LogViewColumns initColumns() Q_DECL_OVERRIDE;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile);
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE;
 
-    Analyzer::LogFileSortMode logFileSortMode();
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE;
 
     /*
      * Also sees :
@@ -71,7 +71,7 @@ protected:
      * E [15/Feb/2004:01:43:15 +0100] Scheduler shutting down due to SIGTERM.
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile);
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE;
 
 private:
     QMap<QChar, LogLevel *> mapTypeLevels;

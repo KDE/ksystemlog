@@ -42,17 +42,17 @@ signals:
 
 protected slots:
 
-    void updateWidgets();
-    void updateWidgetsDefault();
-    void updateSettings();
+    void updateWidgets() Q_DECL_OVERRIDE;
+    void updateWidgetsDefault() Q_DECL_OVERRIDE;
+    void updateSettings() Q_DECL_OVERRIDE;
     void updateButtons();
 
 private slots:
     void updateConfiguration();
 
 private:
-    bool hasChanged();
-    bool isDefault();
+    bool hasChanged() Q_DECL_OVERRIDE;
+    bool isDefault() Q_DECL_OVERRIDE;
 
     ConfigurationDialogPrivate *const d;
 

@@ -61,7 +61,7 @@ public:
     QDateTime findStartupTime() { return startupDateTime; }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
 };
 
 class KernelAnalyzerTest : public QObject

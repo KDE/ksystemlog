@@ -42,12 +42,12 @@ public:
 
     virtual ~SyslogAnalyzer();
 
-    virtual LogViewColumns initColumns();
+    LogViewColumns initColumns() Q_DECL_OVERRIDE;
 
 protected:
-    virtual LogFileReader *createLogFileReader(const LogFile &logFile);
-    virtual Analyzer::LogFileSortMode logFileSortMode();
-    virtual LogLine *parseMessage(const QString &logLine, const LogFile &originalFile);
+    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE;
+    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE;
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) Q_DECL_OVERRIDE;
 
 private:
     inline QString undefinedHostName();
