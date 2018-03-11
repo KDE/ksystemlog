@@ -28,7 +28,7 @@
 
 #include <KLocalizedString>
 
-#include <QtConcurrent/QtConcurrent>
+#include <QtConcurrent>
 
 JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
     : JournaldAnalyzer(logMode)

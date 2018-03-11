@@ -28,7 +28,7 @@
 
 using namespace JournaldTypes;
 
-#include <QtNetwork/QtNetwork>
+#include <QtNetwork>
 
 class JournaldNetworkAnalyzer : public JournaldAnalyzer
 {
