@@ -25,7 +25,9 @@ ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KSYSTEMLOG
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/ksystemlog_version.h")
 
 find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+    Concurrent
     Core
+    Network
     Widgets
     Test
     PrintSupport
