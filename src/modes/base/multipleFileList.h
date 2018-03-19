@@ -22,6 +22,7 @@
 #ifndef _MULTIPLE_FILE_LIST_H_
 #define _MULTIPLE_FILE_LIST_H_
 
+#include <QButtonGroup>
 #include <QWidget>
 
 #include <KMessageWidget>

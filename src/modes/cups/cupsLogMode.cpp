@@ -21,6 +21,7 @@
 
 #include "cupsLogMode.h"
 
+#include <QAction>
 #include <QList>
 
 #include <KLocalizedString>

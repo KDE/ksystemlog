@@ -21,6 +21,7 @@
 
 #include "apacheLogMode.h"
 
+#include <QAction>
 #include <QList>
 
 #include <KLocalizedString>

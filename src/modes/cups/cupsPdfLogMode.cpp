@@ -21,6 +21,7 @@
 
 #include "cupsPdfLogMode.h"
 
+#include <QAction>
 #include <QList>
 
 #include <KLocalizedString>

@@ -21,6 +21,7 @@
 
 #include "cupsAccessLogMode.h"
 
+#include <QAction>
 #include <QList>
 
 #include <KLocalizedString>
