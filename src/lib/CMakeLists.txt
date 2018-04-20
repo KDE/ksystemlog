@@ -49,7 +49,8 @@ add_dependencies(
 
 target_link_libraries(ksystemlog_lib
     ksystemlog_config
-
+    Qt5::Widgets
+    Qt5::PrintSupport
     KF5::I18n
     KF5::Archive
     KF5::ConfigWidgets
@@ -58,5 +59,3 @@ target_link_libraries(ksystemlog_lib
     KF5::KIOCore
     KF5::Completion
 )
-
-qt5_use_modules(ksystemlog_lib Widgets PrintSupport)
