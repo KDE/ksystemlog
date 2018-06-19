@@ -68,8 +68,6 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.setApplicationDescription(about.shortDescription());
-    parser.addHelpOption();
-    parser.addVersionOption();
 
     // url to open
     parser.addPositionalArgument(QStringLiteral("URL"), i18n("Document to open."));
