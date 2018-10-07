@@ -36,7 +36,7 @@ class LogFileReader : public QObject
     Q_OBJECT
 
 public:
-    LogFileReader(const LogFile &logFile);
+    explicit LogFileReader(const LogFile &logFile);
 
     virtual ~LogFileReader();
 

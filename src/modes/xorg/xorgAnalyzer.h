@@ -41,7 +41,7 @@ class XorgAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    XorgAnalyzer(LogMode *logMode);
+    explicit XorgAnalyzer(LogMode *logMode);
 
     virtual ~XorgAnalyzer();
 

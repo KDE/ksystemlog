@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 
 #include <ktoggleaction.h>
-#include <KLocalizedString>
 #include <kmessagebox.h>
 
 #include "logging.h"

@@ -38,7 +38,7 @@ class FileListHelper : public QObject
     Q_OBJECT
 
 public:
-    FileListHelper(QWidget *parent);
+    explicit FileListHelper(QWidget *parent);
     virtual ~FileListHelper();
 
     QStringList findPaths(QList<QUrl> urls);

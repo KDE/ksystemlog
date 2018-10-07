@@ -82,7 +82,7 @@ void KioLogFileReader::open()
     d->fileJob = KIO::open(d->logFile.url(), QIODevice::ReadOnly | QIODevice::Text);
 
     connect(d->fileJob, &KIO::FileJob::open, this, &KioLogFileReader::openDone);
-    connect(d->fileJob, SIGNAL(close(KIO::Job *)), this, SLOT(closeDone(KIO::Job *)));
+    connect(d->fileJob, SIGNAL(close(KIO::Job*)), this, SLOT(closeDone(KIO::Job*)));
 
     connect(d->fileJob, &KIO::FileJob::data, this,
             &KioLogFileReader::dataReceived);

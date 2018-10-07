@@ -29,7 +29,7 @@ class LogModePluginsLoader : public QObject
     Q_OBJECT
 
 public:
-    LogModePluginsLoader(QWidget *parent);
+    explicit LogModePluginsLoader(QWidget *parent);
 
     ~LogModePluginsLoader();
 

@@ -32,7 +32,7 @@ class PostfixAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    PostfixAnalyzer(LogMode *logMode)
+    explicit PostfixAnalyzer(LogMode *logMode)
         : SyslogAnalyzer(logMode)
     {
     }

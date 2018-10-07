@@ -41,7 +41,7 @@ class TabLogViewsWidget : public QTabWidget
     Q_OBJECT
 
 public:
-    TabLogViewsWidget(QWidget *parent = NULL);
+    explicit TabLogViewsWidget(QWidget *parent = NULL);
 
     virtual ~TabLogViewsWidget();
 

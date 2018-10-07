@@ -33,7 +33,6 @@
 
 #include "logModeItemBuilder.h"
 #include "logViewWidget.h"
-#include "logViewWidgetItem.h"
 
 #include "logMode.h"
 

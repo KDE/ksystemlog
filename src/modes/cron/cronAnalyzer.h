@@ -36,7 +36,7 @@ class CronAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    CronAnalyzer(LogMode *logMode)
+    explicit CronAnalyzer(LogMode *logMode)
         : SyslogAnalyzer(logMode)
     {
     }

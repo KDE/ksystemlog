@@ -38,7 +38,7 @@ class LoadingBar : public QWidget
     Q_OBJECT
 
 public:
-    LoadingBar(QWidget *parent = NULL);
+    explicit LoadingBar(QWidget *parent = NULL);
 
     ~LoadingBar();
 

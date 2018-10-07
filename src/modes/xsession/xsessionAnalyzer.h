@@ -37,7 +37,7 @@ class XSessionAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    XSessionAnalyzer(LogMode *logMode)
+    explicit XSessionAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
         , currentDateTime(QDateTime::currentDateTime())
     {

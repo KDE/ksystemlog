@@ -39,7 +39,7 @@ class ProcessOutputLogFileReader : public LogFileReader
     Q_OBJECT
 
 public:
-    ProcessOutputLogFileReader(const LogFile &logFile);
+    explicit ProcessOutputLogFileReader(const LogFile &logFile);
 
     virtual ~ProcessOutputLogFileReader();
 

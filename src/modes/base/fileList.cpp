@@ -78,8 +78,8 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
                                  SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QListWidget::itemSelectionChanged, this, &FileList::updateButtons);
-    connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
-            SLOT(modifyItem(QListWidgetItem *)));
+    connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this,
+            SLOT(modifyItem(QListWidgetItem*)));
     connect(this, &FileList::fileListChanged, this, &FileList::updateButtons);
 
     updateButtons();

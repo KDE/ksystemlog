@@ -37,7 +37,7 @@ class LogViewModel : public QObject
     Q_OBJECT
 
 public:
-    LogViewModel(LogViewWidget *logViewWidget);
+    explicit LogViewModel(LogViewWidget *logViewWidget);
 
     virtual ~LogViewModel();
 

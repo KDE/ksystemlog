@@ -36,7 +36,7 @@ class LocalLogFileReader : public LogFileReader
     Q_OBJECT
 
 public:
-    LocalLogFileReader(const LogFile &logFile);
+    explicit LocalLogFileReader(const LogFile &logFile);
 
     virtual ~LocalLogFileReader();
 

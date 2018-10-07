@@ -43,7 +43,7 @@ class KioLogFileReader : public QObject
     Q_OBJECT
 
 public:
-    KioLogFileReader(const LogFile &logFile);
+    explicit KioLogFileReader(const LogFile &logFile);
 
     virtual ~KioLogFileReader();
 

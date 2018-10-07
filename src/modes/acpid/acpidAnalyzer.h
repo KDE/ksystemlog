@@ -35,7 +35,7 @@ class AcpidAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    AcpidAnalyzer(LogMode *logMode)
+    explicit AcpidAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
     {
     }

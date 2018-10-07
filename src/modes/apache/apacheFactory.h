@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _APACHE_LOG_MODE_FACTORY_H_
-#define _APACHE_LOG_MODE_FACTORY_H_
+#ifndef _LOG_MODE_APACHE_FACTORY_H_
+#define _LOG_MODE_APACHE_FACTORY_H_
 
 #include <QList>
 
@@ -36,4 +36,4 @@ public:
     LogModeAction *createLogModeAction() const Q_DECL_OVERRIDE;
 };
 
-#endif // _APACHE_LOG_MODE_FACTORY_H_
+#endif // _LOG_MODE_APACHE_FACTORY_H_

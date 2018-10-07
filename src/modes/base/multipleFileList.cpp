@@ -80,8 +80,8 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
                                  SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QTreeWidget::itemSelectionChanged, this, &MultipleFileList::updateButtons);
-    connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this,
-            SLOT(modifyItem(QTreeWidgetItem *)));
+    connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this,
+            SLOT(modifyItem(QTreeWidgetItem*)));
     connect(this, &MultipleFileList::fileListChanged, this, &MultipleFileList::updateButtons);
 
     connect(&addButtons, SIGNAL(buttonClicked(int)), this, SLOT(addItem(int)));

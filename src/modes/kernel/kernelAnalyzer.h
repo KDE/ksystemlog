@@ -42,7 +42,7 @@ class KernelAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    KernelAnalyzer(LogMode *logMode)
+    explicit KernelAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
     {
         startupTime();

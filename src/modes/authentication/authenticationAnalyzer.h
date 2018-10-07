@@ -32,7 +32,7 @@ class AuthenticationAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    AuthenticationAnalyzer(LogMode *logMode)
+    explicit AuthenticationAnalyzer(LogMode *logMode)
         : SyslogAnalyzer(logMode)
     {
     }

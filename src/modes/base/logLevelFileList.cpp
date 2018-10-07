@@ -69,8 +69,8 @@ LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
     connect(fileList, &QListWidget::itemSelectionChanged, this, &LogLevelFileList::updateSpecificButtons);
     connect(this, &FileList::fileListChanged, this, &LogLevelFileList::updateSpecificButtons);
 
-    disconnect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this,
-               SLOT(modifyItem(QListWidgetItem *)));
+    disconnect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this,
+               SLOT(modifyItem(QListWidgetItem*)));
     connect(fileList, &QListWidget::itemDoubleClicked, this, &LogLevelFileList::changeItemType);
 
     updateSpecificButtons();

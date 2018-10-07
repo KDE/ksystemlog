@@ -59,7 +59,7 @@ LogFile::~LogFile()
     delete d;
 }
 
-bool LogFile::operator==(const LogFile &other)
+bool LogFile::operator==(const LogFile &other) const
 {
     if (d->url == other.url() && d->defaultLogLevel == other.defaultLogLevel())
         return true;

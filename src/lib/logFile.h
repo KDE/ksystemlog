@@ -43,7 +43,7 @@ public:
 
     virtual ~LogFile();
 
-    bool operator==(const LogFile &other);
+    bool operator==(const LogFile &other) const;
 
     LogFile &operator=(const LogFile &column);
 

@@ -20,8 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#include "journaldAddressDialog.h"
 #include "journaldConfigurationWidget.h"
+#include "journaldAddressDialog.h"
 #include "journaldConfiguration.h"
 #include "globals.h"
 

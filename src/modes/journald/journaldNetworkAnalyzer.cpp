@@ -27,6 +27,12 @@
 #include "logViewModel.h"
 #include "logFile.h"
 
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonParseError>
+#include <QRegularExpression>
+
 #include <KLocalizedString>
 
 JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const JournaldAnalyzerOptions &options)

@@ -31,7 +31,7 @@ class ConfigurationDialog : public KConfigDialog
     Q_OBJECT
 
 public:
-    ConfigurationDialog(QWidget *parent);
+    explicit ConfigurationDialog(QWidget *parent);
 
     ~ConfigurationDialog();
 

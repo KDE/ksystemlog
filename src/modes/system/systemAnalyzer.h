@@ -31,7 +31,7 @@ class SystemAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    SystemAnalyzer(LogMode *logMode)
+    explicit SystemAnalyzer(LogMode *logMode)
         : SyslogAnalyzer(logMode)
     {
     }
