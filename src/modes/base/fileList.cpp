@@ -24,6 +24,7 @@
 #include <QListWidget>
 
 #include <QPushButton>
+#include <QDesktopServices>
 
 #include <kactioncollection.h>
 #include <kmessagebox.h>
@@ -53,6 +54,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     vboxLayout->insertWidget(1, warningBox);
 
     description->setText(descriptionText);
+    connect(description, &QLabel::linkActivated, this, &FileList::slotLinkClicked);
 
     fileListHelper.prepareButton(add, QIcon::fromTheme(QStringLiteral("document-new")), this, SLOT(addItem()),
                                  fileList);
@@ -99,6 +101,11 @@ int FileList::count() const
 bool FileList::isEmpty() const
 {
     return (fileList->count() == 0);
+}
+
+void FileList::slotLinkClicked(const QString &link)
+{
+    QDesktopServices::openUrl(QUrl::fromUserInput(link));
 }
 
 void FileList::addItem()

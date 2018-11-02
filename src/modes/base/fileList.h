@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _FILE_LIST_H_
-#define _FILE_LIST_H_
+#ifndef FILE_LIST_H
+#define FILE_LIST_H
 
 #include <QWidget>
 
@@ -34,7 +34,6 @@ class QVBoxLayout;
 class FileList : public QWidget, public Ui::FileListBase
 {
     Q_OBJECT
-
 public:
     FileList(QWidget *parent, const QString &descriptionText);
     virtual ~FileList();
@@ -52,6 +51,9 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void fileListChanged();
+
+private:
+    void slotLinkClicked(const QString &link);
 
 private Q_SLOTS:
 
@@ -83,4 +85,4 @@ protected:
     KMessageWidget *warningBox;
 };
 
-#endif //_FILE_LIST_H_
+#endif //_FILE_LIST_H
