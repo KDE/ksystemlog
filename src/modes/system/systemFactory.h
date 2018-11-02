@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SYSTEM_FACTORY_H_
-#define _SYSTEM_FACTORY_H_
+#ifndef SYSTEM_FACTORY_H
+#define SYSTEM_FACTORY_H
 
 #include <QList>
 
@@ -39,4 +39,4 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _SYSTEM_FACTORY_H_
+#endif // _SYSTEM_FACTORY_H

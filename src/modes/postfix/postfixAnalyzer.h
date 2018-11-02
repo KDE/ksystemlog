@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _POSTFIX_ANALYZER_H_
-#define _POSTFIX_ANALYZER_H_
+#ifndef POSTFIX_ANALYZER_H
+#define POSTFIX_ANALYZER_H
 
 #include "syslogAnalyzer.h"
 

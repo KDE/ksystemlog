@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOADING_BAR_H_
-#define _LOADING_BAR_H_
+#ifndef LOADING_BAR_H
+#define LOADING_BAR_H
 
 #include <QWidget>
 
@@ -58,4 +58,4 @@ private:
     LoadingBarPrivate *const d;
 };
 
-#endif // _LOADING_BAR_H_
+#endif // _LOADING_BAR_H

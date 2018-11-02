@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _ACPID_CONFIGURATION_WIDGET_H_
-#define _ACPID_CONFIGURATION_WIDGET_H_
+#ifndef ACPID_CONFIGURATION_WIDGET_H
+#define ACPID_CONFIGURATION_WIDGET_H
 
 #include <KLocalizedString>
 
@@ -45,8 +45,7 @@ public:
     AcpidConfigurationWidget()
         : LogModeConfigurationWidget(i18n("Acpid Log"), QStringLiteral(ACPID_MODE_ICON), i18n("Acpid Log"))
     {
-        QHBoxLayout *layout = new QHBoxLayout();
-        this->setLayout(layout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
 
         fileList
             = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
@@ -54,7 +53,7 @@ public:
         layout->addWidget(fileList);
     }
 
-    ~AcpidConfigurationWidget() {}
+    ~AcpidConfigurationWidget() override {}
 
 public Q_SLOTS:
 
@@ -98,4 +97,4 @@ private:
     FileList *fileList;
 };
 
-#endif // _ACPID_CONFIGURATION_WIDGET_H_
+#endif // _ACPID_CONFIGURATION_WIDGET_H

@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOG_MODE_CONFIGURATION_H_
-#define _LOG_MODE_CONFIGURATION_H_
+#ifndef LOG_MODE_CONFIGURATION_H
+#define LOG_MODE_CONFIGURATION_H
 
 #include <QObject>
 #include <QList>
@@ -48,4 +48,4 @@ protected:
     KSystemLogConfig *configuration;
 };
 
-#endif // _LOG_MODE_CONFIGURATION_H_
+#endif // _LOG_MODE_CONFIGURATION_H

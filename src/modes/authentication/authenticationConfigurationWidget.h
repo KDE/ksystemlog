@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _AUTHENTICATION_CONFIGURATION_WIDGET_H_
-#define _AUTHENTICATION_CONFIGURATION_WIDGET_H_
+#ifndef AUTHENTICATION_CONFIGURATION_WIDGET_H
+#define AUTHENTICATION_CONFIGURATION_WIDGET_H
 
 #include <QHBoxLayout>
 #include <QGroupBox>
@@ -48,8 +48,7 @@ public:
         : LogModeConfigurationWidget(i18n("Authentication Log"), QStringLiteral(AUTHENTICATION_MODE_ICON),
                                      i18n("Authentication Log"))
     {
-        QVBoxLayout *layout = new QVBoxLayout();
-        this->setLayout(layout);
+        QVBoxLayout *layout = new QVBoxLayout(this);
 
         warningBox = new KMessageWidget(this);
         warningBox->setVisible(false);
@@ -136,4 +135,4 @@ private:
     KMessageWidget *warningBox;
 };
 
-#endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H_
+#endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H

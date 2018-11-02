@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _DAEMON_CONFIGURATION_WIDGET_H_
-#define _DAEMON_CONFIGURATION_WIDGET_H_
+#ifndef DAEMON_CONFIGURATION_WIDGET_H
+#define DAEMON_CONFIGURATION_WIDGET_H
 
 #include <KLocalizedString>
 
@@ -46,8 +46,7 @@ public:
         : LogModeConfigurationWidget(i18n("Daemons' Logs"), QStringLiteral(DAEMON_MODE_ICON),
                                      i18n("Daemons' Logs"))
     {
-        QHBoxLayout *layout = new QHBoxLayout();
-        this->setLayout(layout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
 
         fileList = new FileList(
             this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
@@ -99,4 +98,4 @@ private:
     FileList *fileList;
 };
 
-#endif // _DAEMON_CONFIGURATION_WIDGET_H_
+#endif // _DAEMON_CONFIGURATION_WIDGET_H

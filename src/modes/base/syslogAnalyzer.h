@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SYSLOG_ANALYZER_H_
-#define _SYSLOG_ANALYZER_H_
+#ifndef SYSLOG_ANALYZER_H
+#define SYSLOG_ANALYZER_H
 
 #include <QString>
 
@@ -55,4 +55,4 @@ private:
     inline LogLine *undefinedLogLine(const QString &message, const LogFile &originalFile);
 };
 
-#endif // _SYSLOG_ANALYZER_H_
+#endif // _SYSLOG_ANALYZER_H

@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _AUTHENTICATION_LOG_MODE_H_
-#define _AUTHENTICATION_LOG_MODE_H_
+#ifndef AUTHENTICATION_LOG_MODE_H
+#define AUTHENTICATION_LOG_MODE_H
 
 /**
  * Acpid Log Mode Identifier
@@ -52,4 +52,4 @@ public:
     QList<LogFile> createLogFiles() override;
 };
 
-#endif // _AUTHENTICATION_LOG_MODE_H_
+#endif // _AUTHENTICATION_LOG_MODE_H

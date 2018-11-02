@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _KIO_LOG_FILE_READER_H_
-#define _KIO_LOG_FILE_READER_H_
+#ifndef KIO_LOG_FILE_READER_H
+#define KIO_LOG_FILE_READER_H
 
 #include <QObject>
 #include <QByteArray>
@@ -67,4 +67,4 @@ private:
     KioLogFileReaderPrivate *const d;
 };
 
-#endif // _KIO_LOG_FILE_READER_H_
+#endif // _KIO_LOG_FILE_READER_H

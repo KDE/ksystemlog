@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _KSYSTEMLOG_LOGGING_H_
-#define _KSYSTEMLOG_LOGGING_H_
+#ifndef KSYSTEMLOG_LOGGING_H
+#define KSYSTEMLOG_LOGGING_H
 
 #include <QLoggingCategory>
 
@@ -79,4 +79,4 @@ Q_DECLARE_LOGGING_CATEGORY(KSYSTEMLOG)
 
 #define logFatal() qCFatal(KSYSTEMLOG) << LOG_PREFIX(LOG_FATAL_COLOR)
 
-#endif // _KSYSTEMLOG_LOGGING_H_
+#endif // _KSYSTEMLOG_LOGGING_H

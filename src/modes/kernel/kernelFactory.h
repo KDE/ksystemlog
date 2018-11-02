@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _KERNEL_FACTORY_H_
-#define _KERNEL_FACTORY_H_
+#ifndef KERNEL_FACTORY_H
+#define KERNEL_FACTORY_H
 
 #include <QList>
 
@@ -39,4 +39,4 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _KERNEL_FACTORY_H_
+#endif // _KERNEL_FACTORY_H

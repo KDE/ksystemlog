@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SAMBA_CONFIGURATION_H_
-#define _SAMBA_CONFIGURATION_H_
+#ifndef SAMBA_CONFIGURATION_H
+#define SAMBA_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -88,4 +88,4 @@ private:
     SambaConfigurationPrivate *const d;
 };
 
-#endif // _SAMBA_CONFIGURATION_H_
+#endif // _SAMBA_CONFIGURATION_H

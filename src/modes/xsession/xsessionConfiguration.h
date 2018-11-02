@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _X_SESSION_CONFIGURATION_H_
-#define _X_SESSION_CONFIGURATION_H_
+#ifndef X_SESSION_CONFIGURATION_H
+#define X_SESSION_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -101,4 +101,4 @@ private:
     XSessionConfigurationPrivate *const d;
 };
 
-#endif // _X_SESSION_CONFIGURATION_H_
+#endif // _X_SESSION_CONFIGURATION_H

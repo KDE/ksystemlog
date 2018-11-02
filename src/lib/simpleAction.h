@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SIMPLE_ACTIONS_H_
-#define _SIMPLE_ACTIONS_H_
+#ifndef SIMPLE_ACTIONS_H
+#define SIMPLE_ACTIONS_H
 
 #include <QString>
 #include <QList>
@@ -51,4 +51,4 @@ private:
     QAction *action;
 };
 
-#endif // _SIMPLE_ACTIONS_H_
+#endif // _SIMPLE_ACTIONS_H

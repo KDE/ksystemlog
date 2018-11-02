@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _POSTFIX_CONFIGURATION_WIDGET_H_
-#define _POSTFIX_CONFIGURATION_WIDGET_H_
+#ifndef POSTFIX_CONFIGURATION_WIDGET_H
+#define POSTFIX_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -48,8 +48,7 @@ public:
         : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
                                      i18n("Postfix Log"))
     {
-        QVBoxLayout *layout = new QVBoxLayout();
-        this->setLayout(layout);
+        QVBoxLayout *layout = new QVBoxLayout(this);
 
         QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
@@ -60,7 +59,7 @@ public:
         layout->addWidget(fileList);
     }
 
-    virtual ~PostfixConfigurationWidget() {}
+    ~PostfixConfigurationWidget() override {}
 
     bool isValid() const override
     {
@@ -105,4 +104,4 @@ private:
     LogLevelFileList *fileList;
 };
 
-#endif // _POSTFIX_CONFIGURATION_WIDGET_H_
+#endif // _POSTFIX_CONFIGURATION_WIDGET_H

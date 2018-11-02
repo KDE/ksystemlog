@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _ANALYZER_H_
-#define _ANALYZER_H_
+#ifndef ANALYZER_H
+#define ANALYZER_H
 
 #include <QList>
 #include <QMutex>

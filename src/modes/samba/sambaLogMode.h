@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SAMBA_LOG_MODE_H_
-#define _SAMBA_LOG_MODE_H_
+#ifndef SAMBA_LOG_MODE_H
+#define SAMBA_LOG_MODE_H
 
 /**
  * Samba Log Mode Identifier
@@ -57,4 +57,4 @@ public:
     QList<LogFile> createLogFiles() override;
 };
 
-#endif // _SAMBA_LOG_MODE_H_
+#endif // _SAMBA_LOG_MODE_H

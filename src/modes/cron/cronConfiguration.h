@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _CRON_CONFIGURATION_H_
-#define _CRON_CONFIGURATION_H_
+#ifndef CRON_CONFIGURATION_H
+#define CRON_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -75,4 +75,4 @@ private:
     CronConfigurationPrivate *const d;
 };
 
-#endif // _CRON_CONFIGURATION_H_
+#endif // _CRON_CONFIGURATION_H

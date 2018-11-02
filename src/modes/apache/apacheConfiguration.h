@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _APACHE_CONFIGURATION_H_
-#define _APACHE_CONFIGURATION_H_
+#ifndef APACHE_CONFIGURATION_H
+#define APACHE_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -80,4 +80,4 @@ private:
     ApacheConfigurationPrivate *const d;
 };
 
-#endif // _APACHE_CONFIGURATION_H_
+#endif // _APACHE_CONFIGURATION_H

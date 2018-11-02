@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _PARSING_HELPER_H_
-#define _PARSING_HELPER_H_
+#ifndef PARSING_HELPER_H
+#define PARSING_HELPER_H
 
 #include <QDateTime>
 

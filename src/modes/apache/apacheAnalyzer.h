@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _APACHE_ANALYZER_H_
-#define _APACHE_ANALYZER_H_
+#ifndef APACHE_ANALYZER_H
+#define APACHE_ANALYZER_H
 
 #include <KLocalizedString>
 
@@ -166,4 +166,4 @@ private:
     }
 };
 
-#endif // _APACHE_ANALYZER_H_
+#endif // _APACHE_ANALYZER_H

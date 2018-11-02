@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOG_VIEW_MODEL_H_
-#define _LOG_VIEW_MODEL_H_
+#ifndef LOG_VIEW_MODEL_H
+#define LOG_VIEW_MODEL_H
 
 #include <QObject>
 
@@ -91,4 +91,4 @@ private:
     LogViewModelPrivate *const d;
 };
 
-#endif //_LOG_VIEW_MODEL_H_
+#endif //_LOG_VIEW_MODEL_H

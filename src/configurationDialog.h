@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _CONFIGURATION_DIALOG_H_
-#define _CONFIGURATION_DIALOG_H_
+#ifndef CONFIGURATION_DIALOG_H
+#define CONFIGURATION_DIALOG_H
 
 #include <kconfigdialog.h>
 
@@ -61,4 +61,4 @@ private:
     void setupLogModeConfigurations();
 };
 
-#endif //_CONFIGURATION_DIALOG_H_
+#endif //_CONFIGURATION_DIALOG_H

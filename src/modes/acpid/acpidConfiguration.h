@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _ACPID_CONFIGURATION_H_
-#define _ACPID_CONFIGURATION_H_
+#ifndef ACPID_CONFIGURATION_H
+#define ACPID_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -65,4 +65,4 @@ private:
     AcpidConfigurationPrivate *const d;
 };
 
-#endif // _ACPID_CONFIGURATION_H_
+#endif // _ACPID_CONFIGURATION_H

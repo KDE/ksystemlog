@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SAMBA_CONFIGURATION_WIDGET_H_
-#define _SAMBA_CONFIGURATION_WIDGET_H_
+#ifndef SAMBA_CONFIGURATION_WIDGET_H
+#define SAMBA_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -43,8 +43,7 @@ public:
     SambaConfigurationWidget()
         : LogModeConfigurationWidget(i18n("Samba Log"), QStringLiteral(SAMBA_MODE_ICON), i18n("Samba Log"))
     {
-        QHBoxLayout *layout = new QHBoxLayout();
-        this->setLayout(layout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
 
         sambaFileList
             = new MultipleFileList(this, i18n(
@@ -116,4 +115,4 @@ private:
     int netbiosPathsId;
 };
 
-#endif // _SAMBA_CONFIGURATION_WIDGET_H_
+#endif // _SAMBA_CONFIGURATION_WIDGET_H

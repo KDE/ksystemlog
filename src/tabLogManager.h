@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _TAB_LOG_MANAGER_H_
-#define _TAB_LOG_MANAGER_H_
+#ifndef TAB_LOG_MANAGER_H
+#define TAB_LOG_MANAGER_H
 
 #include <QObject>
 
@@ -55,4 +55,4 @@ private:
     TabLogManagerPrivate *const d;
 };
 
-#endif // _TAB_LOG_MANAGER_H_
+#endif // _TAB_LOG_MANAGER_H

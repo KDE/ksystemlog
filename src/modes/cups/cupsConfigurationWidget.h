@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _CUPS_CONFIGURATION_WIDGET_H_
-#define _CUPS_CONFIGURATION_WIDGET_H_
+#ifndef CUPS_CONFIGURATION_WIDGET_H
+#define CUPS_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -44,8 +44,7 @@ public:
         : LogModeConfigurationWidget(i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON),
                                      i18n("Cups &amp; Cups Web Server Log"))
     {
-        QHBoxLayout *layout = new QHBoxLayout();
-        this->setLayout(layout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
 
         cupsFileList = new MultipleFileList(this, i18n(
                                                       "<p>These files will be analyzed to show the <b>Cups "
@@ -121,4 +120,4 @@ private:
     int cupsPdfPathsId;
 };
 
-#endif // _CUPS_CONFIGURATION_WIDGET_H_
+#endif // _CUPS_CONFIGURATION_WIDGET_H

@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _APACHE_ACCESS_LOG_MODE_H_
-#define _APACHE_ACCESS_LOG_MODE_H_
+#ifndef APACHE_ACCESS_LOG_MODE_H
+#define APACHE_ACCESS_LOG_MODE_H
 
 /**
  * Apache Access Log Mode Identifier
@@ -56,4 +56,4 @@ public:
     QList<LogFile> createLogFiles() override;
 };
 
-#endif // _APACHE_ACCESS_LOG_MODE_H_
+#endif // _APACHE_ACCESS_LOG_MODE_H

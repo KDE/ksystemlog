@@ -20,8 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_TYPES_H_
-#define _JOURNALD_TYPES_H_
+#ifndef JOURNALD_TYPES_H
+#define JOURNALD_TYPES_H
 
 #include <QStringList>
 
@@ -51,4 +51,4 @@ struct JournaldAnalyzerOptions {
 extern const char *ConsoleColorEscapeSequence;
 }
 
-#endif // _JOURNALD_TYPES_H_
+#endif // _JOURNALD_TYPES_H

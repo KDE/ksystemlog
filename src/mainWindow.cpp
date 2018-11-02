@@ -137,7 +137,7 @@ public:
 };
 
 MainWindow::MainWindow()
-    : KXmlGuiWindow(0)
+    : KXmlGuiWindow(nullptr)
     , d(new MainWindowPrivate())
 {
     d->printer = nullptr;

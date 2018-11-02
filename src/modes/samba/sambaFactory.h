@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOG_MODE_SAMBA_FACTORY_H_
-#define _LOG_MODE_SAMBA_FACTORY_H_
+#ifndef LOG_MODE_SAMBA_FACTORY_H
+#define LOG_MODE_SAMBA_FACTORY_H
 
 #include <QList>
 
@@ -36,4 +36,4 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _LOG_MODE_SAMBA_FACTORY_H_
+#endif // _LOG_MODE_SAMBA_FACTORY_H

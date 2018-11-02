@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _DAEMON_CONFIGURATION_H_
-#define _DAEMON_CONFIGURATION_H_
+#ifndef DAEMON_CONFIGURATION_H
+#define DAEMON_CONFIGURATION_H
 
 #include <QStringList>
 
@@ -63,4 +63,4 @@ private:
     DaemonConfigurationPrivate *const d;
 };
 
-#endif // _DAEMON_CONFIGURATION_H_
+#endif // _DAEMON_CONFIGURATION_H

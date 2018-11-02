@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _SYSTEM_CONFIGURATION_WIDGET_H_
-#define _SYSTEM_CONFIGURATION_WIDGET_H_
+#ifndef SYSTEM_CONFIGURATION_WIDGET_H
+#define SYSTEM_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -47,8 +47,7 @@ public:
     SystemConfigurationWidget()
         : LogModeConfigurationWidget(i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON), i18n("System Log"))
     {
-        QVBoxLayout *layout = new QVBoxLayout();
-        this->setLayout(layout);
+        QVBoxLayout *layout = new QVBoxLayout(this);
 
         QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
@@ -59,7 +58,7 @@ public:
         layout->addWidget(fileList);
     }
 
-    virtual ~SystemConfigurationWidget() {}
+    ~SystemConfigurationWidget() override {}
 
     bool isValid() const override
     {
@@ -104,4 +103,4 @@ private:
     LogLevelFileList *fileList;
 };
 
-#endif // _SYSTEM_CONFIGURATION_WIDGET_H_
+#endif // _SYSTEM_CONFIGURATION_WIDGET_H

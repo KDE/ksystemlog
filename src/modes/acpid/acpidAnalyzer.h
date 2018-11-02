@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _ACPID_ANALYZER_H_
-#define _ACPID_ANALYZER_H_
+#ifndef ACPID_ANALYZER_H
+#define ACPID_ANALYZER_H
 
 #include <KLocalizedString>
 
@@ -120,4 +120,4 @@ protected:
     }
 };
 
-#endif // _ACPID_ANALYZER_H_
+#endif // _ACPID_ANALYZER_H

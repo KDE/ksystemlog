@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _DEFAULTS_H_
-#define _DEFAULTS_H_
+#ifndef DEFAULTS_H
+#define DEFAULTS_H
 
 #define DEFAULT_LOG_FOLDER "/var/log"
 
@@ -34,4 +34,4 @@
  */
 #define NO_MODE_ICON "text-x-generic"
 
-#endif // _DEFAULTS_H_
+#endif // _DEFAULTS_H

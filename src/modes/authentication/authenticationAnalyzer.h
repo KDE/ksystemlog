@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _AUTHENTICATION_ANALYZER_H_
-#define _AUTHENTICATION_ANALYZER_H_
+#ifndef AUTHENTICATION_ANALYZER_H
+#define AUTHENTICATION_ANALYZER_H
 
 #include "syslogAnalyzer.h"
 

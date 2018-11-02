@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _AUTHENTICATION_FACTORY_H_
-#define _AUTHENTICATION_FACTORY_H_
+#ifndef AUTHENTICATION_FACTORY_H
+#define AUTHENTICATION_FACTORY_H
 
 #include <QList>
 
@@ -39,4 +39,4 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _AUTHENTICATION_FACTORY_H_
+#endif // _AUTHENTICATION_FACTORY_H

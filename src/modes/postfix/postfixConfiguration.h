@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _POSTFIX_CONFIGURATION_H_
-#define _POSTFIX_CONFIGURATION_H_
+#ifndef POSTFIX_CONFIGURATION_H
+#define POSTFIX_CONFIGURATION_H
 
 #include <QStringList>
 #include <QList>
@@ -49,4 +49,4 @@ public:
     virtual ~PostfixConfiguration() {}
 };
 
-#endif // _POSTFIX_CONFIGURATION_H_
+#endif // _POSTFIX_CONFIGURATION_H

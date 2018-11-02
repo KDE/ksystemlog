@@ -37,7 +37,7 @@ class QLabel;
 class LevelPrintPage : public QWidget
 {
 public:
-    explicit LevelPrintPage(QWidget *parent = 0);
+    explicit LevelPrintPage(QWidget *parent = nullptr);
     ~LevelPrintPage();
 
     bool isValid(QString &msg);

@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOG_MODE_FACTORY_H_
-#define _LOG_MODE_FACTORY_H_
+#ifndef LOG_MODE_FACTORY_H
+#define LOG_MODE_FACTORY_H
 
 #include <QObject>
 #include <QList>
@@ -45,4 +45,4 @@ public:
     virtual QList<LogMode *> createLogModes() const = 0;
 };
 
-#endif // _LOG_MODE_FACTORY_H_
+#endif // _LOG_MODE_FACTORY_H

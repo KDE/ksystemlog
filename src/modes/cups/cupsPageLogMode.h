@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _CUPS_PAGE_LOG_MODE_H_
-#define _CUPS_PAGE_LOG_MODE_H_
+#ifndef CUPS_PAGE_LOG_MODE_H
+#define CUPS_PAGE_LOG_MODE_H
 
 /**
  * Cups Page Log Mode Identifier
@@ -56,4 +56,4 @@ public:
     QList<LogFile> createLogFiles() override;
 };
 
-#endif // _CUPS_PAGE_LOG_MODE_H_
+#endif // _CUPS_PAGE_LOG_MODE_H

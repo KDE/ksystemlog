@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _KERNEL_ANALYZER_H_
-#define _KERNEL_ANALYZER_H_
+#ifndef KERNEL_ANALYZER_H
+#define KERNEL_ANALYZER_H
 
 #include <QRegExp>
 #include <QFile>

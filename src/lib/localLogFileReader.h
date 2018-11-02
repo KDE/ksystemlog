@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _LOCAL_LOG_FILE_READER_H_
-#define _LOCAL_LOG_FILE_READER_H_
+#ifndef LOCAL_LOG_FILE_READER_H
+#define LOCAL_LOG_FILE_READER_H
 
 #include <QString>
 #include <QStringList>
@@ -62,4 +62,4 @@ private:
     Q_DECLARE_PRIVATE(LocalLogFileReader)
 };
 
-#endif // _LOCAL_LOG_FILE_READER_H_
+#endif // _LOCAL_LOG_FILE_READER_H

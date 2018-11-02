@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _X_SESSION_ANALYZER_H_
-#define _X_SESSION_ANALYZER_H_
+#ifndef X_SESSION_ANALYZER_H
+#define X_SESSION_ANALYZER_H
 
 #include <KLocalizedString>
 
@@ -147,4 +147,4 @@ private:
     QDateTime currentDateTime;
 };
 
-#endif // _X_SESSION_ANALYZER_H_
+#endif // _X_SESSION_ANALYZER_H

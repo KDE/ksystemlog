@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _APACHE_CONFIGURATION_WIDGET_H_
-#define _APACHE_CONFIGURATION_WIDGET_H_
+#ifndef APACHE_CONFIGURATION_WIDGET_H
+#define APACHE_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -43,8 +43,7 @@ public:
     ApacheConfigurationWidget()
         : LogModeConfigurationWidget(i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON), i18n("Apache Log"))
     {
-        QHBoxLayout *layout = new QHBoxLayout();
-        this->setLayout(layout);
+        QHBoxLayout *layout = new QHBoxLayout(this);
 
         apacheFileList
             = new MultipleFileList(this, i18n(
@@ -112,4 +111,4 @@ private:
     int apacheAccessPathsId;
 };
 
-#endif // _APACHE_CONFIGURATION_WIDGET_H_
+#endif // _APACHE_CONFIGURATION_WIDGET_H

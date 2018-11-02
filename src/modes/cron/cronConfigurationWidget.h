@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _CRON_CONFIGURATION_WIDGET_H_
-#define _CRON_CONFIGURATION_WIDGET_H_
+#ifndef CRON_CONFIGURATION_WIDGET_H
+#define CRON_CONFIGURATION_WIDGET_H
 
 #include "logModeConfigurationWidget.h"
 
@@ -48,8 +48,7 @@ public:
     CronConfigurationWidget()
         : LogModeConfigurationWidget(i18n("Cron Log"), QStringLiteral(CRON_MODE_ICON), i18n("Cron Log"))
     {
-        QVBoxLayout *layout = new QVBoxLayout();
-        this->setLayout(layout);
+        QVBoxLayout *layout = new QVBoxLayout(this);
 
         QString description = i18n(
             "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned tasks logs). <a "
@@ -157,4 +156,4 @@ private:
     QLabel *processFilterLabel;
 };
 
-#endif // _CRON_CONFIGURATION_WIDGET_H_
+#endif // _CRON_CONFIGURATION_WIDGET_H

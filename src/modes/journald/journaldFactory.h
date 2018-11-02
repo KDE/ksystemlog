@@ -19,8 +19,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_FACTORY_H_
-#define _JOURNALD_FACTORY_H_
+#ifndef JOURNALD_FACTORY_H
+#define JOURNALD_FACTORY_H
 
 #include <QList>
 
@@ -39,4 +39,4 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _JOURNALD_FACTORY_H_
+#endif // _JOURNALD_FACTORY_H

@@ -20,8 +20,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef _JOURNALD_CONFIGURATION_H_
-#define _JOURNALD_CONFIGURATION_H_
+#ifndef JOURNALD_CONFIGURATION_H
+#define JOURNALD_CONFIGURATION_H
 
 #include "logModeConfiguration.h"
 
@@ -59,4 +59,4 @@ private:
     QStringList m_remoteJournals;
 };
 
-#endif // _JOURNALD_CONFIGURATION_H_
+#endif // _JOURNALD_CONFIGURATION_H
