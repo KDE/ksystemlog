@@ -50,7 +50,7 @@ private:
     QPushButton *changeItem;
 
 protected Q_SLOTS:
-    void addItem() Q_DECL_OVERRIDE;
+    void addItem() override;
 
 private Q_SLOTS:
     void updateSpecificButtons();

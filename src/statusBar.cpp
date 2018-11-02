@@ -124,7 +124,7 @@ void StatusBar::changeMessage(const QString &message)
     // d->messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
     // false), message));
     d->messageList->insertItem(
-        0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QStringLiteral("hh:mm:ss")), message));
+        0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QStringLiteralm("hh:mm:ss")), message));
 
     // 100 log history message max.
     if (d->messageList->count() > 100) {

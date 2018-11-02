@@ -55,7 +55,7 @@ public:
 
     LogViewSearchWidget *logViewSearch() const;
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
 
 public Q_SLOTS:
     void displayLoadingBar(bool display);
@@ -67,12 +67,12 @@ protected:
     /**
      * Method which contains the action to do when receiving a drag and drop event
      */
-    void dragEnterEvent(QDragEnterEvent *event) Q_DECL_OVERRIDE;
+    void dragEnterEvent(QDragEnterEvent *event) override;
 
     /**
      * Method which accepts
      */
-    void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
+    void dropEvent(QDropEvent *event) override;
 
 private Q_SLOTS:
     void unselectHiddenItems();

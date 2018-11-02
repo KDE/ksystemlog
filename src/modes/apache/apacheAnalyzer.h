@@ -45,7 +45,7 @@ public:
 
     virtual ~ApacheAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
         columns.addColumn(LogViewColumn(i18n("Date"), true, false));
@@ -56,9 +56,9 @@ public:
     }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
      * Log line examples :
@@ -73,7 +73,7 @@ protected:
      * [client 127.0.0.1] PHP Parse error:  parse error, unexpected T_PRIVATE, expecting T_STRING in
      * /mnt/boulot/web/annivernet/src/fonctions/formulaire.inc.php on line 25
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
     {
         QString line(logLine);
 

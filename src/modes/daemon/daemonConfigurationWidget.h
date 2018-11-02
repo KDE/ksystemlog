@@ -59,7 +59,7 @@ public:
 
 public Q_SLOTS:
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
                                                        .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
@@ -68,7 +68,7 @@ public Q_SLOTS:
         daemonConfiguration->setDaemonPaths(fileList->paths());
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         DaemonConfiguration *daemonConfiguration = Globals::instance()
                                                        .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
@@ -79,14 +79,14 @@ public Q_SLOTS:
         fileList->addPaths(daemonConfiguration->daemonPaths());
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
 protected:
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (fileList->isEmpty() == false) {
             return true;

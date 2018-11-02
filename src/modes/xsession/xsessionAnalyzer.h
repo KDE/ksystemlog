@@ -45,7 +45,7 @@ public:
 
     virtual ~XSessionAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
 
@@ -60,9 +60,9 @@ public:
     }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE
+    Analyzer::LogFileSortMode logFileSortMode() override
     {
         XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
         if (configuration->isIgnoreXorgErrors())
@@ -71,7 +71,7 @@ protected:
             return Analyzer::AscendingSortedLogFile;
     }
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override
     {
         int classPrototypePosition = logLine.indexOf(QLatin1String("::"));
         int programPos = logLine.indexOf(QLatin1Char(':'));

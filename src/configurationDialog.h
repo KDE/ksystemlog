@@ -33,7 +33,7 @@ class ConfigurationDialog : public KConfigDialog
 public:
     explicit ConfigurationDialog(QWidget *parent);
 
-    ~ConfigurationDialog();
+    ~ConfigurationDialog() override;
 
     void showConfiguration();
 
@@ -42,17 +42,17 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
 
-    void updateWidgets() Q_DECL_OVERRIDE;
-    void updateWidgetsDefault() Q_DECL_OVERRIDE;
-    void updateSettings() Q_DECL_OVERRIDE;
+    void updateWidgets() override;
+    void updateWidgetsDefault() override;
+    void updateSettings() override;
     void updateButtons();
 
 private Q_SLOTS:
     void updateConfiguration();
 
 private:
-    bool hasChanged() Q_DECL_OVERRIDE;
-    bool isDefault() Q_DECL_OVERRIDE;
+    bool hasChanged() override;
+    bool isDefault() override;
 
     ConfigurationDialogPrivate *const d;
 

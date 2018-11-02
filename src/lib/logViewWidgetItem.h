@@ -39,7 +39,7 @@ public:
 
     ~LogViewWidgetItem();
 
-    bool operator<(const QTreeWidgetItem &other) const Q_DECL_OVERRIDE;
+    bool operator<(const QTreeWidgetItem &other) const override;
 
     LogLine *logLine() const;
 

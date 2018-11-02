@@ -50,9 +50,9 @@ public:
 
     virtual ~FileAnalyzer();
 
-    void watchLogFiles(bool enabled) Q_DECL_OVERRIDE;
+    void watchLogFiles(bool enabled) override;
 
-    void setLogFiles(const QList<LogFile> &logFiles) Q_DECL_OVERRIDE;
+    void setLogFiles(const QList<LogFile> &logFiles) override;
 
 protected:
     virtual LogFileReader *createLogFileReader(const LogFile &logFile) = 0;

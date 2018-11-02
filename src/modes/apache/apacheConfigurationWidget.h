@@ -64,7 +64,7 @@ public:
 
 public Q_SLOTS:
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         logDebug() << "Saving config from Apache Options...";
 
@@ -75,13 +75,13 @@ public Q_SLOTS:
         apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         ApacheConfiguration *apacheConfiguration = Globals::instance()
                                                        .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
@@ -94,7 +94,7 @@ public Q_SLOTS:
     }
 
 protected:
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (apacheFileList->isOneOfCategoryEmpty() == true) {
             logDebug() << "Apache configuration not valid";

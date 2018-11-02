@@ -46,7 +46,7 @@ public:
         : QStyledItemDelegate(parent)
     {
     }
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         QStyleOptionViewItem &refToNonConstOption = const_cast<QStyleOptionViewItem &>(option);
         refToNonConstOption.showDecorationSelected = false;

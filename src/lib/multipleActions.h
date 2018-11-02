@@ -48,9 +48,9 @@ public:
 
     virtual ~MultipleActions();
 
-    QList<QAction *> innerActions() Q_DECL_OVERRIDE;
+    QList<QAction *> innerActions() override;
 
-    QAction *actionMenu() Q_DECL_OVERRIDE;
+    QAction *actionMenu() override;
 
     /**
      * This method is not called addAction() to avoid name collision with

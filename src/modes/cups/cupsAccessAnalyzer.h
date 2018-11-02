@@ -46,7 +46,7 @@ public:
 
     virtual ~CupsAccessAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
 
@@ -66,9 +66,9 @@ public:
 protected:
     QRegExp cupsAccessRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
      * http://www.cups.org/documentation.php/ref-access_log.html
@@ -83,7 +83,7 @@ protected:
      * localhost - - [01/Dec/2005:21:50:32 +0000] "GET /admin HTTP/1.1" 200 6667 - -
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
     {
         int firstPosition = cupsAccessRegex.indexIn(logLine);
         if (firstPosition == -1) {

@@ -77,12 +77,12 @@ public:
     using KTreeWidgetSearchLine::updateSearch;
 
     // Reimplemented just to send a signal _AFTER_ the tree updating
-    void updateSearch(const QString &pattern = QString()) Q_DECL_OVERRIDE;
+    void updateSearch(const QString &pattern = QString()) override;
 
     void setPriorityEnabled(int priority, bool enabled);
 
 protected:
-    bool itemMatches(const QTreeWidgetItem *item, const QString &pattern) const Q_DECL_OVERRIDE;
+    bool itemMatches(const QTreeWidgetItem *item, const QString &pattern) const override;
 
 Q_SIGNALS:
     void treeWidgetUpdated();

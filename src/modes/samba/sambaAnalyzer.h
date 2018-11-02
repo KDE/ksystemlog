@@ -45,7 +45,7 @@ public:
 
     virtual ~SambaAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
 
@@ -59,9 +59,9 @@ public:
     }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
      * Log line examples :
@@ -84,7 +84,7 @@ protected:
      * that the last file line is the last message of the current log line.
      * So the previous last line will be returned at the next file update,
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
     {
         QString line(logLine);
 

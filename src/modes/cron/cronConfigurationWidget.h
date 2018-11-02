@@ -85,7 +85,7 @@ public:
 
     virtual ~CronConfigurationWidget() {}
 
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (fileList->isEmpty() == true) {
             logDebug() << "Cron configuration not valid";
@@ -101,7 +101,7 @@ public:
         return true;
     }
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         logDebug() << "Saving config from Cron Options...";
 
@@ -117,7 +117,7 @@ public:
         }
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         CronConfiguration *cronConfiguration = Globals::instance()
                                                    .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
@@ -135,7 +135,7 @@ public:
         }
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();

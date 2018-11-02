@@ -83,7 +83,7 @@ public:
 
 public Q_SLOTS:
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         XSessionConfiguration *configuration = Globals::instance()
                                                    .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
@@ -93,7 +93,7 @@ public Q_SLOTS:
         configuration->setIgnoreXorgErrors(ignoreXorgErrors->isChecked());
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         XSessionConfiguration *configuration = Globals::instance()
                                                    .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
@@ -109,14 +109,14 @@ public Q_SLOTS:
         prepareXorgErrorsDescription();
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
 protected:
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (xsessionUrlRequester->url().path().isEmpty() == false) {
             return true;

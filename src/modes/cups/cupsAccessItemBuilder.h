@@ -41,7 +41,7 @@ public:
 
     virtual ~CupsAccessItemBuilder() {}
 
-    QString createFormattedText(LogLine *line) const Q_DECL_OVERRIDE
+    QString createFormattedText(LogLine *line) const override
     {
         QString result;
 

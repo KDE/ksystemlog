@@ -50,7 +50,7 @@ public:
 
     virtual ~KernelAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
         columns.addColumn(LogViewColumn(i18n("Date"), true, false));
@@ -61,12 +61,12 @@ public:
     }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) Q_DECL_OVERRIDE
+    LogFileReader *createLogFileReader(const LogFile &logFile) override
     {
         return new ProcessOutputLogFileReader(logFile);
     }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     void startupTime()
     {
@@ -88,7 +88,7 @@ protected:
         logDebug() << "Startup time : " << startupDateTime;
     }
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
     {
         QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
 

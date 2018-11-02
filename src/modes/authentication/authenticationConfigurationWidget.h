@@ -91,7 +91,7 @@ public:
 
 public Q_SLOTS:
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         AuthenticationConfiguration *authenticationConfiguration
             = Globals::instance()
@@ -101,7 +101,7 @@ public Q_SLOTS:
         authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().path());
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         AuthenticationConfiguration *authenticationConfiguration
             = Globals::instance()
@@ -115,14 +115,14 @@ public Q_SLOTS:
         authenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
 protected:
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (authenticationUrlRequester->url().path().isEmpty() == false) {
             return true;

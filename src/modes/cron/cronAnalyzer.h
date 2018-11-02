@@ -43,7 +43,7 @@ public:
 
     virtual ~CronAnalyzer() {}
 
-    LogViewColumns initColumns() Q_DECL_OVERRIDE
+    LogViewColumns initColumns() override
     {
         LogViewColumns columns;
         columns.addColumn(LogViewColumn(i18n("Date"), true, false));
@@ -54,7 +54,7 @@ public:
         return columns;
     }
 
-    Analyzer::LogFileSortMode logFileSortMode() Q_DECL_OVERRIDE { return Analyzer::FilteredLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::FilteredLogFile; }
 
     /*
      * Cron line example :
@@ -64,7 +64,7 @@ public:
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) INFO (Running @reboot jobs)
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) Q_DECL_OVERRIDE
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override
     {
         // Use the default parsing
         LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalFile);

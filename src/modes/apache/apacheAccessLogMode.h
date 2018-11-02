@@ -51,9 +51,9 @@ public:
 
     ~ApacheAccessLogMode();
 
-    Analyzer *createAnalyzer(const QVariant &options = QVariant()) Q_DECL_OVERRIDE;
+    Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 
-    QList<LogFile> createLogFiles() Q_DECL_OVERRIDE;
+    QList<LogFile> createLogFiles() override;
 };
 
 #endif // _APACHE_ACCESS_LOG_MODE_H_

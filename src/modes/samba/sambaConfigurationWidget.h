@@ -65,7 +65,7 @@ public:
 
 public Q_SLOTS:
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         logDebug() << "Saving config from Samba Options...";
 
@@ -77,13 +77,13 @@ public Q_SLOTS:
         sambaConfiguration->setNetbiosPaths(sambaFileList->paths(netbiosPathsId));
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         SambaConfiguration *sambaConfiguration = Globals::instance()
                                                      .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
@@ -97,7 +97,7 @@ public Q_SLOTS:
     }
 
 protected:
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (sambaFileList->isOneOfCategoryEmpty() == true) {
             logDebug() << "Samba configuration not valid";

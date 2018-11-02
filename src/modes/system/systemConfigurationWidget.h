@@ -61,7 +61,7 @@ public:
 
     virtual ~SystemConfigurationWidget() {}
 
-    bool isValid() const Q_DECL_OVERRIDE
+    bool isValid() const override
     {
         if (fileList->isEmpty() == false) {
             logDebug() << "System configuration valid";
@@ -72,7 +72,7 @@ public:
         return false;
     }
 
-    void saveConfig() Q_DECL_OVERRIDE
+    void saveConfig() override
     {
         logDebug() << "Saving config from System Options...";
 
@@ -83,7 +83,7 @@ public:
         systemConfiguration->setLogFilesLevels(fileList->levels());
     }
 
-    void readConfig() Q_DECL_OVERRIDE
+    void readConfig() override
     {
         SystemConfiguration *systemConfiguration = Globals::instance()
                                                        .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
@@ -94,7 +94,7 @@ public:
         fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
     }
 
-    void defaultConfig() Q_DECL_OVERRIDE
+    void defaultConfig() override
     {
         // TODO Find a way to read the configuration per default
         readConfig();
