@@ -32,7 +32,7 @@ class LoggerDialog : public QDialog, public Ui::LoggerDialogBase
 {
     Q_OBJECT
 public:
-    explicit LoggerDialog(QWidget *parent = NULL);
+    explicit LoggerDialog(QWidget *parent = nullptr);
 
     ~LoggerDialog() override;
 

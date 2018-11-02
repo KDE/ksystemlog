@@ -47,7 +47,7 @@ LogViewModel::LogViewModel(LogViewWidget *logViewWidget)
     , d(new LogViewModelPrivate())
 {
     d->logViewWidget = logViewWidget;
-    d->oldestItem = NULL;
+    d->oldestItem = nullptr;
 
     d->concurrentMultipleInsertions = 0;
 }
@@ -60,7 +60,7 @@ LogViewModel::~LogViewModel()
 bool LogViewModel::logLineAlreadyExists(LogLine *line) const
 {
     LogViewWidgetItem *item = d->logViewWidget->findItem(line);
-    if (item != NULL)
+    if (item != nullptr)
         return true;
 
     return false;
@@ -169,13 +169,13 @@ void LogViewModel::clear()
     d->logViewWidget->clear();
 
     // Reinit Oldest item
-    d->oldestItem = NULL;
+    d->oldestItem = nullptr;
 }
 
 bool LogViewModel::isNewer(LogLine *newLine) const
 {
     // No element in the list in this case
-    if (d->oldestItem == NULL)
+    if (d->oldestItem == nullptr)
         return true;
 
     if (newLine->isNewerThan(*(d->oldestItem->logLine())))
@@ -192,7 +192,7 @@ void LogViewModel::removeOldestLogLine()
         return;
     }
 
-    if (d->oldestItem == NULL) {
+    if (d->oldestItem == nullptr) {
         logWarning() << "Oldest item is null";
         return;
     }
@@ -201,11 +201,11 @@ void LogViewModel::removeOldestLogLine()
     d->logViewWidget->takeTopLevelItem(d->logViewWidget->indexOfTopLevelItem(d->oldestItem));
 
     delete d->oldestItem;
-    d->oldestItem = NULL;
+    d->oldestItem = nullptr;
 
     // Find the next oldest item
     foreach (LogViewWidgetItem *item, d->logViewWidget->items()) {
-        if (d->oldestItem == NULL) {
+        if (d->oldestItem == nullptr) {
             d->oldestItem = item;
             continue;
         }
@@ -222,7 +222,7 @@ void LogViewModel::insert(LogLine *line)
     LogViewWidgetItem *item = new LogViewWidgetItem(d->logViewWidget, line);
 
     // Update the oldest item
-    if (d->oldestItem == NULL) {
+    if (d->oldestItem == nullptr) {
         d->oldestItem = item;
     } else if (d->oldestItem->logLine()->isNewerThan(*line)) {
         d->oldestItem = item;

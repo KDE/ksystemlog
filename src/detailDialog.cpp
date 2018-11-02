@@ -37,7 +37,7 @@
 
 DetailDialog::DetailDialog(QWidget *parent)
     : QDialog(parent)
-    , logViewWidget(NULL)
+    , logViewWidget(nullptr)
 {
     setupUi(this);
 
@@ -71,7 +71,7 @@ void DetailDialog::updateDetails()
 
     // Get the current-last item selected
     LogViewWidgetItem *item = logViewWidget->lastSelectedItem();
-    if (item == NULL) {
+    if (item == nullptr) {
         logDebug() << "No item found.";
         return;
     }
@@ -82,12 +82,12 @@ void DetailDialog::updateDetails()
 
     message->setText(item->logLine()->logItems().last());
 
-    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) - 1) == NULL)
+    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) - 1) == nullptr)
         previous->setEnabled(false);
     else
         previous->setEnabled(true);
 
-    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) + 1) == NULL)
+    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) + 1) == nullptr)
         next->setEnabled(false);
     else
         next->setEnabled(true);
@@ -107,14 +107,14 @@ void DetailDialog::moveToItem(int direction)
 
     // Get the current-last item selected
     LogViewWidgetItem *item = logViewWidget->lastSelectedItem();
-    if (item == NULL) {
+    if (item == nullptr) {
         logDebug() << "No item found.";
         return;
     }
 
     QTreeWidgetItem *destinationItem
         = logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) + direction);
-    if (destinationItem == NULL) {
+    if (destinationItem == nullptr) {
         if (direction < 0)
             logDebug() << "No previous item found.";
         else

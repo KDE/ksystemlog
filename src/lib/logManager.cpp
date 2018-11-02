@@ -51,8 +51,8 @@ LogManager::LogManager(View *view)
 {
     d->lastUpdate = QTime::currentTime();
 
-    d->logMode = NULL;
-    d->analyzer = NULL;
+    d->logMode = nullptr;
+    d->analyzer = nullptr;
 
     d->usedView = view;
     connect(d->usedView, &View::droppedUrls, this, &LogManager::loadDroppedUrls);
@@ -75,7 +75,7 @@ View *LogManager::usedView() const
 
 void LogManager::reload()
 {
-    if (d->logMode == NULL) {
+    if (d->logMode == nullptr) {
         logWarning() << "Log manager is not yet initialized";
         return;
     }
@@ -159,10 +159,10 @@ void LogManager::cleanPreviousLogMode()
 {
     logDebug() << "Cleaning previous LogMode...";
 
-    d->logMode = NULL;
+    d->logMode = nullptr;
 
     delete d->analyzer;
-    d->analyzer = NULL;
+    d->analyzer = nullptr;
 
     d->analyzerStatus.clear();
 }
@@ -218,7 +218,7 @@ void LogManager::showErrorMessage(const QString &title, const QString &message)
 
 void LogManager::setParsingPaused(bool paused)
 {
-    if (d->logMode == NULL) {
+    if (d->logMode == nullptr) {
         logWarning() << "Log manager is not yet initialized";
         return;
     }
@@ -234,7 +234,7 @@ void LogManager::setParsingPaused(bool paused)
 
 bool LogManager::isParsingPaused() const
 {
-    if (d->logMode == NULL) {
+    if (d->logMode == nullptr) {
         logWarning() << "Log manager is not yet initialized";
         return false;
     }

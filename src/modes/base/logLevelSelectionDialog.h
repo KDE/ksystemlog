@@ -29,7 +29,7 @@
 class LogLevelSelectionDialog : public QDialog, public Ui::LogLevelSelectionDialogBase
 {
 public:
-    explicit LogLevelSelectionDialog(QWidget *parent = NULL);
+    explicit LogLevelSelectionDialog(QWidget *parent = nullptr);
 
     virtual ~LogLevelSelectionDialog();
 

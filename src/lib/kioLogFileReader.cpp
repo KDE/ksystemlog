@@ -56,7 +56,7 @@ public:
 KioLogFileReader::KioLogFileReader(const LogFile &logFile)
     : d(new KioLogFileReaderPrivate(logFile))
 {
-    d->fileJob = NULL;
+    d->fileJob = nullptr;
     d->totalRead = 0;
 
     d->fileWatch = new KDirWatch(this);

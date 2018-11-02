@@ -140,11 +140,11 @@ MainWindow::MainWindow()
     : KXmlGuiWindow(0)
     , d(new MainWindowPrivate())
 {
-    d->printer = NULL;
-    d->detailDialog = NULL;
-    d->configurationDialog = NULL;
-    d->tabs = NULL;
-    d->statusBar = NULL;
+    d->printer = nullptr;
+    d->detailDialog = nullptr;
+    d->configurationDialog = nullptr;
+    d->tabs = nullptr;
+    d->statusBar = nullptr;
 
     logDebug() << "Starting KSystemLog...";
 
@@ -303,7 +303,7 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
 void MainWindow::updateDetailDialog()
 {
     LogManager *currentManager = d->tabs->activeLogManager();
-    if (d->detailDialog != NULL) {
+    if (d->detailDialog != nullptr) {
         d->detailDialog->selectionChanged(currentManager->usedView()->logViewWidget());
     }
 }
@@ -369,7 +369,7 @@ TabLogViewsWidget *MainWindow::tabs()
 void MainWindow::showDetailsDialog()
 {
     // Create the Detail dialog if it was not created
-    if (d->detailDialog == NULL) {
+    if (d->detailDialog == nullptr) {
         d->detailDialog = new DetailDialog(this);
         updateDetailDialog();
     }
@@ -418,7 +418,7 @@ void MainWindow::toggleResumePauseParsing(bool paused)
     logDebug() << "Pausing parsing : " << paused;
 
     LogManager *currentLogManager = d->tabs->activeLogManager();
-    if (currentLogManager != NULL) {
+    if (currentLogManager != nullptr) {
         currentLogManager->setParsingPaused(paused);
     }
 
@@ -471,7 +471,7 @@ void MainWindow::showLogMessageDialog()
 {
     logDebug() << "Launching the Send message dialog box...";
 
-    if (d->loggedDialog == NULL) {
+    if (d->loggedDialog == nullptr) {
         d->loggedDialog = new LoggerDialog(this);
     }
 
@@ -513,7 +513,7 @@ void MainWindow::changeCurrentTab()
 
     bool enabledAction;
     // Change the title of the window
-    if (currentManager->logMode() == NULL) {
+    if (currentManager->logMode() == nullptr) {
         changeWindowTitle(i18nc("Newly created tab", "Empty Log"));
         enabledAction = false;
     } else {
@@ -812,7 +812,7 @@ void MainWindow::selectLogModeAction(bool)
 
     logDebug() << "Selected action" << selectedModeId;
 
-    LogMode *currentMode = NULL;
+    LogMode *currentMode = nullptr;
     foreach (LogMode *logMode, Globals::instance().logModes()) {
         if (logMode->id() == selectedModeId) {
             currentMode = logMode;
@@ -820,7 +820,7 @@ void MainWindow::selectLogModeAction(bool)
         }
     }
 
-    if (currentMode == NULL) {
+    if (currentMode == nullptr) {
         logCritical() << "The selected mode does not exist";
         return;
     }

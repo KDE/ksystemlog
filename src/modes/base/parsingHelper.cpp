@@ -26,11 +26,11 @@
 
 #include "logging.h"
 
-ParsingHelper *ParsingHelper::self = NULL;
+ParsingHelper *ParsingHelper::self = nullptr;
 
 ParsingHelper *ParsingHelper::instance()
 {
-    if (ParsingHelper::self == NULL) {
+    if (ParsingHelper::self == nullptr) {
         ParsingHelper::self = new ParsingHelper();
     }
 

@@ -72,7 +72,7 @@ View::View(QWidget *parent)
     : QWidget(parent)
     , d(new ViewPrivate())
 {
-    d->logViewWidget = NULL;
+    d->logViewWidget = nullptr;
 
     QVBoxLayout *topLayout = new QVBoxLayout();
     topLayout->setMargin(2);
@@ -176,7 +176,7 @@ void View::unselectHiddenItems()
 {
     QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::Selected);
 
-    while (*it != NULL) {
+    while (*it != nullptr) {
         QTreeWidgetItem *item = *it;
 
         if (item->isHidden()) {

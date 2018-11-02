@@ -205,7 +205,7 @@ bool FileAnalyzer::insertLine(const QString &buffer, const LogFile &originalFile
     LogLine *line = parseMessage(buffer, originalFile);
 
     // Invalid log line
-    if (line == NULL) {
+    if (line == nullptr) {
         return false;
     }
 

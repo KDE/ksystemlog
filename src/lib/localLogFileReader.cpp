@@ -145,7 +145,7 @@ QIODevice *LocalLogFileReader::open()
         // inputDevice = KFilterDev::deviceForFile(filePath, mimeType);
         inputDevice = new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType));
 
-        if (inputDevice == NULL) {
+        if (inputDevice == nullptr) {
             QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
             emit errorOccured(i18n("Unable to Uncompress File"), message);
             emit statusBarChanged(message);
@@ -204,7 +204,7 @@ void LocalLogFileReader::logFileModified()
     }
 
     QIODevice *inputDevice = open();
-    if (inputDevice == NULL) {
+    if (inputDevice == nullptr) {
         logCritical() << "Could not open file " << d->logFile.url().path();
         return;
     }

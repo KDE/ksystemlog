@@ -107,12 +107,12 @@ void MultipleFileList::updateButtons()
     QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
 
     // If the selection is not empty and a empty item is not selected
-    QTreeWidgetItem *categoryItem = NULL;
+    QTreeWidgetItem *categoryItem = nullptr;
     if (selectedItems.isEmpty() == false && isEmptyItem(selectedItems.at(0)) == false) {
         categoryItem = findCategoryOfChild(selectedItems.at(0));
     }
 
-    if (categoryItem != NULL) {
+    if (categoryItem != nullptr) {
         int categoryIndex = fileList->indexOfTopLevelItem(categoryItem);
 
         fileListHelper.setEnabledAction(remove, true);
@@ -173,7 +173,7 @@ bool MultipleFileList::isOneOfCategoryEmpty() const
 int MultipleFileList::categoryCount(int index) const
 {
     QTreeWidgetItem *item = fileList->topLevelItem(index);
-    if (item == NULL) {
+    if (item == nullptr) {
         logCritical() << "Index out of range" << index;
         return 0;
     }
@@ -276,7 +276,7 @@ void MultipleFileList::modifyItem()
 void MultipleFileList::modifyItem(QTreeWidgetItem *item)
 {
     // If the user tries to modify a category item, we do nothing
-    if (findCategoryOfChild(item) == NULL || isEmptyItem(item) == true)
+    if (findCategoryOfChild(item) == nullptr || isEmptyItem(item) == true)
         return;
 
     QString previousPath = item->text(0);
@@ -346,7 +346,7 @@ void MultipleFileList::moveDownItem()
 void MultipleFileList::removeAllItems()
 {
     QTreeWidgetItemIterator it(fileList, QTreeWidgetItemIterator::All);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         QTreeWidgetItem *item = *it;
 
         QList<QTreeWidgetItem *> children = item->takeChildren();
@@ -455,7 +455,7 @@ QStringList MultipleFileList::paths(int category)
     QTreeWidgetItemIterator it(fileList, QTreeWidgetItemIterator::All);
 
     QStringList paths;
-    while (*it != NULL) {
+    while (*it != nullptr) {
         QTreeWidgetItem *item = *it;
 
         if (categoryItem->indexOfChild(item) != -1) {

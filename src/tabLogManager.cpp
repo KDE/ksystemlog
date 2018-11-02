@@ -81,7 +81,7 @@ QString TabLogManager::title()
 
 QString TabLogManager::logModeName()
 {
-    if (d->logManager->logMode() == NULL)
+    if (d->logManager->logMode() == nullptr)
         return i18nc("Newly created tab", "Empty Log");
     else
         return d->logManager->title();

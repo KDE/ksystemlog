@@ -61,7 +61,7 @@ void LogViewExport::sendMail()
 
     int i = 0;
     QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
         body += item->logLine()->exportToText();
@@ -139,7 +139,7 @@ void LogViewExport::printSelection()
     int movement = 0;
 
     QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
         QString body = item->logLine()->exportToText();
         painter.setPen(originalPen);
@@ -183,7 +183,7 @@ void LogViewExport::copyToClipboard()
     QString text;
 
     QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
         // Copy the item content to the text string
@@ -216,7 +216,7 @@ void LogViewExport::fileSave()
     QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
 
     // No item selected
-    if (*it == NULL) {
+    if (*it == nullptr) {
         emit statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
         return;
     }
@@ -234,7 +234,7 @@ void LogViewExport::fileSave()
 
         int nbCopied = 0;
 
-        while (*it != NULL) {
+        while (*it != nullptr) {
             LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
             // Copy the item content to the stream

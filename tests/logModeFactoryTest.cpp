@@ -67,7 +67,7 @@ void LogModeFactoryTest::testLogModes()
 
 void LogModeFactoryTest::testReaderFactory()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
 
     QVERIFY(systemAnalyzer);

@@ -40,11 +40,11 @@ OpenLogMode::OpenLogMode(QWidget *parent)
     : LogMode(QStringLiteral(OPEN_LOG_MODE_ID), i18n("Log File"), QStringLiteral(OPEN_MODE_ICON))
     , parent(parent)
 {
-    d->logModeConfigurationWidget = NULL;
+    d->logModeConfigurationWidget = nullptr;
 
     d->itemBuilder = new LogModeItemBuilder();
 
-    d->action = NULL;
+    d->action = nullptr;
 }
 
 OpenLogMode::~OpenLogMode()

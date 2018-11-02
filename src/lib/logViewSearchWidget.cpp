@@ -50,7 +50,7 @@ public:
 LogViewSearchWidget::LogViewSearchWidget()
     : d(new LogViewSearchWidgetPrivate())
 {
-    d->logViewWidget = NULL;
+    d->logViewWidget = nullptr;
 
     setupUi(this);
 
@@ -150,8 +150,8 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     initIterator(it, direction);
 
     // Go to the selected position + 1 (if we already found an item)
-    if (fromItem != NULL) {
-        while (*it != NULL) {
+    if (fromItem != nullptr) {
+        while (*it != nullptr) {
             LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
             if (item == fromItem) {
@@ -164,7 +164,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     }
 
     // Iterates to fromItem +1 to the last item of the list
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
         bool found = findItem(item);
@@ -175,12 +175,12 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     }
 
     // If we do not begin the search from the beginning, we do it now
-    if (fromItem != NULL) {
+    if (fromItem != nullptr) {
         it = QTreeWidgetItemIterator(d->logViewWidget, QTreeWidgetItemIterator::NotHidden);
         initIterator(it, direction);
 
-        LogViewWidgetItem *item = NULL;
-        while (*it != NULL && item != fromItem) {
+        LogViewWidgetItem *item = nullptr;
+        while (*it != nullptr && item != fromItem) {
             item = static_cast<LogViewWidgetItem *>(*it);
 
             bool found = findItem(item);
@@ -203,7 +203,7 @@ inline void LogViewSearchWidget::initIterator(QTreeWidgetItemIterator &it, Direc
         QTreeWidgetItemIterator testedIterator(it);
         while (true) {
             ++testedIterator;
-            if (*testedIterator == NULL) {
+            if (*testedIterator == nullptr) {
                 break;
             }
 
@@ -306,7 +306,7 @@ void LogViewSearchWidget::highlightAll()
 
         logDebug() << "Highlighting all";
         QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::All);
-        while (*it != NULL) {
+        while (*it != nullptr) {
             LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
             if (compareItem(item) == true) {
@@ -326,7 +326,7 @@ void LogViewSearchWidget::unlightAll()
     logDebug() << "Unlighting all";
 
     QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::All);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
         // We retrieve the default column background using the first column data, where the background never

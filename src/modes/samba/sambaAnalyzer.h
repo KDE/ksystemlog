@@ -40,7 +40,7 @@ public:
     explicit SambaAnalyzer(LogMode *logMode)
         : FileAnalyzer(logMode)
     {
-        currentLogLine = NULL;
+        currentLogLine = nullptr;
     }
 
     virtual ~SambaAnalyzer() {}
@@ -143,7 +143,7 @@ protected:
         }
 
         if (line.indexOf(QLatin1String("  ")) != -1) {
-            if (currentLogLine != NULL) {
+            if (currentLogLine != nullptr) {
                 QStringList list = currentLogLine->logItems();
 
                 // A line has already been added

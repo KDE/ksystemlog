@@ -74,7 +74,7 @@ void SystemAnalyzerTest::initTestCase()
 
 void SystemAnalyzerTest::testOneLine()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -105,7 +105,7 @@ void SystemAnalyzerTest::testOneLine()
 
 void SystemAnalyzerTest::testTwoLines()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -128,7 +128,7 @@ void SystemAnalyzerTest::testTwoLines()
 
 void SystemAnalyzerTest::testMultipleLines()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -186,7 +186,7 @@ void SystemAnalyzerTest::testMultipleLines()
 
 void SystemAnalyzerTest::testStrangeLines()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -262,7 +262,7 @@ void SystemAnalyzerTest::testStrangeLines()
 
 void SystemAnalyzerTest::testDeleteProcessIdentifier()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -297,7 +297,7 @@ void SystemAnalyzerTest::testDeleteProcessIdentifier()
 
 void SystemAnalyzerTest::testMaxLines()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);
@@ -364,7 +364,7 @@ void SystemAnalyzerTest::compareWithMinTime(QList<LogLine *> logLines, const QDa
 
 void SystemAnalyzerTest::testRemoveDuplicates()
 {
-    LogViewModel *model = NULL;
+    LogViewModel *model = nullptr;
 
     Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
     QVERIFY(systemAnalyzer);

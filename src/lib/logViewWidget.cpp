@@ -166,7 +166,7 @@ QList<LogLine *> LogViewWidget::logLines()
     QList<LogLine *> logLines;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
         logLines.append(item->logLine());
         ++it;
@@ -177,12 +177,12 @@ QList<LogLine *> LogViewWidget::logLines()
 
 LogViewWidgetItem *LogViewWidget::findNewestItem()
 {
-    LogViewWidgetItem *newestItem = NULL;
+    LogViewWidgetItem *newestItem = nullptr;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
-        if (newestItem == NULL || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
+        if (newestItem == nullptr || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
             newestItem = item;
         }
 
@@ -195,7 +195,7 @@ LogViewWidgetItem *LogViewWidget::findNewestItem()
 LogViewWidgetItem *LogViewWidget::findItem(LogLine *searchedLogLine)
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
         if (item->logLine()->equals(*searchedLogLine))
             return item;
@@ -211,7 +211,7 @@ QList<LogViewWidgetItem *> LogViewWidget::items()
     QList<LogViewWidgetItem *> items;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         items.append(static_cast<LogViewWidgetItem *>(*it));
         ++it;
     }
@@ -241,7 +241,7 @@ LogViewWidgetItem *LogViewWidget::lastSelectedItem()
 {
     QTreeWidgetItemIterator it(this, QTreeWidgetItemIterator::Selected);
 
-    QTreeWidgetItem *item = NULL;
+    QTreeWidgetItem *item = nullptr;
     while (*it) {
         item = (*it);
 
@@ -255,7 +255,7 @@ LogViewWidgetItem *LogViewWidget::lastSelectedItem()
 void LogViewWidget::expandAll()
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         expandItem(*it);
         ++it;
     }
@@ -264,7 +264,7 @@ void LogViewWidget::expandAll()
 void LogViewWidget::collapseAll()
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         collapseItem(*it);
         ++it;
     }
@@ -275,7 +275,7 @@ void LogViewWidget::toggleToolTip(bool enabled)
     logDebug() << "Toggle tool tip " << enabled;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
         item->toggleToolTip(enabled);
 
@@ -290,7 +290,7 @@ void LogViewWidget::scrollToNewestItem()
     // Scroll to last item if requested
     if (KSystemLogConfig::newLinesDisplayed() == true) {
         LogViewWidgetItem *newestItem = findNewestItem();
-        if (newestItem != NULL) {
+        if (newestItem != nullptr) {
             scrollToItem(newestItem);
         }
     }
@@ -301,7 +301,7 @@ int LogViewWidget::notHiddenItemCount()
     int count = 0;
 
     QTreeWidgetItemIterator it(this, QTreeWidgetItemIterator::NotHidden);
-    while (*it != NULL) {
+    while (*it != nullptr) {
         count++;
         ++it;
     }

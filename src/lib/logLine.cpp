@@ -66,7 +66,7 @@ LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &
     d->logMode = logMode;
 
     // No linked item when constructs this LogLine
-    d->item = NULL;
+    d->item = nullptr;
 
     // By default in newly created item has the recent state
     setRecent(true);
@@ -169,7 +169,7 @@ void LogLine::setRecent(bool recent)
 {
     d->recent = recent;
 
-    if (d->item != NULL) {
+    if (d->item != nullptr) {
         QFont currentFont = d->item->font(d->item->columnCount() - 1);
 
         // We avoid doing the same process
@@ -184,7 +184,7 @@ QString LogLine::exportToText() const
 {
     QString exporting;
 
-    if (d->item == NULL) {
+    if (d->item == nullptr) {
         logCritical() << "Trying to export text from NULL item";
         return exporting;
     }

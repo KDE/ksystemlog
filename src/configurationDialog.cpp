@@ -72,7 +72,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
 
     foreach (LogMode *logMode, Globals::instance().logModes()) {
         // Some Log mode does not need a configuration widget
-        if (logMode->logModeConfigurationWidget() == NULL) {
+        if (logMode->logModeConfigurationWidget() == nullptr) {
             continue;
         }
 

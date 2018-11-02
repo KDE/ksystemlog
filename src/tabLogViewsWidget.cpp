@@ -52,7 +52,7 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
     , d(new TabLogViewsWidgetPrivate())
 {
-    d->contextMenu = NULL;
+    d->contextMenu = nullptr;
 
     QPushButton *tabNewTabButton
         = new QPushButton(SmallIcon(QStringLiteral("tab-new")), QLatin1String(""), this);
@@ -276,7 +276,7 @@ void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVaria
 {
     logDebug() << "Loading a new mode : " << logMode->name();
 
-    if (manager == NULL || logMode == NULL) {
+    if (manager == nullptr || logMode == nullptr) {
         logCritical() << "Error while loading a manager ";
         return;
     }
@@ -294,7 +294,7 @@ void TabLogViewsWidget::reloadCurrent()
 
     LogManager *manager = activeLogManager();
 
-    if (manager != NULL) {
+    if (manager != nullptr) {
         manager->reload();
     }
 }
@@ -305,7 +305,7 @@ void TabLogViewsWidget::reloadAll()
 
     foreach (TabLogManager *tabLogManager, d->tabLogManagers) {
         // Log manager without log mode does not need to be reloaded
-        if (tabLogManager->logManager()->logMode() == NULL) {
+        if (tabLogManager->logManager()->logMode() == nullptr) {
             continue;
         }
 
@@ -410,7 +410,7 @@ void TabLogViewsWidget::printSelectionCurrentView()
 
 QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode)
 {
-    if (logMode == NULL)
+    if (logMode == nullptr)
         return QIcon::fromTheme(QStringLiteral(NO_MODE_ICON));
     else
         return logMode->icon();
@@ -418,7 +418,7 @@ QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode)
 
 void TabLogViewsWidget::prepareContextMenu(bool /*onTab*/)
 {
-    if (d->contextMenu == NULL) {
+    if (d->contextMenu == nullptr) {
         d->contextMenu = new QMenu(this);
         d->contextMenu->addActions(actions());
     }

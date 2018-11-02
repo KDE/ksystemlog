@@ -38,7 +38,7 @@ class LogViewWidget : public QTreeWidget
     Q_OBJECT
 
 public:
-    explicit LogViewWidget(QWidget *parent = NULL);
+    explicit LogViewWidget(QWidget *parent = nullptr);
 
     ~LogViewWidget() override;
     void selectAll() override;

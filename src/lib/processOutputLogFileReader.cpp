@@ -70,7 +70,7 @@ void ProcessOutputLogFileReader::init()
     // Init current file position
     d->previousLinesCount = 0;
     d->availableStandardOutput.clear();
-    d->process = NULL;
+    d->process = nullptr;
 
     d->processUpdater.setInterval(PROCESS_OUTPUT_UPDATER_INTERVAL);
     connect(&(d->processUpdater), &QTimer::timeout, this, &ProcessOutputLogFileReader::startProcess);
@@ -141,7 +141,7 @@ void ProcessOutputLogFileReader::closeProcess()
     if (d->process) {
         d->process->close();
         delete d->process;
-        d->process = NULL;
+        d->process = nullptr;
     }
 
     logDebug() << "Process closed";

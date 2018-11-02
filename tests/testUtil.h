@@ -53,7 +53,7 @@ public:
 
     /**
      * Find a reader and initialize it.
-     * If the model == NULL, then a new model is created and the pointer is update
+     * If the model == nullptr, then a new model is created and the pointer is update
      */
     Analyzer *createAnalyzer(const QString &logModeName, LogViewModel **model) const;
 

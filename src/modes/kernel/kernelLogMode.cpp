@@ -35,7 +35,7 @@
 KernelLogMode::KernelLogMode()
     : LogMode(QStringLiteral(KERNEL_LOG_MODE_ID), i18n("Kernel Log"), QStringLiteral(KERNEL_MODE_ICON))
 {
-    d->logModeConfigurationWidget = NULL;
+    d->logModeConfigurationWidget = nullptr;
 
     d->itemBuilder = new KernelItemBuilder();
 
