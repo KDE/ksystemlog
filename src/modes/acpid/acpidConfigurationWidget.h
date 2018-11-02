@@ -56,7 +56,7 @@ public:
 
     ~AcpidConfigurationWidget() {}
 
-public slots:
+public Q_SLOTS:
 
     void saveConfig() Q_DECL_OVERRIDE
     {

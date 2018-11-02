@@ -58,7 +58,7 @@ public:
 
     QList<LogLine *> logLines();
 
-signals:
+Q_SIGNALS:
     void processingMultipleInsertions(bool currentlyInserting);
 
 private:

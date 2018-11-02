@@ -37,10 +37,10 @@ public:
 
     ~DetailDialog();
 
-public slots:
+public Q_SLOTS:
     void selectionChanged(LogViewWidget *logViewWidget);
 
-private slots:
+private Q_SLOTS:
     void previousItem();
     void nextItem();
 

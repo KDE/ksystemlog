@@ -38,7 +38,7 @@ public:
 
     void initialize();
 
-protected slots:
+protected Q_SLOTS:
     void sendMessage();
 
     void textChanged();

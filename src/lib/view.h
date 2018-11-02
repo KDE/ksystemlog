@@ -57,7 +57,7 @@ public:
 
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-public slots:
+public Q_SLOTS:
     void displayLoadingBar(bool display);
 
     void toggleLogViewFilter(bool display);
@@ -74,10 +74,10 @@ protected:
      */
     void dropEvent(QDropEvent *event) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void unselectHiddenItems();
 
-signals:
+Q_SIGNALS:
     void searchFilterChanged();
 
     void droppedUrls(const QList<QUrl> &urls);

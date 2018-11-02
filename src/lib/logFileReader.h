@@ -44,7 +44,7 @@ public:
 
     LogFile logFile() const;
 
-signals:
+Q_SIGNALS:
     void contentChanged(LogFileReader *origin, Analyzer::ReadingMode readingMode,
                         const QStringList &newLines);
 

@@ -47,13 +47,13 @@ public:
 
     int addCategory(const QString &itemName, const QString &buttonName);
 
-public slots:
+public Q_SLOTS:
     void removeAllItems();
 
-signals:
+Q_SIGNALS:
     void fileListChanged();
 
-private slots:
+private Q_SLOTS:
 
     void updateButtons();
 
@@ -61,7 +61,7 @@ private slots:
     void moveUpItem();
     void moveDownItem();
 
-protected slots:
+protected Q_SLOTS:
     virtual void addItem(int category);
 
     void modifyItem();

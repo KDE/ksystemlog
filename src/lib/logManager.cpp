@@ -133,7 +133,7 @@ LogMode *LogManager::logMode()
 QString LogManager::title() const
 {
     if (!d->analyzerStatus.isEmpty())
-        return d->logMode->name() + " - " + d->analyzerStatus;
+        return d->logMode->name() + QStringLiteral(" - ") + d->analyzerStatus;
     else
         return d->logMode->name();
 }

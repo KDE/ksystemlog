@@ -64,10 +64,10 @@ public:
 
     bool isParsingPaused() const;
 
-public slots:
+public Q_SLOTS:
     void setParsingPaused(bool paused);
 
-signals:
+Q_SIGNALS:
     void statusBarChanged(const QString &message);
     void errorOccured(const QString &title, const QString &message);
     void statusChanged(const QString &status);

@@ -47,7 +47,7 @@ public:
 
     void changeMessage(const QString &message);
 
-private slots:
+private Q_SLOTS:
     void toggleHistory();
     void selectLastHistory();
 

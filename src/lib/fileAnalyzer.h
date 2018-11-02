@@ -75,7 +75,7 @@ private:
      */
     bool insertLine(const QString &buffer, const LogFile &originalFile, ReadingMode readingMode);
 
-private slots:
+private Q_SLOTS:
     void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode,
                         const QStringList &content);
 

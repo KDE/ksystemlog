@@ -141,7 +141,7 @@ public:
         readConfig();
     }
 
-private slots:
+private Q_SLOTS:
     void toggleProcessFilterEnabling(bool enabled)
     {
         processFilter->setEnabled(enabled);

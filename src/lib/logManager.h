@@ -63,13 +63,13 @@ public:
 
     const QVariant &analyzerOptions() const;
 
-protected slots:
+protected Q_SLOTS:
 
     void updateLog(int lineCount);
 
     void showErrorMessage(const QString &title, const QString &message);
 
-signals:
+Q_SIGNALS:
     void tabTitleChanged(View *view, const QIcon &icon, const QString &label);
 
     void windowTitleChanged(const QString &caption);
@@ -78,7 +78,7 @@ signals:
     void reloaded();
     void logUpdated(View *view, int addedLines);
 
-private slots:
+private Q_SLOTS:
     void loadDroppedUrls(const QList<QUrl> &urls);
 
 private:

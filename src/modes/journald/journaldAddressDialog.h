@@ -39,7 +39,7 @@ public:
     QString port() const;
     bool httpsEnabled() const;
 
-public slots:
+public Q_SLOTS:
     virtual void accept();
 };
 

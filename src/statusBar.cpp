@@ -115,7 +115,7 @@ void StatusBar::changeLastModification(const QTime &lastModification)
     // d->lastModificationLabel->setText(i18n("Last updated: %1.",
     // KLocale::global()->formatTime(lastModification, true, false) ));
     d->lastModificationLabel->setText(
-        i18n("Last updated: %1.", QLocale().toString(lastModification, QString("hh:mm:ss"))));
+        i18n("Last updated: %1.", QLocale().toString(lastModification, QStringLiteral("hh:mm:ss"))));
 }
 
 void StatusBar::changeMessage(const QString &message)
@@ -124,7 +124,7 @@ void StatusBar::changeMessage(const QString &message)
     // d->messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
     // false), message));
     d->messageList->insertItem(
-        0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QString("hh:mm:ss")), message));
+        0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QStringLiteral("hh:mm:ss")), message));
 
     // 100 log history message max.
     if (d->messageList->count() > 100) {

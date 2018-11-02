@@ -47,7 +47,7 @@ class SystemAnalyzerTest : public QObject
 {
     Q_OBJECT
 
-private slots:
+private Q_SLOTS:
 
     void initTestCase();
 
@@ -357,7 +357,7 @@ void SystemAnalyzerTest::compareWithMinTime(QList<LogLine *> logLines, const QDa
             QFAIL(QString::fromLatin1("The line '%1' has a lesser time than the required min time (%2)")
                       .arg(logLine->logItems().join(QLatin1String(" ")))
                       .arg(logLine->time().toString())
-                      .toUtf8());
+                      .toUtf8().constData());
         }
     }
 }

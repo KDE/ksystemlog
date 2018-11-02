@@ -47,7 +47,7 @@ public:
 
     void setPreviousFilePosition(long previousFilePosition);
 
-private slots:
+private Q_SLOTS:
     void startProcess();
 
     void logFileModified();

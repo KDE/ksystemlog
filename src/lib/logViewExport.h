@@ -45,7 +45,7 @@ public:
 
     void printSelection();
 
-signals:
+Q_SIGNALS:
     void statusBarChanged(const QString &message);
 
 private:

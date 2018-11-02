@@ -84,7 +84,7 @@ protected:
      */
     void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 
-public slots:
+public Q_SLOTS:
     void changeStatusBar(const QString &text);
     void changeWindowTitle(const QString &text);
 
@@ -92,7 +92,7 @@ public slots:
 
     void prepareCreatedLogManager(LogManager *logManager);
 
-private slots:
+private Q_SLOTS:
     void fileOpen();
 
     void showConfigurationDialog();

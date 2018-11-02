@@ -43,7 +43,7 @@ public:
 
     void setTreeWidget(LogViewWidget *logViewWidget);
 
-public slots:
+public Q_SLOTS:
     void displaySearch();
 
     void findFirst();
@@ -52,7 +52,7 @@ public slots:
     void findNext();
     void findPrevious();
 
-private slots:
+private Q_SLOTS:
     void hideMessage();
 
     void highlightAll();

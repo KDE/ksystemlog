@@ -41,14 +41,14 @@ public:
 
     enum dateFormat {};
 
-public slots:
+public Q_SLOTS:
     void saveConfig() const;
 
     void defaultConfig();
 
     void readConfig();
 
-signals:
+Q_SIGNALS:
     void configurationChanged();
 
 private:

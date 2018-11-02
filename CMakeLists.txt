@@ -17,7 +17,7 @@ add_definitions(-DTRANSLATION_DOMAIN="ksystemlog")
 
 include(ECMSetupVersion)
 include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(FeatureSummary)
 
@@ -61,7 +61,6 @@ if(WIN32)
   set(CMAKE_REQUIRED_LIBRARIES ${KDEWIN32_LIBRARIES})
   set(CMAKE_REQUIRED_INCLUDES  ${KDEWIN32_INCLUDES})
 endif(WIN32)
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS -DQT_NO_URL_CAST_FROM_STRING)
 include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 # Help Eclipse to parse errors more efficiently

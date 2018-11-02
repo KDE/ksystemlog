@@ -44,14 +44,14 @@ public:
 
     QProgressBar *progressBar();
 
-public slots:
+public Q_SLOTS:
 
     void startLoading(const LogMode &logMode, const LogFile &logFile, int fileIndex, int fileCount);
     void endLoading();
 
     void progressLoading();
 
-signals:
+Q_SIGNALS:
     void displayed(bool displayed);
 
 private:

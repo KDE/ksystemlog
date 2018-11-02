@@ -129,7 +129,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
 
 QList<QUrl> FileListHelper::openUrls()
 {
-    QFileDialog fileDialog(parent, QString(), DEFAULT_LOG_FOLDER, QLatin1String("*|") + i18n("All Files (*)")
+    QFileDialog fileDialog(parent, QString(), QLatin1String(DEFAULT_LOG_FOLDER), QLatin1String("*|") + i18n("All Files (*)")
                                                                       + QLatin1String("\n*.log|")
                                                                       + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));

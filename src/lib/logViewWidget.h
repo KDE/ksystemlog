@@ -70,13 +70,13 @@ public:
 
     void resizeColumns();
 
-public slots:
+public Q_SLOTS:
     void toggleToolTip(bool enabled);
 
-signals:
+Q_SIGNALS:
     void columnsChanged(const LogViewColumns &columns);
 
-private slots:
+private Q_SLOTS:
     void toggleHeader(QAction *action);
 
 private:

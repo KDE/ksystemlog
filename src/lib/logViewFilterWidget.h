@@ -48,14 +48,14 @@ public:
     KComboBox *filterList();
     LogViewWidgetSearchLine *filterLine();
 
-public slots:
+public Q_SLOTS:
     void updateFilterColumns(const LogViewColumns &list);
 
-private slots:
+private Q_SLOTS:
     void changeColumnFilter(int column);
     void prioritiesChanged(QStandardItem *item);
 
-signals:
+Q_SIGNALS:
     void treeWidgetUpdated();
 
 private:
@@ -84,7 +84,7 @@ public:
 protected:
     bool itemMatches(const QTreeWidgetItem *item, const QString &pattern) const Q_DECL_OVERRIDE;
 
-signals:
+Q_SIGNALS:
     void treeWidgetUpdated();
 
 private:

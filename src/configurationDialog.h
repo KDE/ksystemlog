@@ -37,17 +37,17 @@ public:
 
     void showConfiguration();
 
-signals:
+Q_SIGNALS:
     void configurationSaved();
 
-protected slots:
+protected Q_SLOTS:
 
     void updateWidgets() Q_DECL_OVERRIDE;
     void updateWidgetsDefault() Q_DECL_OVERRIDE;
     void updateSettings() Q_DECL_OVERRIDE;
     void updateButtons();
 
-private slots:
+private Q_SLOTS:
     void updateConfiguration();
 
 private:

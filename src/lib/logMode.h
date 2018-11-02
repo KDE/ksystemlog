@@ -106,7 +106,7 @@ public:
      */
     virtual QList<LogFile> createLogFiles() = 0;
 
-signals:
+Q_SIGNALS:
     void menuChanged();
 
 protected:

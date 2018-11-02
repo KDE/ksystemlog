@@ -42,7 +42,7 @@ public:
     virtual void defaultConfig() = 0;
     virtual void readConfig() = 0;
 
-signals:
+Q_SIGNALS:
     void configurationChanged();
 
 public:

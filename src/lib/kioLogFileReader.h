@@ -50,10 +50,10 @@ public:
     void open();
     void close();
 
-signals:
+Q_SIGNALS:
     void lineRead(const QString &);
 
-private slots:
+private Q_SLOTS:
     void openDone(KIO::Job *job);
     void closeDone(KIO::Job *job);
     void dataReceived(KIO::Job *job, const QByteArray &data);

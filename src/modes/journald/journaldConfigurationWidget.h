@@ -34,15 +34,15 @@ public:
     JournaldConfigurationWidget();
     ~JournaldConfigurationWidget() {}
 
-signals:
+Q_SIGNALS:
     void configSaved();
 
-public slots:
+public Q_SLOTS:
     void saveConfig();
     void readConfig();
     void defaultConfig();
 
-private slots:
+private Q_SLOTS:
     void updateButtons();
     void addRemoteJournal();
     void modifyRemoteJournal();

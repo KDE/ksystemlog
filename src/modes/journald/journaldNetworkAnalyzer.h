@@ -46,7 +46,7 @@ public:
 
     virtual QStringList syslogIdentifiers() const;
 
-private slots:
+private Q_SLOTS:
     void httpFinished();
     void httpReadyRead();
     void httpError(QNetworkReply::NetworkError code);

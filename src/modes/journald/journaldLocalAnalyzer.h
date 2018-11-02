@@ -49,7 +49,7 @@ public:
 
     static QStringList syslogIdentifiersStatic();
 
-private slots:
+private Q_SLOTS:
     void readJournalInitialFinished();
     void readJournalUpdateFinished();
     void journalDescriptorUpdated(int fd);

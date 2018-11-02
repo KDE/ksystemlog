@@ -51,7 +51,7 @@ public:
 
     void load(LogMode *logMode, LogManager *manager, const QVariant &analyzerOptions = QVariant());
 
-public slots:
+public Q_SLOTS:
 
     LogManager *createTab();
     LogManager *duplicateTab();
@@ -79,7 +79,7 @@ public slots:
     void sendMailCurrentView();
     void printSelectionCurrentView();
 
-private slots:
+private Q_SLOTS:
     void changeTab(View *view, const QIcon &icon, const QString &label);
 
     void changeCurrentTab(int index);
@@ -88,7 +88,7 @@ private slots:
     void showContextMenu(const QPoint &cursorPosition);
     void showContextMenu(QWidget *tab, const QPoint &cursorPosition);
 
-signals:
+Q_SIGNALS:
     void tabCreationRequested();
     void tabClosingRequested();
 
