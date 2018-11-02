@@ -47,7 +47,7 @@ class View : public QWidget
 public:
     explicit View(QWidget *parent);
 
-    virtual ~View();
+    ~View() override;
 
     LogViewWidget *logViewWidget() const;
 

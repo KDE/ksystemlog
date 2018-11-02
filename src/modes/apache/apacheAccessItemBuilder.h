@@ -39,7 +39,7 @@ class ApacheAccessItemBuilder : public LogModeItemBuilder
 public:
     ApacheAccessItemBuilder() {}
 
-    virtual ~ApacheAccessItemBuilder() {}
+    ~ApacheAccessItemBuilder() override {}
 
     QString createFormattedText(LogLine *line) const override
     {

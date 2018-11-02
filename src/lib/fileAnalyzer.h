@@ -48,7 +48,7 @@ class FileAnalyzer : public Analyzer
 public:
     explicit FileAnalyzer(LogMode *logMode);
 
-    virtual ~FileAnalyzer();
+    ~FileAnalyzer() override;
 
     void watchLogFiles(bool enabled) override;
 

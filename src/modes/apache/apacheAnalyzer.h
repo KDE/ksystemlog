@@ -43,7 +43,7 @@ public:
         initializeTypeLevels();
     }
 
-    virtual ~ApacheAnalyzer() {}
+    ~ApacheAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

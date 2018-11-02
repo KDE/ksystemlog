@@ -41,7 +41,7 @@ class AcpidItemBuilder : public LogModeItemBuilder
 public:
     AcpidItemBuilder() {}
 
-    virtual ~AcpidItemBuilder() {}
+    ~AcpidItemBuilder() override {}
 
     QString createFormattedText(LogLine *line) const override
     {

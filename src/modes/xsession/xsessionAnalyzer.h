@@ -43,7 +43,7 @@ public:
     {
     }
 
-    virtual ~XSessionAnalyzer() {}
+    ~XSessionAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

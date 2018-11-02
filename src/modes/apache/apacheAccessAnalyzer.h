@@ -42,7 +42,7 @@ public:
     {
     }
 
-    virtual ~ApacheAccessAnalyzer() {}
+    ~ApacheAccessAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

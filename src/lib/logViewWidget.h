@@ -40,7 +40,7 @@ class LogViewWidget : public QTreeWidget
 public:
     explicit LogViewWidget(QWidget *parent = NULL);
 
-    virtual ~LogViewWidget();
+    ~LogViewWidget() override;
     void selectAll() override;
     void setColumns(const LogViewColumns &columns);
 

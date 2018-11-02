@@ -41,7 +41,7 @@ class XSessionItemBuilder : public LogModeItemBuilder
 public:
     XSessionItemBuilder() {}
 
-    virtual ~XSessionItemBuilder() {}
+    ~XSessionItemBuilder() override {}
 
     void prepareItem(LogViewWidgetItem *item) const override
     {

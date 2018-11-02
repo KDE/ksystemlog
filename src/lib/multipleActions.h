@@ -46,7 +46,7 @@ class MultipleActions : public LogModeAction
 public:
     MultipleActions(const QIcon &icon, const QString &text, QObject *parent);
 
-    virtual ~MultipleActions();
+    ~MultipleActions() override;
 
     QList<QAction *> innerActions() override;
 

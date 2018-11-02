@@ -40,7 +40,7 @@ public:
     {
     }
 
-    virtual ~AcpidAnalyzer() {}
+    ~AcpidAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

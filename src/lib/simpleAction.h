@@ -41,7 +41,7 @@ public:
 
     SimpleAction(QAction *action, QObject *parent);
 
-    virtual ~SimpleAction();
+    ~SimpleAction() override;
 
     QList<QAction *> innerActions() override;
 

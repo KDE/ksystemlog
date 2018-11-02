@@ -61,7 +61,7 @@ public:
     /**
      * Default Destructor
      */
-    virtual ~MainWindow();
+    ~MainWindow() override;
 
     TabLogViewsWidget *tabs();
 

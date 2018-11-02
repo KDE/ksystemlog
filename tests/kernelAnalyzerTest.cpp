@@ -56,7 +56,7 @@ public:
     {
     }
 
-    virtual ~KernelAnalyzerLocalReader() {}
+    ~KernelAnalyzerLocalReader() override {}
 
     QDateTime findStartupTime() { return startupDateTime; }
 

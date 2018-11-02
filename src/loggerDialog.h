@@ -34,7 +34,7 @@ class LoggerDialog : public QDialog, public Ui::LoggerDialogBase
 public:
     explicit LoggerDialog(QWidget *parent = NULL);
 
-    virtual ~LoggerDialog();
+    ~LoggerDialog() override;
 
     void initialize();
 

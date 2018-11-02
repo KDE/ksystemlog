@@ -41,7 +41,7 @@ class ProcessOutputLogFileReader : public LogFileReader
 public:
     explicit ProcessOutputLogFileReader(const LogFile &logFile);
 
-    virtual ~ProcessOutputLogFileReader();
+    ~ProcessOutputLogFileReader() override;
 
     void watchFile(bool enable) override;
 
