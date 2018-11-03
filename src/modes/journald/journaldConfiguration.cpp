@@ -60,9 +60,9 @@ QList<JournalAddress> JournaldConfiguration::remoteJournals() const
     QList<JournalAddress> journals;
     for (const QString addressItem : m_remoteJournals) {
         JournalAddress addressInfo;
-        addressInfo.address = addressItem.section('|', 0, 0);
-        addressInfo.port = addressItem.section('|', 1, 1).toUInt();
-        int https = addressItem.section('|', 2).toInt();
+        addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
+        addressInfo.port = addressItem.section(QChar::fromLatin1('|'), 1, 1).toUInt();
+        int https = addressItem.section(QChar::fromLatin1('|'), 2).toInt();
         addressInfo.https = https != 0;
         journals.append(addressInfo);
     }
@@ -73,7 +73,7 @@ void JournaldConfiguration::setRemoteJournals(const QList<JournalAddress> &remot
 {
     m_remoteJournals.clear();
     for (const JournalAddress &addressInfo : remoteJournals) {
-        m_remoteJournals.append(QString("%1|%2|%3")
+        m_remoteJournals.append(QStringLiteral("%1|%2|%3")
                                     .arg(addressInfo.address)
                                     .arg(addressInfo.port)
                                     .arg(addressInfo.https ? 1 : 0));
