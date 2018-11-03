@@ -24,6 +24,7 @@
 #include <QAction>
 #include <QPushButton>
 #include <QHeaderView>
+#include <QButtonGroup>
 
 #include <KLocalizedString>
 #include <kactioncollection.h>
