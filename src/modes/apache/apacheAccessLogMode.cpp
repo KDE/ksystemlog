@@ -22,7 +22,6 @@
 #include "apacheAccessLogMode.h"
 
 #include <QList>
-#include <QAction>
 
 #include <KLocalizedString>
 

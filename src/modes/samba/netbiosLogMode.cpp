@@ -22,7 +22,6 @@
 #include "netbiosLogMode.h"
 
 #include <QList>
-#include <QAction>
 
 #include <KLocalizedString>
 

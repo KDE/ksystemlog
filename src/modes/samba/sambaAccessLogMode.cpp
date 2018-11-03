@@ -22,7 +22,6 @@
 #include "sambaAccessLogMode.h"
 
 #include <QList>
-#include <QAction>
 
 #include <KLocalizedString>
 

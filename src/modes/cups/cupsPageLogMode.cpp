@@ -22,7 +22,6 @@
 #include "cupsPageLogMode.h"
 
 #include <QList>
-#include <QAction>
 
 #include <KLocalizedString>
 

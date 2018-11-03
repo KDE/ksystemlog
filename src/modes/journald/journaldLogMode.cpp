@@ -21,8 +21,6 @@
 
 #include "journaldLogMode.h"
 
-#include <QAction>
-
 #include <KLocalizedString>
 
 #include "logging.h"
