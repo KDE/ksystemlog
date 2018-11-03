@@ -44,33 +44,33 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const Journal
 
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
 
-    m_baseUrl = QString("%1://%2:%3/")
-                    .arg(m_address.https ? "https" : "http")
+    m_baseUrl = QStringLiteral("%1://%2:%3/")
+                    .arg(m_address.https ? QStringLiteral("https") : QStringLiteral("http"))
                     .arg(m_address.address)
                     .arg(m_address.port);
 
-    m_entriesUrlUpdating = m_baseUrl + "entries";
+    m_entriesUrlUpdating = m_baseUrl + QStringLiteral("entries");
     m_entriesUrlFull = m_entriesUrlUpdating;
 
     QString filterPrefix;
     if (configuration->displayCurrentBootOnly()) {
-        m_entriesUrlUpdating.append("?boot&follow");
-        m_entriesUrlFull.append("?boot");
-        filterPrefix = "&";
+        m_entriesUrlUpdating.append(QStringLiteral("?boot&follow"));
+        m_entriesUrlFull.append(QStringLiteral("?boot"));
+        filterPrefix = QStringLiteral("&");
     } else {
-        m_entriesUrlUpdating.append("?follow");
-        filterPrefix = "?";
+        m_entriesUrlUpdating.append(QStringLiteral("?follow"));
+        filterPrefix = QStringLiteral("?");
     }
 
     if (!options.filter.isEmpty()) {
-        m_entriesUrlUpdating.append("&" + options.filter);
+        m_entriesUrlUpdating.append(QStringLiteral("&") + options.filter);
         m_entriesUrlFull.append(filterPrefix + options.filter);
     }
 
-    m_syslogIdUrl = m_baseUrl + "fields/SYSLOG_IDENTIFIER";
-    m_systemdUnitsUrl = m_baseUrl + "fields/_SYSTEMD_UNIT";
+    m_syslogIdUrl = m_baseUrl + QStringLiteral("fields/SYSLOG_IDENTIFIER");
+    m_systemdUnitsUrl = m_baseUrl + QStringLiteral("fields/_SYSTEMD_UNIT");
 
-    m_filterName = options.filter.section('=', 1);
+    m_filterName = options.filter.section(QChar::fromLatin1('='), 1);
 
     m_reply = nullptr;
 }
@@ -120,7 +120,7 @@ void JournaldNetworkAnalyzer::httpFinished()
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
-        QStringList identifiersList = identifiersString.split('\n', QString::SkipEmptyParts);
+        QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), QString::SkipEmptyParts);
         switch (m_currentRequest) {
         case RequestType::SyslogIds:
             m_syslogIdentifiers = identifiersList;
@@ -193,28 +193,28 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         QJsonObject object = doc.object();
 
         if ((readingMode == FullRead) && (i == items.size() - 1)) {
-            m_cursor = object["__CURSOR"].toString();
+            m_cursor = object[QStringLiteral("__CURSOR")].toString();
             break;
         }
 
         JournalEntry entry;
-        quint64 timestampUsec = object["__REALTIME_TIMESTAMP"].toVariant().value<quint64>();
+        quint64 timestampUsec = object[QStringLiteral("__REALTIME_TIMESTAMP")].toVariant().value<quint64>();
         entry.date.setMSecsSinceEpoch(timestampUsec / 1000);
-        entry.message = object["MESSAGE"].toString();
+        entry.message = object[QStringLiteral("MESSAGE")].toString();
         if (entry.message.isEmpty()) {
             // MESSAGE field contains a JSON array of bytes.
             QByteArray stringBytes;
-            QJsonArray a = object["MESSAGE"].toArray();
+            QJsonArray a = object[QStringLiteral("MESSAGE")].toArray();
             for (int i = 0; i < a.size(); i++)
                 stringBytes.append(a[i].toVariant().value<char>());
             entry.message = QString::fromUtf8(stringBytes);
         }
-        entry.message.remove(QRegularExpression(ConsoleColorEscapeSequence));
-        entry.priority = object["PRIORITY"].toVariant().value<int>();
-        entry.bootID = object["_BOOT_ID"].toString();
-        QString unit = object["SYSLOG_IDENTIFIER"].toString();
+        entry.message.remove(QRegularExpression(QLatin1String(ConsoleColorEscapeSequence)));
+        entry.priority = object[QStringLiteral("PRIORITY")].toVariant().value<int>();
+        entry.bootID = object[QStringLiteral("_BOOT_ID")].toString();
+        QString unit = object[QStringLiteral("SYSLOG_IDENTIFIER")].toString();
         if (unit.isEmpty())
-            unit = object["_SYSTEMD_UNIT"].toString();
+            unit = object[QStringLiteral("_SYSTEMD_UNIT")].toString();
         entry.unit = unit;
 
         entries << entry;
@@ -272,12 +272,12 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
         url = m_entriesUrlFull;
         int entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");
-        request.setRawHeader("Range", QString("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
+        request.setRawHeader("Range", QStringLiteral("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;
     case RequestType::EntriesUpdate:
         url = m_entriesUrlUpdating;
         request.setRawHeader("Accept", "application/json");
-        request.setRawHeader("Range", QString("entries=%1").arg(m_cursor).toUtf8());
+        request.setRawHeader("Range", QStringLiteral("entries=%1").arg(m_cursor).toUtf8());
     default:
         break;
     }
@@ -295,10 +295,10 @@ void JournaldNetworkAnalyzer::updateStatus(QString status)
 {
     QString newStatus = m_baseUrl;
     if (!m_filterName.isEmpty()) {
-        newStatus += " - " + m_filterName;
+        newStatus += QStringLiteral(" - ") + m_filterName;
     }
     if (!status.isEmpty()) {
-        newStatus += " - " + status;
+        newStatus += QStringLiteral(" - ") + status;
     }
     emit statusChanged(newStatus);
 }

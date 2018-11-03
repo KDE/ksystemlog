@@ -61,10 +61,11 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
 
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
-        if (file.open(QIODevice::ReadOnly)) {
-            m_currentBootID = file.readAll().trimmed();
-            m_currentBootID.remove(QChar('-'));
-            m_filters << QString("_BOOT_ID=%1").arg(m_currentBootID);
+        if (file.open(QIODevice::ReadOnly | QFile::Text)) {
+            QTextStream stream( &file );
+            m_currentBootID = stream.readAll().trimmed();
+            m_currentBootID.remove(QChar::fromLatin1('-'));
+            m_filters << QStringLiteral("_BOOT_ID=%1").arg(m_currentBootID);
         } else {
             logWarning() << "Journald analyzer failed to open /proc/sys/kernel/random/boot_id";
         }
@@ -72,7 +73,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
 
     if (!filter.isEmpty()) {
         m_filters << filter;
-        m_filterName = filter.section('=', 1);
+        m_filterName = filter.section(QChar::fromLatin1('='), 1);
     }
 }
 
@@ -119,7 +120,7 @@ QStringList JournaldLocalAnalyzer::units() const
 
 QStringList JournaldLocalAnalyzer::unitsStatic()
 {
-    return getUniqueFieldValues("_SYSTEMD_UNIT");
+    return getUniqueFieldValues(QStringLiteral("_SYSTEMD_UNIT"));
 }
 
 QStringList JournaldLocalAnalyzer::syslogIdentifiers() const
@@ -129,7 +130,7 @@ QStringList JournaldLocalAnalyzer::syslogIdentifiers() const
 
 QStringList JournaldLocalAnalyzer::syslogIdentifiersStatic()
 {
-    return getUniqueFieldValues("SYSLOG_IDENTIFIER");
+    return getUniqueFieldValues(QStringLiteral("SYSLOG_IDENTIFIER"));
 }
 
 void JournaldLocalAnalyzer::readJournalInitialFinished()
@@ -260,7 +261,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
 
     // Set entries filter.
     for (const QString &filter : filters) {
-        res = sd_journal_add_match(journal, filter.toUtf8(), 0);
+        res = sd_journal_add_match(journal, filter.toUtf8().constData(), 0);
         if (res < 0) {
             logWarning() << "Failed to set journal filter.";
             return false;
@@ -332,28 +333,28 @@ JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_j
 
     res = sd_journal_get_data(journal, "SYSLOG_IDENTIFIER", &data, &length);
     if (res == 0) {
-        entry.unit = QString::fromUtf8((const char *)data, length).section('=', 1);
+        entry.unit = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1);
     } else {
         res = sd_journal_get_data(journal, "_SYSTEMD_UNIT", &data, &length);
         if (res == 0) {
-            entry.unit = QString::fromUtf8((const char *)data, length).section('=', 1);
+            entry.unit = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1);
         }
     }
 
     res = sd_journal_get_data(journal, "MESSAGE", &data, &length);
     if (res == 0) {
-        entry.message = QString::fromUtf8((const char *)data, length).section('=', 1);
-        entry.message.remove(QRegularExpression(ConsoleColorEscapeSequence));
+        entry.message = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1);
+        entry.message.remove(QRegularExpression(QLatin1String(ConsoleColorEscapeSequence)));
     }
 
     res = sd_journal_get_data(journal, "PRIORITY", &data, &length);
     if (res == 0) {
-        entry.priority = QString::fromUtf8((const char *)data, length).section('=', 1).toInt();
+        entry.priority = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1).toInt();
     }
 
     res = sd_journal_get_data(journal, "_BOOT_ID", &data, &length);
     if (res == 0) {
-        entry.bootID = QString::fromUtf8((const char *)data, length).section('=', 1);
+        entry.bootID = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1);
     }
 
     return entry;
@@ -369,11 +370,11 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int fl
         size_t length;
 
         // Get all unique field values. The order is not defined.
-        res = sd_journal_query_unique(journal, id.toUtf8());
+        res = sd_journal_query_unique(journal, id.toUtf8().constData());
         if (res == 0) {
             SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
             {
-                units.append(QString::fromUtf8((const char *)data, length).section('=', 1));
+                units.append(QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1));
             }
         }
 

@@ -78,7 +78,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
 
-        analyzerOptions.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
+        analyzerOptions.filter = QStringLiteral("_SYSTEMD_UNIT=%1").arg(unit);
         actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
 
@@ -93,7 +93,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
 
-        analyzerOptions.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
+        analyzerOptions.filter = QStringLiteral("SYSLOG_IDENTIFIER=%1").arg(id);
         actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
         action->setData(QVariant::fromValue(actionData));
 
@@ -115,7 +115,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     auto remoteJournals = configuration->remoteJournals();
     for (const auto &addressInfo : remoteJournals) {
-        QString menuText = QString("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
+        QString menuText = QStringLiteral("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
         actionMenu = new KActionMenu(remoteIcon, menuText, multipleActions);
 
         action = new QAction(QIcon::fromTheme(QLatin1String("network-connect")), i18n("Connect"), actionMenu);
@@ -139,7 +139,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
             for (const QString &unit : filters.systemdUnits) {
                 action = new QAction(unit, filterActionMenu);
 
-                analyzerOptions.filter = QString("_SYSTEMD_UNIT=%1").arg(unit);
+                analyzerOptions.filter = QStringLiteral("_SYSTEMD_UNIT=%1").arg(unit);
                 actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
                 action->setData(QVariant::fromValue(actionData));
 
@@ -157,7 +157,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
             for (const QString &id : filters.syslogIdentifiers) {
                 action = new QAction(id, filterActionMenu);
 
-                analyzerOptions.filter = QString("SYSLOG_IDENTIFIER=%1").arg(id);
+                analyzerOptions.filter = QStringLiteral("SYSLOG_IDENTIFIER=%1").arg(id);
                 actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
                 action->setData(QVariant::fromValue(actionData));
 
