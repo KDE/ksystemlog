@@ -73,7 +73,7 @@ public:
 
         if (isCronLine(syslogLine) == false) {
             delete syslogLine;
-            return NULL;
+            return nullptr;
         }
 
         // Gets the message column (last item) and deletes it

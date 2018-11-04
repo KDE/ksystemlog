@@ -203,7 +203,7 @@ LogViewWidgetItem *LogViewWidget::findItem(LogLine *searchedLogLine)
         ++it;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 QList<LogViewWidgetItem *> LogViewWidget::items()

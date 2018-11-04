@@ -129,7 +129,7 @@ QIODevice *LocalLogFileReader::open()
         emit errorOccured(i18n("File Does Not Exist"), message);
         emit statusBarChanged(message);
         delete file;
-        return NULL;
+        return nullptr;
     }
 
     // Plain text file : we use a QFile object
@@ -149,7 +149,7 @@ QIODevice *LocalLogFileReader::open()
             QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
             emit errorOccured(i18n("Unable to Uncompress File"), message);
             emit statusBarChanged(message);
-            return NULL;
+            return nullptr;
         }
     }
 

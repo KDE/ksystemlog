@@ -41,8 +41,9 @@
 
 class ComboBoxDelegate : public QStyledItemDelegate
 {
+
 public:
-    ComboBoxDelegate(QWidget *parent)
+    explicit ComboBoxDelegate(QWidget *parent)
         : QStyledItemDelegate(parent)
     {
     }

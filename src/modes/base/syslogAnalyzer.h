@@ -40,7 +40,7 @@ class SyslogAnalyzer : public FileAnalyzer
 public:
     explicit SyslogAnalyzer(LogMode *logMode);
 
-    virtual ~SyslogAnalyzer();
+    ~SyslogAnalyzer() override;
 
     LogViewColumns initColumns() override;
 

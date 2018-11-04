@@ -117,10 +117,8 @@ QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTim
     case LongFormat:
     case ShortFormat:
         return QLocale().toString(dateTime, (QLocale::FormatType)format);
-        break;
     case PreciseFormat:
         return dateTime.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss:zzz"));
-        break;
     default:
         break;
     }
@@ -222,28 +220,20 @@ LogLevel *Globals::logLevelByPriority(int id)
     switch (id) {
     case 0:
         return emergencyLogLevel();
-        break;
     case 1:
         return alertLogLevel();
-        break;
     case 2:
         return criticalLogLevel();
-        break;
     case 3:
         return errorLogLevel();
-        break;
     case 4:
         return warningLogLevel();
-        break;
     case 5:
         return noticeLogLevel();
-        break;
     case 6:
         return informationLogLevel();
-        break;
     case 7:
         return debugLogLevel();
-        break;
     }
     return noLogLevel();
 }

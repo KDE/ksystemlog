@@ -51,27 +51,27 @@ LogLevel::~LogLevel()
     delete d;
 }
 
-int LogLevel::id()
+int LogLevel::id() const
 {
     return d->id;
 }
 
-QString LogLevel::name()
+QString LogLevel::name() const
 {
     return d->name;
 }
 
-QString LogLevel::icon()
+QString LogLevel::icon() const
 {
     return d->icon;
 }
 
-QColor LogLevel::color()
+QColor LogLevel::color() const
 {
     return d->color;
 }
 
-QPixmap LogLevel::pixmap()
+QPixmap LogLevel::pixmap() const
 {
     return d->pixmap;
 }

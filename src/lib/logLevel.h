@@ -35,14 +35,14 @@ public:
 
     virtual ~LogLevel();
 
-    int id();
-    QString name();
+    int id() const;
+    QString name() const;
 
-    QString icon();
+    QString icon() const;
 
-    QColor color();
+    QColor color() const;
 
-    QPixmap pixmap();
+    QPixmap pixmap() const;
 
 private:
     LogLevelPrivate *const d;

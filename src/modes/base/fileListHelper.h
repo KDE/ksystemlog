@@ -41,7 +41,7 @@ public:
     explicit FileListHelper(QWidget *parent);
     virtual ~FileListHelper();
 
-    QStringList findPaths(QList<QUrl> urls);
+    QStringList findPaths(const QList<QUrl> &urls);
     bool isValidFile(const QUrl &url);
     QStringList expandJoker(const QUrl &url);
 

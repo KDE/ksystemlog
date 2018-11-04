@@ -24,9 +24,8 @@
 class LogModeActionPrivate
 {
 public:
-    bool inToolBar;
-
     LogModeAction::Category category;
+    bool inToolBar;
 };
 
 LogModeAction::LogModeAction()

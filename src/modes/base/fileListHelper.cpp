@@ -79,7 +79,7 @@ void FileListHelper::prepareButton(QPushButton *button, const QIcon &icon, const
     fileList->addAction(action);
 }
 
-QStringList FileListHelper::findPaths(QList<QUrl> urls)
+QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
 {
     QStringList paths;
 

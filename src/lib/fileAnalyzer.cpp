@@ -151,7 +151,7 @@ int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &l
     logDebug() << "Inserting lines...";
 
     // If there is no line
-    if (bufferedLines.size() == 0) {
+    if (bufferedLines.isEmpty()) {
         logWarning() << "File is empty : " << logFile.url().path();
     }
 

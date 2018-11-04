@@ -32,9 +32,9 @@ class LogLevelFileList : public FileList
     Q_OBJECT
 
 public:
-    LogLevelFileList(QWidget *parent, const QString &description);
+    explicit LogLevelFileList(QWidget *parent, const QString &description);
 
-    virtual ~LogLevelFileList();
+    ~LogLevelFileList() override;
 
     QList<int> levels();
 

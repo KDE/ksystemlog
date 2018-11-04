@@ -74,10 +74,9 @@ View::View(QWidget *parent)
 {
     d->logViewWidget = nullptr;
 
-    QVBoxLayout *topLayout = new QVBoxLayout();
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
     topLayout->setMargin(2);
     topLayout->setSpacing(2);
-    this->setLayout(topLayout);
 
     d->logViewFilterWidget = new LogViewFilterWidget();
     connect(d->logViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,

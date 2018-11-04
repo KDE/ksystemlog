@@ -45,7 +45,7 @@ class AuthenticationLogMode : public LogMode
 public:
     explicit AuthenticationLogMode();
 
-    ~AuthenticationLogMode();
+    ~AuthenticationLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

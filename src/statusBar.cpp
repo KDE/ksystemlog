@@ -54,7 +54,7 @@ StatusBar::StatusBar(QWidget *parent)
     : QStatusBar(parent)
     , d(new StatusBarPrivate())
 {
-    d->lineCountLabel = new QLabel(QLatin1String(""), this);
+    d->lineCountLabel = new QLabel(this);
     d->lineCountLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     d->lineCountLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     d->lineCountLabel->setLineWidth(2);
@@ -91,7 +91,7 @@ StatusBar::StatusBar(QWidget *parent)
     */
     addPermanentWidget(d->messageList, 4);
 
-    d->lastModificationLabel = new QLabel(QLatin1String(""), this);
+    d->lastModificationLabel = new QLabel(this);
     d->lastModificationLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->lastModificationLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     d->lastModificationLabel->setLineWidth(2);

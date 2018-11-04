@@ -52,8 +52,7 @@ LoadingBar::LoadingBar(QWidget *parent)
 {
     d->firstLoading = true;
 
-    QHBoxLayout *widgetLayout = new QHBoxLayout();
-    setLayout(widgetLayout);
+    QHBoxLayout *widgetLayout = new QHBoxLayout(this);
 
     widgetLayout->addStretch();
 

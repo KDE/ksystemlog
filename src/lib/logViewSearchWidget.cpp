@@ -121,7 +121,7 @@ void LogViewSearchWidget::findFirst(const QString &text)
 
 void LogViewSearchWidget::findFirst()
 {
-    internalFind(NULL, LogViewSearchWidget::Next);
+    internalFind(nullptr, LogViewSearchWidget::Next);
 }
 
 void LogViewSearchWidget::findNext()
