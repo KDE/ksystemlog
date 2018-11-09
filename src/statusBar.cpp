@@ -67,7 +67,7 @@ StatusBar::StatusBar(QWidget *parent)
     d->toggleHistory->setFlat(true);
     addPermanentWidget(d->toggleHistory, 0);
 
-    connect(d->toggleHistory, SIGNAL(clicked()), this, SLOT(toggleHistory()));
+    connect(d->toggleHistory, &QPushButton::clicked, this, &StatusBar::toggleHistory);
     */
 
     /*
@@ -79,7 +79,7 @@ StatusBar::StatusBar(QWidget *parent)
     d->messageList = new KComboBox(this);
     d->messageList->setInsertPolicy(QComboBox::InsertAtTop);
     d->messageList->setMaxVisibleItems(5);
-    connect(d->messageList, SIGNAL(currentIndexChanged(int)), this, SLOT(selectLastHistory()));
+    connect(d->messageList, QOverload<int>::of(&KComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
     /*
         //TODO Define a specifical palette (and make it works !)
         QPalette palette(d->messageList->palette());

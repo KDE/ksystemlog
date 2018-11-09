@@ -161,8 +161,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     QStandardItem *item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
     d->prioritiesModel->appendRow(item);
-    connect(d->prioritiesModel, &QStandardItemModel::itemChanged,
-            this, &LogViewFilterWidget::prioritiesChanged);
+    connect(d->prioritiesModel, &QStandardItemModel::itemChanged, this, &LogViewFilterWidget::prioritiesChanged);
 
     // Don't add last enum value into combobox.
     for (int i = 0; i < metaEnum.keyCount() - 1; i++) {
@@ -198,7 +197,7 @@ void LogViewFilterWidget::initSearchListFilter()
     d->filterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
     connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(setFocus()));
-    connect(d->filterList, SIGNAL(activated(int)), this, SLOT(changeColumnFilter(int)));
+    connect(d->filterList, QOverload<int>::of(&KComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
     connect(d->filterList, SIGNAL(activated(int)), d->filterLine, SLOT(updateSearch()));
 }
 

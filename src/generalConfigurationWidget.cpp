@@ -65,9 +65,9 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
         startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
     }
 
-    connect(startupLogMode, SIGNAL(currentIndexChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(startupLogMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GeneralConfigurationWidget::configurationChanged);
 
-    connect(maxLines, SIGNAL(valueChanged(int)), this, SIGNAL(configurationChanged()));
+    connect(maxLines, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralConfigurationWidget::configurationChanged);
 
     connect(deleteDuplicatedLines, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
 
@@ -80,7 +80,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     d->dateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
     d->dateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
 
-    connect(d->dateFormatGroup, SIGNAL(buttonClicked(int)), this, SIGNAL(configurationChanged()));
+    connect(d->dateFormatGroup, QOverload<int>::of(&QButtonGroup::buttonClicked), this, &GeneralConfigurationWidget::configurationChanged);
 
     addDateFormatExample();
 }

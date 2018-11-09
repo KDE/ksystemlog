@@ -40,8 +40,7 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
             &JournaldConfigurationWidget::updateButtons);
 
     connect(lastBootOnly, &QCheckBox::stateChanged, this, &JournaldConfigurationWidget::configurationChanged);
-    connect(entriesTypeComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
-            &JournaldConfigurationWidget::configurationChanged);
+    connect(entriesTypeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &JournaldConfigurationWidget::configurationChanged);
 
     connect(addAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::addRemoteJournal);
     connect(modifyAddressButton, &QPushButton::clicked, this,
