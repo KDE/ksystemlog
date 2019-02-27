@@ -124,7 +124,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     : d(new LogViewFilterWidgetPrivate())
 {
     QHBoxLayout *filterBarLayout = new QHBoxLayout();
-    filterBarLayout->setMargin(0);
+    filterBarLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(filterBarLayout);
 
     d->filterLine = new LogViewWidgetSearchLine();
