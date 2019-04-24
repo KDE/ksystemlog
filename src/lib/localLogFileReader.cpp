@@ -158,7 +158,7 @@ QIODevice *LocalLogFileReader::open()
         emit errorOccured(i18n("Insufficient Permissions"), message);
         emit statusBarChanged(message);
         delete inputDevice;
-        return NULL;
+        return nullptr;
     }
 
     return inputDevice;

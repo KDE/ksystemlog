@@ -143,7 +143,7 @@ TabLogManager *TabLogViewsWidget::findRelatedTabLogManager(View *view)
     }
 
     logCritical() << "No log manager found";
-    return NULL;
+    return nullptr;
 }
 
 TabLogManager *TabLogViewsWidget::activeTabLogManager()

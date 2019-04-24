@@ -160,7 +160,7 @@ protected:
             }
         }
 
-        return NULL;
+        return nullptr;
     }
 
     LogLine *currentLogLine;

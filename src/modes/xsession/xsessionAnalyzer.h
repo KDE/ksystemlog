@@ -95,7 +95,7 @@ protected:
 
         // Do not add this line if this is a X error that the user wants to ignore
         if (isXorgError(program) == true) {
-            return NULL;
+            return nullptr;
         }
 
         // Find the right log level

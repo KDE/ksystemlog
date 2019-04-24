@@ -48,5 +48,5 @@ QList<LogMode *> OpenLogModeFactory::createLogModes() const
 
 LogModeAction *OpenLogModeFactory::createLogModeAction() const
 {
-    return NULL;
+    return nullptr;
 }

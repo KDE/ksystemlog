@@ -118,5 +118,5 @@ LogLevel *XorgAnalyzer::findTypeName(const QString &type)
     if (it != xorgLevels.end())
         return *it;
     else
-        return NULL;
+        return nullptr;
 }

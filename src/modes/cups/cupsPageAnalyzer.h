@@ -79,7 +79,7 @@ protected:
         int firstPosition = cupsPageRegex.indexIn(logLine);
         if (firstPosition == -1) {
             logDebug() << "Unable to parse line " << logLine;
-            return NULL;
+            return nullptr;
         }
 
         QStringList capturedTexts = cupsPageRegex.capturedTexts();

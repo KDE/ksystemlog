@@ -264,7 +264,7 @@ QTreeWidgetItem *MultipleFileList::findCategoryOfChild(QTreeWidgetItem *childIte
     }
 
     logDebug() << "No Category of" << childItem->text(0);
-    return NULL;
+    return nullptr;
 }
 
 void MultipleFileList::modifyItem()
