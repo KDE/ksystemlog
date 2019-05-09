@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.kde.ksystemlog</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <name>ksystemlog</name>
+  <summary>system log viewer</summary>
+  <description>
+    <p>KSystemLog show all logs of your system, grouped by General (Default system
+    log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups,
+    etc, ...). It includes many features to read nicely your log files:</p>
+    <ul>
+      <li>Colorize log lines depending on their severities</li>
+      <li>Tabbed view to allow displaying several logs at the same time</li>
+      <li>Auto display new lines logged</li>
+      <li>Detailed information for each log lines</li>
+    </ul>
+  </description>
+  <url type="homepage">https://www.kde.org</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ksystemlog</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=ksystemlog</url>
+  <launchable type="desktop-id">org.kde.ksystemlog.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.kde.org/screenshots/ksystemlog/ksystemlog.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+    <binary>ksystemlog</binary>
+  </provides>
+  <project_group>KDE</project_group>
+</component>

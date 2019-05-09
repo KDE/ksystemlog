@@ -77,4 +77,5 @@ endif(${JOURNALD_FOUND})
 install(TARGETS ksystemlog ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES org.kde.ksystemlog.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES ksystemlogui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/ksystemlog)
