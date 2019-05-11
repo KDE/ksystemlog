@@ -4,16 +4,44 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <name>ksystemlog</name>
+  <name xml:lang="ca">ksystemlog</name>
+  <name xml:lang="ca-valencia">ksystemlog</name>
+  <name xml:lang="uk">ksystemlog</name>
+  <name xml:lang="x-test">xxksystemlogxx</name>
   <summary>system log viewer</summary>
+  <summary xml:lang="ca">Visor dels registres del sistema</summary>
+  <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
+  <summary xml:lang="uk">Переглядач системних журналів</summary>
+  <summary xml:lang="x-test">xxsystem log viewerxx</summary>
   <description>
     <p>KSystemLog show all logs of your system, grouped by General (Default system
     log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups,
     etc, ...). It includes many features to read nicely your log files:</p>
+    <p xml:lang="ca">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS, ...). Inclou moltes funcionalitats per llegir de manera agradable els fitxers de registre:</p>
+    <p xml:lang="ca-valencia">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS, ...). Inclou moltes funcionalitats per llegir de manera agradable els fitxers de registre:</p>
+    <p xml:lang="uk">KSystemLog може показувати усі журнали роботи вашої системи. Журнали поділено на загальні (типовий журнал системи, журнал розпізнавання, журнал ядра, журнал X.org...) та додаткові журнали служб (Apache, CUPS тощо). Передбачено багато можливостей для зручного перегляду журналів:</p>
+    <p xml:lang="x-test">xxKSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:xx</p>
     <ul>
       <li>Colorize log lines depending on their severities</li>
+      <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
+      <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua severitat</li>
+      <li xml:lang="uk">Розфарбовування записів журналу за їхньою критичністю</li>
+      <li xml:lang="x-test">xxColorize log lines depending on their severitiesxx</li>
       <li>Tabbed view to allow displaying several logs at the same time</li>
+      <li xml:lang="ca">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
+      <li xml:lang="ca-valencia">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
+      <li xml:lang="uk">Перегляд з вкладками, який надає вам змогу бачити декілька журналів одразу</li>
+      <li xml:lang="x-test">xxTabbed view to allow displaying several logs at the same timexx</li>
       <li>Auto display new lines logged</li>
+      <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
+      <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
+      <li xml:lang="uk">Автоматичний показ нових рядків журналу</li>
+      <li xml:lang="x-test">xxAuto display new lines loggedxx</li>
       <li>Detailed information for each log lines</li>
+      <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
+      <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
+      <li xml:lang="uk">Докладна інформація щодо кожного рядка журналу</li>
+      <li xml:lang="x-test">xxDetailed information for each log linesxx</li>
     </ul>
   </description>
   <url type="homepage">https://www.kde.org</url>
