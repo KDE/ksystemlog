@@ -8,6 +8,7 @@
   <name xml:lang="ca-valencia">ksystemlog</name>
   <name xml:lang="nl">ksystemlog</name>
   <name xml:lang="pt">ksystemlog</name>
+  <name xml:lang="sk">ksystemlog</name>
   <name xml:lang="uk">ksystemlog</name>
   <name xml:lang="x-test">xxksystemlogxx</name>
   <name xml:lang="zh-TW">ksystemlog</name>
@@ -16,6 +17,7 @@
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
   <summary xml:lang="nl">Systeemlogviewer</summary>
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
+  <summary xml:lang="sk">prehliadač záznamov systému</summary>
   <summary xml:lang="uk">Переглядач системних журналів</summary>
   <summary xml:lang="x-test">xxsystem log viewerxx</summary>
   <summary xml:lang="zh-TW">系統日誌檢視器</summary>
