@@ -6,6 +6,7 @@
   <name>ksystemlog</name>
   <name xml:lang="ca">ksystemlog</name>
   <name xml:lang="ca-valencia">ksystemlog</name>
+  <name xml:lang="cs">KSystemLog</name>
   <name xml:lang="es">ksystemlog</name>
   <name xml:lang="nl">ksystemlog</name>
   <name xml:lang="pt">ksystemlog</name>
@@ -17,6 +18,7 @@
   <summary>system log viewer</summary>
   <summary xml:lang="ca">Visor dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
+  <summary xml:lang="cs">Prohlížeč záznamů systému</summary>
   <summary xml:lang="es">Visor del registro del sistema</summary>
   <summary xml:lang="nl">Systeemlogviewer</summary>
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
