@@ -7,8 +7,10 @@
   <name xml:lang="ca">ksystemlog</name>
   <name xml:lang="ca-valencia">ksystemlog</name>
   <name xml:lang="cs">KSystemLog</name>
+  <name xml:lang="en-GB">ksystemlog</name>
   <name xml:lang="es">ksystemlog</name>
   <name xml:lang="eu">ksystemlog</name>
+  <name xml:lang="ko">KSystemLog</name>
   <name xml:lang="nl">ksystemlog</name>
   <name xml:lang="pt">ksystemlog</name>
   <name xml:lang="pt-BR">ksystemlog</name>
@@ -20,8 +22,10 @@
   <summary xml:lang="ca">Visor dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
   <summary xml:lang="cs">Prohlížeč záznamů systému</summary>
+  <summary xml:lang="en-GB">system log viewer</summary>
   <summary xml:lang="es">Visor del registro del sistema</summary>
   <summary xml:lang="eu">Sistemaren egunkari erakuslea</summary>
+  <summary xml:lang="ko">시스템 로그 뷰어</summary>
   <summary xml:lang="nl">Systeemlogviewer</summary>
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
   <summary xml:lang="pt-BR">Visualizador do registros do sistema</summary>
@@ -35,8 +39,10 @@
     etc, ...). It includes many features to read nicely your log files:</p>
     <p xml:lang="ca">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS, ...). Inclou moltes funcionalitats per llegir de manera agradable els fitxers de registre:</p>
     <p xml:lang="ca-valencia">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS, ...). Inclou moltes funcionalitats per llegir de manera agradable els fitxers de registre:</p>
+    <p xml:lang="en-GB">KSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:</p>
     <p xml:lang="es">KSystemLog muestra todos los registros del sistema, agrupados por servicios generales (registro predeterminado del sistema, autenticación, kernel, X.org...) y opcionales (Apache, Cups...). Incluye diversas funcionalidades para leer los archivos de registro de forma agradable:</p>
     <p xml:lang="eu">KSystemLog-ek zure sistemako egunkari guztiak erakusten ditu, zerbitzu orokor (sistemaren egunkari lehenetsia, autentifikazioa, nukleoa, X-org, ...) eta aukerakoetan (Apache, Cups, etab., ...) taldekatuak. Eginbide ugari ditu zure egunkari fitxategiak irakurtzea behar bezala egiteko:</p>
+    <p xml:lang="ko">KSystemLog는 시스템의 모든 로그를 볼 수 있는 도구입니다. 일반(기본 시스템 로그, 인증, 커널, X.org, ...) 및 추가 서비스(Apache, CUPS, ...) 로그로 분류합니다. 로그 파일을 읽기 편하게 하는 도구를 제공합니다.</p>
     <p xml:lang="nl">KSystemLog toont alle logs op uw systeem, gegroepeerd op Algemeen (Standaard systeemlog, Authenticatie, Kernel, X.org...) en optionele services (Apache, Cups, etc, ...). Het bevat vele mogelijkheden om uw logbestanden netjes te lezen:</p>
     <p xml:lang="pt">O KSystemLog mostra todos os registos do seu sistema, agrupados por Geral (Registo predefinido do sistema, Autenticação, 'Kernel', X.org...), e pelos Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para ler os seus ficheiros de registo de forma agradável:</p>
     <p xml:lang="pt-BR">O KSystemLog mostra todos os registros do seu sistema, agrupados por Geral (Registro padrão do sistema, Autenticação, Kernel, X.org...), e por Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para leitura dos arquivos de registro:</p>
@@ -47,8 +53,10 @@
       <li>Colorize log lines depending on their severities</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
       <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua severitat</li>
+      <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
       <li xml:lang="es">Líneas de registro coloreadas según su severidad</li>
       <li xml:lang="eu">Koloreztatu egunkari lerroak bere larritasunaren arabera</li>
+      <li xml:lang="ko">심각도에 따라서 로그 줄 자동 색상 지정</li>
       <li xml:lang="nl">Logregels kleuren afhankelijk van hun ernst</li>
       <li xml:lang="pt">Colorir as linhas de registo de acordo com a sua criticidade</li>
       <li xml:lang="pt-BR">Colorir as linhas de registro de acordo com a sua criticidade</li>
@@ -58,8 +66,10 @@
       <li>Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="ca">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
       <li xml:lang="ca-valencia">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
+      <li xml:lang="en-GB">Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="es">Vista en pestañas para poder mostrar varios registros a la vez</li>
       <li xml:lang="eu">Fitxadun ikuspegia aldi berean hainbat egunkari bistaratzeko</li>
+      <li xml:lang="ko">여러 로그를 탭을 통해서 동시에 표시</li>
       <li xml:lang="nl">In tabbladen tonen om verschillende logs tegelijk te tonen</li>
       <li xml:lang="pt">Vista em páginas que permite mostrar vários registos ao mesmo tempo</li>
       <li xml:lang="pt-BR">Exibição em abas que permite apresentar vários registros ao mesmo tempo</li>
@@ -69,8 +79,10 @@
       <li>Auto display new lines logged</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
+      <li xml:lang="en-GB">Auto display new lines logged</li>
       <li xml:lang="es">Muestra de forma automática las nuevas líneas registradas</li>
       <li xml:lang="eu">Automatikoki bistaratu egunkarira gehitutako lerro berriak</li>
+      <li xml:lang="ko">새로 로그에 추가된 줄 자동 표시</li>
       <li xml:lang="nl">Automatische nieuwe logregels weergeven</li>
       <li xml:lang="pt">Mostrar automaticamente as novas linhas registadas</li>
       <li xml:lang="pt-BR">Exibição automática das novas linhas registradas</li>
@@ -80,8 +92,10 @@
       <li>Detailed information for each log lines</li>
       <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
       <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
+      <li xml:lang="en-GB">Detailed information for each log lines</li>
       <li xml:lang="es">Información detallada para las líneas de cada registro</li>
       <li xml:lang="eu">Informazio xehatua egunkari lerro bakoitzeko</li>
+      <li xml:lang="ko">각각 로그 줄별 자세한 정보</li>
       <li xml:lang="nl">Gedetailleerde informatie voor elke logregel</li>
       <li xml:lang="pt">Informação detalhada para cada linha do registo</li>
       <li xml:lang="pt-BR">Informação detalhada para cada linha do registro</li>
