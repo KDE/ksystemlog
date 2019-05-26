@@ -15,6 +15,7 @@
   <name xml:lang="pt">ksystemlog</name>
   <name xml:lang="pt-BR">ksystemlog</name>
   <name xml:lang="sk">ksystemlog</name>
+  <name xml:lang="sv">Ksystemlog</name>
   <name xml:lang="uk">ksystemlog</name>
   <name xml:lang="x-test">xxksystemlogxx</name>
   <name xml:lang="zh-TW">ksystemlog</name>
@@ -30,6 +31,7 @@
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
   <summary xml:lang="pt-BR">Visualizador do registros do sistema</summary>
   <summary xml:lang="sk">prehliadač záznamov systému</summary>
+  <summary xml:lang="sv">Visningsverktyg för systemloggar</summary>
   <summary xml:lang="uk">Переглядач системних журналів</summary>
   <summary xml:lang="x-test">xxsystem log viewerxx</summary>
   <summary xml:lang="zh-TW">系統日誌檢視器</summary>
@@ -46,6 +48,7 @@
     <p xml:lang="nl">KSystemLog toont alle logs op uw systeem, gegroepeerd op Algemeen (Standaard systeemlog, Authenticatie, Kernel, X.org...) en optionele services (Apache, Cups, etc, ...). Het bevat vele mogelijkheden om uw logbestanden netjes te lezen:</p>
     <p xml:lang="pt">O KSystemLog mostra todos os registos do seu sistema, agrupados por Geral (Registo predefinido do sistema, Autenticação, 'Kernel', X.org...), e pelos Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para ler os seus ficheiros de registo de forma agradável:</p>
     <p xml:lang="pt-BR">O KSystemLog mostra todos os registros do seu sistema, agrupados por Geral (Registro padrão do sistema, Autenticação, Kernel, X.org...), e por Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para leitura dos arquivos de registro:</p>
+    <p xml:lang="sv">Ksystemlog visar alla loggar i systemet, grupperade enligt allmänna (standardsystemlogg, behörighetskontroll, kärna, X.org, ...) och valfria tjänster (Apache, Cups, etc.). Det inkluderar många funktioner för att snyggt läsa loggfiler:</p>
     <p xml:lang="uk">KSystemLog може показувати усі журнали роботи вашої системи. Журнали поділено на загальні (типовий журнал системи, журнал розпізнавання, журнал ядра, журнал X.org...) та додаткові журнали служб (Apache, CUPS тощо). Передбачено багато можливостей для зручного перегляду журналів:</p>
     <p xml:lang="x-test">xxKSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:xx</p>
     <p xml:lang="zh-TW">KSystemLog 顯示您系統的所有日誌，並分類成「一般」（預設系統日誌、認證、內核及 X.org 等…），和選用服務（Apache、Cups 等等…）。其包含許多能讓您更好閱讀日誌檔案的功能：</p>
@@ -60,6 +63,7 @@
       <li xml:lang="nl">Logregels kleuren afhankelijk van hun ernst</li>
       <li xml:lang="pt">Colorir as linhas de registo de acordo com a sua criticidade</li>
       <li xml:lang="pt-BR">Colorir as linhas de registro de acordo com a sua criticidade</li>
+      <li xml:lang="sv">Färglägg loggrader beroende på deras svårighetsgrad</li>
       <li xml:lang="uk">Розфарбовування записів журналу за їхньою критичністю</li>
       <li xml:lang="x-test">xxColorize log lines depending on their severitiesxx</li>
       <li xml:lang="zh-TW">基於日誌中行的重要性上色</li>
@@ -73,6 +77,7 @@
       <li xml:lang="nl">In tabbladen tonen om verschillende logs tegelijk te tonen</li>
       <li xml:lang="pt">Vista em páginas que permite mostrar vários registos ao mesmo tempo</li>
       <li xml:lang="pt-BR">Exibição em abas que permite apresentar vários registros ao mesmo tempo</li>
+      <li xml:lang="sv">Flikvy för att tillåta att flera loggar visas samtidigt</li>
       <li xml:lang="uk">Перегляд з вкладками, який надає вам змогу бачити декілька журналів одразу</li>
       <li xml:lang="x-test">xxTabbed view to allow displaying several logs at the same timexx</li>
       <li xml:lang="zh-TW">分頁檢視，允許同時顯示多個日誌</li>
@@ -86,6 +91,7 @@
       <li xml:lang="nl">Automatische nieuwe logregels weergeven</li>
       <li xml:lang="pt">Mostrar automaticamente as novas linhas registadas</li>
       <li xml:lang="pt-BR">Exibição automática das novas linhas registradas</li>
+      <li xml:lang="sv">Visa automatiskt nya loggade rader</li>
       <li xml:lang="uk">Автоматичний показ нових рядків журналу</li>
       <li xml:lang="x-test">xxAuto display new lines loggedxx</li>
       <li xml:lang="zh-TW">自動顯示新記錄的行</li>
@@ -99,6 +105,7 @@
       <li xml:lang="nl">Gedetailleerde informatie voor elke logregel</li>
       <li xml:lang="pt">Informação detalhada para cada linha do registo</li>
       <li xml:lang="pt-BR">Informação detalhada para cada linha do registro</li>
+      <li xml:lang="sv">Detaljerad information för varje loggrad</li>
       <li xml:lang="uk">Докладна інформація щодо кожного рядка журналу</li>
       <li xml:lang="x-test">xxDetailed information for each log linesxx</li>
       <li xml:lang="zh-TW">詳細列出每行日誌的資訊</li>
