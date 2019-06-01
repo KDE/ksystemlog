@@ -4,21 +4,6 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <name>KSystemLog</name>
-  <name xml:lang="ca">ksystemlog</name>
-  <name xml:lang="ca-valencia">ksystemlog</name>
-  <name xml:lang="cs">KSystemLog</name>
-  <name xml:lang="en-GB">ksystemlog</name>
-  <name xml:lang="es">ksystemlog</name>
-  <name xml:lang="eu">ksystemlog</name>
-  <name xml:lang="ko">KSystemLog</name>
-  <name xml:lang="nl">ksystemlog</name>
-  <name xml:lang="pt">ksystemlog</name>
-  <name xml:lang="pt-BR">ksystemlog</name>
-  <name xml:lang="sk">ksystemlog</name>
-  <name xml:lang="sv">Ksystemlog</name>
-  <name xml:lang="uk">ksystemlog</name>
-  <name xml:lang="x-test">xxksystemlogxx</name>
-  <name xml:lang="zh-TW">ksystemlog</name>
   <summary>system log viewer</summary>
   <summary xml:lang="ca">Visor dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
