@@ -6,12 +6,14 @@
   <name>KSystemLog</name>
   <name xml:lang="ca">KSystemLog</name>
   <name xml:lang="ca-valencia">KSystemLog</name>
+  <name xml:lang="de">KSystemLog</name>
   <name xml:lang="en-GB">KSystemLog</name>
   <name xml:lang="es">KSystemLog</name>
   <name xml:lang="eu">kSystemLog</name>
   <name xml:lang="it">KSystemLog</name>
   <name xml:lang="ko">KSystemLog</name>
   <name xml:lang="nl">KSystemLog</name>
+  <name xml:lang="pl">KSystemLog</name>
   <name xml:lang="pt">KSystemLog</name>
   <name xml:lang="pt-BR">KSystemLog</name>
   <name xml:lang="sv">Ksystemlog</name>
@@ -22,12 +24,14 @@
   <summary xml:lang="ca">Visor dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
   <summary xml:lang="cs">Prohlížeč záznamů systému</summary>
+  <summary xml:lang="de">Systemprotokoll-Betrachter</summary>
   <summary xml:lang="en-GB">system log viewer</summary>
   <summary xml:lang="es">Visor del registro del sistema</summary>
   <summary xml:lang="eu">Sistemaren egunkari erakuslea</summary>
   <summary xml:lang="it">Visore dei registri di sistema</summary>
   <summary xml:lang="ko">시스템 로그 뷰어</summary>
   <summary xml:lang="nl">Systeemlogviewer</summary>
+  <summary xml:lang="pl">Przeglądarka dziennika systemowego</summary>
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
   <summary xml:lang="pt-BR">Visualizador do registros do sistema</summary>
   <summary xml:lang="sk">prehliadač záznamov systému</summary>
@@ -47,6 +51,7 @@
     <p xml:lang="it">KSystemLog mostra tutti i registri di sistema, raggruppati per Generale (registro predefinito di sistema, autenticazione, Kernel, X.org...) e Servizi opzionali (Apache, Cups, ecc, ...). Include molte funzionalità per leggere bene i file di registro:</p>
     <p xml:lang="ko">KSystemLog는 시스템의 모든 로그를 볼 수 있는 도구입니다. 일반(기본 시스템 로그, 인증, 커널, X.org, ...) 및 추가 서비스(Apache, CUPS, ...) 로그로 분류합니다. 로그 파일을 읽기 편하게 하는 도구를 제공합니다.</p>
     <p xml:lang="nl">KSystemLog toont alle logs op uw systeem, gegroepeerd op Algemeen (Standaard systeemlog, Authenticatie, Kernel, X.org...) en optionele services (Apache, Cups, etc, ...). Het bevat vele mogelijkheden om uw logbestanden netjes te lezen:</p>
+    <p xml:lang="pl">KSystemLog pokazuje wszystkie dzienniki systemu, zgrupowane wg ogólnych (domyślny dziennik systemu, uwierzytelnienie, jądro, X.org...), oraz opcjonalnych usług (Apache, Cups, itp.). Zawiera wiele ułatwień do czytania plików dziennika:</p>
     <p xml:lang="pt">O KSystemLog mostra todos os registos do seu sistema, agrupados por Geral (Registo predefinido do sistema, Autenticação, 'Kernel', X.org...), e pelos Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para ler os seus ficheiros de registo de forma agradável:</p>
     <p xml:lang="pt-BR">O KSystemLog mostra todos os registros do seu sistema, agrupados por Geral (Registro padrão do sistema, Autenticação, Kernel, X.org...), e por Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para leitura dos arquivos de registro:</p>
     <p xml:lang="sv">Ksystemlog visar alla loggar i systemet, grupperade enligt allmänna (standardsystemlogg, behörighetskontroll, kärna, X.org, ...) och valfria tjänster (Apache, Cups, etc.). Det inkluderar många funktioner för att snyggt läsa loggfiler:</p>
@@ -63,6 +68,7 @@
       <li xml:lang="it">Colorazione delle righe del registro in base alla loro gravità</li>
       <li xml:lang="ko">심각도에 따라서 로그 줄 자동 색상 지정</li>
       <li xml:lang="nl">Logregels kleuren afhankelijk van hun ernst</li>
+      <li xml:lang="pl">Zabarwianie wierszy dziennika w zależności od ich znaczenia</li>
       <li xml:lang="pt">Colorir as linhas de registo de acordo com a sua criticidade</li>
       <li xml:lang="pt-BR">Colorir as linhas de registro de acordo com a sua criticidade</li>
       <li xml:lang="sv">Färglägg loggrader beroende på deras svårighetsgrad</li>
@@ -78,6 +84,7 @@
       <li xml:lang="it">Vista a schede, che permette la visualizzazione di più registri nello stesso tempo</li>
       <li xml:lang="ko">여러 로그를 탭을 통해서 동시에 표시</li>
       <li xml:lang="nl">In tabbladen tonen om verschillende logs tegelijk te tonen</li>
+      <li xml:lang="pl">Widok w kartach umożliwiający przeglądanie kilku dzienników jednocześnie</li>
       <li xml:lang="pt">Vista em páginas que permite mostrar vários registos ao mesmo tempo</li>
       <li xml:lang="pt-BR">Exibição em abas que permite apresentar vários registros ao mesmo tempo</li>
       <li xml:lang="sv">Flikvy för att tillåta att flera loggar visas samtidigt</li>
@@ -93,6 +100,7 @@
       <li xml:lang="it">Visualizzazione automatica delle nuove righe registrate</li>
       <li xml:lang="ko">새로 로그에 추가된 줄 자동 표시</li>
       <li xml:lang="nl">Automatische nieuwe logregels weergeven</li>
+      <li xml:lang="pl">Wyświetlanie nowych wierszy, które trafiły do dziennika</li>
       <li xml:lang="pt">Mostrar automaticamente as novas linhas registadas</li>
       <li xml:lang="pt-BR">Exibição automática das novas linhas registradas</li>
       <li xml:lang="sv">Visa automatiskt nya loggade rader</li>
@@ -102,12 +110,14 @@
       <li>Detailed information for each log lines</li>
       <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
       <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
+      <li xml:lang="de">Ausführliche Informationen zu jeder Protokoll-Zeile</li>
       <li xml:lang="en-GB">Detailed information for each log lines</li>
       <li xml:lang="es">Información detallada para las líneas de cada registro</li>
       <li xml:lang="eu">Informazio xehatua egunkari lerro bakoitzeko</li>
       <li xml:lang="it">Informazioni dettagliate per ciascuna riga del registro</li>
       <li xml:lang="ko">각각 로그 줄별 자세한 정보</li>
       <li xml:lang="nl">Gedetailleerde informatie voor elke logregel</li>
+      <li xml:lang="pl">Szczegółowe dane dla każdego wiersza dziennika</li>
       <li xml:lang="pt">Informação detalhada para cada linha do registo</li>
       <li xml:lang="pt-BR">Informação detalhada para cada linha do registro</li>
       <li xml:lang="sv">Detaljerad information för varje loggrad</li>
