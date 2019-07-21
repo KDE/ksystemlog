@@ -10,6 +10,7 @@
   <name xml:lang="en-GB">KSystemLog</name>
   <name xml:lang="es">KSystemLog</name>
   <name xml:lang="eu">kSystemLog</name>
+  <name xml:lang="fr">KSystemLog</name>
   <name xml:lang="gl">KSystemLog</name>
   <name xml:lang="id">KSystemLog</name>
   <name xml:lang="it">KSystemLog</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="en-GB">system log viewer</summary>
   <summary xml:lang="es">Visor del registro del sistema</summary>
   <summary xml:lang="eu">Sistemaren egunkari erakuslea</summary>
+  <summary xml:lang="fr">afficheur de journaux système</summary>
   <summary xml:lang="gl">visor dos rexistros do sistema</summary>
   <summary xml:lang="id">penampil catatan log sistem</summary>
   <summary xml:lang="it">Visore dei registri di sistema</summary>
