@@ -78,6 +78,7 @@
       <li>Colorize log lines depending on their severities</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
       <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua severitat</li>
+      <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
       <li xml:lang="el">Ο χρωματισμός γραμμών καταγραφών εξαρτάται από τη σπουδαιότητά τους</li>
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
       <li xml:lang="es">Líneas de registro coloreadas según su severidad</li>
@@ -98,6 +99,7 @@
       <li>Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="ca">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
       <li xml:lang="ca-valencia">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
+      <li xml:lang="de">Anzeige verschiedener Protokolldateien in einzelnen Unterfenstern.</li>
       <li xml:lang="el">Προβολή σε καρτέλες που επιτρέπει την εμφάνιση πολλών καταγραφών ταυτόχρονα</li>
       <li xml:lang="en-GB">Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="es">Vista en pestañas para poder mostrar varios registros a la vez</li>
@@ -118,6 +120,7 @@
       <li>Auto display new lines logged</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
+      <li xml:lang="de">Automatische Anzeiger neuer Protokollzeilen</li>
       <li xml:lang="el">Αυτόματη εμφάνιση νέων γραμμών καταγραφής.</li>
       <li xml:lang="en-GB">Auto display new lines logged</li>
       <li xml:lang="es">Muestra de forma automática las nuevas líneas registradas</li>
