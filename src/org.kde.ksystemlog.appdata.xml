@@ -63,6 +63,7 @@
     <p xml:lang="en-GB">KSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:</p>
     <p xml:lang="es">KSystemLog muestra todos los registros del sistema, agrupados por servicios generales (registro predeterminado del sistema, autenticación, kernel, X.org...) y opcionales (Apache, Cups...). Incluye diversas funcionalidades para leer los archivos de registro de forma agradable:</p>
     <p xml:lang="eu">KSystemLog-ek zure sistemako egunkari guztiak erakusten ditu, zerbitzu orokor (sistemaren egunkari lehenetsia, autentifikazioa, nukleoa, X-org, ...) eta aukerakoetan (Apache, Cups, etab., ...) taldekatuak. Eginbide ugari ditu zure egunkari fitxategiak irakurtzea behar bezala egiteko:</p>
+    <p xml:lang="fr">KSystemLog affiche tous les journaux de votre système, groupés par catégories : Général (journal système par défaut, authentification, noyau, X.org, etc.) et services optionnels (Apache, Cups, etc.). Il inclut de nombreuses fonctionnalités facilitant la lecture de vos fichiers de journaux :</p>
     <p xml:lang="gl">KSystemLog mostra todos os rexistros do sistema, agrupados en xerais (rexistro predeterminado do sistema, autenticación, kernel, X.org…) e servizos opcionais (Apache, Cups, etc.). Inclúe moitas funcionalidades para ler facilmente os ficheiros de rexistro:</p>
     <p xml:lang="id">KSystemLog menampilkan semua catatan log sistemmu, dikelompokkan berdasarkan General (Catatan log sistem baku, Autentikasi, Kernel, X.org...), dan Layanan (Apache, Cups, dll, ...) opsional. Serta banyak fitur-fitur pembacaan secara baik file-file catatan log-mu:</p>
     <p xml:lang="it">KSystemLog mostra tutti i registri di sistema, raggruppati per Generale (registro predefinito di sistema, autenticazione, Kernel, X.org...) e Servizi opzionali (Apache, Cups, ecc, ...). Include molte funzionalità per leggere bene i file di registro:</p>
@@ -86,6 +87,7 @@
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
       <li xml:lang="es">Líneas de registro coloreadas según su severidad</li>
       <li xml:lang="eu">Koloreztatu egunkari lerroak bere larritasunaren arabera</li>
+      <li xml:lang="fr">Mise en couleur des lignes des journaux en fonction de leur sévérité</li>
       <li xml:lang="gl">Colorar as liñas de rexistro segundo a súa gravidade</li>
       <li xml:lang="id">Pewarnaan baris log tergantung pada kepelikannya</li>
       <li xml:lang="it">Colorazione delle righe del registro in base alla loro gravità</li>
@@ -108,6 +110,7 @@
       <li xml:lang="en-GB">Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="es">Vista en pestañas para poder mostrar varios registros a la vez</li>
       <li xml:lang="eu">Fitxadun ikuspegia aldi berean hainbat egunkari bistaratzeko</li>
+      <li xml:lang="fr">La vue en onglets permet d'afficher plusieurs journaux en même temps</li>
       <li xml:lang="gl">Vista con lapelas que permite mostrar varios rexistros simultaneamente</li>
       <li xml:lang="id">Tampilan bertab untuk memungkinkan penayangan log di waktu yang sama</li>
       <li xml:lang="it">Vista a schede, che permette la visualizzazione di più registri nello stesso tempo</li>
@@ -130,6 +133,7 @@
       <li xml:lang="en-GB">Auto display new lines logged</li>
       <li xml:lang="es">Muestra de forma automática las nuevas líneas registradas</li>
       <li xml:lang="eu">Automatikoki bistaratu egunkarira gehitutako lerro berriak</li>
+      <li xml:lang="fr">Affichage automatique des nouvelles lignes des journaux</li>
       <li xml:lang="gl">Mostrar automaticamente as novas liñas rexistradas</li>
       <li xml:lang="id">Auto tayang baris baru yang di-log</li>
       <li xml:lang="it">Visualizzazione automatica delle nuove righe registrate</li>
@@ -152,6 +156,7 @@
       <li xml:lang="en-GB">Detailed information for each log lines</li>
       <li xml:lang="es">Información detallada para las líneas de cada registro</li>
       <li xml:lang="eu">Informazio xehatua egunkari lerro bakoitzeko</li>
+      <li xml:lang="fr">Informations détaillées pour chaque ligne des journaux</li>
       <li xml:lang="gl">Información detallada en cada liña de rexistro</li>
       <li xml:lang="id">Informasi terperinci untuk setiap baris log</li>
       <li xml:lang="it">Informazioni dettagliate per ciascuna riga del registro</li>
