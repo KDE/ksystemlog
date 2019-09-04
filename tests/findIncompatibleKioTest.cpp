@@ -248,17 +248,17 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList &meth
 QString FindIncompatibleKioTest::convertMethod(const QString &method)
 {
     QString result(method);
-    result = result.remove(QLatin1String("SlaveBase::"));
-    result = result.remove(QLatin1String("virtual"));
+    result.remove(QLatin1String("SlaveBase::"));
+    result.remove(QLatin1String("virtual"));
     //	result = result.remove(QLatin1String(" "));
     //	result = result.replace('\t', ' ');
-    result = result.remove(QLatin1String(";"));
+    result.remove(QLatin1String(";"));
     result = result.simplified();
 
-    int firstParenthesis = result.indexOf(QLatin1String("("));
-    int lastParenthesis = result.indexOf(QLatin1String(")"));
+    int firstParenthesis = result.indexOf(QLatin1Char('('));
+    int lastParenthesis = result.indexOf(QLatin1Char(')'));
     if (firstParenthesis != -1 && lastParenthesis != -1)
-        result = result.remove(firstParenthesis + 1, lastParenthesis - firstParenthesis - 1);
+        result.remove(firstParenthesis + 1, lastParenthesis - firstParenthesis - 1);
 
     return result;
 }

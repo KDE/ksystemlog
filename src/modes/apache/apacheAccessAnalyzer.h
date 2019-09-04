@@ -74,41 +74,41 @@ protected:
         int spacePos = line.indexOf(QLatin1Char(' '));
 
         QString hostName = line.left(spacePos);
-        line = line.remove(0, spacePos + 1);
+        line.remove(0, spacePos + 1);
 
         spacePos = line.indexOf(QLatin1Char(' '));
         QString identd = line.left(spacePos);
-        line = line.remove(0, spacePos + 1);
+        line.remove(0, spacePos + 1);
 
         spacePos = line.indexOf(QLatin1Char(' '));
         QString userName = line.left(spacePos);
-        line = line.remove(0, spacePos + 1);
+        line.remove(0, spacePos + 1);
 
         int endDate = line.indexOf(QLatin1Char(']'));
         QString strDateTime = line.left(endDate);
-        line = line.remove(0, endDate + 3);
+        line.remove(0, endDate + 3);
 
         QDateTime dateTime
             = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
 
         int endQuote = line.indexOf(QLatin1Char('\"'));
         QString message = line.left(endQuote);
-        line = line.remove(0, endQuote + 2);
+        line.remove(0, endQuote + 2);
 
         spacePos = line.indexOf(QLatin1Char(' '));
         QString httpResponse = ParsingHelper::instance()->parseHttpResponse(line.left(spacePos));
-        line = line.remove(0, spacePos + 1);
+        line.remove(0, spacePos + 1);
 
         spacePos = line.indexOf(QLatin1Char(' '));
         QString bytesSent = ParsingHelper::instance()->parseSize(line.left(spacePos));
-        line = line.remove(0, spacePos + 2);
+        line.remove(0, spacePos + 2);
 
         QString url;
 
         endQuote = line.indexOf(QLatin1Char('\"'));
         if (endQuote != -1) {
             url = line.left(endQuote);
-            line = line.remove(0, endQuote + 3);
+            line.remove(0, endQuote + 3);
         }
 
         QString agent;

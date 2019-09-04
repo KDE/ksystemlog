@@ -68,7 +68,7 @@ LogLine *XorgAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
     // If the type is not empty, the log message has a type, so we can delete it
     if (logLineType != nullptr) {
-        string = string.remove(0, 5);
+        string.remove(0, 5);
     } else {
         logLineType = Globals::instance().informationLogLevel();
     }

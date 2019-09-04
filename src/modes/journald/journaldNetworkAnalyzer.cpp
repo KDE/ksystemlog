@@ -294,10 +294,10 @@ void JournaldNetworkAnalyzer::updateStatus(QString status)
 {
     QString newStatus = m_baseUrl;
     if (!m_filterName.isEmpty()) {
-        newStatus += QStringLiteral(" - ") + m_filterName;
+        newStatus += QLatin1String(" - ") + m_filterName;
     }
     if (!status.isEmpty()) {
-        newStatus += QStringLiteral(" - ") + status;
+        newStatus += QLatin1String(" - ") + status;
     }
     emit statusChanged(newStatus);
 }

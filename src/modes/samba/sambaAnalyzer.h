@@ -106,25 +106,25 @@ protected:
             QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
             QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-            line = line.remove(0, dateEnd + 2);
+            line.remove(0, dateEnd + 2);
 
             // The source file
             int doubleDot;
-            doubleDot = line.indexOf(QLatin1String(":"));
+            doubleDot = line.indexOf(QLatin1Char(':'));
             QString file = line.left(doubleDot);
-            line = line.remove(0, doubleDot + 1);
+            line.remove(0, doubleDot + 1);
 
             // The function
-            int bracket = line.indexOf(QLatin1String("("));
+            int bracket = line.indexOf(QLatin1Char('('));
             QString function = line.left(bracket);
-            line = line.remove(0, bracket + 1);
+            line.remove(0, bracket + 1);
 
             // The line number
-            bracket = line.indexOf(QLatin1String(")"));
+            bracket = line.indexOf(QLatin1Char(')'));
             QString lineNumber = line.left(bracket);
 
             // Remove the first return character and the two useless space of the first message line
-            line = line.remove(0, bracket + 4);
+            line.remove(0, bracket + 4);
 
             QStringList list;
             list.append(file);

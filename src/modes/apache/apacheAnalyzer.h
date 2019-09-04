@@ -113,12 +113,12 @@ protected:
             date = QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
             time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-            line = line.remove(0, dateEnd + 3);
+            line.remove(0, dateEnd + 3);
 
             // The log level
             squareBracket = line.indexOf(QLatin1String("]"));
             level = line.left(squareBracket);
-            line = line.remove(0, squareBracket + 2);
+            line.remove(0, squareBracket + 2);
         }
 
         // The client
@@ -129,7 +129,7 @@ protected:
             client = QLatin1String("");
         } else {
             client = line.mid(8, squareBracket - 8); // 8=strlen("[client ")
-            line = line.remove(0, squareBracket + 2);
+            line.remove(0, squareBracket + 2);
         }
 
         QStringList list;

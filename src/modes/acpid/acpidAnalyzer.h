@@ -94,7 +94,7 @@ protected:
             // logDebug() << "Date=" << date.toString();
             // logDebug() << "Time=" << time.toString();
 
-            line = line.remove(0, dateEnd + 2);
+            line.remove(0, dateEnd + 2);
 
             int endType = line.indexOf(QLatin1String("\""));
 
@@ -104,7 +104,7 @@ protected:
                 message = line;
             } else {
                 type = line.left(endType - 1);
-                line = line.remove(0, endType + 1);
+                line.remove(0, endType + 1);
 
                 message = line.left(line.length() - 2);
             }

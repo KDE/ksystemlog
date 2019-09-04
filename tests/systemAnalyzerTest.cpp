@@ -355,7 +355,7 @@ void SystemAnalyzerTest::compareWithMinTime(QList<LogLine *> logLines, const QDa
     foreach (LogLine *logLine, logLines) {
         if (logLine->time() < minTime) {
             QFAIL(QString::fromLatin1("The line '%1' has a lesser time than the required min time (%2)")
-                      .arg(logLine->logItems().join(QLatin1String(" ")))
+                      .arg(logLine->logItems().join(QLatin1Char(' ')))
                       .arg(logLine->time().toString())
                       .toUtf8().constData());
         }

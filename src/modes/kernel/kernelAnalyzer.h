@@ -78,10 +78,10 @@ protected:
         QString line = in.readLine();
 
         // Format : 1618.72 1382.98 (uptime / something)
-        QStringList times = line.split(QStringLiteral(" "));
+        QStringList times = line.split(QLatin1Char(' '));
 
         QString secondsString = times.at(0);
-        QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1String(".")));
+        QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1Char('.')));
         long updateSeconds = pureSecondsString.toLong();
 
         startupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
@@ -136,13 +136,13 @@ protected:
         QString message(logLine);
         QString component;
 
-        int doublePointPosition = message.indexOf(QLatin1String(":"));
+        int doublePointPosition = message.indexOf(QLatin1Char(':'));
 
         // Estimate the max size of a component
         if (doublePointPosition != -1 && doublePointPosition < 20) {
             component = message.left(doublePointPosition);
             // Remove component length + ": "
-            message = message.remove(0, doublePointPosition + 2);
+            message.remove(0, doublePointPosition + 2);
         }
 
         messages.append(component);

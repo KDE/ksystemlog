@@ -92,14 +92,14 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     QString line(logLine);
 
-    line = line.remove(0, 4);
+    line.remove(0, 4);
     int monthNum = ParsingHelper::instance()->parseSyslogMonth(month);
 
     // Day number
     QString day(line.left(2));
     int dayNum = day.toInt();
 
-    line = line.remove(0, 3);
+    line.remove(0, 3);
 
     // Time
     QString stringTime(line.left(8));
@@ -116,7 +116,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         return undefinedLogLine(logLine, originalFile);
     }
 
-    line = line.remove(0, 9);
+    line.remove(0, 9);
 
     QString hostname;
 
@@ -127,7 +127,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     if (nextSpace < nextDoubleDot || nextDoubleDot == -1) {
         // Host name
         hostname = line.left(nextSpace);
-        line = line.remove(0, nextSpace + 1);
+        line.remove(0, nextSpace + 1);
     }
     // No host name case (very rare)
     else {
@@ -151,10 +151,10 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
             // If we find a bracket, we remove the useless part
             if (squareBracket != -1) {
-                process = process.left(squareBracket);
+                process.truncate(squareBracket);
             }
         }
-        line = line.remove(0, nextDoubleDot + 1);
+        line.remove(0, nextDoubleDot + 1);
 
         message = line.remove(0, 1);
     }
