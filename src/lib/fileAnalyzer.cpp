@@ -22,6 +22,7 @@
 #include "fileAnalyzer.h"
 
 #include <KLocalizedString>
+#include <QElapsedTimer>
 
 #include "logging.h"
 #include "ksystemlogConfig.h"
@@ -105,7 +106,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     insertionLocking.lock();
     logDebug() << "Unlocking file modifications of " << filePath;
 
-    QTime benchmark;
+    QElapsedTimer benchmark;
     benchmark.start();
 
     int insertedLogLineCount;
