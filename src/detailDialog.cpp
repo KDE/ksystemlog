@@ -122,8 +122,8 @@ void DetailDialog::moveToItem(int direction)
         return;
     }
 
-    logViewWidget->setItemSelected(item, false);
-    logViewWidget->setItemSelected(destinationItem, true);
+    item->setSelected(false);
+    destinationItem->setSelected(true);
     logViewWidget->scrollToItem(destinationItem);
 
     updateDetails();

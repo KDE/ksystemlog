@@ -310,7 +310,7 @@ void LogViewSearchWidget::highlightAll()
             LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
             if (compareItem(item) == true) {
-                item->setBackgroundColor(item->columnCount() - 1, QColor(255, 255, 16 * 8 + 11));
+                item->setBackground(item->columnCount() - 1, QColor(255, 255, 16 * 8 + 11));
             }
 
             ++it;

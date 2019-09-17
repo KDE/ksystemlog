@@ -75,7 +75,7 @@ View::View(QWidget *parent)
     d->logViewWidget = nullptr;
 
     QVBoxLayout *topLayout = new QVBoxLayout(this);
-    topLayout->setMargin(2);
+    topLayout->setContentsMargins(2, 2, 2, 2);
     topLayout->setSpacing(2);
 
     d->logViewFilterWidget = new LogViewFilterWidget();

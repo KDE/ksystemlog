@@ -78,7 +78,7 @@ void TestUtil::destroyReader(Analyzer *analyzer) const
 
 QList<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
 {
-    QTemporaryFile *tempFile = QTemporaryFile::createLocalFile(resourceFileName);
+    QTemporaryFile *tempFile = QTemporaryFile::createNativeFile(resourceFileName);
     logDebug() << "Using log file name " << tempFile << endl;
     tempFile->setPermissions(QFile::WriteUser | QFile::ReadUser | QFile::ReadOwner | QFile::WriteOwner);
 

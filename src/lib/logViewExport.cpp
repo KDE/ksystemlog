@@ -145,7 +145,7 @@ void LogViewExport::printSelection()
         painter.setPen(originalPen);
         painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
         int fontHeight = painter.fontMetrics().height();
-        int lines = painter.fontMetrics().width(body) / printView.width() + 1;
+        int lines = painter.fontMetrics().boundingRect(body).width() / printView.width() + 1;
         int moveBy = (fontHeight + 2) * lines;
         painter.translate(0, moveBy);
         movement = movement + moveBy;
@@ -171,7 +171,7 @@ void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int mov
     painter.translate(0, -movement);
     printView.moveTo(QPoint(0, printView.height()));
     painter.translate(0, -printView.height());
-    painter.drawText(printView.right() - painter.fontMetrics().width(QString::number(page)),
+    painter.drawText(printView.right() - painter.fontMetrics().boundingRect(QString::number(page)).width(),
                      printView.bottom() + painter.fontMetrics().ascent() + 5, QString::number(page));
 }
 
