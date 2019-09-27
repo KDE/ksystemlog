@@ -30,7 +30,7 @@
 /**
  * Samba Access Log Icon
  */
-#define SAMBA_ACCESS_MODE_ICON "network-workgroup"
+#define SAMBA_ACCESS_MODE_ICON "preferences-system-network-server-share-windows"
 
 #include <QList>
 

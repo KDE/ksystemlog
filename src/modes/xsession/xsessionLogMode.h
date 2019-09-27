@@ -30,7 +30,7 @@
 /**
  * Xorg Log Icon
  */
-#define X_SESSION_MODE_ICON "utilities-log-viewer"
+#define X_SESSION_MODE_ICON "preferences-system-windows-effect-coverswitch"
 
 #include <QList>
 

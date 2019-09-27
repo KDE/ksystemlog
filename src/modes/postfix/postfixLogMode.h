@@ -30,7 +30,7 @@
 /**
  * Postfix Log Icon
  */
-#define POSTFIX_MODE_ICON "mail-message"
+#define POSTFIX_MODE_ICON "internet-mail"
 
 #include <QList>
 

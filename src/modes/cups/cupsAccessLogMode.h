@@ -30,7 +30,7 @@
 /**
  * Cups Access Log Icon
  */
-#define CUPS_ACCESS_MODE_ICON "printer"
+#define CUPS_ACCESS_MODE_ICON "preferences-devices-printer"
 
 #include <QList>
 

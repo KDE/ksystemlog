@@ -30,7 +30,7 @@
 /**
  * Samba Log Icon
  */
-#define SAMBA_MODE_ICON "folder-remote"
+#define SAMBA_MODE_ICON "preferences-system-network-share-windows"
 
 #include <QList>
 

@@ -30,7 +30,7 @@
 /**
  * Authentication Log Icon
  */
-#define AUTHENTICATION_MODE_ICON "document-encrypt"
+#define AUTHENTICATION_MODE_ICON "dialog-password"
 
 #include <QList>
 

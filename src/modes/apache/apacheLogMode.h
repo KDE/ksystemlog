@@ -30,7 +30,7 @@
 /**
  * Apache Log Icon
  */
-#define APACHE_MODE_ICON "network-server"
+#define APACHE_MODE_ICON "preferences-system-network"
 
 #include <QList>
 

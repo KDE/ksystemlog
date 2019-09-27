@@ -106,7 +106,7 @@ void ConfigurationDialog::setupGeneralConfiguration()
 {
     d->generalConfiguration = new GeneralConfigurationWidget();
 
-    addPage(d->generalConfiguration, i18n("General"), QStringLiteral("applications-system"), i18n("General"),
+    addPage(d->generalConfiguration, i18n("General"), QStringLiteral("utilities-log-viewer"), i18n("General"),
             false);
 
     connect(d->generalConfiguration, &GeneralConfigurationWidget::configurationChanged, this, &ConfigurationDialog::updateConfiguration);

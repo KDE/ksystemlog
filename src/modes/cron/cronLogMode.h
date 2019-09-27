@@ -30,7 +30,7 @@
 /**
  * Cron Log Icon
  */
-#define CRON_MODE_ICON "chronometer"
+#define CRON_MODE_ICON "preferences-system-time"
 
 #include <QList>
 

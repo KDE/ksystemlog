@@ -30,7 +30,7 @@
 /**
  * Kernel Log Icon
  */
-#define KERNEL_MODE_ICON "utilities-system-monitor"
+#define KERNEL_MODE_ICON "preferences-system-linux"
 
 #define UPTIME_FILE "/proc/uptime"
 

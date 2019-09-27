@@ -30,7 +30,7 @@
 /**
  * Cups Log Icon
  */
-#define CUPS_MODE_ICON "document-print"
+#define CUPS_MODE_ICON "preferences-devices-printer"
 
 #include <QList>
 

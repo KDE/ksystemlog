@@ -30,7 +30,7 @@
 /**
  * System Log Icon
  */
-#define SYSTEM_MODE_ICON "computer"
+#define SYSTEM_MODE_ICON "preferences-desktop-wallpaper"
 
 #include <QList>
 

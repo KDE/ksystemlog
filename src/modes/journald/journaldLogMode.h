@@ -31,7 +31,7 @@
 /**
  * Journald Log Icon
  */
-#define JOURNALD_MODE_ICON "computer"
+#define JOURNALD_MODE_ICON "preferences-system-startup"
 
 #include <QList>
 
