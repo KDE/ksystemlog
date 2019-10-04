@@ -37,11 +37,12 @@
 #include "logMode.h"
 
 LogViewWidgetItem::LogViewWidgetItem(LogViewWidget *list, LogLine *l)
-    : QTreeWidgetItem(list)
+    : QTreeWidgetItem()
     , line(l)
 {
     // Add this item to the LogLine, to let the LogLine initialize it
     line->setItem(this);
+    list->addTopLevelItem(this);
 }
 
 LogViewWidgetItem::~LogViewWidgetItem()
