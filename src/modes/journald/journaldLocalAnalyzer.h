@@ -66,15 +66,15 @@ private:
 
     QStringList m_filters;
     QString m_filterName;
-    sd_journal *m_journal;
-    int m_journalFlags;
+    sd_journal *m_journal = nullptr;
+    int m_journalFlags = 0;
     QString m_currentBootID;
 
-    char *m_cursor;
+    char *m_cursor = nullptr;
     QMutex m_workerMutex;
-    QSocketNotifier *m_journalNotifier;
+    QSocketNotifier *m_journalNotifier = nullptr;
 
-    bool m_forgetWatchers;
+    bool m_forgetWatchers = true;
     QList<JournalWatcher *> m_journalWatchers;
 };
 

@@ -33,9 +33,6 @@
 JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     : JournaldAnalyzer(mode)
 {
-    m_cursor = nullptr;
-    m_forgetWatchers = true;
-
     // Initialize journal access flags and open the journal.
     m_journalFlags = 0;
     JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
@@ -51,7 +48,11 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     default:
         break;
     }
-    sd_journal_open(&m_journal, m_journalFlags);
+    int ret = sd_journal_open(&m_journal, m_journalFlags);
+    if (ret < 0) {
+        logWarning() << "Journald analyzer failed to open system journal";
+        return;
+    }
 
     qintptr fd = sd_journal_get_fd(m_journal);
     m_journalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
@@ -86,6 +87,8 @@ JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
 
 void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 {
+    if (!m_journalNotifier)
+        return;
     m_journalNotifier->setEnabled(enabled);
 
     m_workerMutex.lock();
