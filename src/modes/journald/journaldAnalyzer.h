@@ -31,15 +31,11 @@ class JournaldAnalyzer : public Analyzer
     Q_OBJECT
 
 public:
-    explicit JournaldAnalyzer(LogMode *logMode);
+    explicit JournaldAnalyzer(LogMode *mode);
 
-    virtual ~JournaldAnalyzer();
+    LogViewColumns initColumns() override;
 
-    virtual LogViewColumns initColumns();
-
-    virtual void setLogFiles(const QList<LogFile> &logFiles);
-
-    virtual void watchLogFiles(bool enabled) = 0;
+    void setLogFiles(const QList<LogFile> &logFiles) override;
 
     virtual QStringList units() const = 0;
 

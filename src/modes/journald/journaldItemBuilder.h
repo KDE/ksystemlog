@@ -29,13 +29,9 @@ class LogLine;
 class JournaldItemBuilder : public LogModeItemBuilder
 {
 public:
-    JournaldItemBuilder() {}
+    QString createFormattedText(LogLine *line) const override;
 
-    virtual ~JournaldItemBuilder() {}
-
-    QString createFormattedText(LogLine *line) const;
-
-    QString createToolTipText(LogLine *line) const;
+    QString createToolTipText(LogLine *line) const override;
 };
 
 #endif // _JOURNALD_ITEM_BUILDER_H

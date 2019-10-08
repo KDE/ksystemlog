@@ -36,15 +36,13 @@ class JournaldNetworkAnalyzer : public JournaldAnalyzer
     Q_OBJECT
 
 public:
-    explicit JournaldNetworkAnalyzer(LogMode *logMode, const JournaldAnalyzerOptions &options);
+    explicit JournaldNetworkAnalyzer(LogMode *mode, const JournaldAnalyzerOptions &options);
 
-    virtual ~JournaldNetworkAnalyzer();
+    void watchLogFiles(bool enabled) override;
 
-    virtual void watchLogFiles(bool enabled);
+    QStringList units() const override;
 
-    virtual QStringList units() const;
-
-    virtual QStringList syslogIdentifiers() const;
+    QStringList syslogIdentifiers() const override;
 
 private Q_SLOTS:
     void httpFinished();
@@ -58,7 +56,7 @@ private:
     void parseEntries(QByteArray &data, ReadingMode readingMode);
     void sendRequest(RequestType requestType);
 
-    void updateStatus(QString status);
+    void updateStatus(const QString &status);
 
     RequestType m_currentRequest;
     QString m_baseUrl;

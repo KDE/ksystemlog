@@ -30,15 +30,15 @@
 
 #include <QtConcurrent>
 
-JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *logMode, QString filter)
-    : JournaldAnalyzer(logMode)
+JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
+    : JournaldAnalyzer(mode)
 {
     m_cursor = nullptr;
     m_forgetWatchers = true;
 
     // Initialize journal access flags and open the journal.
     m_journalFlags = 0;
-    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
     switch (configuration->entriesType()) {
     case JournaldConfiguration::EntriesAll:
         break;
@@ -153,7 +153,7 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 
     if (parsingPaused) {
         logDebug() << "Parsing is paused, discarding journald entries.";
-    } else if (entries.size() == 0) {
+    } else if (entries.empty()) {
         logDebug() << "Received no entries.";
     } else {
         insertionLocking.lock();
@@ -250,7 +250,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
     }
 
     sd_journal_close(journal);
-    if (entryList.size() > 0)
+    if (!entryList.empty())
         logDebug() << "Read" << entryList.size() << "journal entries.";
     return entryList;
 }
@@ -360,7 +360,7 @@ JournaldLocalAnalyzer::JournalEntry JournaldLocalAnalyzer::readJournalEntry(sd_j
     return entry;
 }
 
-QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString id, int flags)
+QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString &id, int flags)
 {
     QStringList units;
     sd_journal *journal;

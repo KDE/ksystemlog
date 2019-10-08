@@ -35,15 +35,15 @@ class JournaldLocalAnalyzer : public JournaldAnalyzer
     Q_OBJECT
 
 public:
-    explicit JournaldLocalAnalyzer(LogMode *logMode, QString filter = QString());
+    explicit JournaldLocalAnalyzer(LogMode *mode, QString filter = QString());
 
-    virtual ~JournaldLocalAnalyzer();
+    ~JournaldLocalAnalyzer() override;
 
-    virtual void watchLogFiles(bool enabled);
+    void watchLogFiles(bool enabled) override;
 
-    virtual QStringList units() const;
+    QStringList units() const override;
 
-    virtual QStringList syslogIdentifiers() const;
+    QStringList syslogIdentifiers() const override;
 
     static QStringList unitsStatic();
 
@@ -55,14 +55,14 @@ private Q_SLOTS:
     void journalDescriptorUpdated(int fd);
 
 private:
-    typedef QFutureWatcher<QList<JournalEntry>> JournalWatcher;
+    using JournalWatcher = QFutureWatcher<QList<JournalEntry>>;
 
     void readJournalFinished(ReadingMode readingMode);
     QList<JournalEntry> readJournal(const QStringList &filters);
     bool prepareJournalReading(sd_journal *journal, const QStringList &filters);
     JournalEntry readJournalEntry(sd_journal *journal) const;
 
-    static QStringList getUniqueFieldValues(const QString id, int flags = 0);
+    static QStringList getUniqueFieldValues(const QString &id, int flags = 0);
 
     QStringList m_filters;
     QString m_filterName;

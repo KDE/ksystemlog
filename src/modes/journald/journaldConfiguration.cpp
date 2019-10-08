@@ -58,7 +58,7 @@ void JournaldConfiguration::setEntriesType(JournaldConfiguration::EntriesType en
 QList<JournalAddress> JournaldConfiguration::remoteJournals() const
 {
     QList<JournalAddress> journals;
-    for (const QString addressItem : m_remoteJournals) {
+    for (const QString &addressItem : m_remoteJournals) {
         JournalAddress addressInfo;
         addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
         addressInfo.port = addressItem.section(QChar::fromLatin1('|'), 1, 1).toUInt();

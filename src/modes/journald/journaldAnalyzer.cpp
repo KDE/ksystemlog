@@ -26,12 +26,8 @@
 
 #include <KLocalizedString>
 
-JournaldAnalyzer::JournaldAnalyzer(LogMode *logMode)
-    : Analyzer(logMode)
-{
-}
-
-JournaldAnalyzer::~JournaldAnalyzer()
+JournaldAnalyzer::JournaldAnalyzer(LogMode *mode)
+    : Analyzer(mode)
 {
 }
 

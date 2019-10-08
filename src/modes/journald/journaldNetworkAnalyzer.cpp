@@ -35,14 +35,14 @@
 
 #include <KLocalizedString>
 
-JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const JournaldAnalyzerOptions &options)
-    : JournaldAnalyzer(logMode)
+JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *mode, const JournaldAnalyzerOptions &options)
+    : JournaldAnalyzer(mode)
 {
     m_address = options.address;
 
     connect(&m_networkManager, &QNetworkAccessManager::sslErrors, this, &JournaldNetworkAnalyzer::sslErrors);
 
-    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
 
     m_baseUrl = QStringLiteral("%1://%2:%3/")
                     .arg(m_address.https ? QStringLiteral("https") : QStringLiteral("http"))
@@ -73,10 +73,6 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *logMode, const Journal
     m_filterName = options.filter.section(QChar::fromLatin1('='), 1);
 
     m_reply = nullptr;
-}
-
-JournaldNetworkAnalyzer::~JournaldNetworkAnalyzer()
-{
 }
 
 void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
@@ -186,7 +182,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         if (item.isEmpty())
             continue;
         item.prepend('{');
-        QJsonParseError jsonError;
+        QJsonParseError jsonError{};
         QJsonDocument doc = QJsonDocument::fromJson(item, &jsonError);
         if (jsonError.error != 0)
             continue;
@@ -220,7 +216,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         entries << entry;
     }
 
-    if (entries.size() == 0) {
+    if (entries.empty()) {
         logDebug() << "Received no entries.";
     } else {
         insertionLocking.lock();
@@ -290,7 +286,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
 }
 
-void JournaldNetworkAnalyzer::updateStatus(QString status)
+void JournaldNetworkAnalyzer::updateStatus(const QString &status)
 {
     QString newStatus = m_baseUrl;
     if (!m_filterName.isEmpty()) {

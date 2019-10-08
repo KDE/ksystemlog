@@ -51,11 +51,9 @@ class JournaldLogMode : public LogMode
 public:
     explicit JournaldLogMode();
 
-    ~JournaldLogMode();
+    Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant()) override;
 
-    Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant());
-
-    QList<LogFile> createLogFiles();
+    QList<LogFile> createLogFiles() override;
 
     void updateJournalFilters(const JournalAddress &address, const JournalFilters &filters);
     JournalFilters filters(const JournalAddress &address) const;

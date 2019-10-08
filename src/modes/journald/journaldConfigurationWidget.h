@@ -32,15 +32,14 @@ class JournaldConfigurationWidget : public LogModeConfigurationWidget, public Ui
 
 public:
     JournaldConfigurationWidget();
-    ~JournaldConfigurationWidget() {}
 
 Q_SIGNALS:
     void configSaved();
 
 public Q_SLOTS:
-    void saveConfig();
-    void readConfig();
-    void defaultConfig();
+    void saveConfig() override;
+    void readConfig() override;
+    void defaultConfig() override;
 
 private Q_SLOTS:
     void updateButtons();
@@ -50,7 +49,7 @@ private Q_SLOTS:
     void tableItemClicked(int row);
 
 private:
-    bool haveJournalAddress(QString address, QString port, bool httpsEnabled) const;
+    bool haveJournalAddress(const QString &address, const QString &port, bool httpsEnabled) const;
 };
 
 #endif // _JOURNALD_CONFIGURATION_WIDGET_H

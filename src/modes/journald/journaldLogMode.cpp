@@ -50,20 +50,14 @@ JournaldLogMode::JournaldLogMode()
     d->action->setWhatsThis(i18n("Displays the journald log in the current tab."));
 }
 
-JournaldLogMode::~JournaldLogMode()
-{
-}
-
 Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
 {
     JournaldAnalyzerOptions options = analyzerOptions.value<JournaldAnalyzerOptions>();
     switch (options.analyzerType) {
     case JournaldAnalyzerType::Local:
         return new JournaldLocalAnalyzer(this, options.filter);
-        break;
     case JournaldAnalyzerType::Network:
         return new JournaldNetworkAnalyzer(this, options);
-        break;
     default:
         break;
     }

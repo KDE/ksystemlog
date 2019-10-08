@@ -42,7 +42,6 @@ public:
     enum EntriesType { EntriesAll = 0, EntriesCurrentUser = 1, EntriesSystem = 2 };
 
     JournaldConfiguration();
-    virtual ~JournaldConfiguration() {}
 
     bool displayCurrentBootOnly() const;
     void setDisplayCurrentBootOnly(bool displayCurrentBootOnly);

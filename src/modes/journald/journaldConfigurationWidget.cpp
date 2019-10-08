@@ -115,7 +115,7 @@ void JournaldConfigurationWidget::defaultConfig()
 void JournaldConfigurationWidget::updateButtons()
 {
     auto selectedItems = remoteJournalsListWidget->selectedItems();
-    bool haveItems = (selectedItems.size() != 0);
+    bool haveItems = !selectedItems.empty();
     modifyAddressButton->setEnabled(haveItems);
     removeAddressButton->setEnabled(haveItems);
 }
@@ -172,7 +172,7 @@ void JournaldConfigurationWidget::tableItemClicked(int row)
     }
 }
 
-bool JournaldConfigurationWidget::haveJournalAddress(QString address, QString port, bool httpsEnabled) const
+bool JournaldConfigurationWidget::haveJournalAddress(const QString &address, const QString &port, bool httpsEnabled) const
 {
     for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
         QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
