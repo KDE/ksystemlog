@@ -22,7 +22,7 @@
 #include "logLevel.h"
 
 #include <kiconloader.h>
-
+#include <QIcon>
 class LogLevelPrivate
 {
 public:
@@ -43,7 +43,7 @@ LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &c
     d->name = nm;
     d->icon = ic;
     d->color = col;
-    d->pixmap = SmallIcon(ic);
+    d->pixmap = QIcon::fromTheme(ic).pixmap(KIconLoader::SizeSmall);
 }
 
 LogLevel::~LogLevel()

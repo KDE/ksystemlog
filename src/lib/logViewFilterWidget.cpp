@@ -134,7 +134,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
     QLabel *filterIcon = new QLabel();
-    filterIcon->setPixmap(SmallIcon(QStringLiteral("view-filter")));
+    filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(KIconLoader::SizeSmall));
     filterIcon->setBuddy(d->filterLine);
     filterBarLayout->addWidget(filterIcon);
 

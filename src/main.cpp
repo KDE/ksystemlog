@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 
     // See if we are starting with session management
     if (app.isSessionRestored()) {
-        RESTORE(KSystemLog::MainWindow);
+        kRestoreMainWindows<KSystemLog::MainWindow>();
     } else {
         // No session... Just start up normally
 

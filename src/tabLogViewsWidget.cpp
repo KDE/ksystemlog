@@ -55,14 +55,14 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     d->contextMenu = nullptr;
 
     QPushButton *tabNewTabButton
-        = new QPushButton(SmallIcon(QStringLiteral("tab-new")), QLatin1String(""), this);
+        = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
     connect(tabNewTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::createTab);
 
     tabNewTabButton->setToolTip(i18n("Create a new tab"));
     tabNewTabButton->setWhatsThis(i18n("Creates a new tab which can display another log."));
 
     QPushButton *tabCloseTabButton
-        = new QPushButton(SmallIcon(QStringLiteral("tab-close")), QLatin1String(""), this);
+        = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-close")), QLatin1String(""), this);
     connect(tabCloseTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::closeTab);
 
     tabCloseTabButton->setToolTip(i18n("Close the current tab"));
@@ -103,7 +103,7 @@ void TabLogViewsWidget::newTab(View *view)
     logDebug() << "Inserting to a new tab the view ";
 
     // Add a tab at the end of the widget
-    insertTab(count(), view, SmallIcon(QStringLiteral(NO_MODE_ICON)), i18n("No Log"));
+    insertTab(count(), view, QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log"));
 
     if (count() > 1)
         tabBar()->show();

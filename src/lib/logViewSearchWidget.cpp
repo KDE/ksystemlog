@@ -285,7 +285,7 @@ void LogViewSearchWidget::showMessage(const QString &text, const QString &iconTe
     message->setText(text);
     message->show();
 
-    messageIcon->setPixmap(SmallIcon(iconText));
+    messageIcon->setPixmap(QIcon::fromTheme(iconText).pixmap(KIconLoader::SizeSmall));
     messageIcon->show();
 
     d->messageHidingTimer->start();

@@ -76,7 +76,7 @@ void DetailDialog::updateDetails()
         return;
     }
 
-    icon->setPixmap(DesktopIcon(item->logLine()->logLevel()->icon()));
+    icon->setPixmap(item->logLine()->logLevel()->icon());
 
     header->setText(item->logLine()->formattedText());
 
