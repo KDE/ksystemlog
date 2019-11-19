@@ -65,7 +65,7 @@ protected:
     Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
-     * http://www.physik.uni-wuerzburg.de/~vrbehr/cups-pdf/documentation.shtml (cups-pdf_log)
+     * https://pawn.physik.uni-wuerzburg.de/~vrbehr/cups-pdf/documentation.shtml (cups-pdf_log)
      *
      * Thu Jun 14 12:40:35 2007 [STATUS] identification string sent
      * Thu Jun 14 12:43:07 2007 [ERROR] failed to set file mode for PDF file (non fatal)

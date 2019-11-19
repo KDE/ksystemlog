@@ -68,7 +68,7 @@ protected:
     Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
-     * http://www.cups.org/documentation.php/ref-page_log.html
+     * https://www.cups.org/doc/man-cupsd-logs.html
      * Format : printer user job-id date-time page-number num-copies job-billing
      *
      * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123

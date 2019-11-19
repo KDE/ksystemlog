@@ -71,7 +71,7 @@ protected:
     Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
     /*
-     * http://www.cups.org/documentation.php/ref-access_log.html
+     * https://www.cups.org/doc/man-cupsd-logs.html
      *
      * host group user date-time \"method resource version\" status bytes ipp-operation ipp-status
      * 10.0.1.2 - - [01/Dec/2005:21:50:28 +0000] "POST / HTTP/1.1" 200 317 CUPS-Get-Printers

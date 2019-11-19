@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
     about.addAuthor(i18n("Nicolas Ternisien"), i18n("Main developer"),
                     QStringLiteral("nicolas.ternisien@gmail.com"),
-                    QStringLiteral("http://www.forum-software.org"));
+                    QStringLiteral("https://www.forum-software.org"));
     about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"),
                     QStringLiteral("v.matyushin@gmail.com"));
     about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));

@@ -52,7 +52,7 @@ protected:
 
     /*
      * Also sees :
-     * http://www.cups.org/documentation.php/ref-error_log.html
+     * https://www.cups.org/doc/man-cupsd-logs.html
      * level date-time message
      *
      * Levels :
