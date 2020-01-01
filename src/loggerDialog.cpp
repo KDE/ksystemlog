@@ -144,21 +144,21 @@ void LoggerDialog::buildMaps()
 
     // Fill the priority icon map
     d->priorityIcons[Globals::instance().debugLogLevel()->name()]
-        = Globals::instance().debugLogLevel()->icon();
+        = Globals::instance().debugLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().informationLogLevel()->name()]
-        = Globals::instance().informationLogLevel()->icon();
+        = Globals::instance().informationLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().noticeLogLevel()->name()]
-        = Globals::instance().noticeLogLevel()->icon();
+        = Globals::instance().noticeLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().warningLogLevel()->name()]
-        = Globals::instance().warningLogLevel()->icon();
+        = Globals::instance().warningLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().errorLogLevel()->name()]
-        = Globals::instance().errorLogLevel()->icon();
+        = Globals::instance().errorLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().criticalLogLevel()->name()]
-        = Globals::instance().criticalLogLevel()->icon();
+        = Globals::instance().criticalLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().alertLogLevel()->name()]
-        = Globals::instance().alertLogLevel()->icon();
+        = Globals::instance().alertLogLevel()->icon().name();
     d->priorityIcons[Globals::instance().emergencyLogLevel()->name()]
-        = Globals::instance().emergencyLogLevel()->icon();
+        = Globals::instance().emergencyLogLevel()->icon().name();
 }
 
 void LoggerDialog::textChanged()

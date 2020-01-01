@@ -55,7 +55,7 @@ public:
             i++;
         }
 
-        item->setIcon(0, line->logLevel()->pixmap());
+        item->setIcon(0, line->logLevel()->icon());
     }
 
     QString createToolTipText(LogLine *line) const override

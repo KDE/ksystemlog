@@ -57,7 +57,7 @@ void LogModeItemBuilder::prepareItem(LogViewWidgetItem *item) const
         i++;
     }
 
-    item->setIcon(0, line->logLevel()->pixmap());
+    item->setIcon(0, line->logLevel()->icon());
 }
 
 QString LogModeItemBuilder::createFormattedText(LogLine *line) const

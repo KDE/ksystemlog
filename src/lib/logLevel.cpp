@@ -29,11 +29,9 @@ public:
     int id;
     QString name;
 
-    QString icon;
-
     QColor color;
 
-    QPixmap pixmap;
+    QIcon icon;
 };
 
 LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col, QObject *parent)
@@ -41,9 +39,8 @@ LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &c
 {
     d->id = id;
     d->name = nm;
-    d->icon = ic;
     d->color = col;
-    d->pixmap = QIcon::fromTheme(ic).pixmap(KIconLoader::SizeSmall);
+    d->icon = QIcon::fromTheme(ic);
 }
 
 LogLevel::~LogLevel()
@@ -61,17 +58,12 @@ QString LogLevel::name() const
     return d->name;
 }
 
-QString LogLevel::icon() const
-{
-    return d->icon;
-}
-
 QColor LogLevel::color() const
 {
     return d->color;
 }
 
-QPixmap LogLevel::pixmap() const
+QIcon LogLevel::icon() const
 {
-    return d->pixmap;
+    return d->icon;
 }

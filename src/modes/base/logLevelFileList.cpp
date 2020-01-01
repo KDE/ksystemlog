@@ -85,7 +85,7 @@ LogLevelFileList::~LogLevelFileList()
 
 void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool missing)
 {
-    QListWidgetItem *item = new QListWidgetItem(QIcon(level->pixmap()), itemText, fileList);
+    QListWidgetItem *item = new QListWidgetItem(level->icon(), itemText, fileList);
     if (missing)
         item->setForeground(Qt::red);
     item->setData(LogLevelFileList::LogLevelRole, level->id());
@@ -120,7 +120,7 @@ void LogLevelFileList::changeItemType()
     QListWidget *logLevels = logLevelSelectionDialog.logLevels();
 
     foreach (LogLevel *level, Globals::instance().logLevels()) {
-        logLevels->addItem(new QListWidgetItem(QIcon(level->pixmap()), level->name()));
+        logLevels->addItem(new QListWidgetItem(level->icon(), level->name()));
     }
 
     int choice = logLevelSelectionDialog.exec();

@@ -76,7 +76,7 @@ void DetailDialog::updateDetails()
         return;
     }
 
-    icon->setPixmap(item->logLine()->logLevel()->icon());
+    icon->setPixmap(item->logLine()->logLevel()->icon().pixmap(style()->pixelMetric(QStyle::PM_LargeIconSize)));
 
     header->setText(item->logLine()->formattedText());
 

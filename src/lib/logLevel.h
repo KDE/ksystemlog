@@ -38,11 +38,9 @@ public:
     int id() const;
     QString name() const;
 
-    QString icon() const;
-
     QColor color() const;
 
-    QPixmap pixmap() const;
+    QIcon icon() const;
 
 private:
     LogLevelPrivate *const d;
