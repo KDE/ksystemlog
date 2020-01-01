@@ -23,7 +23,7 @@
 #define LOG_MODE_H
 
 #include <QObject>
-#include <QPixmap>
+#include <QIcon>
 #include <QString>
 #include <QList>
 
@@ -53,7 +53,7 @@ public:
 
     QString iconName;
 
-    QPixmap icon;
+    QIcon icon;
 
     QAction *action;
 
@@ -79,7 +79,7 @@ public:
 
     QString name() const;
 
-    QPixmap icon() const;
+    QIcon icon() const;
 
     QAction *action() const;
 

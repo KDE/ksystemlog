@@ -34,7 +34,7 @@ LogMode::LogMode(const QString &id, const QString &name, const QString &iconName
 {
     d->id = id;
     d->name = name;
-    d->icon = QIcon::fromTheme(iconName).pixmap(KIconLoader::SizeSmall);;
+    d->icon = QIcon::fromTheme(iconName);
     d->logFilesExist = true;
 }
 
@@ -57,7 +57,7 @@ QString LogMode::name() const
     return d->name;
 }
 
-QPixmap LogMode::icon() const
+QIcon LogMode::icon() const
 {
     return d->icon;
 }

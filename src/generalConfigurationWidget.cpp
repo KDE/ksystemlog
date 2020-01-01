@@ -62,7 +62,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
         if (logMode->id() == QLatin1String("openLogMode"))
             continue;
 
-        startupLogMode->addItem(QIcon(logMode->icon()), logMode->name(), QVariant(logMode->id()));
+        startupLogMode->addItem(logMode->icon(), logMode->name(), QVariant(logMode->id()));
     }
 
     connect(startupLogMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GeneralConfigurationWidget::configurationChanged);
