@@ -133,8 +133,7 @@ void ProcessOutputLogFileReader::closeProcess()
 
     // Get the size file for the next calculation
     d->previousLinesCount = d->availableStandardOutput.count();
-    logDebug() << "New lines count : " << d->previousLinesCount << " (" << d->logFile.url().path() << ")"
-               << endl;
+    logDebug() << "New lines count : " << d->previousLinesCount << " (" << d->logFile.url().path() << ")";
 
     d->availableStandardOutput.clear();
 

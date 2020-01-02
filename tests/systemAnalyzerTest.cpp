@@ -350,7 +350,7 @@ void SystemAnalyzerTest::testMaxLines()
 
 void SystemAnalyzerTest::compareWithMinTime(QList<LogLine *> logLines, const QDateTime &minTime)
 {
-    logDebug() << "Min time : " << minTime.toString() << endl;
+    logDebug() << "Min time : " << minTime.toString();
 
     foreach (LogLine *logLine, logLines) {
         if (logLine->time() < minTime) {

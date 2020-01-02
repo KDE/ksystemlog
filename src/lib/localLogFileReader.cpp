@@ -187,8 +187,7 @@ QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
 
     // Get the size file for the next calculation
     d->previousFilePosition = inputDevice->size();
-    logDebug() << "New file position : " << d->previousFilePosition << " (" << d->logFile.url().path() << ")"
-               << endl;
+    logDebug() << "New file position : " << d->previousFilePosition << " (" << d->logFile.url().path() << ")";
 
     return rawBuffer;
 }
