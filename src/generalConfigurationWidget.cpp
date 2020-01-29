@@ -80,7 +80,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     d->dateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
     d->dateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
 
-    connect(d->dateFormatGroup, QOverload<int>::of(&QButtonGroup::buttonClicked), this, &GeneralConfigurationWidget::configurationChanged);
+    connect(d->dateFormatGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &GeneralConfigurationWidget::configurationChanged);
 
     addDateFormatExample();
 }
