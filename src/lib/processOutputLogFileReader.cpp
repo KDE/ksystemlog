@@ -118,7 +118,7 @@ void ProcessOutputLogFileReader::startProcess()
     connect(d->process, SIGNAL(finished(int,QProcess::ExitStatus)), this,
             SLOT(emitProcessOutput(int,QProcess::ExitStatus)));
 
-    d->process->start(d->logFile.url().path(), QIODevice::ReadOnly | QIODevice::Text);
+    d->process->start(d->logFile.url().path(), QStringList(), QIODevice::ReadOnly | QIODevice::Text);
 
     d->process->waitForStarted();
 
