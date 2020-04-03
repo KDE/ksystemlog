@@ -377,7 +377,11 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString &id, int f
         if (res == 0) {
             SD_JOURNAL_FOREACH_UNIQUE(journal, data, length)
             {
-                units.append(QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1));
+                const QString unit = QString::fromUtf8((const char *)data, length).section(QChar::fromLatin1('='), 1);
+                if (unit.startsWith(QLatin1String("systemd-coredump@"))) {
+                    continue; // these never contain any log information, and can easily fill up menu
+                }
+                units.append(unit);
             }
         }
 
