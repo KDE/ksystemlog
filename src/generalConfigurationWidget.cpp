@@ -64,11 +64,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
 
         startupLogMode->addItem(logMode->icon(), logMode->name(), QVariant(logMode->id()));
     }
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(startupLogMode, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GeneralConfigurationWidget::configurationChanged);
-#else
-    connect(startupLogMode, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), this, &GeneralConfigurationWidget::configurationChanged);
-#endif
     connect(maxLines, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralConfigurationWidget::configurationChanged);
 
     connect(deleteDuplicatedLines, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
