@@ -79,11 +79,7 @@ StatusBar::StatusBar(QWidget *parent)
     d->messageList = new KComboBox(this);
     d->messageList->setInsertPolicy(QComboBox::InsertAtTop);
     d->messageList->setMaxVisibleItems(5);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(d->messageList, QOverload<int>::of(&KComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
-#else
-    connect(d->messageList, QOverload<int, const QString &>::of(&KComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
-#endif
     /*
         //TODO Define a specifical palette (and make it works !)
         QPalette palette(d->messageList->palette());
