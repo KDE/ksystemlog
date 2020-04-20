@@ -30,7 +30,6 @@
 #include <QHBoxLayout>
 
 #include <KLocalizedString>
-#include <kiconloader.h>
 
 class LoadingBarPrivate
 {

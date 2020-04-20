@@ -24,8 +24,6 @@
 #include <QString>
 #include <QDataStream>
 
-#include <kiconloader.h>
-
 class LogViewColumnPrivate
 {
 public:

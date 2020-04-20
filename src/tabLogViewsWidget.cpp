@@ -26,7 +26,6 @@
 #include <QMenu>
 
 #include <KLocalizedString>
-#include <kiconloader.h>
 #include <QIcon>
 
 #include "logging.h"

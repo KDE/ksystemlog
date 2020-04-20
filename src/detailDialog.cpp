@@ -24,7 +24,6 @@
 // Qt includes
 
 #include <QIcon>
-#include <kiconloader.h>
 #include <KLocalizedString>
 #include <KGuiItem>
 #include <KStandardGuiItem>

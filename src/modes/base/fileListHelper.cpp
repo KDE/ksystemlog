@@ -28,7 +28,6 @@
 
 #include <KLocalizedString>
 #include <kmessagebox.h>
-#include <kiconloader.h>
 
 #include "defaults.h"
 

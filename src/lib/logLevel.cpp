@@ -21,7 +21,6 @@
 
 #include "logLevel.h"
 
-#include <kiconloader.h>
 #include <QIcon>
 class LogLevelPrivate
 {

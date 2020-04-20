@@ -28,7 +28,6 @@
 #include <QColor>
 #include <QTimer>
 
-#include <kiconloader.h>
 #include <QIcon>
 #include <KLocalizedString>
 
@@ -285,7 +284,7 @@ void LogViewSearchWidget::showMessage(const QString &text, const QString &iconTe
     message->setText(text);
     message->show();
 
-    messageIcon->setPixmap(QIcon::fromTheme(iconText).pixmap(KIconLoader::SizeSmall));
+    messageIcon->setPixmap(QIcon::fromTheme(iconText).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
     messageIcon->show();
 
     d->messageHidingTimer->start();

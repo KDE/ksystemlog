@@ -36,7 +36,6 @@
 #include <QStandardItemModel>
 
 #include <kcombobox.h>
-#include <kiconloader.h>
 #include <KLocalizedString>
 
 class ComboBoxDelegate : public QStyledItemDelegate
@@ -134,7 +133,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
     QLabel *filterIcon = new QLabel();
-    filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(KIconLoader::SizeSmall));
+    filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
     filterIcon->setBuddy(d->filterLine);
     filterBarLayout->addWidget(filterIcon);
 

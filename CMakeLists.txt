@@ -38,7 +38,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     WidgetsAddons
     ItemViews
-    IconThemes
     KIO
     Config
     Archive

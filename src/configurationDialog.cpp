@@ -25,7 +25,6 @@
 #include <QPushButton>
 
 #include <KLocalizedString>
-#include <kiconloader.h>
 
 #include "generalConfigurationWidget.h"
 

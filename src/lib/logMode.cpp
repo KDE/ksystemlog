@@ -24,8 +24,6 @@
 #include <QAction>
 #include <QFileInfo>
 
-#include <kiconloader.h>
-
 #include "multipleActions.h"
 #include "logModeItemBuilder.h"
 

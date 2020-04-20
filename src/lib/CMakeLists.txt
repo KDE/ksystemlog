@@ -55,7 +55,6 @@ target_link_libraries(ksystemlog_lib
     KF5::Archive
     KF5::ConfigWidgets
     KF5::ItemViews
-    KF5::IconThemes
     KF5::KIOCore
     KF5::Completion
 )
