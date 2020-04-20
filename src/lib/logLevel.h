@@ -24,7 +24,7 @@
 
 #include <QColor>
 #include <QString>
-#include <QPixmap>
+#include <QObject>
 
 class LogLevelPrivate;
 

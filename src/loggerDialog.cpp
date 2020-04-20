@@ -38,7 +38,7 @@ public:
     QMap<QString, QString> facilities;
 
     QMap<QString, QString> priorities;
-    QMap<QString, QPixmap> priorityIcons;
+    QMap<QString, QIcon> priorityIcons;
 };
 
 LoggerDialog::LoggerDialog(QWidget *parent)
@@ -144,21 +144,21 @@ void LoggerDialog::buildMaps()
 
     // Fill the priority icon map
     d->priorityIcons[Globals::instance().debugLogLevel()->name()]
-        = Globals::instance().debugLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().debugLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().informationLogLevel()->name()]
-        = Globals::instance().informationLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().informationLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().noticeLogLevel()->name()]
-        = Globals::instance().noticeLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().noticeLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().warningLogLevel()->name()]
-        = Globals::instance().warningLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().warningLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().errorLogLevel()->name()]
-        = Globals::instance().errorLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().errorLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().criticalLogLevel()->name()]
-        = Globals::instance().criticalLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().criticalLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().alertLogLevel()->name()]
-        = Globals::instance().alertLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().alertLogLevel()->icon().name());
     d->priorityIcons[Globals::instance().emergencyLogLevel()->name()]
-        = Globals::instance().emergencyLogLevel()->icon().name();
+        = QIcon::fromTheme(Globals::instance().emergencyLogLevel()->icon().name());
 }
 
 void LoggerDialog::textChanged()
