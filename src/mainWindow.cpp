@@ -350,6 +350,8 @@ void MainWindow::updateReloading()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    disconnect(d->tabs, &QTabWidget::currentChanged, this, &MainWindow::changeCurrentTab);
+
     LogManager *currentLogManager = d->tabs->activeLogManager();
     if (currentLogManager) {
         currentLogManager->stopWatching();
