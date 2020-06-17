@@ -62,7 +62,6 @@ Name[th]=ปูมบันทึกระบบ
 Name[tr]=KSystemLog
 Name[ug]=KSystemLog
 Name[uk]=KSystemLog
-Name[x-test]=xxKSystemLogxx
 Name[zh_CN]=KSystemLog
 Name[zh_TW]=KSystemLog
 
@@ -122,7 +121,6 @@ Comment[th]=เครื่องมือแสดงปูมบันทึ�
 Comment[tr]=Sistem günlük kayıtlarını gösterme aracı
 Comment[ug]=سىستېما خاتىرىسىنى كۆرۈش قورالى
 Comment[uk]=Засіб перегляду системних журналів
-Comment[x-test]=xxSystem log viewer toolxx
 Comment[zh_CN]=系统日志查看工具
 Comment[zh_TW]=系統紀錄檢視工具
 
@@ -179,6 +177,5 @@ GenericName[th]=แสดงปูมบันทึกของระบบ
 GenericName[tr]=Sistem Günlüğü İzleyici
 GenericName[ug]=سىستېما خاتىرىسى كۆرگۈچ
 GenericName[uk]=Переглядач системних журналів
-GenericName[x-test]=xxSystem Log Viewerxx
 GenericName[zh_CN]=系统日志查看器
 GenericName[zh_TW]=系統紀錄檔檢視器
