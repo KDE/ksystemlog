@@ -28,7 +28,6 @@
   <name xml:lang="sk">KSystemLog</name>
   <name xml:lang="sv">Ksystemlog</name>
   <name xml:lang="uk">KSystemLog</name>
-  <name xml:lang="x-test">xxKSystemLogxx</name>
   <name xml:lang="zh-CN">KSystemLog</name>
   <name xml:lang="zh-TW">KSystemLog</name>
   <summary>system log viewer</summary>
@@ -56,7 +55,6 @@
   <summary xml:lang="sk">prehliadač záznamov systému</summary>
   <summary xml:lang="sv">Visningsverktyg för systemloggar</summary>
   <summary xml:lang="uk">Переглядач системних журналів</summary>
-  <summary xml:lang="x-test">xxsystem log viewerxx</summary>
   <summary xml:lang="zh-CN">系统日志查看器</summary>
   <summary xml:lang="zh-TW">系統日誌檢視器</summary>
   <description>
@@ -86,7 +84,6 @@
     <p xml:lang="sk">KSystemLog zobrazí všetky záznamy vášho systému, zoskupené podľa všeobecných (predvolený systémový záznam, autentifikácia, jadro, X.org...) a voliteľných služieb (Apache, Cups, atď...) Zahŕňa veľa funkcií na pekné čítanie vašich súborov záznamov:</p>
     <p xml:lang="sv">Ksystemlog visar alla loggar i systemet, grupperade enligt allmänna (standardsystemlogg, behörighetskontroll, kärna, X.org, ...) och valfria tjänster (Apache, Cups, etc.). Det inkluderar många funktioner för att snyggt läsa loggfiler:</p>
     <p xml:lang="uk">KSystemLog може показувати усі журнали роботи вашої системи. Журнали поділено на загальні (типовий журнал системи, журнал розпізнавання, журнал ядра, журнал X.org...) та додаткові журнали служб (Apache, CUPS тощо). Передбачено багато можливостей для зручного перегляду журналів:</p>
-    <p xml:lang="x-test">xxKSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:xx</p>
     <p xml:lang="zh-CN">KSystemLog 显示系统的所有日志，按一般分类(默认系统日志、身份验证、内核、X.org...)和额外服务分类(Apache、Cups 等)。它有许多很棒的功能来读取日志文件：</p>
     <p xml:lang="zh-TW">KSystemLog 顯示您系統的所有日誌，並分類成「一般」（預設系統日誌、認證、內核及 X.org 等…），和選用服務（Apache、Cups 等等…）。其包含許多能讓您更好閱讀日誌檔案的功能：</p>
     <ul>
@@ -114,7 +111,6 @@
       <li xml:lang="sk">Zafarbiť riadky záznamu podľa ich závažnosti</li>
       <li xml:lang="sv">Färglägg loggrader beroende på deras svårighetsgrad</li>
       <li xml:lang="uk">Розфарбовування записів журналу за їхньою критичністю</li>
-      <li xml:lang="x-test">xxColorize log lines depending on their severitiesxx</li>
       <li xml:lang="zh-CN">根据它们的严重程度给日志行颜色高亮</li>
       <li xml:lang="zh-TW">基於日誌中行的重要性上色</li>
       <li>Tabbed view to allow displaying several logs at the same time</li>
@@ -141,7 +137,6 @@
       <li xml:lang="sk">Kartový pohľad na umožnenie zobrazenia niekoľkých záznamov naraz</li>
       <li xml:lang="sv">Flikvy för att tillåta att flera loggar visas samtidigt</li>
       <li xml:lang="uk">Перегляд з вкладками, який надає вам змогу бачити декілька журналів одразу</li>
-      <li xml:lang="x-test">xxTabbed view to allow displaying several logs at the same timexx</li>
       <li xml:lang="zh-CN">多页视图，可同时显示多个日志</li>
       <li xml:lang="zh-TW">分頁檢視，允許同時顯示多個日誌</li>
       <li>Auto display new lines logged</li>
@@ -168,7 +163,6 @@
       <li xml:lang="sk">Automaticky zobraziť nové zaznamenané riadky</li>
       <li xml:lang="sv">Visa automatiskt nya loggade rader</li>
       <li xml:lang="uk">Автоматичний показ нових рядків журналу</li>
-      <li xml:lang="x-test">xxAuto display new lines loggedxx</li>
       <li xml:lang="zh-CN">自动显示新日志记录</li>
       <li xml:lang="zh-TW">自動顯示新記錄的行</li>
       <li>Detailed information for each log lines</li>
@@ -195,7 +189,6 @@
       <li xml:lang="sk">Podrobné informácie pre každý riadok záznamu</li>
       <li xml:lang="sv">Detaljerad information för varje loggrad</li>
       <li xml:lang="uk">Докладна інформація щодо кожного рядка журналу</li>
-      <li xml:lang="x-test">xxDetailed information for each log linesxx</li>
       <li xml:lang="zh-CN">每行日志的详细信息</li>
       <li xml:lang="zh-TW">詳細列出每行日誌的資訊</li>
     </ul>
