@@ -29,9 +29,9 @@
 #include <QFileDialog>
 
 #include <KLocalizedString>
-#include <ktoolinvocation.h>
-#include <kmessagebox.h>
-#include <kfilterdev.h>
+#include <KToolInvocation>
+#include <KMessageBox>
+#include <KFilterDev>
 
 #include "logging.h"
 

@@ -24,7 +24,7 @@
 #include <QProcess>
 
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 // Project includes
 #include "logging.h"

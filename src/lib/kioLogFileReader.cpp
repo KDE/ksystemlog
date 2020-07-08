@@ -26,7 +26,7 @@
 #include <kio/filejob.h>
 #include <kio/job.h>
 
-#include <kdirwatch.h>
+#include <KDirWatch>
 
 #include "logFile.h"
 #include "logging.h"

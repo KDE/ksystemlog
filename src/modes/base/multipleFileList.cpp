@@ -26,8 +26,8 @@
 #include <QHeaderView>
 
 #include <KLocalizedString>
-#include <kactioncollection.h>
-#include <kmessagebox.h>
+#include <KActionCollection>
+#include <KMessageBox>
 
 #include <QIcon>
 #include <QMenu>

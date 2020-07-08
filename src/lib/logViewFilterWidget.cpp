@@ -35,7 +35,7 @@
 #include <QMetaEnum>
 #include <QStandardItemModel>
 
-#include <kcombobox.h>
+#include <KComboBox>
 #include <KLocalizedString>
 
 class ComboBoxDelegate : public QStyledItemDelegate

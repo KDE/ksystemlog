@@ -25,9 +25,9 @@
 #include <QFile>
 #include <QMimeDatabase>
 
-#include <kdirwatch.h>
+#include <KDirWatch>
 #include <KLocalizedString>
-#include <kfilterdev.h>
+#include <KFilterDev>
 
 #include "logFileReader.h"
 #include "logFileReaderPrivate.h"

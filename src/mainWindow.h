@@ -24,10 +24,10 @@
 
 // KDE includes
 #include <kxmlguiwindow.h>
-#include <kconfig.h>
+#include <KConfig>
 #include <QMenu>
 
-#include <ktoggleaction.h>
+#include <KToggleAction>
 
 #include "logModeAction.h"
 

@@ -28,9 +28,9 @@
 
 #include <QIcon>
 
-#include <kcombobox.h>
+#include <KComboBox>
 #include <KLocalizedString>
-#include <ksqueezedtextlabel.h>
+#include <KSqueezedTextLabel>
 
 #include "logging.h"
 

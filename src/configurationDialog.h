@@ -22,7 +22,7 @@
 #ifndef CONFIGURATION_DIALOG_H
 #define CONFIGURATION_DIALOG_H
 
-#include <kconfigdialog.h>
+#include <KConfigDialog>
 
 class ConfigurationDialogPrivate;
 

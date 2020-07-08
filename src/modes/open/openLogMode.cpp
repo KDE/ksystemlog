@@ -27,8 +27,8 @@
 
 #include <KLocalizedString>
 
-#include <ktoggleaction.h>
-#include <kmessagebox.h>
+#include <KToggleAction>
+#include <KMessageBox>
 
 #include "logging.h"
 #include "logMode.h"

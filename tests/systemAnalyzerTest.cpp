@@ -25,7 +25,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include <kdirwatch.h>
+#include <KDirWatch>
 
 #include "testUtil.h"
 

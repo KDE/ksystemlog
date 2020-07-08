@@ -26,7 +26,7 @@
 #include <QGroupBox>
 
 #include <KLocalizedString>
-#include <kurlrequester.h>
+#include <KUrlRequester>
 
 #include "globals.h"
 #include "logging.h"

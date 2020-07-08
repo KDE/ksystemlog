@@ -24,7 +24,7 @@
 #include <QThread>
 #include <QTest>
 
-#include <kdirwatch.h>
+#include <KDirWatch>
 
 #include "testUtil.h"
 

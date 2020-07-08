@@ -26,7 +26,7 @@
 #include <QString>
 #include <QList>
 
-#include <kactionmenu.h>
+#include <KActionMenu>
 
 #include "globals.h"
 

@@ -25,7 +25,7 @@
 #include <QWidget>
 #include <QStandardItem>
 
-#include <ktreewidgetsearchline.h>
+#include <KTreeWidgetSearchLine>
 
 #include "logViewColumns.h"
 

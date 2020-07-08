@@ -29,25 +29,25 @@
 #include <QIcon>
 
 // KDE includes
-#include <kmainwindow.h>
-#include <kmessagebox.h>
-#include <kactionmenu.h>
+#include <KMainWindow>
+#include <KMessageBox>
+#include <KActionMenu>
 #include <KLocalizedString>
 
-#include <kservice.h>
-#include <kservicetypetrader.h>
+#include <KService>
+#include <KServiceTypeTrader>
 
-#include <ktoggleaction.h>
+#include <KToggleAction>
 
-#include <kconfig.h>
+#include <KConfig>
 
-#include <kurlrequesterdialog.h>
+#include <KUrlRequesterDialog>
 
-#include <kedittoolbar.h>
+#include <KEditToolBar>
 
-#include <kstandardshortcut.h>
-#include <kstandardaction.h>
-#include <kactioncollection.h>
+#include <KStandardShortcut>
+#include <KStandardAction>
+#include <KActionCollection>
 
 // Project includes
 #include "ksystemlogConfig.h"

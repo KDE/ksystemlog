@@ -30,7 +30,7 @@
 // KDE includes
 #include <QMenu>
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 #include <QIcon>
 #include <QFileInfo>
 

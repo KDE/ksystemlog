@@ -27,7 +27,7 @@
 #include <QFileDialog>
 
 #include <KLocalizedString>
-#include <kmessagebox.h>
+#include <KMessageBox>
 
 #include "defaults.h"
 
