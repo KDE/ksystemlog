@@ -26,6 +26,7 @@
   <name xml:lang="pt-BR">KSystemLog</name>
   <name xml:lang="ru">KSystemLog</name>
   <name xml:lang="sk">KSystemLog</name>
+  <name xml:lang="sl">KSystemLog</name>
   <name xml:lang="sv">Ksystemlog</name>
   <name xml:lang="uk">KSystemLog</name>
   <name xml:lang="x-test">xxKSystemLogxx</name>
@@ -54,6 +55,7 @@
   <summary xml:lang="pt-BR">Visualizador do registros do sistema</summary>
   <summary xml:lang="ru">Просмотр системных журналов</summary>
   <summary xml:lang="sk">prehliadač záznamov systému</summary>
+  <summary xml:lang="sl">vpogledovalnik v sistemski dnevnik</summary>
   <summary xml:lang="sv">Visningsverktyg för systemloggar</summary>
   <summary xml:lang="uk">Переглядач системних журналів</summary>
   <summary xml:lang="x-test">xxsystem log viewerxx</summary>
@@ -84,6 +86,7 @@
     <p xml:lang="pt-BR">O KSystemLog mostra todos os registros do seu sistema, agrupados por Geral (Registro padrão do sistema, Autenticação, Kernel, X.org...), e por Serviços opcionais (Apache, Cups, etc, ...). Inclui muitas funcionalidades agradáveis para leitura dos arquivos de registro:</p>
     <p xml:lang="ru">KSystemLog — приложение для просмотра системных журналов. Приложение позволяет просматривать основные (системный журнал по умолчанию, журнал аутентификации, журнал сообщений ядра, журнал X.org) и дополнительные журналы (Apache, CUPS и других). Приложение использует следующие функции для упрощения работы с файлами журналов:</p>
     <p xml:lang="sk">KSystemLog zobrazí všetky záznamy vášho systému, zoskupené podľa všeobecných (predvolený systémový záznam, autentifikácia, jadro, X.org...) a voliteľných služieb (Apache, Cups, atď...) Zahŕňa veľa funkcií na pekné čítanie vašich súborov záznamov:</p>
+    <p xml:lang="sl">KSystemLog prikaže vse dnevnike vašega sistema, razvrščene v skupine Splošno (Privzeti sistemski dnevnik, overjanje, Kernel, X.org ...) in izbirne storitve (Apache, Cups itd.). Vsebuje veliko funkcij za lažje branje datotek dnevnika:</p>
     <p xml:lang="sv">Ksystemlog visar alla loggar i systemet, grupperade enligt allmänna (standardsystemlogg, behörighetskontroll, kärna, X.org, ...) och valfria tjänster (Apache, Cups, etc.). Det inkluderar många funktioner för att snyggt läsa loggfiler:</p>
     <p xml:lang="uk">KSystemLog може показувати усі журнали роботи вашої системи. Журнали поділено на загальні (типовий журнал системи, журнал розпізнавання, журнал ядра, журнал X.org...) та додаткові журнали служб (Apache, CUPS тощо). Передбачено багато можливостей для зручного перегляду журналів:</p>
     <p xml:lang="x-test">xxKSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:xx</p>
@@ -112,6 +115,7 @@
       <li xml:lang="pt-BR">Colorir as linhas de registro de acordo com a sua criticidade</li>
       <li xml:lang="ru">Использование выделения цветом для событий различного приоритета;</li>
       <li xml:lang="sk">Zafarbiť riadky záznamu podľa ich závažnosti</li>
+      <li xml:lang="sl">Pobarvaj vrstice dnevnika v odvisnosti od resnosti</li>
       <li xml:lang="sv">Färglägg loggrader beroende på deras svårighetsgrad</li>
       <li xml:lang="uk">Розфарбовування записів журналу за їхньою критичністю</li>
       <li xml:lang="x-test">xxColorize log lines depending on their severitiesxx</li>
@@ -139,6 +143,7 @@
       <li xml:lang="pt-BR">Exibição em abas que permite apresentar vários registros ao mesmo tempo</li>
       <li xml:lang="ru">Использование вкладок для одновременного просмотра нескольких журналов;</li>
       <li xml:lang="sk">Kartový pohľad na umožnenie zobrazenia niekoľkých záznamov naraz</li>
+      <li xml:lang="sl">Pogled z zavihki, ki dovoljuje prikaz več dnevnikov istočasno</li>
       <li xml:lang="sv">Flikvy för att tillåta att flera loggar visas samtidigt</li>
       <li xml:lang="uk">Перегляд з вкладками, який надає вам змогу бачити декілька журналів одразу</li>
       <li xml:lang="x-test">xxTabbed view to allow displaying several logs at the same timexx</li>
@@ -166,6 +171,7 @@
       <li xml:lang="pt-BR">Exibição automática das novas linhas registradas</li>
       <li xml:lang="ru">Автоматический показ новых записей;</li>
       <li xml:lang="sk">Automaticky zobraziť nové zaznamenané riadky</li>
+      <li xml:lang="sl">Avtomatski prikaz novih zabeleženih vrstic dnevnika</li>
       <li xml:lang="sv">Visa automatiskt nya loggade rader</li>
       <li xml:lang="uk">Автоматичний показ нових рядків журналу</li>
       <li xml:lang="x-test">xxAuto display new lines loggedxx</li>
@@ -193,6 +199,7 @@
       <li xml:lang="pt-BR">Informação detalhada para cada linha do registro</li>
       <li xml:lang="ru">Подробная информация о каждой строке журнала.</li>
       <li xml:lang="sk">Podrobné informácie pre každý riadok záznamu</li>
+      <li xml:lang="sl">Podrobna informacija za vsako zabeleženo vrstico</li>
       <li xml:lang="sv">Detaljerad information för varje loggrad</li>
       <li xml:lang="uk">Докладна інформація щодо кожного рядка журналу</li>
       <li xml:lang="x-test">xxDetailed information for each log linesxx</li>
