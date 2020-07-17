@@ -23,6 +23,7 @@
 
 #include <QMutex>
 #include <QFile>
+#include <QFileInfo>
 #include <QMimeDatabase>
 
 #include <KDirWatch>
@@ -119,16 +120,15 @@ QIODevice *LocalLogFileReader::open()
     QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
     logDebug() << filePath << " : " << mimeType;
-    QIODevice *inputDevice;
+    QScopedPointer<QIODevice> inputDevice;
 
     // Try to see if this file exists
-    QFile *file = new QFile(filePath);
+    QFileInfo info(filePath);
     // If the file does not exist
-    if (!file->exists()) {
+    if (!info.exists()) {
         QString message(i18n("The file '%1' does not exist.", filePath));
         emit errorOccured(i18n("File Does Not Exist"), message);
         emit statusBarChanged(message);
-        delete file;
         return nullptr;
     }
 
@@ -136,14 +136,14 @@ QIODevice *LocalLogFileReader::open()
     if (mimeType == QLatin1String("text/plain") || mimeType == QLatin1String("application/octet-stream")) {
         logDebug() << "Using QFile input device";
 
-        inputDevice = file;
+        inputDevice.reset(new QFile(filePath));
     }
     // Compressed file : we use the KFilterDev helper
     else {
         logDebug() << "Using KFilterDev input device";
 
         // inputDevice = KFilterDev::deviceForFile(filePath, mimeType);
-        inputDevice = new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType));
+        inputDevice.reset(new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType)));
 
         if (inputDevice == nullptr) {
             QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
@@ -157,11 +157,10 @@ QIODevice *LocalLogFileReader::open()
         QString message(i18n("You do not have sufficient permissions to read '%1'.", filePath));
         emit errorOccured(i18n("Insufficient Permissions"), message);
         emit statusBarChanged(message);
-        delete inputDevice;
         return nullptr;
     }
 
-    return inputDevice;
+    return inputDevice.take();
 }
 
 void LocalLogFileReader::close(QIODevice *inputDevice)
