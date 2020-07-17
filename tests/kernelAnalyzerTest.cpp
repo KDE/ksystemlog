@@ -117,7 +117,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     assertedDateTime = assertedDateTime.addSecs(22);
     assertedDateTime = assertedDateTime.addMSecs(232);
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(),
                       assertedDateTime, items);
 
     testUtil.destroyReader(kernelAnalyzer);
@@ -149,7 +149,7 @@ void KernelAnalyzerTest::testSuseDmesg()
 
     QStringList items = QStringList() << QStringLiteral("r8169") << QStringLiteral("eth0: link down");
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), Globals::instance().informationLogLevel(),
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(),
                       kernelAnalyzer->findStartupTime(), items);
 
     testUtil.destroyReader(kernelAnalyzer);

@@ -234,7 +234,7 @@ void LoggerDialog::sendMessage()
     if (fileActivation->isChecked()) {
         arguments << QStringLiteral("-f");
 
-        arguments << file->url().path();
+        arguments << file->url().toLocalFile();
     }
     // Else, the user types the content of its message
     else {

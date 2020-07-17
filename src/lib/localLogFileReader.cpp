@@ -80,13 +80,13 @@ void LocalLogFileReader::init()
     // Init current file position
     d->previousFilePosition = 0;
 
-    logDebug() << "Reading local file " << d->logFile.url().path();
+    logDebug() << "Reading local file " << d->logFile.url().toLocalFile();
 }
 
 void LocalLogFileReader::watchFile(bool enable)
 {
     Q_D(LocalLogFileReader);
-    QString filePath = d->logFile.url().path();
+    QString filePath = d->logFile.url().toLocalFile();
 
     if (enable == true) {
         logDebug() << "Monitoring file : " << filePath;
@@ -108,7 +108,7 @@ void LocalLogFileReader::watchFile(bool enable)
 QIODevice *LocalLogFileReader::open()
 {
     Q_D(LocalLogFileReader);
-    QString filePath = d->logFile.url().path();
+    const QString filePath = d->logFile.url().toLocalFile();
 
     if (d->logFile.url().isValid() == false) {
         QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
@@ -186,7 +186,7 @@ QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
 
     // Get the size file for the next calculation
     d->previousFilePosition = inputDevice->size();
-    logDebug() << "New file position : " << d->previousFilePosition << " (" << d->logFile.url().path() << ")";
+    logDebug() << "New file position : " << d->previousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
 
     return rawBuffer;
 }
@@ -203,13 +203,13 @@ void LocalLogFileReader::logFileModified()
 
     QIODevice *inputDevice = open();
     if (inputDevice == nullptr) {
-        logCritical() << "Could not open file " << d->logFile.url().path();
+        logCritical() << "Could not open file " << d->logFile.url().toLocalFile();
         return;
     }
 
     // If there are new lines in the file, insert only them or this is the first time we read this file
     if (d->previousFilePosition != 0 && d->previousFilePosition <= inputDevice->size()) {
-        logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().path()
+        logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().toLocalFile()
                    << ")";
 
         if (inputDevice->isSequential()) {

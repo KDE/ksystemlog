@@ -75,7 +75,7 @@ void ProcessOutputLogFileReader::init()
     d->processUpdater.setInterval(PROCESS_OUTPUT_UPDATER_INTERVAL);
     connect(&(d->processUpdater), &QTimer::timeout, this, &ProcessOutputLogFileReader::startProcess);
 
-    logDebug() << "Using process name " << d->logFile.url().path();
+    logDebug() << "Using process name " << d->logFile.url().toLocalFile();
 }
 
 void ProcessOutputLogFileReader::watchFile(bool enable)
@@ -83,7 +83,7 @@ void ProcessOutputLogFileReader::watchFile(bool enable)
     Q_D(ProcessOutputLogFileReader);
 
     if (enable == true) {
-        logDebug() << "Monitoring process : " << d->logFile.url().path();
+        logDebug() << "Monitoring process : " << d->logFile.url().toLocalFile();
 
         // Reinit current file position
         d->previousLinesCount = 0;
@@ -118,7 +118,7 @@ void ProcessOutputLogFileReader::startProcess()
     connect(d->process, SIGNAL(finished(int,QProcess::ExitStatus)), this,
             SLOT(emitProcessOutput(int,QProcess::ExitStatus)));
 
-    d->process->start(d->logFile.url().path(), QStringList(), QIODevice::ReadOnly | QIODevice::Text);
+    d->process->start(d->logFile.url().toLocalFile(), QStringList(), QIODevice::ReadOnly | QIODevice::Text);
 
     d->process->waitForStarted();
 
@@ -133,7 +133,7 @@ void ProcessOutputLogFileReader::closeProcess()
 
     // Get the size file for the next calculation
     d->previousLinesCount = d->availableStandardOutput.count();
-    logDebug() << "New lines count : " << d->previousLinesCount << " (" << d->logFile.url().path() << ")";
+    logDebug() << "New lines count : " << d->previousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
 
     d->availableStandardOutput.clear();
 
@@ -157,7 +157,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
                << d->availableStandardOutput.count() << "currently";
 
     if (exitStatus == QProcess::CrashExit) {
-        QString message(i18n("The process '%1' crashed.", d->logFile.url().path()));
+        QString message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));
         emit errorOccured(i18n("Process Crashed"), message);
         emit statusBarChanged(message);
     }
@@ -171,7 +171,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
     }
     // If there are new lines in the file, insert only them or this is the first time we read this file
     else if (d->previousLinesCount != 0 && d->previousLinesCount <= d->availableStandardOutput.count()) {
-        logDebug() << "Reading from line " << d->previousLinesCount << " (" << d->logFile.url().path() << ")";
+        logDebug() << "Reading from line " << d->previousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
 
         QStringList newOutputs;
 

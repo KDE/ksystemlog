@@ -101,7 +101,7 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles()
         else
             level = Globals::instance().informationLogLevel();
 
-        QUrl url(stringValue);
+        const QUrl url = QUrl::fromLocalFile(stringValue);
         if (!url.isValid()) {
             logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
             continue;

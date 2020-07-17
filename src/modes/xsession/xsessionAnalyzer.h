@@ -108,7 +108,7 @@ protected:
             logLevel = Globals::instance().informationLogLevel();
 
         return new LogLine(logLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
-                           originalFile.url().path(), logLevel, logMode);
+                           originalFile.url().toLocalFile(), logLevel, logMode);
     }
 
 private:

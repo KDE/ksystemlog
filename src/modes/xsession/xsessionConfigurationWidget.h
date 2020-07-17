@@ -89,7 +89,7 @@ public Q_SLOTS:
                                                    .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                                    ->logModeConfiguration<XSessionConfiguration *>();
 
-        configuration->setXSessionPath(xsessionUrlRequester->url().path());
+        configuration->setXSessionPath(xsessionUrlRequester->url().toLocalFile());
         configuration->setIgnoreXorgErrors(ignoreXorgErrors->isChecked());
     }
 
@@ -118,7 +118,7 @@ public Q_SLOTS:
 protected:
     bool isValid() const override
     {
-        if (xsessionUrlRequester->url().path().isEmpty() == false) {
+        if (xsessionUrlRequester->url().toLocalFile().isEmpty() == false) {
             return true;
         }
 

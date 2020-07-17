@@ -91,20 +91,20 @@ void LoadingBar::startLoading(const LogMode &logMode, const LogFile &logFile, in
         if (d->firstLoading)
             d->label->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
                                     "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
-                                    logMode.name(), logFile.url().path(), fileIndex));
+                                    logMode.name(), logFile.url().toLocalFile(), fileIndex));
         else
             d->label->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
                                     "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
-                                    logMode.name(), logFile.url().path(), fileIndex));
+                                    logMode.name(), logFile.url().toLocalFile(), fileIndex));
     }
     // Only one file
     else {
         if (d->firstLoading)
             d->label->setText(
-                i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
+                i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
         else
             d->label->setText(
-                i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().path()));
+                i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
     }
 }
 

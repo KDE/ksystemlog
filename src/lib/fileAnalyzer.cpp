@@ -66,7 +66,7 @@ void FileAnalyzer::deleteLogFiles()
 
     // Remove the watching on the monitored files
     foreach (LogFileReader *logFileReader, logFileReaders) {
-        logDebug() << "Remove file : " << logFileReader->logFile().url().path();
+        logDebug() << "Remove file : " << logFileReader->logFile().url().toLocalFile();
         delete logFileReader;
     }
 
@@ -91,7 +91,7 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode,
                                   const QStringList &content)
 {
-    QString filePath = logFileReader->logFile().url().path();
+    QString filePath = logFileReader->logFile().url().toLocalFile();
     if (readingMode == Analyzer::FullRead)
         logDebug() << "File " << filePath << " has been modified on full read.";
     else
@@ -153,7 +153,7 @@ int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &l
 
     // If there is no line
     if (bufferedLines.isEmpty()) {
-        logWarning() << "File is empty : " << logFile.url().path();
+        logWarning() << "File is empty : " << logFile.url().toLocalFile();
     }
 
     int stop = 0;
@@ -196,7 +196,7 @@ int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &l
         ++currentPosition;
     }
 
-    logDebug() << "Total read lines :" << (bufferedLines.size() - stop) << "(" << logFile.url().path() << ")";
+    logDebug() << "Total read lines :" << (bufferedLines.size() - stop) << "(" << logFile.url().toLocalFile() << ")";
 
     return insertedLogLineCount;
 }

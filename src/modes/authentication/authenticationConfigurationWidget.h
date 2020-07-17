@@ -97,7 +97,7 @@ public Q_SLOTS:
                   .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
                   ->logModeConfiguration<AuthenticationConfiguration *>();
 
-        authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().path());
+        authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().toLocalFile());
     }
 
     void readConfig() override
@@ -123,7 +123,7 @@ public Q_SLOTS:
 protected:
     bool isValid() const override
     {
-        if (authenticationUrlRequester->url().path().isEmpty() == false) {
+        if (authenticationUrlRequester->url().toLocalFile().isEmpty() == false) {
             return true;
         }
 

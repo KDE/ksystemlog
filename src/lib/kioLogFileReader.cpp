@@ -62,13 +62,13 @@ KioLogFileReader::KioLogFileReader(const LogFile &logFile)
     d->fileWatch = new KDirWatch(this);
 
     connect(d->fileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);
-    d->fileWatch->addFile(logFile.url().path());
+    d->fileWatch->addFile(logFile.url().toLocalFile());
     /*
     d->fileWatch.setInterval(1000);
     connect(& (d->fileWatch), SIGNAL(timeout()), this, SLOT(watchFile()));
     */
 
-    logDebug() << "Starting " << logFile.url().path();
+    logDebug() << "Starting " << logFile.url().toLocalFile();
 }
 
 KioLogFileReader::~KioLogFileReader()

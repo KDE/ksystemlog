@@ -95,7 +95,7 @@ void SystemAnalyzerTest::testOneLine()
                                       << QStringLiteral("[11663.656000] eth1: no IPv6 routers present");
 
     const int year = QDate::currentDate().year();
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 21), QTime(22, 52, 44)), items
 
                       );
@@ -171,7 +171,7 @@ void SystemAnalyzerTest::testMultipleLines()
     addedLines << QStringLiteral("Aug 18 17:04:28 localhost test: Test line 1");
     addedLines << QStringLiteral("Aug 18 17:04:30 localhost test: Test line 2");
 
-    testUtil.addLogLines(logFile.url().path(), addedLines);
+    testUtil.addLogLines(logFile.url().toLocalFile(), addedLines);
 
     // Assert that the model has been updated
     QCOMPARE(model->itemCount(), 50);
@@ -215,29 +215,29 @@ void SystemAnalyzerTest::testStrangeLines()
     // Classical log line
     items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel")
                           << QStringLiteral("Kernel panic");
-    testUtil.testLine(model->logLines().at(0), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(0), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 10), QTime(17, 04, 28)), items);
 
     //-- MARK -- log line
     items = QStringList() << QStringLiteral("localhost") << QStringLiteral("syslog")
                           << QStringLiteral("-- MARK --");
-    testUtil.testLine(model->logLines().at(1), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(1), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 11), QTime(13, 49, 38)), items);
 
     // Last message repeated n time log line
     items = QStringList() << QStringLiteral("localhost") << QStringLiteral("syslog")
                           << QStringLiteral("last message repeated 4 times");
-    testUtil.testLine(model->logLines().at(2), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(2), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 12), QTime(18, 10, 32)), items);
 
     //"Aug 13 17:04:28 testprocess: Say ouhou  " -> No host name
     items = QStringList() << undefined << QStringLiteral("testprocess") << QStringLiteral("Say ouhou  ");
-    testUtil.testLine(model->logLines().at(3), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(3), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 13), QTime(17, 04, 28)), items);
 
     //"Aug 14 17:04:28 localhost kernel say ouhou" -> No process name and not a syslog message
     items = QStringList() << QStringLiteral("localhost") << undefined << QStringLiteral("kernel say ouhou");
-    testUtil.testLine(model->logLines().at(4), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(4), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 14), QTime(17, 04, 28)), items);
 
     //"Aug 15 22:39:01 localhost /USR/SBIN/CRON[9433]: (root) CMD (  [ -d /var/lib/php5 ] && find
@@ -246,7 +246,7 @@ void SystemAnalyzerTest::testStrangeLines()
                           << QStringLiteral(
                                  "(root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin "
                                  "+$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)");
-    testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().path(), logFiles.at(0).defaultLogLevel(),
+    testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 15), QTime(22, 39, 01)), items);
 
     //"blablalbla" -> Invalid line
@@ -321,7 +321,7 @@ void SystemAnalyzerTest::testMaxLines()
     QStringList addedLines;
 
     addedLines << QStringLiteral("Aug 18 10:00:00 localhost test: Line 8");
-    testUtil.addLogLines(logFile.url().path(), addedLines);
+    testUtil.addLogLines(logFile.url().toLocalFile(), addedLines);
 
     QCOMPARE(model->itemCount(), 5);
     compareWithMinTime(model->logLines(), QDateTime(QDate(2007, 8, 18), QTime(11, 0, 0)));
@@ -332,7 +332,7 @@ void SystemAnalyzerTest::testMaxLines()
     addedLines.clear();
     addedLines << QStringLiteral("Aug 18 10:00:00 localhost test: Line 9");
     addedLines << QStringLiteral("Aug 18 19:00:00 localhost test: Line 10");
-    testUtil.addLogLines(logFile.url().path(), addedLines);
+    testUtil.addLogLines(logFile.url().toLocalFile(), addedLines);
 
     QCOMPARE(model->itemCount(), 6);
     compareWithMinTime(model->logLines(), QDateTime(QDate(2007, 8, 18), QTime(11, 0, 0)));
@@ -340,7 +340,7 @@ void SystemAnalyzerTest::testMaxLines()
     addedLines.clear();
     addedLines << QStringLiteral("Aug 18 20:00:00 localhost test: Line 11");
     addedLines << QStringLiteral("Aug 18 21:00:00 localhost test: Line 12");
-    testUtil.addLogLines(logFile.url().path(), addedLines);
+    testUtil.addLogLines(logFile.url().toLocalFile(), addedLines);
 
     QCOMPARE(model->itemCount(), 6);
     compareWithMinTime(model->logLines(), QDateTime(QDate(2007, 8, 18), QTime(13, 0, 0)));

@@ -99,7 +99,7 @@ protected:
         LogLevel *logLevel = findLogLevel(capturedTexts.takeAt(0));
 
         return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                           originalLogFile.url().path(), logLevel, logMode);
+                           originalLogFile.url().toLocalFile(), logLevel, logMode);
     }
 
     LogLevel *findLogLevel(const QString &level)

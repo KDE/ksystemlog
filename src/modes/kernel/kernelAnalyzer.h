@@ -125,7 +125,7 @@ protected:
         */
 
         LogLine *line
-            = new LogLine(logLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().path(),
+            = new LogLine(logLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
                           Globals::instance().informationLogLevel(), logMode);
 
         return line;

@@ -94,7 +94,7 @@ QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
                     paths.append(foundPath);
                 }
             } else {
-                paths.append(url.path());
+                paths.append(url.toLocalFile());
             }
         }
     }
@@ -119,7 +119,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
     }
 
     // If it's a directory, it's not valid
-    if (QDir(url.path()).exists()) {
+    if (QDir(url.toLocalFile()).exists()) {
         return false;
     }
 
@@ -156,19 +156,19 @@ QUrl FileListHelper::openUrl(const QString &originPath)
 
 QStringList FileListHelper::expandJoker(const QUrl &url)
 {
-    QDir directory = QDir(url.path().left(url.path().count() - url.fileName().count()));
+    const QFileInfo info(url.toLocalFile());
 
-    logDebug() << "Dir " << directory.path();
-    QString filename = url.fileName();
+    logDebug() << "Dir " << info.dir().path();
+    QString filename = info.fileName();
 
     if (filename.isEmpty()) {
         return QStringList();
     }
 
     QStringList foundPaths;
-    const QStringList files = directory.entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
+    const QStringList files = info.dir().entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
     foreach (const QString &file, files) {
-        foundPaths.append(directory.absoluteFilePath(file));
+        foundPaths.append(info.dir().absoluteFilePath(file));
     }
 
     return foundPaths;

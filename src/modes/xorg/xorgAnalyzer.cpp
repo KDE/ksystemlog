@@ -77,7 +77,7 @@ LogLine *XorgAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
     list.append(logLineType->name());
     list.append(string);
 
-    return new LogLine(logLineInternalIdGenerator++, currentDateTime, list, originalFile.url().path(),
+    return new LogLine(logLineInternalIdGenerator++, currentDateTime, list, originalFile.url().toLocalFile(),
                        logLineType, logMode);
 }
 

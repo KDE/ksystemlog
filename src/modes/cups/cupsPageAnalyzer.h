@@ -90,7 +90,7 @@ protected:
         QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
 
         return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                           originalLogFile.url().path(), Globals::instance().informationLogLevel(), logMode);
+                           originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), logMode);
     }
 };
 

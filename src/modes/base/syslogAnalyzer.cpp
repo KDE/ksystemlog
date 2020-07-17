@@ -176,7 +176,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     list.append(process);
     list.append(message);
 
-    return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalFile.url().path(),
+    return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalFile.url().toLocalFile(),
                        originalFile.defaultLogLevel(), logMode);
 }
 
@@ -185,7 +185,7 @@ inline LogLine *SyslogAnalyzer::undefinedLogLine(const QString &message, const L
     QStringList items;
     items << undefinedHostName() << undefinedProcess() << message;
     return new LogLine(logLineInternalIdGenerator++, QDateTime::currentDateTime(), items,
-                       originalFile.url().path(), originalFile.defaultLogLevel(), logMode);
+                       originalFile.url().toLocalFile(), originalFile.defaultLogLevel(), logMode);
 }
 
 inline QString SyslogAnalyzer::undefinedHostName()

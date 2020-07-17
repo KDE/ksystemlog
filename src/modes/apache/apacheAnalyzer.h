@@ -137,7 +137,7 @@ protected:
         list.append(line);
 
         return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                           originalLogFile.url().path(), findLogLevel(level), logMode);
+                           originalLogFile.url().toLocalFile(), findLogLevel(level), logMode);
     }
 
 private:

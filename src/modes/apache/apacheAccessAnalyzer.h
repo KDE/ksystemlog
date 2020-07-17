@@ -129,7 +129,7 @@ protected:
         list.append(message);
         list.append(url);
 
-        return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().path(),
+        return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
                            Globals::instance().informationLogLevel(), logMode);
     }
 };

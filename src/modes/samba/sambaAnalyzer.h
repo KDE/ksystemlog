@@ -136,7 +136,7 @@ protected:
             LogLine *returnedLogLine = currentLogLine;
 
             currentLogLine = new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                                         originalLogFile.url().path(),
+                                         originalLogFile.url().toLocalFile(),
                                          Globals::instance().informationLogLevel(), logMode);
 
             return returnedLogLine;

@@ -63,7 +63,7 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
     QStringList list;
     list.append(message);
 
-    return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().path(),
+    return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
                        findLogLevel(level), logMode);
 }
 

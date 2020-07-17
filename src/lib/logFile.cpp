@@ -87,12 +87,12 @@ LogLevel *LogFile::defaultLogLevel() const
 
 QDataStream &operator<<(QDataStream &out, const LogFile &logFile)
 {
-    out << logFile.url().path();
+    out << logFile.url().toLocalFile();
     return out;
 }
 
 QDebug &operator<<(QDebug &out, const LogFile &logFile)
 {
-    out << logFile.url().path();
+    out << logFile.url().toLocalFile();
     return out;
 }
