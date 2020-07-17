@@ -55,10 +55,6 @@ include(CheckSymbolExists)
 include(CheckFunctionExists)
 include(CheckLibraryExists)
 include(CheckTypeSize)
-if(WIN32)
-  set(CMAKE_REQUIRED_LIBRARIES ${KDEWIN32_LIBRARIES})
-  set(CMAKE_REQUIRED_INCLUDES  ${KDEWIN32_INCLUDES})
-endif(WIN32)
 include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 # Help Eclipse to parse errors more efficiently
