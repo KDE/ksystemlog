@@ -33,8 +33,6 @@
 
 #include "logging.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
-
 class KioLogFileReaderTest : public QObject
 {
     Q_OBJECT

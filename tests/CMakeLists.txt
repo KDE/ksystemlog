@@ -12,35 +12,19 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/modes/kernel
 )
 
+add_library(testCore STATIC testUtil.cpp testResources.qrc )
+target_link_libraries(testCore PUBLIC
+    Qt5::Test
+    ksystemlog_lib
+    ksystemlog_base_mode
+    ksystemlog_config
+    ksystemlog_system
+    ksystemlog_kernel)
+
+
 macro(ksystemlog_unit_tests)
 	foreach(unitTest ${ARGN})
-
-                set(unitTest_sources
-                    ${unitTest}.cpp
-                    testUtil.cpp
-		)
-		
-		qt5_add_resources( unitTest_sources testResources.qrc )
-
-                add_executable(${unitTest}
-                               ${unitTest_sources})
-
-                add_test(ksystemlog-${unitTest}
-                         ${unitTest})
-
-                ecm_mark_as_test(${unitTest})
-		
-		target_link_libraries(
-			${unitTest} 
-			 
-			Qt5::Test
-
-			ksystemlog_lib
-			ksystemlog_base_mode
-			ksystemlog_config
-			ksystemlog_system
-			ksystemlog_kernel
-		)
+            ecm_add_test(${unitTest}.cpp TEST_NAME ksystemlog-${unitTest} LINK_LIBRARIES testCore)
 	endforeach(unitTest)
 endmacro(ksystemlog_unit_tests)
 

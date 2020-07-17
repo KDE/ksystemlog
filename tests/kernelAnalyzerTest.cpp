@@ -43,8 +43,6 @@
 #include "kernelAnalyzer.h"
 #include "localLogFileReader.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
-
 /**
  * Reimplements the Kernel Analyzer using a Local File Reader
  */

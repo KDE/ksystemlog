@@ -35,6 +35,13 @@
 #include "logViewWidget.h"
 
 #include "analyzer.h"
+static void enableLoggign()
+{
+    KSYSTEMLOG().setFilterRules(QStringLiteral("ksystemlog=true"));
+    Q_INIT_RESOURCE(testResources);
+}
+
+Q_COREAPP_STARTUP_FUNCTION(enableLoggign)
 
 TestUtil::TestUtil()
 {

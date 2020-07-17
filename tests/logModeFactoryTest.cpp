@@ -34,8 +34,6 @@
 
 #include "logging.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
-
 class LogModeFactoryTest : public QObject
 {
     Q_OBJECT

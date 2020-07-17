@@ -41,8 +41,6 @@
 
 #include "logging.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog")
-
 class SystemAnalyzerTest : public QObject
 {
     Q_OBJECT

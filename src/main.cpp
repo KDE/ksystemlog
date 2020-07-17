@@ -29,8 +29,6 @@
 #include "mainWindow.h"
 #include "logging.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog", QtWarningMsg)
-
 int main(int argc, char **argv)
 {
     // Enable debug output:
