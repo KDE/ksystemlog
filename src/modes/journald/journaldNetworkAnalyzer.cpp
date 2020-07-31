@@ -116,7 +116,11 @@ void JournaldNetworkAnalyzer::httpFinished()
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
         QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), QString::SkipEmptyParts);
+#else
+        QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), Qt::SkipEmptyParts);
+#endif
         switch (m_currentRequest) {
         case RequestType::SyslogIds:
             m_syslogIdentifiers = identifiersList;
@@ -283,7 +287,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     m_reply = m_networkManager.get(request);
     connect(m_reply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
     connect(m_reply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
-    connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
+    connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), this, &JournaldNetworkAnalyzer::httpError);
 }
 
 void JournaldNetworkAnalyzer::updateStatus(const QString &status)
