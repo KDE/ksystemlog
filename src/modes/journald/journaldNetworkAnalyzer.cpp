@@ -287,7 +287,11 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     m_reply = m_networkManager.get(request);
     connect(m_reply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
     connect(m_reply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
+#else
     connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), this, &JournaldNetworkAnalyzer::httpError);
+#endif
 }
 
 void JournaldNetworkAnalyzer::updateStatus(const QString &status)
