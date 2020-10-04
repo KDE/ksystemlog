@@ -25,6 +25,7 @@
   <name xml:lang="pl">KSystemLog</name>
   <name xml:lang="pt">KSystemLog</name>
   <name xml:lang="pt-BR">KSystemLog</name>
+  <name xml:lang="ro">KSystemLog</name>
   <name xml:lang="ru">KSystemLog</name>
   <name xml:lang="sk">KSystemLog</name>
   <name xml:lang="sl">KSystemLog</name>
@@ -54,6 +55,7 @@
   <summary xml:lang="pl">Przeglądarka dziennika systemowego</summary>
   <summary xml:lang="pt">visualizador de registos do sistema</summary>
   <summary xml:lang="pt-BR">Visualizador do registros do sistema</summary>
+  <summary xml:lang="ro">vizualizor jurnale de sistem</summary>
   <summary xml:lang="ru">Просмотр системных журналов</summary>
   <summary xml:lang="sk">prehliadač záznamov systému</summary>
   <summary xml:lang="sl">vpogledovalnik v sistemski dnevnik</summary>
@@ -114,6 +116,7 @@
       <li xml:lang="pl">Zabarwianie wierszy dziennika w zależności od ich znaczenia</li>
       <li xml:lang="pt">Colorir as linhas de registo de acordo com a sua criticidade</li>
       <li xml:lang="pt-BR">Colorir as linhas de registro de acordo com a sua criticidade</li>
+      <li xml:lang="ro">Colorează liniile de jurnal conform severității acestora</li>
       <li xml:lang="ru">Использование выделения цветом для событий различного приоритета;</li>
       <li xml:lang="sk">Zafarbiť riadky záznamu podľa ich závažnosti</li>
       <li xml:lang="sl">Pobarvaj vrstice dnevnika v odvisnosti od resnosti</li>
@@ -170,6 +173,7 @@
       <li xml:lang="pl">Wyświetlanie nowych wierszy, które trafiły do dziennika</li>
       <li xml:lang="pt">Mostrar automaticamente as novas linhas registadas</li>
       <li xml:lang="pt-BR">Exibição automática das novas linhas registradas</li>
+      <li xml:lang="ro">Afișează automat noile linii înregistrate</li>
       <li xml:lang="ru">Автоматический показ новых записей;</li>
       <li xml:lang="sk">Automaticky zobraziť nové zaznamenané riadky</li>
       <li xml:lang="sl">Avtomatski prikaz novih zabeleženih vrstic dnevnika</li>
@@ -198,6 +202,7 @@
       <li xml:lang="pl">Szczegółowe dane dla każdego wiersza dziennika</li>
       <li xml:lang="pt">Informação detalhada para cada linha do registo</li>
       <li xml:lang="pt-BR">Informação detalhada para cada linha do registro</li>
+      <li xml:lang="ro">Informații detaliate pentru fiecare linie din jurnal</li>
       <li xml:lang="ru">Подробная информация о каждой строке журнала.</li>
       <li xml:lang="sk">Podrobné informácie pre každý riadok záznamu</li>
       <li xml:lang="sl">Podrobna informacija za vsako zabeleženo vrstico</li>
