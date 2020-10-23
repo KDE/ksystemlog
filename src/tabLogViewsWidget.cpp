@@ -22,7 +22,6 @@
 #include "tabLogViewsWidget.h"
 
 #include <QPushButton>
-#include <QList>
 #include <QMenu>
 
 #include <KLocalizedString>

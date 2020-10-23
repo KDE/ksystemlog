@@ -21,7 +21,6 @@
 
 #include "authenticationFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "authenticationLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> AuthenticationLogModeFactory::createLogModes() const
 {

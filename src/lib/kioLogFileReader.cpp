@@ -28,7 +28,6 @@
 
 #include <KDirWatch>
 
-#include "logFile.h"
 #include "logging.h"
 
 #define READ_SIZE 10

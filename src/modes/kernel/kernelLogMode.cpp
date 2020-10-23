@@ -21,13 +21,11 @@
 
 #include "kernelLogMode.h"
 
-#include <QList>
 #include <QAction>
 #include <KLocalizedString>
 
 #include "logging.h"
 
-#include "logMode.h"
 
 #include "kernelAnalyzer.h"
 #include "kernelItemBuilder.h"

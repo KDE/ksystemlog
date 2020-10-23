@@ -37,9 +37,7 @@
 #include <KService>
 #include <KServiceTypeTrader>
 
-#include <KToggleAction>
 
-#include <KConfig>
 
 #include <KUrlRequesterDialog>
 
@@ -76,7 +74,6 @@
 #include "logModePluginsLoader.h"
 
 #include "globals.h"
-#include "logModeAction.h"
 
 namespace KSystemLog
 {

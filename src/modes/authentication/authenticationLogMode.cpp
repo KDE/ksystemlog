@@ -21,12 +21,10 @@
 
 #include "authenticationLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "authenticationAnalyzer.h"
 #include "logModeItemBuilder.h"

@@ -26,7 +26,6 @@
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "journaldLocalAnalyzer.h"
 #include "journaldNetworkAnalyzer.h"

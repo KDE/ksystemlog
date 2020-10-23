@@ -32,7 +32,6 @@
 #include "logMode.h"
 #include "logFileReader.h"
 
-#include "logFile.h"
 
 FileAnalyzer::FileAnalyzer(LogMode *logMode)
     : Analyzer(logMode)

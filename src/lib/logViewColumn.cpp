@@ -21,8 +21,6 @@
 
 #include "logViewColumn.h"
 
-#include <QString>
-#include <QDataStream>
 
 class LogViewColumnPrivate
 {

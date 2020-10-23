@@ -26,7 +26,6 @@
 
 #include <KLocalizedString>
 
-#include "logFile.h"
 #include "logLevel.h"
 
 #include "globals.h"

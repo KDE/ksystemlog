@@ -22,7 +22,6 @@
 #include "openLogMode.h"
 
 #include <QString>
-#include <QList>
 #include <QFileDialog>
 
 #include <KLocalizedString>
@@ -31,7 +30,6 @@
 #include <KMessageBox>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "logModeItemBuilder.h"
 #include "openAnalyzer.h"

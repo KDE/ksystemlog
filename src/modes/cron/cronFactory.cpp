@@ -21,7 +21,6 @@
 
 #include "cronFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "cronLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> CronLogModeFactory::createLogModes() const
 {

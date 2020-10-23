@@ -21,12 +21,10 @@
 
 #include "systemLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "systemAnalyzer.h"
 #include "systemConfigurationWidget.h"

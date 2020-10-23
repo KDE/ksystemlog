@@ -30,7 +30,6 @@
 #include <KLocalizedString>
 #include <KFilterDev>
 
-#include "logFileReader.h"
 #include "logFileReaderPrivate.h"
 
 #include "logging.h"

@@ -21,12 +21,10 @@
 
 #include "postfixLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "postfixAnalyzer.h"
 #include "postfixConfigurationWidget.h"

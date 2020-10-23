@@ -31,7 +31,6 @@
 #include "logMode.h"
 #include "logFileReader.h"
 
-#include "logFile.h"
 
 Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)

@@ -23,7 +23,6 @@
 
 // Qt includes
 
-#include <QTreeWidgetItem>
 
 #include <QBrush>
 

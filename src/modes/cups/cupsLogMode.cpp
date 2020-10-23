@@ -22,12 +22,10 @@
 #include "cupsLogMode.h"
 
 #include <QAction>
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "cupsAnalyzer.h"
 #include "cupsItemBuilder.h"

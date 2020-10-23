@@ -22,12 +22,10 @@
 #include "processOutputLogFileReader.h"
 
 #include <QTimer>
-#include <QProcess>
 #include <QStringList>
 
 #include <KLocalizedString>
 
-#include "logFileReader.h"
 #include "logFileReaderPrivate.h"
 
 #include "logging.h"

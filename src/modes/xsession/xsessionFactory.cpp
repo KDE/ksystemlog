@@ -21,7 +21,6 @@
 
 #include "xsessionFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "xsessionLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> XSessionLogModeFactory::createLogModes() const
 {

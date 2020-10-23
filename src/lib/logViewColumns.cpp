@@ -22,7 +22,6 @@
 #include "logViewColumns.h"
 
 #include <QStringList>
-#include <QList>
 
 #include "logging.h"
 

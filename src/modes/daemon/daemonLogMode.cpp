@@ -21,18 +21,11 @@
 
 #include "daemonLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
-#include "logging.h"
-#include "logMode.h"
 
-#include "syslogAnalyzer.h"
-#include "daemonConfigurationWidget.h"
-#include "daemonConfiguration.h"
 
-#include "logModeItemBuilder.h"
 
 DaemonLogMode::DaemonLogMode()
     : LogMode(QStringLiteral(DAEMON_LOG_MODE_ID), i18n("Daemons' Logs"), QStringLiteral(DAEMON_MODE_ICON))

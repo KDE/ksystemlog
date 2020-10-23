@@ -21,20 +21,16 @@
 
 #include "globals.h"
 
-#include <QString>
-#include <QList>
 #include <QMap>
 
 #include <KLocalizedString>
 
 #include "defaults.h"
 #include "logLevel.h"
-#include "logMode.h"
 #include "logFile.h"
 
 #include "analyzer.h"
 #include "logModeAction.h"
-#include "logModeFactory.h"
 #include "logModeConfiguration.h"
 #include "logModeConfigurationWidget.h"
 

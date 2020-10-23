@@ -21,12 +21,10 @@
 
 #include "xorgLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "xorgAnalyzer.h"
 #include "xorgItemBuilder.h"

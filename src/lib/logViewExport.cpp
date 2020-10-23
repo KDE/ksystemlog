@@ -22,7 +22,6 @@
 #include "logViewExport.h"
 
 #include <QApplication>
-#include <QPainter>
 #include <QClipboard>
 #include <QPrinter>
 #include <QPrintDialog>

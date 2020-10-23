@@ -21,12 +21,10 @@
 
 #include "acpidLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "acpidAnalyzer.h"
 #include "acpidItemBuilder.h"

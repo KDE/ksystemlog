@@ -21,7 +21,6 @@
 
 #include "xorgFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "xorgLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> XorgLogModeFactory::createLogModes() const
 {

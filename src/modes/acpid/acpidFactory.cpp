@@ -21,7 +21,6 @@
 
 #include "acpidFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "acpidLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> AcpidLogModeFactory::createLogModes() const
 {

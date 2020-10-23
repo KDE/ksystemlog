@@ -21,7 +21,6 @@
 
 #include "systemFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "systemLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> SystemLogModeFactory::createLogModes() const
 {

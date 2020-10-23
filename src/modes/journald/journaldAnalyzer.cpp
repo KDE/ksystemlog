@@ -22,7 +22,6 @@
 
 #include "journaldAnalyzer.h"
 #include "logViewModel.h"
-#include "logFile.h"
 
 #include <KLocalizedString>
 

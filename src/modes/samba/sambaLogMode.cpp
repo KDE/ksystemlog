@@ -21,13 +21,11 @@
 
 #include "sambaLogMode.h"
 
-#include <QList>
 #include <QAction>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "sambaAnalyzer.h"
 #include "sambaItemBuilder.h"

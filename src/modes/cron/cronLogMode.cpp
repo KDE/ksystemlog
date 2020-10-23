@@ -21,12 +21,10 @@
 
 #include "cronLogMode.h"
 
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "cronAnalyzer.h"
 #include "cronConfigurationWidget.h"

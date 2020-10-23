@@ -21,7 +21,6 @@
 
 #include "postfixFactory.h"
 
-#include <QList>
 
 #include "logMode.h"
 #include "logging.h"
@@ -29,7 +28,6 @@
 #include "simpleAction.h"
 #include "postfixLogMode.h"
 
-#include "logModeFactory.h"
 
 QList<LogMode *> PostfixLogModeFactory::createLogModes() const
 {

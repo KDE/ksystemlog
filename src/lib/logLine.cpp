@@ -21,15 +21,12 @@
 
 #include "logLine.h"
 
-#include <QStringList>
-#include <QDateTime>
 
 #include "logMode.h"
 #include "logModeItemBuilder.h"
 #include "logViewWidgetItem.h"
 
 #include "logging.h"
-#include "globals.h"
 #include "ksystemlogConfig.h"
 
 class LogLinePrivate

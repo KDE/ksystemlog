@@ -21,7 +21,6 @@
 
 #include "view.h"
 
-#include <QWidget>
 
 #include <QDropEvent>
 #include <QDragEnterEvent>
@@ -40,8 +39,6 @@
 #include "logViewSearchWidget.h"
 
 #include "logLine.h"
-#include "logViewColumn.h"
-#include "logViewColumns.h"
 
 #include "ksystemlogConfig.h"
 

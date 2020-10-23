@@ -22,7 +22,6 @@
 #include "loadingBar.h"
 
 #include <QApplication>
-#include <QWidget>
 #include <QPushButton>
 #include <QLabel>
 #include <QProgressBar>

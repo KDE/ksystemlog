@@ -22,12 +22,10 @@
 #include "apacheLogMode.h"
 
 #include <QAction>
-#include <QList>
 
 #include <KLocalizedString>
 
 #include "logging.h"
-#include "logMode.h"
 
 #include "apacheAnalyzer.h"
 #include "apacheItemBuilder.h"
