@@ -29,20 +29,8 @@
 #include <QIcon>
 
 // KDE includes
-#include <KMainWindow>
-#include <KMessageBox>
 #include <KActionMenu>
 #include <KLocalizedString>
-
-#include <KService>
-#include <KServiceTypeTrader>
-
-
-
-#include <KUrlRequesterDialog>
-
-#include <KEditToolBar>
-
 #include <KStandardShortcut>
 #include <KStandardAction>
 #include <KActionCollection>
