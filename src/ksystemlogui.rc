@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="ksystemlog" version="6">
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="ksystemlog" version="6">
   
   <MenuBar>
     
@@ -70,4 +70,4 @@
     <Action name="group_by" />
   </ToolBar>
   
-</kpartgui>
+</gui>
