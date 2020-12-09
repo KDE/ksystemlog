@@ -124,7 +124,7 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
         QAction *action = new QAction(this);
         action->setText(column.columnName());
         // helloAction->setIcon(QIcon::fromTheme( QLatin1String( "media-playback-start" )));
-        // helloAction->setShortcut(Qt::CTRL + Qt::Key_M);
+        // helloAction->setShortcut(Qt::CTRL | Qt::Key_M);
         action->setCheckable(true);
         action->setChecked(true);
         action->setToolTip(i18n("Display/Hide the '%1' column", column.columnName()));

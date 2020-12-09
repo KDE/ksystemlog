@@ -422,7 +422,7 @@ void MainWindow::changeResumePauseAction(bool paused)
             i18n("Resumes the watching of the current log. This action is only available when the user has "
                  "already paused the reading."));
         d->resumePauseAction->setChecked(true);
-        actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL + Qt::Key_M);
+        actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL | Qt::Key_M);
     } else {
         d->resumePauseAction->setText(i18n("S&top"));
         d->resumePauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
@@ -431,7 +431,7 @@ void MainWindow::changeResumePauseAction(bool paused)
             "Pauses the watching of the current log. This action is particularly useful when the system is "
             "writing too many lines to log files, causing KSystemLog to reload too frequently."));
         d->resumePauseAction->setChecked(false);
-        actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL + Qt::Key_P);
+        actionCollection()->setDefaultShortcut(d->resumePauseAction, Qt::CTRL | Qt::Key_P);
     }
 
     // Be sure that the button will always have a good size
@@ -616,7 +616,7 @@ void MainWindow::setupActions()
         i18n("Saves the selection to a file. This action is useful if you want to create an attachment or a "
              "backup of a particular log."));
     d->saveAction->setEnabled(false);
-    actionCollection()->setDefaultShortcut(d->saveAction, Qt::CTRL + Qt::Key_S);
+    actionCollection()->setDefaultShortcut(d->saveAction, Qt::CTRL | Qt::Key_S);
 
     QAction *fileQuitAction = actionCollection()->addAction(KStandardAction::Quit, qApp, SLOT(quit()));
     fileQuitAction->setToolTip(i18n("Quit KSystemLog"));
@@ -636,7 +636,7 @@ void MainWindow::setupActions()
         "This action opens all main categories. This is enabled only if an option has been selected in the "
         "<b>Group By</b> menu."));
     d->expandAllAction->setEnabled(false);
-    actionCollection()->setDefaultShortcut(d->expandAllAction, Qt::CTRL + Qt::Key_X);
+    actionCollection()->setDefaultShortcut(d->expandAllAction, Qt::CTRL | Qt::Key_X);
 
     d->collapseAllAction = actionCollection()->addAction(QStringLiteral("collapse_all"));
     d->collapseAllAction->setText(i18n("Col&lapse All"));
@@ -645,7 +645,7 @@ void MainWindow::setupActions()
         "This action closes all main categories. This is enabled only if an option has been selected in the "
         "<b>Group By</b> menu."));
     d->collapseAllAction->setEnabled(false);
-    actionCollection()->setDefaultShortcut(d->collapseAllAction, Qt::CTRL + Qt::Key_L);
+    actionCollection()->setDefaultShortcut(d->collapseAllAction, Qt::CTRL | Qt::Key_L);
 
     d->sendMailAction = actionCollection()->addAction(QStringLiteral("send_mail"));
     d->sendMailAction->setText(i18n("&Email Selection..."));
@@ -655,17 +655,17 @@ void MainWindow::setupActions()
         "Sends the selection by mail. Simply select the important lines and click on this menu entry to send "
         "the selection to a friend or a mailing list."));
     d->sendMailAction->setEnabled(false);
-    actionCollection()->setDefaultShortcut(d->sendMailAction, Qt::CTRL + Qt::Key_M);
+    actionCollection()->setDefaultShortcut(d->sendMailAction, Qt::CTRL | Qt::Key_M);
 
     d->logMessageAction
         = actionCollection()->addAction(QStringLiteral("log_message"), this, SLOT(showLogMessageDialog()));
     d->logMessageAction->setText(i18n("&Add Log Entry..."));
     d->logMessageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
-    d->logMessageAction->setShortcut(Qt::CTRL + Qt::Key_L);
+    d->logMessageAction->setShortcut(Qt::CTRL | Qt::Key_L);
     d->logMessageAction->setToolTip(i18n("Add a log entry to the log system"));
     d->logMessageAction->setWhatsThis(
         i18n("This action will open a dialog which lets you send a message to the log system."));
-    actionCollection()->setDefaultShortcut(d->logMessageAction, Qt::CTRL + Qt::Key_L);
+    actionCollection()->setDefaultShortcut(d->logMessageAction, Qt::CTRL | Qt::Key_L);
 
     d->selectAllAction = actionCollection()->addAction(KStandardAction::SelectAll);
     d->selectAllAction->setToolTip(i18n("Select all lines of the current log"));
@@ -695,7 +695,7 @@ void MainWindow::setupActions()
     newTabAction->setToolTip(i18n("Create a new tab"));
     newTabAction->setWhatsThis(i18n("Creates a new tab which can display another log."));
     d->tabs->addAction(newTabAction);
-    actionCollection()->setDefaultShortcut(newTabAction, Qt::CTRL + Qt::Key_T);
+    actionCollection()->setDefaultShortcut(newTabAction, Qt::CTRL | Qt::Key_T);
 
     QAction *closeTabAction
         = actionCollection()->addAction(QStringLiteral("close_tab"), d->tabs, SLOT(closeTab()));
@@ -704,7 +704,7 @@ void MainWindow::setupActions()
     closeTabAction->setToolTip(i18n("Close the current tab"));
     closeTabAction->setWhatsThis(i18n("Closes the current tab."));
     d->tabs->addAction(closeTabAction);
-    actionCollection()->setDefaultShortcut(closeTabAction, Qt::CTRL + Qt::Key_W);
+    actionCollection()->setDefaultShortcut(closeTabAction, Qt::CTRL | Qt::Key_W);
 
     QAction *duplicateTabAction
         = actionCollection()->addAction(QStringLiteral("duplicate_tab"), d->tabs, SLOT(duplicateTab()));
@@ -713,7 +713,7 @@ void MainWindow::setupActions()
     duplicateTabAction->setToolTip(i18n("Duplicate the current tab"));
     duplicateTabAction->setWhatsThis(i18n("Duplicates the current tab."));
     d->tabs->addAction(duplicateTabAction);
-    actionCollection()->setDefaultShortcut(duplicateTabAction, Qt::SHIFT + Qt::CTRL + Qt::Key_N);
+    actionCollection()->setDefaultShortcut(duplicateTabAction, Qt::SHIFT | Qt::CTRL | Qt::Key_N);
 
     QAction *separatorAction = new QAction(this);
     separatorAction->setSeparator(true);
@@ -726,7 +726,7 @@ void MainWindow::setupActions()
     moveTabLeftAction->setToolTip(i18n("Move the current tab to the left"));
     moveTabLeftAction->setWhatsThis(i18n("Moves the current tab to the left."));
     d->tabs->addAction(moveTabLeftAction);
-    actionCollection()->setDefaultShortcut(moveTabLeftAction, Qt::SHIFT + Qt::CTRL + Qt::Key_Left);
+    actionCollection()->setDefaultShortcut(moveTabLeftAction, Qt::SHIFT | Qt::CTRL | Qt::Key_Left);
 
     QAction *moveTabRightAction
         = actionCollection()->addAction(QStringLiteral("move_tab_right"), d->tabs, SLOT(moveTabRight()));
@@ -735,7 +735,7 @@ void MainWindow::setupActions()
     moveTabRightAction->setToolTip(i18n("Move the current tab to the right"));
     moveTabRightAction->setWhatsThis(i18n("Moves the current tab to the right."));
     d->tabs->addAction(moveTabRightAction);
-    actionCollection()->setDefaultShortcut(moveTabRightAction, Qt::SHIFT + Qt::CTRL + Qt::Key_Right);
+    actionCollection()->setDefaultShortcut(moveTabRightAction, Qt::SHIFT | Qt::CTRL | Qt::Key_Right);
 
     d->reloadAction = actionCollection()->addAction(QStringLiteral("reload"), d->tabs, SLOT(reloadCurrent()));
     d->reloadAction->setText(i18n("&Reload"));
@@ -760,7 +760,7 @@ void MainWindow::setupActions()
         "Displays a dialog box which contains details on the selected line. You are able to navigate through "
         "the logs from this dialog box with the <b>Previous</b> and <b>Next</b> buttons."));
     d->detailAction->setEnabled(false);
-    actionCollection()->setDefaultShortcut(d->detailAction, Qt::ALT + Qt::Key_Return);
+    actionCollection()->setDefaultShortcut(d->detailAction, Qt::ALT | Qt::Key_Return);
 
     d->tooltipEnabledAction = actionCollection()->addAction(QStringLiteral("tooltipEnabled"));
     d->tooltipEnabledAction->setText(i18n("&Enable Detailed Tooltips"));
