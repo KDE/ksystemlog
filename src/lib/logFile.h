@@ -41,7 +41,7 @@ public:
     LogFile(const LogFile &logFile);
     LogFile(const QUrl &url, LogLevel *defaultLogLevel);
 
-    virtual ~LogFile();
+    ~LogFile() override;
 
     bool operator==(const LogFile &other) const;
 

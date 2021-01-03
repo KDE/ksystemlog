@@ -49,7 +49,7 @@ public:
     explicit ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
                                  ApacheConfigurationWidget *apacheConfigurationWidget);
 
-    ~ApacheAccessLogMode();
+    ~ApacheAccessLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

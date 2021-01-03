@@ -31,7 +31,7 @@ class LogLevelSelectionDialog : public QDialog, public Ui::LogLevelSelectionDial
 public:
     explicit LogLevelSelectionDialog(QWidget *parent = nullptr);
 
-    virtual ~LogLevelSelectionDialog();
+    ~LogLevelSelectionDialog() override;
 
     QListWidget *logLevels() const;
 };

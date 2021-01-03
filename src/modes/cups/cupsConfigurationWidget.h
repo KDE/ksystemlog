@@ -62,7 +62,7 @@ public:
         layout->addWidget(cupsFileList);
     }
 
-    ~CupsConfigurationWidget() {}
+    ~CupsConfigurationWidget() override {}
 
 public Q_SLOTS:
 

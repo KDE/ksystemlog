@@ -43,7 +43,7 @@ class LogViewFilterWidget : public QWidget
 public:
     LogViewFilterWidget();
 
-    ~LogViewFilterWidget();
+    ~LogViewFilterWidget() override;
 
     KComboBox *filterList();
     LogViewWidgetSearchLine *filterLine();

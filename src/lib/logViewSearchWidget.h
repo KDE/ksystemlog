@@ -39,7 +39,7 @@ class LogViewSearchWidget : public QWidget, public Ui::LogViewSearchWidgetBase
 public:
     LogViewSearchWidget();
 
-    ~LogViewSearchWidget();
+    ~LogViewSearchWidget() override;
 
     void setTreeWidget(LogViewWidget *logViewWidget);
 

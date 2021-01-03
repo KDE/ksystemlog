@@ -40,7 +40,7 @@ class LoadingBar : public QWidget
 public:
     explicit LoadingBar(QWidget *parent = nullptr);
 
-    ~LoadingBar();
+    ~LoadingBar() override;
 
     QProgressBar *progressBar();
 

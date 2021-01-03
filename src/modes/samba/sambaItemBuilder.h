@@ -39,7 +39,7 @@ class SambaItemBuilder : public LogModeItemBuilder
 public:
     SambaItemBuilder() {}
 
-    virtual ~SambaItemBuilder() {}
+    ~SambaItemBuilder() override {}
 
     QString createFormattedText(LogLine *line) const override
     {

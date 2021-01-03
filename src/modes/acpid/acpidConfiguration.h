@@ -55,7 +55,7 @@ public:
                                          QStringLiteral("LogFilesPaths"));
     }
 
-    virtual ~AcpidConfiguration() { delete d; }
+    ~AcpidConfiguration() override { delete d; }
 
     QStringList acpidPaths() const { return d->acpidPaths; }
 

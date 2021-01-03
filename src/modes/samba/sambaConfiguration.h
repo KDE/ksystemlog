@@ -70,7 +70,7 @@ public:
                                          defaultNetbiosPaths, QStringLiteral("NetbiosLogFilesPaths"));
     }
 
-    virtual ~SambaConfiguration() { delete d; }
+    ~SambaConfiguration() override { delete d; }
 
     QStringList sambaPaths() const { return d->sambaPaths; }
 

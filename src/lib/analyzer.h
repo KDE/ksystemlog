@@ -52,7 +52,7 @@ public:
 
     explicit Analyzer(LogMode *mode);
 
-    virtual ~Analyzer();
+    ~Analyzer() override;
 
     virtual void watchLogFiles(bool enabled) = 0;
 

@@ -35,7 +35,7 @@ class DetailDialog : public QDialog, public Ui::DetailDialogBase
 public:
     explicit DetailDialog(QWidget *parent);
 
-    ~DetailDialog();
+    ~DetailDialog() override;
 
 public Q_SLOTS:
     void selectionChanged(LogViewWidget *logViewWidget);

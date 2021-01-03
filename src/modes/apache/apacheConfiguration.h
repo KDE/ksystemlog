@@ -63,7 +63,7 @@ public:
                                          QStringLiteral("ApacheAccessLogFilesPaths"));
     }
 
-    virtual ~ApacheConfiguration() { delete d; }
+    ~ApacheConfiguration() override { delete d; }
 
     QStringList apachePaths() const { return d->apachePaths; }
 

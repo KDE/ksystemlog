@@ -44,7 +44,7 @@ class PostfixLogMode : public LogMode
 public:
     explicit PostfixLogMode();
 
-    ~PostfixLogMode();
+    ~PostfixLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

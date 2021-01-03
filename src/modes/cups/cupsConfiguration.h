@@ -76,7 +76,7 @@ public:
                                          defaultCupsPdfPaths, QStringLiteral("CupsPdfLogFilesPaths"));
     }
 
-    virtual ~CupsConfiguration() { delete d; }
+    ~CupsConfiguration() override { delete d; }
 
     QStringList cupsPaths() const { return d->cupsPaths; }
 

@@ -43,7 +43,7 @@ public:
         currentLogLine = nullptr;
     }
 
-    virtual ~SambaAnalyzer() {}
+    ~SambaAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

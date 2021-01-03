@@ -45,7 +45,7 @@ class XSessionLogMode : public LogMode
 public:
     explicit XSessionLogMode();
 
-    ~XSessionLogMode();
+    ~XSessionLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

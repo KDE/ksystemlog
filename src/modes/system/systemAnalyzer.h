@@ -36,7 +36,7 @@ public:
     {
     }
 
-    virtual ~SystemAnalyzer() {}
+    ~SystemAnalyzer() override {}
 };
 
 #endif

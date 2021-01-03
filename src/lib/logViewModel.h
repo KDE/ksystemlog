@@ -39,7 +39,7 @@ class LogViewModel : public QObject
 public:
     explicit LogViewModel(LogViewWidget *logViewWidget);
 
-    virtual ~LogViewModel();
+    ~LogViewModel() override;
 
     /**
      * Clear the model

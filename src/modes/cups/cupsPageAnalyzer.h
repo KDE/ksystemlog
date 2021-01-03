@@ -43,7 +43,7 @@ public:
     {
     }
 
-    virtual ~CupsPageAnalyzer() {}
+    ~CupsPageAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

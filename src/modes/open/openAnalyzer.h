@@ -39,7 +39,7 @@ public:
     {
     }
 
-    virtual ~OpenAnalyzer() {}
+    ~OpenAnalyzer() override {}
 };
 
 #endif

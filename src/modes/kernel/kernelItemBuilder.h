@@ -41,7 +41,7 @@ class KernelItemBuilder : public LogModeItemBuilder
 public:
     KernelItemBuilder() {}
 
-    virtual ~KernelItemBuilder() {}
+    ~KernelItemBuilder() override {}
 
     QString createFormattedText(LogLine *line) const override
     {

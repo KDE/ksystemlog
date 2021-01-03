@@ -32,7 +32,7 @@ class OpenLogModeFactory : public LogModeFactory
 public:
     explicit OpenLogModeFactory(QWidget *parent);
 
-    ~OpenLogModeFactory();
+    ~OpenLogModeFactory() override;
 
     QList<LogMode *> createLogModes() const override;
 

@@ -1,4 +1,4 @@
-/***************************************************************************
+ /***************************************************************************
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
@@ -45,7 +45,7 @@ class KioLogFileReader : public QObject
 public:
     explicit KioLogFileReader(const LogFile &logFile);
 
-    virtual ~KioLogFileReader();
+    ~KioLogFileReader() override;
 
     void open();
     void close();

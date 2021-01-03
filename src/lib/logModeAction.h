@@ -39,7 +39,7 @@ public:
 
     LogModeAction();
 
-    virtual ~LogModeAction();
+    ~LogModeAction() override;
 
     virtual QList<QAction *> innerActions() = 0;
 

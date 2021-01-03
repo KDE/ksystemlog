@@ -31,7 +31,7 @@ class LogModePluginsLoader : public QObject
 public:
     explicit LogModePluginsLoader(QWidget *parent);
 
-    ~LogModePluginsLoader();
+    ~LogModePluginsLoader() override;
 
     void loadPlugins();
 

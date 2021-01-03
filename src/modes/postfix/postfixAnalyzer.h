@@ -37,7 +37,7 @@ public:
     {
     }
 
-    virtual ~PostfixAnalyzer() {}
+    ~PostfixAnalyzer() override {}
 
     /*
      * Just a test of multilines log lines (and it works well !)

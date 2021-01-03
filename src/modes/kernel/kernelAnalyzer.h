@@ -48,7 +48,7 @@ public:
         startupTime();
     }
 
-    virtual ~KernelAnalyzer() {}
+    ~KernelAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

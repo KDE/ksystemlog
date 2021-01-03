@@ -51,7 +51,7 @@ public:
                             SambaConfigurationWidget *sambaConfigurationWidget,
                             SambaItemBuilder *itemBuilder);
 
-    ~NetbiosLogMode();
+    ~NetbiosLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

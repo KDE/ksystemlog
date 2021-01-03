@@ -47,7 +47,7 @@ public:
         */
     }
 
-    virtual ~SystemConfiguration() {}
+    ~SystemConfiguration() override {}
 };
 
 #endif // _SYSTEM_CONFIGURATION_H

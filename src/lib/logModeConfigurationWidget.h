@@ -34,7 +34,7 @@ class LogModeConfigurationWidget : public QWidget
 public:
     LogModeConfigurationWidget(const QString &itemName, const QString &iconName, const QString &header);
 
-    virtual ~LogModeConfigurationWidget();
+    ~LogModeConfigurationWidget() override;
 
     virtual bool isValid() const;
 

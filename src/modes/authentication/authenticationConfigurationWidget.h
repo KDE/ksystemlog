@@ -86,7 +86,7 @@ public:
         layout->addStretch();
     }
 
-    ~AuthenticationConfigurationWidget() {}
+    ~AuthenticationConfigurationWidget() override {}
 
 public Q_SLOTS:
 

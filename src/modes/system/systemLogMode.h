@@ -44,7 +44,7 @@ class SystemLogMode : public LogMode
 public:
     explicit SystemLogMode();
 
-    ~SystemLogMode();
+    ~SystemLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

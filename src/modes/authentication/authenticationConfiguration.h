@@ -67,7 +67,7 @@ public:
                                          defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
     }
 
-    virtual ~AuthenticationConfiguration() { delete d; }
+    ~AuthenticationConfiguration() override { delete d; }
 
     QString authenticationPath() const { return d->authenticationPath; }
 

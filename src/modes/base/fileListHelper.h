@@ -39,7 +39,7 @@ class FileListHelper : public QObject
 
 public:
     explicit FileListHelper(QWidget *parent);
-    virtual ~FileListHelper();
+    ~FileListHelper() override;
 
     QStringList findPaths(const QList<QUrl> &urls);
     bool isValidFile(const QUrl &url);

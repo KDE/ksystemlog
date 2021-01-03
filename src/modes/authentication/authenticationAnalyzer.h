@@ -37,7 +37,7 @@ public:
     {
     }
 
-    virtual ~AuthenticationAnalyzer() {}
+    ~AuthenticationAnalyzer() override {}
 
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
     {

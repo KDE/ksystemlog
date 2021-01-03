@@ -49,7 +49,7 @@ public:
     explicit CupsPageLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
                              CupsConfigurationWidget *cupsConfigurationWidget);
 
-    ~CupsPageLogMode();
+    ~CupsPageLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

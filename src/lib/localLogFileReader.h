@@ -38,7 +38,7 @@ class LocalLogFileReader : public LogFileReader
 public:
     explicit LocalLogFileReader(const LogFile &logFile);
 
-    virtual ~LocalLogFileReader();
+    ~LocalLogFileReader() override;
 
     void watchFile(bool enable) override;
 

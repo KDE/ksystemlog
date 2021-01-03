@@ -60,7 +60,7 @@ public:
         layout->addWidget(sambaFileList);
     }
 
-    ~SambaConfigurationWidget() {}
+    ~SambaConfigurationWidget() override {}
 
 public Q_SLOTS:
 

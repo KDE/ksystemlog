@@ -73,7 +73,7 @@ class LogMode : public QObject
 public:
     LogMode(const QString &id, const QString &name, const QString &iconName);
 
-    virtual ~LogMode();
+    ~LogMode() override;
 
     QString id() const;
 

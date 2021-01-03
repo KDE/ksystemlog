@@ -40,7 +40,7 @@ class StatusBar : public QStatusBar
 public:
     explicit StatusBar(QWidget *parent);
 
-    virtual ~StatusBar();
+    ~StatusBar() override;
 
     void changeLineCountMessage(const QString &lineCountMessage);
     void changeLastModification(const QTime &lastModification);

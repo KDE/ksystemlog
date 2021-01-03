@@ -61,7 +61,7 @@ public:
                                      QStringLiteral("ProcessFilter"));
     }
 
-    virtual ~CronConfiguration() { delete d; }
+    ~CronConfiguration() override { delete d; }
 
     QString processFilter() const { return d->processFilter; }
 

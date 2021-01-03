@@ -43,7 +43,7 @@ class XorgAnalyzer : public FileAnalyzer
 public:
     explicit XorgAnalyzer(LogMode *logMode);
 
-    virtual ~XorgAnalyzer();
+    ~XorgAnalyzer() override;
 
     LogViewColumns initColumns() override;
 

@@ -81,7 +81,7 @@ public:
                                          defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
     }
 
-    virtual ~XSessionConfiguration() { delete d; }
+    ~XSessionConfiguration() override { delete d; }
 
     QStringList xorgErrorKeywords() const { return d->xorgErrorKeywords; }
 

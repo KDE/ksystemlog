@@ -49,7 +49,7 @@ public:
     explicit CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
                             CupsConfigurationWidget *cupsConfigurationWidget);
 
-    ~CupsPdfLogMode();
+    ~CupsPdfLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

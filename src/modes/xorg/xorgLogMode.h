@@ -45,7 +45,7 @@ class XorgLogMode : public LogMode
 public:
     explicit XorgLogMode();
 
-    ~XorgLogMode();
+    ~XorgLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

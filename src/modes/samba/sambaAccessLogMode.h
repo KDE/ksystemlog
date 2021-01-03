@@ -51,7 +51,7 @@ public:
                                 SambaConfigurationWidget *sambaConfigurationWidget,
                                 SambaItemBuilder *itemBuilder);
 
-    ~SambaAccessLogMode();
+    ~SambaAccessLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

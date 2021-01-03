@@ -82,7 +82,7 @@ public:
         processFilterLayout->addWidget(processFilter);
     }
 
-    virtual ~CronConfigurationWidget() {}
+    ~CronConfigurationWidget() override {}
 
     bool isValid() const override
     {

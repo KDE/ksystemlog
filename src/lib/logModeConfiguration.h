@@ -37,7 +37,7 @@ class LogModeConfiguration : public QObject
 public:
     LogModeConfiguration();
 
-    virtual ~LogModeConfiguration();
+    ~LogModeConfiguration() override;
 
     LogFile findGenericLogFile(const QString &file);
     QList<LogFile> findGenericLogFiles(const QStringList &files);

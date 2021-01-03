@@ -50,7 +50,7 @@ class DaemonLogMode : public LogMode
 public:
     explicit DaemonLogMode();
 
-    ~DaemonLogMode();
+    ~DaemonLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

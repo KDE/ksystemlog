@@ -53,7 +53,7 @@ public:
                                          QStringLiteral("LogFilesPaths"));
     }
 
-    virtual ~DaemonConfiguration() { delete d; }
+    ~DaemonConfiguration() override { delete d; }
 
     QStringList daemonPaths() const { return d->daemonPaths; }
 

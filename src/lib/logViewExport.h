@@ -35,7 +35,7 @@ class LogViewExport : public QObject
 public:
     LogViewExport(QWidget *parent, LogViewWidget *logViewWidget);
 
-    virtual ~LogViewExport();
+    ~LogViewExport() override;
 
     void copyToClipboard();
 

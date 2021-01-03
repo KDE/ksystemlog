@@ -44,7 +44,7 @@ class CronLogMode : public LogMode
 public:
     explicit CronLogMode();
 
-    ~CronLogMode();
+    ~CronLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

@@ -37,7 +37,7 @@ class MultipleFileList : public QWidget, public Ui::MultipleFileListBase
 
 public:
     MultipleFileList(QWidget *parent, const QString &descriptionText);
-    virtual ~MultipleFileList();
+    ~MultipleFileList() override;
 
     bool isOneOfCategoryEmpty() const;
 

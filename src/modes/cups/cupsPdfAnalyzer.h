@@ -45,7 +45,7 @@ public:
     { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
     }
 
-    virtual ~CupsPdfAnalyzer() {}
+    ~CupsPdfAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

@@ -35,7 +35,7 @@ class LogModeFactory : public QObject
 public:
     explicit LogModeFactory();
 
-    virtual ~LogModeFactory();
+    ~LogModeFactory() override;
 
     virtual LogModeAction *createLogModeAction() const = 0;
 

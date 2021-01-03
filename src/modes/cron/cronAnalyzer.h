@@ -41,7 +41,7 @@ public:
     {
     }
 
-    virtual ~CronAnalyzer() {}
+    ~CronAnalyzer() override {}
 
     LogViewColumns initColumns() override
     {

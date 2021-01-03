@@ -41,7 +41,7 @@ class XorgItemBuilder : public LogModeItemBuilder
 public:
     XorgItemBuilder() {}
 
-    virtual ~XorgItemBuilder() {}
+    ~XorgItemBuilder() override {}
 
     void prepareItem(LogViewWidgetItem *item) const override
     {

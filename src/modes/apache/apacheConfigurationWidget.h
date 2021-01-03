@@ -59,7 +59,7 @@ public:
         layout->addWidget(apacheFileList);
     }
 
-    ~ApacheConfigurationWidget() {}
+    ~ApacheConfigurationWidget() override {}
 
 public Q_SLOTS:
 

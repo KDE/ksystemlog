@@ -43,7 +43,7 @@ class TabLogViewsWidget : public QTabWidget
 public:
     explicit TabLogViewsWidget(QWidget *parent = nullptr);
 
-    virtual ~TabLogViewsWidget();
+    ~TabLogViewsWidget() override;
 
     QList<LogManager *> logManagers();
 

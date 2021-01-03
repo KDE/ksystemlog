@@ -54,7 +54,7 @@ public:
                                          QStringLiteral("LogFilesPaths"));
     }
 
-    virtual ~XorgConfiguration() { delete d; }
+    ~XorgConfiguration() override { delete d; }
 
     QStringList xorgPaths() const { return d->xorgPaths; }
 

@@ -43,7 +43,7 @@ class LogManager : public QObject
 public:
     explicit LogManager(View *view);
 
-    ~LogManager();
+    ~LogManager() override;
 
     View *usedView() const;
 

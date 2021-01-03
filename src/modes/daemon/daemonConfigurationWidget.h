@@ -54,7 +54,7 @@ public:
         layout->addWidget(fileList);
     }
 
-    ~DaemonConfigurationWidget() {}
+    ~DaemonConfigurationWidget() override {}
 
 public Q_SLOTS:
 

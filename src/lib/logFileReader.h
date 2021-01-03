@@ -38,7 +38,7 @@ class LogFileReader : public QObject
 public:
     explicit LogFileReader(const LogFile &logFile);
 
-    virtual ~LogFileReader();
+    ~LogFileReader() override;
 
     virtual void watchFile(bool enable) = 0;
 

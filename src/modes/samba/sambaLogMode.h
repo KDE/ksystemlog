@@ -50,7 +50,7 @@ public:
     explicit SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
                           SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder);
 
-    ~SambaLogMode();
+    ~SambaLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

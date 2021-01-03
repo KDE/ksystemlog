@@ -40,7 +40,7 @@ class TabLogManager : public QObject
 public:
     explicit TabLogManager(LogManager *logManager);
 
-    virtual ~TabLogManager();
+    ~TabLogManager() override;
 
     LogManager *logManager();
 

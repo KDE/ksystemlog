@@ -39,7 +39,7 @@ class CronItemBuilder : public LogModeItemBuilder
 public:
     CronItemBuilder() {}
 
-    virtual ~CronItemBuilder() {}
+    ~CronItemBuilder() override {}
 
     QString createFormattedText(LogLine *line) const override
     {

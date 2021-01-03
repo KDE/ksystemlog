@@ -38,7 +38,7 @@ class LevelPrintPage : public QWidget
 {
 public:
     explicit LevelPrintPage(QWidget *parent = nullptr);
-    ~LevelPrintPage();
+    ~LevelPrintPage() override;
 
     bool isValid(QString &msg);
 

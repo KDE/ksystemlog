@@ -33,7 +33,7 @@ class LogLevel : QObject
 public:
     explicit LogLevel(int id, const QString &name, const QString &icon, const QColor &color, QObject *parent = nullptr);
 
-    virtual ~LogLevel();
+    ~LogLevel() override;
 
     int id() const;
     QString name() const;

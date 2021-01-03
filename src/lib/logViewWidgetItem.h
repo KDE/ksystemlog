@@ -37,7 +37,7 @@ class LogViewWidgetItem : public QTreeWidgetItem
 public:
     LogViewWidgetItem(LogViewWidget *logViewWidget, LogLine *line);
 
-    ~LogViewWidgetItem();
+    ~LogViewWidgetItem() override;
 
     bool operator<(const QTreeWidgetItem &other) const override;
 

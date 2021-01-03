@@ -45,7 +45,7 @@ class AcpidLogMode : public LogMode
 public:
     explicit AcpidLogMode();
 
-    ~AcpidLogMode();
+    ~AcpidLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

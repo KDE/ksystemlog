@@ -79,7 +79,7 @@ public:
         xorgErrorsDescriptionDefined = false;
     }
 
-    ~XSessionConfigurationWidget() {}
+    ~XSessionConfigurationWidget() override {}
 
 public Q_SLOTS:
 

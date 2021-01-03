@@ -46,7 +46,7 @@ public:
     {
     }
 
-    virtual ~PostfixConfiguration() {}
+    ~PostfixConfiguration() override {}
 };
 
 #endif // _POSTFIX_CONFIGURATION_H

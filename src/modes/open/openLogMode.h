@@ -47,7 +47,7 @@ class OpenLogMode : public LogMode
 public:
     explicit OpenLogMode(QWidget *parent);
 
-    ~OpenLogMode();
+    ~OpenLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

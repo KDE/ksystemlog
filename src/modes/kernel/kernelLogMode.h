@@ -46,7 +46,7 @@ class KernelLogMode : public LogMode
 public:
     explicit KernelLogMode();
 
-    ~KernelLogMode();
+    ~KernelLogMode() override;
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 

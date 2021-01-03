@@ -35,7 +35,7 @@ class GeneralConfigurationWidget : public QWidget, public Ui::GeneralConfigurati
 public:
     GeneralConfigurationWidget();
 
-    ~GeneralConfigurationWidget();
+    ~GeneralConfigurationWidget() override;
 
     bool isValid() const;
 
