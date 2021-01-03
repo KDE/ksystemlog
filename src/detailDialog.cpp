@@ -36,7 +36,6 @@
 
 DetailDialog::DetailDialog(QWidget *parent)
     : QDialog(parent)
-    , logViewWidget(nullptr)
 {
     setupUi(this);
 

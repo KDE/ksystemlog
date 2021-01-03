@@ -52,7 +52,7 @@ private:
      */
     void moveToItem(int direction);
 
-    LogViewWidget *logViewWidget;
+    LogViewWidget *logViewWidget = nullptr;
 };
 
 #endif //_DETAIL_DIALOG_H

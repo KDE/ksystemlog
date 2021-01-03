@@ -43,14 +43,13 @@ class TabLogViewsWidgetPrivate
 public:
     QList<TabLogManager *> tabLogManagers;
 
-    QMenu *contextMenu;
+    QMenu *contextMenu = nullptr;
 };
 
 TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
     , d(new TabLogViewsWidgetPrivate())
 {
-    d->contextMenu = nullptr;
 
     QPushButton *tabNewTabButton
         = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
@@ -103,16 +102,13 @@ void TabLogViewsWidget::newTab(View *view)
     // Add a tab at the end of the widget
     insertTab(count(), view, QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log"));
 
-    if (count() > 1)
-        tabBar()->show();
-    else
-        tabBar()->hide();
+    tabBar()->setVisible(count() > 1);
 }
 
 void TabLogViewsWidget::changeTab(View *view, const QIcon &icon, const QString &label)
 {
     logDebug() << "Changing tab " << label;
-    int index = indexOf(view);
+    const int index = indexOf(view);
     setTabIcon(index, icon);
     setTabText(index, label);
 }
@@ -120,7 +116,8 @@ void TabLogViewsWidget::changeTab(View *view, const QIcon &icon, const QString &
 QList<LogManager *> TabLogViewsWidget::logManagers()
 {
     QList<LogManager *> logManagers;
-    foreach (TabLogManager *tabLogManager, d->tabLogManagers) {
+    const auto tabLogManagers = d->tabLogManagers;
+    for (TabLogManager *tabLogManager : tabLogManagers) {
         logManagers.append(tabLogManager->logManager());
     }
 
@@ -189,7 +186,7 @@ void TabLogViewsWidget::moveTabRight()
     logDebug() << "Duplicate tab to the right";
 
     TabLogManager *currentTabLogManager = activeTabLogManager();
-    int position = indexOf(currentTabLogManager->logManager()->usedView());
+    const int position = indexOf(currentTabLogManager->logManager()->usedView());
 
     if (position >= count() - 1) {
         logCritical() << "Tab Position >= count()-1 : " << position;
