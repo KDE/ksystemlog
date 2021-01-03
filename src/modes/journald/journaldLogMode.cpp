@@ -57,8 +57,6 @@ Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
         return new JournaldLocalAnalyzer(this, options.filter);
     case JournaldAnalyzerType::Network:
         return new JournaldNetworkAnalyzer(this, options);
-    default:
-        break;
     }
 
     return new JournaldLocalAnalyzer(this);

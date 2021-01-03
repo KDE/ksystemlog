@@ -31,8 +31,7 @@
 
 QList<LogMode *> AuthenticationLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new AuthenticationLogMode());
+    const QList<LogMode *> logModes {new AuthenticationLogMode()};
     return logModes;
 }
 

@@ -31,8 +31,7 @@
 
 QList<LogMode *> DaemonLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new DaemonLogMode());
+    QList<LogMode *> logModes {new DaemonLogMode() };
     return logModes;
 }
 

@@ -31,8 +31,7 @@
 
 QList<LogMode *> CronLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new CronLogMode());
+    QList<LogMode *> logModes {new CronLogMode()};
     return logModes;
 }
 

@@ -94,10 +94,10 @@ void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool
 void LogLevelFileList::addItem()
 {
     // Open a standard Filedialog
-    QList<QUrl> urls = fileListHelper.openUrls();
+    const QList<QUrl> urls = fileListHelper.openUrls();
 
-    QStringList paths = fileListHelper.findPaths(urls);
-    foreach (const QString &path, paths) {
+    const QStringList paths = fileListHelper.findPaths(urls);
+    for (const QString &path : paths) {
         insertItem(Globals::instance().informationLogLevel(), path);
     }
 
@@ -131,8 +131,8 @@ void LogLevelFileList::changeItemType()
             QListWidgetItem *logLevel = selectedLogLevels.at(0);
             int selectedLogLevel = logLevels->row(logLevel);
 
-            QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
-            foreach (QListWidgetItem *item, selectedItems) {
+            const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
+            for (QListWidgetItem *item : selectedItems) {
                 item->setIcon(logLevel->icon());
                 item->setData(LogLevelFileList::LogLevelRole, selectedLogLevel);
             }
@@ -151,7 +151,7 @@ LogLevel *LogLevelFileList::level(int i)
 QList<int> LogLevelFileList::levels()
 {
     QList<int> levels;
-    int count = fileList->count();
+    const int count = fileList->count();
 
     for (int i = 0; i < count; i++) {
         levels.append(this->level(i)->id());

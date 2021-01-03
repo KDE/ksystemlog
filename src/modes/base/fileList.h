@@ -42,7 +42,7 @@ public:
 
     bool isEmpty() const;
 
-    QStringList paths();
+    QStringList paths() const;
 
     void addPaths(const QStringList &paths);
 

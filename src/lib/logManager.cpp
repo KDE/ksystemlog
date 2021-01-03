@@ -247,8 +247,9 @@ void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
     logDebug() << "Drop " << urls;
 
     QList<LogFile> logFiles;
+    logFiles.reserve(urls.count());
 
-    foreach (const QUrl &url, urls) {
+    for (const QUrl &url : urls) {
         logFiles.append(LogFile(url, Globals::instance().informationLogLevel()));
     }
 

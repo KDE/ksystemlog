@@ -83,8 +83,8 @@ protected:
     void informOpeningProgress(int currentPosition, int total);
 
     bool parsingPaused;
-    LogViewModel *logViewModel;
-    LogMode *logMode;
+    LogViewModel *logViewModel = nullptr;
+    LogMode *logMode = nullptr;
     QMutex insertionLocking;
     long logLineInternalIdGenerator;
 };

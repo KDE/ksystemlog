@@ -56,8 +56,8 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     // lines in <b>bold</b> are the last added to the list.</p>"));
 
     QStringList headerLabels;
-    headerLabels.append(QStringLiteral("Date"));
-    headerLabels.append(QStringLiteral("Message"));
+    headerLabels.append(i18n("Date"));
+    headerLabels.append(i18n("Message"));
 
     d->logViewModel = new LogViewModel(this);
     d->headersTogglingActions = new QActionGroup(this);

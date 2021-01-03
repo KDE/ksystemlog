@@ -52,7 +52,8 @@ void LogModeItemBuilder::prepareItem(LogViewWidgetItem *item) const
     item->setData(0, Qt::UserRole, line->logLevel()->id());
 
     int i = 1;
-    foreach (const QString &label, line->logItems()) {
+    const QStringList logItems = line->logItems();
+    for (const QString &label : logItems) {
         item->setText(i, label);
         i++;
     }

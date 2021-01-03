@@ -225,8 +225,8 @@ void MultipleFileList::addItem(int category)
 
     QTreeWidgetItem *categoryItem = fileList->topLevelItem(category);
 
-    QStringList paths = fileListHelper.findPaths(urls);
-    foreach (const QString &path, paths) {
+    const QStringList paths = fileListHelper.findPaths(urls);
+    for (const QString &path : paths) {
         addItemInternal(categoryItem, path);
     }
 
@@ -269,7 +269,7 @@ QTreeWidgetItem *MultipleFileList::findCategoryOfChild(QTreeWidgetItem *childIte
 
 void MultipleFileList::modifyItem()
 {
-    QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
+    const QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
     modifyItem(selectedItems.at(0));
 }
 
@@ -279,16 +279,16 @@ void MultipleFileList::modifyItem(QTreeWidgetItem *item)
     if (findCategoryOfChild(item) == nullptr || isEmptyItem(item) == true)
         return;
 
-    QString previousPath = item->text(0);
+    const QString previousPath = item->text(0);
 
     // Open a standard Filedialog
-    QUrl url = fileListHelper.openUrl(previousPath);
+    const QUrl url = fileListHelper.openUrl(previousPath);
     if (url.isEmpty())
         return;
 
     QList<QUrl> urls;
     urls.append(url);
-    QStringList paths = fileListHelper.findPaths(urls);
+    const QStringList paths = fileListHelper.findPaths(urls);
 
     // We only take the first path
     if (paths.count() >= 1) {
@@ -300,9 +300,9 @@ void MultipleFileList::modifyItem(QTreeWidgetItem *item)
 
 void MultipleFileList::removeSelectedItem()
 {
-    QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
+    const QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
 
-    foreach (QTreeWidgetItem *item, selectedItems) {
+    for (QTreeWidgetItem *item : selectedItems) {
         QTreeWidgetItem *categoryItem = findCategoryOfChild(item);
         delete categoryItem->takeChild(categoryItem->indexOfChild(item));
     }
@@ -364,8 +364,8 @@ void MultipleFileList::removeAllItems()
 
 void MultipleFileList::unselectAllItems()
 {
-    QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
-    foreach (QTreeWidgetItem *item, selectedItems) {
+    const QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
+    for (QTreeWidgetItem *item : selectedItems) {
         item->setSelected(false);
     }
 }
@@ -438,7 +438,7 @@ void MultipleFileList::addPaths(int category, const QStringList &paths)
     missingFiles = false;
     QTreeWidgetItem *categoryItem = fileList->topLevelItem(category);
 
-    foreach (const QString &path, paths) {
+    for (const QString &path : paths) {
         addItemInternal(categoryItem, path);
     }
 

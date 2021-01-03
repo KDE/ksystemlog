@@ -49,7 +49,7 @@ public:
      * of trying to search it in string
      */
     QDateTime parseSyslogDateTime(const QString &dateTime);
-    QString syslogDateTimeRegexp();
+    QString syslogDateTimeRegexp() const;
 
     QString parseSize(const QString &size);
 

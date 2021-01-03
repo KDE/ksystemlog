@@ -134,9 +134,9 @@ QDateTime ParsingHelper::parseHttpDateTime(const QString &logLine)
 QDateTime ParsingHelper::parseSyslogDateTime(const QString &dateTime)
 {
     // TODO Create this regexp in constructor
-    QRegExp regex(QLatin1String("(\\S*)[ ]+(\\d*) (\\d*):(\\d*):(\\d*) (\\d*)"));
+    const static QRegExp regex(QLatin1String("(\\S*)[ ]+(\\d*) (\\d*):(\\d*):(\\d*) (\\d*)"));
 
-    int firstPosition = regex.indexIn(dateTime);
+    const int firstPosition = regex.indexIn(dateTime);
     if (firstPosition == -1) {
         logDebug() << "Unable to parse date " << dateTime;
         return QDateTime::currentDateTime();
@@ -146,7 +146,7 @@ QDateTime ParsingHelper::parseSyslogDateTime(const QString &dateTime)
                      QTime(regex.cap(3).toInt(), regex.cap(4).toInt(), regex.cap(5).toInt(), 0));
 }
 
-QString ParsingHelper::syslogDateTimeRegexp()
+QString ParsingHelper::syslogDateTimeRegexp() const
 {
     return QStringLiteral("(\\S*[ ]+\\d* \\d*:\\d*:\\d* \\d*)");
 }

@@ -47,7 +47,7 @@ void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 
 int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode readingMode)
 {
-    int entriesNum = entries.size();
+    const int entriesNum = entries.size();
     for (int i = 0; i < entriesNum; i++) {
         const JournalEntry &entry = entries.at(i);
         QStringList itemComponents;

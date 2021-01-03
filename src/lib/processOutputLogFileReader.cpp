@@ -37,7 +37,7 @@ public:
 
     QTimer processUpdater;
 
-    QProcess *process;
+    QProcess *process = nullptr;
 
     QString buffer;
     QStringList availableStandardOutput;
@@ -104,7 +104,7 @@ void ProcessOutputLogFileReader::startProcess()
     Q_D(ProcessOutputLogFileReader);
 
     if (d->logFile.url().isValid() == false) {
-        QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
+        const QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
         Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
         Q_EMIT statusBarChanged(message);
     }

@@ -114,8 +114,8 @@ void JournaldConfigurationWidget::defaultConfig()
 
 void JournaldConfigurationWidget::updateButtons()
 {
-    auto selectedItems = remoteJournalsListWidget->selectedItems();
-    bool haveItems = !selectedItems.empty();
+    const auto selectedItems = remoteJournalsListWidget->selectedItems();
+    const bool haveItems = !selectedItems.empty();
     modifyAddressButton->setEnabled(haveItems);
     removeAddressButton->setEnabled(haveItems);
 }
@@ -124,9 +124,9 @@ void JournaldConfigurationWidget::addRemoteJournal()
 {
     JournaldAddressDialog dialog(this, i18n("Add remote journal"));
     if (dialog.exec() == QDialog::Accepted) {
-        QString address = dialog.address();
-        QString port = dialog.port();
-        bool httpsEnabled = dialog.httpsEnabled();
+        const QString address = dialog.address();
+        const QString port = dialog.port();
+        const bool httpsEnabled = dialog.httpsEnabled();
 
         if (!haveJournalAddress(address, port, httpsEnabled)) {
             remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());

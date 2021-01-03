@@ -105,8 +105,9 @@ bool LogViewColumns::isGroupByLogFile() const
 QStringList LogViewColumns::toStringList() const
 {
     QStringList columnNames;
+    columnNames.reserve(d->columns.count());
 
-    foreach (const LogViewColumn &column, d->columns) {
+    for (const LogViewColumn &column : qAsConst(d->columns)) {
         columnNames.append(column.columnName());
     }
 

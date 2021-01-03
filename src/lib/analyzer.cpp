@@ -34,7 +34,6 @@
 
 Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)
-    , logViewModel(nullptr)
     , logMode(mode)
     , insertionLocking(QMutex::Recursive)
     , logLineInternalIdGenerator(0)

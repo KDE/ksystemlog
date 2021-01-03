@@ -111,7 +111,7 @@ void LogViewSearchWidget::setTreeWidget(LogViewWidget *logViewWidget)
 
 void LogViewSearchWidget::findFirst(const QString &text)
 {
-    bool textIsNotEmpty = !text.isEmpty();
+    const bool textIsNotEmpty = !text.isEmpty();
     next->setEnabled(textIsNotEmpty);
     previous->setEnabled(textIsNotEmpty);
     if (textIsNotEmpty)

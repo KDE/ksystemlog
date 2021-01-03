@@ -62,7 +62,7 @@ QList<JournalAddress> JournaldConfiguration::remoteJournals() const
         JournalAddress addressInfo;
         addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
         addressInfo.port = addressItem.section(QChar::fromLatin1('|'), 1, 1).toUInt();
-        int https = addressItem.section(QChar::fromLatin1('|'), 2).toInt();
+        const int https = addressItem.section(QChar::fromLatin1('|'), 2).toInt();
         addressInfo.https = https != 0;
         journals.append(addressInfo);
     }

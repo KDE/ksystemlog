@@ -111,10 +111,10 @@ void FileList::slotLinkClicked(const QString &link)
 void FileList::addItem()
 {
     // Open a standard Filedialog
-    QList<QUrl> urls = fileListHelper.openUrls();
+    const QList<QUrl> urls = fileListHelper.openUrls();
 
-    QStringList paths = fileListHelper.findPaths(urls);
-    foreach (const QString &path, paths) {
+    const QStringList paths = fileListHelper.findPaths(urls);
+    for (const QString &path : paths) {
         fileList->addItem(path);
     }
 
@@ -131,11 +131,11 @@ void FileList::modifyItem(QListWidgetItem *item)
     QString previousPath = item->text();
 
     // Open a standard Filedialog
-    QUrl url = fileListHelper.openUrl(previousPath);
+    const QUrl url = fileListHelper.openUrl(previousPath);
 
     QList<QUrl> urls;
     urls.append(url);
-    QStringList paths = fileListHelper.findPaths(urls);
+    const QStringList paths = fileListHelper.findPaths(urls);
 
     // We only take the first path
     if (paths.count() >= 1) {
@@ -259,9 +259,10 @@ void FileList::addPaths(const QStringList &paths)
     updateButtons();
 }
 
-QStringList FileList::paths()
+QStringList FileList::paths() const
 {
     QStringList paths;
+    paths.reserve(fileList->count());
     for (int i = 0; i < fileList->count(); i++) {
         paths.append(fileList->item(i)->text());
     }

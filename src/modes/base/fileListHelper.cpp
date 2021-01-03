@@ -90,7 +90,7 @@ QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
             if (url.fileName().contains(QLatin1Char('*'))) {
                 const QStringList foundPaths = expandJoker(url);
                 logDebug() << "Found paths of " << url.path() << ":" << foundPaths;
-                foreach (const QString &foundPath, foundPaths) {
+                for (const QString &foundPath : foundPaths) {
                     paths.append(foundPath);
                 }
             } else {
@@ -147,7 +147,7 @@ QUrl FileListHelper::openUrl(const QString &originPath)
     fileDialog.setFileMode(QFileDialog::AnyFile);
 
     fileDialog.exec();
-    QList<QUrl> urls = fileDialog.selectedUrls();
+    const QList<QUrl> urls = fileDialog.selectedUrls();
     if (!urls.isEmpty())
         return fileDialog.selectedUrls().at(0);
     else
@@ -159,7 +159,7 @@ QStringList FileListHelper::expandJoker(const QUrl &url)
     const QFileInfo info(url.toLocalFile());
 
     logDebug() << "Dir " << info.dir().path();
-    QString filename = info.fileName();
+    const QString filename = info.fileName();
 
     if (filename.isEmpty()) {
         return QStringList();
@@ -167,7 +167,7 @@ QStringList FileListHelper::expandJoker(const QUrl &url)
 
     QStringList foundPaths;
     const QStringList files = info.dir().entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
-    foreach (const QString &file, files) {
+    for (const QString &file : files) {
         foundPaths.append(info.dir().absoluteFilePath(file));
     }
 

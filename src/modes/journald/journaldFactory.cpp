@@ -31,8 +31,7 @@
 
 QList<LogMode *> JournaldModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new JournaldLogMode());
+    QList<LogMode *> logModes {new JournaldLogMode()};
     return logModes;
 }
 

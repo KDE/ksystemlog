@@ -31,8 +31,7 @@
 
 QList<LogMode *> AcpidLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new AcpidLogMode());
+    const QList<LogMode *> logModes {new AcpidLogMode()};
     return logModes;
 }
 

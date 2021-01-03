@@ -85,7 +85,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         return undefinedLogLine(logLine, originalFile);
     }
 
-    int year = QDate::currentDate().year();
+    const int year = QDate::currentDate().year();
 
     // Month number
     QString month(logLine.left(3));

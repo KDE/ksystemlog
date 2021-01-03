@@ -211,7 +211,7 @@ LogFile LogModeConfiguration::findGenericLogFile(const QString &file)
 {
     LogLevel *level = Globals::instance().informationLogLevel();
 
-    QUrl url = QUrl::fromLocalFile(file);
+    const QUrl url = QUrl::fromLocalFile(file);
     if (!url.isValid()) {
         logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
         return LogFile(QUrl(), Globals::instance().noLogLevel());
@@ -223,7 +223,7 @@ QList<LogFile> LogModeConfiguration::findGenericLogFiles(const QStringList &file
 {
     QList<LogFile> logFiles;
 
-    foreach (const QString &file, files) {
+    for (const QString &file : files) {
         logFiles.append(findGenericLogFile(file));
     }
 
@@ -237,8 +237,8 @@ QList<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &strin
     // Default level used for No Mode logs
     LogLevel *level = Globals::instance().noLogLevel();
 
-    foreach (const QString &string, stringList) {
-        QUrl url = QUrl::fromLocalFile(string);
+    for (const QString &string : stringList) {
+        const QUrl url = QUrl::fromLocalFile(string);
         if (!url.isValid()) {
             logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
             continue;

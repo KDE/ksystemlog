@@ -200,7 +200,7 @@ void View::dropEvent(QDropEvent *event)
 
 void View::dragEnterEvent(QDragEnterEvent *event)
 {
-    QList<QUrl> urls = event->mimeData()->urls();
+    const QList<QUrl> urls = event->mimeData()->urls();
 
     // If URLs have been dropped
     if (urls.isEmpty()) {
@@ -208,8 +208,8 @@ void View::dragEnterEvent(QDragEnterEvent *event)
         return;
     }
 
-    foreach (const QUrl &url, urls) {
-        QFileInfo fileInfo(url.toLocalFile());
+    for (const QUrl &url : urls) {
+        const QFileInfo fileInfo(url.toLocalFile());
 
         // TODO Add a recognition of binary files (using the Url mimetype) and refuse them
 

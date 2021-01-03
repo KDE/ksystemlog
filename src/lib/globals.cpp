@@ -117,8 +117,6 @@ QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTim
         return QLocale().toString(dateTime, (QLocale::FormatType)format);
     case PreciseFormat:
         return dateTime.toString(QStringLiteral("dd.MM.yyyy hh:mm:ss:zzz"));
-    default:
-        break;
     }
     return QLocale().toString(dateTime, QLocale::ShortFormat);
 }

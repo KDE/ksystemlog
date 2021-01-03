@@ -85,7 +85,7 @@ void LocalLogFileReader::init()
 void LocalLogFileReader::watchFile(bool enable)
 {
     Q_D(LocalLogFileReader);
-    QString filePath = d->logFile.url().toLocalFile();
+    const QString filePath = d->logFile.url().toLocalFile();
 
     if (enable == true) {
         logDebug() << "Monitoring file : " << filePath;
@@ -110,13 +110,13 @@ QIODevice *LocalLogFileReader::open()
     const QString filePath = d->logFile.url().toLocalFile();
 
     if (d->logFile.url().isValid() == false) {
-        QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
+        const QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
         Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
         Q_EMIT statusBarChanged(message);
     }
 
     QMimeDatabase db;
-    QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
+    const QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
     logDebug() << filePath << " : " << mimeType;
     QScopedPointer<QIODevice> inputDevice;
@@ -125,7 +125,7 @@ QIODevice *LocalLogFileReader::open()
     QFileInfo info(filePath);
     // If the file does not exist
     if (!info.exists()) {
-        QString message(i18n("The file '%1' does not exist.", filePath));
+        const QString message(i18n("The file '%1' does not exist.", filePath));
         Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
         Q_EMIT statusBarChanged(message);
         return nullptr;
@@ -145,7 +145,7 @@ QIODevice *LocalLogFileReader::open()
         inputDevice.reset(new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType)));
 
         if (inputDevice == nullptr) {
-            QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
+            const QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
             Q_EMIT errorOccured(i18n("Unable to Uncompress File"), message);
             Q_EMIT statusBarChanged(message);
             return nullptr;
@@ -153,7 +153,7 @@ QIODevice *LocalLogFileReader::open()
     }
 
     if (!inputDevice->open(QIODevice::ReadOnly)) {
-        QString message(i18n("You do not have sufficient permissions to read '%1'.", filePath));
+        const QString message(i18n("You do not have sufficient permissions to read '%1'.", filePath));
         Q_EMIT errorOccured(i18n("Insufficient Permissions"), message);
         Q_EMIT statusBarChanged(message);
         return nullptr;
