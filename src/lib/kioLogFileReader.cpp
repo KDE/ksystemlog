@@ -25,6 +25,7 @@
 
 #include <kio/filejob.h>
 #include <kio/job.h>
+#include <kio_version.h>
 
 #include <KDirWatch>
 
@@ -85,9 +86,13 @@ void KioLogFileReader::open()
 
     connect(d->fileJob, &KIO::FileJob::data, this,
             &KioLogFileReader::dataReceived);
+#if KIO_VERSION < QT_VERSION_CHECK(5, 78, 0)
     connect(d->fileJob, &KIO::FileJob::mimetype, this,
             &KioLogFileReader::mimetypeReceived);
-
+#else
+    connect(d->fileJob, &KIO::FileJob::mimeTypeFound, this,
+            &KioLogFileReader::mimetypeReceived);
+#endif
     logDebug() << "File opened.";
 }
 
