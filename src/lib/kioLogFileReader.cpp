@@ -38,19 +38,17 @@ class KioLogFileReaderPrivate
 public:
     KioLogFileReaderPrivate(const LogFile &file)
         : logFile(file)
-        , fileJob(nullptr)
-        , fileWatch(nullptr)
     {
     }
 
-    LogFile logFile;
+    const LogFile logFile;
 
-    KIO::FileJob *fileJob;
+    KIO::FileJob *fileJob = nullptr;
 
     QString buffer;
     qulonglong totalRead;
 
-    KDirWatch *fileWatch;
+    KDirWatch *fileWatch = nullptr;
 };
 
 KioLogFileReader::KioLogFileReader(const LogFile &logFile)
@@ -149,7 +147,7 @@ void KioLogFileReader::emitCompleteLines()
         if (endLinePos == -1)
             break;
 
-        emit lineRead(d->buffer.left(endLinePos));
+        Q_EMIT lineRead(d->buffer.left(endLinePos));
 
         // Remove the emitted line and the end line character
         d->buffer.remove(0, endLinePos + 1);
@@ -159,7 +157,7 @@ void KioLogFileReader::emitCompleteLines()
 
     // If this is the end line and it does not terminate by a \n, we return it
     if (d->totalRead == d->fileJob->size()) {
-        emit lineRead(d->buffer);
+        Q_EMIT lineRead(d->buffer);
         d->buffer.clear();
     }
 }
