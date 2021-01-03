@@ -137,7 +137,7 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
 
     header()->addActions(d->headersTogglingActions->actions());
 
-    emit columnsChanged(columns);
+    Q_EMIT columnsChanged(columns);
 
     logDebug() << "Log View Widget updated...";
 }

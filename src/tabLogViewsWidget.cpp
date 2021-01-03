@@ -237,7 +237,7 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
     // Finally add the view to the tabs
     newTab(view);
 
-    emit logManagerCreated(logManager);
+    Q_EMIT logManagerCreated(logManager);
 
     setCurrentIndex(count() - 1);
 

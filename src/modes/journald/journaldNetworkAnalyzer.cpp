@@ -136,7 +136,7 @@ void JournaldNetworkAnalyzer::httpFinished()
             filters.systemdUnits = m_systemdUnits;
             journalLogMode->updateJournalFilters(m_address, filters);
             // Regenerate the "Logs" submenu to include new syslog identifiers and systemd units.
-            emit logMode->menuChanged();
+            Q_EMIT logMode->menuChanged();
             sendRequest(RequestType::EntriesFull);
             break;
         }
@@ -227,9 +227,9 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         logViewModel->startingMultipleInsertions();
 
         if (FullRead == readingMode) {
-            emit statusBarChanged(i18n("Reading journald entries..."));
+            Q_EMIT statusBarChanged(i18n("Reading journald entries..."));
             // Start displaying the loading bar.
-            emit readFileStarted(*logMode, LogFile(), 0, 1);
+            Q_EMIT readFileStarted(*logMode, LogFile(), 0, 1);
         }
 
         // Add journald entries to the model.
@@ -238,14 +238,14 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
         if (FullRead == readingMode) {
-            emit statusBarChanged(i18n("Journald entries loaded successfully."));
+            Q_EMIT statusBarChanged(i18n("Journald entries loaded successfully."));
 
             // Stop displaying the loading bar.
-            emit readEnded();
+            Q_EMIT readEnded();
         }
 
         // Inform LogManager that new lines have been added.
-        emit logUpdated(entriesInserted);
+        Q_EMIT logUpdated(entriesInserted);
 
         insertionLocking.unlock();
     }
@@ -303,5 +303,5 @@ void JournaldNetworkAnalyzer::updateStatus(const QString &status)
     if (!status.isEmpty()) {
         newStatus += QLatin1String(" - ") + status;
     }
-    emit statusChanged(newStatus);
+    Q_EMIT statusChanged(newStatus);
 }

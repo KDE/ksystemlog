@@ -82,11 +82,11 @@ void LogManager::reload()
 
     logDebug() << "Reloading with log mode " << d->logMode->name() << "...";
 
-    emit statusBarChanged(i18n("Loading log..."));
+    Q_EMIT statusBarChanged(i18n("Loading log..."));
 
     // Change part of the main interface
-    emit tabTitleChanged(d->usedView, d->logMode->icon(), d->logMode->name());
-    emit windowTitleChanged(d->logMode->name());
+    Q_EMIT tabTitleChanged(d->usedView, d->logMode->icon(), d->logMode->name());
+    Q_EMIT windowTitleChanged(d->logMode->name());
 
     logDebug() << "Emptying view...";
 
@@ -106,10 +106,10 @@ void LogManager::reload()
     d->analyzer->watchLogFiles(false);
     d->analyzer->watchLogFiles(true);
 
-    emit statusBarChanged(i18n("Log successfully loaded."));
+    Q_EMIT statusBarChanged(i18n("Log successfully loaded."));
 
     // Log List has been totally reloaded
-    emit reloaded();
+    Q_EMIT reloaded();
 
     logDebug() << "Log mode " << d->logMode->name() << " reloaded";
 }
@@ -152,7 +152,7 @@ void LogManager::updateLog(int lineCount)
 
     d->lastUpdate = QTime::currentTime();
 
-    emit logUpdated(d->usedView, lineCount);
+    Q_EMIT logUpdated(d->usedView, lineCount);
 }
 
 void LogManager::cleanPreviousLogMode()
@@ -191,8 +191,8 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     d->analyzer->setLogViewModel(d->usedView->logViewWidget()->model());
     connect(d->analyzer, &Analyzer::statusChanged, this, [this](const QString &status) {
         d->analyzerStatus = status;
-        emit tabTitleChanged(d->usedView, d->logMode->icon(), title());
-        emit windowTitleChanged(title());
+        Q_EMIT tabTitleChanged(d->usedView, d->logMode->icon(), title());
+        Q_EMIT windowTitleChanged(title());
     });
 
     connect(d->analyzer, &Analyzer::statusBarChanged, this, &LogManager::statusBarChanged);

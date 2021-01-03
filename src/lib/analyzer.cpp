@@ -83,6 +83,6 @@ void Analyzer::informOpeningProgress(int currentPosition, int total)
     }
 
     if (currentPosition % each == 0) {
-        emit openingProgressed();
+        Q_EMIT openingProgressed();
     }
 }

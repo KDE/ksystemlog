@@ -118,7 +118,7 @@ void FileList::addItem()
         fileList->addItem(path);
     }
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void FileList::modifyItem()
@@ -142,7 +142,7 @@ void FileList::modifyItem(QListWidgetItem *item)
         item->setText(paths.at(0));
     }
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void FileList::removeSelectedItem()
@@ -155,7 +155,7 @@ void FileList::removeSelectedItem()
 
     // fileList->setCurrentRow(fileList->count()-1);
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void FileList::unselectAllItems()
@@ -182,7 +182,7 @@ void FileList::moveItem(int direction)
 
     fileList->setCurrentRow(fileList->row(item));
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void FileList::moveUpItem()
@@ -199,7 +199,7 @@ void FileList::removeAllItems()
 {
     fileList->clear();
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void FileList::updateButtons()

@@ -74,7 +74,7 @@ void JournaldConfigurationWidget::saveConfig()
     }
     configuration->setRemoteJournals(remoteJournals);
 
-    emit configSaved();
+    Q_EMIT configSaved();
 }
 
 void JournaldConfigurationWidget::readConfig()

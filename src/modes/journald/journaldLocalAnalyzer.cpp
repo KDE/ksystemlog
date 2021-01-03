@@ -163,9 +163,9 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
         logViewModel->startingMultipleInsertions();
 
         if (FullRead == readingMode) {
-            emit statusBarChanged(i18n("Reading journald entries..."));
+            Q_EMIT statusBarChanged(i18n("Reading journald entries..."));
             // Start displaying the loading bar.
-            emit readFileStarted(*logMode, LogFile(), 0, 1);
+            Q_EMIT readFileStarted(*logMode, LogFile(), 0, 1);
         }
 
         // Add journald entries to the model.
@@ -174,14 +174,14 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
         logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
         if (FullRead == readingMode) {
-            emit statusBarChanged(i18n("Journald entries loaded successfully."));
+            Q_EMIT statusBarChanged(i18n("Journald entries loaded successfully."));
 
             // Stop displaying the loading bar.
-            emit readEnded();
+            Q_EMIT readEnded();
         }
 
         // Inform LogManager that new lines have been added.
-        emit logUpdated(entriesInserted);
+        Q_EMIT logUpdated(entriesInserted);
 
         insertionLocking.unlock();
     }
@@ -222,7 +222,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
     sd_journal *journal;
 
     if (!m_filterName.isEmpty()) {
-        emit statusChanged(m_filterName);
+        Q_EMIT statusChanged(m_filterName);
     }
 
     int res = sd_journal_open(&journal, m_journalFlags);

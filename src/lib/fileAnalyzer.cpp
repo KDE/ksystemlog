@@ -117,28 +117,28 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     } else {
         logDebug() << "Reading file " << filePath;
 
-        emit statusBarChanged(i18n("Opening '%1'...", filePath));
+        Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
-        emit readFileStarted(*logMode, logFileReader->logFile(),
+        Q_EMIT readFileStarted(*logMode, logFileReader->logFile(),
                              logFileReaders.count() - logFileReaders.indexOf(logFileReader),
                              logFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
-        emit statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
+        Q_EMIT statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
     }
 
     logViewModel->endingMultipleInsertions(readingMode, insertedLogLineCount);
 
     // Inform connected LoadingBar that the reading is now finished
-    emit readEnded();
+    Q_EMIT readEnded();
 
     // Inform LogManager that new lines have been added
-    emit logUpdated(insertedLogLineCount);
+    Q_EMIT logUpdated(insertedLogLineCount);
 
     // Inform MainWindow status bar
-    emit statusBarChanged(i18n("Log file '%1' has changed.", filePath));
+    Q_EMIT statusBarChanged(i18n("Log file '%1' has changed.", filePath));
 
     logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 

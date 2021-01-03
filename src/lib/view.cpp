@@ -194,7 +194,7 @@ void View::dropEvent(QDropEvent *event)
 
     // If URLs have been dropped
     if (!urls.isEmpty()) {
-        emit droppedUrls(urls);
+        Q_EMIT droppedUrls(urls);
     }
 }
 

@@ -39,7 +39,7 @@ public:
 
     bool firstLoading;
 
-    QLabel *label;
+    QLabel *label = nullptr;
 
     QProgressBar *progressBar;
 };
@@ -81,7 +81,7 @@ QProgressBar *LoadingBar::progressBar()
 
 void LoadingBar::startLoading(const LogMode &logMode, const LogFile &logFile, int fileIndex, int fileCount)
 {
-    emit displayed(true);
+    Q_EMIT displayed(true);
 
     d->progressBar->setValue(0);
 
@@ -109,7 +109,7 @@ void LoadingBar::startLoading(const LogMode &logMode, const LogFile &logFile, in
 
 void LoadingBar::endLoading()
 {
-    emit displayed(false);
+    Q_EMIT displayed(false);
 
     d->progressBar->setValue(100);
 

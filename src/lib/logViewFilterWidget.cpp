@@ -97,7 +97,7 @@ void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
 {
     KTreeWidgetSearchLine::updateSearch(pattern);
 
-    emit treeWidgetUpdated();
+    Q_EMIT treeWidgetUpdated();
 }
 
 void LogViewWidgetSearchLine::setPriorityEnabled(int priority, bool enabled)

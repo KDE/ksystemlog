@@ -125,7 +125,7 @@ void ConfigurationDialog::updateSettings()
 
     KSystemLogConfig::self()->save();
 
-    emit configurationSaved();
+    Q_EMIT configurationSaved();
 
     logDebug() << "Configuration saved";
 }

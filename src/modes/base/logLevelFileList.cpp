@@ -101,7 +101,7 @@ void LogLevelFileList::addItem()
         insertItem(Globals::instance().informationLogLevel(), path);
     }
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void LogLevelFileList::updateSpecificButtons()
@@ -137,7 +137,7 @@ void LogLevelFileList::changeItemType()
                 item->setData(LogLevelFileList::LogLevelRole, selectedLogLevel);
             }
 
-            emit fileListChanged();
+            Q_EMIT fileListChanged();
         }
     }
 }
@@ -195,5 +195,5 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
 
     warningBox->setVisible(missingFiles);
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }

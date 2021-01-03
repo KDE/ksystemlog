@@ -105,8 +105,8 @@ void ProcessOutputLogFileReader::startProcess()
 
     if (d->logFile.url().isValid() == false) {
         QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
-        emit errorOccured(i18n("File Does Not Exist"), message);
-        emit statusBarChanged(message);
+        Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
+        Q_EMIT statusBarChanged(message);
     }
 
     logDebug() << "Starting process...";
@@ -156,15 +156,15 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
 
     if (exitStatus == QProcess::CrashExit) {
         QString message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));
-        emit errorOccured(i18n("Process Crashed"), message);
-        emit statusBarChanged(message);
+        Q_EMIT errorOccured(i18n("Process Crashed"), message);
+        Q_EMIT statusBarChanged(message);
     }
 
     // If there is no new lines
     if (d->previousLinesCount == d->availableStandardOutput.count()) {
         /*
-        //Emit an empty log lines list
-        emit contentChanged(this, false, QStringList());
+        //Q_EMIT an empty log lines list
+        Q_EMIT contentChanged(this, false, QStringList());
         */
     }
     // If there are new lines in the file, insert only them or this is the first time we read this file
@@ -182,14 +182,14 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
 
         logDebug() << "Retrieving a part of the file...";
 
-        emit contentChanged(this, Analyzer::UpdatingRead, newOutputs);
+        Q_EMIT contentChanged(this, Analyzer::UpdatingRead, newOutputs);
 
     }
     // Else reread all lines, clear log list
     else {
         logDebug() << "New process or process already read. Reading entire content";
 
-        emit contentChanged(this, Analyzer::FullRead, d->availableStandardOutput);
+        Q_EMIT contentChanged(this, Analyzer::FullRead, d->availableStandardOutput);
     }
 
     closeProcess();

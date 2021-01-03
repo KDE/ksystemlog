@@ -111,8 +111,8 @@ QIODevice *LocalLogFileReader::open()
 
     if (d->logFile.url().isValid() == false) {
         QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
-        emit errorOccured(i18n("File Does Not Exist"), message);
-        emit statusBarChanged(message);
+        Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
+        Q_EMIT statusBarChanged(message);
     }
 
     QMimeDatabase db;
@@ -126,8 +126,8 @@ QIODevice *LocalLogFileReader::open()
     // If the file does not exist
     if (!info.exists()) {
         QString message(i18n("The file '%1' does not exist.", filePath));
-        emit errorOccured(i18n("File Does Not Exist"), message);
-        emit statusBarChanged(message);
+        Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
+        Q_EMIT statusBarChanged(message);
         return nullptr;
     }
 
@@ -146,16 +146,16 @@ QIODevice *LocalLogFileReader::open()
 
         if (inputDevice == nullptr) {
             QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
-            emit errorOccured(i18n("Unable to Uncompress File"), message);
-            emit statusBarChanged(message);
+            Q_EMIT errorOccured(i18n("Unable to Uncompress File"), message);
+            Q_EMIT statusBarChanged(message);
             return nullptr;
         }
     }
 
     if (!inputDevice->open(QIODevice::ReadOnly)) {
         QString message(i18n("You do not have sufficient permissions to read '%1'.", filePath));
-        emit errorOccured(i18n("Insufficient Permissions"), message);
-        emit statusBarChanged(message);
+        Q_EMIT errorOccured(i18n("Insufficient Permissions"), message);
+        Q_EMIT statusBarChanged(message);
         return nullptr;
     }
 
@@ -220,14 +220,14 @@ void LocalLogFileReader::logFileModified()
 
         logDebug() << "Retrieving a part of the file...";
 
-        emit contentChanged(this, Analyzer::UpdatingRead, readContent(inputDevice));
+        Q_EMIT contentChanged(this, Analyzer::UpdatingRead, readContent(inputDevice));
 
     }
     // Else reread all lines, clear log list
     else {
         logDebug() << "New file or file truncated. (Re-)Loading log file";
 
-        emit contentChanged(this, Analyzer::FullRead, readContent(inputDevice));
+        Q_EMIT contentChanged(this, Analyzer::FullRead, readContent(inputDevice));
     }
 
     close(inputDevice);

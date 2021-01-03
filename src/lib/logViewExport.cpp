@@ -195,13 +195,13 @@ void LogViewExport::copyToClipboard()
 
     // Copy text value only if it is not empty
     if (nbCopied == 0) {
-        emit statusBarChanged(i18n("No items selected. Nothing copied to clipboard."));
+        Q_EMIT statusBarChanged(i18n("No items selected. Nothing copied to clipboard."));
     } else {
         // Copy both to clipboard and X11-selection
         QApplication::clipboard()->setText(text, QClipboard::Clipboard);
         QApplication::clipboard()->setText(text, QClipboard::Selection);
 
-        emit statusBarChanged(
+        Q_EMIT statusBarChanged(
             i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
     }
 
@@ -216,7 +216,7 @@ void LogViewExport::fileSave()
 
     // No item selected
     if (*it == nullptr) {
-        emit statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
+        Q_EMIT statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
         return;
     }
 
@@ -248,7 +248,7 @@ void LogViewExport::fileSave()
 
         delete ioDev;
 
-        emit statusBarChanged(
+        Q_EMIT statusBarChanged(
             i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
     } else {
         QString message(i18n("Unable to save file '%1': Permission Denied.", filename));

@@ -232,7 +232,7 @@ void MultipleFileList::addItem(int category)
 
     updateEmptyItems();
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void MultipleFileList::addItemInternal(QTreeWidgetItem *categoryItem, const QString &path)
@@ -295,7 +295,7 @@ void MultipleFileList::modifyItem(QTreeWidgetItem *item)
         item->setText(0, paths.at(0));
     }
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void MultipleFileList::removeSelectedItem()
@@ -309,7 +309,7 @@ void MultipleFileList::removeSelectedItem()
 
     updateEmptyItems();
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void MultipleFileList::moveItem(int direction)
@@ -330,7 +330,7 @@ void MultipleFileList::moveItem(int direction)
     fileList->setCurrentItem(item);
     // item->setSelected(true);
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void MultipleFileList::moveUpItem()
@@ -359,7 +359,7 @@ void MultipleFileList::removeAllItems()
 
     updateEmptyItems();
 
-    emit fileListChanged();
+    Q_EMIT fileListChanged();
 }
 
 void MultipleFileList::unselectAllItems()
