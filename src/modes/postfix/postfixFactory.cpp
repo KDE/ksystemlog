@@ -31,8 +31,7 @@
 
 QList<LogMode *> PostfixLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new PostfixLogMode());
+    const QList<LogMode *> logModes {new PostfixLogMode()};
     return logModes;
 }
 

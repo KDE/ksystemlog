@@ -60,9 +60,7 @@ LogLine *XorgAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 {
     QString string(logLine);
 
-    QString type;
-
-    type = string.left(4);
+    const QString type = string.left(4);
 
     LogLevel *logLineType = findTypeName(type);
 

@@ -31,8 +31,7 @@
 
 QList<LogMode *> SystemLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new SystemLogMode());
+    const QList<LogMode *> logModes {new SystemLogMode()};
     return logModes;
 }
 
