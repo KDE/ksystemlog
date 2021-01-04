@@ -77,7 +77,7 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
     // Remove previous files
     deleteLogFiles();
 
-    foreach (const LogFile &logFile, logFiles) {
+    for (const LogFile &logFile : logFiles) {
         LogFileReader *logFileReader = createLogFileReader(logFile);
         logFileReaders.append(logFileReader);
 
@@ -90,7 +90,7 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode,
                                   const QStringList &content)
 {
-    QString filePath = logFileReader->logFile().url().toLocalFile();
+    const QString filePath = logFileReader->logFile().url().toLocalFile();
     if (readingMode == Analyzer::FullRead)
         logDebug() << "File " << filePath << " has been modified on full read.";
     else

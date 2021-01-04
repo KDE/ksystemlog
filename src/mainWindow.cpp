@@ -187,7 +187,8 @@ MainWindow::MainWindow()
     // Set focus to the list
     firstLogManager->usedView()->logViewWidget()->setFocus();
 
-    foreach (LogMode *logMode, Globals::instance().logModes()) {
+    const auto logModes = Globals::instance().logModes();
+    for (LogMode *logMode : logModes) {
         connect(logMode, &LogMode::menuChanged, this, &MainWindow::recreateActions);
     }
 }
@@ -235,12 +236,12 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
     logDebug() << "Connecting to actions the new log manager and view...";
 
     // Contextual menu Log Manager signals
-    QAction *separator;
+
 
     manager->usedView()->logViewWidget()->addAction(d->reloadAction);
     manager->usedView()->logViewWidget()->addAction(d->selectAllAction);
 
-    separator = new QAction(this);
+    QAction *separator = new QAction(this);
     separator->setSeparator(true);
     manager->usedView()->logViewWidget()->addAction(separator);
 

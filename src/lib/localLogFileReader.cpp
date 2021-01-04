@@ -87,7 +87,7 @@ void LocalLogFileReader::watchFile(bool enable)
     Q_D(LocalLogFileReader);
     const QString filePath = d->logFile.url().toLocalFile();
 
-    if (enable == true) {
+    if (enable) {
         logDebug() << "Monitoring file : " << filePath;
 
         if (d->watch->contains(filePath) == false) {
@@ -122,7 +122,7 @@ QIODevice *LocalLogFileReader::open()
     QScopedPointer<QIODevice> inputDevice;
 
     // Try to see if this file exists
-    QFileInfo info(filePath);
+    const QFileInfo info(filePath);
     // If the file does not exist
     if (!info.exists()) {
         const QString message(i18n("The file '%1' does not exist.", filePath));

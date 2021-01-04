@@ -69,7 +69,8 @@ void ConfigurationDialog::setupLogModeConfigurations()
 {
     logDebug() << "Setup Log Mode Configurations...";
 
-    foreach (LogMode *logMode, Globals::instance().logModes()) {
+    const auto logModes = Globals::instance().logModes();
+    for (LogMode *logMode : logModes) {
         // Some Log mode does not need a configuration widget
         if (logMode->logModeConfigurationWidget() == nullptr) {
             continue;

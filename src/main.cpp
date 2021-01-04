@@ -88,7 +88,7 @@ int main(int argc, char **argv)
 
         const QStringList args = parser.positionalArguments();
 
-        if (args.count() == 0) {
+        if (args.isEmpty()) {
             new KSystemLog::MainWindow();
         } else {
             // KSystemLog::MainWindow* mainWindow;

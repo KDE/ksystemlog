@@ -69,7 +69,7 @@ void DetailDialog::updateDetails()
 
     // Get the current-last item selected
     LogViewWidgetItem *item = logViewWidget->lastSelectedItem();
-    if (item == nullptr) {
+    if (!item) {
         logDebug() << "No item found.";
         return;
     }

@@ -74,7 +74,7 @@ void Analyzer::setLogViewModel(LogViewModel *logViewModel)
 
 void Analyzer::informOpeningProgress(int currentPosition, int total)
 {
-    int each = total / 100;
+    const int each = total / 100;
     if (each == 0) {
         return;
     }

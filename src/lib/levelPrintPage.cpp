@@ -39,7 +39,6 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
 {
     setWindowTitle(i18n("Log Level Printing"));
 
-    // m_pageLayout = new QVBoxLayout(this, 3, 3);
     m_pageLayout = new QVBoxLayout(this);
 
     m_lblChoose = new QLabel(this);

@@ -57,7 +57,8 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
 
     startupLogMode->addItem(QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
-    foreach (LogMode *logMode, Globals::instance().logModes()) {
+    const auto logModes = Globals::instance().logModes();
+    for (LogMode *logMode : logModes) {
         // Ignore this special case
         if (logMode->id() == QLatin1String("openLogMode"))
             continue;
@@ -93,7 +94,7 @@ GeneralConfigurationWidget::~GeneralConfigurationWidget()
 void GeneralConfigurationWidget::addDateFormatExample()
 {
     foreach (QAbstractButton *button, d->dateFormatGroup->buttons()) {
-        Globals::DateFormat currentButtonFormat = (Globals::DateFormat)d->dateFormatGroup->id(button);
+        Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(d->dateFormatGroup->id(button));
         QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
         button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
     }
@@ -146,9 +147,9 @@ bool GeneralConfigurationWidget::isValid() const
 {
     if (maxLines->value() > 0) {
         // Check if log files exist for selected mode.
-        QVariant modeID = startupLogMode->currentData();
+        const QVariant modeID = startupLogMode->currentData();
         if (!modeID.isNull()) {
-            QString modeString = modeID.toString();
+            const QString modeString = modeID.toString();
             LogMode *mode = Globals::instance().findLogMode(modeString);
             if (mode) {
                 if (!mode->filesExist()) {
