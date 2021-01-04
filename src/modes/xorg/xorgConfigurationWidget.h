@@ -41,59 +41,23 @@ class XorgConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    XorgConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON), i18n("X.org Log"))
-    {
-        QHBoxLayout *layout = new QHBoxLayout(this);
-
-        fileList
-            = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
-        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-        layout->addWidget(fileList);
-    }
+    XorgConfigurationWidget();
 
     ~XorgConfigurationWidget() override {}
 
 public Q_SLOTS:
 
-    void saveConfig() override
-    {
-        XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                                                   ->logModeConfiguration<XorgConfiguration *>();
+    void saveConfig() override;
 
-        xorgConfiguration->setXorgPaths(fileList->paths());
-    }
+    void readConfig() override;
 
-    void readConfig() override
-    {
-        XorgConfiguration *xorgConfiguration = Globals::instance()
-                                                   .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                                                   ->logModeConfiguration<XorgConfiguration *>();
-
-        fileList->removeAllItems();
-
-        fileList->addPaths(xorgConfiguration->xorgPaths());
-    }
-
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
+    void defaultConfig() override;
 
 protected:
-    bool isValid() const override
-    {
-        if (fileList->isEmpty() == false) {
-            return true;
-        }
-
-        return false;
-    }
+    bool isValid() const override;
 
 private:
-    FileList *fileList;
+    FileList *fileList = nullptr;
 };
 
 #endif // _XORG_CONFIGURATION_WIDGET_H

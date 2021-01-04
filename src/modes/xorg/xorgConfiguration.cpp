@@ -20,3 +20,20 @@
  ***************************************************************************/
 
 #include "xorgConfiguration.h"
+
+XorgConfiguration::XorgConfiguration()
+    : d(new XorgConfigurationPrivate())
+{
+    configuration->setCurrentGroup(QStringLiteral("XorgLogMode"));
+
+    QStringList defaultXorgPaths;
+    defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
+    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->xorgPaths, defaultXorgPaths,
+                                     QStringLiteral("LogFilesPaths"));
+}
+
+XorgConfiguration::~XorgConfiguration() { delete d; }
+
+QStringList XorgConfiguration::xorgPaths() const { return d->xorgPaths; }
+
+void XorgConfiguration::setXorgPaths(const QStringList &xorgPaths) { d->xorgPaths = xorgPaths; }

@@ -43,47 +43,11 @@ public:
 
     ~XSessionItemBuilder() override {}
 
-    void prepareItem(LogViewWidgetItem *item) const override
-    {
-        LogLine *line = item->logLine();
+    void prepareItem(LogViewWidgetItem *item) const override;
 
-        item->setText(0, QLatin1String(""));
+    QString createToolTipText(LogLine *line) const override;
 
-        int i = 1;
-        foreach (const QString &label, line->logItems()) {
-            item->setText(i, label);
-            i++;
-        }
-
-        item->setIcon(0, line->logLevel()->icon());
-    }
-
-    QString createToolTipText(LogLine *line) const override
-    {
-        QString result;
-
-        QListIterator<QString> it(line->logItems());
-
-        result.append(QLatin1String("<table>"));
-
-        QString type = it.next();
-        if (type.isEmpty())
-            result.append(labelMessageFormat(i18n("Program:"), i18n("none")));
-        else
-            result.append(labelMessageFormat(i18n("Program:"), type));
-
-        result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
-
-        result.append(QLatin1String("</table>"));
-
-        return result;
-    }
-
-    QString createFormattedText(LogLine *line) const override
-    {
-        // It uses the same formating than the tool tip
-        return createToolTipText(line);
-    }
+    QString createFormattedText(LogLine *line) const override;
 };
 
 #endif // _X_SESSION_ITEM_BUILDER_H

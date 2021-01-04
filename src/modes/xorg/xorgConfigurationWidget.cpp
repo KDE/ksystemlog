@@ -20,3 +20,49 @@
  ***************************************************************************/
 
 #include "xorgConfigurationWidget.h"
+
+XorgConfigurationWidget::XorgConfigurationWidget()
+    : LogModeConfigurationWidget(i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON), i18n("X.org Log"))
+{
+    QHBoxLayout *layout = new QHBoxLayout(this);
+
+    fileList
+            = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
+    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    layout->addWidget(fileList);
+}
+
+void XorgConfigurationWidget::saveConfig()
+{
+    XorgConfiguration *xorgConfiguration = Globals::instance()
+            .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
+            ->logModeConfiguration<XorgConfiguration *>();
+
+    xorgConfiguration->setXorgPaths(fileList->paths());
+}
+
+void XorgConfigurationWidget::readConfig()
+{
+    XorgConfiguration *xorgConfiguration = Globals::instance()
+            .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
+            ->logModeConfiguration<XorgConfiguration *>();
+
+    fileList->removeAllItems();
+
+    fileList->addPaths(xorgConfiguration->xorgPaths());
+}
+
+void XorgConfigurationWidget::defaultConfig()
+{
+    // TODO Find a way to read the configuration per default
+    readConfig();
+}
+
+bool XorgConfigurationWidget::isValid() const
+{
+    if (fileList->isEmpty() == false) {
+        return true;
+    }
+
+    return false;
+}

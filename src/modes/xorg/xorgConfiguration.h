@@ -43,22 +43,13 @@ class XorgConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    XorgConfiguration()
-        : d(new XorgConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("XorgLogMode"));
+    XorgConfiguration();
 
-        QStringList defaultXorgPaths;
-        defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
-        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->xorgPaths, defaultXorgPaths,
-                                         QStringLiteral("LogFilesPaths"));
-    }
+    ~XorgConfiguration() override;
 
-    ~XorgConfiguration() override { delete d; }
+    QStringList xorgPaths() const;
 
-    QStringList xorgPaths() const { return d->xorgPaths; }
-
-    void setXorgPaths(const QStringList &xorgPaths) { d->xorgPaths = xorgPaths; }
+    void setXorgPaths(const QStringList &xorgPaths);
 
 private:
     XorgConfigurationPrivate *const d;

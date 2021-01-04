@@ -44,63 +44,20 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    SystemConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON), i18n("System Log"))
-    {
-        QVBoxLayout *layout = new QVBoxLayout(this);
-
-        QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
-
-        fileList = new LogLevelFileList(this, description);
-
-        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-
-        layout->addWidget(fileList);
-    }
+    SystemConfigurationWidget();
 
     ~SystemConfigurationWidget() override {}
 
-    bool isValid() const override
-    {
-        if (fileList->isEmpty() == false) {
-            logDebug() << "System configuration valid";
-            return true;
-        }
+    bool isValid() const override;
 
-        logDebug() << "System configuration not valid";
-        return false;
-    }
+    void saveConfig() override;
 
-    void saveConfig() override
-    {
-        logDebug() << "Saving config from System Options...";
+    void readConfig() override;
 
-        SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
-                                                       ->logModeConfiguration<SystemConfiguration *>();
-        systemConfiguration->setLogFilesPaths(fileList->paths());
-        systemConfiguration->setLogFilesLevels(fileList->levels());
-    }
-
-    void readConfig() override
-    {
-        SystemConfiguration *systemConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
-                                                       ->logModeConfiguration<SystemConfiguration *>();
-
-        fileList->removeAllItems();
-
-        fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
-    }
-
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
+    void defaultConfig() override;
 
 private:
-    LogLevelFileList *fileList;
+    LogLevelFileList *fileList = nullptr;
 };
 
 #endif // _SYSTEM_CONFIGURATION_WIDGET_H

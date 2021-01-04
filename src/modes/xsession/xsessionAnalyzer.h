@@ -37,112 +37,27 @@ class XSessionAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit XSessionAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-        , currentDateTime(QDateTime::currentDateTime())
-    {
-    }
+    explicit XSessionAnalyzer(LogMode *logMode);
 
     ~XSessionAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-
-        columns.addColumn(LogViewColumn(i18n("Line"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Program"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        columns.setGroupByDay(false);
-        columns.setGroupByHour(false);
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
     LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 
-    Analyzer::LogFileSortMode logFileSortMode() override
-    {
-        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
-        if (configuration->isIgnoreXorgErrors())
-            return Analyzer::FilteredLogFile;
-        else
-            return Analyzer::AscendingSortedLogFile;
-    }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override
-    {
-        int classPrototypePosition = logLine.indexOf(QLatin1String("::"));
-        int programPos = logLine.indexOf(QLatin1Char(':'));
-
-        // If the first found : is the begin of a :: (example: QFile::at:) then we move to the next :
-        if (classPrototypePosition != -1 && programPos == classPrototypePosition) {
-            programPos = logLine.indexOf(QLatin1Char(':'), classPrototypePosition + 2);
-        }
-
-        QString program;
-        QString message;
-        if (programPos == -1) {
-            program = QLatin1String("");
-            message = logLine.simplified();
-        } else {
-            program = logLine.left(programPos);
-            message = logLine.right(logLine.length() - programPos - 1);
-        }
-
-        message = message.simplified();
-
-        // Do not add this line if this is a X error that the user wants to ignore
-        if (isXorgError(program) == true) {
-            return nullptr;
-        }
-
-        // Find the right log level
-        LogLevel *logLevel;
-        if (hasErrorKeywords(message))
-            logLevel = Globals::instance().errorLogLevel();
-        else if (hasWarningKeywords(message))
-            logLevel = Globals::instance().warningLogLevel();
-        else
-            logLevel = Globals::instance().informationLogLevel();
-
-        return new LogLine(logLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
-                           originalFile.url().toLocalFile(), logLevel, logMode);
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 
 private:
-    bool isXorgError(const QString &program)
-    {
-        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
-        if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
-            return true;
+    bool isXorgError(const QString &program);
 
-        return false;
-    }
+    bool hasWarningKeywords(const QString &message);
 
-    bool hasWarningKeywords(const QString &message)
-    {
-        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
-        return hasKeywords(message, configuration->warningKeywords());
-    }
+    bool hasErrorKeywords(const QString &message);
 
-    bool hasErrorKeywords(const QString &message)
-    {
-        XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
-        return hasKeywords(message, configuration->errorKeywords());
-    }
-
-    bool hasKeywords(const QString &message, const QStringList &keywords)
-    {
-        foreach (const QString &keyword, keywords) {
-            if (message.contains(keyword, Qt::CaseInsensitive)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    bool hasKeywords(const QString &message, const QStringList &keywords);
 
     QDateTime currentDateTime;
 };
