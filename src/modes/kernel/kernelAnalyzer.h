@@ -42,94 +42,20 @@ class KernelAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit KernelAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-    {
-        startupTime();
-    }
+    explicit KernelAnalyzer(LogMode *logMode);
 
     ~KernelAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Component"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override
-    {
-        return new ProcessOutputLogFileReader(logFile);
-    }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
     Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
 
-    void startupTime()
-    {
-        QFile file(QStringLiteral(UPTIME_FILE));
+    void startupTime();
 
-        file.open(QIODevice::ReadOnly | QIODevice::Text);
-
-        QTextStream in(&file);
-        QString line = in.readLine();
-
-        // Format : 1618.72 1382.98 (uptime / something)
-        QStringList times = line.split(QLatin1Char(' '));
-
-        QString secondsString = times.at(0);
-        QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1Char('.')));
-        long updateSeconds = pureSecondsString.toLong();
-
-        startupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
-        logDebug() << "Startup time : " << startupDateTime;
-    }
-
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
-
-        //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
-        //			QRegExp messageRegexp(timeRegex + "(.*)");
-
-        QDateTime dateTime(startupDateTime);
-        QStringList messages;
-
-        int timeExists = timeRegex.indexIn(logLine);
-
-        // If we have the date, we are able to update the start date
-        if (timeExists != -1) {
-            // logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
-            dateTime = dateTime.addSecs(timeRegex.cap(1).toInt());
-            dateTime = dateTime.addMSecs(timeRegex.cap(2).toInt() / 1000);
-
-            parseComponentMessage(timeRegex.cap(3), messages);
-
-        }
-        // Else, the date will never change
-        else {
-            parseComponentMessage(logLine, messages);
-        }
-
-        /*
-  logDebug() << "--------------------------------";
-  logDebug() << logLine;
-  logDebug() << "Secs : " << dateTime.time().second();
-  logDebug() << "MSec : " << dateTime.time().msec();
-  logDebug() << "Comp : " << messages.at(0);
-  logDebug() << "Msg  : " << messages.at(1);
-  logDebug() << "--------------------------------";
-        */
-
-        LogLine *line
-            = new LogLine(logLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
-                          Globals::instance().informationLogLevel(), logMode);
-
-        return line;
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
     inline void parseComponentMessage(const QString &logLine, QStringList &messages)
     {

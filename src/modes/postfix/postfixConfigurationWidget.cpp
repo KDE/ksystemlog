@@ -20,3 +20,57 @@
  ***************************************************************************/
 
 #include "postfixConfigurationWidget.h"
+
+PostfixConfigurationWidget::PostfixConfigurationWidget()
+    : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
+                                 i18n("Postfix Log"))
+{
+    QVBoxLayout *layout = new QVBoxLayout(this);
+
+    QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
+
+    fileList = new LogLevelFileList(this, description);
+
+    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+
+    layout->addWidget(fileList);
+}
+
+bool PostfixConfigurationWidget::isValid() const
+{
+    if (fileList->isEmpty() == false) {
+        logDebug() << "Postfix configuration valid";
+        return true;
+    }
+
+    logDebug() << "Postfix configuration not valid";
+    return false;
+}
+
+void PostfixConfigurationWidget::saveConfig()
+{
+    logDebug() << "Saving config from Postfix Options...";
+
+    PostfixConfiguration *configuration = Globals::instance()
+            .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
+            ->logModeConfiguration<PostfixConfiguration *>();
+    configuration->setLogFilesPaths(fileList->paths());
+    configuration->setLogFilesLevels(fileList->levels());
+}
+
+void PostfixConfigurationWidget::readConfig()
+{
+    PostfixConfiguration *configuration = Globals::instance()
+            .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
+            ->logModeConfiguration<PostfixConfiguration *>();
+
+    fileList->removeAllItems();
+
+    fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
+}
+
+void PostfixConfigurationWidget::defaultConfig()
+{
+    // TODO Find a way to read the configuration per default
+    readConfig();
+}

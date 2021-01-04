@@ -20,3 +20,57 @@
  ***************************************************************************/
 
 #include "cupsPdfAnalyzer.h"
+
+CupsPdfAnalyzer::CupsPdfAnalyzer(LogMode *logMode)
+    : FileAnalyzer(logMode)
+    , cupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
+                   + QLatin1String("[ ]+\\[(\\w*)\\][ ]+(.*)"))
+{ // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
+}
+
+LogViewColumns CupsPdfAnalyzer::initColumns()
+{
+    LogViewColumns columns;
+
+    columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+    columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+
+    return columns;
+}
+
+LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
+{
+    int firstPosition = cupsPdfRegex.indexIn(logLine);
+    if (firstPosition == -1) {
+        logDebug() << "Unable to parse line " << logLine;
+        return nullptr;
+    }
+
+    QStringList capturedTexts = cupsPdfRegex.capturedTexts();
+
+    /*
+  logDebug() << "------------------------------------------";
+        foreach(QString cap, capturedTexts) {
+    logDebug() << cap;
+        }
+  logDebug() << "------------------------------------------";
+        */
+
+    // Remove full line
+    capturedTexts.removeAt(0);
+
+    QDateTime dateTime = ParsingHelper::instance()->parseSyslogDateTime(capturedTexts.takeAt(0));
+    LogLevel *logLevel = findLogLevel(capturedTexts.takeAt(0));
+
+    return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
+                       originalLogFile.url().toLocalFile(), logLevel, logMode);
+}
+
+LogLevel *CupsPdfAnalyzer::findLogLevel(const QString &level)
+{
+    if (level == QLatin1String("ERROR"))
+        return Globals::instance().errorLogLevel();
+
+    // level == "STATUS"
+    return Globals::instance().informationLogLevel();
+}

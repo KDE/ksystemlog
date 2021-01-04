@@ -20,3 +20,47 @@
  ***************************************************************************/
 
 #include "cupsPageAnalyzer.h"
+
+CupsPageAnalyzer::CupsPageAnalyzer(LogMode *logMode)
+    : FileAnalyzer(logMode)
+    , cupsPageRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
+{
+}
+
+LogViewColumns CupsPageAnalyzer::initColumns()
+{
+    LogViewColumns columns;
+
+    columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+    columns.addColumn(LogViewColumn(i18n("Printer"), true, true));
+    columns.addColumn(LogViewColumn(i18n("User"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Job Id"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Page Number"), true, false));
+    columns.addColumn(LogViewColumn(i18n("Num Copies"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Job Billing"), true, false));
+
+    return columns;
+}
+
+LogFileReader *CupsPageAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+
+Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+
+LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
+{
+    int firstPosition = cupsPageRegex.indexIn(logLine);
+    if (firstPosition == -1) {
+        logDebug() << "Unable to parse line " << logLine;
+        return nullptr;
+    }
+
+    QStringList capturedTexts = cupsPageRegex.capturedTexts();
+
+    // Remove full line
+    capturedTexts.removeAt(0);
+
+    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
+
+    return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
+                       originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), logMode);
+}

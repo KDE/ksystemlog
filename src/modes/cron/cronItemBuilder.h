@@ -41,25 +41,7 @@ public:
 
     ~CronItemBuilder() override {}
 
-    QString createFormattedText(LogLine *line) const override
-    {
-        QString result;
-
-        result.append(QLatin1String("<table>"));
-
-        QListIterator<QString> it(line->logItems());
-
-        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-        result.append(labelMessageFormat(i18n("Hostname:"), it.next()));
-        result.append(labelMessageFormat(i18n("Process:"), it.next()));
-        result.append(labelMessageFormat(i18n("User:"), it.next()));
-        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-        result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
-
-        result.append(QLatin1String("</table>"));
-
-        return result;
-    }
+    QString createFormattedText(LogLine *line) const override;
 };
 
 #endif // _CRON_ITEM_BUILDER_H

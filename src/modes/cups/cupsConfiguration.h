@@ -50,49 +50,25 @@ class CupsConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    CupsConfiguration()
-        : d(new CupsConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("CupsLogMode"));
+    CupsConfiguration();
 
-        QStringList defaultCupsPaths;
-        defaultCupsPaths << QStringLiteral("/var/log/cups/error_log");
-        configuration->addItemStringList(QStringLiteral("CupsLogFilesPaths"), d->cupsPaths, defaultCupsPaths,
-                                         QStringLiteral("CupsLogFilesPaths"));
+    ~CupsConfiguration() override;
 
-        QStringList defaultCupsAccessPaths;
-        defaultCupsAccessPaths << QStringLiteral("/var/log/cups/access_log");
-        configuration->addItemStringList(QStringLiteral("CupsAccessLogFilesPaths"), d->cupsAccessPaths,
-                                         defaultCupsAccessPaths, QStringLiteral("CupsAccessLogFilesPaths"));
+    QStringList cupsPaths() const;
 
-        QStringList defaultCupsPagePaths;
-        defaultCupsPagePaths << QStringLiteral("/var/log/cups/page_log");
-        configuration->addItemStringList(QStringLiteral("CupsPageLogFilesPaths"), d->cupsPagePaths,
-                                         defaultCupsPagePaths, QStringLiteral("CupsPageLogFilesPaths"));
+    QStringList cupsAccessPaths() const;
 
-        QStringList defaultCupsPdfPaths;
-        defaultCupsPdfPaths << QStringLiteral("/var/log/cups/cups-pdf_log");
-        configuration->addItemStringList(QStringLiteral("CupsPdfLogFilesPaths"), d->cupsPdfPaths,
-                                         defaultCupsPdfPaths, QStringLiteral("CupsPdfLogFilesPaths"));
-    }
+    QStringList cupsPagePaths() const;
 
-    ~CupsConfiguration() override { delete d; }
+    QStringList cupsPdfPaths() const;
 
-    QStringList cupsPaths() const { return d->cupsPaths; }
+    void setCupsPaths(const QStringList &cupsPaths);
 
-    QStringList cupsAccessPaths() const { return d->cupsAccessPaths; }
+    void setCupsAccessPaths(const QStringList &cupsAccessPaths);
 
-    QStringList cupsPagePaths() const { return d->cupsPagePaths; }
+    void setCupsPagePaths(const QStringList &cupsPagePaths);
 
-    QStringList cupsPdfPaths() const { return d->cupsPdfPaths; }
-
-    void setCupsPaths(const QStringList &cupsPaths) { d->cupsPaths = cupsPaths; }
-
-    void setCupsAccessPaths(const QStringList &cupsAccessPaths) { d->cupsAccessPaths = cupsAccessPaths; }
-
-    void setCupsPagePaths(const QStringList &cupsPagePaths) { d->cupsPagePaths = cupsPagePaths; }
-
-    void setCupsPdfPaths(const QStringList &cupsPdfPaths) { d->cupsPdfPaths = cupsPdfPaths; }
+    void setCupsPdfPaths(const QStringList &cupsPdfPaths);
 
 private:
     CupsConfigurationPrivate *const d;

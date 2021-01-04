@@ -37,35 +37,18 @@ class CupsPageAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit CupsPageAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-        , cupsPageRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
-    {
-    }
+    explicit CupsPageAnalyzer(LogMode *logMode);
 
     ~CupsPageAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Printer"), true, true));
-        columns.addColumn(LogViewColumn(i18n("User"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Job Id"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Page Number"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Num Copies"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Job Billing"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
     QRegExp cupsPageRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
     /*
      * https://www.cups.org/doc/man-cupsd-logs.html
@@ -74,24 +57,7 @@ protected:
      * DeskJet root 2 [20/May/1999:19:21:05 +0000] 1 1 acme-123
      * DeskJet root 2 [20/May/1999:19:21:05 +0000] 2 1 acme-123
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        int firstPosition = cupsPageRegex.indexIn(logLine);
-        if (firstPosition == -1) {
-            logDebug() << "Unable to parse line " << logLine;
-            return nullptr;
-        }
-
-        QStringList capturedTexts = cupsPageRegex.capturedTexts();
-
-        // Remove full line
-        capturedTexts.removeAt(0);
-
-        QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
-
-        return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                           originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), logMode);
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 };
 
 #endif // _CUPS_PAGE_ANALYZER_H

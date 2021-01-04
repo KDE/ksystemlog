@@ -41,19 +41,7 @@ public:
 
     ~CupsItemBuilder() override {}
 
-    QString createFormattedText(LogLine *line) const override
-    {
-        QString result;
-
-        result.append(QLatin1String("<table>"));
-
-        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-
-        result.append(QLatin1String("</table>"));
-
-        return result;
-    }
+    QString createFormattedText(LogLine *line) const override;
 };
 
 #endif // _CUPS_ITEM_BUILDER_H

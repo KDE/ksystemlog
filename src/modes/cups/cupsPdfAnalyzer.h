@@ -38,24 +38,11 @@ class CupsPdfAnalyzer : public FileAnalyzer
 
 public:
     // Fri Sep 30 21:58:37 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
-    explicit CupsPdfAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-        , cupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
-                       + QLatin1String("[ ]+\\[(\\w*)\\][ ]+(.*)"))
-    { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
-    }
+    explicit CupsPdfAnalyzer(LogMode *logMode);
 
     ~CupsPdfAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
     QRegExp cupsPdfRegex;
@@ -74,42 +61,9 @@ protected:
      * Fri Sep 30 21:58:37 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
      * Sat Oct  1 09:11:45 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        int firstPosition = cupsPdfRegex.indexIn(logLine);
-        if (firstPosition == -1) {
-            logDebug() << "Unable to parse line " << logLine;
-            return nullptr;
-        }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
-        QStringList capturedTexts = cupsPdfRegex.capturedTexts();
-
-        /*
-  logDebug() << "------------------------------------------";
-        foreach(QString cap, capturedTexts) {
-    logDebug() << cap;
-        }
-  logDebug() << "------------------------------------------";
-        */
-
-        // Remove full line
-        capturedTexts.removeAt(0);
-
-        QDateTime dateTime = ParsingHelper::instance()->parseSyslogDateTime(capturedTexts.takeAt(0));
-        LogLevel *logLevel = findLogLevel(capturedTexts.takeAt(0));
-
-        return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                           originalLogFile.url().toLocalFile(), logLevel, logMode);
-    }
-
-    LogLevel *findLogLevel(const QString &level)
-    {
-        if (level == QLatin1String("ERROR"))
-            return Globals::instance().errorLogLevel();
-
-        // level == "STATUS"
-        return Globals::instance().informationLogLevel();
-    }
+    LogLevel *findLogLevel(const QString &level);
 };
 
 #endif // _CUPS_PDF_ANALYZER_H

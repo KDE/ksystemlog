@@ -41,26 +41,7 @@ public:
 
     ~CupsAccessItemBuilder() override {}
 
-    QString createFormattedText(LogLine *line) const override
-    {
-        QString result;
-
-        QListIterator<QString> it(line->logItems());
-
-        result.append(QLatin1String("<table>"));
-
-        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-        result.append(labelMessageFormat(i18n("Hostname:"), it.next()));
-        result.append(labelMessageFormat(i18n("Identification:"), it.next()));
-        result.append(labelMessageFormat(i18n("Username:"), it.next()));
-        result.append(labelMessageFormat(i18n("HTTP Response:"), it.next()));
-        result.append(labelMessageFormat(i18n("Bytes Sent:"), it.next()));
-
-        result.append(QLatin1String("</table>"));
-
-        return result;
-    }
+    QString createFormattedText(LogLine *line) const override;
 };
 
 #endif // _CUPS_ACCESS_ITEM_BUILDER_H

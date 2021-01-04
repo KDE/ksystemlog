@@ -41,27 +41,7 @@ public:
 
     ~CupsPageItemBuilder() override {}
 
-    QString createFormattedText(LogLine *line) const override
-    {
-        QString result;
-
-        QListIterator<QString> it(line->logItems());
-
-        result.append(QLatin1String("<table>"));
-
-        result.append(labelMessageFormat(i18n("Date:"), formatDate(line->time())));
-        result.append(labelMessageFormat(i18n("Level:"), line->logLevel()->name()));
-        result.append(labelMessageFormat(i18n("Printer:"), it.next()));
-        result.append(labelMessageFormat(i18n("Username:"), it.next()));
-        result.append(labelMessageFormat(i18n("Job Id:"), it.next()));
-        result.append(labelMessageFormat(i18n("Page Number:"), it.next()));
-        result.append(labelMessageFormat(i18n("Num Copies:"), it.next()));
-        result.append(labelMessageFormat(i18n("Job Billing:"), it.next()));
-
-        result.append(QLatin1String("</table>"));
-
-        return result;
-    }
+    QString createFormattedText(LogLine *line) const override;
 };
 
 #endif // _CUPS_PAGE_ITEM_BUILDER_H

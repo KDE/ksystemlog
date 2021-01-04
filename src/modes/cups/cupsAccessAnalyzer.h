@@ -37,38 +37,18 @@ class CupsAccessAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit CupsAccessAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-        , cupsAccessRegex(
-              QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
-    {
-    }
+    explicit CupsAccessAnalyzer(LogMode *logMode);
 
     virtual ~CupsAccessAnalyzer() {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Host"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Group"), true, true));
-        columns.addColumn(LogViewColumn(i18n("User"), true, true));
-        columns.addColumn(LogViewColumn(i18n("HTTP Request"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Status"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Bytes"), true, false));
-        columns.addColumn(LogViewColumn(i18n("IPP Operation"), true, false));
-        columns.addColumn(LogViewColumn(i18n("IPP Status"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
     QRegExp cupsAccessRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
     /*
      * https://www.cups.org/doc/man-cupsd-logs.html
@@ -83,29 +63,7 @@ protected:
      * localhost - - [01/Dec/2005:21:50:32 +0000] "GET /admin HTTP/1.1" 200 6667 - -
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        int firstPosition = cupsAccessRegex.indexIn(logLine);
-        if (firstPosition == -1) {
-            logDebug() << "Unable to parse line " << logLine;
-            return nullptr;
-        }
-
-        QStringList capturedTexts = cupsAccessRegex.capturedTexts();
-
-        // Remove full line
-        capturedTexts.removeAt(0);
-
-        capturedTexts.replace(5, ParsingHelper::instance()->parseHttpResponse(capturedTexts.at(5)));
-        capturedTexts.replace(6, ParsingHelper::instance()->parseSize(capturedTexts.at(6)));
-
-        QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
-
-        LogLevel *logLevel = findLevel(capturedTexts.at(capturedTexts.count() - 1));
-
-        return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                           originalLogFile.url().toLocalFile(), logLevel, logMode);
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
     inline LogLevel *findLevel(const QString &status) const
     {

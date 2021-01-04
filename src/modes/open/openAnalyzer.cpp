@@ -20,3 +20,8 @@
  ***************************************************************************/
 
 #include "openAnalyzer.h"
+
+OpenAnalyzer::OpenAnalyzer(LogMode *logMode)
+    : SyslogAnalyzer(logMode)
+{
+}

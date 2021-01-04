@@ -34,10 +34,7 @@ class OpenAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    explicit OpenAnalyzer(LogMode *logMode)
-        : SyslogAnalyzer(logMode)
-    {
-    }
+    explicit OpenAnalyzer(LogMode *logMode);
 
     ~OpenAnalyzer() override {}
 };

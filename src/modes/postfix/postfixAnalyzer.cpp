@@ -20,3 +20,8 @@
  ***************************************************************************/
 
 #include "postfixAnalyzer.h"
+
+PostfixAnalyzer::PostfixAnalyzer(LogMode *logMode)
+    : SyslogAnalyzer(logMode)
+{
+}

@@ -42,60 +42,23 @@ class DaemonConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    DaemonConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Daemons' Logs"), QStringLiteral(DAEMON_MODE_ICON),
-                                     i18n("Daemons' Logs"))
-    {
-        QHBoxLayout *layout = new QHBoxLayout(this);
-
-        fileList = new FileList(
-            this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
-        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-        layout->addWidget(fileList);
-    }
+    DaemonConfigurationWidget();
 
     ~DaemonConfigurationWidget() override {}
 
 public Q_SLOTS:
 
-    void saveConfig() override
-    {
-        DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
-                                                       ->logModeConfiguration<DaemonConfiguration *>();
+    void saveConfig() override;
 
-        daemonConfiguration->setDaemonPaths(fileList->paths());
-    }
+    void readConfig() override;
 
-    void readConfig() override
-    {
-        DaemonConfiguration *daemonConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
-                                                       ->logModeConfiguration<DaemonConfiguration *>();
-
-        fileList->removeAllItems();
-
-        fileList->addPaths(daemonConfiguration->daemonPaths());
-    }
-
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
+    void defaultConfig() override;
 
 protected:
-    bool isValid() const override
-    {
-        if (fileList->isEmpty() == false) {
-            return true;
-        }
-
-        return false;
-    }
+    bool isValid() const override;
 
 private:
-    FileList *fileList;
+    FileList *fileList = nullptr;
 };
 
 #endif // _DAEMON_CONFIGURATION_WIDGET_H

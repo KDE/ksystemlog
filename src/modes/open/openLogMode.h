@@ -54,7 +54,7 @@ public:
     QList<LogFile> createLogFiles() override;
 
 private:
-    QWidget *parent;
+    QWidget *const parent;
 };
 
 #endif // _OPEN_LOG_MODE_H

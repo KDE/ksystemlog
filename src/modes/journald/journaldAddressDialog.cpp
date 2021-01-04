@@ -24,7 +24,7 @@
 
 const quint16 JournaldDefaultPort = 19531;
 
-JournaldAddressDialog::JournaldAddressDialog(QWidget *parent, QString title, QString address, QString port,
+JournaldAddressDialog::JournaldAddressDialog(QWidget *parent, const QString &title, const QString &address, const QString &port,
                                              bool httpsEnabled)
     : QDialog(parent)
 {

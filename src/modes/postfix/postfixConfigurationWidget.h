@@ -44,64 +44,20 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    PostfixConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
-                                     i18n("Postfix Log"))
-    {
-        QVBoxLayout *layout = new QVBoxLayout(this);
-
-        QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
-
-        fileList = new LogLevelFileList(this, description);
-
-        connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-
-        layout->addWidget(fileList);
-    }
+    PostfixConfigurationWidget();
 
     ~PostfixConfigurationWidget() override {}
 
-    bool isValid() const override
-    {
-        if (fileList->isEmpty() == false) {
-            logDebug() << "Postfix configuration valid";
-            return true;
-        }
+    bool isValid() const override;
 
-        logDebug() << "Postfix configuration not valid";
-        return false;
-    }
+    void saveConfig() override;
 
-    void saveConfig() override
-    {
-        logDebug() << "Saving config from Postfix Options...";
+    void readConfig() override;
 
-        PostfixConfiguration *configuration = Globals::instance()
-                                                  .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-                                                  ->logModeConfiguration<PostfixConfiguration *>();
-        configuration->setLogFilesPaths(fileList->paths());
-        configuration->setLogFilesLevels(fileList->levels());
-    }
-
-    void readConfig() override
-    {
-        PostfixConfiguration *configuration = Globals::instance()
-                                                  .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-                                                  ->logModeConfiguration<PostfixConfiguration *>();
-
-        fileList->removeAllItems();
-
-        fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
-    }
-
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
+    void defaultConfig() override;
 
 private:
-    LogLevelFileList *fileList;
+    LogLevelFileList *fileList = nullptr;
 };
 
 #endif // _POSTFIX_CONFIGURATION_WIDGET_H

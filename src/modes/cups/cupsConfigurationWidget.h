@@ -40,79 +40,23 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    CupsConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON),
-                                     i18n("Cups &amp; Cups Web Server Log"))
-    {
-        QHBoxLayout *layout = new QHBoxLayout(this);
-
-        cupsFileList = new MultipleFileList(this, i18n(
-                                                      "<p>These files will be analyzed to show the <b>Cups "
-                                                      "log</b> and the <b>Cups Web Access log</b>.</p>"));
-
-        cupsPathsId = cupsFileList->addCategory(i18n("Cups Log Files"), i18n("Add Cups File..."));
-        cupsAccessPathsId
-            = cupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
-        cupsPagePathsId
-            = cupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
-        cupsPdfPathsId = cupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
-
-        connect(cupsFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-
-        layout->addWidget(cupsFileList);
-    }
+    CupsConfigurationWidget();
 
     ~CupsConfigurationWidget() override {}
 
 public Q_SLOTS:
 
-    void saveConfig() override
-    {
-        logDebug() << "Saving config from Cups Options...";
+    void saveConfig() override;
 
-        CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-                                                   ->logModeConfiguration<CupsConfiguration *>();
-        cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
-        cupsConfiguration->setCupsAccessPaths(cupsFileList->paths(cupsAccessPathsId));
-        cupsConfiguration->setCupsPagePaths(cupsFileList->paths(cupsPagePathsId));
-        cupsConfiguration->setCupsPdfPaths(cupsFileList->paths(cupsPdfPathsId));
-    }
+    void defaultConfig() override;
 
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
-
-    void readConfig() override
-    {
-        CupsConfiguration *cupsConfiguration = Globals::instance()
-                                                   .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-                                                   ->logModeConfiguration<CupsConfiguration *>();
-
-        cupsFileList->removeAllItems();
-
-        cupsFileList->addPaths(cupsPathsId, cupsConfiguration->cupsPaths());
-        cupsFileList->addPaths(cupsAccessPathsId, cupsConfiguration->cupsAccessPaths());
-        cupsFileList->addPaths(cupsPagePathsId, cupsConfiguration->cupsPagePaths());
-        cupsFileList->addPaths(cupsPdfPathsId, cupsConfiguration->cupsPdfPaths());
-    }
+    void readConfig() override;
 
 protected:
-    bool isValid() const override
-    {
-        if (cupsFileList->isOneOfCategoryEmpty() == true) {
-            logDebug() << "Cups configuration not valid";
-            return false;
-        }
-
-        logDebug() << "Cups configuration valid";
-        return true;
-    }
+    bool isValid() const override;
 
 private:
-    MultipleFileList *cupsFileList;
+    MultipleFileList *cupsFileList = nullptr;
 
     int cupsPathsId;
     int cupsAccessPathsId;
