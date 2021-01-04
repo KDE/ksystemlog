@@ -21,7 +21,6 @@
 
 #include "kernelLogMode.h"
 
-#include <QAction>
 #include <KLocalizedString>
 
 #include "logging.h"
@@ -29,6 +28,8 @@
 
 #include "kernelAnalyzer.h"
 #include "kernelItemBuilder.h"
+
+#include <QAction>
 
 KernelLogMode::KernelLogMode()
     : LogMode(QStringLiteral(KERNEL_LOG_MODE_ID), i18n("Kernel Log"), QStringLiteral(KERNEL_MODE_ICON))

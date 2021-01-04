@@ -24,7 +24,6 @@
 #include <QAction>
 #include <QHeaderView>
 
-#include <QSortFilterProxyModel>
 #include <QIcon>
 #include <KLocalizedString>
 

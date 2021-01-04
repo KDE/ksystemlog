@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 #include "cupsAnalyzer.h"
+#include <KLocalizedString>
 
 CupsAnalyzer::CupsAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)

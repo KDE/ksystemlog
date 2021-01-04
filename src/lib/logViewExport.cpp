@@ -30,7 +30,6 @@
 #include <KLocalizedString>
 #include <KToolInvocation>
 #include <KMessageBox>
-#include <KFilterDev>
 
 #include "logging.h"
 

@@ -27,7 +27,6 @@
 #include <QBrush>
 
 // KDE includes
-#include <KMessageBox>
 #include "logging.h"
 
 #include "logModeItemBuilder.h"

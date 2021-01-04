@@ -26,11 +26,8 @@
 #include <QHeaderView>
 
 #include <KLocalizedString>
-#include <KActionCollection>
-#include <KMessageBox>
 
 #include <QIcon>
-#include <QMenu>
 #include <QFileInfo>
 
 #include "defaults.h"

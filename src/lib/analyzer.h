@@ -25,7 +25,6 @@
 #include <QList>
 #include <QMutex>
 #include <QString>
-#include <QStringList>
 
 #include "globals.h"
 

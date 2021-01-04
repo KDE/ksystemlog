@@ -22,7 +22,6 @@
 #ifndef X_SESSION_CONFIGURATION_WIDGET_H
 #define X_SESSION_CONFIGURATION_WIDGET_H
 
-#include <QGroupBox>
 #include <QCheckBox>
 
 #include <KLocalizedString>

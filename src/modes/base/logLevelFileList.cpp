@@ -28,9 +28,7 @@
 #include <QPushButton>
 
 // KDE includes
-#include <QMenu>
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QIcon>
 #include <QFileInfo>
 

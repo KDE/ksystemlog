@@ -23,7 +23,6 @@
 #define FILEANALYZER_H
 
 #include <QList>
-#include <QMutex>
 #include <QString>
 #include <QStringList>
 

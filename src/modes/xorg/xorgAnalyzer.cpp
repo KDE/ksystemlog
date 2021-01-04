@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 #include "xorgAnalyzer.h"
+#include <KLocalizedString>
 
 XorgAnalyzer::XorgAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)

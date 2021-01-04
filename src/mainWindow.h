@@ -25,9 +25,7 @@
 // KDE includes
 #include <kxmlguiwindow.h>
 #include <KConfig>
-#include <QMenu>
 
-#include <KToggleAction>
 
 #include "logModeAction.h"
 
