@@ -36,7 +36,6 @@
 #include "logViewColumns.h"
 
 class LogViewModel;
-class LogFileReader;
 class LogMode;
 
 class Analyzer : public QObject

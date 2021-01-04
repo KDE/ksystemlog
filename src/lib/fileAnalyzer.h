@@ -37,7 +37,6 @@
 
 #include "analyzer.h"
 
-class LogViewModel;
 class LogFileReader;
 class LogMode;
 

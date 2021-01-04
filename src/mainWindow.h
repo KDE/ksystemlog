@@ -31,7 +31,6 @@
 
 #include "logModeAction.h"
 
-class QAction;
 
 class LogManager;
 class LogMode;
