@@ -24,15 +24,13 @@
 class LogModeActionPrivate
 {
 public:
-    LogModeAction::Category category;
-    bool inToolBar;
+    LogModeAction::Category category = LogModeAction::RootCategory;
+    bool inToolBar = true;
 };
 
 LogModeAction::LogModeAction()
     : d(new LogModeActionPrivate())
 {
-    d->inToolBar = true;
-    d->category = LogModeAction::RootCategory;
 }
 
 LogModeAction::~LogModeAction()

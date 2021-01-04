@@ -68,69 +68,63 @@ namespace KSystemLog
 class MainWindowPrivate
 {
 public:
-    QAction *saveAction;
-    QAction *copyAction;
+    QAction *saveAction = nullptr;
+    QAction *copyAction = nullptr;
 
-    QAction *reloadAction;
+    QAction *reloadAction = nullptr;
 
-    QAction *sendMailAction;
-    QAction *logMessageAction;
+    QAction *sendMailAction = nullptr;
+    QAction *logMessageAction = nullptr;
 
-    QAction *filterBarAction;
+    QAction *filterBarAction = nullptr;
 
-    QAction *selectAllAction;
+    QAction *selectAllAction = nullptr;
 
-    QAction *expandAllAction;
-    QAction *collapseAllAction;
+    QAction *expandAllAction = nullptr;
+    QAction *collapseAllAction = nullptr;
 
-    QAction *resumePauseAction;
-    QAction *detailAction;
-    QAction *printAction;
+    QAction *resumePauseAction = nullptr;
+    QAction *detailAction = nullptr;
+    QAction *printAction = nullptr;
 
-    QAction *findAction;
-    QAction *findNextAction;
-    QAction *findPreviousAction;
+    QAction *findAction = nullptr;
+    QAction *findNextAction = nullptr;
+    QAction *findPreviousAction = nullptr;
 
-    QAction *tooltipEnabledAction;
-    QAction *newLinesDisplayedAction;
+    QAction *tooltipEnabledAction = nullptr;
+    QAction *newLinesDisplayedAction = nullptr;
 
     /**
      * Action groups which stores all Log Mode Actions
      */
-    QActionGroup *logModesActionGroup;
+    QActionGroup *logModesActionGroup = nullptr;
 
-    QPrinter *printer;
+    QPrinter *printer = nullptr;
 
     /**
      * Detail dialog
      */
-    DetailDialog *detailDialog;
+    DetailDialog *detailDialog = nullptr;
 
     /**
      * Logged Dialog
      */
-    LoggerDialog *loggedDialog;
+    LoggerDialog *loggedDialog = nullptr;
 
-    ConfigurationDialog *configurationDialog;
+    ConfigurationDialog *configurationDialog = nullptr;
 
     /**
      * Tab widget managing different views
      */
-    TabLogViewsWidget *tabs;
+    TabLogViewsWidget *tabs = nullptr;
 
-    KSystemLog::StatusBar *statusBar;
+    KSystemLog::StatusBar *statusBar = nullptr;
 };
 
 MainWindow::MainWindow()
     : KXmlGuiWindow(nullptr)
     , d(new MainWindowPrivate())
 {
-    d->printer = nullptr;
-    d->detailDialog = nullptr;
-    d->configurationDialog = nullptr;
-    d->tabs = nullptr;
-    d->statusBar = nullptr;
-
     logDebug() << "Starting KSystemLog...";
 
     // Load log modes plugins

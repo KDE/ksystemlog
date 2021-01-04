@@ -46,7 +46,7 @@ public:
     KIO::FileJob *fileJob = nullptr;
 
     QString buffer;
-    qulonglong totalRead;
+    qulonglong totalRead = 0;
 
     KDirWatch *fileWatch = nullptr;
 };
@@ -54,9 +54,6 @@ public:
 KioLogFileReader::KioLogFileReader(const LogFile &logFile)
     : d(new KioLogFileReaderPrivate(logFile))
 {
-    d->fileJob = nullptr;
-    d->totalRead = 0;
-
     d->fileWatch = new KDirWatch(this);
 
     connect(d->fileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);

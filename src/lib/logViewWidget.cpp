@@ -40,9 +40,9 @@
 class LogViewWidgetPrivate
 {
 public:
-    LogViewModel *logViewModel;
+    LogViewModel *logViewModel = nullptr;
 
-    QActionGroup *headersTogglingActions;
+    QActionGroup *headersTogglingActions = nullptr;
 };
 
 LogViewWidget::LogViewWidget(QWidget *parent)
@@ -54,9 +54,7 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     // log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
     // lines in <b>bold</b> are the last added to the list.</p>"));
 
-    QStringList headerLabels;
-    headerLabels.append(i18n("Date"));
-    headerLabels.append(i18n("Message"));
+    const QStringList headerLabels {i18n("Date"), i18n("Message")};
 
     d->logViewModel = new LogViewModel(this);
     d->headersTogglingActions = new QActionGroup(this);

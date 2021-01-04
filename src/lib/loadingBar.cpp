@@ -37,19 +37,17 @@ public:
     int fileCount;
     int currentFileIndex;
 
-    bool firstLoading;
+    bool firstLoading = true;
 
     QLabel *label = nullptr;
 
-    QProgressBar *progressBar;
+    QProgressBar *progressBar = nullptr;
 };
 
 LoadingBar::LoadingBar(QWidget *parent)
     : QWidget(parent)
     , d(new LoadingBarPrivate())
 {
-    d->firstLoading = true;
-
     QHBoxLayout *widgetLayout = new QHBoxLayout(this);
 
     widgetLayout->addStretch();

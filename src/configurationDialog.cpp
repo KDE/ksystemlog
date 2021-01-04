@@ -41,7 +41,7 @@
 class ConfigurationDialogPrivate
 {
 public:
-    GeneralConfigurationWidget *generalConfiguration;
+    GeneralConfigurationWidget *generalConfiguration = nullptr;
 
     QList<LogModeConfigurationWidget *> logModeConfigurations;
 

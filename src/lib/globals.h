@@ -67,7 +67,7 @@ public:
 
     QString formatDate(DateFormat format, const QDateTime &dateTime) const;
 
-    QList<LogLevel *> logLevels();
+    QList<LogLevel *> logLevels() const;
 
     LogLevel *noLogLevel();
     LogLevel *debugLogLevel();
@@ -88,7 +88,7 @@ public:
      */
     void registerLogModeFactory(LogModeFactory *logModeFactory);
 
-    QList<LogMode *> logModes();
+    QList<LogMode *> logModes() const;
 
     QList<LogModeAction *> logModeActions();
 

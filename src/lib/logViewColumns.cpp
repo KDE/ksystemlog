@@ -32,19 +32,15 @@ class LogViewColumnsPrivate
 {
 public:
     QList<LogViewColumn> columns;
-    bool groupByLogLevel;
-    bool groupByDay;
-    bool groupByHour;
-    bool groupByLogFile;
+    bool groupByLogLevel = true;
+    bool groupByDay = true;
+    bool groupByHour = true;
+    bool groupByLogFile = true;
 };
 
 LogViewColumns::LogViewColumns()
     : d(new LogViewColumnsPrivate())
 {
-    d->groupByLogLevel = true;
-    d->groupByDay = true;
-    d->groupByHour = true;
-    d->groupByLogFile = true;
 }
 
 LogViewColumns::LogViewColumns(const LogViewColumns &columns)

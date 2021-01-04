@@ -37,8 +37,8 @@
 class GeneralConfigurationWidgetPrivate
 {
 public:
-    QButtonGroup *dateFormatGroup;
-    KMessageWidget *warningBox;
+    QButtonGroup *dateFormatGroup = nullptr;
+    KMessageWidget *warningBox = nullptr;
 };
 
 GeneralConfigurationWidget::GeneralConfigurationWidget()

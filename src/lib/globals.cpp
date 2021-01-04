@@ -65,15 +65,15 @@ public:
      * These value are only pointers to item of the previous vector,
      * they are provided for convenience
      */
-    LogLevel *noLogLevel;
-    LogLevel *debugLogLevel;
-    LogLevel *informationLogLevel;
-    LogLevel *noticeLogLevel;
-    LogLevel *warningLogLevel;
-    LogLevel *errorLogLevel;
-    LogLevel *criticalLogLevel;
-    LogLevel *alertLogLevel;
-    LogLevel *emergencyLogLevel;
+    LogLevel *noLogLevel = nullptr;
+    LogLevel *debugLogLevel = nullptr;
+    LogLevel *informationLogLevel = nullptr;
+    LogLevel *noticeLogLevel = nullptr;
+    LogLevel *warningLogLevel = nullptr;
+    LogLevel *errorLogLevel = nullptr;
+    LogLevel *criticalLogLevel = nullptr;
+    LogLevel *alertLogLevel = nullptr;
+    LogLevel *emergencyLogLevel = nullptr;
 };
 
 Globals::Globals()
@@ -162,12 +162,12 @@ void Globals::setupLogLevels()
     d->logLevels.append(d->emergencyLogLevel);
 }
 
-QList<LogMode *> Globals::logModes()
+QList<LogMode *> Globals::logModes() const
 {
     return d->logModes.values();
 }
 
-QList<LogLevel *> Globals::logLevels()
+QList<LogLevel *> Globals::logLevels() const
 {
     return d->logLevels;
 }
@@ -239,9 +239,9 @@ QMetaEnum &Globals::logLevelsMetaEnum() const
 
 void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)
 {
-    QList<LogMode *> logModes = logModeFactory->createLogModes();
+    const QList<LogMode *> logModes = logModeFactory->createLogModes();
 
-    foreach (LogMode *logMode, logModes) {
+    for (LogMode *logMode : logModes) {
         // Log mode
         d->logModes.insert(logMode->id(), logMode);
     }

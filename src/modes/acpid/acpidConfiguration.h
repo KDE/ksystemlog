@@ -44,16 +44,7 @@ class AcpidConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    AcpidConfiguration()
-        : d(new AcpidConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
-
-        QStringList defaultAcpidPaths;
-        defaultAcpidPaths << QStringLiteral("/var/log/acpid");
-        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->acpidPaths, defaultAcpidPaths,
-                                         QStringLiteral("LogFilesPaths"));
-    }
+    AcpidConfiguration();
 
     ~AcpidConfiguration() override { delete d; }
 

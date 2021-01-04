@@ -20,3 +20,49 @@
  ***************************************************************************/
 
 #include "acpidConfigurationWidget.h"
+
+AcpidConfigurationWidget::AcpidConfigurationWidget()
+    : LogModeConfigurationWidget(i18n("Acpid Log"), QStringLiteral(ACPID_MODE_ICON), i18n("Acpid Log"))
+{
+    QHBoxLayout *layout = new QHBoxLayout(this);
+
+    fileList
+            = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
+    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    layout->addWidget(fileList);
+}
+
+void AcpidConfigurationWidget::saveConfig()
+{
+    AcpidConfiguration *acpidConfiguration = Globals::instance()
+            .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
+            ->logModeConfiguration<AcpidConfiguration *>();
+
+    acpidConfiguration->setAcpidPaths(fileList->paths());
+}
+
+void AcpidConfigurationWidget::readConfig()
+{
+    AcpidConfiguration *acpidConfiguration = Globals::instance()
+            .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
+            ->logModeConfiguration<AcpidConfiguration *>();
+
+    fileList->removeAllItems();
+
+    fileList->addPaths(acpidConfiguration->acpidPaths());
+}
+
+void AcpidConfigurationWidget::defaultConfig()
+{
+    // TODO Find a way to read the configuration per default
+    readConfig();
+}
+
+bool AcpidConfigurationWidget::isValid() const
+{
+    if (fileList->isEmpty() == false) {
+        return true;
+    }
+
+    return false;
+}

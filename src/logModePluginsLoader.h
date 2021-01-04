@@ -36,7 +36,7 @@ public:
     void loadPlugins();
 
 private:
-    QWidget *parent;
+    QWidget *const parent;
 };
 
 #endif //_LOG_MODE_PLUGINS_LOADER_H

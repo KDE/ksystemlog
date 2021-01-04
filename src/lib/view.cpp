@@ -50,27 +50,25 @@ public:
     /*
      * Log view
      */
-    LogViewWidget *logViewWidget;
+    LogViewWidget *logViewWidget = nullptr;
 
     /**
      * Filter widget
      */
-    LogViewFilterWidget *logViewFilterWidget;
+    LogViewFilterWidget *logViewFilterWidget = nullptr;
 
     /**
      * Search widget
      */
-    LogViewSearchWidget *logViewSearchWidget;
+    LogViewSearchWidget *logViewSearchWidget = nullptr;
 
-    LoadingBar *loadingBar;
+    LoadingBar *loadingBar = nullptr;
 };
 
 View::View(QWidget *parent)
     : QWidget(parent)
     , d(new ViewPrivate())
 {
-    d->logViewWidget = nullptr;
-
     QVBoxLayout *topLayout = new QVBoxLayout(this);
     topLayout->setContentsMargins(2, 2, 2, 2);
     topLayout->setSpacing(2);

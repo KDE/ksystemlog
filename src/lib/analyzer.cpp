@@ -35,7 +35,6 @@ Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)
     , logMode(mode)
     , insertionLocking(QMutex::Recursive)
-    , logLineInternalIdGenerator(0)
 {
     parsingPaused = false;
 }

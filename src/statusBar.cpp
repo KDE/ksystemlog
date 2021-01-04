@@ -39,15 +39,15 @@ namespace KSystemLog
 class StatusBarPrivate
 {
 public:
-    QLabel *lineCountLabel;
+    QLabel *lineCountLabel = nullptr;
 
     // KSqueezedTextLabel* messageLabel;
 
-    KComboBox *messageList;
+    KComboBox *messageList = nullptr;
 
-    QLabel *lastModificationLabel;
+    QLabel *lastModificationLabel = nullptr;
 
-    QPushButton *toggleHistory;
+    QPushButton *toggleHistory = nullptr;
 };
 
 StatusBar::StatusBar(QWidget *parent)

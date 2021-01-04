@@ -28,7 +28,7 @@ class LogFilePrivate
 public:
     QUrl url;
 
-    LogLevel *defaultLogLevel;
+    LogLevel *defaultLogLevel = nullptr;
 };
 
 LogFile::LogFile()

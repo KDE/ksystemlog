@@ -38,10 +38,10 @@ class LogManagerPrivate
 
     QTime lastUpdate;
 
-    LogMode *logMode;
+    LogMode *logMode = nullptr;
 
-    Analyzer *analyzer;
-    View *usedView;
+    Analyzer *analyzer = nullptr;
+    View *usedView = nullptr;
     QString analyzerStatus;
     QVariant analyzerOptions;
 };

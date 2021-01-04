@@ -37,7 +37,7 @@
 class LocalLogFileReaderPrivate : public LogFileReaderPrivate
 {
 public:
-    KDirWatch *watch;
+    KDirWatch *watch = nullptr;
 
     long previousFilePosition;
 

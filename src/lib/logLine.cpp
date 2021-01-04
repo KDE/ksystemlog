@@ -42,11 +42,11 @@ public:
 
     LogLevel *logLevel;
 
-    LogMode *logMode;
+    LogMode *logMode = nullptr;
 
     bool recent;
 
-    LogViewWidgetItem *item;
+    LogViewWidgetItem *item = nullptr;
 };
 
 LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file,

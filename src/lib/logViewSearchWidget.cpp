@@ -38,19 +38,17 @@
 class LogViewSearchWidgetPrivate
 {
 public:
-    LogViewWidget *logViewWidget;
+    LogViewWidget *logViewWidget = nullptr;
 
     QColor searchLineBaseColor;
     QColor searchLineTextColor;
 
-    QTimer *messageHidingTimer;
+    QTimer *messageHidingTimer = nullptr;
 };
 
 LogViewSearchWidget::LogViewSearchWidget()
     : d(new LogViewSearchWidgetPrivate())
 {
-    d->logViewWidget = nullptr;
-
     setupUi(this);
 
     // Get the searchLine base color to be able to restore it later

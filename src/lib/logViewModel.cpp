@@ -35,11 +35,11 @@
 class LogViewModelPrivate
 {
 public:
-    LogViewWidget *logViewWidget;
+    LogViewWidget *logViewWidget = nullptr;
 
-    LogViewWidgetItem *oldestItem;
+    LogViewWidgetItem *oldestItem = nullptr;
 
-    int concurrentMultipleInsertions;
+    int concurrentMultipleInsertions = 0;
 };
 
 LogViewModel::LogViewModel(LogViewWidget *logViewWidget)
@@ -47,9 +47,6 @@ LogViewModel::LogViewModel(LogViewWidget *logViewWidget)
     , d(new LogViewModelPrivate())
 {
     d->logViewWidget = logViewWidget;
-    d->oldestItem = nullptr;
-
-    d->concurrentMultipleInsertions = 0;
 }
 
 LogViewModel::~LogViewModel()

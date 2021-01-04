@@ -57,16 +57,16 @@ public:
 class LogViewFilterWidgetPrivate
 {
 public:
-    LogViewWidgetSearchLine *filterLine;
+    LogViewWidgetSearchLine *filterLine = nullptr;
 
     /**
      * Filter of the column list
      */
-    KComboBox *filterList;
+    KComboBox *filterList = nullptr;
 
-    QComboBox *prioritiesComboBox;
+    QComboBox *prioritiesComboBox = nullptr;
 
-    QStandardItemModel *prioritiesModel;
+    QStandardItemModel *prioritiesModel = nullptr;
 };
 
 class LogViewWidgetSearchLinePrivate

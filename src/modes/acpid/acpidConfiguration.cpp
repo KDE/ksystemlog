@@ -20,3 +20,14 @@
  ***************************************************************************/
 
 #include "acpidConfiguration.h"
+
+AcpidConfiguration::AcpidConfiguration()
+    : d(new AcpidConfigurationPrivate())
+{
+    configuration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
+
+    QStringList defaultAcpidPaths;
+    defaultAcpidPaths << QStringLiteral("/var/log/acpid");
+    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->acpidPaths, defaultAcpidPaths,
+                                     QStringLiteral("LogFilesPaths"));
+}

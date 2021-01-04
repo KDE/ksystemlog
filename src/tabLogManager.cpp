@@ -34,16 +34,14 @@
 class TabLogManagerPrivate
 {
 public:
-    LogManager *logManager;
-    int newLinesCount;
+    LogManager *logManager = nullptr;
+    int newLinesCount = 0;
 };
 
 TabLogManager::TabLogManager(LogManager *logManager)
     : d(new TabLogManagerPrivate())
 {
     d->logManager = logManager;
-
-    d->newLinesCount = 0;
 }
 
 TabLogManager::~TabLogManager()

@@ -82,9 +82,9 @@ protected:
 
     bool parsingPaused;
     LogViewModel *logViewModel = nullptr;
-    LogMode *logMode = nullptr;
+    LogMode *const logMode;
     QMutex insertionLocking;
-    long logLineInternalIdGenerator;
+    long logLineInternalIdGenerator = 0;
 };
 
 #endif
