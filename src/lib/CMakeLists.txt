@@ -37,6 +37,7 @@ set(ksystemlog_lib_sources
     multipleActions.cpp
     levelPrintPage.cpp
 )
+ecm_qt_declare_logging_category(ksystemlog_lib_sources HEADER ksystemlog_debug.h IDENTIFIER KSYSTEMLOG CATEGORY_NAME log_ksystemlog DESCRIPTION "ksystemlog" EXPORT KSYSTEMLOG)
 
 ki18n_wrap_ui(ksystemlog_lib_sources logViewSearchWidgetBase.ui)
 

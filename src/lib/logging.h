@@ -22,7 +22,7 @@
 #ifndef KSYSTEMLOG_LOGGING_H
 #define KSYSTEMLOG_LOGGING_H
 
-#include <QLoggingCategory>
+#include "ksystemlog_debug.h"
 
 /**
  * Existing logging functions are :
@@ -34,8 +34,6 @@
  * Use it like kDebug() function :
  * logDebug() << "Debug message" << list.size();
  */
-
-Q_DECLARE_LOGGING_CATEGORY(KSYSTEMLOG)
 
 /**
  * Colored logging

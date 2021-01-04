@@ -36,8 +36,6 @@
 
 #include "logging.h"
 
-Q_LOGGING_CATEGORY(KSYSTEMLOG, "ksystemlog", QtWarningMsg)
-
 Globals &Globals::instance()
 {
     static Globals self;

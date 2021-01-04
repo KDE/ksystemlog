@@ -20,6 +20,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(FeatureSummary)
+include(ECMQtDeclareLoggingCategory)
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KSYSTEMLOG
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/ksystemlog_version.h")
@@ -114,5 +115,5 @@ add_subdirectory(doc)
 find_package(KF5I18n CONFIG REQUIRED)
 ki18n_install(po)
 kdoctools_install(po)
-
+ecm_qt_install_logging_categories(EXPORT KSYSTEMLOG FILE ksystemlog.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
