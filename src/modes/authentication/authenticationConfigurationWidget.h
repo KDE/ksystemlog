@@ -44,95 +44,24 @@ class AuthenticationConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    AuthenticationConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Authentication Log"), QStringLiteral(AUTHENTICATION_MODE_ICON),
-                                     i18n("Authentication Log"))
-    {
-        QVBoxLayout *layout = new QVBoxLayout(this);
-
-        warningBox = new KMessageWidget(this);
-        warningBox->setVisible(false);
-        warningBox->setMessageType(KMessageWidget::Warning);
-        warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
-        warningBox->setCloseButtonVisible(false);
-        warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
-
-        // Authentication log file
-        QGroupBox *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
-        QVBoxLayout *authenticationLayout = new QVBoxLayout();
-        QHBoxLayout *filePathLayout = new QHBoxLayout();
-        authenticationBox->setLayout(authenticationLayout);
-
-        authenticationLayout->addWidget(warningBox);
-        authenticationLayout->addLayout(filePathLayout);
-
-        layout->addWidget(authenticationBox);
-
-        filePathLayout->addWidget(new QLabel(i18n("Authentication log file:")));
-
-        authenticationUrlRequester = new KUrlRequester(authenticationBox);
-        authenticationUrlRequester->setMode(KFile::File);
-
-        authenticationUrlRequester->setToolTip(
-            i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
-        authenticationUrlRequester->setWhatsThis(i18n(
-            "You can type or choose here the authentication log file. This file will be analyzed when you "
-            "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
-        filePathLayout->addWidget(authenticationUrlRequester);
-
-        connect(authenticationUrlRequester, &KUrlRequester::textChanged, this,
-                &LogModeConfigurationWidget::configurationChanged);
-
-        layout->addStretch();
-    }
+    AuthenticationConfigurationWidget();
 
     ~AuthenticationConfigurationWidget() override {}
 
 public Q_SLOTS:
 
-    void saveConfig() override
-    {
-        AuthenticationConfiguration *authenticationConfiguration
-            = Globals::instance()
-                  .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-                  ->logModeConfiguration<AuthenticationConfiguration *>();
+    void saveConfig() override;
 
-        authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().toLocalFile());
-    }
+    void readConfig() override;
 
-    void readConfig() override
-    {
-        AuthenticationConfiguration *authenticationConfiguration
-            = Globals::instance()
-                  .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-                  ->logModeConfiguration<AuthenticationConfiguration *>();
-
-        QString path = authenticationConfiguration->authenticationPath();
-        QFileInfo fileInfo(path);
-        warningBox->setVisible(!fileInfo.exists());
-
-        authenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
-    }
-
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
+    void defaultConfig() override;
 
 protected:
-    bool isValid() const override
-    {
-        if (authenticationUrlRequester->url().toLocalFile().isEmpty() == false) {
-            return true;
-        }
-
-        return false;
-    }
+    bool isValid() const override;
 
 private:
-    KUrlRequester *authenticationUrlRequester;
-    KMessageWidget *warningBox;
+    KUrlRequester *authenticationUrlRequester = nullptr;
+    KMessageWidget *warningBox = nullptr;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H

@@ -46,30 +46,17 @@ class CronConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    CronConfiguration()
-        : d(new CronConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("CronLogMode"));
+    CronConfiguration();
 
-        QStringList defaultCronPaths;
-        defaultCronPaths << QStringLiteral("/var/log/syslog");
-        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->cronPaths, defaultCronPaths,
-                                         QStringLiteral("LogFilesPaths"));
+    ~CronConfiguration() override;
 
-        QString defaultProcessFilter(QStringLiteral("/usr/sbin/cron"));
-        configuration->addItemString(QStringLiteral("ProcessFilter"), d->processFilter, defaultProcessFilter,
-                                     QStringLiteral("ProcessFilter"));
-    }
+    QString processFilter() const;
 
-    ~CronConfiguration() override { delete d; }
+    void setProcessFilter(const QString &processFilter);
 
-    QString processFilter() const { return d->processFilter; }
+    QStringList cronPaths() const;
 
-    void setProcessFilter(const QString &processFilter) { d->processFilter = processFilter; }
-
-    QStringList cronPaths() const { return d->cronPaths; }
-
-    void setCronPaths(const QStringList &cronPaths) { d->cronPaths = cronPaths; }
+    void setCronPaths(const QStringList &cronPaths);
 
 private:
     CronConfigurationPrivate *const d;

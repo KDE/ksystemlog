@@ -82,7 +82,7 @@ protected:
 
     FileListHelper fileListHelper;
 
-    KMessageWidget *warningBox;
+    KMessageWidget *warningBox = nullptr;
 };
 
 #endif //_FILE_LIST_H

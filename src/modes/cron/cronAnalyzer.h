@@ -36,73 +36,22 @@ class CronAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    explicit CronAnalyzer(LogMode *logMode)
-        : SyslogAnalyzer(logMode)
-    {
-    }
-
+    explicit CronAnalyzer(LogMode *logMode);
     ~CronAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Host"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Process"), true, true));
-        columns.addColumn(LogViewColumn(i18n("User"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Command"), true, false));
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::FilteredLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
     /*
      * Cron line example :
-     * Sep 16 01:39:01 localhost /USR/SBIN/CRON[11069]: (root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)
+* Sep 16 01:3;D (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5479]: (CRON) INFO (pidfile fd = 3)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) STARTUP (fork ok)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) INFO (Running @reboot jobs)
      *
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override
-    {
-        // Use the default parsing
-        LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalFile);
-
-        QStringList list = syslogLine->logItems();
-
-        if (isCronLine(syslogLine) == false) {
-            delete syslogLine;
-            return nullptr;
-        }
-
-        // Gets the message column (last item) and deletes it
-        QString message = list.takeLast();
-
-        int leftBracket = message.indexOf(QLatin1Char('('));
-        int rightBracket = message.indexOf(QLatin1Char(')'));
-
-        QString user = message.mid(leftBracket + 1, rightBracket - leftBracket - 1);
-
-        list.append(user);
-
-        if (message.indexOf(QLatin1String("CMD")) != -1) {
-            // Ignore this : ") CMD (" (length = 7)
-            message = message.right(message.length() - rightBracket - 7);
-            message = message.simplified();
-            syslogLine->setLogLevel(Globals::instance().informationLogLevel());
-        } else {
-            // Ignore this : ") " (for INFO and STARTUP cases)
-            message = message.right(message.length() - rightBracket - 2);
-            syslogLine->setLogLevel(Globals::instance().noticeLogLevel());
-        }
-
-        list.append(message);
-
-        syslogLine->setLogItems(list);
-
-        return syslogLine;
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 
     inline bool isCronLine(LogLine *syslogLine)
     {

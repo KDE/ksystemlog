@@ -47,38 +47,17 @@ class AuthenticationConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    AuthenticationConfiguration()
-        : d(new AuthenticationConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
+    AuthenticationConfiguration();
 
-        QString defaultAuthenticationPath(QStringLiteral("/var/log/auth.log"));
-        configuration->addItemString(QStringLiteral("LogFilePath"), d->authenticationPath,
-                                     defaultAuthenticationPath, QStringLiteral("LogFilePath"));
+    ~AuthenticationConfiguration() override;
 
-        QStringList defaultWarningKeywords;
-        defaultWarningKeywords.append(QStringLiteral("failed"));
-        configuration->addItemStringList(QStringLiteral("WarningKeywords"), d->warningKeywords,
-                                         defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+    QString authenticationPath() const;
 
-        QStringList defaultErrorKeywords;
-        defaultErrorKeywords.append(QStringLiteral("error"));
-        configuration->addItemStringList(QStringLiteral("ErrorKeywords"), d->errorKeywords,
-                                         defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
-    }
+    void setAuthenticationPath(const QString &authenticationPath);
 
-    ~AuthenticationConfiguration() override { delete d; }
+    QStringList warningKeywords() const;
 
-    QString authenticationPath() const { return d->authenticationPath; }
-
-    void setAuthenticationPath(const QString &authenticationPath)
-    {
-        d->authenticationPath = authenticationPath;
-    }
-
-    QStringList warningKeywords() const { return d->warningKeywords; }
-
-    QStringList errorKeywords() const { return d->errorKeywords; }
+    QStringList errorKeywords() const;
 
 private:
     AuthenticationConfigurationPrivate *const d;

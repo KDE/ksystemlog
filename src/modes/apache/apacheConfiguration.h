@@ -46,35 +46,17 @@ class ApacheConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    ApacheConfiguration()
-        : d(new ApacheConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
+    ApacheConfiguration();
 
-        QStringList defaultApachePaths;
-        defaultApachePaths << QStringLiteral("/var/log/apache2/error.log");
-        configuration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), d->apachePaths,
-                                         defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
+    ~ApacheConfiguration() override;
 
-        QStringList defaultApacheAccessPaths;
-        defaultApacheAccessPaths << QStringLiteral("/var/log/apache2/access.log");
-        configuration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), d->apacheAccessPaths,
-                                         defaultApacheAccessPaths,
-                                         QStringLiteral("ApacheAccessLogFilesPaths"));
-    }
+    QStringList apachePaths() const;
 
-    ~ApacheConfiguration() override { delete d; }
+    QStringList apacheAccessPaths() const;
 
-    QStringList apachePaths() const { return d->apachePaths; }
+    void setApachePaths(const QStringList &apachePaths);
 
-    QStringList apacheAccessPaths() const { return d->apacheAccessPaths; }
-
-    void setApachePaths(const QStringList &apachePaths) { d->apachePaths = apachePaths; }
-
-    void setApacheAccessPaths(const QStringList &apacheAccessPaths)
-    {
-        d->apacheAccessPaths = apacheAccessPaths;
-    }
+    void setApacheAccessPaths(const QStringList &apacheAccessPaths);
 
 private:
     ApacheConfigurationPrivate *const d;

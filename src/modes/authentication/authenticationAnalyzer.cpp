@@ -20,3 +20,47 @@
  ***************************************************************************/
 
 #include "authenticationAnalyzer.h"
+
+AuthenticationAnalyzer::AuthenticationAnalyzer(LogMode *logMode)
+    : SyslogAnalyzer(logMode)
+{
+}
+
+LogLine *AuthenticationAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
+{
+    LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
+
+    QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
+
+    if (hasErrorKeywords(message))
+        syslogLine->setLogLevel(Globals::instance().errorLogLevel());
+    else if (hasWarningKeywords(message))
+        syslogLine->setLogLevel(Globals::instance().warningLogLevel());
+
+    return syslogLine;
+}
+
+bool AuthenticationAnalyzer::hasWarningKeywords(const QString &message)
+{
+    AuthenticationConfiguration *configuration
+            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+    return hasKeywords(message, configuration->warningKeywords());
+}
+
+bool AuthenticationAnalyzer::hasErrorKeywords(const QString &message)
+{
+    AuthenticationConfiguration *configuration
+            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+    return hasKeywords(message, configuration->errorKeywords());
+}
+
+bool AuthenticationAnalyzer::hasKeywords(const QString &message, const QStringList &keywords)
+{
+    foreach (const QString &keyword, keywords) {
+        if (message.contains(keyword, Qt::CaseInsensitive)) {
+            return true;
+        }
+    }
+
+    return false;
+}

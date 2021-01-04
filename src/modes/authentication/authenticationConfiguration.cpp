@@ -20,3 +20,36 @@
  ***************************************************************************/
 
 #include "authenticationConfiguration.h"
+
+AuthenticationConfiguration::AuthenticationConfiguration()
+    : d(new AuthenticationConfigurationPrivate())
+{
+    configuration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
+
+    QString defaultAuthenticationPath(QStringLiteral("/var/log/auth.log"));
+    configuration->addItemString(QStringLiteral("LogFilePath"), d->authenticationPath,
+                                 defaultAuthenticationPath, QStringLiteral("LogFilePath"));
+
+    QStringList defaultWarningKeywords;
+    defaultWarningKeywords.append(QStringLiteral("failed"));
+    configuration->addItemStringList(QStringLiteral("WarningKeywords"), d->warningKeywords,
+                                     defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+
+    QStringList defaultErrorKeywords;
+    defaultErrorKeywords.append(QStringLiteral("error"));
+    configuration->addItemStringList(QStringLiteral("ErrorKeywords"), d->errorKeywords,
+                                     defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
+}
+
+AuthenticationConfiguration::~AuthenticationConfiguration() { delete d; }
+
+QString AuthenticationConfiguration::authenticationPath() const { return d->authenticationPath; }
+
+void AuthenticationConfiguration::setAuthenticationPath(const QString &authenticationPath)
+{
+    d->authenticationPath = authenticationPath;
+}
+
+QStringList AuthenticationConfiguration::warningKeywords() const { return d->warningKeywords; }
+
+QStringList AuthenticationConfiguration::errorKeywords() const { return d->errorKeywords; }

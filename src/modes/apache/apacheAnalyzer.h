@@ -37,28 +37,16 @@ class ApacheAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit ApacheAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-    {
-        initializeTypeLevels();
-    }
+    explicit ApacheAnalyzer(LogMode *logMode);
 
     ~ApacheAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Client"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
     /*
      * Log line examples :
@@ -73,97 +61,14 @@ protected:
      * [client 127.0.0.1] PHP Parse error:  parse error, unexpected T_PRIVATE, expecting T_STRING in
      * /mnt/boulot/web/annivernet/src/fonctions/formulaire.inc.php on line 25
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        QString line(logLine);
-
-        QDate date;
-        QTime time;
-
-        QString level;
-
-        // Temporary variable
-        int squareBracket;
-
-        // Special case which sometimes happens
-        if (line.indexOf(QLatin1String("[client")) == 0) {
-            date = QDate::currentDate();
-            time = QTime::currentTime();
-            level = QStringLiteral("notice");
-        } else {
-            // The Date
-            int dateBegin = line.indexOf(QLatin1String("["));
-            int dateEnd = line.indexOf(QLatin1String("]"));
-
-            QString type;
-            QString message;
-
-            QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
-
-            QString month = strDate.mid(4, 3);
-
-            QString day = strDate.mid(8, 2);
-
-            QString hour = strDate.mid(11, 2);
-            QString min = strDate.mid(14, 2);
-            QString sec = strDate.mid(17, 2);
-
-            QString year = strDate.mid(20, 4);
-
-            date = QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
-            time = QTime(hour.toInt(), min.toInt(), sec.toInt());
-
-            line.remove(0, dateEnd + 3);
-
-            // The log level
-            squareBracket = line.indexOf(QLatin1String("]"));
-            level = line.left(squareBracket);
-            line.remove(0, squareBracket + 2);
-        }
-
-        // The client
-        int beginSquareBracket = line.indexOf(QLatin1String("[client"));
-        squareBracket = line.indexOf(QLatin1String("]"));
-        QString client;
-        if (beginSquareBracket == -1 || squareBracket == -1) {
-            client = QLatin1String("");
-        } else {
-            client = line.mid(8, squareBracket - 8); // 8=strlen("[client ")
-            line.remove(0, squareBracket + 2);
-        }
-
-        QStringList list;
-        list.append(client);
-        list.append(line);
-
-        return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                           originalLogFile.url().toLocalFile(), findLogLevel(level), logMode);
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
 private:
     QMap<QString, LogLevel *> mapTypeLevels;
 
-    void initializeTypeLevels()
-    {
-        mapTypeLevels[QStringLiteral("notice")] = Globals::instance().informationLogLevel();
-        mapTypeLevels[QStringLiteral("warn")] = Globals::instance().warningLogLevel();
-        mapTypeLevels[QStringLiteral("error")] = Globals::instance().errorLogLevel();
-    }
+    void initializeTypeLevels();
 
-    LogLevel *findLogLevel(const QString &type)
-    {
-        QMap<QString, LogLevel *>::iterator it;
-
-        it = mapTypeLevels.find(type);
-        if (it != mapTypeLevels.end()) {
-            return (*it);
-        } else {
-            logCritical()
-                << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
-                << type << ")";
-            return Globals::instance().noLogLevel();
-        }
-    }
+    LogLevel *findLogLevel(const QString &type);
 };
 
 #endif // _APACHE_ANALYZER_H

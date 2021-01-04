@@ -32,52 +32,18 @@ class AuthenticationAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    explicit AuthenticationAnalyzer(LogMode *logMode)
-        : SyslogAnalyzer(logMode)
-    {
-    }
+    explicit AuthenticationAnalyzer(LogMode *logMode);
 
     ~AuthenticationAnalyzer() override {}
 
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
-
-        QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
-
-        if (hasErrorKeywords(message))
-            syslogLine->setLogLevel(Globals::instance().errorLogLevel());
-        else if (hasWarningKeywords(message))
-            syslogLine->setLogLevel(Globals::instance().warningLogLevel());
-
-        return syslogLine;
-    }
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
 private:
-    bool hasWarningKeywords(const QString &message)
-    {
-        AuthenticationConfiguration *configuration
-            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
-        return hasKeywords(message, configuration->warningKeywords());
-    }
+    bool hasWarningKeywords(const QString &message);
 
-    bool hasErrorKeywords(const QString &message)
-    {
-        AuthenticationConfiguration *configuration
-            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
-        return hasKeywords(message, configuration->errorKeywords());
-    }
+    bool hasErrorKeywords(const QString &message);
 
-    bool hasKeywords(const QString &message, const QStringList &keywords)
-    {
-        foreach (const QString &keyword, keywords) {
-            if (message.contains(keyword, Qt::CaseInsensitive)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    bool hasKeywords(const QString &message, const QStringList &keywords);
 };
 
 #endif

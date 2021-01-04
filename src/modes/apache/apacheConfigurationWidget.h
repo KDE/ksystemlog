@@ -40,72 +40,23 @@ class ApacheConfigurationWidget : public LogModeConfigurationWidget
     Q_OBJECT
 
 public:
-    ApacheConfigurationWidget()
-        : LogModeConfigurationWidget(i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON), i18n("Apache Log"))
-    {
-        QHBoxLayout *layout = new QHBoxLayout(this);
-
-        apacheFileList
-            = new MultipleFileList(this, i18n(
-                                             "<p>These files will be analyzed to show the <b>Apache log</b> "
-                                             "and the <b>Apache Access log</b>.</p>"));
-
-        apachePathsId = apacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
-        apacheAccessPathsId
-            = apacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
-
-        connect(apacheFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-
-        layout->addWidget(apacheFileList);
-    }
+    ApacheConfigurationWidget();
 
     ~ApacheConfigurationWidget() override {}
 
 public Q_SLOTS:
 
-    void saveConfig() override
-    {
-        logDebug() << "Saving config from Apache Options...";
+    void saveConfig() override;
 
-        ApacheConfiguration *apacheConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-                                                       ->logModeConfiguration<ApacheConfiguration *>();
-        apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
-        apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
-    }
+    void defaultConfig() override;
 
-    void defaultConfig() override
-    {
-        // TODO Find a way to read the configuration per default
-        readConfig();
-    }
-
-    void readConfig() override
-    {
-        ApacheConfiguration *apacheConfiguration = Globals::instance()
-                                                       .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-                                                       ->logModeConfiguration<ApacheConfiguration *>();
-
-        apacheFileList->removeAllItems();
-
-        apacheFileList->addPaths(apachePathsId, apacheConfiguration->apachePaths());
-        apacheFileList->addPaths(apacheAccessPathsId, apacheConfiguration->apacheAccessPaths());
-    }
+    void readConfig() override;
 
 protected:
-    bool isValid() const override
-    {
-        if (apacheFileList->isOneOfCategoryEmpty() == true) {
-            logDebug() << "Apache configuration not valid";
-            return false;
-        }
-
-        logDebug() << "Apache configuration valid";
-        return true;
-    }
+    bool isValid() const override;
 
 private:
-    MultipleFileList *apacheFileList;
+    MultipleFileList *apacheFileList = nullptr;
 
     int apachePathsId;
     int apacheAccessPathsId;

@@ -20,3 +20,33 @@
  ***************************************************************************/
 
 #include "apacheConfiguration.h"
+
+ApacheConfiguration::ApacheConfiguration()
+    : d(new ApacheConfigurationPrivate())
+{
+    configuration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
+
+    QStringList defaultApachePaths;
+    defaultApachePaths << QStringLiteral("/var/log/apache2/error.log");
+    configuration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), d->apachePaths,
+                                     defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
+
+    QStringList defaultApacheAccessPaths;
+    defaultApacheAccessPaths << QStringLiteral("/var/log/apache2/access.log");
+    configuration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), d->apacheAccessPaths,
+                                     defaultApacheAccessPaths,
+                                     QStringLiteral("ApacheAccessLogFilesPaths"));
+}
+
+ApacheConfiguration::~ApacheConfiguration() { delete d; }
+
+QStringList ApacheConfiguration::apachePaths() const { return d->apachePaths; }
+
+QStringList ApacheConfiguration::apacheAccessPaths() const { return d->apacheAccessPaths; }
+
+void ApacheConfiguration::setApachePaths(const QStringList &apachePaths) { d->apachePaths = apachePaths; }
+
+void ApacheConfiguration::setApacheAccessPaths(const QStringList &apacheAccessPaths)
+{
+    d->apacheAccessPaths = apacheAccessPaths;
+}
