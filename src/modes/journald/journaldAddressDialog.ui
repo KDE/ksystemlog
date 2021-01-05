@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>140</height>
+    <height>164</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -78,7 +78,7 @@
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
      <property name="centerButtons">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
    </item>
