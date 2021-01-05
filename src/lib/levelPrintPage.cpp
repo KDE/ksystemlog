@@ -58,8 +58,9 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
     */
 
     int row = 0, col = 0;
+    const auto logLevels = Globals::instance().logLevels();
 
-    foreach (LogLevel *level, Globals::instance().logLevels()) {
+    for (LogLevel *level : logLevels) {
         QCheckBox *button = new QCheckBox(level->name()); //, m_btnGroup, 0
 
         levelCheckBoxes.append(button);

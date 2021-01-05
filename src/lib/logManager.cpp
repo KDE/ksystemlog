@@ -75,7 +75,7 @@ View *LogManager::usedView() const
 
 void LogManager::reload()
 {
-    if (d->logMode == nullptr) {
+    if (!d->logMode) {
         logWarning() << "Log manager is not yet initialized";
         return;
     }

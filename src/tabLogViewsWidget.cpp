@@ -85,9 +85,9 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
 
 TabLogViewsWidget::~TabLogViewsWidget()
 {
-    QList<TabLogManager *> copy = d->tabLogManagers;
+    const QList<TabLogManager *> copy = d->tabLogManagers;
 
-    foreach (TabLogManager *tabLogManager, copy) {
+    for (TabLogManager *tabLogManager : copy) {
         d->tabLogManagers.removeAll(tabLogManager);
         delete tabLogManager;
     }
@@ -117,6 +117,7 @@ QList<LogManager *> TabLogViewsWidget::logManagers()
 {
     QList<LogManager *> logManagers;
     const auto tabLogManagers = d->tabLogManagers;
+    logManagers.reserve(tabLogManagers.count());
     for (TabLogManager *tabLogManager : tabLogManagers) {
         logManagers.append(tabLogManager->logManager());
     }
@@ -298,7 +299,8 @@ void TabLogViewsWidget::reloadAll()
 {
     logDebug() << "Reloading all tabs...";
 
-    foreach (TabLogManager *tabLogManager, d->tabLogManagers) {
+    const auto tabLogManagers = d->tabLogManagers;
+    for (TabLogManager *tabLogManager : tabLogManagers) {
         // Log manager without log mode does not need to be reloaded
         if (tabLogManager->logManager()->logMode() == nullptr) {
             continue;

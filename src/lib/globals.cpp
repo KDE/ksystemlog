@@ -277,7 +277,7 @@ void Globals::recreateLogModeActions()
     }
 }
 
-QList<LogModeAction *> Globals::logModeActions()
+QList<LogModeAction *> Globals::logModeActions() const
 {
     return d->logModeActions;
 }

@@ -181,9 +181,9 @@ int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &l
 
     int insertedLogLineCount = 0;
     while (currentPosition < bufferedLines.size()) {
-        QString buffer(it.next());
+        const QString buffer(it.next());
 
-        bool inserted = insertLine(buffer, logFile, readingMode);
+        const bool inserted = insertLine(buffer, logFile, readingMode);
         if (inserted) {
             insertedLogLineCount++;
         }

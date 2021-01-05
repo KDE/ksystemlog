@@ -36,7 +36,6 @@ Analyzer::Analyzer(LogMode *mode)
     , logMode(mode)
     , insertionLocking(QMutex::Recursive)
 {
-    parsingPaused = false;
 }
 
 Analyzer::~Analyzer()

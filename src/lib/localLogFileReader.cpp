@@ -90,7 +90,7 @@ void LocalLogFileReader::watchFile(bool enable)
     if (enable) {
         logDebug() << "Monitoring file : " << filePath;
 
-        if (d->watch->contains(filePath) == false) {
+        if (!d->watch->contains(filePath)) {
             d->watch->addFile(filePath);
         }
 

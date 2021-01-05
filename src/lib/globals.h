@@ -90,7 +90,7 @@ public:
 
     QList<LogMode *> logModes() const;
 
-    QList<LogModeAction *> logModeActions();
+    QList<LogModeAction *> logModeActions() const;
 
     LogMode *findLogMode(const QString &logModeName);
 
