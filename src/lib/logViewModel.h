@@ -67,8 +67,6 @@ private:
      */
     bool lockMultipleInsertions();
 
-    void setFirstReadProcessed();
-
     bool logLineAlreadyExists(LogLine *line) const;
 
     bool isNewer(LogLine *line) const;

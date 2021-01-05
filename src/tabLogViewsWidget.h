@@ -89,8 +89,6 @@ private Q_SLOTS:
     void showContextMenu(QWidget *tab, const QPoint &cursorPosition);
 
 Q_SIGNALS:
-    void tabCreationRequested();
-    void tabClosingRequested();
 
     void logManagerCreated(LogManager *manager);
 

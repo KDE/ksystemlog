@@ -60,8 +60,6 @@ public:
 
     LogMode *logMode() const;
 
-    bool itemExists() const;
-
     void setLogItems(const QStringList &logItems);
     void setLogLevel(LogLevel *level);
     void setLogMode(LogMode *logMode);
