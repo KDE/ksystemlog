@@ -125,7 +125,7 @@ void FileList::modifyItem()
 
 void FileList::modifyItem(QListWidgetItem *item)
 {
-    QString previousPath = item->text();
+    const QString previousPath = item->text();
 
     // Open a standard Filedialog
     const QUrl url = fileListHelper.openUrl(previousPath);
@@ -157,19 +157,19 @@ void FileList::removeSelectedItem()
 
 void FileList::unselectAllItems()
 {
-    QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
-    foreach (QListWidgetItem *item, selectedItems) {
+    const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
+    for (QListWidgetItem *item : selectedItems) {
         item->setSelected(false);
     }
 }
 
 void FileList::moveItem(int direction)
 {
-    QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
+    const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
 
     QListWidgetItem *item = selectedItems.at(0);
 
-    int itemIndex = fileList->row(item);
+    const int itemIndex = fileList->row(item);
 
     fileList->takeItem(itemIndex);
 
@@ -206,8 +206,8 @@ void FileList::updateButtons()
     else
         fileListHelper.setEnabledAction(removeAll, true);
 
-    QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
-    if (selectedItems.isEmpty() == false) {
+    const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
+    if (!selectedItems.isEmpty()) {
         fileListHelper.setEnabledAction(remove, true);
         fileListHelper.setEnabledAction(modify, true);
 
@@ -242,9 +242,9 @@ QVBoxLayout *FileList::buttonsLayout()
 void FileList::addPaths(const QStringList &paths)
 {
     bool missingFiles = false;
-    foreach (const QString &path, paths) {
+    for (const QString &path : paths) {
         QListWidgetItem *item = new QListWidgetItem(path);
-        QFileInfo checkFile(path);
+        const QFileInfo checkFile(path);
         if (!checkFile.exists()) {
             item->setForeground(Qt::red);
             missingFiles = true;

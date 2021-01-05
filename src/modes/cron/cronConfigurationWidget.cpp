@@ -26,7 +26,7 @@ CronConfigurationWidget::CronConfigurationWidget()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    QString description = i18n(
+    const QString description = i18n(
                 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned tasks logs). <a "
             "href='man:/cron'>More information...</a></p>");
 
