@@ -25,6 +25,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QDesktopServices>
 
 // Project includes
 #include "logging.h"
@@ -57,7 +58,7 @@ LoggerDialog::LoggerDialog(QWidget *parent)
     connect(file, &KUrlRequester::textChanged, this, &LoggerDialog::textChanged);
     connect(message, &QLineEdit::textChanged, this, &LoggerDialog::textChanged);
     connect(tag, &QLineEdit::textChanged, this, &LoggerDialog::textChanged);
-
+    connect(loggerManual, &QLabel::linkActivated, this, &LoggerDialog::slotLinkClicked);
     buildMaps();
 
     // Fill the priority ComboBox
@@ -97,6 +98,11 @@ LoggerDialog::LoggerDialog(QWidget *parent)
 LoggerDialog::~LoggerDialog()
 {
     delete d;
+}
+
+void LoggerDialog::slotLinkClicked(const QString &link)
+{
+    QDesktopServices::openUrl(QUrl::fromUserInput(link));
 }
 
 void LoggerDialog::initialize()

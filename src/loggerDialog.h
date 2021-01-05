@@ -48,6 +48,7 @@ protected Q_SLOTS:
     void changeMessageActivation(bool activation);
 
 private:
+    void slotLinkClicked(const QString &link);
     void buildMaps();
 
     LoggerDialogPrivate *const d;
