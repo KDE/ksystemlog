@@ -59,7 +59,7 @@ private Q_SLOTS:
     void testRemoveDuplicates();
 
 private:
-    void compareWithMinTime(QList<LogLine *> lines, const QDateTime &minTime);
+    void compareWithMinTime(const QList<LogLine *> &lines, const QDateTime &minTime);
 
 private:
     TestUtil testUtil;
@@ -346,11 +346,11 @@ void SystemAnalyzerTest::testMaxLines()
     testUtil.destroyReader(systemAnalyzer);
 }
 
-void SystemAnalyzerTest::compareWithMinTime(QList<LogLine *> logLines, const QDateTime &minTime)
+void SystemAnalyzerTest::compareWithMinTime(const QList<LogLine *> &logLines, const QDateTime &minTime)
 {
     logDebug() << "Min time : " << minTime.toString();
 
-    foreach (LogLine *logLine, logLines) {
+    for (LogLine *logLine : logLines) {
         if (logLine->time() < minTime) {
             QFAIL(QString::fromLatin1("The line '%1' has a lesser time than the required min time (%2)")
                       .arg(logLine->logItems().join(QLatin1Char(' ')))

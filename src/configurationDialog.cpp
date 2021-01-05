@@ -84,7 +84,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
         d->logModeConfigurations.append(logMode->logModeConfigurationWidget());
     }
 
-    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(d->logModeConfigurations)) {
         logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
 
         addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(),
@@ -120,7 +120,7 @@ void ConfigurationDialog::updateSettings()
 
     d->generalConfiguration->saveConfig();
 
-    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(d->logModeConfigurations)) {
         logModeConfigurationWidget->saveConfig();
     }
 
@@ -143,7 +143,7 @@ void ConfigurationDialog::updateConfiguration()
 
     bool valid = d->generalConfiguration->isValid();
     if (valid) {
-        foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+        for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(d->logModeConfigurations)) {
             if (logModeConfigurationWidget->isValid() == false) {
                 valid = false;
                 break;
@@ -173,7 +173,7 @@ void ConfigurationDialog::updateWidgets()
     logDebug() << "Reading configuration...";
 
     d->generalConfiguration->readConfig();
-    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(d->logModeConfigurations)) {
         logModeConfigurationWidget->readConfig();
     }
 
@@ -185,7 +185,7 @@ void ConfigurationDialog::updateWidgetsDefault()
     logDebug() << "Loading default configuration...";
 
     d->generalConfiguration->defaultConfig();
-    foreach (LogModeConfigurationWidget *logModeConfigurationWidget, d->logModeConfigurations) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(d->logModeConfigurations)) {
         logModeConfigurationWidget->defaultConfig();
     }
 

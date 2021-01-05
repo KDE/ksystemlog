@@ -113,7 +113,7 @@ bool XSessionAnalyzer::hasErrorKeywords(const QString &message)
 
 bool XSessionAnalyzer::hasKeywords(const QString &message, const QStringList &keywords)
 {
-    foreach (const QString &keyword, keywords) {
+    for (const QString &keyword : keywords) {
         if (message.contains(keyword, Qt::CaseInsensitive)) {
             return true;
         }

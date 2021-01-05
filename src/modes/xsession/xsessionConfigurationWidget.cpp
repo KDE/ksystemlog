@@ -105,7 +105,8 @@ void XSessionConfigurationWidget::prepareXorgErrorsDescription()
         QString text = xorgErrorsDescription->text();
         text.append(QLatin1String("<ul style='margin-top:0px;margin-bottom:0px'>"));
 
-        foreach (const QString &xorgErrorKeyword, configuration->xorgErrorKeywords()) {
+        const auto xorgErrorKeywords = configuration->xorgErrorKeywords();
+        for (const QString &xorgErrorKeyword : xorgErrorKeywords) {
             text.append(i18n("<li><b>%1</b>: ...</li>", xorgErrorKeyword));
         }
         text.append(QLatin1String("</ul>"));

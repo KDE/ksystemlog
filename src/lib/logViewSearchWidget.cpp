@@ -271,8 +271,8 @@ void LogViewSearchWidget::setSearchLineNotFound(bool notFound)
 
 void LogViewSearchWidget::unselectAll()
 {
-    QList<QTreeWidgetItem *> selectedItems = d->logViewWidget->selectedItems();
-    foreach (QTreeWidgetItem *item, selectedItems) {
+    const QList<QTreeWidgetItem *> selectedItems = d->logViewWidget->selectedItems();
+    for (QTreeWidgetItem *item : selectedItems) {
         item->setSelected(false);
     }
 }

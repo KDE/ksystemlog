@@ -178,8 +178,8 @@ void FileListHelper::setEnabledAction(QPushButton *button, bool enabled)
 {
     button->setEnabled(enabled);
 
-    QList<QAction *> actions = button->actions();
-    foreach (QAction *action, actions) {
+    const QList<QAction *> actions = button->actions();
+    for (QAction *action : actions) {
         action->setEnabled(enabled);
     }
 }

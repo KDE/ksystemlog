@@ -93,9 +93,10 @@ GeneralConfigurationWidget::~GeneralConfigurationWidget()
 
 void GeneralConfigurationWidget::addDateFormatExample()
 {
-    foreach (QAbstractButton *button, d->dateFormatGroup->buttons()) {
-        Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(d->dateFormatGroup->id(button));
-        QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
+    const auto buttons = d->dateFormatGroup->buttons();
+    for (QAbstractButton *button : buttons) {
+        const Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(d->dateFormatGroup->id(button));
+        const QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
         button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
     }
 }

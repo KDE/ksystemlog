@@ -121,7 +121,7 @@ void TestUtil::addLogLines(const QString &fileName, const QStringList &addedLine
         logDebug() << "Opening " << fileName << " for writing " << addedLines.count() << " line(s).";
 
         QTextStream out(&data);
-        foreach (const QString &line, addedLines) {
+        for (const QString &line : addedLines) {
             out << line << '\n';
         }
 

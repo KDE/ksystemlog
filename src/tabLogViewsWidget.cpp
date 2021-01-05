@@ -132,7 +132,7 @@ LogManager *TabLogViewsWidget::findRelatedLogManager(View *view)
 
 TabLogManager *TabLogViewsWidget::findRelatedTabLogManager(View *view)
 {
-    foreach (TabLogManager *tabLogManager, d->tabLogManagers) {
+    for (TabLogManager *tabLogManager : qAsConst(d->tabLogManagers)) {
         if (tabLogManager->logManager()->usedView() == view) {
             return tabLogManager;
         }

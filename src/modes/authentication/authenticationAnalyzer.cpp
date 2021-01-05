@@ -56,7 +56,7 @@ bool AuthenticationAnalyzer::hasErrorKeywords(const QString &message)
 
 bool AuthenticationAnalyzer::hasKeywords(const QString &message, const QStringList &keywords)
 {
-    foreach (const QString &keyword, keywords) {
+    for (const QString &keyword : keywords) {
         if (message.contains(keyword, Qt::CaseInsensitive)) {
             return true;
         }

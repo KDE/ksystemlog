@@ -144,9 +144,9 @@ void FileList::modifyItem(QListWidgetItem *item)
 
 void FileList::removeSelectedItem()
 {
-    QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
+    const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
 
-    foreach (QListWidgetItem *item, selectedItems) {
+    for (QListWidgetItem *item : selectedItems) {
         delete fileList->takeItem(fileList->row(item));
     }
 
