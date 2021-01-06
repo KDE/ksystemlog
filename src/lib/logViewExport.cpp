@@ -40,8 +40,8 @@
 #include "levelPrintPage.h"
 
 LogViewExport::LogViewExport(QWidget *parent, LogViewWidget *logViewWidget)
-    : parent(parent)
-    , logViewWidget(logViewWidget)
+    : mParent(parent)
+    , mLogViewWidget(logViewWidget)
 {
 }
 
@@ -58,7 +58,7 @@ void LogViewExport::sendMail()
     body += i18n("---------------------------------------\n");
 
     int i = 0;
-    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
@@ -73,7 +73,7 @@ void LogViewExport::sendMail()
 
     // Too much lines selected
     if (i > 1000) {
-        KMessageBox::sorry(parent,
+        KMessageBox::sorry(mParent,
                            i18n("You have selected too many lines. Please only select important log lines."),
                            i18n("Too Many Lines Selected"));
         return;
@@ -110,7 +110,7 @@ void LogViewExport::printSelection()
      */
 
     // initialize the printer using the print dialog
-    QPrintDialog *printDialog = new QPrintDialog(&printer, parent);
+    QPrintDialog *printDialog = new QPrintDialog(&printer, mParent);
     if (printDialog->exec() == false) {
         delete printDialog;
         return;
@@ -136,7 +136,7 @@ void LogViewExport::printSelection()
     int i = 0;
     int movement = 0;
 
-    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
         QString body = item->logLine()->exportToText();
@@ -180,7 +180,7 @@ void LogViewExport::copyToClipboard()
     int nbCopied = 0;
     QString text;
 
-    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
@@ -211,7 +211,7 @@ void LogViewExport::fileSave()
 {
     logDebug() << "Saving to a file...";
 
-    QTreeWidgetItemIterator it(logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
 
     // No item selected
     if (*it == nullptr) {
@@ -220,7 +220,7 @@ void LogViewExport::fileSave()
     }
 
     QString filename
-        = QFileDialog::getSaveFileName(parent, i18n("Save selected log entries to..."), QString());
+        = QFileDialog::getSaveFileName(mParent, i18n("Save selected log entries to..."), QString());
     if (filename.isEmpty() == true) {
         return;
     }
@@ -251,6 +251,6 @@ void LogViewExport::fileSave()
             i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
     } else {
         QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
-        KMessageBox::error(parent, message, i18n("Unable to save file."));
+        KMessageBox::error(mParent, message, i18n("Unable to save file."));
     }
 }

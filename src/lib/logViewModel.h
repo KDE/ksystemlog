@@ -56,7 +56,7 @@ public:
     void startingMultipleInsertions();
     void endingMultipleInsertions(Analyzer::ReadingMode readingMode, int insertedLogLineCount);
 
-    QList<LogLine *> logLines();
+    QList<LogLine *> logLines() const;
 
 Q_SIGNALS:
     void processingMultipleInsertions(bool currentlyInserting);
