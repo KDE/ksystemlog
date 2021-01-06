@@ -98,8 +98,7 @@ QList<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
     return logFiles;
 }
 
-void TestUtil::testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel,
-                        const QDateTime &time, const QStringList &items) const
+void TestUtil::testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel, const QDateTime &time, const QStringList &items) const
 {
     QCOMPARE(line->time(), time);
     QCOMPARE(line->sourceFileName(), originalFileName);

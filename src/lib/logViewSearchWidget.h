@@ -56,7 +56,9 @@ private Q_SLOTS:
     void highlightAll();
 
 private:
-    enum Direction { Next, Previous };
+    enum Direction {
+        Next, Previous
+    };
     Q_DECLARE_FLAGS(Directions, Direction)
 
     void showMessage(const QString &text, const QString &iconText);

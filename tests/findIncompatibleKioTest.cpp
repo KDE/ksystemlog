@@ -166,8 +166,7 @@ void FindIncompatibleKioTest::find()
     file.close();
 }
 
-void FindIncompatibleKioTest::displayFoundMethods(const QStringList &methods, const QUrl &url,
-                                                  QTextStream &out)
+void FindIncompatibleKioTest::displayFoundMethods(const QStringList &methods, const QUrl &url, QTextStream &out)
 {
     QMap<QString, bool> foundMethods = findMethods(methods, url);
 
@@ -212,8 +211,9 @@ void FindIncompatibleKioTest::displayFoundMethods(const QStringList &methods, co
 QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList &methods, const QUrl &url)
 {
     QStringList lines = headerContent(url);
-    if (lines.isEmpty())
+    if (lines.isEmpty()) {
         return QMap<QString, bool>();
+    }
 
     QMap<QString, bool> foundMethods;
     foreach (const QString &method, methods) {
@@ -223,8 +223,9 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList &meth
     foreach (QString line, lines) {
         line = convertMethod(line);
 
-        if (line.contains(QLatin1String("void")) == false)
+        if (line.contains(QLatin1String("void")) == false) {
             continue;
+        }
 
         // logDebug() << "Line" << convertMethod(line) << endl;
 
@@ -257,8 +258,9 @@ QString FindIncompatibleKioTest::convertMethod(const QString &method)
 
     int firstParenthesis = result.indexOf(QLatin1Char('('));
     int lastParenthesis = result.indexOf(QLatin1Char(')'));
-    if (firstParenthesis != -1 && lastParenthesis != -1)
+    if (firstParenthesis != -1 && lastParenthesis != -1) {
         result.remove(firstParenthesis + 1, lastParenthesis - firstParenthesis - 1);
+    }
 
     return result;
 }
@@ -287,7 +289,6 @@ QStringList FindIncompatibleKioTest::headerContent(const QUrl &url)
         KIO::NetAccess::removeTempFile(tmpFile);
     } else {
         logDebug() << KIO::NetAccess::lastErrorString() << endl;
-        ;
     }
 
     return kioHeaderContent;

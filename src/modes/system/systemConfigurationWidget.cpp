@@ -51,8 +51,8 @@ void SystemConfigurationWidget::saveConfig()
     logDebug() << "Saving config from System Options...";
 
     SystemConfiguration *systemConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
-            ->logModeConfiguration<SystemConfiguration *>();
+                                               .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
+                                               ->logModeConfiguration<SystemConfiguration *>();
     systemConfiguration->setLogFilesPaths(mFileList->paths());
     systemConfiguration->setLogFilesLevels(mFileList->levels());
 }
@@ -60,8 +60,8 @@ void SystemConfigurationWidget::saveConfig()
 void SystemConfigurationWidget::readConfig()
 {
     SystemConfiguration *systemConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
-            ->logModeConfiguration<SystemConfiguration *>();
+                                               .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
+                                               ->logModeConfiguration<SystemConfiguration *>();
 
     mFileList->removeAllItems();
 

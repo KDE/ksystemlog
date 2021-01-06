@@ -80,15 +80,17 @@ void DetailDialog::updateDetails()
 
     message->setText(item->logLine()->logItems().last());
 
-    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) - 1) == nullptr)
+    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) - 1) == nullptr) {
         previous->setEnabled(false);
-    else
+    } else {
         previous->setEnabled(true);
+    }
 
-    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + 1) == nullptr)
+    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + 1) == nullptr) {
         next->setEnabled(false);
-    else
+    } else {
         next->setEnabled(true);
+    }
 
     /*
     header->adjustSize();
@@ -98,10 +100,11 @@ void DetailDialog::updateDetails()
 
 void DetailDialog::moveToItem(int direction)
 {
-    if (direction < 0)
+    if (direction < 0) {
         logDebug() << "Go to previous item...";
-    else
+    } else {
         logDebug() << "Go to next item...";
+    }
 
     // Get the current-last item selected
     LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
@@ -113,10 +116,11 @@ void DetailDialog::moveToItem(int direction)
     QTreeWidgetItem *destinationItem
         = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
     if (!destinationItem) {
-        if (direction < 0)
+        if (direction < 0) {
             logDebug() << "No previous item found.";
-        else
+        } else {
             logDebug() << "No next item found.";
+        }
         return;
     }
 

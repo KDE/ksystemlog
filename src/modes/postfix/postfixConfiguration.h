@@ -38,7 +38,9 @@ class PostfixConfiguration : public GenericLogModeConfiguration
 public:
     PostfixConfiguration();
 
-    ~PostfixConfiguration() override {}
+    ~PostfixConfiguration() override
+    {
+    }
 };
 
 #endif // _POSTFIX_CONFIGURATION_H

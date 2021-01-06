@@ -55,16 +55,19 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
     bool apacheLogsExist = apacheLogMode->filesExist();
     bool apacheAccessLogsExist = apacheAccessLogMode->filesExist();
 
-    if (!apacheLogsExist && !apacheAccessLogsExist)
+    if (!apacheLogsExist && !apacheAccessLogsExist) {
         return nullptr;
+    }
 
     MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
                                                            i18n("Apache"), apacheLogMode);
-    if (apacheLogsExist)
+    if (apacheLogsExist) {
         multipleActions->addInnerAction(apacheLogMode->action());
+    }
 
-    if (apacheAccessLogsExist)
+    if (apacheAccessLogsExist) {
         multipleActions->addInnerAction(apacheAccessLogMode->action());
+    }
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

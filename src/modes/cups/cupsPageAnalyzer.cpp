@@ -42,9 +42,15 @@ LogViewColumns CupsPageAnalyzer::initColumns()
     return columns;
 }
 
-LogFileReader *CupsPageAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+LogFileReader *CupsPageAnalyzer::createLogFileReader(const LogFile &logFile)
+{
+    return new LocalLogFileReader(logFile);
+}
 
-Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode()
+{
+    return Analyzer::AscendingSortedLogFile;
+}
 
 LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {

@@ -28,19 +28,33 @@ CronConfiguration::CronConfiguration()
     QStringList defaultCronPaths;
     defaultCronPaths << QStringLiteral("/var/log/syslog");
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mCronPaths, defaultCronPaths,
-                                     QStringLiteral("LogFilesPaths"));
+                                      QStringLiteral("LogFilesPaths"));
 
     QString defaultProcessFilter(QStringLiteral("/usr/sbin/cron"));
     mConfiguration->addItemString(QStringLiteral("ProcessFilter"), mProcessFilter, defaultProcessFilter,
-                                 QStringLiteral("ProcessFilter"));
+                                  QStringLiteral("ProcessFilter"));
 }
 
-CronConfiguration::~CronConfiguration() {}
+CronConfiguration::~CronConfiguration()
+{
+}
 
-QString CronConfiguration::processFilter() const { return mProcessFilter; }
+QString CronConfiguration::processFilter() const
+{
+    return mProcessFilter;
+}
 
-void CronConfiguration::setProcessFilter(const QString &processFilter) { mProcessFilter = processFilter; }
+void CronConfiguration::setProcessFilter(const QString &processFilter)
+{
+    mProcessFilter = processFilter;
+}
 
-QStringList CronConfiguration::cronPaths() const { return mCronPaths; }
+QStringList CronConfiguration::cronPaths() const
+{
+    return mCronPaths;
+}
 
-void CronConfiguration::setCronPaths(const QStringList &cronPaths) { mCronPaths = cronPaths; }
+void CronConfiguration::setCronPaths(const QStringList &cronPaths)
+{
+    mCronPaths = cronPaths;
+}

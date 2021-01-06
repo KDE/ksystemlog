@@ -37,14 +37,22 @@ class AcpidAnalyzer : public FileAnalyzer
 public:
     explicit AcpidAnalyzer(LogMode *logMode);
 
-    ~AcpidAnalyzer() override {}
+    ~AcpidAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override
+    {
+        return new LocalLogFileReader(logFile);
+    }
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override
+    {
+        return Analyzer::AscendingSortedLogFile;
+    }
 
     LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 };

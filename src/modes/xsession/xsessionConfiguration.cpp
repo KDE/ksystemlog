@@ -26,10 +26,10 @@ XSessionConfiguration::XSessionConfiguration()
     mConfiguration->setCurrentGroup(QStringLiteral("XSessionLogMode"));
 
     mConfiguration->addItemString(QStringLiteral("LogFilePath"), mXsessionPath,
-                                 QStringLiteral("~/.xsession-errors"), QStringLiteral("LogFilePath"));
+                                  QStringLiteral("~/.xsession-errors"), QStringLiteral("LogFilePath"));
 
     mConfiguration->addItemBool(QStringLiteral("IgnoreXorgErrors"), mIgnoreXorgErrors, false,
-                               QStringLiteral("IgnoreXorgErrors"));
+                                QStringLiteral("IgnoreXorgErrors"));
 
     QStringList defaultXorgErrorKeywords;
     defaultXorgErrorKeywords.append(QStringLiteral("X Error"));
@@ -37,31 +37,54 @@ XSessionConfiguration::XSessionConfiguration()
     defaultXorgErrorKeywords.append(QStringLiteral("  Minor opcode"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Resource id"));
     mConfiguration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords,
-                                     defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
+                                      defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
 
     QStringList defaultWarningKeywords;
     defaultWarningKeywords.append(QStringLiteral("WARNING"));
     mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
-                                     defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
     QStringList defaultErrorKeywords;
     defaultErrorKeywords.append(QStringLiteral("ERROR"));
     mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
-                                     defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
+                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
-XSessionConfiguration::~XSessionConfiguration() {}
+XSessionConfiguration::~XSessionConfiguration()
+{
+}
 
-QStringList XSessionConfiguration::xorgErrorKeywords() const { return mXorgErrorKeywords; }
+QStringList XSessionConfiguration::xorgErrorKeywords() const
+{
+    return mXorgErrorKeywords;
+}
 
-bool XSessionConfiguration::isIgnoreXorgErrors() const { return mIgnoreXorgErrors; }
+bool XSessionConfiguration::isIgnoreXorgErrors() const
+{
+    return mIgnoreXorgErrors;
+}
 
-void XSessionConfiguration::setIgnoreXorgErrors(bool ignore) { mIgnoreXorgErrors = ignore; }
+void XSessionConfiguration::setIgnoreXorgErrors(bool ignore)
+{
+    mIgnoreXorgErrors = ignore;
+}
 
-QString XSessionConfiguration::xsessionPath() const { return mXsessionPath; }
+QString XSessionConfiguration::xsessionPath() const
+{
+    return mXsessionPath;
+}
 
-void XSessionConfiguration::setXSessionPath(const QString &xsessionPath) { mXsessionPath = xsessionPath; }
+void XSessionConfiguration::setXSessionPath(const QString &xsessionPath)
+{
+    mXsessionPath = xsessionPath;
+}
 
-QStringList XSessionConfiguration::warningKeywords() const { return mWarningKeywords; }
+QStringList XSessionConfiguration::warningKeywords() const
+{
+    return mWarningKeywords;
+}
 
-QStringList XSessionConfiguration::errorKeywords() const { return mErrorKeywords; }
+QStringList XSessionConfiguration::errorKeywords() const
+{
+    return mErrorKeywords;
+}

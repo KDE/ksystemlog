@@ -55,7 +55,7 @@ private Q_SLOTS:
     void journalDescriptorUpdated(int fd);
 
 private:
-    using JournalWatcher = QFutureWatcher<QList<JournalEntry>>;
+    using JournalWatcher = QFutureWatcher<QList<JournalEntry> >;
 
     void readJournalFinished(ReadingMode readingMode);
     QList<JournalEntry> readJournal(const QStringList &filters);

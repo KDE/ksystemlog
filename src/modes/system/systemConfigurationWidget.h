@@ -46,7 +46,9 @@ class SystemConfigurationWidget : public LogModeConfigurationWidget
 public:
     SystemConfigurationWidget();
 
-    ~SystemConfigurationWidget() override {}
+    ~SystemConfigurationWidget() override
+    {
+    }
 
     bool isValid() const override;
 

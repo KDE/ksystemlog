@@ -75,8 +75,7 @@ public:
     /*
      * Test every fields of the logLine with the other parameters
      */
-    void testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel, const QDateTime &time,
-                  const QStringList &items) const;
+    void testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel, const QDateTime &time, const QStringList &items) const;
 };
 
 #endif // TEST_UTIL_H

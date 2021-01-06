@@ -21,7 +21,6 @@
 
 #include "logLine.h"
 
-
 #include "logMode.h"
 #include "logModeItemBuilder.h"
 #include "logViewWidgetItem.h"
@@ -49,8 +48,7 @@ public:
     LogViewWidgetItem *item = nullptr;
 };
 
-LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file,
-                 LogLevel *logLevel, LogMode *logMode)
+LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file, LogLevel *logLevel, LogMode *logMode)
     :
 
     d(new LogLinePrivate())
@@ -91,17 +89,21 @@ void LogLine::setLogMode(LogMode *logMode)
 
 bool LogLine::equals(const LogLine &other) const
 {
-    if (logMode()->id() != other.logMode()->id())
+    if (logMode()->id() != other.logMode()->id()) {
         return false;
+    }
 
-    if (time() != other.time())
+    if (time() != other.time()) {
         return false;
+    }
 
-    if (logLevel()->id() != other.logLevel()->id())
+    if (logLevel()->id() != other.logLevel()->id()) {
         return false;
+    }
 
-    if (d->logItems != other.d->logItems)
+    if (d->logItems != other.d->logItems) {
         return false;
+    }
 
     return true;
 }
@@ -138,16 +140,18 @@ QString LogLine::sourceFileName() const
 
 bool LogLine::isOlderThan(const LogLine &other) const
 {
-    if (d->time == other.time())
+    if (d->time == other.time()) {
         return d->internalId < other.internalId();
+    }
 
     return d->time < other.time();
 }
 
 bool LogLine::isNewerThan(const LogLine &other) const
 {
-    if (d->time == other.time())
+    if (d->time == other.time()) {
         return d->internalId > other.internalId();
+    }
 
     return d->time > other.time();
 }
@@ -187,8 +191,9 @@ QString LogLine::exportToText() const
     }
 
     for (int i = 0; i < d->item->columnCount(); ++i) {
-        if (i > 0)
+        if (i > 0) {
             exporting.append(QLatin1Char('\t'));
+        }
 
         exporting.append(d->item->text(i));
     }

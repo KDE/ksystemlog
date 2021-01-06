@@ -46,8 +46,7 @@ class CupsLogMode : public LogMode
     Q_OBJECT
 
 public:
-    explicit CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
-                         CupsConfigurationWidget *cupsConfigurationWidget);
+    explicit CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration, CupsConfigurationWidget *cupsConfigurationWidget);
 
     ~CupsLogMode() override;
 

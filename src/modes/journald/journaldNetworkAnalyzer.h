@@ -51,7 +51,9 @@ private Q_SLOTS:
     void sslErrors(QNetworkReply *reply, const QList<QSslError> &errors);
 
 private:
-    enum class RequestType { SyslogIds, Units, EntriesFull, EntriesUpdate };
+    enum class RequestType {
+        SyslogIds, Units, EntriesFull, EntriesUpdate
+    };
 
     void parseEntries(QByteArray &data, ReadingMode readingMode);
     void sendRequest(RequestType requestType);

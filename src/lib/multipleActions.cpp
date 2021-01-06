@@ -47,9 +47,11 @@ QAction *MultipleActions::actionMenu()
 
 void MultipleActions::addInnerAction(QAction *innerAction, bool addToMenu, bool addToInnerActionsList)
 {
-    if (addToMenu)
+    if (addToMenu) {
         mAction->addAction(innerAction);
+    }
 
-    if (addToInnerActionsList)
+    if (addToInnerActionsList) {
         mActions.append(innerAction);
+    }
 }

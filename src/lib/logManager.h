@@ -82,8 +82,7 @@ private Q_SLOTS:
     void loadDroppedUrls(const QList<QUrl> &urls);
 
 private:
-    void internalInitialize(LogMode *mode, const QList<LogFile> &logFiles,
-                            const QVariant &analyzerOptions = QVariant());
+    void internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions = QVariant());
 
     void cleanPreviousLogMode();
 

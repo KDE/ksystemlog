@@ -123,6 +123,7 @@ QDataStream &operator<<(QDataStream &out, const LogViewColumns &columns)
     out << columns.columns();
     return out;
 }
+
 QDebug &operator<<(QDebug &out, const LogViewColumns &columns)
 {
     out << columns.columns();

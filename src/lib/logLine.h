@@ -39,8 +39,7 @@ class LogLinePrivate;
 class LogLine
 {
 public:
-    LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems,
-            const QString &originalFile, LogLevel *level, LogMode *logMode);
+    LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &originalFile, LogLevel *level, LogMode *logMode);
 
     virtual ~LogLine();
 

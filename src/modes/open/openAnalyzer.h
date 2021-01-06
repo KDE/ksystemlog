@@ -36,7 +36,9 @@ class OpenAnalyzer : public SyslogAnalyzer
 public:
     explicit OpenAnalyzer(LogMode *logMode);
 
-    ~OpenAnalyzer() override {}
+    ~OpenAnalyzer() override
+    {
+    }
 };
 
 #endif

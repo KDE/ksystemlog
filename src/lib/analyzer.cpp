@@ -21,7 +21,6 @@
 
 #include "analyzer.h"
 
-
 #include "logging.h"
 #include "ksystemlogConfig.h"
 
@@ -29,7 +28,6 @@
 
 #include "logMode.h"
 #include "logFileReader.h"
-
 
 Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)

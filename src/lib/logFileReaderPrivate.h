@@ -27,7 +27,9 @@
 class LogFileReaderPrivate
 {
 public:
-    virtual ~LogFileReaderPrivate() {}
+    virtual ~LogFileReaderPrivate()
+    {
+    }
 
     LogFile logFile;
 };

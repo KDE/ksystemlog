@@ -37,9 +37,13 @@
 class CupsPdfItemBuilder : public LogModeItemBuilder
 {
 public:
-    CupsPdfItemBuilder() {}
+    CupsPdfItemBuilder()
+    {
+    }
 
-    ~CupsPdfItemBuilder() override {}
+    ~CupsPdfItemBuilder() override
+    {
+    }
 
     QString createFormattedText(LogLine *line) const override;
 };

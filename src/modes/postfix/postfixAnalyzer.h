@@ -34,7 +34,9 @@ class PostfixAnalyzer : public SyslogAnalyzer
 public:
     explicit PostfixAnalyzer(LogMode *logMode);
 
-    ~PostfixAnalyzer() override {}
+    ~PostfixAnalyzer() override
+    {
+    }
 
     /*
      * Just a test of multilines log lines (and it works well !)

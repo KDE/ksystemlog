@@ -39,7 +39,9 @@ class CupsPageAnalyzer : public FileAnalyzer
 public:
     explicit CupsPageAnalyzer(LogMode *logMode);
 
-    ~CupsPageAnalyzer() override {}
+    ~CupsPageAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 

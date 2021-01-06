@@ -95,7 +95,11 @@ public:
      */
     LogModeConfigurationWidget *logModeConfigurationWidget() const;
 
-    template <typename T> T logModeConfiguration() { return static_cast<T>(innerConfiguration()); }
+    template<typename T> T logModeConfiguration()
+    {
+        return static_cast<T>(innerConfiguration());
+    }
+
     /**
      * Create the Analyzer used to parse the log file
      */

@@ -45,8 +45,9 @@ void JournaldConfiguration::setDisplayCurrentBootOnly(bool displayCurrentBootOnl
 
 JournaldConfiguration::EntriesType JournaldConfiguration::entriesType()
 {
-    if ((mEntriesType < EntriesAll) || (mEntriesType > EntriesSystem))
+    if ((mEntriesType < EntriesAll) || (mEntriesType > EntriesSystem)) {
         mEntriesType = EntriesAll;
+    }
     return static_cast<EntriesType>(mEntriesType);
 }
 
@@ -74,8 +75,8 @@ void JournaldConfiguration::setRemoteJournals(const QList<JournalAddress> &remot
     mRemoteJournals.clear();
     for (const JournalAddress &addressInfo : remoteJournals) {
         mRemoteJournals.append(QStringLiteral("%1|%2|%3")
-                                    .arg(addressInfo.address)
-                                    .arg(addressInfo.port)
-                                    .arg(addressInfo.https ? 1 : 0));
+                               .arg(addressInfo.address)
+                               .arg(addressInfo.port)
+                               .arg(addressInfo.https ? 1 : 0));
     }
 }

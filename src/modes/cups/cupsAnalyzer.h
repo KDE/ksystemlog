@@ -22,7 +22,6 @@
 #ifndef CUPS_ANALYZER_H
 #define CUPS_ANALYZER_H
 
-
 #include "fileAnalyzer.h"
 
 #include "logging.h"

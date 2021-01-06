@@ -21,7 +21,6 @@
 
 #include "acpidLogMode.h"
 
-
 #include <KLocalizedString>
 
 #include "logging.h"
@@ -43,8 +42,8 @@ AcpidLogMode::AcpidLogMode()
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the ACPI log."));
     d->action->setWhatsThis(i18n(
-        "Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
-        "computer, like notebook batteries, reset buttons..."));
+                                "Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
+                                "computer, like notebook batteries, reset buttons..."));
 
     AcpidConfiguration *configuration = logModeConfiguration<AcpidConfiguration *>();
     checkLogFilesPresence(configuration->acpidPaths());

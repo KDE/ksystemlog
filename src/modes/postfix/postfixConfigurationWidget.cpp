@@ -52,8 +52,8 @@ void PostfixConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Postfix Options...";
 
     PostfixConfiguration *configuration = Globals::instance()
-            .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-            ->logModeConfiguration<PostfixConfiguration *>();
+                                          .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
+                                          ->logModeConfiguration<PostfixConfiguration *>();
     configuration->setLogFilesPaths(mLileList->paths());
     configuration->setLogFilesLevels(mLileList->levels());
 }
@@ -61,8 +61,8 @@ void PostfixConfigurationWidget::saveConfig()
 void PostfixConfigurationWidget::readConfig()
 {
     PostfixConfiguration *configuration = Globals::instance()
-            .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-            ->logModeConfiguration<PostfixConfiguration *>();
+                                          .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
+                                          ->logModeConfiguration<PostfixConfiguration *>();
 
     mLileList->removeAllItems();
 

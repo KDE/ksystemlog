@@ -45,8 +45,9 @@ LogViewModel::~LogViewModel()
 bool LogViewModel::logLineAlreadyExists(LogLine *line) const
 {
     LogViewWidgetItem *item = mLogViewWidget->findItem(line);
-    if (item != nullptr)
+    if (item != nullptr) {
         return true;
+    }
 
     return false;
 }
@@ -63,8 +64,9 @@ int LogViewModel::itemCount() const
 
 bool LogViewModel::isEmpty() const
 {
-    if (mLogViewWidget->itemCount() == 0)
+    if (mLogViewWidget->itemCount() == 0) {
         return true;
+    }
 
     return false;
 }
@@ -143,10 +145,11 @@ bool LogViewModel::lockMultipleInsertions()
 
 bool LogViewModel::isProcessingMultipleInsertions() const
 {
-    if (mConcurrentMultipleInsertions == 0)
+    if (mConcurrentMultipleInsertions == 0) {
         return false;
-    else
+    } else {
         return true;
+    }
 }
 
 void LogViewModel::clear()
@@ -160,11 +163,13 @@ void LogViewModel::clear()
 bool LogViewModel::isNewer(LogLine *newLine) const
 {
     // No element in the list in this case
-    if (mOldestItem == nullptr)
+    if (mOldestItem == nullptr) {
         return true;
+    }
 
-    if (newLine->isNewerThan(*(mOldestItem->logLine())))
+    if (newLine->isNewerThan(*(mOldestItem->logLine()))) {
         return true;
+    }
 
     return false;
 }

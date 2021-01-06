@@ -39,7 +39,9 @@ class ApacheAnalyzer : public FileAnalyzer
 public:
     explicit ApacheAnalyzer(LogMode *logMode);
 
-    ~ApacheAnalyzer() override {}
+    ~ApacheAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 

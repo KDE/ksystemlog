@@ -39,7 +39,9 @@ class SambaAnalyzer : public FileAnalyzer
 public:
     explicit SambaAnalyzer(LogMode *logMode);
 
-    ~SambaAnalyzer() override {}
+    ~SambaAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 

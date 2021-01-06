@@ -40,16 +40,24 @@ public:
     // Fri Sep 30 21:58:37 2005  [ERROR] failed to create spool directory (/var/spool/cups-pdf/SPOOL)
     explicit CupsPdfAnalyzer(LogMode *logMode);
 
-    ~CupsPdfAnalyzer() override {}
+    ~CupsPdfAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 
 protected:
     QRegExp mCupsPdfRegex;
 
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override
+    {
+        return new LocalLogFileReader(logFile);
+    }
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override
+    {
+        return Analyzer::AscendingSortedLogFile;
+    }
 
     /*
      * https://pawn.physik.uni-wuerzburg.de/~vrbehr/cups-pdf/documentation.shtml (cups-pdf_log)

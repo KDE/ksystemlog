@@ -97,8 +97,9 @@ void LogViewSearchWidget::findFirst(const QString &text)
     const bool textIsNotEmpty = !text.isEmpty();
     next->setEnabled(textIsNotEmpty);
     previous->setEnabled(textIsNotEmpty);
-    if (textIsNotEmpty)
+    if (textIsNotEmpty) {
         findFirst();
+    }
 }
 
 void LogViewSearchWidget::findFirst()
@@ -150,8 +151,9 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
 
         bool found = findItem(item);
-        if (found == true)
+        if (found == true) {
             return;
+        }
 
         iteratorJump(it, direction);
     }
@@ -210,8 +212,9 @@ bool LogViewSearchWidget::compareItem(LogViewWidgetItem *item)
         caseSensitivity = Qt::CaseSensitive;
     }
 
-    if (searchLine->text().isEmpty())
+    if (searchLine->text().isEmpty()) {
         return false;
+    }
 
     if (item->logLine()->exportToText().contains(searchLine->text(), caseSensitivity)) {
         return true;
@@ -248,10 +251,11 @@ void LogViewSearchWidget::setSearchLineNotFound(bool notFound)
 
     searchLine->setPalette(palette);
 
-    if (notFound == true)
+    if (notFound == true) {
         showMessage(i18n("Phrase not found."), QStringLiteral("dialog-error"));
-    else
+    } else {
         hideMessage();
+    }
 }
 
 void LogViewSearchWidget::unselectAll()
@@ -297,7 +301,6 @@ void LogViewSearchWidget::highlightAll()
 
             ++it;
         }
-
     } else {
         unlightAll();
     }

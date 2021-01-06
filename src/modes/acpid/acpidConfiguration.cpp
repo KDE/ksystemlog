@@ -28,11 +28,19 @@ AcpidConfiguration::AcpidConfiguration()
     QStringList defaultAcpidPaths;
     defaultAcpidPaths << QStringLiteral("/var/log/acpid");
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mAcpidPaths, defaultAcpidPaths,
-                                     QStringLiteral("LogFilesPaths"));
+                                      QStringLiteral("LogFilesPaths"));
 }
 
-AcpidConfiguration::~AcpidConfiguration() {}
+AcpidConfiguration::~AcpidConfiguration()
+{
+}
 
-QStringList AcpidConfiguration::acpidPaths() const { return mAcpidPaths; }
+QStringList AcpidConfiguration::acpidPaths() const
+{
+    return mAcpidPaths;
+}
 
-void AcpidConfiguration::setAcpidPaths(const QStringList &acpidPaths) { mAcpidPaths = acpidPaths; }
+void AcpidConfiguration::setAcpidPaths(const QStringList &acpidPaths)
+{
+    mAcpidPaths = acpidPaths;
+}

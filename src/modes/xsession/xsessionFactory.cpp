@@ -21,13 +21,11 @@
 
 #include "xsessionFactory.h"
 
-
 #include "logMode.h"
 #include "logging.h"
 
 #include "simpleAction.h"
 #include "xsessionLogMode.h"
-
 
 QList<LogMode *> XSessionLogModeFactory::createLogModes() const
 {
@@ -39,8 +37,9 @@ LogModeAction *XSessionLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID));
 
-    if (!logMode->filesExist())
+    if (!logMode->filesExist()) {
         return nullptr;
+    }
 
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 

@@ -42,7 +42,9 @@ class CupsConfigurationWidget : public LogModeConfigurationWidget
 public:
     CupsConfigurationWidget();
 
-    ~CupsConfigurationWidget() override {}
+    ~CupsConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

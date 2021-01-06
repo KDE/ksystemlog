@@ -24,15 +24,15 @@
 
 const quint16 JournaldDefaultPort = 19531;
 
-JournaldAddressDialog::JournaldAddressDialog(QWidget *parent, const QString &title, const QString &address, const QString &port,
-                                             bool httpsEnabled)
+JournaldAddressDialog::JournaldAddressDialog(QWidget *parent, const QString &title, const QString &address, const QString &port, bool httpsEnabled)
     : QDialog(parent)
 {
     setupUi(this);
     setWindowTitle(title);
     addressLineEdit->setText(address);
-    if (!port.isEmpty())
+    if (!port.isEmpty()) {
         portLineEdit->setText(port);
+    }
     httpsCheckBox->setChecked(httpsEnabled);
 }
 

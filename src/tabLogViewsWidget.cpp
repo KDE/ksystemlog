@@ -38,11 +38,9 @@
 #include "tabLogManager.h"
 #include "logViewWidget.h"
 
-
 TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
 {
-
     QPushButton *tabNewTabButton
         = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
     connect(tabNewTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::createTab);
@@ -142,8 +140,9 @@ TabLogManager *TabLogViewsWidget::activeTabLogManager() const
 LogManager *TabLogViewsWidget::activeLogManager() const
 {
     TabLogManager *tabLogManager = activeTabLogManager();
-    if (tabLogManager)
+    if (tabLogManager) {
         return tabLogManager->logManager();
+    }
     return nullptr;
 }
 
@@ -312,8 +311,9 @@ void TabLogViewsWidget::changeCurrentTab(int index)
 {
     logDebug() << "Changing current tab...";
 
-    if (index == -1)
+    if (index == -1) {
         return;
+    }
 
     TabLogManager *tabLogManager = activeTabLogManager();
 
@@ -331,12 +331,13 @@ void TabLogViewsWidget::changeReloadingTab(View *view, bool reloading)
 {
     TabLogManager *tabLogManager = findRelatedTabLogManager(view);
 
-    if (reloading == true)
+    if (reloading == true) {
         changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme(QStringLiteral("view-refresh")),
                   tabLogManager->title());
-    else
+    } else {
         changeTab(tabLogManager->logManager()->usedView(),
                   logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
+    }
 }
 
 void TabLogViewsWidget::changeTitleAddedLines(View *view, int addedLinesSinceLastUpdate)
@@ -354,6 +355,7 @@ void TabLogViewsWidget::changeTitleAddedLines(View *view, int addedLinesSinceLas
                   logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
     }
 }
+
 void TabLogViewsWidget::expandAllCurrentView()
 {
     activeLogManager()->usedView()->logViewWidget()->expandAll();
@@ -382,12 +384,14 @@ void TabLogViewsWidget::copyToClipboardCurrentView()
     connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.copyToClipboard();
 }
+
 void TabLogViewsWidget::sendMailCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
     connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
     logViewExport.sendMail();
 }
+
 void TabLogViewsWidget::printSelectionCurrentView()
 {
     LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
@@ -397,10 +401,11 @@ void TabLogViewsWidget::printSelectionCurrentView()
 
 QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode) const
 {
-    if (logMode == nullptr)
+    if (logMode == nullptr) {
         return QIcon::fromTheme(QStringLiteral(NO_MODE_ICON));
-    else
+    } else {
         return logMode->icon();
+    }
 }
 
 void TabLogViewsWidget::prepareContextMenu(bool /*onTab*/)

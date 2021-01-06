@@ -57,8 +57,9 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
         line->setRecent(readingMode == UpdatingRead);
         mLogViewModel->insertNewLogLine(line);
 
-        if (readingMode == FullRead)
+        if (readingMode == FullRead) {
             informOpeningProgress(i, entriesNum);
+        }
     }
     return entriesNum;
 }

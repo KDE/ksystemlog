@@ -44,14 +44,19 @@ class KernelAnalyzer : public FileAnalyzer
 public:
     explicit KernelAnalyzer(LogMode *logMode);
 
-    ~KernelAnalyzer() override {}
+    ~KernelAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 
 protected:
     LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override
+    {
+        return Analyzer::AscendingSortedLogFile;
+    }
 
     void startupTime();
 

@@ -45,9 +45,9 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *mode, const JournaldAn
     JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
 
     mBaseUrl = QStringLiteral("%1://%2:%3/")
-                    .arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http"))
-                    .arg(mAddress.address)
-                    .arg(mAddress.port);
+               .arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http"))
+               .arg(mAddress.address)
+               .arg(mAddress.port);
 
     mEntriesUrlUpdating = mBaseUrl + QStringLiteral("entries");
     mEntriesUrlFull = mEntriesUrlUpdating;
@@ -108,9 +108,9 @@ void JournaldNetworkAnalyzer::httpFinished()
             parseEntries(data, FullRead);
             updateStatus(i18n("Connected"));
         }
-        if (!mCursor.isEmpty())
+        if (!mCursor.isEmpty()) {
             sendRequest(RequestType::EntriesUpdate);
-        else {
+        } else {
             logWarning() << "Network journal analyzer failed to extract cursor string. "
                             "Journal updates will be unavailable.";
         }
@@ -127,7 +127,8 @@ void JournaldNetworkAnalyzer::httpFinished()
             mSyslogIdentifiers.sort();
             sendRequest(RequestType::Units);
             break;
-        case RequestType::Units: {
+        case RequestType::Units:
+        {
             mSystemdUnits = identifiersList;
             mSystemdUnits.sort();
             JournaldLogMode *journalLogMode = dynamic_cast<JournaldLogMode *>(mLogMode);
@@ -156,11 +157,13 @@ void JournaldNetworkAnalyzer::httpReadyRead()
 
 void JournaldNetworkAnalyzer::httpError(QNetworkReply::NetworkError code)
 {
-    if (mParsingPaused)
+    if (mParsingPaused) {
         return;
+    }
 
-    if (code == QNetworkReply::OperationCanceledError)
+    if (code == QNetworkReply::OperationCanceledError) {
         return;
+    }
 
     updateStatus(i18n("Connection error"));
     logWarning() << "Network journald connection error:" << code;
@@ -183,13 +186,15 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
     QList<JournalEntry> entries;
     for (int i = 0; i < items.size(); i++) {
         QByteArray &item = items[i];
-        if (item.isEmpty())
+        if (item.isEmpty()) {
             continue;
+        }
         item.prepend('{');
         QJsonParseError jsonError{};
         QJsonDocument doc = QJsonDocument::fromJson(item, &jsonError);
-        if (jsonError.error != 0)
+        if (jsonError.error != 0) {
             continue;
+        }
         QJsonObject object = doc.object();
 
         if ((readingMode == FullRead) && (i == items.size() - 1)) {
@@ -205,16 +210,18 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
             // MESSAGE field contains a JSON array of bytes.
             QByteArray stringBytes;
             QJsonArray a = object[QStringLiteral("MESSAGE")].toArray();
-            for (int i = 0; i < a.size(); i++)
+            for (int i = 0; i < a.size(); i++) {
                 stringBytes.append(a[i].toVariant().value<char>());
+            }
             entry.message = QString::fromUtf8(stringBytes);
         }
         entry.message.remove(QRegularExpression(QLatin1String(ConsoleColorEscapeSequence)));
         entry.priority = object[QStringLiteral("PRIORITY")].toVariant().value<int>();
         entry.bootID = object[QStringLiteral("_BOOT_ID")].toString();
         QString unit = object[QStringLiteral("SYSLOG_IDENTIFIER")].toString();
-        if (unit.isEmpty())
+        if (unit.isEmpty()) {
             unit = object[QStringLiteral("_SYSTEMD_UNIT")].toString();
+        }
         entry.unit = unit;
 
         entries << entry;
@@ -253,8 +260,9 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
 
 void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
 {
-    if (mReply)
+    if (mReply) {
         mReply->deleteLater();
+    }
 
     mCurrentRequest = requestType;
 
@@ -268,7 +276,8 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     case RequestType::Units:
         url = mSystemdUnitsUrl;
         break;
-    case RequestType::EntriesFull: {
+    case RequestType::EntriesFull:
+    {
         url = mEntriesUrlFull;
         int entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");

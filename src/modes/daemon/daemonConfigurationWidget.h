@@ -44,7 +44,9 @@ class DaemonConfigurationWidget : public LogModeConfigurationWidget
 public:
     DaemonConfigurationWidget();
 
-    ~DaemonConfigurationWidget() override {}
+    ~DaemonConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

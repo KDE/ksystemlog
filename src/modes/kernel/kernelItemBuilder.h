@@ -39,9 +39,13 @@ class LogLine;
 class KernelItemBuilder : public LogModeItemBuilder
 {
 public:
-    KernelItemBuilder() {}
+    KernelItemBuilder()
+    {
+    }
 
-    ~KernelItemBuilder() override {}
+    ~KernelItemBuilder() override
+    {
+    }
 
     QString createFormattedText(LogLine *line) const override;
 };

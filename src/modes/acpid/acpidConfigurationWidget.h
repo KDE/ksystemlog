@@ -44,7 +44,9 @@ class AcpidConfigurationWidget : public LogModeConfigurationWidget
 public:
     AcpidConfigurationWidget();
 
-    ~AcpidConfigurationWidget() override {}
+    ~AcpidConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

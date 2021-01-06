@@ -27,28 +27,39 @@ AuthenticationConfiguration::AuthenticationConfiguration()
 
     QString defaultAuthenticationPath(QStringLiteral("/var/log/auth.log"));
     mConfiguration->addItemString(QStringLiteral("LogFilePath"), mAuthenticationPath,
-                                 defaultAuthenticationPath, QStringLiteral("LogFilePath"));
+                                  defaultAuthenticationPath, QStringLiteral("LogFilePath"));
 
     QStringList defaultWarningKeywords;
     defaultWarningKeywords.append(QStringLiteral("failed"));
     mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
-                                     defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
     QStringList defaultErrorKeywords;
     defaultErrorKeywords.append(QStringLiteral("error"));
     mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
-                                     defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
+                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
-AuthenticationConfiguration::~AuthenticationConfiguration() {}
+AuthenticationConfiguration::~AuthenticationConfiguration()
+{
+}
 
-QString AuthenticationConfiguration::authenticationPath() const { return mAuthenticationPath; }
+QString AuthenticationConfiguration::authenticationPath() const
+{
+    return mAuthenticationPath;
+}
 
 void AuthenticationConfiguration::setAuthenticationPath(const QString &authenticationPath)
 {
     mAuthenticationPath = authenticationPath;
 }
 
-QStringList AuthenticationConfiguration::warningKeywords() const { return mWarningKeywords; }
+QStringList AuthenticationConfiguration::warningKeywords() const
+{
+    return mWarningKeywords;
+}
 
-QStringList AuthenticationConfiguration::errorKeywords() const { return mErrorKeywords; }
+QStringList AuthenticationConfiguration::errorKeywords() const
+{
+    return mErrorKeywords;
+}

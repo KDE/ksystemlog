@@ -63,7 +63,6 @@ private:
     QList<LogModeConfigurationWidget *> mLogModeConfigurations;
 
     bool mChanged = false;
-
 };
 
 #endif //_CONFIGURATION_DIALOG_H

@@ -32,7 +32,6 @@
 #include "logMode.h"
 #include "logFileReader.h"
 
-
 FileAnalyzer::FileAnalyzer(LogMode *logMode)
     : Analyzer(logMode)
 {
@@ -87,14 +86,14 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
     }
 }
 
-void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode,
-                                  const QStringList &content)
+void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode, const QStringList &content)
 {
     const QString filePath = logFileReader->logFile().url().toLocalFile();
-    if (readingMode == Analyzer::FullRead)
+    if (readingMode == Analyzer::FullRead) {
         logDebug() << "File " << filePath << " has been modified on full read.";
-    else
+    } else {
         logDebug() << "File " << filePath << " has been modified on partial read";
+    }
 
     if (mParsingPaused == true) {
         logDebug() << "Pause enabled. Nothing read.";
@@ -121,8 +120,8 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
         // Inform that we are now reading the "index" file
         Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(),
-                             mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
-                             mLogFileReaders.count());
+                               mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
+                               mLogFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
@@ -145,8 +144,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     mInsertionLocking.unlock();
 }
 
-int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile,
-                              ReadingMode readingMode)
+int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode)
 {
     logDebug() << "Inserting lines...";
 

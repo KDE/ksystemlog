@@ -23,7 +23,6 @@
 
 // Qt includes
 
-
 #include <QBrush>
 
 // KDE includes
@@ -55,10 +54,11 @@ LogLine *LogViewWidgetItem::logLine() const
 
 void LogViewWidgetItem::toggleToolTip(bool displayed)
 {
-    if (displayed == true)
+    if (displayed == true) {
         setToolTip(columnCount() - 1, mLine->logMode()->itemBuilder()->createToolTipText(mLine));
-    else
+    } else {
         setToolTip(columnCount() - 1, QString());
+    }
 }
 
 bool LogViewWidgetItem::operator<(const QTreeWidgetItem &other) const

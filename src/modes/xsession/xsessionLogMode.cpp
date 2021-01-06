@@ -21,7 +21,6 @@
 
 #include "xsessionLogMode.h"
 
-
 #include <KLocalizedString>
 
 #include "logging.h"
@@ -43,9 +42,9 @@ XSessionLogMode::XSessionLogMode()
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the X Session log."));
     d->action->setWhatsThis(i18n(
-        "Displays the X Session log in the current tab. X Session log is the place where graphical programs "
-        "write their output. See this log if you want to know why a program has crashed, or why your desktop "
-        "environment (Plasma, Gnome, Unity, Xfce, LXQt, ...) has not started."));
+                                "Displays the X Session log in the current tab. X Session log is the place where graphical programs "
+                                "write their output. See this log if you want to know why a program has crashed, or why your desktop "
+                                "environment (Plasma, Gnome, Unity, Xfce, LXQt, ...) has not started."));
 
     XSessionConfiguration *configuration = logModeConfiguration<XSessionConfiguration *>();
     checkLogFilesPresence(QStringList() << configuration->xsessionPath());
@@ -64,8 +63,8 @@ Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 QList<LogFile> XSessionLogMode::createLogFiles()
 {
     XSessionConfiguration *configuration = Globals::instance()
-                                               .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
-                                               ->logModeConfiguration<XSessionConfiguration *>();
+                                           .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
+                                           ->logModeConfiguration<XSessionConfiguration *>();
 
     QList<LogFile> logFiles;
     logFiles.append(configuration->findGenericLogFile(configuration->xsessionPath()));

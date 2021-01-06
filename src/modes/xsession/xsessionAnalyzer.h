@@ -39,12 +39,17 @@ class XSessionAnalyzer : public FileAnalyzer
 public:
     explicit XSessionAnalyzer(LogMode *logMode);
 
-    ~XSessionAnalyzer() override {}
+    ~XSessionAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override
+    {
+        return new LocalLogFileReader(logFile);
+    }
 
     Analyzer::LogFileSortMode logFileSortMode() override;
 

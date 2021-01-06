@@ -32,9 +32,7 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
-SambaAccessLogMode::SambaAccessLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
-                                       SambaConfigurationWidget *sambaConfigurationWidget,
-                                       SambaItemBuilder *itemBuilder)
+SambaAccessLogMode::SambaAccessLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration, SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
     : LogMode(QStringLiteral(SAMBA_ACCESS_LOG_MODE_ID), i18n("Samba Access Log"),
               QStringLiteral(SAMBA_ACCESS_MODE_ICON))
 {
@@ -46,8 +44,8 @@ SambaAccessLogMode::SambaAccessLogMode(QSharedPointer<SambaConfiguration> &samba
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Samba Access log."));
     d->action->setWhatsThis(i18n(
-        "Displays the Samba Access log in the current tab. This log mode allows you to see connections "
-        "between your shares and remote hosts."));
+                                "Displays the Samba Access log in the current tab. This log mode allows you to see connections "
+                                "between your shares and remote hosts."));
 
     checkLogFilesPresence(sambaConfiguration->sambaAccessPaths());
 }

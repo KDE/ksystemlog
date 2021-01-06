@@ -81,7 +81,6 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         dateTime = dateTime.addMSecs(timeRegex.cap(2).toInt() / 1000);
 
         parseComponentMessage(timeRegex.cap(3), messages);
-
     }
     // Else, the date will never change
     else {
@@ -99,8 +98,8 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         */
 
     LogLine *line
-            = new LogLine(mLogLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
-                          Globals::instance().informationLogLevel(), mLogMode);
+        = new LogLine(mLogLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
+                      Globals::instance().informationLogLevel(), mLogMode);
 
     return line;
 }

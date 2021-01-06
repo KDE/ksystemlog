@@ -46,7 +46,7 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     mWarningBox->setVisible(false);
     mWarningBox->setMessageType(KMessageWidget::Warning);
     mWarningBox->setText(i18n("Some log files do not exist.\n"
-                             "Modes with missing log files will be unavailable."));
+                              "Modes with missing log files will be unavailable."));
     mWarningBox->setCloseButtonVisible(false);
     mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     vboxLayout->insertWidget(1, mWarningBox);
@@ -54,7 +54,7 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     description->setText(descriptionText);
 
     mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
-                                 SLOT(modifyItem()), fileList);
+                                  SLOT(modifyItem()), fileList);
 
     fileList->header()->setVisible(false);
 
@@ -64,16 +64,16 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     fileList->addAction(separator);
 
     mFileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
-                                 SLOT(removeSelectedItem()), fileList);
+                                  SLOT(removeSelectedItem()), fileList);
 
     mFileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
-                                 fileList);
+                                  fileList);
 
     mFileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
-                                 fileList);
+                                  fileList);
 
     mFileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
-                                 SLOT(removeAllItems()), fileList);
+                                  SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QTreeWidget::itemSelectionChanged, this, &MultipleFileList::updateButtons);
     connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this,
@@ -95,10 +95,11 @@ void MultipleFileList::updateButtons()
 {
     logDebug() << "Updating buttons...";
 
-    if (isFileListsEmpty() == true)
+    if (isFileListsEmpty() == true) {
         mFileListHelper.setEnabledAction(removeAll, false);
-    else
+    } else {
         mFileListHelper.setEnabledAction(removeAll, true);
+    }
 
     QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
 
@@ -117,17 +118,18 @@ void MultipleFileList::updateButtons()
         QTreeWidgetItem *selectedItem = selectedItems.at(0);
 
         // If the item is at the top of the list, it could not be upped anymore
-        if (categoryItem->indexOfChild(selectedItem) == 0)
+        if (categoryItem->indexOfChild(selectedItem) == 0) {
             mFileListHelper.setEnabledAction(up, false);
-        else
+        } else {
             mFileListHelper.setEnabledAction(up, true);
+        }
 
         // If the item is at bottom of the list, it could not be downed anymore
-        if (categoryItem->indexOfChild(selectedItem) == categoryCount(categoryIndex) - 1)
+        if (categoryItem->indexOfChild(selectedItem) == categoryCount(categoryIndex) - 1) {
             mFileListHelper.setEnabledAction(down, false);
-        else
+        } else {
             mFileListHelper.setEnabledAction(down, true);
-
+        }
     }
     // If nothing is selected, disabled special buttons
     else {
@@ -177,8 +179,9 @@ int MultipleFileList::categoryCount(int index) const
     int count = 0;
     for (int i = 0; i < item->childCount(); ++i) {
         QTreeWidgetItem *childItem = item->child(i);
-        if (isEmptyItem(childItem) == false)
+        if (isEmptyItem(childItem) == false) {
             count++;
+        }
     }
 
     return count;
@@ -272,15 +275,17 @@ void MultipleFileList::modifyItem()
 void MultipleFileList::modifyItem(QTreeWidgetItem *item)
 {
     // If the user tries to modify a category item, we do nothing
-    if (findCategoryOfChild(item) == nullptr || isEmptyItem(item) == true)
+    if (findCategoryOfChild(item) == nullptr || isEmptyItem(item) == true) {
         return;
+    }
 
     const QString previousPath = item->text(0);
 
     // Open a standard Filedialog
     const QUrl url = mFileListHelper.openUrl(previousPath);
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return;
+    }
 
     QList<QUrl> urls;
     urls.append(url);
@@ -412,10 +417,11 @@ void MultipleFileList::removeEmptyItems()
 
 bool MultipleFileList::isEmptyItem(QTreeWidgetItem *item) const
 {
-    if (item->font(0).italic() == true)
+    if (item->font(0).italic() == true) {
         return true;
-    else
+    } else {
         return false;
+    }
 }
 
 void MultipleFileList::addEmptyItem(QTreeWidgetItem *item)

@@ -42,7 +42,9 @@ class ApacheConfigurationWidget : public LogModeConfigurationWidget
 public:
     ApacheConfigurationWidget();
 
-    ~ApacheConfigurationWidget() override {}
+    ~ApacheConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

@@ -49,8 +49,7 @@ ProcessOutputLogFileReader::ProcessOutputLogFileReader(const LogFile &logFile)
     init();
 }
 
-ProcessOutputLogFileReader::ProcessOutputLogFileReader(ProcessOutputLogFileReaderPrivate &dd,
-                                                       const LogFile &logFile)
+ProcessOutputLogFileReader::ProcessOutputLogFileReader(ProcessOutputLogFileReaderPrivate &dd, const LogFile &logFile)
     : LogFileReader(dd, logFile)
 {
     init();
@@ -183,7 +182,6 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
         logDebug() << "Retrieving a part of the file...";
 
         Q_EMIT contentChanged(this, Analyzer::UpdatingRead, newOutputs);
-
     }
     // Else reread all lines, clear log list
     else {
@@ -208,8 +206,9 @@ void ProcessOutputLogFileReader::logFileModified()
     // Parse buffer
     int endLinePos = d->buffer.indexOf(QLatin1String("\n"));
     forever {
-        if (endLinePos == -1)
+        if (endLinePos == -1) {
             break;
+        }
 
         // Add the new found lines and
         d->availableStandardOutput.append(d->buffer.left(endLinePos));

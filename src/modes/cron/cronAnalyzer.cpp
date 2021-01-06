@@ -21,8 +21,6 @@
 
 #include "cronAnalyzer.h"
 
-
-
 LogViewColumns CronAnalyzer::initColumns()
 {
     LogViewColumns columns;
@@ -34,7 +32,10 @@ LogViewColumns CronAnalyzer::initColumns()
     return columns;
 }
 
-Analyzer::LogFileSortMode CronAnalyzer::logFileSortMode() { return Analyzer::FilteredLogFile; }
+Analyzer::LogFileSortMode CronAnalyzer::logFileSortMode()
+{
+    return Analyzer::FilteredLogFile;
+}
 
 LogLine *CronAnalyzer::parseMessage(const QString &logLine, const LogFile &originalFile)
 {
@@ -80,4 +81,3 @@ CronAnalyzer::CronAnalyzer(LogMode *logMode)
     : SyslogAnalyzer(logMode)
 {
 }
-

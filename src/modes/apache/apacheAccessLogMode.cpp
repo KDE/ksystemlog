@@ -32,8 +32,7 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
-ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
-                                         ApacheConfigurationWidget *apacheConfigurationWidget)
+ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration, ApacheConfigurationWidget *apacheConfigurationWidget)
     : LogMode(QStringLiteral(APACHE_ACCESS_LOG_MODE_ID), i18n("Apache Access Log"),
               QStringLiteral(APACHE_ACCESS_MODE_ICON))
 {
@@ -46,8 +45,8 @@ ApacheAccessLogMode::ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &ap
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Apache Access log."));
     d->action->setWhatsThis(i18n(
-        "Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. "
-        "This log saves all requests performed by the Apache web server."));
+                                "Displays the Apache Access log in the current tab. Apache is the main used Web server in the world. "
+                                "This log saves all requests performed by the Apache web server."));
 
     checkLogFilesPresence(apacheConfiguration->apacheAccessPaths());
 }

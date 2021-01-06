@@ -54,8 +54,8 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
 void JournaldConfigurationWidget::saveConfig()
 {
     JournaldConfiguration *configuration = Globals::instance()
-                                               .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                               ->logModeConfiguration<JournaldConfiguration *>();
+                                           .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                                           ->logModeConfiguration<JournaldConfiguration *>();
 
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
     configuration->setEntriesType((JournaldConfiguration::EntriesType)entriesTypeComboBox->currentIndex());
@@ -80,8 +80,8 @@ void JournaldConfigurationWidget::saveConfig()
 void JournaldConfigurationWidget::readConfig()
 {
     JournaldConfiguration *configuration = Globals::instance()
-                                               .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                               ->logModeConfiguration<JournaldConfiguration *>();
+                                           .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                                           ->logModeConfiguration<JournaldConfiguration *>();
 
     lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
     entriesTypeComboBox->setCurrentIndex(configuration->entriesType());
@@ -93,8 +93,9 @@ void JournaldConfigurationWidget::readConfig()
 
     QList<JournalAddress> remoteJournals = configuration->remoteJournals();
     for (const JournalAddress &addressInfo : remoteJournals) {
-        if (haveJournalAddress(addressInfo.address, QString::number(addressInfo.port), addressInfo.https))
+        if (haveJournalAddress(addressInfo.address, QString::number(addressInfo.port), addressInfo.https)) {
             continue;
+        }
         remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
                                           new QTableWidgetItem(addressInfo.address));
@@ -179,8 +180,9 @@ bool JournaldConfigurationWidget::haveJournalAddress(const QString &address, con
         QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
         QTableWidgetItem *httpsItem = remoteJournalsListWidget->item(row, 2);
         bool https = (Qt::Checked == httpsItem->checkState());
-        if ((addressItem->text() == address) && (portItem->text() == port) && (https == httpsEnabled))
+        if ((addressItem->text() == address) && (portItem->text() == port) && (https == httpsEnabled)) {
             return true;
+        }
     }
     return false;
 }

@@ -100,7 +100,8 @@ void LogMode::checkLogFilesPresence(const QStringList &paths)
     d->logFilesExist = false;
     for (const QString &path : paths) {
         QFileInfo fileInfo(path);
-        if (fileInfo.exists())
+        if (fileInfo.exists()) {
             d->logFilesExist = true;
+        }
     }
 }

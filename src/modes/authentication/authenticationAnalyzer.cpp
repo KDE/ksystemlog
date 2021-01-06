@@ -32,10 +32,11 @@ LogLine *AuthenticationAnalyzer::parseMessage(const QString &logLine, const LogF
 
     QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
 
-    if (hasErrorKeywords(message))
+    if (hasErrorKeywords(message)) {
         syslogLine->setLogLevel(Globals::instance().errorLogLevel());
-    else if (hasWarningKeywords(message))
+    } else if (hasWarningKeywords(message)) {
         syslogLine->setLogLevel(Globals::instance().warningLogLevel());
+    }
 
     return syslogLine;
 }
@@ -43,14 +44,14 @@ LogLine *AuthenticationAnalyzer::parseMessage(const QString &logLine, const LogF
 bool AuthenticationAnalyzer::hasWarningKeywords(const QString &message)
 {
     AuthenticationConfiguration *configuration
-            = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
+        = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
     return hasKeywords(message, configuration->warningKeywords());
 }
 
 bool AuthenticationAnalyzer::hasErrorKeywords(const QString &message)
 {
     AuthenticationConfiguration *configuration
-            = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
+        = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
     return hasKeywords(message, configuration->errorKeywords());
 }
 

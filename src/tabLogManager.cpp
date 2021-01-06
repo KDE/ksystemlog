@@ -60,17 +60,19 @@ void TabLogManager::initNewLinesCount()
 
 QString TabLogManager::title() const
 {
-    if (mNewLinesCount == 0)
+    if (mNewLinesCount == 0) {
         return logModeName();
-    else
+    } else {
         return i18nc("Log mode name (added lines count)", "%1 (%2)", mLogManager->title(),
                      mNewLinesCount);
+    }
 }
 
 QString TabLogManager::logModeName() const
 {
-    if (mLogManager->logMode() == nullptr)
+    if (mLogManager->logMode() == nullptr) {
         return i18nc("Newly created tab", "Empty Log");
-    else
+    } else {
         return mLogManager->title();
+    }
 }

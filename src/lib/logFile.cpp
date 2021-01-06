@@ -47,8 +47,9 @@ LogFile::~LogFile()
 
 bool LogFile::operator==(const LogFile &other) const
 {
-    if (mUrl == other.url() && mDefaultLogLevel == other.defaultLogLevel())
+    if (mUrl == other.url() && mDefaultLogLevel == other.defaultLogLevel()) {
         return true;
+    }
 
     return false;
 }

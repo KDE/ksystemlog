@@ -21,13 +21,11 @@
 
 #include "xorgFactory.h"
 
-
 #include "logMode.h"
 #include "logging.h"
 
 #include "simpleAction.h"
 #include "xorgLogMode.h"
-
 
 QList<LogMode *> XorgLogModeFactory::createLogModes() const
 {
@@ -39,8 +37,9 @@ LogModeAction *XorgLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(XORG_LOG_MODE_ID));
 
-    if (!logMode->filesExist())
+    if (!logMode->filesExist()) {
         return nullptr;
+    }
 
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 

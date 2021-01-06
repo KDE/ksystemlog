@@ -46,7 +46,9 @@ class AuthenticationConfigurationWidget : public LogModeConfigurationWidget
 public:
     AuthenticationConfigurationWidget();
 
-    ~AuthenticationConfigurationWidget() override {}
+    ~AuthenticationConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

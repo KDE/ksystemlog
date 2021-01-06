@@ -243,8 +243,8 @@ void LoggerDialog::sendMessage()
     // If the launching of the command failed
     if (process.error() == QProcess::FailedToStart) {
         KMessageBox::error(this, i18n(
-                                     "Unable to find the 'logger' command on your system. Please type "
-                                     "'logger' in a Konsole to determine whether this command is installed."),
+                               "Unable to find the 'logger' command on your system. Please type "
+                               "'logger' in a Konsole to determine whether this command is installed."),
                            i18n("Command not found"));
         return;
     }

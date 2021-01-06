@@ -42,7 +42,9 @@ class SambaConfigurationWidget : public LogModeConfigurationWidget
 public:
     SambaConfigurationWidget();
 
-    ~SambaConfigurationWidget() override {}
+    ~SambaConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

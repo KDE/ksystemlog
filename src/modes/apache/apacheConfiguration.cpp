@@ -28,22 +28,33 @@ ApacheConfiguration::ApacheConfiguration()
     QStringList defaultApachePaths;
     defaultApachePaths << QStringLiteral("/var/log/apache2/error.log");
     mConfiguration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), mApachePaths,
-                                     defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
+                                      defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
 
     QStringList defaultApacheAccessPaths;
     defaultApacheAccessPaths << QStringLiteral("/var/log/apache2/access.log");
     mConfiguration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), mApacheAccessPaths,
-                                     defaultApacheAccessPaths,
-                                     QStringLiteral("ApacheAccessLogFilesPaths"));
+                                      defaultApacheAccessPaths,
+                                      QStringLiteral("ApacheAccessLogFilesPaths"));
 }
 
-ApacheConfiguration::~ApacheConfiguration() {  }
+ApacheConfiguration::~ApacheConfiguration()
+{
+}
 
-QStringList ApacheConfiguration::apachePaths() const { return mApachePaths; }
+QStringList ApacheConfiguration::apachePaths() const
+{
+    return mApachePaths;
+}
 
-QStringList ApacheConfiguration::apacheAccessPaths() const { return mApacheAccessPaths; }
+QStringList ApacheConfiguration::apacheAccessPaths() const
+{
+    return mApacheAccessPaths;
+}
 
-void ApacheConfiguration::setApachePaths(const QStringList &apachePaths) { mApachePaths = apachePaths; }
+void ApacheConfiguration::setApachePaths(const QStringList &apachePaths)
+{
+    mApachePaths = apachePaths;
+}
 
 void ApacheConfiguration::setApacheAccessPaths(const QStringList &apacheAccessPaths)
 {

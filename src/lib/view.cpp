@@ -21,7 +21,6 @@
 
 #include "view.h"
 
-
 #include <QDropEvent>
 #include <QDragEnterEvent>
 #include <QFileInfo>
@@ -130,10 +129,11 @@ void View::toggleLogViewFilter(bool display)
 
 void View::toggleLogViewSearch(bool display)
 {
-    if (display == true)
+    if (display == true) {
         mLogViewSearchWidget->displaySearch();
-    else
+    } else {
         mLogViewSearchWidget->hide();
+    }
 }
 
 LogViewSearchWidget *View::logViewSearch() const

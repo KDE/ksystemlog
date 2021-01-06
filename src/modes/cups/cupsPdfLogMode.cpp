@@ -32,8 +32,7 @@
 #include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
 
-CupsPdfLogMode::CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration,
-                               CupsConfigurationWidget *cupsConfigurationWidget)
+CupsPdfLogMode::CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration, CupsConfigurationWidget *cupsConfigurationWidget)
     : LogMode(QStringLiteral(CUPS_PDF_LOG_MODE_ID), i18n("Cups PDF Log"), QStringLiteral(CUPS_PDF_MODE_ICON))
 {
     d->logModeConfiguration = cupsConfiguration;
@@ -45,9 +44,9 @@ CupsPdfLogMode::CupsPdfLogMode(QSharedPointer<CupsConfiguration> &cupsConfigurat
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the CUPS PDF log."));
     d->action->setWhatsThis(i18n(
-        "Displays the CUPS PDF log in the current tab. CUPS is the program which manages printing on your "
-        "computer. This log saves all requests performed to the CUPS embedded web server (default: "
-        "<i>http://localhost:631</i>)."));
+                                "Displays the CUPS PDF log in the current tab. CUPS is the program which manages printing on your "
+                                "computer. This log saves all requests performed to the CUPS embedded web server (default: "
+                                "<i>http://localhost:631</i>)."));
 
     checkLogFilesPresence(cupsConfiguration->cupsPdfPaths());
 }

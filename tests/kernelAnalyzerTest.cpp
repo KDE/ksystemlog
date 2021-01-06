@@ -54,12 +54,20 @@ public:
     {
     }
 
-    ~KernelAnalyzerLocalReader() override {}
+    ~KernelAnalyzerLocalReader() override
+    {
+    }
 
-    QDateTime findStartupTime() { return mStartupDateTime; }
+    QDateTime findStartupTime()
+    {
+        return mStartupDateTime;
+    }
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override
+    {
+        return new LocalLogFileReader(logFile);
+    }
 };
 
 class KernelAnalyzerTest : public QObject

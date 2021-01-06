@@ -221,7 +221,6 @@ void LocalLogFileReader::logFileModified()
         logDebug() << "Retrieving a part of the file...";
 
         Q_EMIT contentChanged(this, Analyzer::UpdatingRead, readContent(inputDevice));
-
     }
     // Else reread all lines, clear log list
     else {

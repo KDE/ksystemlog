@@ -38,7 +38,6 @@
 #include "logging.h"
 #include "defaults.h"
 
-
 ConfigurationDialog::ConfigurationDialog(QWidget *parent)
     : KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self())
 {

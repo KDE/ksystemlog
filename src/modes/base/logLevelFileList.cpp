@@ -50,8 +50,8 @@ LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
     changeItem = new QPushButton(i18n("&Change Status..."));
     changeItem->setToolTip(i18n("Change the level of the current file(s)"));
     changeItem->setWhatsThis(i18n(
-        "Changes the level of the current file(s). See KSystemLog documentation for more information about "
-        "each log level."));
+                                 "Changes the level of the current file(s). See KSystemLog documentation for more information about "
+                                 "each log level."));
 
     // Insert the button just after the "Modify File" button
     buttonsLayout()->insertWidget(2, changeItem);
@@ -84,8 +84,9 @@ LogLevelFileList::~LogLevelFileList()
 void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool missing)
 {
     QListWidgetItem *item = new QListWidgetItem(level->icon(), itemText, fileList);
-    if (missing)
+    if (missing) {
         item->setForeground(Qt::red);
+    }
     item->setData(LogLevelFileList::LogLevelRole, level->id());
 }
 
@@ -104,10 +105,11 @@ void LogLevelFileList::addItem()
 
 void LogLevelFileList::updateSpecificButtons()
 {
-    if (fileList->selectedItems().count() > 0)
+    if (fileList->selectedItems().count() > 0) {
         changeItem->setEnabled(true);
-    else
+    } else {
         changeItem->setEnabled(false);
+    }
 }
 
 void LogLevelFileList::changeItemType()
@@ -183,10 +185,11 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
         }
 
         LogLevel *level;
-        if (valueInt >= 0 && valueInt < (int)Globals::instance().logLevels().count())
+        if (valueInt >= 0 && valueInt < (int)Globals::instance().logLevels().count()) {
             level = Globals::instance().logLevels().at(valueInt);
-        else
+        } else {
             level = Globals::instance().informationLogLevel();
+        }
 
         insertItem(level, valueString, missingFile);
     }

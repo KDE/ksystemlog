@@ -34,7 +34,9 @@ class AuthenticationAnalyzer : public SyslogAnalyzer
 public:
     explicit AuthenticationAnalyzer(LogMode *logMode);
 
-    ~AuthenticationAnalyzer() override {}
+    ~AuthenticationAnalyzer() override
+    {
+    }
 
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 

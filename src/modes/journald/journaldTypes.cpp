@@ -22,11 +22,10 @@
 
 #include "journaldTypes.h"
 
-namespace JournaldTypes
-{
+namespace JournaldTypes {
 bool operator<(const JournalAddress &a1, const JournalAddress &a2)
 {
-    return ((a1.address < a2.address) && (a1.port < a2.port));
+    return (a1.address < a2.address) && (a1.port < a2.port);
 }
 
 const char *ConsoleColorEscapeSequence = "\x1B.+m{1}";

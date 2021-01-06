@@ -45,10 +45,11 @@ QString XorgItemBuilder::createToolTipText(LogLine *line) const
     result.append(QLatin1String("<table>"));
 
     QString type = it.next();
-    if (type.isEmpty())
+    if (type.isEmpty()) {
         result.append(labelMessageFormat(i18n("Type:"), i18n("none")));
-    else
+    } else {
         result.append(labelMessageFormat(i18n("Type:"), type));
+    }
 
     result.append(labelMessageFormat(i18n("Original file:"), line->sourceFileName()));
 

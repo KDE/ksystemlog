@@ -37,9 +37,13 @@
 class CronItemBuilder : public LogModeItemBuilder
 {
 public:
-    CronItemBuilder() {}
+    CronItemBuilder()
+    {
+    }
 
-    ~CronItemBuilder() override {}
+    ~CronItemBuilder() override
+    {
+    }
 
     QString createFormattedText(LogLine *line) const override;
 };

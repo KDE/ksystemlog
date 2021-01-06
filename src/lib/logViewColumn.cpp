@@ -21,13 +21,6 @@
 
 #include "logViewColumn.h"
 
-
-class LogViewColumnPrivate
-{
-public:
-
-};
-
 LogViewColumn::LogViewColumn(const QString &name, bool filtered, bool grouped)
 {
     mColumnName = name;
@@ -55,6 +48,7 @@ bool LogViewColumn::isGrouped() const
 {
     return mGrouped;
 }
+
 bool LogViewColumn::isFiltered() const
 {
     return mFiltered;

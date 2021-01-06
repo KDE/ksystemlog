@@ -37,9 +37,13 @@
 class ApacheItemBuilder : public LogModeItemBuilder
 {
 public:
-    ApacheItemBuilder() {}
+    ApacheItemBuilder()
+    {
+    }
 
-    ~ApacheItemBuilder() override {}
+    ~ApacheItemBuilder() override
+    {
+    }
 
     QString createFormattedText(LogLine *line) const override;
 };

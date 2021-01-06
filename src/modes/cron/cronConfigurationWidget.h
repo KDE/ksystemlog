@@ -47,7 +47,9 @@ class CronConfigurationWidget : public LogModeConfigurationWidget
 public:
     CronConfigurationWidget();
 
-    ~CronConfigurationWidget() override {}
+    ~CronConfigurationWidget() override
+    {
+    }
 
     bool isValid() const override;
 

@@ -176,34 +176,42 @@ LogLevel *Globals::noLogLevel()
 {
     return d->noLogLevel;
 }
+
 LogLevel *Globals::debugLogLevel()
 {
     return d->debugLogLevel;
 }
+
 LogLevel *Globals::informationLogLevel()
 {
     return d->informationLogLevel;
 }
+
 LogLevel *Globals::noticeLogLevel()
 {
     return d->noticeLogLevel;
 }
+
 LogLevel *Globals::warningLogLevel()
 {
     return d->warningLogLevel;
 }
+
 LogLevel *Globals::errorLogLevel()
 {
     return d->errorLogLevel;
 }
+
 LogLevel *Globals::criticalLogLevel()
 {
     return d->criticalLogLevel;
 }
+
 LogLevel *Globals::alertLogLevel()
 {
     return d->alertLogLevel;
 }
+
 LogLevel *Globals::emergencyLogLevel()
 {
     return d->emergencyLogLevel;

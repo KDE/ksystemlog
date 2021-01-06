@@ -40,15 +40,16 @@
 
 #include "ui_xsessionConfigurationWidgetBase.h"
 
-class XSessionConfigurationWidget : public LogModeConfigurationWidget,
-                                    public Ui::XSessionConfigurationWidgetBase
+class XSessionConfigurationWidget : public LogModeConfigurationWidget, public Ui::XSessionConfigurationWidgetBase
 {
     Q_OBJECT
 
 public:
     XSessionConfigurationWidget();
 
-    ~XSessionConfigurationWidget() override {}
+    ~XSessionConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

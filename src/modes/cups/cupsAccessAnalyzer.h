@@ -39,7 +39,9 @@ class CupsAccessAnalyzer : public FileAnalyzer
 public:
     explicit CupsAccessAnalyzer(LogMode *logMode);
 
-    ~CupsAccessAnalyzer() override {}
+    ~CupsAccessAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 
@@ -67,10 +69,11 @@ protected:
 
     inline LogLevel *findLevel(const QString &status) const
     {
-        if (status == QLatin1String("successful-ok"))
+        if (status == QLatin1String("successful-ok")) {
             return Globals::instance().informationLogLevel();
-        else if (status == QLatin1String("ignored"))
+        } else if (status == QLatin1String("ignored")) {
             return Globals::instance().warningLogLevel();
+        }
 
         return Globals::instance().noticeLogLevel();
     }

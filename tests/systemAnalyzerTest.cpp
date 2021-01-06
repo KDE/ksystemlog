@@ -242,8 +242,8 @@ void SystemAnalyzerTest::testStrangeLines()
     ///var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)" -> Long log line
     items = QStringList() << QStringLiteral("localhost") << QStringLiteral("/USR/SBIN/CRON[9433]")
                           << QStringLiteral(
-                                 "(root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin "
-                                 "+$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)");
+        "(root) CMD (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin "
+        "+$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)");
     testUtil.testLine(model->logLines().at(5), logFiles.at(0).url().toLocalFile(), logFiles.at(0).defaultLogLevel(),
                       QDateTime(QDate(year, 8, 15), QTime(22, 39, 01)), items);
 
@@ -353,9 +353,9 @@ void SystemAnalyzerTest::compareWithMinTime(const QList<LogLine *> &logLines, co
     for (LogLine *logLine : logLines) {
         if (logLine->time() < minTime) {
             QFAIL(QString::fromLatin1("The line '%1' has a lesser time than the required min time (%2)")
-                      .arg(logLine->logItems().join(QLatin1Char(' ')))
-                      .arg(logLine->time().toString())
-                      .toUtf8().constData());
+                  .arg(logLine->logItems().join(QLatin1Char(' ')))
+                  .arg(logLine->time().toString())
+                  .toUtf8().constData());
         }
     }
 }

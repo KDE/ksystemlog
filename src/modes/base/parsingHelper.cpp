@@ -167,10 +167,11 @@ QString ParsingHelper::parseHttpResponse(const QString &response)
 {
     // Search the response string in the map
     QMap<QString, QString>::Iterator it = mMapHTTPResponse.find(response);
-    if (it != mMapHTTPResponse.end())
+    if (it != mMapHTTPResponse.end()) {
         return i18nc("HttpResponseNumber HttpResponseDescription", "%1 %2", response, *it);
-    else
+    } else {
         return response;
+    }
 }
 
 QString ParsingHelper::parseAgent(const QString &agent)

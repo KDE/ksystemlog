@@ -32,8 +32,7 @@
 #include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
 
-SambaLogMode::SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration,
-                           SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
+SambaLogMode::SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguration, SambaConfigurationWidget *sambaConfigurationWidget, SambaItemBuilder *itemBuilder)
     : LogMode(QStringLiteral(SAMBA_LOG_MODE_ID), i18n("Samba Log"), QStringLiteral(SAMBA_MODE_ICON))
 {
     d->logModeConfiguration = sambaConfiguration;
@@ -44,8 +43,8 @@ SambaLogMode::SambaLogMode(QSharedPointer<SambaConfiguration> &sambaConfiguratio
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Samba log."));
     d->action->setWhatsThis(i18n(
-        "Displays the Samba log in the current tab. Samba is the file sharing server which interacts with "
-        "Microsoft Windows network."));
+                                "Displays the Samba log in the current tab. Samba is the file sharing server which interacts with "
+                                "Microsoft Windows network."));
 
     checkLogFilesPresence(sambaConfiguration->sambaPaths());
 }

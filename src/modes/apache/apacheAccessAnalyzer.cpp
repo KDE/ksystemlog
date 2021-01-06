@@ -44,9 +44,15 @@ LogViewColumns ApacheAccessAnalyzer::initColumns()
     return columns;
 }
 
-LogFileReader *ApacheAccessAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+LogFileReader *ApacheAccessAnalyzer::createLogFileReader(const LogFile &logFile)
+{
+    return new LocalLogFileReader(logFile);
+}
 
-Analyzer::LogFileSortMode ApacheAccessAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+Analyzer::LogFileSortMode ApacheAccessAnalyzer::logFileSortMode()
+{
+    return Analyzer::AscendingSortedLogFile;
+}
 
 LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
@@ -70,7 +76,7 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
     line.remove(0, endDate + 3);
 
     QDateTime dateTime
-            = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
+        = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
 
     int endQuote = line.indexOf(QLatin1Char('\"'));
     QString message = line.left(endQuote);

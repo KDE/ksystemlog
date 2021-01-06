@@ -28,8 +28,7 @@ class QString;
 class QLabel;
 class KComboBox;
 class QPushButton;
-namespace KSystemLog
-{
+namespace KSystemLog {
 /**
  * Status Bar
  */

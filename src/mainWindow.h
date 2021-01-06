@@ -26,9 +26,7 @@
 #include <kxmlguiwindow.h>
 #include <KConfig>
 
-
 #include "logModeAction.h"
-
 
 class LogManager;
 class LogMode;
@@ -37,8 +35,7 @@ class View;
 
 class TabLogViewsWidget;
 
-namespace KSystemLog
-{
+namespace KSystemLog {
 class MainWindowPrivate;
 
 /**

@@ -116,8 +116,9 @@ void LogManager::reload()
 
 void LogManager::stopWatching()
 {
-    if (d->mAnalyzer)
+    if (d->mAnalyzer) {
         d->mAnalyzer->watchLogFiles(false);
+    }
 }
 
 const QVariant &LogManager::analyzerOptions() const
@@ -132,10 +133,11 @@ LogMode *LogManager::logMode()
 
 QString LogManager::title() const
 {
-    if (!d->mAnalyzerStatus.isEmpty())
+    if (!d->mAnalyzerStatus.isEmpty()) {
         return d->mLogMode->name() + QStringLiteral(" - ") + d->mAnalyzerStatus;
-    else
+    } else {
         return d->mLogMode->name();
+    }
 }
 
 const QTime &LogManager::lastUpdate() const
@@ -147,8 +149,9 @@ void LogManager::updateLog(int lineCount)
 {
     logDebug() << "Updating log " << lineCount << " new lines";
 
-    if (lineCount == 0)
+    if (lineCount == 0) {
         return;
+    }
 
     d->mLastUpdate = QTime::currentTime();
 
@@ -172,8 +175,7 @@ void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
     internalInitialize(mode, mode->createLogFiles(), analyzerOptions);
 }
 
-void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles,
-                                    const QVariant &analyzerOptions)
+void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions)
 {
     logDebug() << "Initializing LogManager...";
 

@@ -45,8 +45,7 @@ public:
     LogFile logFile() const;
 
 Q_SIGNALS:
-    void contentChanged(LogFileReader *origin, Analyzer::ReadingMode readingMode,
-                        const QStringList &newLines);
+    void contentChanged(LogFileReader *origin, Analyzer::ReadingMode readingMode, const QStringList &newLines);
 
     void statusBarChanged(const QString &message);
     void errorOccured(const QString &title, const QString &message);

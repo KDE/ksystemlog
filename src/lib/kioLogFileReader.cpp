@@ -102,6 +102,7 @@ void KioLogFileReader::openDone(KIO::Job * /*job*/)
 
     d->mFileJob->read(READ_SIZE);
 }
+
 void KioLogFileReader::closeDone(KIO::Job * /*job*/)
 {
     logDebug() << "Closing done...";
@@ -141,8 +142,9 @@ void KioLogFileReader::emitCompleteLines()
 {
     int endLinePos = d->mBuffer.indexOf(QLatin1String("\n"));
     forever {
-        if (endLinePos == -1)
+        if (endLinePos == -1) {
             break;
+        }
 
         Q_EMIT lineRead(d->mBuffer.left(endLinePos));
 

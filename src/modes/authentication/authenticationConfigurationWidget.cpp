@@ -51,10 +51,10 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
     mAuthenticationUrlRequester->setMode(KFile::File);
 
     mAuthenticationUrlRequester->setToolTip(
-                i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
+        i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
     mAuthenticationUrlRequester->setWhatsThis(i18n(
-                                                 "You can type or choose here the authentication log file. This file will be analyzed when you "
-            "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
+                                                  "You can type or choose here the authentication log file. This file will be analyzed when you "
+                                                  "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
     filePathLayout->addWidget(mAuthenticationUrlRequester);
 
     connect(mAuthenticationUrlRequester, &KUrlRequester::textChanged, this,
@@ -66,9 +66,9 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
 void AuthenticationConfigurationWidget::saveConfig()
 {
     AuthenticationConfiguration *authenticationConfiguration
-            = Globals::instance()
-            .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-            ->logModeConfiguration<AuthenticationConfiguration *>();
+        = Globals::instance()
+          .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
+          ->logModeConfiguration<AuthenticationConfiguration *>();
 
     authenticationConfiguration->setAuthenticationPath(mAuthenticationUrlRequester->url().toLocalFile());
 }
@@ -76,9 +76,9 @@ void AuthenticationConfigurationWidget::saveConfig()
 void AuthenticationConfigurationWidget::readConfig()
 {
     AuthenticationConfiguration *authenticationConfiguration
-            = Globals::instance()
-            .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-            ->logModeConfiguration<AuthenticationConfiguration *>();
+        = Globals::instance()
+          .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
+          ->logModeConfiguration<AuthenticationConfiguration *>();
 
     QString path = authenticationConfiguration->authenticationPath();
     QFileInfo fileInfo(path);

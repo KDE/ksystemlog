@@ -60,20 +60,24 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
     bool sambaAccessLogsExist = sambaAccessLogMode->filesExist();
     bool sambaNetbiosLogsExist = sambaNetbiosLogMode->filesExist();
 
-    if (!sambaLogsExist && !sambaAccessLogsExist && !sambaNetbiosLogsExist)
+    if (!sambaLogsExist && !sambaAccessLogsExist && !sambaNetbiosLogsExist) {
         return nullptr;
+    }
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
 
-    if (sambaLogsExist)
+    if (sambaLogsExist) {
         multipleActions->addInnerAction(sambaLogMode->action());
+    }
 
-    if (sambaAccessLogsExist)
+    if (sambaAccessLogsExist) {
         multipleActions->addInnerAction(sambaAccessLogMode->action());
+    }
 
-    if (sambaNetbiosLogsExist)
+    if (sambaNetbiosLogsExist) {
         multipleActions->addInnerAction(sambaNetbiosLogMode->action());
+    }
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

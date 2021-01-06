@@ -33,7 +33,9 @@ class SystemAnalyzer : public SyslogAnalyzer
 public:
     explicit SystemAnalyzer(LogMode *logMode);
 
-    ~SystemAnalyzer() override {}
+    ~SystemAnalyzer() override
+    {
+    }
 };
 
 #endif

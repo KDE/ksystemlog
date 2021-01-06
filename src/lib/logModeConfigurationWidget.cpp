@@ -21,8 +21,7 @@
 
 #include "logModeConfigurationWidget.h"
 
-LogModeConfigurationWidget::LogModeConfigurationWidget(const QString &itemName, const QString &iconName,
-                                                       const QString &header)
+LogModeConfigurationWidget::LogModeConfigurationWidget(const QString &itemName, const QString &iconName, const QString &header)
     : QWidget()
 {
     mItemName = itemName;
@@ -38,10 +37,12 @@ QString LogModeConfigurationWidget::itemName() const
 {
     return mItemName;
 }
+
 QString LogModeConfigurationWidget::iconName() const
 {
     return mIconName;
 }
+
 QString LogModeConfigurationWidget::header() const
 {
     return mHeader;

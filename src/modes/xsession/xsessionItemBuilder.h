@@ -39,9 +39,13 @@ class LogLine;
 class XSessionItemBuilder : public LogModeItemBuilder
 {
 public:
-    XSessionItemBuilder() {}
+    XSessionItemBuilder()
+    {
+    }
 
-    ~XSessionItemBuilder() override {}
+    ~XSessionItemBuilder() override
+    {
+    }
 
     void prepareItem(LogViewWidgetItem *item) const override;
 

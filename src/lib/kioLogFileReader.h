@@ -1,4 +1,4 @@
- /***************************************************************************
+/***************************************************************************
  *   KSystemLog, a system log viewer tool                                  *
  *   Copyright (C) 2007 by Nicolas Ternisien                               *
  *   nicolas.ternisien@gmail.com                                           *
@@ -28,8 +28,7 @@
 
 #include "logFile.h"
 
-namespace KIO
-{
+namespace KIO {
 class Job;
 }
 

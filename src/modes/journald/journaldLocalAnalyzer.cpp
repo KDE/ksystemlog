@@ -63,7 +63,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
         if (file.open(QIODevice::ReadOnly | QFile::Text)) {
-            QTextStream stream( &file );
+            QTextStream stream(&file);
             mCurrentBootID = stream.readAll().trimmed();
             mCurrentBootID.remove(QChar::fromLatin1('-'));
             mFilters << QStringLiteral("_BOOT_ID=%1").arg(mCurrentBootID);
@@ -87,8 +87,9 @@ JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
 
 void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 {
-    if (!mJournalNotifier)
+    if (!mJournalNotifier) {
         return;
+    }
     mJournalNotifier->setEnabled(enabled);
 
     mWorkerMutex.lock();
@@ -149,8 +150,9 @@ void JournaldLocalAnalyzer::readJournalUpdateFinished()
 void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 {
     JournalWatcher *watcher = static_cast<JournalWatcher *>(sender());
-    if (!watcher)
+    if (!watcher) {
         return;
+    }
 
     QList<JournalEntry> entries = watcher->result();
 
@@ -253,8 +255,9 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
     }
 
     sd_journal_close(journal);
-    if (!entryList.empty())
+    if (!entryList.empty()) {
         logDebug() << "Read" << entryList.size() << "journal entries.";
+    }
     return entryList;
 }
 

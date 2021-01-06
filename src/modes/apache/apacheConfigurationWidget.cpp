@@ -27,13 +27,13 @@ ApacheConfigurationWidget::ApacheConfigurationWidget()
     QHBoxLayout *layout = new QHBoxLayout(this);
 
     mApacheFileList
-            = new MultipleFileList(this, i18n(
-                                       "<p>These files will be analyzed to show the <b>Apache log</b> "
-                                             "and the <b>Apache Access log</b>.</p>"));
+        = new MultipleFileList(this, i18n(
+                                   "<p>These files will be analyzed to show the <b>Apache log</b> "
+                                   "and the <b>Apache Access log</b>.</p>"));
 
     mApachePathsId = mApacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
     mApacheAccessPathsId
-            = mApacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
+        = mApacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
 
     connect(mApacheFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
@@ -45,8 +45,8 @@ void ApacheConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Apache Options...";
 
     ApacheConfiguration *apacheConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-            ->logModeConfiguration<ApacheConfiguration *>();
+                                               .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
+                                               ->logModeConfiguration<ApacheConfiguration *>();
     apacheConfiguration->setApachePaths(mApacheFileList->paths(mApachePathsId));
     apacheConfiguration->setApacheAccessPaths(mApacheFileList->paths(mApacheAccessPathsId));
 }
@@ -60,8 +60,8 @@ void ApacheConfigurationWidget::defaultConfig()
 void ApacheConfigurationWidget::readConfig()
 {
     ApacheConfiguration *apacheConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-            ->logModeConfiguration<ApacheConfiguration *>();
+                                               .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
+                                               ->logModeConfiguration<ApacheConfiguration *>();
 
     mApacheFileList->removeAllItems();
 

@@ -24,7 +24,7 @@
 CupsAccessAnalyzer::CupsAccessAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
     , mCupsAccessRegex(
-          QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
+        QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
 {
 }
 
@@ -45,9 +45,15 @@ LogViewColumns CupsAccessAnalyzer::initColumns()
     return columns;
 }
 
-LogFileReader *CupsAccessAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+LogFileReader *CupsAccessAnalyzer::createLogFileReader(const LogFile &logFile)
+{
+    return new LocalLogFileReader(logFile);
+}
 
-Analyzer::LogFileSortMode CupsAccessAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+Analyzer::LogFileSortMode CupsAccessAnalyzer::logFileSortMode()
+{
+    return Analyzer::AscendingSortedLogFile;
+}
 
 LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {

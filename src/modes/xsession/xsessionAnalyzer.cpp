@@ -44,10 +44,11 @@ LogViewColumns XSessionAnalyzer::initColumns()
 Analyzer::LogFileSortMode XSessionAnalyzer::logFileSortMode()
 {
     XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
-    if (configuration->isIgnoreXorgErrors())
+    if (configuration->isIgnoreXorgErrors()) {
         return Analyzer::FilteredLogFile;
-    else
+    } else {
         return Analyzer::AscendingSortedLogFile;
+    }
 }
 
 LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &originalFile)
@@ -79,12 +80,13 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
 
     // Find the right log level
     LogLevel *logLevel;
-    if (hasErrorKeywords(message))
+    if (hasErrorKeywords(message)) {
         logLevel = Globals::instance().errorLogLevel();
-    else if (hasWarningKeywords(message))
+    } else if (hasWarningKeywords(message)) {
         logLevel = Globals::instance().warningLogLevel();
-    else
+    } else {
         logLevel = Globals::instance().informationLogLevel();
+    }
 
     return new LogLine(mLogLineInternalIdGenerator++, mCurrentDateTime, QStringList() << program << message,
                        originalFile.url().toLocalFile(), logLevel, mLogMode);
@@ -93,8 +95,9 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
 bool XSessionAnalyzer::isXorgError(const QString &program)
 {
     XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
-    if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
+    if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program)) {
         return true;
+    }
 
     return false;
 }

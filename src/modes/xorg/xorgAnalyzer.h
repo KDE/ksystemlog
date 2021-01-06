@@ -22,7 +22,6 @@
 #ifndef XORG_ANALYZER_H
 #define XORG_ANALYZER_H
 
-
 #include "fileAnalyzer.h"
 
 #include "localLogFileReader.h"

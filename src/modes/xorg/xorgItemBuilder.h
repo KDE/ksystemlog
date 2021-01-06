@@ -39,9 +39,13 @@ class LogLine;
 class XorgItemBuilder : public LogModeItemBuilder
 {
 public:
-    XorgItemBuilder() {}
+    XorgItemBuilder()
+    {
+    }
 
-    ~XorgItemBuilder() override {}
+    ~XorgItemBuilder() override
+    {
+    }
 
     void prepareItem(LogViewWidgetItem *item) const override;
 

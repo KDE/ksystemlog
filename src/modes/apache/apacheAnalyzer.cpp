@@ -37,9 +37,15 @@ LogViewColumns ApacheAnalyzer::initColumns()
     return columns;
 }
 
-LogFileReader *ApacheAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+LogFileReader *ApacheAnalyzer::createLogFileReader(const LogFile &logFile)
+{
+    return new LocalLogFileReader(logFile);
+}
 
-Analyzer::LogFileSortMode ApacheAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+Analyzer::LogFileSortMode ApacheAnalyzer::logFileSortMode()
+{
+    return Analyzer::AscendingSortedLogFile;
+}
 
 LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
@@ -121,11 +127,11 @@ LogLevel *ApacheAnalyzer::findLogLevel(const QString &type)
 
     it = mMapTypeLevels.find(type);
     if (it != mMapTypeLevels.end()) {
-        return (*it);
+        return *it;
     } else {
         logCritical()
-                << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
-                << type << ")";
+            << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
+            << type << ")";
         return Globals::instance().noLogLevel();
     }
 }

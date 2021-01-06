@@ -38,19 +38,17 @@ public:
     QList<int> logFilesLevels;
 };
 
-GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup,
-                                                         const QStringList &defaultLogFilesPaths,
-                                                         const QList<int> &defaultLogFilesLevels)
+GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths, const QList<int> &defaultLogFilesLevels)
     : d(new GenericLogModeConfigurationPrivate())
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;
     mConfiguration->setCurrentGroup(configurationGroup);
 
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
-                                     QStringLiteral("LogFilesPaths"));
+                                      QStringLiteral("LogFilesPaths"));
 
     mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
-                                  QStringLiteral("LogFilesLevels"));
+                                   QStringLiteral("LogFilesLevels"));
 }
 
 GenericLogModeConfiguration::~GenericLogModeConfiguration()
@@ -96,10 +94,11 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles()
         int intValue = itInt.next();
         QString stringValue = itString.next();
 
-        if (intValue >= 0 && intValue < (int)Globals::instance().logLevels().count())
+        if (intValue >= 0 && intValue < (int)Globals::instance().logLevels().count()) {
             level = Globals::instance().logLevels().at(intValue);
-        else
+        } else {
             level = Globals::instance().informationLogLevel();
+        }
 
         const QUrl url = QUrl::fromLocalFile(stringValue);
         if (!url.isValid()) {

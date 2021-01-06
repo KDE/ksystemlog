@@ -114,8 +114,9 @@ LogLevel *XorgAnalyzer::findTypeName(const QString &type)
     QMap<QString, LogLevel *>::iterator it;
 
     it = mXorgLevels.find(type);
-    if (it != mXorgLevels.end())
+    if (it != mXorgLevels.end()) {
         return *it;
-    else
+    } else {
         return nullptr;
+    }
 }

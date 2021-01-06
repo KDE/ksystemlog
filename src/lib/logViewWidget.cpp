@@ -78,7 +78,6 @@ LogViewWidget::LogViewWidget(QWidget *parent)
 LogViewWidget::~LogViewWidget()
 {
     delete mLogViewModel;
-
 }
 
 void LogViewWidget::setColumns(const LogViewColumns &columns)
@@ -139,8 +138,9 @@ void LogViewWidget::resizeColumns()
 
 void LogViewWidget::selectAll()
 {
-    if (notHiddenItemCount() > 0)
+    if (notHiddenItemCount() > 0) {
         QTreeWidget::selectAll();
+    }
 }
 
 int LogViewWidget::itemCount() const
@@ -184,8 +184,9 @@ LogViewWidgetItem *LogViewWidget::findItem(LogLine *searchedLogLine)
     QTreeWidgetItemIterator it(this);
     while (*it != nullptr) {
         LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
-        if (item->logLine()->equals(*searchedLogLine))
+        if (item->logLine()->equals(*searchedLogLine)) {
             return item;
+        }
 
         ++it;
     }
@@ -213,7 +214,7 @@ LogViewModel *LogViewWidget::model() const
 
 bool LogViewWidget::hasItemsSelected()
 {
-    return (!selectedItems().isEmpty());
+    return !selectedItems().isEmpty();
 }
 
 LogViewWidgetItem *LogViewWidget::firstSelectedItem()
@@ -301,8 +302,9 @@ void LogViewWidget::toggleHeader(QAction *action)
     logDebug() << "Toggling header";
 
     int columnIndex = action->data().toInt();
-    if (header()->isSectionHidden(columnIndex) == true)
+    if (header()->isSectionHidden(columnIndex) == true) {
         header()->setSectionHidden(columnIndex, false);
-    else
+    } else {
         header()->setSectionHidden(columnIndex, true);
+    }
 }

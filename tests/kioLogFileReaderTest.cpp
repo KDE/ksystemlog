@@ -60,7 +60,16 @@ void KioLogFileReaderTest::testKioLogFileReader()
     KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
     logFileReader->open();
 
-    connect(logFileReader, &KioLogFileReader::lineRead, this, [=](const QString &line) { logDebug() << "Line " << line; static QFile file(fixturePath); static bool open = false; if (!open) { QVERIFY(file.open(QIODevice::ReadOnly | QIODevice::Text)); open = true; } static QTextStream stream(&file); QCOMPARE(line, stream.readLine());
+    connect(logFileReader, &KioLogFileReader::lineRead, this, [=](const QString &line) {
+        logDebug() << "Line " << line;
+        static QFile file(fixturePath);
+        static bool open = false;
+        if (!open) {
+            QVERIFY(file.open(QIODevice::ReadOnly | QIODevice::Text));
+            open = true;
+        }
+        static QTextStream stream(&file);
+        QCOMPARE(line, stream.readLine());
     });
 }
 

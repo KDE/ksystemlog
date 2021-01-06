@@ -43,7 +43,9 @@ class XorgConfigurationWidget : public LogModeConfigurationWidget
 public:
     XorgConfigurationWidget();
 
-    ~XorgConfigurationWidget() override {}
+    ~XorgConfigurationWidget() override
+    {
+    }
 
 public Q_SLOTS:
 

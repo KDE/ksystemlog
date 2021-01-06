@@ -28,14 +28,14 @@ CupsConfigurationWidget::CupsConfigurationWidget()
     QHBoxLayout *layout = new QHBoxLayout(this);
 
     mCupsFileList = new MultipleFileList(this, i18n(
-                                            "<p>These files will be analyzed to show the <b>Cups "
-                                                      "log</b> and the <b>Cups Web Access log</b>.</p>"));
+                                             "<p>These files will be analyzed to show the <b>Cups "
+                                             "log</b> and the <b>Cups Web Access log</b>.</p>"));
 
     mCupsPathsId = mCupsFileList->addCategory(i18n("Cups Log Files"), i18n("Add Cups File..."));
     mCupsAccessPathsId
-            = mCupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
+        = mCupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
     mCupsPagePathsId
-            = mCupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
+        = mCupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
     mCupsPdfPathsId = mCupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
 
     connect(mCupsFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
@@ -48,8 +48,8 @@ void CupsConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Cups Options...";
 
     CupsConfiguration *cupsConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-            ->logModeConfiguration<CupsConfiguration *>();
+                                           .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
+                                           ->logModeConfiguration<CupsConfiguration *>();
     cupsConfiguration->setCupsPaths(mCupsFileList->paths(mCupsPathsId));
     cupsConfiguration->setCupsAccessPaths(mCupsFileList->paths(mCupsAccessPathsId));
     cupsConfiguration->setCupsPagePaths(mCupsFileList->paths(mCupsPagePathsId));
@@ -65,8 +65,8 @@ void CupsConfigurationWidget::defaultConfig()
 void CupsConfigurationWidget::readConfig()
 {
     CupsConfiguration *cupsConfiguration = Globals::instance()
-            .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-            ->logModeConfiguration<CupsConfiguration *>();
+                                           .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
+                                           ->logModeConfiguration<CupsConfiguration *>();
 
     mCupsFileList->removeAllItems();
 

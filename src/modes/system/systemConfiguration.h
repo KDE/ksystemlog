@@ -38,7 +38,9 @@ class SystemConfiguration : public GenericLogModeConfiguration
 public:
     SystemConfiguration();
 
-    ~SystemConfiguration() override {}
+    ~SystemConfiguration() override
+    {
+    }
 };
 
 #endif // _SYSTEM_CONFIGURATION_H

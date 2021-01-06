@@ -32,8 +32,7 @@
 #include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
 
-ApacheLogMode::ApacheLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
-                             ApacheConfigurationWidget *apacheConfigurationWidget)
+ApacheLogMode::ApacheLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration, ApacheConfigurationWidget *apacheConfigurationWidget)
     : LogMode(QStringLiteral(APACHE_LOG_MODE_ID), i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON))
 {
     d->logModeConfiguration = apacheConfiguration;

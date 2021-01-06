@@ -46,8 +46,7 @@ class ApacheAccessLogMode : public LogMode
     Q_OBJECT
 
 public:
-    explicit ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration,
-                                 ApacheConfigurationWidget *apacheConfigurationWidget);
+    explicit ApacheAccessLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration, ApacheConfigurationWidget *apacheConfigurationWidget);
 
     ~ApacheAccessLogMode() override;
 

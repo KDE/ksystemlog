@@ -28,11 +28,19 @@ XorgConfiguration::XorgConfiguration()
     QStringList defaultXorgPaths;
     defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mXorgPaths, defaultXorgPaths,
-                                     QStringLiteral("LogFilesPaths"));
+                                      QStringLiteral("LogFilesPaths"));
 }
 
-XorgConfiguration::~XorgConfiguration() { }
+XorgConfiguration::~XorgConfiguration()
+{
+}
 
-QStringList XorgConfiguration::xorgPaths() const { return mXorgPaths; }
+QStringList XorgConfiguration::xorgPaths() const
+{
+    return mXorgPaths;
+}
 
-void XorgConfiguration::setXorgPaths(const QStringList &xorgPaths) { mXorgPaths = xorgPaths; }
+void XorgConfiguration::setXorgPaths(const QStringList &xorgPaths)
+{
+    mXorgPaths = xorgPaths;
+}

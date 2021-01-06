@@ -37,7 +37,9 @@ class CronAnalyzer : public SyslogAnalyzer
 
 public:
     explicit CronAnalyzer(LogMode *logMode);
-    ~CronAnalyzer() override {}
+    ~CronAnalyzer() override
+    {
+    }
 
     LogViewColumns initColumns() override;
 

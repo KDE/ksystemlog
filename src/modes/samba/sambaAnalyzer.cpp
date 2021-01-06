@@ -40,9 +40,15 @@ LogViewColumns SambaAnalyzer::initColumns()
     return columns;
 }
 
-LogFileReader *SambaAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+LogFileReader *SambaAnalyzer::createLogFileReader(const LogFile &logFile)
+{
+    return new LocalLogFileReader(logFile);
+}
 
-Analyzer::LogFileSortMode SambaAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+Analyzer::LogFileSortMode SambaAnalyzer::logFileSortMode()
+{
+    return Analyzer::AscendingSortedLogFile;
+}
 
 LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
@@ -96,8 +102,8 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
         LogLine *returnedLogLine = mCurrentLogLine;
 
         mCurrentLogLine = new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
-                                     originalLogFile.url().toLocalFile(),
-                                     Globals::instance().informationLogLevel(), mLogMode);
+                                      originalLogFile.url().toLocalFile(),
+                                      Globals::instance().informationLogLevel(), mLogMode);
 
         return returnedLogLine;
     }

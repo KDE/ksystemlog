@@ -39,9 +39,13 @@ class LogLine;
 class AcpidItemBuilder : public LogModeItemBuilder
 {
 public:
-    AcpidItemBuilder() {}
+    AcpidItemBuilder()
+    {
+    }
 
-    ~AcpidItemBuilder() override {}
+    ~AcpidItemBuilder() override
+    {
+    }
 
     QString createFormattedText(LogLine *line) const override;
 };

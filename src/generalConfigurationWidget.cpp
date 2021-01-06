@@ -52,8 +52,9 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     const auto logModes = Globals::instance().logModes();
     for (LogMode *logMode : logModes) {
         // Ignore this special case
-        if (logMode->id() == QLatin1String("openLogMode"))
+        if (logMode->id() == QLatin1String("openLogMode")) {
             continue;
+        }
 
         startupLogMode->addItem(logMode->icon(), logMode->name(), QVariant(logMode->id()));
     }

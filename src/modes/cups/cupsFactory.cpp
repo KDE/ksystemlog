@@ -62,23 +62,28 @@ LogModeAction *CupsLogModeFactory::createLogModeAction() const
     bool cupsPageLogsExist = cupsPageLogMode->filesExist();
     bool cupsPdfLogsExist = cupsPdfLogMode->filesExist();
 
-    if (!cupsLogsExist && !cupsAccessLogsExist && !cupsPageLogsExist && !cupsPdfLogsExist)
+    if (!cupsLogsExist && !cupsAccessLogsExist && !cupsPageLogsExist && !cupsPdfLogsExist) {
         return nullptr;
+    }
 
     MultipleActions *multipleActions
         = new MultipleActions(QIcon::fromTheme(QStringLiteral(CUPS_MODE_ICON)), i18n("Cups"), cupsLogMode);
 
-    if (cupsLogsExist)
+    if (cupsLogsExist) {
         multipleActions->addInnerAction(cupsLogMode->action());
+    }
 
-    if (cupsAccessLogsExist)
+    if (cupsAccessLogsExist) {
         multipleActions->addInnerAction(cupsAccessLogMode->action());
+    }
 
-    if (cupsPageLogsExist)
+    if (cupsPageLogsExist) {
         multipleActions->addInnerAction(cupsPageLogMode->action());
+    }
 
-    if (cupsPdfLogsExist)
+    if (cupsPdfLogsExist) {
         multipleActions->addInnerAction(cupsPdfLogMode->action());
+    }
 
     multipleActions->setCategory(LogModeAction::ServicesCategory);
 

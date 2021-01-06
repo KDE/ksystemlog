@@ -21,7 +21,6 @@
 
 #include "xorgLogMode.h"
 
-
 #include <KLocalizedString>
 
 #include "logging.h"
@@ -43,9 +42,9 @@ XorgLogMode::XorgLogMode()
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the X.org log."));
     d->action->setWhatsThis(i18n(
-        "Displays the X.org log in the current tab. X.org is the service which displays on screen your "
-        "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
-        "accelerations or why your input device is not recognized."));
+                                "Displays the X.org log in the current tab. X.org is the service which displays on screen your "
+                                "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
+                                "accelerations or why your input device is not recognized."));
 
     XorgConfiguration *configuration = logModeConfiguration<XorgConfiguration *>();
     checkLogFilesPresence(configuration->xorgPaths());

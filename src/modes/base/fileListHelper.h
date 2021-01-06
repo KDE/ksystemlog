@@ -56,12 +56,10 @@ public:
     /**
      * TODO Do this inline (and remove this method)
      */
-    void prepareButton(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member,
-                       QWidget *fileList);
+    void prepareButton(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member, QWidget *fileList);
 
     QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon);
-    QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon, const QObject *receiver,
-                                    const char *member);
+    QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member);
 
 private:
     QWidget *mParent = nullptr;

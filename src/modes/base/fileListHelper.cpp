@@ -61,8 +61,7 @@ QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon
     return action;
 }
 
-QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon &icon,
-                                                const QObject *receiver, const char *member)
+QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member)
 {
     QAction *action = prepareButtonAndAction(button, icon);
     connect(button, SIGNAL(clicked(bool)), receiver, member);
@@ -70,8 +69,7 @@ QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon
     return action;
 }
 
-void FileListHelper::prepareButton(QPushButton *button, const QIcon &icon, const QObject *receiver,
-                                   const char *member, QWidget *fileList)
+void FileListHelper::prepareButton(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member, QWidget *fileList)
 {
     // Initialize action
     QAction *action = prepareButtonAndAction(button, icon, receiver, member);
@@ -129,8 +127,8 @@ bool FileListHelper::isValidFile(const QUrl &url)
 QList<QUrl> FileListHelper::openUrls()
 {
     QFileDialog fileDialog(mParent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), QLatin1String("*|") + i18n("All Files (*)")
-                                                                      + QLatin1String("\n*.log|")
-                                                                      + i18n("Log Files (*.log)"));
+                           + QLatin1String("\n*.log|")
+                           + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));
     fileDialog.setFileMode(QFileDialog::ExistingFiles);
 
@@ -141,17 +139,18 @@ QList<QUrl> FileListHelper::openUrls()
 QUrl FileListHelper::openUrl(const QString &originPath)
 {
     QFileDialog fileDialog(mParent, QString(), originPath, QLatin1String("*|") + i18n("All Files (*)")
-                                                              + QLatin1String("\n*.log|")
-                                                              + i18n("Log Files (*.log)"));
+                           + QLatin1String("\n*.log|")
+                           + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));
     fileDialog.setFileMode(QFileDialog::AnyFile);
 
     fileDialog.exec();
     const QList<QUrl> urls = fileDialog.selectedUrls();
-    if (!urls.isEmpty())
+    if (!urls.isEmpty()) {
         return fileDialog.selectedUrls().at(0);
-    else
+    } else {
         return QUrl();
+    }
 }
 
 QStringList FileListHelper::expandJoker(const QUrl &url)

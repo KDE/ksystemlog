@@ -21,13 +21,11 @@
 
 #include "daemonFactory.h"
 
-
 #include "logMode.h"
 #include "logging.h"
 
 #include "simpleAction.h"
 #include "daemonLogMode.h"
-
 
 QList<LogMode *> DaemonLogModeFactory::createLogModes() const
 {
@@ -39,8 +37,9 @@ LogModeAction *DaemonLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID));
 
-    if (!logMode->filesExist())
+    if (!logMode->filesExist()) {
         return nullptr;
+    }
 
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 

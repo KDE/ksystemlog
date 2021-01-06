@@ -46,7 +46,9 @@ class PostfixConfigurationWidget : public LogModeConfigurationWidget
 public:
     PostfixConfigurationWidget();
 
-    ~PostfixConfigurationWidget() override {}
+    ~PostfixConfigurationWidget() override
+    {
+    }
 
     bool isValid() const override;
 

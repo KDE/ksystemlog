@@ -45,7 +45,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     mWarningBox->setVisible(false);
     mWarningBox->setMessageType(KMessageWidget::Warning);
     mWarningBox->setText(i18n("Some log files do not exist.\n"
-                             "If all log files are missing, this mode will be unavailable."));
+                              "If all log files are missing, this mode will be unavailable."));
     mWarningBox->setCloseButtonVisible(false);
     mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     vboxLayout->insertWidget(1, mWarningBox);
@@ -54,10 +54,10 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     connect(description, &QLabel::linkActivated, this, &FileList::slotLinkClicked);
 
     mFileListHelper.prepareButton(add, QIcon::fromTheme(QStringLiteral("document-new")), this, SLOT(addItem()),
-                                 fileList);
+                                  fileList);
 
     mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
-                                 SLOT(modifyItem()), fileList);
+                                  SLOT(modifyItem()), fileList);
 
     // Add a separator in the FileList
     QAction *separator = new QAction(this);
@@ -65,16 +65,16 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     fileList->addAction(separator);
 
     mFileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
-                                 SLOT(removeSelectedItem()), fileList);
+                                  SLOT(removeSelectedItem()), fileList);
 
     mFileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
-                                 fileList);
+                                  fileList);
 
     mFileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
-                                 fileList);
+                                  fileList);
 
     mFileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
-                                 SLOT(removeAllItems()), fileList);
+                                  SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QListWidget::itemSelectionChanged, this, &FileList::updateButtons);
     connect(fileList, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this,
@@ -97,7 +97,7 @@ int FileList::count() const
 
 bool FileList::isEmpty() const
 {
-    return (fileList->count() == 0);
+    return fileList->count() == 0;
 }
 
 void FileList::slotLinkClicked(const QString &link)
@@ -201,10 +201,11 @@ void FileList::removeAllItems()
 
 void FileList::updateButtons()
 {
-    if (fileList->count() == 0)
+    if (fileList->count() == 0) {
         mFileListHelper.setEnabledAction(removeAll, false);
-    else
+    } else {
         mFileListHelper.setEnabledAction(removeAll, true);
+    }
 
     const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
     if (!selectedItems.isEmpty()) {
@@ -214,16 +215,18 @@ void FileList::updateButtons()
         QListWidgetItem *selection = selectedItems.at(0);
 
         // If the item is at the top of the list, it could not be upped anymore
-        if (fileList->row(selection) == 0)
+        if (fileList->row(selection) == 0) {
             mFileListHelper.setEnabledAction(up, false);
-        else
+        } else {
             mFileListHelper.setEnabledAction(up, true);
+        }
 
         // If the item is at bottom of the list, it could not be downed anymore
-        if (fileList->row(selection) == fileList->count() - 1)
+        if (fileList->row(selection) == fileList->count() - 1) {
             mFileListHelper.setEnabledAction(down, false);
-        else
+        } else {
             mFileListHelper.setEnabledAction(down, true);
+        }
     }
     // If nothing is selected, disabled special buttons
     else {
