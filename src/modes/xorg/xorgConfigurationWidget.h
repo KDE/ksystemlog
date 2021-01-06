@@ -57,7 +57,7 @@ protected:
     bool isValid() const override;
 
 private:
-    FileList *fileList = nullptr;
+    FileList *mFileList = nullptr;
 };
 
 #endif // _XORG_CONFIGURATION_WIDGET_H

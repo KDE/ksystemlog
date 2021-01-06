@@ -24,41 +24,41 @@
 
 JournaldConfiguration::JournaldConfiguration()
 {
-    m_displayCurrentBootOnly = true;
-    m_entriesType = EntriesAll;
+    mDisplayCurrentBootOnly = true;
+    mEntriesType = EntriesAll;
 
     configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
-    configuration->addItemBool(QLatin1String("CurrentBootOnly"), m_displayCurrentBootOnly, true);
-    configuration->addItemInt(QLatin1String("EntriesType"), m_entriesType);
-    configuration->addItemStringList(QLatin1String("RemoteJournals"), m_remoteJournals);
+    configuration->addItemBool(QLatin1String("CurrentBootOnly"), mDisplayCurrentBootOnly, true);
+    configuration->addItemInt(QLatin1String("EntriesType"), mEntriesType);
+    configuration->addItemStringList(QLatin1String("RemoteJournals"), mRemoteJournals);
 }
 
 bool JournaldConfiguration::displayCurrentBootOnly() const
 {
-    return m_displayCurrentBootOnly;
+    return mDisplayCurrentBootOnly;
 }
 
 void JournaldConfiguration::setDisplayCurrentBootOnly(bool displayCurrentBootOnly)
 {
-    m_displayCurrentBootOnly = displayCurrentBootOnly;
+    mDisplayCurrentBootOnly = displayCurrentBootOnly;
 }
 
 JournaldConfiguration::EntriesType JournaldConfiguration::entriesType()
 {
-    if ((m_entriesType < EntriesAll) || (m_entriesType > EntriesSystem))
-        m_entriesType = EntriesAll;
-    return static_cast<EntriesType>(m_entriesType);
+    if ((mEntriesType < EntriesAll) || (mEntriesType > EntriesSystem))
+        mEntriesType = EntriesAll;
+    return static_cast<EntriesType>(mEntriesType);
 }
 
 void JournaldConfiguration::setEntriesType(JournaldConfiguration::EntriesType entriesType)
 {
-    m_entriesType = entriesType;
+    mEntriesType = entriesType;
 }
 
 QList<JournalAddress> JournaldConfiguration::remoteJournals() const
 {
     QList<JournalAddress> journals;
-    for (const QString &addressItem : m_remoteJournals) {
+    for (const QString &addressItem : mRemoteJournals) {
         JournalAddress addressInfo;
         addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
         addressInfo.port = addressItem.section(QChar::fromLatin1('|'), 1, 1).toUInt();
@@ -71,9 +71,9 @@ QList<JournalAddress> JournaldConfiguration::remoteJournals() const
 
 void JournaldConfiguration::setRemoteJournals(const QList<JournalAddress> &remoteJournals)
 {
-    m_remoteJournals.clear();
+    mRemoteJournals.clear();
     for (const JournalAddress &addressInfo : remoteJournals) {
-        m_remoteJournals.append(QStringLiteral("%1|%2|%3")
+        mRemoteJournals.append(QStringLiteral("%1|%2|%3")
                                     .arg(addressInfo.address)
                                     .arg(addressInfo.port)
                                     .arg(addressInfo.https ? 1 : 0));

@@ -33,18 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class CupsConfigurationPrivate
-{
-public:
-    QStringList cupsPaths;
-
-    QStringList cupsAccessPaths;
-
-    QStringList cupsPagePaths;
-
-    QStringList cupsPdfPaths;
-};
-
 class CupsConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -71,7 +59,13 @@ public:
     void setCupsPdfPaths(const QStringList &cupsPdfPaths);
 
 private:
-    CupsConfigurationPrivate *const d;
+    QStringList mCupsPaths;
+
+    QStringList mCupsAccessPaths;
+
+    QStringList mCupsPagePaths;
+
+    QStringList mCupsPdfPaths;
 };
 
 #endif // _CUPS_CONFIGURATION_H

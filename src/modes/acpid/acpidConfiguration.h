@@ -33,12 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class AcpidConfigurationPrivate
-{
-public:
-    QStringList acpidPaths;
-};
-
 class AcpidConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -46,14 +40,14 @@ class AcpidConfiguration : public LogModeConfiguration
 public:
     AcpidConfiguration();
 
-    ~AcpidConfiguration() override { delete d; }
+    ~AcpidConfiguration() override;
 
-    QStringList acpidPaths() const { return d->acpidPaths; }
+    QStringList acpidPaths() const;
 
-    void setAcpidPaths(const QStringList &acpidPaths) { d->acpidPaths = acpidPaths; }
+    void setAcpidPaths(const QStringList &acpidPaths);
 
 private:
-    AcpidConfigurationPrivate *const d;
+    QStringList mAcpidPaths;
 };
 
 #endif // _ACPID_CONFIGURATION_H

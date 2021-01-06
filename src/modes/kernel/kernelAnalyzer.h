@@ -76,7 +76,7 @@ protected:
     }
 
 protected:
-    QDateTime startupDateTime;
+    QDateTime mStartupDateTime;
 };
 
 #endif

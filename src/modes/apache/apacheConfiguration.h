@@ -33,14 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class ApacheConfigurationPrivate
-{
-public:
-    QStringList apachePaths;
-
-    QStringList apacheAccessPaths;
-};
-
 class ApacheConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -59,7 +51,9 @@ public:
     void setApacheAccessPaths(const QStringList &apacheAccessPaths);
 
 private:
-    ApacheConfigurationPrivate *const d;
+    QStringList mApachePaths;
+
+    QStringList mApacheAccessPaths;
 };
 
 #endif // _APACHE_CONFIGURATION_H

@@ -25,9 +25,7 @@
 #include <QColor>
 #include <QString>
 #include <QObject>
-
-class LogLevelPrivate;
-
+#include <QIcon>
 class LogLevel : QObject
 {
 public:
@@ -43,7 +41,12 @@ public:
     QIcon icon() const;
 
 private:
-    LogLevelPrivate *const d;
+    int mId;
+    QString mName;
+
+    QColor mColor;
+
+    QIcon mIcon;
 };
 
 #endif

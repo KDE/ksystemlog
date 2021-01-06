@@ -26,10 +26,10 @@ XorgConfigurationWidget::XorgConfigurationWidget()
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    fileList
+    mFileList
             = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-    layout->addWidget(fileList);
+    connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    layout->addWidget(mFileList);
 }
 
 void XorgConfigurationWidget::saveConfig()
@@ -38,7 +38,7 @@ void XorgConfigurationWidget::saveConfig()
             .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
             ->logModeConfiguration<XorgConfiguration *>();
 
-    xorgConfiguration->setXorgPaths(fileList->paths());
+    xorgConfiguration->setXorgPaths(mFileList->paths());
 }
 
 void XorgConfigurationWidget::readConfig()
@@ -47,9 +47,9 @@ void XorgConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
             ->logModeConfiguration<XorgConfiguration *>();
 
-    fileList->removeAllItems();
+    mFileList->removeAllItems();
 
-    fileList->addPaths(xorgConfiguration->xorgPaths());
+    mFileList->addPaths(xorgConfiguration->xorgPaths());
 }
 
 void XorgConfigurationWidget::defaultConfig()
@@ -60,7 +60,7 @@ void XorgConfigurationWidget::defaultConfig()
 
 bool XorgConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (mFileList->isEmpty() == false) {
         return true;
     }
 

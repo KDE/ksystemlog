@@ -32,12 +32,6 @@
 
 #include "xorgLogMode.h"
 
-class XorgConfigurationPrivate
-{
-public:
-    QStringList xorgPaths;
-};
-
 class XorgConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -52,7 +46,7 @@ public:
     void setXorgPaths(const QStringList &xorgPaths);
 
 private:
-    XorgConfigurationPrivate *const d;
+    QStringList mXorgPaths;
 };
 
 #endif // _XORG_CONFIGURATION_H

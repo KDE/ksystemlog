@@ -70,25 +70,25 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
 void CupsAnalyzer::initializeTypeLevels()
 {
-    mapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QStringLiteral(DEBUG2_LOG_LEVEL_ICON),
+    mMapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QStringLiteral(DEBUG2_LOG_LEVEL_ICON),
                                                    QColor(169, 189, 165), this);
-    mapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
-    mapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();
-    mapTypeLevels[QLatin1Char('N')] = Globals::instance().noticeLogLevel();
-    mapTypeLevels[QLatin1Char('W')] = Globals::instance().warningLogLevel();
-    mapTypeLevels[QLatin1Char('E')] = Globals::instance().errorLogLevel();
-    mapTypeLevels[QLatin1Char('C')] = Globals::instance().criticalLogLevel();
-    mapTypeLevels[QLatin1Char('A')] = Globals::instance().alertLogLevel();
-    mapTypeLevels[QLatin1Char('X')] = Globals::instance().emergencyLogLevel();
-    mapTypeLevels[QLatin1Char(' ')] = Globals::instance().noLogLevel();
+    mMapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
+    mMapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();
+    mMapTypeLevels[QLatin1Char('N')] = Globals::instance().noticeLogLevel();
+    mMapTypeLevels[QLatin1Char('W')] = Globals::instance().warningLogLevel();
+    mMapTypeLevels[QLatin1Char('E')] = Globals::instance().errorLogLevel();
+    mMapTypeLevels[QLatin1Char('C')] = Globals::instance().criticalLogLevel();
+    mMapTypeLevels[QLatin1Char('A')] = Globals::instance().alertLogLevel();
+    mMapTypeLevels[QLatin1Char('X')] = Globals::instance().emergencyLogLevel();
+    mMapTypeLevels[QLatin1Char(' ')] = Globals::instance().noLogLevel();
 }
 
 LogLevel *CupsAnalyzer::findLogLevel(const QChar &type)
 {
     QMap<QChar, LogLevel *>::iterator it;
 
-    it = mapTypeLevels.find(type);
-    if (it != mapTypeLevels.end()) {
+    it = mMapTypeLevels.find(type);
+    if (it != mMapTypeLevels.end()) {
         return (*it);
     } else {
         logCritical() << i18n(

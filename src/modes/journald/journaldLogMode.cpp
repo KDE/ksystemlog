@@ -70,10 +70,10 @@ QList<LogFile> JournaldLogMode::createLogFiles()
 
 void JournaldLogMode::updateJournalFilters(const JournalAddress &address, const JournalFilters &filters)
 {
-    m_remoteJournalFilters[address] = filters;
+    mRemoteJournalFilters[address] = filters;
 }
 
 JournalFilters JournaldLogMode::filters(const JournalAddress &address) const
 {
-    return m_remoteJournalFilters[address];
+    return mRemoteJournalFilters[address];
 }

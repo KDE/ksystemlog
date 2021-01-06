@@ -27,12 +27,12 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    warningBox = new KMessageWidget(this);
-    warningBox->setVisible(false);
-    warningBox->setMessageType(KMessageWidget::Warning);
-    warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
-    warningBox->setCloseButtonVisible(false);
-    warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
+    mWarningBox = new KMessageWidget(this);
+    mWarningBox->setVisible(false);
+    mWarningBox->setMessageType(KMessageWidget::Warning);
+    mWarningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
+    mWarningBox->setCloseButtonVisible(false);
+    mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
 
     // Authentication log file
     QGroupBox *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
@@ -40,24 +40,24 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
     QHBoxLayout *filePathLayout = new QHBoxLayout();
     authenticationBox->setLayout(authenticationLayout);
 
-    authenticationLayout->addWidget(warningBox);
+    authenticationLayout->addWidget(mWarningBox);
     authenticationLayout->addLayout(filePathLayout);
 
     layout->addWidget(authenticationBox);
 
     filePathLayout->addWidget(new QLabel(i18n("Authentication log file:")));
 
-    authenticationUrlRequester = new KUrlRequester(authenticationBox);
-    authenticationUrlRequester->setMode(KFile::File);
+    mAuthenticationUrlRequester = new KUrlRequester(authenticationBox);
+    mAuthenticationUrlRequester->setMode(KFile::File);
 
-    authenticationUrlRequester->setToolTip(
+    mAuthenticationUrlRequester->setToolTip(
                 i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
-    authenticationUrlRequester->setWhatsThis(i18n(
+    mAuthenticationUrlRequester->setWhatsThis(i18n(
                                                  "You can type or choose here the authentication log file. This file will be analyzed when you "
             "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
-    filePathLayout->addWidget(authenticationUrlRequester);
+    filePathLayout->addWidget(mAuthenticationUrlRequester);
 
-    connect(authenticationUrlRequester, &KUrlRequester::textChanged, this,
+    connect(mAuthenticationUrlRequester, &KUrlRequester::textChanged, this,
             &LogModeConfigurationWidget::configurationChanged);
 
     layout->addStretch();
@@ -70,7 +70,7 @@ void AuthenticationConfigurationWidget::saveConfig()
             .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
             ->logModeConfiguration<AuthenticationConfiguration *>();
 
-    authenticationConfiguration->setAuthenticationPath(authenticationUrlRequester->url().toLocalFile());
+    authenticationConfiguration->setAuthenticationPath(mAuthenticationUrlRequester->url().toLocalFile());
 }
 
 void AuthenticationConfigurationWidget::readConfig()
@@ -82,9 +82,9 @@ void AuthenticationConfigurationWidget::readConfig()
 
     QString path = authenticationConfiguration->authenticationPath();
     QFileInfo fileInfo(path);
-    warningBox->setVisible(!fileInfo.exists());
+    mWarningBox->setVisible(!fileInfo.exists());
 
-    authenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
+    mAuthenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));
 }
 
 void AuthenticationConfigurationWidget::defaultConfig()
@@ -95,7 +95,7 @@ void AuthenticationConfigurationWidget::defaultConfig()
 
 bool AuthenticationConfigurationWidget::isValid() const
 {
-    if (authenticationUrlRequester->url().toLocalFile().isEmpty() == false) {
+    if (mAuthenticationUrlRequester->url().toLocalFile().isEmpty() == false) {
         return true;
     }
 

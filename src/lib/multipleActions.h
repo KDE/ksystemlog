@@ -59,9 +59,9 @@ public:
     void addInnerAction(QAction *action, bool addToMenu = true, bool addToInnerActionsList = true);
 
 private:
-    QList<QAction *> actions;
+    QList<QAction *> mActions;
 
-    KActionMenu *action;
+    KActionMenu *mAction = nullptr;
 };
 
 #endif // _MULTIPLE_ACTIONS_H

@@ -64,7 +64,7 @@ public:
                                     const char *member);
 
 private:
-    QWidget *parent = nullptr;
+    QWidget *mParent = nullptr;
 };
 
 #endif //_FILE_LIST_HELPER_H

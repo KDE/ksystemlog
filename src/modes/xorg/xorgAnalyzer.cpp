@@ -24,7 +24,7 @@
 
 XorgAnalyzer::XorgAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , currentDateTime(QDateTime::currentDateTime())
+    , mCurrentDateTime(QDateTime::currentDateTime())
 {
     initializeTypeName();
 }
@@ -76,45 +76,45 @@ LogLine *XorgAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
     list.append(logLineType->name());
     list.append(string);
 
-    return new LogLine(mLogLineInternalIdGenerator++, currentDateTime, list, originalFile.url().toLocalFile(),
+    return new LogLine(mLogLineInternalIdGenerator++, mCurrentDateTime, list, originalFile.url().toLocalFile(),
                        logLineType, mLogMode);
 }
 
 void XorgAnalyzer::initializeTypeName()
 {
-    xorgLevels[QStringLiteral("(--)")] = new LogLevel(
+    mXorgLevels[QStringLiteral("(--)")] = new LogLevel(
         1001, i18n("Probed"), QStringLiteral(PROBED_LOG_LEVEL_ICON), QColor(246, 206, 30), this);
 
-    xorgLevels[QStringLiteral("(**)")]
+    mXorgLevels[QStringLiteral("(**)")]
         = new LogLevel(1002, i18n("From config file"), QStringLiteral(CONFIG_FILE_LOG_LEVEL_ICON),
                        QColor(161, 133, 240), this);
 
-    xorgLevels[QStringLiteral("(==)")]
+    mXorgLevels[QStringLiteral("(==)")]
         = new LogLevel(1003, i18n("Default setting"), QStringLiteral(DEFAULT_SETTING_LOG_LEVEL_ICON),
                        QColor(169, 189, 165), this);
 
-    xorgLevels[QStringLiteral("(++)")]
+    mXorgLevels[QStringLiteral("(++)")]
         = new LogLevel(1004, i18n("From command Line"), QStringLiteral(COMMAND_LINE_LOG_LEVEL_ICON),
                        QColor(179, 181, 214), this);
 
-    xorgLevels[QStringLiteral("(!!)")] = Globals::instance().noticeLogLevel();
-    xorgLevels[QStringLiteral("(II)")] = Globals::instance().informationLogLevel();
-    xorgLevels[QStringLiteral("(WW)")] = Globals::instance().warningLogLevel();
-    xorgLevels[QStringLiteral("(EE)")] = Globals::instance().errorLogLevel();
+    mXorgLevels[QStringLiteral("(!!)")] = Globals::instance().noticeLogLevel();
+    mXorgLevels[QStringLiteral("(II)")] = Globals::instance().informationLogLevel();
+    mXorgLevels[QStringLiteral("(WW)")] = Globals::instance().warningLogLevel();
+    mXorgLevels[QStringLiteral("(EE)")] = Globals::instance().errorLogLevel();
 
-    xorgLevels[QStringLiteral("(NI)")]
+    mXorgLevels[QStringLiteral("(NI)")]
         = new LogLevel(1005, i18n("Not implemented"), QStringLiteral(NOT_IMPLEMENTED_LOG_LEVEL_ICON),
                        QColor(136, 146, 240), this);
 
-    xorgLevels[QStringLiteral("(\?\?)")] = Globals::instance().noLogLevel();
+    mXorgLevels[QStringLiteral("(\?\?)")] = Globals::instance().noLogLevel();
 }
 
 LogLevel *XorgAnalyzer::findTypeName(const QString &type)
 {
     QMap<QString, LogLevel *>::iterator it;
 
-    it = xorgLevels.find(type);
-    if (it != xorgLevels.end())
+    it = mXorgLevels.find(type);
+    if (it != mXorgLevels.end())
         return *it;
     else
         return nullptr;

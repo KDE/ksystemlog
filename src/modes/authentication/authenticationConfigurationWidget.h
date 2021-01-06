@@ -60,8 +60,8 @@ protected:
     bool isValid() const override;
 
 private:
-    KUrlRequester *authenticationUrlRequester = nullptr;
-    KMessageWidget *warningBox = nullptr;
+    KUrlRequester *mAuthenticationUrlRequester = nullptr;
+    KMessageWidget *mWarningBox = nullptr;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_WIDGET_H

@@ -27,33 +27,33 @@
 
 SimpleAction::SimpleAction(const QIcon &icon, const QString &text, QObject *parent)
 {
-    action = new QAction(icon, text, parent);
+    mAction = new QAction(icon, text, parent);
 }
 
 SimpleAction::SimpleAction(QAction *originAction, QObject *parent)
 {
-    action = new QAction(parent);
-    action->setIcon(originAction->icon());
-    action->setText(originAction->text());
-    action->setData(originAction->data());
-    action->setToolTip(originAction->toolTip());
-    action->setWhatsThis(originAction->whatsThis());
+    mAction = new QAction(parent);
+    mAction->setIcon(originAction->icon());
+    mAction->setText(originAction->text());
+    mAction->setData(originAction->data());
+    mAction->setToolTip(originAction->toolTip());
+    mAction->setWhatsThis(originAction->whatsThis());
 }
 
 SimpleAction::~SimpleAction()
 {
-    delete action;
+    delete mAction;
 }
 
 QList<QAction *> SimpleAction::innerActions()
 {
     QList<QAction *> actions;
-    actions.append(action);
+    actions.append(mAction);
 
     return actions;
 }
 
 QAction *SimpleAction::actionMenu()
 {
-    return action;
+    return mAction;
 }

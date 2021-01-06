@@ -59,7 +59,7 @@ public:
     JournalFilters filters(const JournalAddress &address) const;
 
 private:
-    QMap<JournalAddress, JournalFilters> m_remoteJournalFilters;
+    QMap<JournalAddress, JournalFilters> mRemoteJournalFilters;
 };
 
 #endif // _JOURNALD_LOG_MODE_H

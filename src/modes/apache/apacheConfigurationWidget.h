@@ -56,10 +56,10 @@ protected:
     bool isValid() const override;
 
 private:
-    MultipleFileList *apacheFileList = nullptr;
+    MultipleFileList *mApacheFileList = nullptr;
 
-    int apachePathsId;
-    int apacheAccessPathsId;
+    int mApachePathsId;
+    int mApacheAccessPathsId;
 };
 
 #endif // _APACHE_CONFIGURATION_WIDGET_H

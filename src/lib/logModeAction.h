@@ -26,8 +26,6 @@
 #include <QList>
 #include <QAction>
 
-class LogModeActionPrivate;
-
 class LogModeAction : public QObject
 {
     Q_OBJECT
@@ -47,10 +45,11 @@ public:
 
     void setCategory(Category category);
 
-    Category category();
+    Category category() const;
 
 private:
-    LogModeActionPrivate *const d;
+    LogModeAction::Category mCategory = LogModeAction::RootCategory;
+    bool mInToolBar = true;
 };
 
 #endif // _LOG_MODE_ACTION_H

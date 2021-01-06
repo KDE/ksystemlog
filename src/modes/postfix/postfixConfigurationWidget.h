@@ -57,7 +57,7 @@ public:
     void defaultConfig() override;
 
 private:
-    LogLevelFileList *fileList = nullptr;
+    LogLevelFileList *mLileList = nullptr;
 };
 
 #endif // _POSTFIX_CONFIGURATION_WIDGET_H

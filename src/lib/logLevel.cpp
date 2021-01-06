@@ -22,47 +22,35 @@
 #include "logLevel.h"
 
 #include <QIcon>
-class LogLevelPrivate
-{
-public:
-    int id;
-    QString name;
-
-    QColor color;
-
-    QIcon icon;
-};
-
 LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col, QObject *parent)
-    : QObject(parent), d(new LogLevelPrivate())
+    : QObject(parent)
 {
-    d->id = id;
-    d->name = nm;
-    d->color = col;
-    d->icon = QIcon::fromTheme(ic);
+    mId = id;
+    mName = nm;
+    mColor = col;
+    mIcon = QIcon::fromTheme(ic);
 }
 
 LogLevel::~LogLevel()
 {
-    delete d;
 }
 
 int LogLevel::id() const
 {
-    return d->id;
+    return mId;
 }
 
 QString LogLevel::name() const
 {
-    return d->name;
+    return mName;
 }
 
 QColor LogLevel::color() const
 {
-    return d->color;
+    return mColor;
 }
 
 QIcon LogLevel::icon() const
 {
-    return d->icon;
+    return mIcon;
 }

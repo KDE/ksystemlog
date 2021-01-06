@@ -29,16 +29,16 @@ PostfixConfigurationWidget::PostfixConfigurationWidget()
 
     QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
-    fileList = new LogLevelFileList(this, description);
+    mLileList = new LogLevelFileList(this, description);
 
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mLileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(fileList);
+    layout->addWidget(mLileList);
 }
 
 bool PostfixConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (mLileList->isEmpty() == false) {
         logDebug() << "Postfix configuration valid";
         return true;
     }
@@ -54,8 +54,8 @@ void PostfixConfigurationWidget::saveConfig()
     PostfixConfiguration *configuration = Globals::instance()
             .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
             ->logModeConfiguration<PostfixConfiguration *>();
-    configuration->setLogFilesPaths(fileList->paths());
-    configuration->setLogFilesLevels(fileList->levels());
+    configuration->setLogFilesPaths(mLileList->paths());
+    configuration->setLogFilesLevels(mLileList->levels());
 }
 
 void PostfixConfigurationWidget::readConfig()
@@ -64,9 +64,9 @@ void PostfixConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
             ->logModeConfiguration<PostfixConfiguration *>();
 
-    fileList->removeAllItems();
+    mLileList->removeAllItems();
 
-    fileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
+    mLileList->addPaths(configuration->logFilesPaths(), configuration->logFilesLevels());
 }
 
 void PostfixConfigurationWidget::defaultConfig()

@@ -83,13 +83,13 @@ protected:
 
     QTreeWidgetItem *findCategoryOfChild(QTreeWidgetItem *childItem);
 
-    FileListHelper fileListHelper;
+    FileListHelper mFileListHelper;
 
-    QButtonGroup addButtons;
+    QButtonGroup mAddButtons;
 
 private:
-    KMessageWidget *warningBox;
-    bool missingFiles;
+    KMessageWidget *mWarningBox = nullptr;
+    bool mMissingFiles = false;
 };
 
 #endif //_MULTIPLE_FILE_LIST_H

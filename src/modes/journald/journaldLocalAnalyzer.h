@@ -64,18 +64,18 @@ private:
 
     static QStringList getUniqueFieldValues(const QString &id, int flags = 0);
 
-    QStringList m_filters;
-    QString m_filterName;
-    sd_journal *m_journal = nullptr;
-    int m_journalFlags = 0;
-    QString m_currentBootID;
+    QStringList mFilters;
+    QString mFilterName;
+    sd_journal *mJournal = nullptr;
+    int mJournalFlags = 0;
+    QString mCurrentBootID;
 
-    char *m_cursor = nullptr;
-    QMutex m_workerMutex;
-    QSocketNotifier *m_journalNotifier = nullptr;
+    char *mCursor = nullptr;
+    QMutex mWorkerMutex;
+    QSocketNotifier *mJournalNotifier = nullptr;
 
-    bool m_forgetWatchers = true;
-    QList<JournalWatcher *> m_journalWatchers;
+    bool mForgetWatchers = true;
+    QList<JournalWatcher *> mJournalWatchers;
 };
 
 #endif // _JOURNALD_LOCAL_ANALYZER_H

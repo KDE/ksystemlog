@@ -23,7 +23,7 @@
 
 XSessionAnalyzer::XSessionAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , currentDateTime(QDateTime::currentDateTime())
+    , mCurrentDateTime(QDateTime::currentDateTime())
 {
 }
 
@@ -86,7 +86,7 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
     else
         logLevel = Globals::instance().informationLogLevel();
 
-    return new LogLine(mLogLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
+    return new LogLine(mLogLineInternalIdGenerator++, mCurrentDateTime, QStringList() << program << message,
                        originalFile.url().toLocalFile(), logLevel, mLogMode);
 }
 

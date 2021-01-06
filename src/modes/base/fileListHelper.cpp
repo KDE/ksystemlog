@@ -34,7 +34,7 @@
 #include "logging.h"
 
 FileListHelper::FileListHelper(QWidget *p)
-    : parent(p)
+    : mParent(p)
 {
 }
 
@@ -114,7 +114,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
     // If it is not a local file
     if (!url.isLocalFile()) {
         message = i18n("'%1' is not a local file.", url.path());
-        KMessageBox::error(parent, message, i18n("File selection failed"), KMessageBox::Notify);
+        KMessageBox::error(mParent, message, i18n("File selection failed"), KMessageBox::Notify);
         return false;
     }
 
@@ -128,7 +128,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
 
 QList<QUrl> FileListHelper::openUrls()
 {
-    QFileDialog fileDialog(parent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), QLatin1String("*|") + i18n("All Files (*)")
+    QFileDialog fileDialog(mParent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), QLatin1String("*|") + i18n("All Files (*)")
                                                                       + QLatin1String("\n*.log|")
                                                                       + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));
@@ -140,7 +140,7 @@ QList<QUrl> FileListHelper::openUrls()
 
 QUrl FileListHelper::openUrl(const QString &originPath)
 {
-    QFileDialog fileDialog(parent, QString(), originPath, QLatin1String("*|") + i18n("All Files (*)")
+    QFileDialog fileDialog(mParent, QString(), originPath, QLatin1String("*|") + i18n("All Files (*)")
                                                               + QLatin1String("\n*.log|")
                                                               + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));

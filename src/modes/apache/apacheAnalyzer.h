@@ -64,7 +64,7 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
 private:
-    QMap<QString, LogLevel *> mapTypeLevels;
+    QMap<QString, LogLevel *> mMapTypeLevels;
 
     void initializeTypeLevels();
 

@@ -31,10 +31,7 @@ class SystemAnalyzer : public SyslogAnalyzer
     Q_OBJECT
 
 public:
-    explicit SystemAnalyzer(LogMode *logMode)
-        : SyslogAnalyzer(logMode)
-    {
-    }
+    explicit SystemAnalyzer(LogMode *logMode);
 
     ~SystemAnalyzer() override {}
 };

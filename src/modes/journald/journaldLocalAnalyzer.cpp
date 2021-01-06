@@ -34,84 +34,84 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     : JournaldAnalyzer(mode)
 {
     // Initialize journal access flags and open the journal.
-    m_journalFlags = 0;
+    mJournalFlags = 0;
     JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
     switch (configuration->entriesType()) {
     case JournaldConfiguration::EntriesAll:
         break;
     case JournaldConfiguration::EntriesCurrentUser:
-        m_journalFlags |= SD_JOURNAL_CURRENT_USER;
+        mJournalFlags |= SD_JOURNAL_CURRENT_USER;
         break;
     case JournaldConfiguration::EntriesSystem:
-        m_journalFlags |= SD_JOURNAL_SYSTEM;
+        mJournalFlags |= SD_JOURNAL_SYSTEM;
         break;
     default:
         break;
     }
-    int ret = sd_journal_open(&m_journal, m_journalFlags);
+    int ret = sd_journal_open(&mJournal, mJournalFlags);
     if (ret < 0) {
         logWarning() << "Journald analyzer failed to open system journal";
         return;
     }
 
-    qintptr fd = sd_journal_get_fd(m_journal);
-    m_journalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
-    m_journalNotifier->setEnabled(false);
-    connect(m_journalNotifier, &QSocketNotifier::activated, this,
+    qintptr fd = sd_journal_get_fd(mJournal);
+    mJournalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
+    mJournalNotifier->setEnabled(false);
+    connect(mJournalNotifier, &QSocketNotifier::activated, this,
             &JournaldLocalAnalyzer::journalDescriptorUpdated);
 
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));
         if (file.open(QIODevice::ReadOnly | QFile::Text)) {
             QTextStream stream( &file );
-            m_currentBootID = stream.readAll().trimmed();
-            m_currentBootID.remove(QChar::fromLatin1('-'));
-            m_filters << QStringLiteral("_BOOT_ID=%1").arg(m_currentBootID);
+            mCurrentBootID = stream.readAll().trimmed();
+            mCurrentBootID.remove(QChar::fromLatin1('-'));
+            mFilters << QStringLiteral("_BOOT_ID=%1").arg(mCurrentBootID);
         } else {
             logWarning() << "Journald analyzer failed to open /proc/sys/kernel/random/boot_id";
         }
     }
 
     if (!filter.isEmpty()) {
-        m_filters << filter;
-        m_filterName = filter.section(QChar::fromLatin1('='), 1);
+        mFilters << filter;
+        mFilterName = filter.section(QChar::fromLatin1('='), 1);
     }
 }
 
 JournaldLocalAnalyzer::~JournaldLocalAnalyzer()
 {
     watchLogFiles(false);
-    sd_journal_close(m_journal);
-    delete m_journalNotifier;
+    sd_journal_close(mJournal);
+    delete mJournalNotifier;
 }
 
 void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
 {
-    if (!m_journalNotifier)
+    if (!mJournalNotifier)
         return;
-    m_journalNotifier->setEnabled(enabled);
+    mJournalNotifier->setEnabled(enabled);
 
-    m_workerMutex.lock();
-    m_forgetWatchers = enabled;
-    m_workerMutex.unlock();
+    mWorkerMutex.lock();
+    mForgetWatchers = enabled;
+    mWorkerMutex.unlock();
 
     if (enabled) {
         JournalWatcher *watcher = new JournalWatcher();
-        m_workerMutex.lock();
-        m_journalWatchers.append(watcher);
-        m_workerMutex.unlock();
+        mWorkerMutex.lock();
+        mJournalWatchers.append(watcher);
+        mWorkerMutex.unlock();
         connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalInitialFinished);
-        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
+        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, mFilters));
     } else {
-        for (JournalWatcher *watcher : m_journalWatchers) {
+        for (JournalWatcher *watcher : mJournalWatchers) {
             watcher->waitForFinished();
         }
-        qDeleteAll(m_journalWatchers);
-        m_journalWatchers.clear();
+        qDeleteAll(mJournalWatchers);
+        mJournalWatchers.clear();
 
-        if (m_cursor) {
-            free(m_cursor);
-            m_cursor = nullptr;
+        if (mCursor) {
+            free(mCursor);
+            mCursor = nullptr;
         }
     }
 }
@@ -186,12 +186,12 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
         mInsertionLocking.unlock();
     }
 
-    m_workerMutex.lock();
-    if (m_forgetWatchers) {
-        m_journalWatchers.removeAll(watcher);
+    mWorkerMutex.lock();
+    if (mForgetWatchers) {
+        mJournalWatchers.removeAll(watcher);
         watcher->deleteLater();
     }
-    m_workerMutex.unlock();
+    mWorkerMutex.unlock();
 }
 
 void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
@@ -208,24 +208,24 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
     }
 
     JournalWatcher *watcher = new JournalWatcher();
-    m_workerMutex.lock();
-    m_journalWatchers.append(watcher);
-    m_workerMutex.unlock();
+    mWorkerMutex.lock();
+    mJournalWatchers.append(watcher);
+    mWorkerMutex.unlock();
     connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalUpdateFinished);
-    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, m_filters));
+    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, mFilters));
 }
 
 QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(const QStringList &filters)
 {
-    QMutexLocker mutexLocker(&m_workerMutex);
+    QMutexLocker mutexLocker(&mWorkerMutex);
     QList<JournalEntry> entryList;
     sd_journal *journal;
 
-    if (!m_filterName.isEmpty()) {
-        Q_EMIT statusChanged(m_filterName);
+    if (!mFilterName.isEmpty()) {
+        Q_EMIT statusChanged(mFilterName);
     }
 
-    int res = sd_journal_open(&journal, m_journalFlags);
+    int res = sd_journal_open(&journal, mJournalFlags);
     if (res < 0) {
         logWarning() << "Failed to access the journal.";
         return QList<JournalEntry>();
@@ -248,8 +248,8 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
             entryList.append(entry);
         }
 
-        free(m_cursor);
-        sd_journal_get_cursor(journal, &m_cursor);
+        free(mCursor);
+        sd_journal_get_cursor(journal, &mCursor);
     }
 
     sd_journal_close(journal);
@@ -282,7 +282,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
     int maxEntriesNum = KSystemLogConfig::maxLines();
 
     // Seek to cursor.
-    if (m_cursor) {
+    if (mCursor) {
         int entriesNum = 0;
         // Continue searching for the oldest entry until
         // either cursor is found or maximum number of entries is traversed.
@@ -295,7 +295,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
                 return false;
             }
 
-            res = sd_journal_test_cursor(journal, m_cursor);
+            res = sd_journal_test_cursor(journal, mCursor);
             if (res > 0) {
                 if (entriesNum == 1) {
                     // No new entries are found.

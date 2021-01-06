@@ -27,14 +27,14 @@ XSessionConfigurationWidget::XSessionConfigurationWidget()
 {
     setupUi(this);
 
-    warningBox = new KMessageWidget(this);
-    warningBox->setVisible(false);
-    warningBox->setMessageType(KMessageWidget::Warning);
-    warningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
-    warningBox->setCloseButtonVisible(false);
-    warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
+    mWarningBox = new KMessageWidget(this);
+    mWarningBox->setVisible(false);
+    mWarningBox->setMessageType(KMessageWidget::Warning);
+    mWarningBox->setText(i18n("Log file does not exist. Mode will be unavailable."));
+    mWarningBox->setCloseButtonVisible(false);
+    mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
 
-    verticalLayout->insertWidget(0, warningBox);
+    verticalLayout->insertWidget(0, mWarningBox);
 
     xsessionUrlRequester->setToolTip(
                 i18n("You can type or choose the X Session log file (example: <i>~/.xsession-errors</i>)."));
@@ -50,7 +50,7 @@ XSessionConfigurationWidget::XSessionConfigurationWidget()
 
     connect(ignoreXorgErrors, &QAbstractButton::toggled, xorgErrorsDescription, &QWidget::setEnabled);
 
-    xorgErrorsDescriptionDefined = false;
+    mXorgErrorsDescriptionDefined = false;
 }
 
 void XSessionConfigurationWidget::saveConfig()
@@ -71,7 +71,7 @@ void XSessionConfigurationWidget::readConfig()
 
     QString path = configuration->xsessionPath();
     QFileInfo fileInfo(path);
-    warningBox->setVisible(!fileInfo.exists());
+    mWarningBox->setVisible(!fileInfo.exists());
 
     xsessionUrlRequester->setUrl(QUrl::fromLocalFile(path));
     ignoreXorgErrors->setChecked(configuration->isIgnoreXorgErrors());
@@ -101,7 +101,7 @@ void XSessionConfigurationWidget::prepareXorgErrorsDescription()
             ->logModeConfiguration<XSessionConfiguration *>();
 
     // Prepare Ignore Xorg Errors description
-    if (xorgErrorsDescriptionDefined == false) {
+    if (mXorgErrorsDescriptionDefined == false) {
         QString text = xorgErrorsDescription->text();
         text.append(QLatin1String("<ul style='margin-top:0px;margin-bottom:0px'>"));
 
@@ -112,6 +112,6 @@ void XSessionConfigurationWidget::prepareXorgErrorsDescription()
         text.append(QLatin1String("</ul>"));
         xorgErrorsDescription->setText(text);
 
-        xorgErrorsDescriptionDefined = true;
+        mXorgErrorsDescriptionDefined = true;
     }
 }

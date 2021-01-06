@@ -21,29 +21,20 @@
 
 #include "logModeAction.h"
 
-class LogModeActionPrivate
-{
-public:
-    LogModeAction::Category category = LogModeAction::RootCategory;
-    bool inToolBar = true;
-};
-
 LogModeAction::LogModeAction()
-    : d(new LogModeActionPrivate())
 {
 }
 
 LogModeAction::~LogModeAction()
 {
-    delete d;
 }
 
 void LogModeAction::setCategory(LogModeAction::Category category)
 {
-    d->category = category;
+    mCategory = category;
 }
 
-LogModeAction::Category LogModeAction::category()
+LogModeAction::Category LogModeAction::category() const
 {
-    return d->category;
+    return mCategory;
 }

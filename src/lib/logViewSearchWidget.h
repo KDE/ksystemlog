@@ -30,8 +30,6 @@
 class LogViewWidget;
 class LogViewWidgetItem;
 
-class LogViewSearchWidgetPrivate;
-
 class LogViewSearchWidget : public QWidget, public Ui::LogViewSearchWidgetBase
 {
     Q_OBJECT
@@ -75,8 +73,12 @@ private:
 
     inline void initIterator(QTreeWidgetItemIterator &it, Direction direction);
     inline void iteratorJump(QTreeWidgetItemIterator &it, Direction direction);
+    LogViewWidget *mLogViewWidget = nullptr;
 
-    LogViewSearchWidgetPrivate *const d;
+    QColor mSearchLineBaseColor;
+    QColor mSearchLineTextColor;
+
+    QTimer *mMessageHidingTimer = nullptr;
 };
 
 #endif //_LOG_VIEW_SEARCH_WIDGET_H

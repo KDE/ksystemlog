@@ -37,17 +37,8 @@
 
 #include "ksystemlogConfig.h"
 
-class LogViewWidgetPrivate
-{
-public:
-    LogViewModel *logViewModel = nullptr;
-
-    QActionGroup *headersTogglingActions = nullptr;
-};
-
 LogViewWidget::LogViewWidget(QWidget *parent)
     : QTreeWidget(parent)
-    , d(new LogViewWidgetPrivate())
 {
     // TODO Add this setWhatsThis() to all columns each time they change
     // setWhatThis(i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
@@ -56,10 +47,10 @@ LogViewWidget::LogViewWidget(QWidget *parent)
 
     const QStringList headerLabels {i18n("Date"), i18n("Message")};
 
-    d->logViewModel = new LogViewModel(this);
-    d->headersTogglingActions = new QActionGroup(this);
-    d->headersTogglingActions->setExclusive(false);
-    connect(d->headersTogglingActions, &QActionGroup::triggered, this, &LogViewWidget::toggleHeader);
+    mLogViewModel = new LogViewModel(this);
+    mHeadersTogglingActions = new QActionGroup(this);
+    mHeadersTogglingActions->setExclusive(false);
+    connect(mHeadersTogglingActions, &QActionGroup::triggered, this, &LogViewWidget::toggleHeader);
 
     setHeaderLabels(headerLabels);
 
@@ -86,9 +77,8 @@ LogViewWidget::LogViewWidget(QWidget *parent)
 
 LogViewWidget::~LogViewWidget()
 {
-    delete d->logViewModel;
+    delete mLogViewModel;
 
-    delete d;
 }
 
 void LogViewWidget::setColumns(const LogViewColumns &columns)
@@ -103,13 +93,13 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
     sortItems(0, Qt::AscendingOrder);
 
     // Remove previous header actions
-    QListIterator<QAction *> it(d->headersTogglingActions->actions());
+    QListIterator<QAction *> it(mHeadersTogglingActions->actions());
     it.toBack();
     while (it.hasPrevious()) {
         QAction *action = it.previous();
 
         header()->removeAction(action);
-        d->headersTogglingActions->removeAction(action);
+        mHeadersTogglingActions->removeAction(action);
 
         delete action;
     }
@@ -127,12 +117,12 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
         action->setToolTip(i18n("Display/Hide the '%1' column", column.columnName()));
         action->setData(QVariant(columnIndex));
 
-        d->headersTogglingActions->addAction(action);
+        mHeadersTogglingActions->addAction(action);
 
         ++columnIndex;
     }
 
-    header()->addActions(d->headersTogglingActions->actions());
+    header()->addActions(mHeadersTogglingActions->actions());
 
     Q_EMIT columnsChanged(columns);
 
@@ -218,7 +208,7 @@ QList<LogViewWidgetItem *> LogViewWidget::items()
 
 LogViewModel *LogViewWidget::model() const
 {
-    return d->logViewModel;
+    return mLogViewModel;
 }
 
 bool LogViewWidget::hasItemsSelected()

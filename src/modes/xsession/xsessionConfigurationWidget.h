@@ -64,9 +64,9 @@ protected:
 private:
     void prepareXorgErrorsDescription();
 
-    bool xorgErrorsDescriptionDefined;
+    bool mXorgErrorsDescriptionDefined;
 
-    KMessageWidget *warningBox = nullptr;
+    KMessageWidget *mWarningBox = nullptr;
 };
 
 #endif // _X_SESSION_CONFIGURATION_WIDGET_H

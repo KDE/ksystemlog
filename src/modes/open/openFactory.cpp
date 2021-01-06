@@ -31,7 +31,7 @@
 #include "logModeItemBuilder.h"
 
 OpenLogModeFactory::OpenLogModeFactory(QWidget *parent)
-    : parent(parent)
+    : mParent(parent)
 {
 }
 
@@ -42,7 +42,7 @@ OpenLogModeFactory::~OpenLogModeFactory()
 QList<LogMode *> OpenLogModeFactory::createLogModes() const
 {
     QList<LogMode *> logModes;
-    logModes.append(new OpenLogMode(parent));
+    logModes.append(new OpenLogMode(mParent));
     return logModes;
 }
 

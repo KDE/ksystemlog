@@ -27,20 +27,20 @@ CupsConfigurationWidget::CupsConfigurationWidget()
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    cupsFileList = new MultipleFileList(this, i18n(
+    mCupsFileList = new MultipleFileList(this, i18n(
                                             "<p>These files will be analyzed to show the <b>Cups "
                                                       "log</b> and the <b>Cups Web Access log</b>.</p>"));
 
-    cupsPathsId = cupsFileList->addCategory(i18n("Cups Log Files"), i18n("Add Cups File..."));
-    cupsAccessPathsId
-            = cupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
-    cupsPagePathsId
-            = cupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
-    cupsPdfPathsId = cupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
+    mCupsPathsId = mCupsFileList->addCategory(i18n("Cups Log Files"), i18n("Add Cups File..."));
+    mCupsAccessPathsId
+            = mCupsFileList->addCategory(i18n("Cups Access Log Files"), i18n("Add Cups Access File..."));
+    mCupsPagePathsId
+            = mCupsFileList->addCategory(i18n("Cups Page Log Files"), i18n("Add Cups Page File..."));
+    mCupsPdfPathsId = mCupsFileList->addCategory(i18n("Cups PDF Log Files"), i18n("Add Cups PDF File..."));
 
-    connect(cupsFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mCupsFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(cupsFileList);
+    layout->addWidget(mCupsFileList);
 }
 
 void CupsConfigurationWidget::saveConfig()
@@ -50,10 +50,10 @@ void CupsConfigurationWidget::saveConfig()
     CupsConfiguration *cupsConfiguration = Globals::instance()
             .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
             ->logModeConfiguration<CupsConfiguration *>();
-    cupsConfiguration->setCupsPaths(cupsFileList->paths(cupsPathsId));
-    cupsConfiguration->setCupsAccessPaths(cupsFileList->paths(cupsAccessPathsId));
-    cupsConfiguration->setCupsPagePaths(cupsFileList->paths(cupsPagePathsId));
-    cupsConfiguration->setCupsPdfPaths(cupsFileList->paths(cupsPdfPathsId));
+    cupsConfiguration->setCupsPaths(mCupsFileList->paths(mCupsPathsId));
+    cupsConfiguration->setCupsAccessPaths(mCupsFileList->paths(mCupsAccessPathsId));
+    cupsConfiguration->setCupsPagePaths(mCupsFileList->paths(mCupsPagePathsId));
+    cupsConfiguration->setCupsPdfPaths(mCupsFileList->paths(mCupsPdfPathsId));
 }
 
 void CupsConfigurationWidget::defaultConfig()
@@ -68,17 +68,17 @@ void CupsConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
             ->logModeConfiguration<CupsConfiguration *>();
 
-    cupsFileList->removeAllItems();
+    mCupsFileList->removeAllItems();
 
-    cupsFileList->addPaths(cupsPathsId, cupsConfiguration->cupsPaths());
-    cupsFileList->addPaths(cupsAccessPathsId, cupsConfiguration->cupsAccessPaths());
-    cupsFileList->addPaths(cupsPagePathsId, cupsConfiguration->cupsPagePaths());
-    cupsFileList->addPaths(cupsPdfPathsId, cupsConfiguration->cupsPdfPaths());
+    mCupsFileList->addPaths(mCupsPathsId, cupsConfiguration->cupsPaths());
+    mCupsFileList->addPaths(mCupsAccessPathsId, cupsConfiguration->cupsAccessPaths());
+    mCupsFileList->addPaths(mCupsPagePathsId, cupsConfiguration->cupsPagePaths());
+    mCupsFileList->addPaths(mCupsPdfPathsId, cupsConfiguration->cupsPdfPaths());
 }
 
 bool CupsConfigurationWidget::isValid() const
 {
-    if (cupsFileList->isOneOfCategoryEmpty() == true) {
+    if (mCupsFileList->isOneOfCategoryEmpty() == true) {
         logDebug() << "Cups configuration not valid";
         return false;
     }

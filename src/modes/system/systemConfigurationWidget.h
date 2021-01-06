@@ -57,7 +57,7 @@ public:
     void defaultConfig() override;
 
 private:
-    LogLevelFileList *fileList = nullptr;
+    LogLevelFileList *mFileList = nullptr;
 };
 
 #endif // _SYSTEM_CONFIGURATION_WIDGET_H

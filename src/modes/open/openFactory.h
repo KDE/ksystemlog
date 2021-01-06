@@ -39,7 +39,7 @@ public:
     LogModeAction *createLogModeAction() const override;
 
 private:
-    QWidget *parent;
+    QWidget *const mParent;
 };
 
 #endif // _LOG_MODE_OPEN_FACTORY_H

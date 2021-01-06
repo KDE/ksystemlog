@@ -39,12 +39,12 @@ class CupsAccessAnalyzer : public FileAnalyzer
 public:
     explicit CupsAccessAnalyzer(LogMode *logMode);
 
-    virtual ~CupsAccessAnalyzer() {}
+    ~CupsAccessAnalyzer() override {}
 
     LogViewColumns initColumns() override;
 
 protected:
-    QRegExp cupsAccessRegex;
+    QRegExp mCupsAccessRegex;
 
     LogFileReader *createLogFileReader(const LogFile &logFile) override;
 

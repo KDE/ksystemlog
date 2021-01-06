@@ -61,12 +61,12 @@ private Q_SLOTS:
     void toggleProcessFilterEnabling(bool enabled);
 
 private:
-    FileList *fileList = nullptr;
+    FileList *mFileList = nullptr;
 
-    QGroupBox *processFilterGroup = nullptr;
+    QGroupBox *mProcessFilterGroup = nullptr;
 
-    QLineEdit *processFilter = nullptr;
-    QLabel *processFilterLabel = nullptr;
+    QLineEdit *mProcessFilter = nullptr;
+    QLabel *mProcessFilterLabel = nullptr;
 };
 
 #endif // _CRON_CONFIGURATION_WIDGET_H

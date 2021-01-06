@@ -59,7 +59,7 @@ private:
 
     bool hasKeywords(const QString &message, const QStringList &keywords);
 
-    QDateTime currentDateTime;
+    QDateTime mCurrentDateTime;
 };
 
 #endif // _X_SESSION_ANALYZER_H

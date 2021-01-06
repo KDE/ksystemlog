@@ -30,42 +30,42 @@ CronConfigurationWidget::CronConfigurationWidget()
                 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned tasks logs). <a "
             "href='man:/cron'>More information...</a></p>");
 
-    fileList = new FileList(this, description);
+    mFileList = new FileList(this, description);
 
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(fileList);
+    layout->addWidget(mFileList);
 
-    processFilterGroup = new QGroupBox(i18n("Enable Process Filtering"));
-    processFilterGroup->setCheckable(true);
+    mProcessFilterGroup = new QGroupBox(i18n("Enable Process Filtering"));
+    mProcessFilterGroup->setCheckable(true);
 
-    connect(processFilterGroup, &QGroupBox::clicked, this, &CronConfigurationWidget::toggleProcessFilterEnabling);
-    connect(processFilterGroup, &QGroupBox::clicked, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mProcessFilterGroup, &QGroupBox::clicked, this, &CronConfigurationWidget::toggleProcessFilterEnabling);
+    connect(mProcessFilterGroup, &QGroupBox::clicked, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(processFilterGroup);
+    layout->addWidget(mProcessFilterGroup);
 
     QHBoxLayout *processFilterLayout = new QHBoxLayout();
 
-    processFilterGroup->setLayout(processFilterLayout);
+    mProcessFilterGroup->setLayout(processFilterLayout);
 
-    processFilterLabel = new QLabel(i18n("Only keeps lines which matches this process :"));
-    processFilter = new QLineEdit(this);
+    mProcessFilterLabel = new QLabel(i18n("Only keeps lines which matches this process :"));
+    mProcessFilter = new QLineEdit(this);
 
-    processFilterLabel->setBuddy(processFilter);
-    connect(processFilter, &QLineEdit::textEdited, this, &LogModeConfigurationWidget::configurationChanged);
+    mProcessFilterLabel->setBuddy(mProcessFilter);
+    connect(mProcessFilter, &QLineEdit::textEdited, this, &LogModeConfigurationWidget::configurationChanged);
 
-    processFilterLayout->addWidget(processFilterLabel);
-    processFilterLayout->addWidget(processFilter);
+    processFilterLayout->addWidget(mProcessFilterLabel);
+    processFilterLayout->addWidget(mProcessFilter);
 }
 
 bool CronConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == true) {
+    if (mFileList->isEmpty() == true) {
         logDebug() << "Cron configuration not valid";
         return false;
     }
 
-    if (processFilterGroup->isChecked() && processFilter->text().isEmpty()) {
+    if (mProcessFilterGroup->isChecked() && mProcessFilter->text().isEmpty()) {
         logDebug() << "Cron configuration not valid";
         return false;
     }
@@ -81,12 +81,12 @@ void CronConfigurationWidget::saveConfig()
     CronConfiguration *cronConfiguration = Globals::instance()
             .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
             ->logModeConfiguration<CronConfiguration *>();
-    cronConfiguration->setCronPaths(fileList->paths());
+    cronConfiguration->setCronPaths(mFileList->paths());
 
-    if (processFilterGroup->isChecked() == false) {
+    if (mProcessFilterGroup->isChecked() == false) {
         cronConfiguration->setProcessFilter(QLatin1String(""));
     } else {
-        cronConfiguration->setProcessFilter(processFilter->text());
+        cronConfiguration->setProcessFilter(mProcessFilter->text());
     }
 }
 
@@ -96,15 +96,15 @@ void CronConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
             ->logModeConfiguration<CronConfiguration *>();
 
-    fileList->removeAllItems();
+    mFileList->removeAllItems();
 
-    fileList->addPaths(cronConfiguration->cronPaths());
+    mFileList->addPaths(cronConfiguration->cronPaths());
 
     if (cronConfiguration->processFilter().isEmpty()) {
-        processFilterGroup->setChecked(false);
+        mProcessFilterGroup->setChecked(false);
     } else {
-        processFilterGroup->setChecked(true);
-        processFilter->setText(cronConfiguration->processFilter());
+        mProcessFilterGroup->setChecked(true);
+        mProcessFilter->setText(cronConfiguration->processFilter());
     }
 }
 
@@ -116,6 +116,6 @@ void CronConfigurationWidget::defaultConfig()
 
 void CronConfigurationWidget::toggleProcessFilterEnabling(bool enabled)
 {
-    processFilter->setEnabled(enabled);
-    processFilterLabel->setEnabled(enabled);
+    mProcessFilter->setEnabled(enabled);
+    mProcessFilterLabel->setEnabled(enabled);
 }

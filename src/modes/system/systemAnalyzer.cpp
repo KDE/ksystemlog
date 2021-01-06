@@ -20,3 +20,8 @@
  ***************************************************************************/
 
 #include "systemAnalyzer.h"
+
+SystemAnalyzer::SystemAnalyzer(LogMode *logMode)
+    : SyslogAnalyzer(logMode)
+{
+}

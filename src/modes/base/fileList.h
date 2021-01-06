@@ -80,9 +80,9 @@ protected:
      */
     QVBoxLayout *buttonsLayout();
 
-    FileListHelper fileListHelper;
+    FileListHelper mFileListHelper;
 
-    KMessageWidget *warningBox = nullptr;
+    KMessageWidget *mWarningBox = nullptr;
 };
 
 #endif //_FILE_LIST_H

@@ -26,10 +26,10 @@ AcpidConfigurationWidget::AcpidConfigurationWidget()
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    fileList
+    mFileList
             = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-    layout->addWidget(fileList);
+    connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    layout->addWidget(mFileList);
 }
 
 void AcpidConfigurationWidget::saveConfig()
@@ -38,7 +38,7 @@ void AcpidConfigurationWidget::saveConfig()
             .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
             ->logModeConfiguration<AcpidConfiguration *>();
 
-    acpidConfiguration->setAcpidPaths(fileList->paths());
+    acpidConfiguration->setAcpidPaths(mFileList->paths());
 }
 
 void AcpidConfigurationWidget::readConfig()
@@ -47,9 +47,9 @@ void AcpidConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
             ->logModeConfiguration<AcpidConfiguration *>();
 
-    fileList->removeAllItems();
+    mFileList->removeAllItems();
 
-    fileList->addPaths(acpidConfiguration->acpidPaths());
+    mFileList->addPaths(acpidConfiguration->acpidPaths());
 }
 
 void AcpidConfigurationWidget::defaultConfig()
@@ -60,7 +60,7 @@ void AcpidConfigurationWidget::defaultConfig()
 
 bool AcpidConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (mFileList->isEmpty() == false) {
         return true;
     }
 

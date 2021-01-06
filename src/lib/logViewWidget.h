@@ -30,9 +30,7 @@
 class LogViewWidgetItem;
 class LogViewModel;
 class LogLine;
-
-class LogViewWidgetPrivate;
-
+class QActionGroup;
 class LogViewWidget : public QTreeWidget
 {
     Q_OBJECT
@@ -80,7 +78,9 @@ private Q_SLOTS:
     void toggleHeader(QAction *action);
 
 private:
-    LogViewWidgetPrivate *const d;
+    LogViewModel *mLogViewModel = nullptr;
+
+    QActionGroup *mHeadersTogglingActions = nullptr;
 };
 
 #endif // LOG_VIEW_WIDGET_H

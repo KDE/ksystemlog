@@ -23,7 +23,7 @@
 
 CupsPdfAnalyzer::CupsPdfAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , cupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
+    , mCupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
                    + QLatin1String("[ ]+\\[(\\w*)\\][ ]+(.*)"))
 { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
 }
@@ -40,13 +40,13 @@ LogViewColumns CupsPdfAnalyzer::initColumns()
 
 LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int firstPosition = cupsPdfRegex.indexIn(logLine);
+    int firstPosition = mCupsPdfRegex.indexIn(logLine);
     if (firstPosition == -1) {
         logDebug() << "Unable to parse line " << logLine;
         return nullptr;
     }
 
-    QStringList capturedTexts = cupsPdfRegex.capturedTexts();
+    QStringList capturedTexts = mCupsPdfRegex.capturedTexts();
 
     /*
   logDebug() << "------------------------------------------";

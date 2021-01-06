@@ -33,14 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class CronConfigurationPrivate
-{
-public:
-    QStringList cronPaths;
-
-    QString processFilter;
-};
-
 class CronConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -59,7 +51,9 @@ public:
     void setCronPaths(const QStringList &cronPaths);
 
 private:
-    CronConfigurationPrivate *const d;
+    QStringList mCronPaths;
+
+    QString mProcessFilter;
 };
 
 #endif // _CRON_CONFIGURATION_H

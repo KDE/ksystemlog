@@ -35,28 +35,28 @@
 
 FileList::FileList(QWidget *parent, const QString &descriptionText)
     : QWidget(parent)
-    , fileListHelper(this)
+    , mFileListHelper(this)
 {
     logDebug() << "Initializing file list...";
 
     setupUi(this);
 
-    warningBox = new KMessageWidget(this);
-    warningBox->setVisible(false);
-    warningBox->setMessageType(KMessageWidget::Warning);
-    warningBox->setText(i18n("Some log files do not exist.\n"
+    mWarningBox = new KMessageWidget(this);
+    mWarningBox->setVisible(false);
+    mWarningBox->setMessageType(KMessageWidget::Warning);
+    mWarningBox->setText(i18n("Some log files do not exist.\n"
                              "If all log files are missing, this mode will be unavailable."));
-    warningBox->setCloseButtonVisible(false);
-    warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
-    vboxLayout->insertWidget(1, warningBox);
+    mWarningBox->setCloseButtonVisible(false);
+    mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
+    vboxLayout->insertWidget(1, mWarningBox);
 
     description->setText(descriptionText);
     connect(description, &QLabel::linkActivated, this, &FileList::slotLinkClicked);
 
-    fileListHelper.prepareButton(add, QIcon::fromTheme(QStringLiteral("document-new")), this, SLOT(addItem()),
+    mFileListHelper.prepareButton(add, QIcon::fromTheme(QStringLiteral("document-new")), this, SLOT(addItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
+    mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
                                  SLOT(modifyItem()), fileList);
 
     // Add a separator in the FileList
@@ -64,16 +64,16 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     separator->setSeparator(true);
     fileList->addAction(separator);
 
-    fileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
+    mFileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
                                  SLOT(removeSelectedItem()), fileList);
 
-    fileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
+    mFileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
+    mFileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
                                  fileList);
 
-    fileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
+    mFileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
                                  SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QListWidget::itemSelectionChanged, this, &FileList::updateButtons);
@@ -108,9 +108,9 @@ void FileList::slotLinkClicked(const QString &link)
 void FileList::addItem()
 {
     // Open a standard Filedialog
-    const QList<QUrl> urls = fileListHelper.openUrls();
+    const QList<QUrl> urls = mFileListHelper.openUrls();
 
-    const QStringList paths = fileListHelper.findPaths(urls);
+    const QStringList paths = mFileListHelper.findPaths(urls);
     for (const QString &path : paths) {
         fileList->addItem(path);
     }
@@ -128,11 +128,11 @@ void FileList::modifyItem(QListWidgetItem *item)
     const QString previousPath = item->text();
 
     // Open a standard Filedialog
-    const QUrl url = fileListHelper.openUrl(previousPath);
+    const QUrl url = mFileListHelper.openUrl(previousPath);
 
     QList<QUrl> urls;
     urls.append(url);
-    const QStringList paths = fileListHelper.findPaths(urls);
+    const QStringList paths = mFileListHelper.findPaths(urls);
 
     // We only take the first path
     if (paths.count() >= 1) {
@@ -202,35 +202,35 @@ void FileList::removeAllItems()
 void FileList::updateButtons()
 {
     if (fileList->count() == 0)
-        fileListHelper.setEnabledAction(removeAll, false);
+        mFileListHelper.setEnabledAction(removeAll, false);
     else
-        fileListHelper.setEnabledAction(removeAll, true);
+        mFileListHelper.setEnabledAction(removeAll, true);
 
     const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
     if (!selectedItems.isEmpty()) {
-        fileListHelper.setEnabledAction(remove, true);
-        fileListHelper.setEnabledAction(modify, true);
+        mFileListHelper.setEnabledAction(remove, true);
+        mFileListHelper.setEnabledAction(modify, true);
 
         QListWidgetItem *selection = selectedItems.at(0);
 
         // If the item is at the top of the list, it could not be upped anymore
         if (fileList->row(selection) == 0)
-            fileListHelper.setEnabledAction(up, false);
+            mFileListHelper.setEnabledAction(up, false);
         else
-            fileListHelper.setEnabledAction(up, true);
+            mFileListHelper.setEnabledAction(up, true);
 
         // If the item is at bottom of the list, it could not be downed anymore
         if (fileList->row(selection) == fileList->count() - 1)
-            fileListHelper.setEnabledAction(down, false);
+            mFileListHelper.setEnabledAction(down, false);
         else
-            fileListHelper.setEnabledAction(down, true);
+            mFileListHelper.setEnabledAction(down, true);
     }
     // If nothing is selected, disabled special buttons
     else {
-        fileListHelper.setEnabledAction(remove, false);
-        fileListHelper.setEnabledAction(modify, false);
-        fileListHelper.setEnabledAction(up, false);
-        fileListHelper.setEnabledAction(down, false);
+        mFileListHelper.setEnabledAction(remove, false);
+        mFileListHelper.setEnabledAction(modify, false);
+        mFileListHelper.setEnabledAction(up, false);
+        mFileListHelper.setEnabledAction(down, false);
     }
 }
 
@@ -251,7 +251,7 @@ void FileList::addPaths(const QStringList &paths)
         }
         fileList->addItem(item);
     }
-    warningBox->setVisible(missingFiles);
+    mWarningBox->setVisible(missingFiles);
 
     updateButtons();
 }

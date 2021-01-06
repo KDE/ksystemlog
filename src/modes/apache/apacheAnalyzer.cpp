@@ -110,17 +110,17 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
 void ApacheAnalyzer::initializeTypeLevels()
 {
-    mapTypeLevels[QStringLiteral("notice")] = Globals::instance().informationLogLevel();
-    mapTypeLevels[QStringLiteral("warn")] = Globals::instance().warningLogLevel();
-    mapTypeLevels[QStringLiteral("error")] = Globals::instance().errorLogLevel();
+    mMapTypeLevels[QStringLiteral("notice")] = Globals::instance().informationLogLevel();
+    mMapTypeLevels[QStringLiteral("warn")] = Globals::instance().warningLogLevel();
+    mMapTypeLevels[QStringLiteral("error")] = Globals::instance().errorLogLevel();
 }
 
 LogLevel *ApacheAnalyzer::findLogLevel(const QString &type)
 {
     QMap<QString, LogLevel *>::iterator it;
 
-    it = mapTypeLevels.find(type);
-    if (it != mapTypeLevels.end()) {
+    it = mMapTypeLevels.find(type);
+    if (it != mMapTypeLevels.end()) {
         return (*it);
     } else {
         logCritical()

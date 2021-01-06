@@ -36,16 +36,7 @@ class SystemConfiguration : public GenericLogModeConfiguration
     Q_OBJECT
 
 public:
-    SystemConfiguration()
-        : GenericLogModeConfiguration(QStringLiteral(SYSTEM_LOG_MODE_ID),
-                                      QStringList() << QStringLiteral("/var/log/syslog"),
-                                      QList<int>() << Globals::INFORMATION_LOG_LEVEL_ID)
-    {
-        /*
-        <default>/var/log/messages,/var/log/syslog,/var/log/debug</default>
-        <default>2,2,1</default>
-        */
-    }
+    SystemConfiguration();
 
     ~SystemConfiguration() override {}
 };

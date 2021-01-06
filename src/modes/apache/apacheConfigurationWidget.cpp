@@ -26,18 +26,18 @@ ApacheConfigurationWidget::ApacheConfigurationWidget()
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    apacheFileList
+    mApacheFileList
             = new MultipleFileList(this, i18n(
                                        "<p>These files will be analyzed to show the <b>Apache log</b> "
                                              "and the <b>Apache Access log</b>.</p>"));
 
-    apachePathsId = apacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
-    apacheAccessPathsId
-            = apacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
+    mApachePathsId = mApacheFileList->addCategory(i18n("Apache Log Files"), i18n("Add Apache File..."));
+    mApacheAccessPathsId
+            = mApacheFileList->addCategory(i18n("Apache Access Log Files"), i18n("Add Apache Access File..."));
 
-    connect(apacheFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mApacheFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(apacheFileList);
+    layout->addWidget(mApacheFileList);
 }
 
 void ApacheConfigurationWidget::saveConfig()
@@ -47,8 +47,8 @@ void ApacheConfigurationWidget::saveConfig()
     ApacheConfiguration *apacheConfiguration = Globals::instance()
             .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
             ->logModeConfiguration<ApacheConfiguration *>();
-    apacheConfiguration->setApachePaths(apacheFileList->paths(apachePathsId));
-    apacheConfiguration->setApacheAccessPaths(apacheFileList->paths(apacheAccessPathsId));
+    apacheConfiguration->setApachePaths(mApacheFileList->paths(mApachePathsId));
+    apacheConfiguration->setApacheAccessPaths(mApacheFileList->paths(mApacheAccessPathsId));
 }
 
 void ApacheConfigurationWidget::defaultConfig()
@@ -63,15 +63,15 @@ void ApacheConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
             ->logModeConfiguration<ApacheConfiguration *>();
 
-    apacheFileList->removeAllItems();
+    mApacheFileList->removeAllItems();
 
-    apacheFileList->addPaths(apachePathsId, apacheConfiguration->apachePaths());
-    apacheFileList->addPaths(apacheAccessPathsId, apacheConfiguration->apacheAccessPaths());
+    mApacheFileList->addPaths(mApachePathsId, apacheConfiguration->apachePaths());
+    mApacheFileList->addPaths(mApacheAccessPathsId, apacheConfiguration->apacheAccessPaths());
 }
 
 bool ApacheConfigurationWidget::isValid() const
 {
-    if (apacheFileList->isOneOfCategoryEmpty() == true) {
+    if (mApacheFileList->isOneOfCategoryEmpty() == true) {
         logDebug() << "Apache configuration not valid";
         return false;
     }

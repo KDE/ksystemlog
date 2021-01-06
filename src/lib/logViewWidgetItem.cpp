@@ -36,27 +36,27 @@
 
 LogViewWidgetItem::LogViewWidgetItem(LogViewWidget *list, LogLine *l)
     : QTreeWidgetItem()
-    , line(l)
+    , mLine(l)
 {
     // Add this item to the LogLine, to let the LogLine initialize it
-    line->setItem(this);
+    mLine->setItem(this);
     list->addTopLevelItem(this);
 }
 
 LogViewWidgetItem::~LogViewWidgetItem()
 {
-    delete line;
+    delete mLine;
 }
 
 LogLine *LogViewWidgetItem::logLine() const
 {
-    return line;
+    return mLine;
 }
 
 void LogViewWidgetItem::toggleToolTip(bool displayed)
 {
     if (displayed == true)
-        setToolTip(columnCount() - 1, line->logMode()->itemBuilder()->createToolTipText(line));
+        setToolTip(columnCount() - 1, mLine->logMode()->itemBuilder()->createToolTipText(mLine));
     else
         setToolTip(columnCount() - 1, QString());
 }
@@ -68,7 +68,7 @@ bool LogViewWidgetItem::operator<(const QTreeWidgetItem &other) const
     // If we sort items by date (always the first column)
     if (sortedColumn == 0) {
         const LogViewWidgetItem &otherItem = static_cast<const LogViewWidgetItem &>(other);
-        return line->isOlderThan(*(otherItem.logLine()));
+        return mLine->isOlderThan(*(otherItem.logLine()));
     }
     // Default sorting
     else {

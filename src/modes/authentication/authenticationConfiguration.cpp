@@ -22,34 +22,33 @@
 #include "authenticationConfiguration.h"
 
 AuthenticationConfiguration::AuthenticationConfiguration()
-    : d(new AuthenticationConfigurationPrivate())
 {
     configuration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
 
     QString defaultAuthenticationPath(QStringLiteral("/var/log/auth.log"));
-    configuration->addItemString(QStringLiteral("LogFilePath"), d->authenticationPath,
+    configuration->addItemString(QStringLiteral("LogFilePath"), mAuthenticationPath,
                                  defaultAuthenticationPath, QStringLiteral("LogFilePath"));
 
     QStringList defaultWarningKeywords;
     defaultWarningKeywords.append(QStringLiteral("failed"));
-    configuration->addItemStringList(QStringLiteral("WarningKeywords"), d->warningKeywords,
+    configuration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
     QStringList defaultErrorKeywords;
     defaultErrorKeywords.append(QStringLiteral("error"));
-    configuration->addItemStringList(QStringLiteral("ErrorKeywords"), d->errorKeywords,
+    configuration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
-AuthenticationConfiguration::~AuthenticationConfiguration() { delete d; }
+AuthenticationConfiguration::~AuthenticationConfiguration() {}
 
-QString AuthenticationConfiguration::authenticationPath() const { return d->authenticationPath; }
+QString AuthenticationConfiguration::authenticationPath() const { return mAuthenticationPath; }
 
 void AuthenticationConfiguration::setAuthenticationPath(const QString &authenticationPath)
 {
-    d->authenticationPath = authenticationPath;
+    mAuthenticationPath = authenticationPath;
 }
 
-QStringList AuthenticationConfiguration::warningKeywords() const { return d->warningKeywords; }
+QStringList AuthenticationConfiguration::warningKeywords() const { return mWarningKeywords; }
 
-QStringList AuthenticationConfiguration::errorKeywords() const { return d->errorKeywords; }
+QStringList AuthenticationConfiguration::errorKeywords() const { return mErrorKeywords; }

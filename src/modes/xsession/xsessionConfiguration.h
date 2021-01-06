@@ -33,19 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class XSessionConfigurationPrivate
-{
-public:
-    QString xsessionPath;
-
-    bool ignoreXorgErrors;
-
-    QStringList xorgErrorKeywords;
-
-    QStringList warningKeywords;
-    QStringList errorKeywords;
-};
-
 class XSessionConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -70,7 +57,14 @@ public:
     QStringList errorKeywords() const;
 
 private:
-    XSessionConfigurationPrivate *const d;
+    QString mXsessionPath;
+
+    bool mIgnoreXorgErrors;
+
+    QStringList mXorgErrorKeywords;
+
+    QStringList mWarningKeywords;
+    QStringList mErrorKeywords;
 };
 
 #endif // _X_SESSION_CONFIGURATION_H

@@ -28,16 +28,16 @@ SystemConfigurationWidget::SystemConfigurationWidget()
 
     QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
-    fileList = new LogLevelFileList(this, description);
+    mFileList = new LogLevelFileList(this, description);
 
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
-    layout->addWidget(fileList);
+    layout->addWidget(mFileList);
 }
 
 bool SystemConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (mFileList->isEmpty() == false) {
         logDebug() << "System configuration valid";
         return true;
     }
@@ -53,8 +53,8 @@ void SystemConfigurationWidget::saveConfig()
     SystemConfiguration *systemConfiguration = Globals::instance()
             .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
             ->logModeConfiguration<SystemConfiguration *>();
-    systemConfiguration->setLogFilesPaths(fileList->paths());
-    systemConfiguration->setLogFilesLevels(fileList->levels());
+    systemConfiguration->setLogFilesPaths(mFileList->paths());
+    systemConfiguration->setLogFilesLevels(mFileList->levels());
 }
 
 void SystemConfigurationWidget::readConfig()
@@ -63,9 +63,9 @@ void SystemConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
             ->logModeConfiguration<SystemConfiguration *>();
 
-    fileList->removeAllItems();
+    mFileList->removeAllItems();
 
-    fileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
+    mFileList->addPaths(systemConfiguration->logFilesPaths(), systemConfiguration->logFilesLevels());
 }
 
 void SystemConfigurationWidget::defaultConfig()

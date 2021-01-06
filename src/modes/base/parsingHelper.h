@@ -62,9 +62,9 @@ private:
 
     static ParsingHelper *self;
 
-    QMap<QString, int> mapMonths;
+    QMap<QString, int> mMapMonths;
 
-    QMap<QString, QString> mapHTTPResponse;
+    QMap<QString, QString> mMapHTTPResponse;
 };
 
 #endif

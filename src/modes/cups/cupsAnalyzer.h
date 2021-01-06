@@ -73,7 +73,7 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
 private:
-    QMap<QChar, LogLevel *> mapTypeLevels;
+    QMap<QChar, LogLevel *> mMapTypeLevels;
 
     void initializeTypeLevels();
 

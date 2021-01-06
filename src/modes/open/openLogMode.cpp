@@ -35,7 +35,7 @@
 
 OpenLogMode::OpenLogMode(QWidget *parent)
     : LogMode(QStringLiteral(OPEN_LOG_MODE_ID), i18n("Log File"), QStringLiteral(OPEN_MODE_ICON))
-    , parent(parent)
+    , mParent(parent)
 {
     d->logModeConfigurationWidget = nullptr;
 
@@ -57,7 +57,7 @@ Analyzer *OpenLogMode::createAnalyzer(const QVariant &options)
 QList<LogFile> OpenLogMode::createLogFiles()
 {
     // Open a standard Filedialog
-    const QUrl openingFileName(QFileDialog::getOpenFileUrl(parent, i18n("Open Location"), QUrl(), QString()));
+    const QUrl openingFileName(QFileDialog::getOpenFileUrl(mParent, i18n("Open Location"), QUrl(), QString()));
     logDebug() << "Opening file : " << openingFileName.url();
 
     if (openingFileName.isEmpty()) {
@@ -73,7 +73,7 @@ QList<LogFile> OpenLogMode::createLogFiles()
     }
 
     const QString message(i18n("Malformed URL. Unable to open this file."));
-    KMessageBox::error(parent, message, i18n("Unable to open this file."), KMessageBox::Notify);
+    KMessageBox::error(mParent, message, i18n("Unable to open this file."), KMessageBox::Notify);
 
     return QList<LogFile>();
 }

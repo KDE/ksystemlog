@@ -20,3 +20,105 @@
  ***************************************************************************/
 
 #include "sambaAnalyzer.h"
+
+SambaAnalyzer::SambaAnalyzer(LogMode *logMode)
+    : FileAnalyzer(logMode)
+{
+    mCurrentLogLine = nullptr;
+}
+
+LogViewColumns SambaAnalyzer::initColumns()
+{
+    LogViewColumns columns;
+
+    columns.addColumn(LogViewColumn(i18n("Date"), true, false));
+    columns.addColumn(LogViewColumn(i18n("Source File"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Function"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Line"), true, true));
+    columns.addColumn(LogViewColumn(i18n("Message"), true, false));
+
+    return columns;
+}
+
+LogFileReader *SambaAnalyzer::createLogFileReader(const LogFile &logFile) { return new LocalLogFileReader(logFile); }
+
+Analyzer::LogFileSortMode SambaAnalyzer::logFileSortMode() { return Analyzer::AscendingSortedLogFile; }
+
+LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
+{
+    QString line(logLine);
+
+    // The Date
+    int dateBegin = line.indexOf(QLatin1String("["));
+    int dateEnd = line.indexOf(QLatin1String("]"));
+
+    if (dateBegin != -1) {
+        QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
+
+        QString year = strDate.mid(0, 4);
+        QString month = strDate.mid(5, 2);
+        QString day = strDate.mid(8, 2);
+
+        QString hour = strDate.mid(11, 2);
+        QString min = strDate.mid(14, 2);
+        QString sec = strDate.mid(17, 2);
+
+        QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
+        QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
+
+        line.remove(0, dateEnd + 2);
+
+        // The source file
+        int doubleDot;
+        doubleDot = line.indexOf(QLatin1Char(':'));
+        QString file = line.left(doubleDot);
+        line.remove(0, doubleDot + 1);
+
+        // The function
+        int bracket = line.indexOf(QLatin1Char('('));
+        QString function = line.left(bracket);
+        line.remove(0, bracket + 1);
+
+        // The line number
+        bracket = line.indexOf(QLatin1Char(')'));
+        QString lineNumber = line.left(bracket);
+
+        // Remove the first return character and the two useless space of the first message line
+        line.remove(0, bracket + 4);
+
+        QStringList list;
+        list.append(file);
+        list.append(function);
+        list.append(lineNumber);
+
+        logDebug() << "Creating new line ";
+
+        LogLine *returnedLogLine = mCurrentLogLine;
+
+        mCurrentLogLine = new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
+                                     originalLogFile.url().toLocalFile(),
+                                     Globals::instance().informationLogLevel(), mLogMode);
+
+        return returnedLogLine;
+    }
+
+    if (line.indexOf(QLatin1String("  ")) != -1) {
+        if (mCurrentLogLine != nullptr) {
+            QStringList list = mCurrentLogLine->logItems();
+
+            // A line has already been added
+            if (list.count() == 4) {
+                QString currentMessage = list.takeLast();
+                list.append(currentMessage + QLatin1String("\n") + line.simplified());
+            }
+            // First time we add a line for the current Log line
+            else {
+                list.append(line.simplified());
+            }
+
+            mCurrentLogLine->setLogItems(list);
+        }
+    }
+
+    return nullptr;
+}

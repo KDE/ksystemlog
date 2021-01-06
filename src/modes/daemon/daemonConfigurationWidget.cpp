@@ -27,10 +27,10 @@ DaemonConfigurationWidget::DaemonConfigurationWidget()
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    fileList = new FileList(
+    mFileList = new FileList(
                 this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
-    connect(fileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
-    layout->addWidget(fileList);
+    connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
+    layout->addWidget(mFileList);
 }
 
 void DaemonConfigurationWidget::saveConfig()
@@ -39,7 +39,7 @@ void DaemonConfigurationWidget::saveConfig()
             .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
             ->logModeConfiguration<DaemonConfiguration *>();
 
-    daemonConfiguration->setDaemonPaths(fileList->paths());
+    daemonConfiguration->setDaemonPaths(mFileList->paths());
 }
 
 void DaemonConfigurationWidget::readConfig()
@@ -48,9 +48,9 @@ void DaemonConfigurationWidget::readConfig()
             .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
             ->logModeConfiguration<DaemonConfiguration *>();
 
-    fileList->removeAllItems();
+    mFileList->removeAllItems();
 
-    fileList->addPaths(daemonConfiguration->daemonPaths());
+    mFileList->addPaths(daemonConfiguration->daemonPaths());
 }
 
 void DaemonConfigurationWidget::defaultConfig()
@@ -61,7 +61,7 @@ void DaemonConfigurationWidget::defaultConfig()
 
 bool DaemonConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (mFileList->isEmpty() == false) {
         return true;
     }
 

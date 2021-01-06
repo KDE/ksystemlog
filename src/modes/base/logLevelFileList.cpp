@@ -56,7 +56,7 @@ LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
     // Insert the button just after the "Modify File" button
     buttonsLayout()->insertWidget(2, changeItem);
 
-    QAction *action = fileListHelper.prepareButtonAndAction(
+    QAction *action = mFileListHelper.prepareButtonAndAction(
         changeItem, QIcon::fromTheme(QStringLiteral("favorites")), this, SLOT(changeItemType()));
 
     // Insert the action just after the "Modify File" action
@@ -92,9 +92,9 @@ void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool
 void LogLevelFileList::addItem()
 {
     // Open a standard Filedialog
-    const QList<QUrl> urls = fileListHelper.openUrls();
+    const QList<QUrl> urls = mFileListHelper.openUrls();
 
-    const QStringList paths = fileListHelper.findPaths(urls);
+    const QStringList paths = mFileListHelper.findPaths(urls);
     for (const QString &path : paths) {
         insertItem(Globals::instance().informationLogLevel(), path);
     }
@@ -191,7 +191,7 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
         insertItem(level, valueString, missingFile);
     }
 
-    warningBox->setVisible(missingFiles);
+    mWarningBox->setVisible(missingFiles);
 
     Q_EMIT fileListChanged();
 }

@@ -50,7 +50,7 @@ public:
     /*
      * Log view
      */
-    LogViewWidget *logViewWidget = nullptr;
+    LogViewWidget *mLogViewWidget = nullptr;
 
     /**
      * Filter widget
@@ -83,15 +83,15 @@ View::View(QWidget *parent)
 
     topLayout->addWidget(d->logViewFilterWidget);
 
-    d->logViewWidget = new LogViewWidget(this);
-    connect(d->logViewWidget, &LogViewWidget::columnsChanged, d->logViewFilterWidget,
+    d->mLogViewWidget = new LogViewWidget(this);
+    connect(d->mLogViewWidget, &LogViewWidget::columnsChanged, d->logViewFilterWidget,
             &LogViewFilterWidget::updateFilterColumns);
 
-    d->logViewFilterWidget->filterLine()->setTreeWidget(d->logViewWidget);
-    topLayout->addWidget(d->logViewWidget);
+    d->logViewFilterWidget->filterLine()->setTreeWidget(d->mLogViewWidget);
+    topLayout->addWidget(d->mLogViewWidget);
 
     d->logViewSearchWidget = new LogViewSearchWidget();
-    d->logViewSearchWidget->setTreeWidget(d->logViewWidget);
+    d->logViewSearchWidget->setTreeWidget(d->mLogViewWidget);
 
     // The search line is hidden by default
     d->logViewSearchWidget->hide();
@@ -117,7 +117,7 @@ View::~View()
 
 LogViewWidget *View::logViewWidget() const
 {
-    return d->logViewWidget;
+    return d->mLogViewWidget;
 }
 
 LoadingBar *View::loadingBar() const
@@ -128,13 +128,13 @@ LoadingBar *View::loadingBar() const
 void View::displayLoadingBar(bool display)
 {
     if (display == true) {
-        d->logViewWidget->hide();
+        d->mLogViewWidget->hide();
         d->logViewSearchWidget->hide();
         d->logViewFilterWidget->hide();
 
         d->loadingBar->show();
     } else {
-        d->logViewWidget->show();
+        d->mLogViewWidget->show();
         d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
         d->logViewFilterWidget->filterLine()->updateSearch();
         // No need to redisplay the search bar
@@ -168,7 +168,7 @@ LogViewSearchWidget *View::logViewSearch() const
 
 void View::unselectHiddenItems()
 {
-    QTreeWidgetItemIterator it(d->logViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(d->mLogViewWidget, QTreeWidgetItemIterator::Selected);
 
     while (*it != nullptr) {
         QTreeWidgetItem *item = *it;

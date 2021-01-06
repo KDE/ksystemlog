@@ -45,7 +45,7 @@ public:
     LogViewColumns initColumns() override;
 
 protected:
-    QRegExp cupsPdfRegex;
+    QRegExp mCupsPdfRegex;
 
     LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
 

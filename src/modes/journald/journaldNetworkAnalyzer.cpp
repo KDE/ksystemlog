@@ -38,41 +38,41 @@
 JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *mode, const JournaldAnalyzerOptions &options)
     : JournaldAnalyzer(mode)
 {
-    m_address = options.address;
+    mAddress = options.address;
 
-    connect(&m_networkManager, &QNetworkAccessManager::sslErrors, this, &JournaldNetworkAnalyzer::sslErrors);
+    connect(&mNetworkManager, &QNetworkAccessManager::sslErrors, this, &JournaldNetworkAnalyzer::sslErrors);
 
     JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
 
-    m_baseUrl = QStringLiteral("%1://%2:%3/")
-                    .arg(m_address.https ? QStringLiteral("https") : QStringLiteral("http"))
-                    .arg(m_address.address)
-                    .arg(m_address.port);
+    mBaseUrl = QStringLiteral("%1://%2:%3/")
+                    .arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http"))
+                    .arg(mAddress.address)
+                    .arg(mAddress.port);
 
-    m_entriesUrlUpdating = m_baseUrl + QStringLiteral("entries");
-    m_entriesUrlFull = m_entriesUrlUpdating;
+    mEntriesUrlUpdating = mBaseUrl + QStringLiteral("entries");
+    mEntriesUrlFull = mEntriesUrlUpdating;
 
     QString filterPrefix;
     if (configuration->displayCurrentBootOnly()) {
-        m_entriesUrlUpdating.append(QStringLiteral("?boot&follow"));
-        m_entriesUrlFull.append(QStringLiteral("?boot"));
+        mEntriesUrlUpdating.append(QStringLiteral("?boot&follow"));
+        mEntriesUrlFull.append(QStringLiteral("?boot"));
         filterPrefix = QStringLiteral("&");
     } else {
-        m_entriesUrlUpdating.append(QStringLiteral("?follow"));
+        mEntriesUrlUpdating.append(QStringLiteral("?follow"));
         filterPrefix = QStringLiteral("?");
     }
 
     if (!options.filter.isEmpty()) {
-        m_entriesUrlUpdating.append(QStringLiteral("&") + options.filter);
-        m_entriesUrlFull.append(filterPrefix + options.filter);
+        mEntriesUrlUpdating.append(QStringLiteral("&") + options.filter);
+        mEntriesUrlFull.append(filterPrefix + options.filter);
     }
 
-    m_syslogIdUrl = m_baseUrl + QStringLiteral("fields/SYSLOG_IDENTIFIER");
-    m_systemdUnitsUrl = m_baseUrl + QStringLiteral("fields/_SYSTEMD_UNIT");
+    mSyslogIdUrl = mBaseUrl + QStringLiteral("fields/SYSLOG_IDENTIFIER");
+    mSystemdUnitsUrl = mBaseUrl + QStringLiteral("fields/_SYSTEMD_UNIT");
 
-    m_filterName = options.filter.section(QChar::fromLatin1('='), 1);
+    mFilterName = options.filter.section(QChar::fromLatin1('='), 1);
 
-    m_reply = nullptr;
+    mReply = nullptr;
 }
 
 void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
@@ -80,35 +80,35 @@ void JournaldNetworkAnalyzer::watchLogFiles(bool enabled)
     if (enabled) {
         sendRequest(RequestType::SyslogIds);
     } else {
-        m_cursor.clear();
+        mCursor.clear();
         updateStatus(QString());
-        if (m_reply) {
-            m_reply->abort();
-            m_reply->deleteLater();
-            m_reply = nullptr;
+        if (mReply) {
+            mReply->abort();
+            mReply->deleteLater();
+            mReply = nullptr;
         }
     }
 }
 
 QStringList JournaldNetworkAnalyzer::units() const
 {
-    return m_systemdUnits;
+    return mSystemdUnits;
 }
 
 QStringList JournaldNetworkAnalyzer::syslogIdentifiers() const
 {
-    return m_syslogIdentifiers;
+    return mSyslogIdentifiers;
 }
 
 void JournaldNetworkAnalyzer::httpFinished()
 {
-    QByteArray data = m_reply->readAll();
-    if (m_currentRequest == RequestType::EntriesFull) {
+    QByteArray data = mReply->readAll();
+    if (mCurrentRequest == RequestType::EntriesFull) {
         if (data.size()) {
             parseEntries(data, FullRead);
             updateStatus(i18n("Connected"));
         }
-        if (!m_cursor.isEmpty())
+        if (!mCursor.isEmpty())
             sendRequest(RequestType::EntriesUpdate);
         else {
             logWarning() << "Network journal analyzer failed to extract cursor string. "
@@ -121,20 +121,20 @@ void JournaldNetworkAnalyzer::httpFinished()
 #else
         QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), Qt::SkipEmptyParts);
 #endif
-        switch (m_currentRequest) {
+        switch (mCurrentRequest) {
         case RequestType::SyslogIds:
-            m_syslogIdentifiers = identifiersList;
-            m_syslogIdentifiers.sort();
+            mSyslogIdentifiers = identifiersList;
+            mSyslogIdentifiers.sort();
             sendRequest(RequestType::Units);
             break;
         case RequestType::Units: {
-            m_systemdUnits = identifiersList;
-            m_systemdUnits.sort();
+            mSystemdUnits = identifiersList;
+            mSystemdUnits.sort();
             JournaldLogMode *journalLogMode = dynamic_cast<JournaldLogMode *>(mLogMode);
             JournalFilters filters;
-            filters.syslogIdentifiers = m_syslogIdentifiers;
-            filters.systemdUnits = m_systemdUnits;
-            journalLogMode->updateJournalFilters(m_address, filters);
+            filters.syslogIdentifiers = mSyslogIdentifiers;
+            filters.systemdUnits = mSystemdUnits;
+            journalLogMode->updateJournalFilters(mAddress, filters);
             // Regenerate the "Logs" submenu to include new syslog identifiers and systemd units.
             Q_EMIT mLogMode->menuChanged();
             sendRequest(RequestType::EntriesFull);
@@ -148,8 +148,8 @@ void JournaldNetworkAnalyzer::httpFinished()
 
 void JournaldNetworkAnalyzer::httpReadyRead()
 {
-    if (m_currentRequest == RequestType::EntriesUpdate) {
-        QByteArray data = m_reply->readAll();
+    if (mCurrentRequest == RequestType::EntriesUpdate) {
+        QByteArray data = mReply->readAll();
         parseEntries(data, UpdatingRead);
     }
 }
@@ -193,7 +193,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         QJsonObject object = doc.object();
 
         if ((readingMode == FullRead) && (i == items.size() - 1)) {
-            m_cursor = object[QStringLiteral("__CURSOR")].toString();
+            mCursor = object[QStringLiteral("__CURSOR")].toString();
             break;
         }
 
@@ -253,52 +253,52 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
 
 void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
 {
-    if (m_reply)
-        m_reply->deleteLater();
+    if (mReply)
+        mReply->deleteLater();
 
-    m_currentRequest = requestType;
+    mCurrentRequest = requestType;
 
     QNetworkRequest request;
     QString url;
 
     switch (requestType) {
     case RequestType::SyslogIds:
-        url = m_syslogIdUrl;
+        url = mSyslogIdUrl;
         break;
     case RequestType::Units:
-        url = m_systemdUnitsUrl;
+        url = mSystemdUnitsUrl;
         break;
     case RequestType::EntriesFull: {
-        url = m_entriesUrlFull;
+        url = mEntriesUrlFull;
         int entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QStringLiteral("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;
     case RequestType::EntriesUpdate:
-        url = m_entriesUrlUpdating;
+        url = mEntriesUrlUpdating;
         request.setRawHeader("Accept", "application/json");
-        request.setRawHeader("Range", QStringLiteral("entries=%1").arg(m_cursor).toUtf8());
+        request.setRawHeader("Range", QStringLiteral("entries=%1").arg(mCursor).toUtf8());
     default:
         break;
     }
 
     request.setUrl(QUrl(url));
     logDebug() << "Journal network analyzer requested" << url;
-    m_reply = m_networkManager.get(request);
-    connect(m_reply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
-    connect(m_reply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
+    mReply = mNetworkManager.get(request);
+    connect(mReply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
+    connect(mReply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
 #else
-    connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), this, &JournaldNetworkAnalyzer::httpError);
+    connect(mReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), this, &JournaldNetworkAnalyzer::httpError);
 #endif
 }
 
 void JournaldNetworkAnalyzer::updateStatus(const QString &status)
 {
-    QString newStatus = m_baseUrl;
-    if (!m_filterName.isEmpty()) {
-        newStatus += QLatin1String(" - ") + m_filterName;
+    QString newStatus = mBaseUrl;
+    if (!mFilterName.isEmpty()) {
+        newStatus += QLatin1String(" - ") + mFilterName;
     }
     if (!status.isEmpty()) {
         newStatus += QLatin1String(" - ") + status;

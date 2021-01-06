@@ -48,7 +48,7 @@ public:
     QAction *actionMenu() override;
 
 private:
-    QAction *action;
+    QAction *mAction;
 };
 
 #endif // _SIMPLE_ACTIONS_H

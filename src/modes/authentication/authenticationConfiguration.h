@@ -33,15 +33,6 @@
 
 #include "ksystemlogConfig.h"
 
-class AuthenticationConfigurationPrivate
-{
-public:
-    QString authenticationPath;
-
-    QStringList warningKeywords;
-    QStringList errorKeywords;
-};
-
 class AuthenticationConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
@@ -60,7 +51,10 @@ public:
     QStringList errorKeywords() const;
 
 private:
-    AuthenticationConfigurationPrivate *const d;
+    QString mAuthenticationPath;
+
+    QStringList mWarningKeywords;
+    QStringList mErrorKeywords;
 };
 
 #endif // _AUTHENTICATION_CONFIGURATION_H

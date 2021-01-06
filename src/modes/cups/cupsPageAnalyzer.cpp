@@ -23,7 +23,7 @@
 
 CupsPageAnalyzer::CupsPageAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , cupsPageRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
+    , mCupsPageRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] (\\S*) (\\S*) (\\S*)"))
 {
 }
 
@@ -48,13 +48,13 @@ Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode() { return Analyzer:
 
 LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int firstPosition = cupsPageRegex.indexIn(logLine);
+    int firstPosition = mCupsPageRegex.indexIn(logLine);
     if (firstPosition == -1) {
         logDebug() << "Unable to parse line " << logLine;
         return nullptr;
     }
 
-    QStringList capturedTexts = cupsPageRegex.capturedTexts();
+    QStringList capturedTexts = mCupsPageRegex.capturedTexts();
 
     // Remove full line
     capturedTexts.removeAt(0);

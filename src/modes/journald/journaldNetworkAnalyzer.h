@@ -58,21 +58,21 @@ private:
 
     void updateStatus(const QString &status);
 
-    RequestType m_currentRequest;
-    QString m_baseUrl;
-    QString m_entriesUrlFull;
-    QString m_entriesUrlUpdating;
-    QString m_syslogIdUrl;
-    QString m_systemdUnitsUrl;
+    RequestType mCurrentRequest;
+    QString mBaseUrl;
+    QString mEntriesUrlFull;
+    QString mEntriesUrlUpdating;
+    QString mSyslogIdUrl;
+    QString mSystemdUnitsUrl;
 
-    QStringList m_syslogIdentifiers;
-    QStringList m_systemdUnits;
+    QStringList mSyslogIdentifiers;
+    QStringList mSystemdUnits;
 
-    QNetworkAccessManager m_networkManager;
-    QNetworkReply *m_reply;
-    QString m_cursor;
-    JournalAddress m_address;
-    QString m_filterName;
+    QNetworkAccessManager mNetworkManager;
+    QNetworkReply *mReply = nullptr;
+    QString mCursor;
+    JournalAddress mAddress;
+    QString mFilterName;
 };
 
 #endif // _JOURNALD_NETWORK_ANALYZER_H

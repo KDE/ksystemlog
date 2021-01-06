@@ -58,8 +58,8 @@ void KernelAnalyzer::startupTime()
     QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1Char('.')));
     long updateSeconds = pureSecondsString.toLong();
 
-    startupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
-    logDebug() << "Startup time : " << startupDateTime;
+    mStartupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
+    logDebug() << "Startup time : " << mStartupDateTime;
 }
 
 LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
@@ -69,7 +69,7 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
     //			QRegExp messageRegexp(timeRegex + "(.*)");
 
-    QDateTime dateTime(startupDateTime);
+    QDateTime dateTime(mStartupDateTime);
     QStringList messages;
 
     int timeExists = timeRegex.indexIn(logLine);

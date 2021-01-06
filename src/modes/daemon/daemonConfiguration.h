@@ -31,36 +31,21 @@
 
 #include "ksystemlogConfig.h"
 
-class DaemonConfigurationPrivate
-{
-public:
-    QStringList daemonPaths;
-};
-
 class DaemonConfiguration : public LogModeConfiguration
 {
     Q_OBJECT
 
 public:
-    DaemonConfiguration()
-        : d(new DaemonConfigurationPrivate())
-    {
-        configuration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
+    DaemonConfiguration();
 
-        QStringList defaultDaemonPaths;
-        defaultDaemonPaths << QStringLiteral("/var/log/daemon.log");
-        configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->daemonPaths, defaultDaemonPaths,
-                                         QStringLiteral("LogFilesPaths"));
-    }
+    ~DaemonConfiguration() override;
 
-    ~DaemonConfiguration() override { delete d; }
+    QStringList daemonPaths() const;
 
-    QStringList daemonPaths() const { return d->daemonPaths; }
-
-    void setDaemonPaths(const QStringList &daemonPaths) { d->daemonPaths = daemonPaths; }
+    void setDaemonPaths(const QStringList &daemonPaths);
 
 private:
-    DaemonConfigurationPrivate *const d;
+    QStringList mDaemonPaths;
 };
 
 #endif // _DAEMON_CONFIGURATION_H

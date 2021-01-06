@@ -56,12 +56,12 @@ protected:
     bool isValid() const override;
 
 private:
-    MultipleFileList *cupsFileList = nullptr;
+    MultipleFileList *mCupsFileList = nullptr;
 
-    int cupsPathsId;
-    int cupsAccessPathsId;
-    int cupsPagePathsId;
-    int cupsPdfPathsId;
+    int mCupsPathsId;
+    int mCupsAccessPathsId;
+    int mCupsPagePathsId;
+    int mCupsPdfPathsId;
 };
 
 #endif // _CUPS_CONFIGURATION_WIDGET_H

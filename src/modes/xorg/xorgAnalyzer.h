@@ -54,13 +54,13 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 
 private:
-    QMap<QString, LogLevel *> xorgLevels;
 
     void initializeTypeName();
 
     LogLevel *findTypeName(const QString &type);
 
-    QDateTime currentDateTime;
+    QMap<QString, LogLevel *> mXorgLevels;
+    QDateTime mCurrentDateTime;
 };
 
 #endif // _XORG_ANALYZER_H

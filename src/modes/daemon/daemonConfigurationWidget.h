@@ -58,7 +58,7 @@ protected:
     bool isValid() const override;
 
 private:
-    FileList *fileList = nullptr;
+    FileList *mFileList = nullptr;
 };
 
 #endif // _DAEMON_CONFIGURATION_WIDGET_H

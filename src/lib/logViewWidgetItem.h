@@ -47,7 +47,7 @@ public:
 
 private:
     // TODO Move this log line to QTreeWidgetItem::data() method
-    LogLine *line;
+    LogLine *mLine = nullptr;
 };
 
 #endif // LOG_VIEW_WIDGET_ITEM_H

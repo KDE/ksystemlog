@@ -56,7 +56,7 @@ public:
 
     ~KernelAnalyzerLocalReader() override {}
 
-    QDateTime findStartupTime() { return startupDateTime; }
+    QDateTime findStartupTime() { return mStartupDateTime; }
 
 protected:
     LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }

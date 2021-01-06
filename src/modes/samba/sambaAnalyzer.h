@@ -37,31 +37,16 @@ class SambaAnalyzer : public FileAnalyzer
     Q_OBJECT
 
 public:
-    explicit SambaAnalyzer(LogMode *logMode)
-        : FileAnalyzer(logMode)
-    {
-        currentLogLine = nullptr;
-    }
+    explicit SambaAnalyzer(LogMode *logMode);
 
     ~SambaAnalyzer() override {}
 
-    LogViewColumns initColumns() override
-    {
-        LogViewColumns columns;
-
-        columns.addColumn(LogViewColumn(i18n("Date"), true, false));
-        columns.addColumn(LogViewColumn(i18n("Source File"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Function"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Line"), true, true));
-        columns.addColumn(LogViewColumn(i18n("Message"), true, false));
-
-        return columns;
-    }
+    LogViewColumns initColumns() override;
 
 protected:
-    LogFileReader *createLogFileReader(const LogFile &logFile) override { return new LocalLogFileReader(logFile); }
+    LogFileReader *createLogFileReader(const LogFile &logFile) override;
 
-    Analyzer::LogFileSortMode logFileSortMode() override { return Analyzer::AscendingSortedLogFile; }
+    Analyzer::LogFileSortMode logFileSortMode() override;
 
     /*
      * Log line examples :
@@ -84,86 +69,9 @@ protected:
      * that the last file line is the last message of the current log line.
      * So the previous last line will be returned at the next file update,
      */
-    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override
-    {
-        QString line(logLine);
+    LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 
-        // The Date
-        int dateBegin = line.indexOf(QLatin1String("["));
-        int dateEnd = line.indexOf(QLatin1String("]"));
-
-        if (dateBegin != -1) {
-            QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
-
-            QString year = strDate.mid(0, 4);
-            QString month = strDate.mid(5, 2);
-            QString day = strDate.mid(8, 2);
-
-            QString hour = strDate.mid(11, 2);
-            QString min = strDate.mid(14, 2);
-            QString sec = strDate.mid(17, 2);
-
-            QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
-            QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
-
-            line.remove(0, dateEnd + 2);
-
-            // The source file
-            int doubleDot;
-            doubleDot = line.indexOf(QLatin1Char(':'));
-            QString file = line.left(doubleDot);
-            line.remove(0, doubleDot + 1);
-
-            // The function
-            int bracket = line.indexOf(QLatin1Char('('));
-            QString function = line.left(bracket);
-            line.remove(0, bracket + 1);
-
-            // The line number
-            bracket = line.indexOf(QLatin1Char(')'));
-            QString lineNumber = line.left(bracket);
-
-            // Remove the first return character and the two useless space of the first message line
-            line.remove(0, bracket + 4);
-
-            QStringList list;
-            list.append(file);
-            list.append(function);
-            list.append(lineNumber);
-
-            logDebug() << "Creating new line ";
-
-            LogLine *returnedLogLine = currentLogLine;
-
-            currentLogLine = new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
-                                         originalLogFile.url().toLocalFile(),
-                                         Globals::instance().informationLogLevel(), mLogMode);
-
-            return returnedLogLine;
-        }
-
-        if (line.indexOf(QLatin1String("  ")) != -1) {
-            if (currentLogLine != nullptr) {
-                QStringList list = currentLogLine->logItems();
-
-                // A line has already been added
-                if (list.count() == 4) {
-                    QString currentMessage = list.takeLast();
-                    list.append(currentMessage + QLatin1String("\n") + line.simplified());
-                }
-                // First time we add a line for the current Log line
-                else {
-                    list.append(line.simplified());
-                }
-
-                currentLogLine->setLogItems(list);
-            }
-        }
-
-        return nullptr;
-    }
-
-    LogLine *currentLogLine;
+    LogLine *mCurrentLogLine;
 };
 
 #endif // _SAMBA_ANALYZER_H

@@ -53,9 +53,9 @@ public:
     void setRemoteJournals(const QList<JournalAddress> &remoteJournals);
 
 private:
-    bool m_displayCurrentBootOnly;
-    int m_entriesType;
-    QStringList m_remoteJournals;
+    bool mDisplayCurrentBootOnly;
+    int mEntriesType;
+    QStringList mRemoteJournals;
 };
 
 #endif // _JOURNALD_CONFIGURATION_H

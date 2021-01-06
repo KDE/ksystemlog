@@ -30,8 +30,6 @@
 class LogLine;
 class LogViewWidget;
 
-class LogViewModelPrivate;
-
 class LogViewModel : public QObject
 {
     Q_OBJECT
@@ -86,7 +84,11 @@ private:
      */
     void removeRecentStatusOfLogLines();
 
-    LogViewModelPrivate *const d;
+    LogViewWidget *mLogViewWidget = nullptr;
+
+    LogViewWidgetItem *mOldestItem = nullptr;
+
+    int mConcurrentMultipleInsertions = 0;
 };
 
 #endif //_LOG_VIEW_MODEL_H
