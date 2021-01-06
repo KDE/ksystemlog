@@ -45,9 +45,9 @@ public:
 
     ~TabLogViewsWidget() override;
 
-    QList<LogManager *> logManagers();
+    QList<LogManager *> logManagers() const;
 
-    LogManager *activeLogManager();
+    LogManager *activeLogManager() const;
 
     void load(LogMode *logMode, LogManager *manager, const QVariant &analyzerOptions = QVariant());
 
@@ -101,10 +101,10 @@ private:
 
     LogManager *findRelatedLogManager(View *view);
 
-    QIcon logModeIcon(LogMode *icon);
+    QIcon logModeIcon(LogMode *icon) const;
 
-    TabLogManager *activeTabLogManager();
-    TabLogManager *findRelatedTabLogManager(View *view);
+    TabLogManager *activeTabLogManager() const;
+    TabLogManager *findRelatedTabLogManager(View *view) const;
 
     void prepareContextMenu(bool onTab);
 

@@ -57,7 +57,7 @@ DetailDialog::~DetailDialog()
 
 void DetailDialog::selectionChanged(LogViewWidget *logViewWidget)
 {
-    this->logViewWidget = logViewWidget;
+    this->mLogViewWidget = logViewWidget;
 
     updateDetails();
 }
@@ -68,7 +68,7 @@ void DetailDialog::updateDetails()
     // logDebug() << "Updating Detail Dialog...";
 
     // Get the current-last item selected
-    LogViewWidgetItem *item = logViewWidget->lastSelectedItem();
+    LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
     if (!item) {
         logDebug() << "No item found.";
         return;
@@ -80,12 +80,12 @@ void DetailDialog::updateDetails()
 
     message->setText(item->logLine()->logItems().last());
 
-    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) - 1) == nullptr)
+    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) - 1) == nullptr)
         previous->setEnabled(false);
     else
         previous->setEnabled(true);
 
-    if (logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) + 1) == nullptr)
+    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + 1) == nullptr)
         next->setEnabled(false);
     else
         next->setEnabled(true);
@@ -104,14 +104,14 @@ void DetailDialog::moveToItem(int direction)
         logDebug() << "Go to next item...";
 
     // Get the current-last item selected
-    LogViewWidgetItem *item = logViewWidget->lastSelectedItem();
+    LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
     if (item == nullptr) {
         logDebug() << "No item found.";
         return;
     }
 
     QTreeWidgetItem *destinationItem
-        = logViewWidget->topLevelItem(logViewWidget->indexOfTopLevelItem(item) + direction);
+        = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
     if (destinationItem == nullptr) {
         if (direction < 0)
             logDebug() << "No previous item found.";
@@ -122,7 +122,7 @@ void DetailDialog::moveToItem(int direction)
 
     item->setSelected(false);
     destinationItem->setSelected(true);
-    logViewWidget->scrollToItem(destinationItem);
+    mLogViewWidget->scrollToItem(destinationItem);
 
     updateDetails();
 }

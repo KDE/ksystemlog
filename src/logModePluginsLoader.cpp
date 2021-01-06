@@ -45,7 +45,7 @@
 #include "journaldFactory.h"
 
 LogModePluginsLoader::LogModePluginsLoader(QWidget *parent)
-    : parent(parent)
+    : mParent(parent)
 {
 }
 
@@ -56,7 +56,7 @@ LogModePluginsLoader::~LogModePluginsLoader()
 void LogModePluginsLoader::loadPlugins()
 {
     // Open Log mode needs the current window to display error messages and open dialogs
-    Globals::instance().registerLogModeFactory(new OpenLogModeFactory(parent));
+    Globals::instance().registerLogModeFactory(new OpenLogModeFactory(mParent));
 
     // System
     Globals::instance().registerLogModeFactory(new SystemLogModeFactory());

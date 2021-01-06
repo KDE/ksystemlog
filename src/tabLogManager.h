@@ -28,8 +28,6 @@ class QString;
 
 class LogManager;
 
-class TabLogManagerPrivate;
-
 /**
  * Class that wrap a LogManager inside a tabbed view
  */
@@ -47,12 +45,12 @@ public:
     void addNewLinesCount(int newLines);
     void initNewLinesCount();
 
-    QString title();
+    QString title() const;
 
 private:
-    QString logModeName();
-
-    TabLogManagerPrivate *const d;
+    QString logModeName() const;
+    LogManager *mLogManager = nullptr;
+    int mNewLinesCount = 0;
 };
 
 #endif // _TAB_LOG_MANAGER_H

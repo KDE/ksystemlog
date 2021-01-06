@@ -25,11 +25,11 @@
 #include <QStatusBar>
 
 class QString;
-
+class QLabel;
+class KComboBox;
+class QPushButton;
 namespace KSystemLog
 {
-class StatusBarPrivate;
-
 /**
  * Status Bar
  */
@@ -52,7 +52,10 @@ private Q_SLOTS:
     void selectLastHistory();
 
 private:
-    StatusBarPrivate *const d;
+    QLabel *mLineCountLabel = nullptr;
+    KComboBox *mMessageList = nullptr;
+    QLabel *mLastModificationLabel = nullptr;
+    QPushButton *mToggleHistory = nullptr;
 };
 }
 

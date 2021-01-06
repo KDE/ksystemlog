@@ -31,56 +31,46 @@
 #include "defaults.h"
 #include "logManager.h"
 
-class TabLogManagerPrivate
-{
-public:
-    LogManager *logManager = nullptr;
-    int newLinesCount = 0;
-};
-
 TabLogManager::TabLogManager(LogManager *logManager)
-    : d(new TabLogManagerPrivate())
 {
-    d->logManager = logManager;
+    mLogManager = logManager;
 }
 
 TabLogManager::~TabLogManager()
 {
-    delete d->logManager->usedView();
+    delete mLogManager->usedView();
 
-    delete d->logManager;
-
-    delete d;
+    delete mLogManager;
 }
 
 LogManager *TabLogManager::logManager()
 {
-    return d->logManager;
+    return mLogManager;
 }
 
 void TabLogManager::addNewLinesCount(int newLines)
 {
-    d->newLinesCount += newLines;
+    mNewLinesCount += newLines;
 }
 
 void TabLogManager::initNewLinesCount()
 {
-    d->newLinesCount = 0;
+    mNewLinesCount = 0;
 }
 
-QString TabLogManager::title()
+QString TabLogManager::title() const
 {
-    if (d->newLinesCount == 0)
+    if (mNewLinesCount == 0)
         return logModeName();
     else
-        return i18nc("Log mode name (added lines count)", "%1 (%2)", d->logManager->title(),
-                     d->newLinesCount);
+        return i18nc("Log mode name (added lines count)", "%1 (%2)", mLogManager->title(),
+                     mNewLinesCount);
 }
 
-QString TabLogManager::logModeName()
+QString TabLogManager::logModeName() const
 {
-    if (d->logManager->logMode() == nullptr)
+    if (mLogManager->logMode() == nullptr)
         return i18nc("Newly created tab", "Empty Log");
     else
-        return d->logManager->title();
+        return mLogManager->title();
 }

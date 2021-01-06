@@ -33,18 +33,8 @@
 #include "logLevel.h"
 #include "globals.h"
 
-class LoggerDialogPrivate
-{
-public:
-    QMap<QString, QString> facilities;
-
-    QMap<QString, QString> priorities;
-    QMap<QString, QIcon> priorityIcons;
-};
-
 LoggerDialog::LoggerDialog(QWidget *parent)
     : QDialog(parent)
-    , d(new LoggerDialogPrivate())
 {
     setupUi(this);
 
@@ -62,11 +52,11 @@ LoggerDialog::LoggerDialog(QWidget *parent)
     buildMaps();
 
     // Fill the priority ComboBox
-    QList<QString> prioKeys(d->priorities.keys());
+    QList<QString> prioKeys(mPriorities.keys());
 
     QList<QString>::Iterator itPriority;
     for (itPriority = prioKeys.begin(); itPriority != prioKeys.end(); ++itPriority) {
-        priority->addItem(d->priorityIcons[*itPriority], *itPriority);
+        priority->addItem(mPriorityIcons[*itPriority], *itPriority);
     }
 
     // Select the right priority
@@ -78,7 +68,7 @@ LoggerDialog::LoggerDialog(QWidget *parent)
     }
 
     // Fill the priority ComboBox
-    QList<QString> keys(d->facilities.keys());
+    QList<QString> keys(mFacilities.keys());
 
     QList<QString>::Iterator itFacility;
     for (itFacility = keys.begin(); itFacility != keys.end(); ++itFacility) {
@@ -97,7 +87,6 @@ LoggerDialog::LoggerDialog(QWidget *parent)
 
 LoggerDialog::~LoggerDialog()
 {
-    delete d;
 }
 
 void LoggerDialog::slotLinkClicked(const QString &link)
@@ -116,54 +105,54 @@ void LoggerDialog::initialize()
 void LoggerDialog::buildMaps()
 {
     // Fill the facility map
-    d->facilities[i18n("Authentication")] = QStringLiteral("auth");
-    d->facilities[i18n("Private Authentication")] = QStringLiteral("authpriv");
-    d->facilities[i18n("Cron")] = QStringLiteral("cron");
-    d->facilities[i18n("Daemon")] = QStringLiteral("daemon");
-    d->facilities[i18n("FTP")] = QStringLiteral("ftp");
-    d->facilities[i18n("Kernel")] = QStringLiteral("kern");
-    d->facilities[i18n("LPR")] = QStringLiteral("lpr");
-    d->facilities[i18n("Mail")] = QStringLiteral("mail");
-    d->facilities[i18n("News")] = QStringLiteral("news");
-    d->facilities[i18n("Syslog")] = QStringLiteral("syslog");
-    d->facilities[i18n("User")] = QStringLiteral("user");
-    d->facilities[i18n("UUCP")] = QStringLiteral("uucp");
+    mFacilities[i18n("Authentication")] = QStringLiteral("auth");
+    mFacilities[i18n("Private Authentication")] = QStringLiteral("authpriv");
+    mFacilities[i18n("Cron")] = QStringLiteral("cron");
+    mFacilities[i18n("Daemon")] = QStringLiteral("daemon");
+    mFacilities[i18n("FTP")] = QStringLiteral("ftp");
+    mFacilities[i18n("Kernel")] = QStringLiteral("kern");
+    mFacilities[i18n("LPR")] = QStringLiteral("lpr");
+    mFacilities[i18n("Mail")] = QStringLiteral("mail");
+    mFacilities[i18n("News")] = QStringLiteral("news");
+    mFacilities[i18n("Syslog")] = QStringLiteral("syslog");
+    mFacilities[i18n("User")] = QStringLiteral("user");
+    mFacilities[i18n("UUCP")] = QStringLiteral("uucp");
 
-    d->facilities[i18n("Local 0")] = QStringLiteral("local0");
-    d->facilities[i18n("Local 1")] = QStringLiteral("local1");
-    d->facilities[i18n("Local 2")] = QStringLiteral("local2");
-    d->facilities[i18n("Local 3")] = QStringLiteral("local3");
-    d->facilities[i18n("Local 4")] = QStringLiteral("local4");
-    d->facilities[i18n("Local 5")] = QStringLiteral("local5");
-    d->facilities[i18n("Local 6")] = QStringLiteral("local6");
-    d->facilities[i18n("Local 7")] = QStringLiteral("local7");
+    mFacilities[i18n("Local 0")] = QStringLiteral("local0");
+    mFacilities[i18n("Local 1")] = QStringLiteral("local1");
+    mFacilities[i18n("Local 2")] = QStringLiteral("local2");
+    mFacilities[i18n("Local 3")] = QStringLiteral("local3");
+    mFacilities[i18n("Local 4")] = QStringLiteral("local4");
+    mFacilities[i18n("Local 5")] = QStringLiteral("local5");
+    mFacilities[i18n("Local 6")] = QStringLiteral("local6");
+    mFacilities[i18n("Local 7")] = QStringLiteral("local7");
 
     // Fill the priority map
-    d->priorities[Globals::instance().debugLogLevel()->name()] = QStringLiteral("debug");
-    d->priorities[Globals::instance().informationLogLevel()->name()] = QStringLiteral("info");
-    d->priorities[Globals::instance().noticeLogLevel()->name()] = QStringLiteral("notice");
-    d->priorities[Globals::instance().warningLogLevel()->name()] = QStringLiteral("warning");
-    d->priorities[Globals::instance().errorLogLevel()->name()] = QStringLiteral("err");
-    d->priorities[Globals::instance().criticalLogLevel()->name()] = QStringLiteral("crit");
-    d->priorities[Globals::instance().alertLogLevel()->name()] = QStringLiteral("alert");
-    d->priorities[Globals::instance().emergencyLogLevel()->name()] = QStringLiteral("emerg");
+    mPriorities[Globals::instance().debugLogLevel()->name()] = QStringLiteral("debug");
+    mPriorities[Globals::instance().informationLogLevel()->name()] = QStringLiteral("info");
+    mPriorities[Globals::instance().noticeLogLevel()->name()] = QStringLiteral("notice");
+    mPriorities[Globals::instance().warningLogLevel()->name()] = QStringLiteral("warning");
+    mPriorities[Globals::instance().errorLogLevel()->name()] = QStringLiteral("err");
+    mPriorities[Globals::instance().criticalLogLevel()->name()] = QStringLiteral("crit");
+    mPriorities[Globals::instance().alertLogLevel()->name()] = QStringLiteral("alert");
+    mPriorities[Globals::instance().emergencyLogLevel()->name()] = QStringLiteral("emerg");
 
     // Fill the priority icon map
-    d->priorityIcons[Globals::instance().debugLogLevel()->name()]
+    mPriorityIcons[Globals::instance().debugLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().debugLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().informationLogLevel()->name()]
+    mPriorityIcons[Globals::instance().informationLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().informationLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().noticeLogLevel()->name()]
+    mPriorityIcons[Globals::instance().noticeLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().noticeLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().warningLogLevel()->name()]
+    mPriorityIcons[Globals::instance().warningLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().warningLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().errorLogLevel()->name()]
+    mPriorityIcons[Globals::instance().errorLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().errorLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().criticalLogLevel()->name()]
+    mPriorityIcons[Globals::instance().criticalLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().criticalLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().alertLogLevel()->name()]
+    mPriorityIcons[Globals::instance().alertLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().alertLogLevel()->icon().name());
-    d->priorityIcons[Globals::instance().emergencyLogLevel()->name()]
+    mPriorityIcons[Globals::instance().emergencyLogLevel()->name()]
         = QIcon::fromTheme(Globals::instance().emergencyLogLevel()->icon().name());
 }
 
@@ -229,9 +218,9 @@ void LoggerDialog::sendMessage()
     if (prioritySelected != Globals::instance().noLogLevel()->name()) {
         arguments << QStringLiteral("-p");
 
-        QString p(d->facilities[facility->currentText()]);
+        QString p(mFacilities[facility->currentText()]);
         p += QLatin1Char('.');
-        p += d->priorities[priority->currentText()];
+        p += mPriorities[priority->currentText()];
 
         arguments << p;
     }

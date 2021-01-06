@@ -26,8 +26,6 @@
 
 #include "ui_loggerDialogBase.h"
 
-class LoggerDialogPrivate;
-
 class LoggerDialog : public QDialog, public Ui::LoggerDialogBase
 {
     Q_OBJECT
@@ -50,8 +48,10 @@ protected Q_SLOTS:
 private:
     void slotLinkClicked(const QString &link);
     void buildMaps();
+    QMap<QString, QString> mFacilities;
 
-    LoggerDialogPrivate *const d;
+    QMap<QString, QString> mPriorities;
+    QMap<QString, QIcon> mPriorityIcons;
 };
 
 #endif // _LOGGER_DIALOG_H
