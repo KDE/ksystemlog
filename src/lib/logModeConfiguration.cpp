@@ -34,7 +34,7 @@
 
 LogModeConfiguration::LogModeConfiguration()
 {
-    configuration = KSystemLogConfig::self();
+    mConfiguration = KSystemLogConfig::self();
 }
 
 LogModeConfiguration::~LogModeConfiguration()

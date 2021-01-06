@@ -45,7 +45,7 @@ public:
     QList<LogFile> findNoModeLogFiles(const QStringList &stringList);
 
 protected:
-    KSystemLogConfig *configuration;
+    KSystemLogConfig *mConfiguration = nullptr;
 };
 
 #endif // _LOG_MODE_CONFIGURATION_H

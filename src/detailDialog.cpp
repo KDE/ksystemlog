@@ -112,7 +112,7 @@ void DetailDialog::moveToItem(int direction)
 
     QTreeWidgetItem *destinationItem
         = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
-    if (destinationItem == nullptr) {
+    if (!destinationItem) {
         if (direction < 0)
             logDebug() << "No previous item found.";
         else

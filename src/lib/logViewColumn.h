@@ -49,7 +49,10 @@ public:
     LogViewColumn &operator=(const LogViewColumn &column);
 
 private:
-    LogViewColumnPrivate *const d;
+    QString mColumnName;
+
+    bool mFiltered;
+    bool mGrouped;
 };
 
 QDataStream &operator<<(QDataStream &out, const LogViewColumn &column);

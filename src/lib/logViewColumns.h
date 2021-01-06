@@ -26,7 +26,6 @@
 
 class LogViewColumn;
 class QStringList;
-class LogViewColumnsPrivate;
 
 class LogViewColumns
 {
@@ -54,7 +53,11 @@ public:
     LogViewColumns &operator=(const LogViewColumns &columns);
 
 private:
-    LogViewColumnsPrivate *const d;
+    QList<LogViewColumn> mColumns;
+    bool mGroupByLogLevel = true;
+    bool mGroupByDay = true;
+    bool mGroupByHour = true;
+    bool mGroupByLogFile = true;
 };
 
 QDataStream &operator<<(QDataStream &out, const LogViewColumns &columns);

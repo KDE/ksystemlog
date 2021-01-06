@@ -213,7 +213,7 @@ void LoggerDialog::sendMessage()
         arguments << tag->text();
     }
 
-    QString prioritySelected = priority->currentText();
+    const QString prioritySelected = priority->currentText();
 
     if (prioritySelected != Globals::instance().noLogLevel()->name()) {
         arguments << QStringLiteral("-p");

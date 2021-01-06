@@ -29,14 +29,6 @@
 #include <QHBoxLayout>
 
 #include <KLocalizedString>
-
-class LoadingBarPrivate
-{
-public:
-    // Attributes managing the position in the files loading of each log
-
-};
-
 LoadingBar::LoadingBar(QWidget *parent)
     : QWidget(parent)
 {

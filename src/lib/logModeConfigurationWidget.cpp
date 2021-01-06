@@ -21,40 +21,30 @@
 
 #include "logModeConfigurationWidget.h"
 
-class LogModeConfigurationWidgetPrivate
-{
-public:
-    QString itemName;
-    QString iconName;
-    QString header;
-};
-
 LogModeConfigurationWidget::LogModeConfigurationWidget(const QString &itemName, const QString &iconName,
                                                        const QString &header)
     : QWidget()
-    , d(new LogModeConfigurationWidgetPrivate())
 {
-    d->itemName = itemName;
-    d->iconName = iconName;
-    d->header = header;
+    mItemName = itemName;
+    mIconName = iconName;
+    mHeader = header;
 }
 
 LogModeConfigurationWidget::~LogModeConfigurationWidget()
 {
-    delete d;
 }
 
 QString LogModeConfigurationWidget::itemName() const
 {
-    return d->itemName;
+    return mItemName;
 }
 QString LogModeConfigurationWidget::iconName() const
 {
-    return d->iconName;
+    return mIconName;
 }
 QString LogModeConfigurationWidget::header() const
 {
-    return d->header;
+    return mHeader;
 }
 
 /**

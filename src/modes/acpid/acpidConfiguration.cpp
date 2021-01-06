@@ -23,11 +23,11 @@
 
 AcpidConfiguration::AcpidConfiguration()
 {
-    configuration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
+    mConfiguration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
 
     QStringList defaultAcpidPaths;
     defaultAcpidPaths << QStringLiteral("/var/log/acpid");
-    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), mAcpidPaths, defaultAcpidPaths,
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mAcpidPaths, defaultAcpidPaths,
                                      QStringLiteral("LogFilesPaths"));
 }
 

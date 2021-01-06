@@ -23,16 +23,16 @@
 
 ApacheConfiguration::ApacheConfiguration()
 {
-    configuration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
+    mConfiguration->setCurrentGroup(QStringLiteral("ApacheLogMode"));
 
     QStringList defaultApachePaths;
     defaultApachePaths << QStringLiteral("/var/log/apache2/error.log");
-    configuration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), mApachePaths,
+    mConfiguration->addItemStringList(QStringLiteral("ApacheLogFilesPaths"), mApachePaths,
                                      defaultApachePaths, QStringLiteral("ApacheLogFilesPaths"));
 
     QStringList defaultApacheAccessPaths;
     defaultApacheAccessPaths << QStringLiteral("/var/log/apache2/access.log");
-    configuration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), mApacheAccessPaths,
+    mConfiguration->addItemStringList(QStringLiteral("ApacheAccessLogFilesPaths"), mApacheAccessPaths,
                                      defaultApacheAccessPaths,
                                      QStringLiteral("ApacheAccessLogFilesPaths"));
 }

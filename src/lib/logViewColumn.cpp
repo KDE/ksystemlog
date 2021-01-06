@@ -25,52 +25,46 @@
 class LogViewColumnPrivate
 {
 public:
-    QString columnName;
 
-    bool filtered;
-    bool grouped;
 };
 
 LogViewColumn::LogViewColumn(const QString &name, bool filtered, bool grouped)
-    : d(new LogViewColumnPrivate())
 {
-    d->columnName = name;
-    d->filtered = filtered;
-    d->grouped = grouped;
+    mColumnName = name;
+    mFiltered = filtered;
+    mGrouped = grouped;
 }
 
 LogViewColumn::LogViewColumn(const LogViewColumn &column)
-    : d(new LogViewColumnPrivate())
 {
-    d->columnName = column.columnName();
-    d->filtered = column.isFiltered();
-    d->grouped = column.isGrouped();
+    mColumnName = column.columnName();
+    mFiltered = column.isFiltered();
+    mGrouped = column.isGrouped();
 }
 
 LogViewColumn::~LogViewColumn()
 {
-    delete d;
 }
 
 QString LogViewColumn::columnName() const
 {
-    return d->columnName;
+    return mColumnName;
 }
 
 bool LogViewColumn::isGrouped() const
 {
-    return d->grouped;
+    return mGrouped;
 }
 bool LogViewColumn::isFiltered() const
 {
-    return d->filtered;
+    return mFiltered;
 }
 
 LogViewColumn &LogViewColumn::operator=(const LogViewColumn &column)
 {
-    d->columnName = column.columnName();
-    d->grouped = column.isGrouped();
-    d->filtered = column.isFiltered();
+    mColumnName = column.columnName();
+    mGrouped = column.isGrouped();
+    mFiltered = column.isFiltered();
 
     return *this;
 }

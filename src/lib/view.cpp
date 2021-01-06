@@ -44,65 +44,43 @@
 
 #include "loadingBar.h"
 
-class ViewPrivate
-{
-public:
-    /*
-     * Log view
-     */
-    LogViewWidget *mLogViewWidget = nullptr;
-
-    /**
-     * Filter widget
-     */
-    LogViewFilterWidget *logViewFilterWidget = nullptr;
-
-    /**
-     * Search widget
-     */
-    LogViewSearchWidget *logViewSearchWidget = nullptr;
-
-    LoadingBar *loadingBar = nullptr;
-};
-
 View::View(QWidget *parent)
     : QWidget(parent)
-    , d(new ViewPrivate())
 {
     QVBoxLayout *topLayout = new QVBoxLayout(this);
     topLayout->setContentsMargins(2, 2, 2, 2);
     topLayout->setSpacing(2);
 
-    d->logViewFilterWidget = new LogViewFilterWidget();
-    connect(d->logViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
+    mLogViewFilterWidget = new LogViewFilterWidget();
+    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
             &View::searchFilterChanged);
-    connect(d->logViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
+    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
             &View::unselectHiddenItems);
 
-    d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
+    mLogViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
 
-    topLayout->addWidget(d->logViewFilterWidget);
+    topLayout->addWidget(mLogViewFilterWidget);
 
-    d->mLogViewWidget = new LogViewWidget(this);
-    connect(d->mLogViewWidget, &LogViewWidget::columnsChanged, d->logViewFilterWidget,
+    mLogViewWidget = new LogViewWidget(this);
+    connect(mLogViewWidget, &LogViewWidget::columnsChanged, mLogViewFilterWidget,
             &LogViewFilterWidget::updateFilterColumns);
 
-    d->logViewFilterWidget->filterLine()->setTreeWidget(d->mLogViewWidget);
-    topLayout->addWidget(d->mLogViewWidget);
+    mLogViewFilterWidget->filterLine()->setTreeWidget(mLogViewWidget);
+    topLayout->addWidget(mLogViewWidget);
 
-    d->logViewSearchWidget = new LogViewSearchWidget();
-    d->logViewSearchWidget->setTreeWidget(d->mLogViewWidget);
+    mLogViewSearchWidget = new LogViewSearchWidget();
+    mLogViewSearchWidget->setTreeWidget(mLogViewWidget);
 
     // The search line is hidden by default
-    d->logViewSearchWidget->hide();
+    mLogViewSearchWidget->hide();
 
-    topLayout->addWidget(d->logViewSearchWidget);
+    topLayout->addWidget(mLogViewSearchWidget);
 
-    d->loadingBar = new LoadingBar();
-    connect(d->loadingBar, &LoadingBar::displayed, this, &View::displayLoadingBar);
+    mLoadingBar = new LoadingBar();
+    connect(mLoadingBar, &LoadingBar::displayed, this, &View::displayLoadingBar);
 
-    topLayout->addWidget(d->loadingBar);
-    d->loadingBar->hide();
+    topLayout->addWidget(mLoadingBar);
+    mLoadingBar->hide();
 
     // Accept Drag and Drop
     setAcceptDrops(true);
@@ -110,65 +88,62 @@ View::View(QWidget *parent)
 
 View::~View()
 {
-    // All widgets are deleted automatically by Qt
-
-    delete d;
 }
 
 LogViewWidget *View::logViewWidget() const
 {
-    return d->mLogViewWidget;
+    return mLogViewWidget;
 }
 
 LoadingBar *View::loadingBar() const
 {
-    return d->loadingBar;
+    return mLoadingBar;
 }
 
 void View::displayLoadingBar(bool display)
 {
     if (display == true) {
-        d->mLogViewWidget->hide();
-        d->logViewSearchWidget->hide();
-        d->logViewFilterWidget->hide();
+        mLogViewWidget->hide();
+        mLogViewSearchWidget->hide();
+        mLogViewFilterWidget->hide();
 
-        d->loadingBar->show();
+        mLoadingBar->show();
     } else {
-        d->mLogViewWidget->show();
-        d->logViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
-        d->logViewFilterWidget->filterLine()->updateSearch();
+        mLogViewWidget->show();
+        mLogViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
+        mLogViewFilterWidget->filterLine()->updateSearch();
         // No need to redisplay the search bar
 
-        d->loadingBar->hide();
+        mLoadingBar->hide();
     }
 }
 
 void View::toggleLogViewFilter(bool display)
 {
     if (display == true) {
-        d->logViewFilterWidget->show();
+        mLogViewFilterWidget->show();
     } else {
-        d->logViewFilterWidget->filterLine()->clear();
-        d->logViewFilterWidget->hide();
+        mLogViewFilterWidget->filterLine()->clear();
+        mLogViewFilterWidget->hide();
     }
 }
 
 void View::toggleLogViewSearch(bool display)
 {
     if (display == true)
-        d->logViewSearchWidget->displaySearch();
+        mLogViewSearchWidget->displaySearch();
     else
-        d->logViewSearchWidget->hide();
+        mLogViewSearchWidget->hide();
 }
 
 LogViewSearchWidget *View::logViewSearch() const
 {
-    return d->logViewSearchWidget;
+    return mLogViewSearchWidget;
 }
 
 void View::unselectHiddenItems()
 {
-    QTreeWidgetItemIterator it(d->mLogViewWidget, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
 
     while (*it != nullptr) {
         QTreeWidgetItem *item = *it;

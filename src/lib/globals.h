@@ -46,7 +46,7 @@ class Globals : QObject
 public:
     static Globals &instance();
 
-    ~Globals();
+    ~Globals() override;
 
     enum LogLevelIds {
         EMERGENCY_LOG_LEVEL_ID = 0,

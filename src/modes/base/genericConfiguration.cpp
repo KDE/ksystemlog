@@ -44,12 +44,12 @@ GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configur
     : d(new GenericLogModeConfigurationPrivate())
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;
-    configuration->setCurrentGroup(configurationGroup);
+    mConfiguration->setCurrentGroup(configurationGroup);
 
-    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
                                      QStringLiteral("LogFilesPaths"));
 
-    configuration->addItemIntList(QStringLiteral("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
+    mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
                                   QStringLiteral("LogFilesLevels"));
 }
 

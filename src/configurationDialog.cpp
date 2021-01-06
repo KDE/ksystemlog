@@ -42,8 +42,6 @@
 ConfigurationDialog::ConfigurationDialog(QWidget *parent)
     : KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self())
 {
-    mChanged = false;
-
     setupGeneralConfiguration();
 
     setupLogModeConfigurations();
@@ -139,7 +137,7 @@ void ConfigurationDialog::updateConfiguration()
         }
     }
 
-    if (valid == true) {
+    if (valid) {
         buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(true);
 
         updateButtons();

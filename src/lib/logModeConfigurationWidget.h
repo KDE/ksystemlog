@@ -25,8 +25,6 @@
 #include <QWidget>
 #include <QString>
 
-class LogModeConfigurationWidgetPrivate;
-
 class LogModeConfigurationWidget : public QWidget
 {
     Q_OBJECT
@@ -51,7 +49,9 @@ public:
     QString header() const;
 
 private:
-    LogModeConfigurationWidgetPrivate *const d;
+    QString mItemName;
+    QString mIconName;
+    QString mHeader;
 };
 
 #endif // _LOG_MODE_CONFIGURATION_WIDGET_H

@@ -23,11 +23,11 @@
 
 XorgConfiguration::XorgConfiguration()
 {
-    configuration->setCurrentGroup(QStringLiteral("XorgLogMode"));
+    mConfiguration->setCurrentGroup(QStringLiteral("XorgLogMode"));
 
     QStringList defaultXorgPaths;
     defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
-    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), mXorgPaths, defaultXorgPaths,
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mXorgPaths, defaultXorgPaths,
                                      QStringLiteral("LogFilesPaths"));
 }
 

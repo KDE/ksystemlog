@@ -27,10 +27,10 @@ JournaldConfiguration::JournaldConfiguration()
     mDisplayCurrentBootOnly = true;
     mEntriesType = EntriesAll;
 
-    configuration->setCurrentGroup(QLatin1String("JournaldLogMode"));
-    configuration->addItemBool(QLatin1String("CurrentBootOnly"), mDisplayCurrentBootOnly, true);
-    configuration->addItemInt(QLatin1String("EntriesType"), mEntriesType);
-    configuration->addItemStringList(QLatin1String("RemoteJournals"), mRemoteJournals);
+    mConfiguration->setCurrentGroup(QLatin1String("JournaldLogMode"));
+    mConfiguration->addItemBool(QLatin1String("CurrentBootOnly"), mDisplayCurrentBootOnly, true);
+    mConfiguration->addItemInt(QLatin1String("EntriesType"), mEntriesType);
+    mConfiguration->addItemStringList(QLatin1String("RemoteJournals"), mRemoteJournals);
 }
 
 bool JournaldConfiguration::displayCurrentBootOnly() const

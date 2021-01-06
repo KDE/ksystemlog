@@ -23,11 +23,11 @@
 
 DaemonConfiguration::DaemonConfiguration()
 {
-    configuration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
+    mConfiguration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
 
     QStringList defaultDaemonPaths;
     defaultDaemonPaths << QStringLiteral("/var/log/daemon.log");
-    configuration->addItemStringList(QStringLiteral("LogFilesPaths"), mDaemonPaths, defaultDaemonPaths,
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mDaemonPaths, defaultDaemonPaths,
                                      QStringLiteral("LogFilesPaths"));
 }
 

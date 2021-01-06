@@ -28,82 +28,69 @@
 #include "globals.h"
 #include "logViewColumn.h"
 
-class LogViewColumnsPrivate
-{
-public:
-    QList<LogViewColumn> columns;
-    bool groupByLogLevel = true;
-    bool groupByDay = true;
-    bool groupByHour = true;
-    bool groupByLogFile = true;
-};
-
 LogViewColumns::LogViewColumns()
-    : d(new LogViewColumnsPrivate())
 {
 }
 
 LogViewColumns::LogViewColumns(const LogViewColumns &columns)
-    : d(new LogViewColumnsPrivate())
 {
-    d->columns = columns.columns();
-    d->groupByLogLevel = columns.isGroupByLogLevel();
-    d->groupByDay = columns.isGroupByDay();
-    d->groupByHour = columns.isGroupByHour();
-    d->groupByLogFile = columns.isGroupByLogFile();
+    mColumns = columns.columns();
+    mGroupByLogLevel = columns.isGroupByLogLevel();
+    mGroupByDay = columns.isGroupByDay();
+    mGroupByHour = columns.isGroupByHour();
+    mGroupByLogFile = columns.isGroupByLogFile();
 }
 
 LogViewColumns::~LogViewColumns()
 {
-    delete d;
 }
 
 void LogViewColumns::setGroupByLogLevel(bool value)
 {
-    d->groupByLogLevel = value;
+    mGroupByLogLevel = value;
 }
 
 void LogViewColumns::setGroupByDay(bool value)
 {
-    d->groupByDay = value;
+    mGroupByDay = value;
 }
 
 void LogViewColumns::setGroupByHour(bool value)
 {
-    d->groupByHour = value;
+    mGroupByHour = value;
 }
 
 void LogViewColumns::setGroupByLogFile(bool value)
 {
-    d->groupByLogFile = value;
+    mGroupByLogFile = value;
 }
 
 bool LogViewColumns::isGroupByLogLevel() const
 {
-    return d->groupByLogLevel;
+    return mGroupByLogLevel;
 }
 
 bool LogViewColumns::isGroupByDay() const
 {
-    return d->groupByDay;
+    return mGroupByDay;
 }
 
 bool LogViewColumns::isGroupByHour() const
 {
-    return d->groupByHour;
+    return mGroupByHour;
 }
 
 bool LogViewColumns::isGroupByLogFile() const
 {
-    return d->groupByLogFile;
+    return mGroupByLogFile;
 }
 
 QStringList LogViewColumns::toStringList() const
 {
     QStringList columnNames;
-    columnNames.reserve(d->columns.count());
+    columnNames.reserve(mColumns.count());
 
-    for (const LogViewColumn &column : qAsConst(d->columns)) {
+    for (const LogViewColumn &column : qAsConst(mColumns)) {
         columnNames.append(column.columnName());
     }
 
@@ -112,21 +99,21 @@ QStringList LogViewColumns::toStringList() const
 
 void LogViewColumns::addColumn(const LogViewColumn &column)
 {
-    d->columns.append(column);
+    mColumns.append(column);
 }
 
 QList<LogViewColumn> LogViewColumns::columns() const
 {
-    return d->columns;
+    return mColumns;
 }
 
 LogViewColumns &LogViewColumns::operator=(const LogViewColumns &columns)
 {
-    d->columns = columns.columns();
-    d->groupByLogLevel = columns.isGroupByLogLevel();
-    d->groupByDay = columns.isGroupByDay();
-    d->groupByHour = columns.isGroupByHour();
-    d->groupByLogFile = columns.isGroupByLogFile();
+    mColumns = columns.columns();
+    mGroupByLogLevel = columns.isGroupByLogLevel();
+    mGroupByDay = columns.isGroupByDay();
+    mGroupByHour = columns.isGroupByHour();
+    mGroupByLogFile = columns.isGroupByLogFile();
 
     return *this;
 }

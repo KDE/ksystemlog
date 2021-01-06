@@ -62,7 +62,7 @@ private:
 
     QList<LogModeConfigurationWidget *> mLogModeConfigurations;
 
-    bool mChanged;
+    bool mChanged = false;
 
 };
 

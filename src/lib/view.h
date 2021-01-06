@@ -37,6 +37,7 @@ class LoadingBar;
 
 class LogViewWidget;
 class LogViewSearchWidget;
+class LogViewFilterWidget;
 
 class ViewPrivate;
 
@@ -83,7 +84,22 @@ Q_SIGNALS:
     void droppedUrls(const QList<QUrl> &urls);
 
 private:
-    ViewPrivate *const d;
+    /*
+     * Log view
+     */
+    LogViewWidget *mLogViewWidget = nullptr;
+
+    /**
+     * Filter widget
+     */
+    LogViewFilterWidget *mLogViewFilterWidget = nullptr;
+
+    /**
+     * Search widget
+     */
+    LogViewSearchWidget *mLogViewSearchWidget = nullptr;
+
+    LoadingBar *mLoadingBar = nullptr;
 };
 
 #endif // VIEW_H

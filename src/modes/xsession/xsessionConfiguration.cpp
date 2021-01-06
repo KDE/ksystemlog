@@ -23,12 +23,12 @@
 
 XSessionConfiguration::XSessionConfiguration()
 {
-    configuration->setCurrentGroup(QStringLiteral("XSessionLogMode"));
+    mConfiguration->setCurrentGroup(QStringLiteral("XSessionLogMode"));
 
-    configuration->addItemString(QStringLiteral("LogFilePath"), mXsessionPath,
+    mConfiguration->addItemString(QStringLiteral("LogFilePath"), mXsessionPath,
                                  QStringLiteral("~/.xsession-errors"), QStringLiteral("LogFilePath"));
 
-    configuration->addItemBool(QStringLiteral("IgnoreXorgErrors"), mIgnoreXorgErrors, false,
+    mConfiguration->addItemBool(QStringLiteral("IgnoreXorgErrors"), mIgnoreXorgErrors, false,
                                QStringLiteral("IgnoreXorgErrors"));
 
     QStringList defaultXorgErrorKeywords;
@@ -36,17 +36,17 @@ XSessionConfiguration::XSessionConfiguration()
     defaultXorgErrorKeywords.append(QStringLiteral("  Major opcode"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Minor opcode"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Resource id"));
-    configuration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords,
+    mConfiguration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords,
                                      defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
 
     QStringList defaultWarningKeywords;
     defaultWarningKeywords.append(QStringLiteral("WARNING"));
-    configuration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
+    mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
     QStringList defaultErrorKeywords;
     defaultErrorKeywords.append(QStringLiteral("ERROR"));
-    configuration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
+    mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
