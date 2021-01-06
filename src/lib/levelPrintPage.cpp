@@ -39,15 +39,15 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
 {
     setWindowTitle(i18n("Log Level Printing"));
 
-    m_pageLayout = new QVBoxLayout(this);
+    mPageLayout = new QVBoxLayout(this);
 
-    m_lblChoose = new QLabel(this);
+    mLblChoose = new QLabel(this);
     // m_lblChoose->setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)5, (QSizePolicy::SizeType)0, 0, 0,
     // m_lblChoose->sizePolicy().hasHeightForWidth() ) );
-    m_lblChoose->setText(i18n("Choose which log levels you wish to print in color."));
-    m_pageLayout->addWidget(m_lblChoose);
+    mLblChoose->setText(i18n("Choose which log levels you wish to print in color."));
+    mPageLayout->addWidget(mLblChoose);
 
-    m_btnGroup = new QButtonGroup(this);
+    mBtnGroup = new QButtonGroup(this);
     /*
     i18n("Log Levels"),
     m_btnGroup->setColumnLayout(0, Qt::Vertical );
@@ -63,9 +63,9 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
     for (LogLevel *level : logLevels) {
         QCheckBox *button = new QCheckBox(level->name()); //, m_btnGroup, 0
 
-        levelCheckBoxes.append(button);
-        m_btnGroup->addButton(button, level->id());
-        m_btnGroupLayout->addWidget(button, row, col);
+        mLevelCheckBoxes.append(button);
+        mBtnGroup->addButton(button, level->id());
+        mBtnGroupLayout->addWidget(button, row, col);
 
         logDebug() << "name: " << level->name() << " id: " << level->id();
 

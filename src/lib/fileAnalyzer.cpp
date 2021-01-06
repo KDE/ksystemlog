@@ -51,7 +51,7 @@ void FileAnalyzer::watchLogFiles(bool enabled)
     // Enable the log file watching, by revert order to read the most top file at last, and be sure its line
     // will be kept
 
-    QListIterator<LogFileReader *> it(logFileReaders);
+    QListIterator<LogFileReader *> it(mLogFileReaders);
     it.toBack();
     while (it.hasPrevious()) {
         LogFileReader *logFileReader = it.previous();
@@ -64,12 +64,12 @@ void FileAnalyzer::deleteLogFiles()
     watchLogFiles(false);
 
     // Remove the watching on the monitored files
-    foreach (LogFileReader *logFileReader, logFileReaders) {
+    foreach (LogFileReader *logFileReader, mLogFileReaders) {
         logDebug() << "Remove file : " << logFileReader->logFile().url().toLocalFile();
         delete logFileReader;
     }
 
-    logFileReaders.clear();
+    mLogFileReaders.clear();
 }
 
 void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
@@ -79,7 +79,7 @@ void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
 
     for (const LogFile &logFile : logFiles) {
         LogFileReader *logFileReader = createLogFileReader(logFile);
-        logFileReaders.append(logFileReader);
+        mLogFileReaders.append(logFileReader);
 
         connect(logFileReader, &LogFileReader::contentChanged, this, &FileAnalyzer::logFileChanged);
         connect(logFileReader, &LogFileReader::statusBarChanged, this, &Analyzer::statusBarChanged);
@@ -96,13 +96,13 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
     else
         logDebug() << "File " << filePath << " has been modified on partial read";
 
-    if (parsingPaused == true) {
+    if (mParsingPaused == true) {
         logDebug() << "Pause enabled. Nothing read.";
         return;
     }
 
     logDebug() << "Locking file modifications of " << filePath;
-    insertionLocking.lock();
+    mInsertionLocking.lock();
     logDebug() << "Unlocking file modifications of " << filePath;
 
     QElapsedTimer benchmark;
@@ -110,7 +110,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
     int insertedLogLineCount;
 
-    logViewModel->startingMultipleInsertions();
+    mLogViewModel->startingMultipleInsertions();
 
     if (readingMode == Analyzer::UpdatingRead) {
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::UpdatingRead);
@@ -120,16 +120,16 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
         Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
-        Q_EMIT readFileStarted(*logMode, logFileReader->logFile(),
-                             logFileReaders.count() - logFileReaders.indexOf(logFileReader),
-                             logFileReaders.count());
+        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(),
+                             mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
+                             mLogFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
         Q_EMIT statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
     }
 
-    logViewModel->endingMultipleInsertions(readingMode, insertedLogLineCount);
+    mLogViewModel->endingMultipleInsertions(readingMode, insertedLogLineCount);
 
     // Inform connected LoadingBar that the reading is now finished
     Q_EMIT readEnded();
@@ -142,7 +142,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
 
     logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 
-    insertionLocking.unlock();
+    mInsertionLocking.unlock();
 }
 
 int FileAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile,
@@ -214,5 +214,5 @@ bool FileAnalyzer::insertLine(const QString &buffer, const LogFile &originalFile
         line->setRecent(false);
     }
 
-    return logViewModel->insertNewLogLine(line);
+    return mLogViewModel->insertNewLogLine(line);
 }

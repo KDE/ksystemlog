@@ -104,8 +104,8 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     list.append(client);
     list.append(line);
 
-    return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                       originalLogFile.url().toLocalFile(), findLogLevel(level), logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
+                       originalLogFile.url().toLocalFile(), findLogLevel(level), mLogMode);
 }
 
 void ApacheAnalyzer::initializeTypeLevels()

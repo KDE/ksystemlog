@@ -94,6 +94,6 @@ LogLine *AcpidAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
     list.append(type);
     list.append(message);
 
-    return new LogLine(logLineInternalIdGenerator++, QDateTime(date, time), list,
-                       originalFile.url().toLocalFile(), Globals::instance().informationLogLevel(), logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
+                       originalFile.url().toLocalFile(), Globals::instance().informationLogLevel(), mLogMode);
 }

@@ -33,8 +33,8 @@
 
 Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)
-    , logMode(mode)
-    , insertionLocking(QMutex::Recursive)
+    , mLogMode(mode)
+    , mInsertionLocking(QMutex::Recursive)
 {
 }
 
@@ -46,16 +46,16 @@ Analyzer::~Analyzer()
 
 bool Analyzer::isParsingPaused() const
 {
-    return parsingPaused;
+    return mParsingPaused;
 }
 
 void Analyzer::setParsingPaused(bool paused)
 {
-    parsingPaused = paused;
+    mParsingPaused = paused;
 
     bool watching;
     // If we resume the parsing, then parse files to know if new lines have been appended.
-    if (parsingPaused == true) {
+    if (mParsingPaused == true) {
         logDebug() << "Pausing reading";
         watching = false;
     } else {
@@ -68,7 +68,7 @@ void Analyzer::setParsingPaused(bool paused)
 
 void Analyzer::setLogViewModel(LogViewModel *logViewModel)
 {
-    this->logViewModel = logViewModel;
+    this->mLogViewModel = logViewModel;
 }
 
 void Analyzer::informOpeningProgress(int currentPosition, int total)

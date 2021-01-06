@@ -37,14 +37,14 @@
 class LocalLogFileReaderPrivate : public LogFileReaderPrivate
 {
 public:
-    KDirWatch *watch = nullptr;
+    KDirWatch *mWatch = nullptr;
 
-    long previousFilePosition;
+    long mPreviousFilePosition;
 
     /**
      * Mutex avoiding multiple logFileModified() calls
      */
-    QMutex insertionLocking;
+    QMutex mInsertionLocking;
 };
 
 LocalLogFileReader::LocalLogFileReader(const LogFile &logFile)
@@ -64,7 +64,7 @@ LocalLogFileReader::~LocalLogFileReader()
     Q_D(LocalLogFileReader);
 
     // Delete the watching object
-    delete d->watch;
+    delete d->mWatch;
 
     // d pointer is deleted by the parent class
 }
@@ -73,11 +73,11 @@ void LocalLogFileReader::init()
 {
     Q_D(LocalLogFileReader);
 
-    d->watch = new KDirWatch();
-    connect(d->watch, &KDirWatch::dirty, this, &LocalLogFileReader::logFileModified);
+    d->mWatch = new KDirWatch();
+    connect(d->mWatch, &KDirWatch::dirty, this, &LocalLogFileReader::logFileModified);
 
     // Init current file position
-    d->previousFilePosition = 0;
+    d->mPreviousFilePosition = 0;
 
     logDebug() << "Reading local file " << d->logFile.url().toLocalFile();
 }
@@ -90,17 +90,17 @@ void LocalLogFileReader::watchFile(bool enable)
     if (enable) {
         logDebug() << "Monitoring file : " << filePath;
 
-        if (!d->watch->contains(filePath)) {
-            d->watch->addFile(filePath);
+        if (!d->mWatch->contains(filePath)) {
+            d->mWatch->addFile(filePath);
         }
 
         // Reinit current file position
-        d->previousFilePosition = 0;
+        d->mPreviousFilePosition = 0;
 
         // If we enable the watching, then we first try to see if new lines have appeared
         logFileModified();
     } else {
-        d->watch->removeFile(filePath);
+        d->mWatch->removeFile(filePath);
     }
 }
 
@@ -184,8 +184,8 @@ QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
     logDebug() << "Raw buffer retrieved.";
 
     // Get the size file for the next calculation
-    d->previousFilePosition = inputDevice->size();
-    logDebug() << "New file position : " << d->previousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
+    d->mPreviousFilePosition = inputDevice->size();
+    logDebug() << "New file position : " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
 
     return rawBuffer;
 }
@@ -195,7 +195,7 @@ void LocalLogFileReader::logFileModified()
     Q_D(LocalLogFileReader);
 
     logDebug() << "Locking log file modification...";
-    if (d->insertionLocking.tryLock() == false) {
+    if (d->mInsertionLocking.tryLock() == false) {
         logDebug() << "Log file modification already detected.";
         return;
     }
@@ -207,15 +207,15 @@ void LocalLogFileReader::logFileModified()
     }
 
     // If there are new lines in the file, insert only them or this is the first time we read this file
-    if (d->previousFilePosition != 0 && d->previousFilePosition <= inputDevice->size()) {
-        logDebug() << "Reading from position " << d->previousFilePosition << " (" << d->logFile.url().toLocalFile()
+    if (d->mPreviousFilePosition != 0 && d->mPreviousFilePosition <= inputDevice->size()) {
+        logDebug() << "Reading from position " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile()
                    << ")";
 
         if (inputDevice->isSequential()) {
             logCritical() << "The file current position could not be modified";
         } else {
             // Place the cursor to the last line opened
-            inputDevice->seek(d->previousFilePosition);
+            inputDevice->seek(d->mPreviousFilePosition);
         }
 
         logDebug() << "Retrieving a part of the file...";
@@ -233,5 +233,5 @@ void LocalLogFileReader::logFileModified()
     close(inputDevice);
 
     logDebug() << "Unlocking log file modification...";
-    d->insertionLocking.unlock();
+    d->mInsertionLocking.unlock();
 }

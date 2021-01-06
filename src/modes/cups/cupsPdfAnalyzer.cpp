@@ -62,8 +62,8 @@ LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &or
     QDateTime dateTime = ParsingHelper::instance()->parseSyslogDateTime(capturedTexts.takeAt(0));
     LogLevel *logLevel = findLogLevel(capturedTexts.takeAt(0));
 
-    return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                       originalLogFile.url().toLocalFile(), logLevel, logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
+                       originalLogFile.url().toLocalFile(), logLevel, mLogMode);
 }
 
 LogLevel *CupsPdfAnalyzer::findLogLevel(const QString &level)

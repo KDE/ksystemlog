@@ -28,8 +28,7 @@
 #include "logFile.h"
 
 class QProgressBar;
-class LoadingBarPrivate;
-
+class QLabel;
 /**
  * TODO Try to have a working Cancel button (for the moment, it only hide the Loading Dialog)
  */
@@ -55,7 +54,14 @@ Q_SIGNALS:
     void displayed(bool displayed);
 
 private:
-    LoadingBarPrivate *const d;
+    int mFileCount;
+    int mCurrentFileIndex;
+
+    bool mFirstLoading = true;
+
+    QLabel *mLabel = nullptr;
+
+    QProgressBar *mProgressBar = nullptr;
 };
 
 #endif // _LOADING_BAR_H

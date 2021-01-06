@@ -43,14 +43,14 @@ LogLine *AuthenticationAnalyzer::parseMessage(const QString &logLine, const LogF
 bool AuthenticationAnalyzer::hasWarningKeywords(const QString &message)
 {
     AuthenticationConfiguration *configuration
-            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+            = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
     return hasKeywords(message, configuration->warningKeywords());
 }
 
 bool AuthenticationAnalyzer::hasErrorKeywords(const QString &message)
 {
     AuthenticationConfiguration *configuration
-            = logMode->logModeConfiguration<AuthenticationConfiguration *>();
+            = mLogMode->logModeConfiguration<AuthenticationConfiguration *>();
     return hasKeywords(message, configuration->errorKeywords());
 }
 

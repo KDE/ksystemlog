@@ -37,27 +37,27 @@ class KioLogFileReaderPrivate
 {
 public:
     KioLogFileReaderPrivate(const LogFile &file)
-        : logFile(file)
+        : mLogFile(file)
     {
     }
 
-    const LogFile logFile;
+    const LogFile mLogFile;
 
-    KIO::FileJob *fileJob = nullptr;
+    KIO::FileJob *mFileJob = nullptr;
 
-    QString buffer;
-    qulonglong totalRead = 0;
+    QString mBuffer;
+    qulonglong mTotalRead = 0;
 
-    KDirWatch *fileWatch = nullptr;
+    KDirWatch *mFileWatch = nullptr;
 };
 
 KioLogFileReader::KioLogFileReader(const LogFile &logFile)
     : d(new KioLogFileReaderPrivate(logFile))
 {
-    d->fileWatch = new KDirWatch(this);
+    d->mFileWatch = new KDirWatch(this);
 
-    connect(d->fileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);
-    d->fileWatch->addFile(logFile.url().toLocalFile());
+    connect(d->mFileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);
+    d->mFileWatch->addFile(logFile.url().toLocalFile());
     /*
     d->fileWatch.setInterval(1000);
     connect(& (d->fileWatch), SIGNAL(timeout()), this, SLOT(watchFile()));
@@ -74,18 +74,18 @@ KioLogFileReader::~KioLogFileReader()
 void KioLogFileReader::open()
 {
     logDebug() << "Opening...";
-    d->fileJob = KIO::open(d->logFile.url(), QIODevice::ReadOnly | QIODevice::Text);
+    d->mFileJob = KIO::open(d->mLogFile.url(), QIODevice::ReadOnly | QIODevice::Text);
 
-    connect(d->fileJob, &KIO::FileJob::open, this, &KioLogFileReader::openDone);
-    connect(d->fileJob, SIGNAL(close(KIO::Job*)), this, SLOT(closeDone(KIO::Job*)));
+    connect(d->mFileJob, &KIO::FileJob::open, this, &KioLogFileReader::openDone);
+    connect(d->mFileJob, SIGNAL(close(KIO::Job*)), this, SLOT(closeDone(KIO::Job*)));
 
-    connect(d->fileJob, &KIO::FileJob::data, this,
+    connect(d->mFileJob, &KIO::FileJob::data, this,
             &KioLogFileReader::dataReceived);
 #if KIO_VERSION < QT_VERSION_CHECK(5, 78, 0)
     connect(d->fileJob, &KIO::FileJob::mimetype, this,
             &KioLogFileReader::mimetypeReceived);
 #else
-    connect(d->fileJob, &KIO::FileJob::mimeTypeFound, this,
+    connect(d->mFileJob, &KIO::FileJob::mimeTypeFound, this,
             &KioLogFileReader::mimetypeReceived);
 #endif
     logDebug() << "File opened.";
@@ -93,14 +93,14 @@ void KioLogFileReader::open()
 
 void KioLogFileReader::close()
 {
-    d->fileJob->close();
+    d->mFileJob->close();
 }
 
 void KioLogFileReader::openDone(KIO::Job * /*job*/)
 {
     logDebug() << "Opening done...";
 
-    d->fileJob->read(READ_SIZE);
+    d->mFileJob->read(READ_SIZE);
 }
 void KioLogFileReader::closeDone(KIO::Job * /*job*/)
 {
@@ -109,7 +109,7 @@ void KioLogFileReader::closeDone(KIO::Job * /*job*/)
 
 void KioLogFileReader::dataReceived(KIO::Job *job, const QByteArray &data)
 {
-    if (job != d->fileJob) {
+    if (job != d->mFileJob) {
         logDebug() << "Not the good job";
         return;
     }
@@ -119,17 +119,17 @@ void KioLogFileReader::dataReceived(KIO::Job *job, const QByteArray &data)
     }
 
     // logDebug() << "Receiving data... (" << d->totalRead << ")";
-    d->buffer.append(QLatin1String(data));
-    d->totalRead += data.size();
+    d->mBuffer.append(QLatin1String(data));
+    d->mTotalRead += data.size();
 
     emitCompleteLines();
 
-    logDebug() << "Total read : " << d->totalRead << " of " << d->fileJob->size();
-    if (d->totalRead < d->fileJob->size()) {
-        d->fileJob->read(READ_SIZE);
+    logDebug() << "Total read : " << d->mTotalRead << " of " << d->mFileJob->size();
+    if (d->mTotalRead < d->mFileJob->size()) {
+        d->mFileJob->read(READ_SIZE);
     } else {
         logDebug() << "Entire file read, beginning file watching...";
-        d->fileWatch->startScan();
+        d->mFileWatch->startScan();
     }
 
     // logDebug() << "Data received : " << d->buffer;
@@ -139,23 +139,23 @@ void KioLogFileReader::dataReceived(KIO::Job *job, const QByteArray &data)
 
 void KioLogFileReader::emitCompleteLines()
 {
-    int endLinePos = d->buffer.indexOf(QLatin1String("\n"));
+    int endLinePos = d->mBuffer.indexOf(QLatin1String("\n"));
     forever {
         if (endLinePos == -1)
             break;
 
-        Q_EMIT lineRead(d->buffer.left(endLinePos));
+        Q_EMIT lineRead(d->mBuffer.left(endLinePos));
 
         // Remove the emitted line and the end line character
-        d->buffer.remove(0, endLinePos + 1);
+        d->mBuffer.remove(0, endLinePos + 1);
 
-        endLinePos = d->buffer.indexOf(QLatin1String("\n"));
+        endLinePos = d->mBuffer.indexOf(QLatin1String("\n"));
     }
 
     // If this is the end line and it does not terminate by a \n, we return it
-    if (d->totalRead == d->fileJob->size()) {
-        Q_EMIT lineRead(d->buffer);
-        d->buffer.clear();
+    if (d->mTotalRead == d->mFileJob->size()) {
+        Q_EMIT lineRead(d->mBuffer);
+        d->mBuffer.clear();
     }
 }
 

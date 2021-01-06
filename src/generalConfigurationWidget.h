@@ -25,9 +25,7 @@
 #include <QWidget>
 
 #include "ui_generalConfigurationWidgetBase.h"
-
-class GeneralConfigurationWidgetPrivate;
-
+class KMessageWidget;
 class GeneralConfigurationWidget : public QWidget, public Ui::GeneralConfigurationWidgetBase
 {
     Q_OBJECT
@@ -53,8 +51,8 @@ Q_SIGNALS:
 
 private:
     void addDateFormatExample();
-
-    GeneralConfigurationWidgetPrivate *const d;
+    QButtonGroup *mDateFormatGroup = nullptr;
+    KMessageWidget *mWarningBox = nullptr;
 };
 
 #endif // _GENERAL_CONFIGURATION_WIDGET_H

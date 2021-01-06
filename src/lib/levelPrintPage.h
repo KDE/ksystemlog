@@ -43,11 +43,11 @@ public:
     bool isValid(QString &msg);
 
 private:
-    QButtonGroup *m_btnGroup = nullptr;
-    QGridLayout *m_btnGroupLayout = nullptr;
-    QVBoxLayout *m_pageLayout = nullptr;
-    QLabel *m_lblChoose = nullptr;
-    QList<QCheckBox *> levelCheckBoxes;
+    QButtonGroup *mBtnGroup = nullptr;
+    QGridLayout *mBtnGroupLayout = nullptr;
+    QVBoxLayout *mPageLayout = nullptr;
+    QLabel *mLblChoose = nullptr;
+    QList<QCheckBox *> mLevelCheckBoxes;
 };
 
 #endif

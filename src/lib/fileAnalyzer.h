@@ -78,7 +78,7 @@ private Q_SLOTS:
                         const QStringList &content);
 
 protected:
-    QList<LogFileReader *> logFileReaders;
+    QList<LogFileReader *> mLogFileReaders;
 };
 
 #endif // _FILEANALYZER_H

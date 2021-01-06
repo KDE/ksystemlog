@@ -69,6 +69,6 @@ LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile 
 
     LogLevel *logLevel = findLevel(capturedTexts.at(capturedTexts.count() - 1));
 
-    return new LogLine(logLineInternalIdGenerator++, dateTime, capturedTexts,
-                       originalLogFile.url().toLocalFile(), logLevel, logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
+                       originalLogFile.url().toLocalFile(), logLevel, mLogMode);
 }

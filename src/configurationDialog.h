@@ -25,7 +25,8 @@
 #include <KConfigDialog>
 
 class ConfigurationDialogPrivate;
-
+class GeneralConfigurationWidget;
+class LogModeConfigurationWidget;
 class ConfigurationDialog : public KConfigDialog
 {
     Q_OBJECT
@@ -54,11 +55,15 @@ private:
     bool hasChanged() override;
     bool isDefault() override;
 
-    ConfigurationDialogPrivate *const d;
-
     void setupGeneralConfiguration();
 
     void setupLogModeConfigurations();
+    GeneralConfigurationWidget *mGeneralConfiguration = nullptr;
+
+    QList<LogModeConfigurationWidget *> mLogModeConfigurations;
+
+    bool mChanged;
+
 };
 
 #endif //_CONFIGURATION_DIALOG_H

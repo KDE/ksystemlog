@@ -43,7 +43,7 @@ LogViewColumns XSessionAnalyzer::initColumns()
 
 Analyzer::LogFileSortMode XSessionAnalyzer::logFileSortMode()
 {
-    XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     if (configuration->isIgnoreXorgErrors())
         return Analyzer::FilteredLogFile;
     else
@@ -86,13 +86,13 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
     else
         logLevel = Globals::instance().informationLogLevel();
 
-    return new LogLine(logLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
-                       originalFile.url().toLocalFile(), logLevel, logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, currentDateTime, QStringList() << program << message,
+                       originalFile.url().toLocalFile(), logLevel, mLogMode);
 }
 
 bool XSessionAnalyzer::isXorgError(const QString &program)
 {
-    XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program))
         return true;
 
@@ -101,13 +101,13 @@ bool XSessionAnalyzer::isXorgError(const QString &program)
 
 bool XSessionAnalyzer::hasWarningKeywords(const QString &message)
 {
-    XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     return hasKeywords(message, configuration->warningKeywords());
 }
 
 bool XSessionAnalyzer::hasErrorKeywords(const QString &message)
 {
-    XSessionConfiguration *configuration = logMode->logModeConfiguration<XSessionConfiguration *>();
+    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     return hasKeywords(message, configuration->errorKeywords());
 }
 

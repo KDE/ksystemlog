@@ -80,11 +80,11 @@ Q_SIGNALS:
 protected:
     void informOpeningProgress(int currentPosition, int total);
 
-    bool parsingPaused = false;
-    LogViewModel *logViewModel = nullptr;
-    LogMode *const logMode;
-    QMutex insertionLocking;
-    long logLineInternalIdGenerator = 0;
+    bool mParsingPaused = false;
+    LogViewModel *mLogViewModel = nullptr;
+    LogMode *const mLogMode;
+    QMutex mInsertionLocking;
+    long mLogLineInternalIdGenerator = 0;
 };
 
 #endif

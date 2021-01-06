@@ -110,6 +110,6 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
     list.append(message);
     list.append(url);
 
-    return new LogLine(logLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
-                       Globals::instance().informationLogLevel(), logMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
+                       Globals::instance().informationLogLevel(), mLogMode);
 }

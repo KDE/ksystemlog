@@ -52,10 +52,10 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
         const JournalEntry &entry = entries.at(i);
         QStringList itemComponents;
         itemComponents << entry.unit << entry.message;
-        LogLine *line = new LogLine(logLineInternalIdGenerator++, entry.date, itemComponents, QString(),
-                                    Globals::instance().logLevelByPriority(entry.priority), logMode);
+        LogLine *line = new LogLine(mLogLineInternalIdGenerator++, entry.date, itemComponents, QString(),
+                                    Globals::instance().logLevelByPriority(entry.priority), mLogMode);
         line->setRecent(readingMode == UpdatingRead);
-        logViewModel->insertNewLogLine(line);
+        mLogViewModel->insertNewLogLine(line);
 
         if (readingMode == FullRead)
             informOpeningProgress(i, entriesNum);

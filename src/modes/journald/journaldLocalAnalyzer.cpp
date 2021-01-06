@@ -154,24 +154,24 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 
     QList<JournalEntry> entries = watcher->result();
 
-    if (parsingPaused) {
+    if (mParsingPaused) {
         logDebug() << "Parsing is paused, discarding journald entries.";
     } else if (entries.empty()) {
         logDebug() << "Received no entries.";
     } else {
-        insertionLocking.lock();
-        logViewModel->startingMultipleInsertions();
+        mInsertionLocking.lock();
+        mLogViewModel->startingMultipleInsertions();
 
         if (FullRead == readingMode) {
             Q_EMIT statusBarChanged(i18n("Reading journald entries..."));
             // Start displaying the loading bar.
-            Q_EMIT readFileStarted(*logMode, LogFile(), 0, 1);
+            Q_EMIT readFileStarted(*mLogMode, LogFile(), 0, 1);
         }
 
         // Add journald entries to the model.
         int entriesInserted = updateModel(entries, readingMode);
 
-        logViewModel->endingMultipleInsertions(readingMode, entriesInserted);
+        mLogViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
         if (FullRead == readingMode) {
             Q_EMIT statusBarChanged(i18n("Journald entries loaded successfully."));
@@ -183,7 +183,7 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
         // Inform LogManager that new lines have been added.
         Q_EMIT logUpdated(entriesInserted);
 
-        insertionLocking.unlock();
+        mInsertionLocking.unlock();
     }
 
     m_workerMutex.lock();
@@ -202,7 +202,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
     file.readAll();
     file.close();
 
-    if (parsingPaused) {
+    if (mParsingPaused) {
         logDebug() << "Parsing is paused, will not fetch new journald entries.";
         return;
     }

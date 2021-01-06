@@ -34,26 +34,18 @@
 #include "globals.h"
 #include "ksystemlogConfig.h"
 
-class GeneralConfigurationWidgetPrivate
-{
-public:
-    QButtonGroup *dateFormatGroup = nullptr;
-    KMessageWidget *warningBox = nullptr;
-};
-
 GeneralConfigurationWidget::GeneralConfigurationWidget()
     : QWidget()
-    , d(new GeneralConfigurationWidgetPrivate())
 {
     setupUi(this);
 
-    d->warningBox = new KMessageWidget(this);
-    d->warningBox->setVisible(false);
-    d->warningBox->setMessageType(KMessageWidget::Warning);
-    d->warningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
-    d->warningBox->setCloseButtonVisible(false);
-    d->warningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
-    startupModeVerticalLayout->addWidget(d->warningBox);
+    mWarningBox = new KMessageWidget(this);
+    mWarningBox->setVisible(false);
+    mWarningBox->setMessageType(KMessageWidget::Warning);
+    mWarningBox->setText(i18n("This mode is unavailable because its log files do not exist."));
+    mWarningBox->setCloseButtonVisible(false);
+    mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
+    startupModeVerticalLayout->addWidget(mWarningBox);
 
     startupLogMode->addItem(QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log Mode"),
                             QVariant(QLatin1String("")));
@@ -74,28 +66,25 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
 
     connect(colorizeLogLines, &QAbstractButton::clicked, this, &GeneralConfigurationWidget::configurationChanged);
 
-    d->dateFormatGroup = new QButtonGroup(this);
-    d->dateFormatGroup->addButton(formatLongDate, Globals::LongFormat);
-    d->dateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
-    d->dateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
+    mDateFormatGroup = new QButtonGroup(this);
+    mDateFormatGroup->addButton(formatLongDate, Globals::LongFormat);
+    mDateFormatGroup->addButton(formatShortDate, Globals::ShortFormat);
+    mDateFormatGroup->addButton(formatPreciseDate, Globals::PreciseFormat);
 
-    connect(d->dateFormatGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &GeneralConfigurationWidget::configurationChanged);
+    connect(mDateFormatGroup, QOverload<QAbstractButton *>::of(&QButtonGroup::buttonClicked), this, &GeneralConfigurationWidget::configurationChanged);
 
     addDateFormatExample();
 }
 
 GeneralConfigurationWidget::~GeneralConfigurationWidget()
 {
-    // dateFormatGroup is automatically deleted by Qt
-
-    delete d;
 }
 
 void GeneralConfigurationWidget::addDateFormatExample()
 {
-    const auto buttons = d->dateFormatGroup->buttons();
+    const auto buttons = mDateFormatGroup->buttons();
     for (QAbstractButton *button : buttons) {
-        const Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(d->dateFormatGroup->id(button));
+        const Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(mDateFormatGroup->id(button));
         const QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
         button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
     }
@@ -120,7 +109,7 @@ void GeneralConfigurationWidget::readConfig()
 
     // KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
     QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
-    QAbstractButton *selectedButton = d->dateFormatGroup->button(dateFormat);
+    QAbstractButton *selectedButton = mDateFormatGroup->button(dateFormat);
     selectedButton->setChecked(true);
 }
 
@@ -135,7 +124,7 @@ void GeneralConfigurationWidget::saveConfig() const
     KSystemLogConfig::setDeleteProcessIdentifier(deleteProcessId->isChecked());
     KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
 
-    KSystemLogConfig::setDateFormat(d->dateFormatGroup->checkedId());
+    KSystemLogConfig::setDateFormat(mDateFormatGroup->checkedId());
 }
 
 void GeneralConfigurationWidget::defaultConfig()
@@ -155,15 +144,15 @@ bool GeneralConfigurationWidget::isValid() const
             if (mode) {
                 if (!mode->filesExist()) {
                     logDebug() << "Log files are missing for mode" << mode->name();
-                    d->warningBox->setVisible(true);
+                    mWarningBox->setVisible(true);
                 } else {
                     logDebug() << "General configuration is valid";
-                    d->warningBox->setVisible(false);
+                    mWarningBox->setVisible(false);
                     return true;
                 }
             } else {
                 // Empty log mode is selected.
-                d->warningBox->setVisible(false);
+                mWarningBox->setVisible(false);
                 return true;
             }
         }

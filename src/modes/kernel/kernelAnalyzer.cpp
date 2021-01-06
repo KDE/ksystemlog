@@ -99,8 +99,8 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         */
 
     LogLine *line
-            = new LogLine(logLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
-                          Globals::instance().informationLogLevel(), logMode);
+            = new LogLine(mLogLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
+                          Globals::instance().informationLogLevel(), mLogMode);
 
     return line;
 }

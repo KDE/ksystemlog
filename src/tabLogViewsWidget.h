@@ -33,7 +33,7 @@ class LogManager;
 class TabLogManager;
 class View;
 class LogMode;
-
+class QMenu;
 class TabLogViewsWidgetPrivate;
 
 class TabLogViewsWidget : public QTabWidget
@@ -107,8 +107,9 @@ private:
     TabLogManager *findRelatedTabLogManager(View *view) const;
 
     void prepareContextMenu(bool onTab);
+    QList<TabLogManager *> mTabLogManagers;
 
-    TabLogViewsWidgetPrivate *const d;
+    QMenu *mContextMenu = nullptr;
 };
 
 #endif // _TAB_LOG_VIEWS_WIDGET_H

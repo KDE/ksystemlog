@@ -29,8 +29,6 @@
 
 class LogLevel;
 
-class LogFilePrivate;
-
 class LogFile : public QObject
 {
     Q_OBJECT
@@ -52,7 +50,9 @@ public:
     LogLevel *defaultLogLevel() const;
 
 private:
-    LogFilePrivate *const d;
+    QUrl mUrl;
+
+    LogLevel *mDefaultLogLevel = nullptr;
 };
 
 QDataStream &operator<<(QDataStream &out, const LogFile &column);

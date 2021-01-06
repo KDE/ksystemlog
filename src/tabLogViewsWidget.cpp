@@ -38,17 +38,9 @@
 #include "tabLogManager.h"
 #include "logViewWidget.h"
 
-class TabLogViewsWidgetPrivate
-{
-public:
-    QList<TabLogManager *> mTabLogManagers;
-
-    QMenu *mContextMenu = nullptr;
-};
 
 TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
-    , d(new TabLogViewsWidgetPrivate())
 {
 
     QPushButton *tabNewTabButton
@@ -85,14 +77,12 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
 
 TabLogViewsWidget::~TabLogViewsWidget()
 {
-    const QList<TabLogManager *> copy = d->mTabLogManagers;
+    const QList<TabLogManager *> copy = mTabLogManagers;
 
     for (TabLogManager *tabLogManager : copy) {
-        d->mTabLogManagers.removeAll(tabLogManager);
+        mTabLogManagers.removeAll(tabLogManager);
         delete tabLogManager;
     }
-
-    delete d;
 }
 
 void TabLogViewsWidget::newTab(View *view)
@@ -116,7 +106,7 @@ void TabLogViewsWidget::changeTab(View *view, const QIcon &icon, const QString &
 QList<LogManager *> TabLogViewsWidget::logManagers() const
 {
     QList<LogManager *> logManagers;
-    const auto tabLogManagers = d->mTabLogManagers;
+    const auto tabLogManagers = mTabLogManagers;
     logManagers.reserve(tabLogManagers.count());
     for (TabLogManager *tabLogManager : tabLogManagers) {
         logManagers.append(tabLogManager->logManager());
@@ -132,7 +122,7 @@ LogManager *TabLogViewsWidget::findRelatedLogManager(View *view)
 
 TabLogManager *TabLogViewsWidget::findRelatedTabLogManager(View *view) const
 {
-    for (TabLogManager *tabLogManager : qAsConst(d->mTabLogManagers)) {
+    for (TabLogManager *tabLogManager : qAsConst(mTabLogManagers)) {
         if (tabLogManager->logManager()->usedView() == view) {
             return tabLogManager;
         }
@@ -176,8 +166,8 @@ void TabLogViewsWidget::moveTabLeft()
         return;
     }
 
-    d->mTabLogManagers.removeAt(position);
-    d->mTabLogManagers.insert(position - 1, currentTabLogManager);
+    mTabLogManagers.removeAt(position);
+    mTabLogManagers.insert(position - 1, currentTabLogManager);
 
     tabBar()->moveTab(position, position - 1);
 }
@@ -194,8 +184,8 @@ void TabLogViewsWidget::moveTabRight()
         return;
     }
 
-    d->mTabLogManagers.removeAt(position);
-    d->mTabLogManagers.insert(position + 1, currentTabLogManager);
+    mTabLogManagers.removeAt(position);
+    mTabLogManagers.insert(position + 1, currentTabLogManager);
 
     tabBar()->moveTab(position, position + 1);
 }
@@ -231,7 +221,7 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
     connect(logManager, &LogManager::logUpdated, this, &TabLogViewsWidget::changeTitleAddedLines);
 
     TabLogManager *tabLogManager = new TabLogManager(logManager);
-    d->mTabLogManagers.append(tabLogManager);
+    mTabLogManagers.append(tabLogManager);
 
     logDebug() << "New LogManager created";
 
@@ -258,7 +248,7 @@ void TabLogViewsWidget::closeTab()
 
     TabLogManager *currentTabLogManager = activeTabLogManager();
 
-    d->mTabLogManagers.removeAll(currentTabLogManager);
+    mTabLogManagers.removeAll(currentTabLogManager);
 
     removeTab(indexOf(currentTabLogManager->logManager()->usedView()));
     if (count() == 1) {
@@ -299,7 +289,7 @@ void TabLogViewsWidget::reloadAll()
 {
     logDebug() << "Reloading all tabs...";
 
-    const auto tabLogManagers = d->mTabLogManagers;
+    const auto tabLogManagers = mTabLogManagers;
     for (TabLogManager *tabLogManager : tabLogManagers) {
         // Log manager without log mode does not need to be reloaded
         if (tabLogManager->logManager()->logMode() == nullptr) {
@@ -415,9 +405,9 @@ QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode) const
 
 void TabLogViewsWidget::prepareContextMenu(bool /*onTab*/)
 {
-    if (d->mContextMenu == nullptr) {
-        d->mContextMenu = new QMenu(this);
-        d->mContextMenu->addActions(actions());
+    if (mContextMenu == nullptr) {
+        mContextMenu = new QMenu(this);
+        mContextMenu->addActions(actions());
     }
 
     // TODO Disable some actions, depending of the onTab value
@@ -429,7 +419,7 @@ void TabLogViewsWidget::showContextMenu(const QPoint &cursorPosition)
 
     prepareContextMenu(false);
 
-    d->mContextMenu->popup(cursorPosition);
+    mContextMenu->popup(cursorPosition);
 }
 
 void TabLogViewsWidget::showContextMenu(QWidget *tab, const QPoint &cursorPosition)
@@ -438,5 +428,5 @@ void TabLogViewsWidget::showContextMenu(QWidget *tab, const QPoint &cursorPositi
 
     prepareContextMenu(true);
 
-    d->mContextMenu->popup(cursorPosition);
+    mContextMenu->popup(cursorPosition);
 }
