@@ -31,9 +31,6 @@
 
 int main(int argc, char **argv)
 {
-    // Enable debug output:
-    // QLoggingCategory::setFilterRules(QStringLiteral("ksystemlog.debug = true"));
-
     // enable high dpi support
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
@@ -47,7 +44,7 @@ int main(int argc, char **argv)
                      i18n("(C) 2007-2015, Nicolas Ternisien"),
                      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
                           "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
-                     QStringLiteral("https://www.kde.org/applications/system/ksystemlog/"), QString());
+                     QStringLiteral("https://apps.kde.org/en/ksystemlog"), QString());
 
     about.setOrganizationDomain("kde.org");
 
