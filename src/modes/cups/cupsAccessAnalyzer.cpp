@@ -71,7 +71,7 @@ LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile 
     capturedTexts.replace(5, ParsingHelper::instance()->parseHttpResponse(capturedTexts.at(5)));
     capturedTexts.replace(6, ParsingHelper::instance()->parseSize(capturedTexts.at(6)));
 
-    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
+    const QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
 
     LogLevel *logLevel = findLevel(capturedTexts.at(capturedTexts.count() - 1));
 

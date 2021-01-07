@@ -54,7 +54,7 @@ Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode()
 
 LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int firstPosition = mCupsPageRegex.indexIn(logLine);
+    const int firstPosition = mCupsPageRegex.indexIn(logLine);
     if (firstPosition == -1) {
         logDebug() << "Unable to parse line " << logLine;
         return nullptr;
@@ -65,7 +65,7 @@ LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &o
     // Remove full line
     capturedTexts.removeAt(0);
 
-    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
+    const QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
 
     return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
                        originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), mLogMode);

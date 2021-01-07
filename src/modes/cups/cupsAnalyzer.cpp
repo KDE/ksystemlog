@@ -57,12 +57,11 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
     QChar level = logLine[0];
 
-    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(logLine.mid(3, 26));
+    const QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(logLine.mid(3, 26));
 
-    QString message = line.remove(0, 31);
+    const QString message = line.remove(0, 31);
 
-    QStringList list;
-    list.append(message);
+    const QStringList list {message};
 
     return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
                        findLogLevel(level), mLogMode);

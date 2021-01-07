@@ -114,13 +114,13 @@ QDateTime ParsingHelper::parseHttpDateTime(const QString &logLine)
 {
     // Format example : 22/May/2005:01:50:34 +0200
 
-    QString day = logLine.mid(0, 2);
-    QString month = logLine.mid(3, 3);
-    QString year = logLine.mid(7, 4);
+    const QString day = logLine.mid(0, 2);
+    const QString month = logLine.mid(3, 3);
+    const QString year = logLine.mid(7, 4);
 
-    QString hour = logLine.mid(12, 2);
-    QString min = logLine.mid(15, 2);
-    QString sec = logLine.mid(18, 2);
+    const QString hour = logLine.mid(12, 2);
+    const QString min = logLine.mid(15, 2);
+    const QString sec = logLine.mid(18, 2);
 
     // QString zone=logLine.mid(22,5);
 
@@ -158,7 +158,7 @@ int ParsingHelper::parseSyslogMonth(const QString &string)
 
 QString ParsingHelper::parseSize(const QString &stringSize)
 {
-    qint64 size = stringSize.toLongLong();
+    const qint64 size = stringSize.toLongLong();
 
     return KFormat().formatByteSize(size);
 }
