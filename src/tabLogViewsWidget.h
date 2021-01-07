@@ -34,7 +34,6 @@ class TabLogManager;
 class View;
 class LogMode;
 class QMenu;
-class TabLogViewsWidgetPrivate;
 
 class TabLogViewsWidget : public QTabWidget
 {

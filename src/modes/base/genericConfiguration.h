@@ -47,10 +47,12 @@ public:
 
     void setLogFilesLevels(const QList<int> &logFilesLevels);
 
-    QList<LogFile> findGenericLogFiles();
+    QList<LogFile> findGenericLogFiles() const;
 
 private:
-    GenericLogModeConfigurationPrivate *const d;
+    QStringList mLogFilesPaths;
+
+    QList<int> mLogFilesLevels;
 };
 
 #endif // _LOG_MODE_GENERIC_CONFIGURATION_H

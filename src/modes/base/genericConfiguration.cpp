@@ -33,68 +33,64 @@
 class GenericLogModeConfigurationPrivate
 {
 public:
-    QStringList logFilesPaths;
 
-    QList<int> logFilesLevels;
 };
 
 GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths, const QList<int> &defaultLogFilesLevels)
-    : d(new GenericLogModeConfigurationPrivate())
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;
     mConfiguration->setCurrentGroup(configurationGroup);
 
-    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), d->logFilesPaths, defaultLogFilesPaths,
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mLogFilesPaths, defaultLogFilesPaths,
                                       QStringLiteral("LogFilesPaths"));
 
-    mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), d->logFilesLevels, defaultLogFilesLevels,
+    mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), mLogFilesLevels, defaultLogFilesLevels,
                                    QStringLiteral("LogFilesLevels"));
 }
 
 GenericLogModeConfiguration::~GenericLogModeConfiguration()
 {
-    delete d;
 }
 
 QStringList GenericLogModeConfiguration::logFilesPaths() const
 {
-    return d->logFilesPaths;
+    return mLogFilesPaths;
 }
 
 QList<int> GenericLogModeConfiguration::logFilesLevels() const
 {
-    return d->logFilesLevels;
+    return mLogFilesLevels;
 }
 
 void GenericLogModeConfiguration::setLogFilesPaths(const QStringList &logFilesPaths)
 {
-    d->logFilesPaths = logFilesPaths;
+    mLogFilesPaths = logFilesPaths;
 }
 
 void GenericLogModeConfiguration::setLogFilesLevels(const QList<int> &logFilesLevels)
 {
-    d->logFilesLevels = logFilesLevels;
+    mLogFilesLevels = logFilesLevels;
 }
 
-QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles()
+QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
 {
     QList<LogFile> logFiles;
 
-    if (d->logFilesPaths.size() != d->logFilesLevels.size()) {
+    if (mLogFilesPaths.size() != mLogFilesLevels.size()) {
         logDebug() << i18n("The two arrays size are different, skipping the reading of log files.");
         return logFiles;
     }
 
-    LogLevel *level;
+    LogLevel *level = nullptr;
 
-    QListIterator<QString> itString(d->logFilesPaths);
-    QListIterator<int> itInt(d->logFilesLevels);
+    QListIterator<QString> itString(mLogFilesPaths);
+    QListIterator<int> itInt(mLogFilesLevels);
 
     while (itString.hasNext()) {
         int intValue = itInt.next();
         QString stringValue = itString.next();
 
-        if (intValue >= 0 && intValue < (int)Globals::instance().logLevels().count()) {
+        if (intValue >= 0 && intValue < static_cast<int>(Globals::instance().logLevels().count())) {
             level = Globals::instance().logLevels().at(intValue);
         } else {
             level = Globals::instance().informationLogLevel();
