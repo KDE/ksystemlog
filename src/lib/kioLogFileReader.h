@@ -30,10 +30,9 @@
 
 namespace KIO {
 class Job;
+class FileJob;
 }
-
-class KioLogFileReaderPrivate;
-
+class KDirWatch;
 /**
  * TODO Inherits from LogFileReader
  */
@@ -62,8 +61,14 @@ private Q_SLOTS:
 
 private:
     void emitCompleteLines();
+    const LogFile mLogFile;
 
-    KioLogFileReaderPrivate *const d;
+    KIO::FileJob *mFileJob = nullptr;
+
+    QString mBuffer;
+    qulonglong mTotalRead = 0;
+
+    KDirWatch *mFileWatch = nullptr;
 };
 
 #endif // _KIO_LOG_FILE_READER_H
