@@ -261,7 +261,7 @@ void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVaria
 {
     logDebug() << "Loading a new mode : " << logMode->name();
 
-    if (manager == nullptr || logMode == nullptr) {
+    if (manager == nullptr) {
         logCritical() << "Error while loading a manager ";
         return;
     }

@@ -54,9 +54,6 @@ Q_SIGNALS:
     void displayed(bool displayed);
 
 private:
-    int mFileCount;
-    int mCurrentFileIndex;
-
     bool mFirstLoading = true;
 
     QLabel *mLabel = nullptr;

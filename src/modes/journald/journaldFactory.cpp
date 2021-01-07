@@ -132,20 +132,20 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         // Add filtering by systemd unit.
         JournalFilters filters = logMode->filters(addressInfo);
         if (!filters.systemdUnits.isEmpty()) {
-            KActionMenu *filterActionMenu
+            KActionMenu *filterActionSystemdMenu
                 = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
 
             for (const QString &unit : filters.systemdUnits) {
-                action = new QAction(unit, filterActionMenu);
+                action = new QAction(unit, filterActionSystemdMenu);
 
                 analyzerOptions.filter = QStringLiteral("_SYSTEMD_UNIT=%1").arg(unit);
                 actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
                 action->setData(QVariant::fromValue(actionData));
 
-                filterActionMenu->addAction(action);
+                filterActionSystemdMenu->addAction(action);
                 multipleActions->addInnerAction(action, false, true);
             }
-            actionMenu->addAction(filterActionMenu);
+            actionMenu->addAction(filterActionSystemdMenu);
         }
 
         // Add filtering by syslog identifier.

@@ -24,11 +24,11 @@
 #include <QIcon>
 LogLevel::LogLevel(int id, const QString &nm, const QString &ic, const QColor &col, QObject *parent)
     : QObject(parent)
+    , mId(id)
+    , mName(nm)
+    , mColor(col)
+    , mIcon(QIcon::fromTheme(ic))
 {
-    mId = id;
-    mName = nm;
-    mColor = col;
-    mIcon = QIcon::fromTheme(ic);
 }
 
 LogLevel::~LogLevel()

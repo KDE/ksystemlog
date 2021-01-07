@@ -23,10 +23,10 @@
 
 LogModeConfigurationWidget::LogModeConfigurationWidget(const QString &itemName, const QString &iconName, const QString &header)
     : QWidget()
+    , mItemName(itemName)
+    , mIconName(iconName)
+    , mHeader(header)
 {
-    mItemName = itemName;
-    mIconName = iconName;
-    mHeader = header;
 }
 
 LogModeConfigurationWidget::~LogModeConfigurationWidget()
