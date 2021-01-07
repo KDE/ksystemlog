@@ -24,7 +24,6 @@
 
 #include <KConfigDialog>
 
-class ConfigurationDialogPrivate;
 class GeneralConfigurationWidget;
 class LogModeConfigurationWidget;
 class ConfigurationDialog : public KConfigDialog

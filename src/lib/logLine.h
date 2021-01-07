@@ -34,8 +34,6 @@ class QDateTime;
 class QStringList;
 class LogViewWidgetItem;
 
-class LogLinePrivate;
-
 class LogLine
 {
 public:
@@ -71,7 +69,21 @@ public:
     QString exportToText() const;
 
 protected:
-    LogLinePrivate *const d;
+    long mInternalId;
+
+    QDateTime mTime;
+
+    QStringList mLogItems;
+
+    QString mOriginalFile;
+
+    LogLevel *mLogLevel = nullptr;
+
+    LogMode *mLogMode = nullptr;
+
+    bool mRecent;
+
+    LogViewWidgetItem *mItem = nullptr;
 
 private:
     void initializeItem();

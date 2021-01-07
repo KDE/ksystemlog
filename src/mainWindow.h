@@ -34,10 +34,12 @@ class LogMode;
 class View;
 
 class TabLogViewsWidget;
-
+class QPrinter;
+class DetailDialog;
+class LoggerDialog;
+class ConfigurationDialog;
 namespace KSystemLog {
-class MainWindowPrivate;
-
+class StatusBar;
 /**
  * This class serves as the main window for ksystemlog.  It handles the
  * menus, toolbars, and status bars.
@@ -126,7 +128,57 @@ private:
 
     void updateDetailDialog();
 
-    MainWindowPrivate *const d;
+    QAction *mSaveAction = nullptr;
+    QAction *mCopyAction = nullptr;
+
+    QAction *mReloadAction = nullptr;
+
+    QAction *mSendMailAction = nullptr;
+    QAction *mLogMessageAction = nullptr;
+
+    QAction *mFilterBarAction = nullptr;
+
+    QAction *mSelectAllAction = nullptr;
+
+    QAction *mExpandAllAction = nullptr;
+    QAction *mCollapseAllAction = nullptr;
+
+    QAction *mResumePauseAction = nullptr;
+    QAction *mDetailAction = nullptr;
+    QAction *mPrintAction = nullptr;
+
+    QAction *mFindAction = nullptr;
+    QAction *mFindNextAction = nullptr;
+    QAction *mFindPreviousAction = nullptr;
+
+    QAction *mTooltipEnabledAction = nullptr;
+    QAction *mNewLinesDisplayedAction = nullptr;
+
+    /**
+     * Action groups which stores all Log Mode Actions
+     */
+    QActionGroup *mLogModesActionGroup = nullptr;
+
+    QPrinter *mPrinter = nullptr;
+
+    /**
+     * Detail dialog
+     */
+    DetailDialog *mDetailDialog = nullptr;
+
+    /**
+     * Logged Dialog
+     */
+    LoggerDialog *mLoggedDialog = nullptr;
+
+    ConfigurationDialog *mConfigurationDialog = nullptr;
+
+    /**
+     * Tab widget managing different views
+     */
+    TabLogViewsWidget *mTabs = nullptr;
+
+    KSystemLog::StatusBar *mStatusBar = nullptr;
 };
 }
 

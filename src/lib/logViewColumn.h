@@ -28,8 +28,6 @@
 
 #include "globals.h"
 
-class LogViewColumnPrivate;
-
 class LogViewColumn
 {
 public:
