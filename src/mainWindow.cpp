@@ -146,7 +146,7 @@ void MainWindow::setupTabLogViews()
 {
     logDebug() << "Creating tab widget...";
 
-    mTabs = new TabLogViewsWidget();
+    mTabs = new TabLogViewsWidget(this);
 
     connect(mTabs, &TabLogViewsWidget::statusBarChanged, this, &MainWindow::changeStatusBar);
     connect(mTabs, &TabLogViewsWidget::logManagerCreated, this,
