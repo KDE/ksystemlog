@@ -29,8 +29,7 @@
 
 QList<LogMode *> KernelLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new KernelLogMode());
+    const QList<LogMode *> logModes{new KernelLogMode()};
     return logModes;
 }
 

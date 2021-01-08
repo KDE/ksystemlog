@@ -25,8 +25,7 @@ XorgConfiguration::XorgConfiguration()
 {
     mConfiguration->setCurrentGroup(QStringLiteral("XorgLogMode"));
 
-    QStringList defaultXorgPaths;
-    defaultXorgPaths << QStringLiteral("/var/log/Xorg.0.log");
+    const QStringList defaultXorgPaths{QStringLiteral("/var/log/Xorg.0.log")};
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mXorgPaths, defaultXorgPaths,
                                       QStringLiteral("LogFilesPaths"));
 }

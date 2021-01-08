@@ -75,6 +75,7 @@ TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
 
 TabLogViewsWidget::~TabLogViewsWidget()
 {
+    qDebug() << " TabLogViewsWidget::~TabLogViewsWidget()" << this;
     const QList<TabLogManager *> copy = mTabLogManagers;
 
     for (TabLogManager *tabLogManager : copy) {

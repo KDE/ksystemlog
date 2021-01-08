@@ -28,7 +28,8 @@ void XSessionItemBuilder::prepareItem(LogViewWidgetItem *item) const
     item->setText(0, QLatin1String(""));
 
     int i = 1;
-    foreach (const QString &label, line->logItems()) {
+    const auto logItems = line->logItems();
+    for (const QString &label : logItems) {
         item->setText(i, label);
         i++;
     }

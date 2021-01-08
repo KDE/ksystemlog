@@ -49,14 +49,14 @@ void KernelAnalyzer::startupTime()
     file.open(QIODevice::ReadOnly | QIODevice::Text);
 
     QTextStream in(&file);
-    QString line = in.readLine();
+    const QString line = in.readLine();
 
     // Format : 1618.72 1382.98 (uptime / something)
-    QStringList times = line.split(QLatin1Char(' '));
+    const QStringList times = line.split(QLatin1Char(' '));
 
-    QString secondsString = times.at(0);
-    QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1Char('.')));
-    long updateSeconds = pureSecondsString.toLong();
+    const QString secondsString = times.at(0);
+    const QString pureSecondsString = secondsString.left(secondsString.indexOf(QLatin1Char('.')));
+    const long updateSeconds = pureSecondsString.toLong();
 
     mStartupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
     logDebug() << "Startup time : " << mStartupDateTime;

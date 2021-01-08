@@ -32,8 +32,8 @@
 #include "logManager.h"
 
 TabLogManager::TabLogManager(LogManager *logManager)
+    : mLogManager(logManager)
 {
-    mLogManager = logManager;
 }
 
 TabLogManager::~TabLogManager()

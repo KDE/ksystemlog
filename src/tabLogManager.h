@@ -49,7 +49,7 @@ public:
 
 private:
     QString logModeName() const;
-    LogManager *mLogManager = nullptr;
+    LogManager *const mLogManager;
     int mNewLinesCount = 0;
 };
 

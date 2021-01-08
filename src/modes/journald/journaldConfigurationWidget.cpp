@@ -91,7 +91,7 @@ void JournaldConfigurationWidget::readConfig()
         remoteJournalsListWidget->removeRow(0);
     }
 
-    QList<JournalAddress> remoteJournals = configuration->remoteJournals();
+    const QList<JournalAddress> remoteJournals = configuration->remoteJournals();
     for (const JournalAddress &addressInfo : remoteJournals) {
         if (haveJournalAddress(addressInfo.address, QString::number(addressInfo.port), addressInfo.https)) {
             continue;

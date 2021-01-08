@@ -27,7 +27,7 @@ PostfixConfigurationWidget::PostfixConfigurationWidget()
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
 
-    QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
+    const QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
     mLileList = new LogLevelFileList(this, description);
 
@@ -38,7 +38,7 @@ PostfixConfigurationWidget::PostfixConfigurationWidget()
 
 bool PostfixConfigurationWidget::isValid() const
 {
-    if (mLileList->isEmpty() == false) {
+    if (!mLileList->isEmpty()) {
         logDebug() << "Postfix configuration valid";
         return true;
     }

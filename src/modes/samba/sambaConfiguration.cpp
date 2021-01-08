@@ -25,8 +25,7 @@ SambaConfiguration::SambaConfiguration()
 {
     mConfiguration->setCurrentGroup(QStringLiteral("SambaLogMode"));
 
-    QStringList defaultSambaPaths;
-    defaultSambaPaths << QStringLiteral("/var/log/samba/log.smbd");
+    const QStringList defaultSambaPaths{QStringLiteral("/var/log/samba/log.smbd")};
     mConfiguration->addItemStringList(QStringLiteral("SambaLogFilesPaths"), mSambaPaths,
                                       defaultSambaPaths, QStringLiteral("SambaLogFilesPaths"));
 
@@ -36,8 +35,7 @@ SambaConfiguration::SambaConfiguration()
     mConfiguration->addItemStringList(QStringLiteral("SambaAccessLogFilesPaths"), mSambaAccessPaths,
                                       defaultSambaAccessPaths, QStringLiteral("SambaAccessLogFilesPaths"));
 
-    QStringList defaultNetbiosPaths;
-    defaultNetbiosPaths << QStringLiteral("/var/log/samba/log.nmbd");
+    const QStringList defaultNetbiosPaths{QStringLiteral("/var/log/samba/log.nmbd")};
     mConfiguration->addItemStringList(QStringLiteral("NetbiosLogFilesPaths"), mNetbiosPaths,
                                       defaultNetbiosPaths, QStringLiteral("NetbiosLogFilesPaths"));
 }

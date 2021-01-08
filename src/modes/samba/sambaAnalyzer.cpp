@@ -55,22 +55,22 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
     QString line(logLine);
 
     // The Date
-    int dateBegin = line.indexOf(QLatin1String("["));
-    int dateEnd = line.indexOf(QLatin1String("]"));
+    const int dateBegin = line.indexOf(QLatin1String("["));
+    const int dateEnd = line.indexOf(QLatin1String("]"));
 
     if (dateBegin != -1) {
-        QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
+        const QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
-        QString year = strDate.mid(0, 4);
-        QString month = strDate.mid(5, 2);
-        QString day = strDate.mid(8, 2);
+        const QString year = strDate.mid(0, 4);
+        const QString month = strDate.mid(5, 2);
+        const QString day = strDate.mid(8, 2);
 
-        QString hour = strDate.mid(11, 2);
-        QString min = strDate.mid(14, 2);
-        QString sec = strDate.mid(17, 2);
+        const QString hour = strDate.mid(11, 2);
+        const QString min = strDate.mid(14, 2);
+        const QString sec = strDate.mid(17, 2);
 
-        QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
-        QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
+        const QDate date = QDate(year.toInt(), month.toInt(), day.toInt());
+        const QTime time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
         line.remove(0, dateEnd + 2);
 
@@ -114,7 +114,7 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 
             // A line has already been added
             if (list.count() == 4) {
-                QString currentMessage = list.takeLast();
+                const QString currentMessage = list.takeLast();
                 list.append(currentMessage + QLatin1String("\n") + line.simplified());
             }
             // First time we add a line for the current Log line

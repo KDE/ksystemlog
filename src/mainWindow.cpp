@@ -519,7 +519,8 @@ void MainWindow::showSearchBar()
 
     LogManager *activeLogManager = mTabs->activeLogManager();
 
-    foreach (LogManager *manager, mTabs->logManagers()) {
+    const auto logManagers = mTabs->logManagers();
+    for (LogManager *manager : logManagers) {
         if (manager != activeLogManager) {
             manager->usedView()->toggleLogViewSearch(true);
         }

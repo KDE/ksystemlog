@@ -41,8 +41,7 @@ OpenLogModeFactory::~OpenLogModeFactory()
 
 QList<LogMode *> OpenLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new OpenLogMode(mParent));
+    const QList<LogMode *> logModes{new OpenLogMode(mParent)};
     return logModes;
 }
 

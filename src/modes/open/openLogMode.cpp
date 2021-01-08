@@ -66,8 +66,7 @@ QList<LogFile> OpenLogMode::createLogFiles()
 
     if (openingFileName.isValid()) {
         const LogFile logFile(openingFileName, Globals::instance().informationLogLevel());
-        QList<LogFile> logFiles;
-        logFiles.append(logFile);
+        const QList<LogFile> logFiles{logFile};
 
         return logFiles;
     }

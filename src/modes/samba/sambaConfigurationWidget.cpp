@@ -74,7 +74,7 @@ void SambaConfigurationWidget::readConfig()
 
 bool SambaConfigurationWidget::isValid() const
 {
-    if (mSambaFileList->isOneOfCategoryEmpty() == true) {
+    if (mSambaFileList->isOneOfCategoryEmpty()) {
         logDebug() << "Samba configuration not valid";
         return false;
     }

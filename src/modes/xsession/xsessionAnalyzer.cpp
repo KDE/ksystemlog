@@ -53,7 +53,7 @@ Analyzer::LogFileSortMode XSessionAnalyzer::logFileSortMode()
 
 LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &originalFile)
 {
-    int classPrototypePosition = logLine.indexOf(QLatin1String("::"));
+    const int classPrototypePosition = logLine.indexOf(QLatin1String("::"));
     int programPos = logLine.indexOf(QLatin1Char(':'));
 
     // If the first found : is the begin of a :: (example: QFile::at:) then we move to the next :

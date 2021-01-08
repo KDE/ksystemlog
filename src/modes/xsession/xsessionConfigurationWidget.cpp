@@ -69,8 +69,8 @@ void XSessionConfigurationWidget::readConfig()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 
-    QString path = configuration->xsessionPath();
-    QFileInfo fileInfo(path);
+    const QString path = configuration->xsessionPath();
+    const QFileInfo fileInfo(path);
     mWarningBox->setVisible(!fileInfo.exists());
 
     xsessionUrlRequester->setUrl(QUrl::fromLocalFile(path));
