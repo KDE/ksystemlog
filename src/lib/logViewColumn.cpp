@@ -22,17 +22,17 @@
 #include "logViewColumn.h"
 
 LogViewColumn::LogViewColumn(const QString &name, bool filtered, bool grouped)
+    : mColumnName(name)
+    , mFiltered(filtered)
+    , mGrouped(grouped)
 {
-    mColumnName = name;
-    mFiltered = filtered;
-    mGrouped = grouped;
 }
 
 LogViewColumn::LogViewColumn(const LogViewColumn &column)
+    : mColumnName(column.columnName())
+    , mFiltered(column.isFiltered())
+    , mGrouped(column.isGrouped())
 {
-    mColumnName = column.columnName();
-    mFiltered = column.isFiltered();
-    mGrouped = column.isGrouped();
 }
 
 LogViewColumn::~LogViewColumn()

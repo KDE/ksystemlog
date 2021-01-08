@@ -83,8 +83,8 @@ public:
     }
 };
 
-LogViewWidgetSearchLine::LogViewWidgetSearchLine()
-    : KTreeWidgetSearchLine()
+LogViewWidgetSearchLine::LogViewWidgetSearchLine(QWidget *parent)
+    : KTreeWidgetSearchLine(parent)
     , d(new LogViewWidgetSearchLinePrivate())
 {
 }

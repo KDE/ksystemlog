@@ -69,9 +69,9 @@ class LogViewWidgetSearchLine : public KTreeWidgetSearchLine
     Q_OBJECT
 
 public:
-    LogViewWidgetSearchLine();
+    explicit LogViewWidgetSearchLine(QWidget *parent = nullptr);
 
-    ~LogViewWidgetSearchLine();
+    ~LogViewWidgetSearchLine() override;
 
     // Silence compiler warning
     using KTreeWidgetSearchLine::updateSearch;

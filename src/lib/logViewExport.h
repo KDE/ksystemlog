@@ -51,9 +51,9 @@ Q_SIGNALS:
 private:
     void printPageNumber(QPainter &painter, QRect &printView, int movement, int page);
 
-    QWidget *mParent;
+    QWidget *const mParent;
 
-    LogViewWidget *mLogViewWidget;
+    LogViewWidget *const mLogViewWidget;
 };
 
 #endif //_LOG_VIEW_EXPORT_H
