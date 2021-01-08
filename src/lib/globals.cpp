@@ -256,7 +256,7 @@ void Globals::registerLogModeFactory(LogModeFactory *logModeFactory)
 
     // Log mode Actions
     LogModeAction *logModeAction = logModeFactory->createLogModeAction();
-    if (logModeAction != nullptr) {
+    if (logModeAction) {
         d->mLogModeActions.append(logModeAction);
     }
 
@@ -279,7 +279,7 @@ void Globals::recreateLogModeActions()
     // Create new log mode action for each log mode.
     foreach (LogModeFactory *factory, d->mFactories) {
         LogModeAction *logModeAction = factory->createLogModeAction();
-        if (logModeAction != nullptr) {
+        if (logModeAction) {
             d->mLogModeActions.append(logModeAction);
         }
     }

@@ -35,8 +35,8 @@
 
 KioLogFileReader::KioLogFileReader(const LogFile &logFile)
     : mLogFile(logFile)
+    , mFileWatch(new KDirWatch(this))
 {
-    mFileWatch = new KDirWatch(this);
 
     connect(mFileWatch, &KDirWatch::dirty, this, &KioLogFileReader::watchFile);
     mFileWatch->addFile(logFile.url().toLocalFile());

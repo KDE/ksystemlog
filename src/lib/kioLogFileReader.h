@@ -68,7 +68,7 @@ private:
     QString mBuffer;
     qulonglong mTotalRead = 0;
 
-    KDirWatch *mFileWatch = nullptr;
+    KDirWatch *const mFileWatch;
 };
 
 #endif // _KIO_LOG_FILE_READER_H
