@@ -93,24 +93,24 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     QString line(logLine);
 
     line.remove(0, 4);
-    int monthNum = ParsingHelper::instance()->parseSyslogMonth(month);
+    const int monthNum = ParsingHelper::instance()->parseSyslogMonth(month);
 
     // Day number
     QString day(line.left(2));
-    int dayNum = day.toInt();
+    const int dayNum = day.toInt();
 
     line.remove(0, 3);
 
     // Time
     QString stringTime(line.left(8));
-    int h = stringTime.leftRef(2).toInt();
+    const int h = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
-    int m = stringTime.leftRef(2).toInt();
+    const int m = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
-    int s = stringTime.leftRef(2).toInt();
+    const int s = stringTime.leftRef(2).toInt();
     stringTime.remove(0, 3);
 
-    QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
+    const QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
     if (dateTime.isValid() == false) {
         logDebug() << "Malformed date and time";
         return undefinedLogLine(logLine, originalFile);
@@ -120,7 +120,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     QString hostname;
 
-    int nextSpace = line.indexOf(QLatin1Char(' '));
+    const int nextSpace = line.indexOf(QLatin1Char(' '));
     int nextDoubleDot = line.indexOf(QLatin1Char(':'));
 
     // Normal case or no process name

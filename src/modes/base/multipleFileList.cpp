@@ -347,7 +347,7 @@ void MultipleFileList::moveDownItem()
 void MultipleFileList::removeAllItems()
 {
     QTreeWidgetItemIterator it(fileList, QTreeWidgetItemIterator::All);
-    while (*it != nullptr) {
+    while (*it) {
         QTreeWidgetItem *item = *it;
 
         QList<QTreeWidgetItem *> children = item->takeChildren();
@@ -417,7 +417,7 @@ void MultipleFileList::removeEmptyItems()
 
 bool MultipleFileList::isEmptyItem(QTreeWidgetItem *item) const
 {
-    if (item->font(0).italic() == true) {
+    if (item->font(0).italic()) {
         return true;
     } else {
         return false;

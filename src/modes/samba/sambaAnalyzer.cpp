@@ -82,12 +82,12 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 
         // The function
         int bracket = line.indexOf(QLatin1Char('('));
-        QString function = line.left(bracket);
+        const QString function = line.left(bracket);
         line.remove(0, bracket + 1);
 
         // The line number
         bracket = line.indexOf(QLatin1Char(')'));
-        QString lineNumber = line.left(bracket);
+        const QString lineNumber = line.left(bracket);
 
         // Remove the first return character and the two useless space of the first message line
         line.remove(0, bracket + 4);
