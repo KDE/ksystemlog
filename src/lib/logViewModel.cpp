@@ -84,14 +84,14 @@ void LogViewModel::startingMultipleInsertions()
     bool hasLocked = false;
 
     // Check the lock before adding this as locker
-    if (lockMultipleInsertions() == true) {
+    if (lockMultipleInsertions()) {
         hasLocked = true;
     }
 
     // Add a lock
     mConcurrentMultipleInsertions++;
 
-    if (hasLocked == true) {
+    if (hasLocked) {
         logDebug() << "Starting multiple insertions...";
 
         emit(processingMultipleInsertions(true));
@@ -108,7 +108,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
     // Remove a lock
     mConcurrentMultipleInsertions--;
 
-    if (lockMultipleInsertions() == true) {
+    if (lockMultipleInsertions()) {
         logDebug() << "Ending multiple insertions...";
 
         // Scroll to the newest item if some lines have been added
@@ -178,11 +178,11 @@ void LogViewModel::removeOldestLogLine()
 {
     // logDebug() << "Removing oldest log line";
 
-    if (isEmpty() == true) {
+    if (isEmpty()) {
         return;
     }
 
-    if (mOldestItem == nullptr) {
+    if (!mOldestItem) {
         logWarning() << "Oldest item is null";
         return;
     }
@@ -222,8 +222,8 @@ void LogViewModel::insert(LogLine *line)
 bool LogViewModel::insertNewLogLine(LogLine *line)
 {
     // If the Delete Duplicated Line option is checked
-    if (KSystemLogConfig::deleteDuplicatedLines() == true) {
-        if (logLineAlreadyExists(line) == true) {
+    if (KSystemLogConfig::deleteDuplicatedLines()) {
+        if (logLineAlreadyExists(line)) {
             delete line;
             return false;
         }
@@ -236,7 +236,7 @@ bool LogViewModel::insertNewLogLine(LogLine *line)
         return true;
     }
     // If the line is newer, it can be inserted
-    else if (isNewer(line) == true) {
+    else if (isNewer(line)) {
         removeOldestLogLine();
         insert(line);
 

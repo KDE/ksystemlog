@@ -126,8 +126,8 @@ void LogLevelFileList::changeItemType()
     int choice = logLevelSelectionDialog.exec();
 
     if (choice == QDialog::Accepted) {
-        QList<QListWidgetItem *> selectedLogLevels = logLevels->selectedItems();
-        if (selectedLogLevels.isEmpty() == false) {
+        const QList<QListWidgetItem *> selectedLogLevels = logLevels->selectedItems();
+        if (!selectedLogLevels.isEmpty()) {
             QListWidgetItem *logLevel = selectedLogLevels.at(0);
             int selectedLogLevel = logLevels->row(logLevel);
 

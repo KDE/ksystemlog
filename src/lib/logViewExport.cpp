@@ -111,7 +111,7 @@ void LogViewExport::printSelection()
 
     // initialize the printer using the print dialog
     auto *printDialog = new QPrintDialog(&printer, mParent);
-    if (printDialog->exec() == false) {
+    if (!printDialog->exec()) {
         delete printDialog;
         return;
     }
@@ -221,7 +221,7 @@ void LogViewExport::fileSave()
 
     QString filename
         = QFileDialog::getSaveFileName(mParent, i18n("Save selected log entries to..."), QString());
-    if (filename.isEmpty() == true) {
+    if (filename.isEmpty()) {
         return;
     }
 

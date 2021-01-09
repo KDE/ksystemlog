@@ -109,7 +109,7 @@ QIODevice *LocalLogFileReader::open()
     Q_D(LocalLogFileReader);
     const QString filePath = d->logFile.url().toLocalFile();
 
-    if (d->logFile.url().isValid() == false) {
+    if (!d->logFile.url().isValid()) {
         const QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
         Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
         Q_EMIT statusBarChanged(message);
@@ -177,7 +177,7 @@ QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
     QStringList rawBuffer;
 
     QTextStream inputStream(inputDevice);
-    while (inputStream.atEnd() == false) {
+    while (!inputStream.atEnd()) {
         rawBuffer.append(inputStream.readLine());
     }
 
@@ -195,7 +195,7 @@ void LocalLogFileReader::logFileModified()
     Q_D(LocalLogFileReader);
 
     logDebug() << "Locking log file modification...";
-    if (d->mInsertionLocking.tryLock() == false) {
+    if (!d->mInsertionLocking.tryLock()) {
         logDebug() << "Log file modification already detected.";
         return;
     }

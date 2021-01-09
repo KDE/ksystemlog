@@ -255,7 +255,7 @@ void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
         logFiles.append(LogFile(url, Globals::instance().informationLogLevel()));
     }
 
-    if (logFiles.isEmpty() == false) {
+    if (!logFiles.isEmpty()) {
         internalInitialize(Globals::instance().findLogMode(QStringLiteral("openLogMode")), logFiles);
 
         reload();

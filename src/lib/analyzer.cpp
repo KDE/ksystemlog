@@ -53,7 +53,7 @@ void Analyzer::setParsingPaused(bool paused)
 
     bool watching;
     // If we resume the parsing, then parse files to know if new lines have been appended.
-    if (mParsingPaused == true) {
+    if (mParsingPaused) {
         logDebug() << "Pausing reading";
         watching = false;
     } else {

@@ -151,7 +151,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
         auto *item = static_cast<LogViewWidgetItem *>(*it);
 
         bool found = findItem(item);
-        if (found == true) {
+        if (found) {
             return;
         }
 
@@ -168,7 +168,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
             item = static_cast<LogViewWidgetItem *>(*it);
 
             bool found = findItem(item);
-            if (found == true) {
+            if (found) {
                 showMessage(i18n("Reached end of list."), QStringLiteral("dialog-information"));
                 return;
             }
@@ -225,7 +225,7 @@ bool LogViewSearchWidget::compareItem(LogViewWidgetItem *item)
 
 bool LogViewSearchWidget::findItem(LogViewWidgetItem *item)
 {
-    if (compareItem(item) == true) {
+    if (compareItem(item)) {
         unselectAll();
 
         setSearchLineNotFound(false);
@@ -241,7 +241,7 @@ bool LogViewSearchWidget::findItem(LogViewWidgetItem *item)
 void LogViewSearchWidget::setSearchLineNotFound(bool notFound)
 {
     QPalette palette = searchLine->palette();
-    if (notFound == true) {
+    if (notFound) {
         palette.setColor(QPalette::Base, QColor(255, 102, 102)); // or Qt::red or QColor(235, 0, 0)
         palette.setColor(QPalette::Text, QColor(255, 255, 255));
     } else {
@@ -251,7 +251,7 @@ void LogViewSearchWidget::setSearchLineNotFound(bool notFound)
 
     searchLine->setPalette(palette);
 
-    if (notFound == true) {
+    if (notFound) {
         showMessage(i18n("Phrase not found."), QStringLiteral("dialog-error"));
     } else {
         hideMessage();
@@ -295,7 +295,7 @@ void LogViewSearchWidget::highlightAll()
         while (*it != nullptr) {
             auto *item = static_cast<LogViewWidgetItem *>(*it);
 
-            if (compareItem(item) == true) {
+            if (compareItem(item)) {
                 item->setBackground(item->columnCount() - 1, QColor(255, 255, 16 * 8 + 11));
             }
 

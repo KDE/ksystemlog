@@ -83,7 +83,7 @@ void CronConfigurationWidget::saveConfig()
                                            ->logModeConfiguration<CronConfiguration *>();
     cronConfiguration->setCronPaths(mFileList->paths());
 
-    if (mProcessFilterGroup->isChecked() == false) {
+    if (!mProcessFilterGroup->isChecked()) {
         cronConfiguration->setProcessFilter(QLatin1String(""));
     } else {
         cronConfiguration->setProcessFilter(mProcessFilter->text());

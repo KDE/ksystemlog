@@ -101,7 +101,7 @@ void XSessionConfigurationWidget::prepareXorgErrorsDescription()
                                            ->logModeConfiguration<XSessionConfiguration *>();
 
     // Prepare Ignore Xorg Errors description
-    if (mXorgErrorsDescriptionDefined == false) {
+    if (!mXorgErrorsDescriptionDefined) {
         QString text = xorgErrorsDescription->text();
         text.append(QLatin1String("<ul style='margin-top:0px;margin-bottom:0px'>"));
 

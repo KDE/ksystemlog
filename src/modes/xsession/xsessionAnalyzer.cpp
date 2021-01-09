@@ -74,7 +74,7 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
     message = message.simplified();
 
     // Do not add this line if this is a X error that the user wants to ignore
-    if (isXorgError(program) == true) {
+    if (isXorgError(program)) {
         return nullptr;
     }
 

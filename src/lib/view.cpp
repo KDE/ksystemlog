@@ -101,7 +101,7 @@ LoadingBar *View::loadingBar() const
 
 void View::displayLoadingBar(bool display)
 {
-    if (display == true) {
+    if (display) {
         mLogViewWidget->hide();
         mLogViewSearchWidget->hide();
         mLogViewFilterWidget->hide();
@@ -119,7 +119,7 @@ void View::displayLoadingBar(bool display)
 
 void View::toggleLogViewFilter(bool display)
 {
-    if (display == true) {
+    if (display) {
         mLogViewFilterWidget->show();
     } else {
         mLogViewFilterWidget->filterLine()->clear();
@@ -129,7 +129,7 @@ void View::toggleLogViewFilter(bool display)
 
 void View::toggleLogViewSearch(bool display)
 {
-    if (display == true) {
+    if (display) {
         mLogViewSearchWidget->displaySearch();
     } else {
         mLogViewSearchWidget->hide();
@@ -186,7 +186,7 @@ void View::dragEnterEvent(QDragEnterEvent *event)
 
         // TODO Add a recognition of binary files (using the Url mimetype) and refuse them
 
-        if (fileInfo.isReadable() == false) {
+        if (!fileInfo.isReadable()) {
             logWarning() << "The drag and dropped file is not readable " << url.path();
             return;
         }

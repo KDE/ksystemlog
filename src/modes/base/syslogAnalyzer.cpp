@@ -111,7 +111,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     stringTime.remove(0, 3);
 
     const QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
-    if (dateTime.isValid() == false) {
+    if (!dateTime.isValid()) {
         logDebug() << "Malformed date and time";
         return undefinedLogLine(logLine, originalFile);
     }
@@ -146,7 +146,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         process = line.left(nextDoubleDot);
 
         // If the delete process identifier option is enabled
-        if (KSystemLogConfig::deleteProcessIdentifier() == true) {
+        if (KSystemLogConfig::deleteProcessIdentifier()) {
             int squareBracket = process.indexOf(QLatin1Char('['));
 
             // If we find a bracket, we remove the useless part

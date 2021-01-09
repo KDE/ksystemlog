@@ -116,7 +116,7 @@ MainWindow::MainWindow()
 
     // Load selected mode only if its log files exist.
     const QString &startupLogMode = KSystemLogConfig::startupLogMode();
-    if (startupLogMode.isEmpty() == false) {
+    if (!startupLogMode.isEmpty()) {
         LogMode *mode = Globals::instance().findLogMode(startupLogMode);
         if (mode) {
             if (mode->filesExist()) {
@@ -349,7 +349,7 @@ void MainWindow::toggleResumePauseParsing(bool paused)
 
 void MainWindow::changeResumePauseAction(bool paused)
 {
-    if (paused == true) {
+    if (paused) {
         mResumePauseAction->setText(i18n("Resu&me"));
         mResumePauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-start")));
         mResumePauseAction->setToolTip(i18n("Resume the watching of the current log"));
@@ -444,7 +444,7 @@ void MainWindow::changeCurrentTab()
         enabledAction = true;
     }
 
-    if (enabledReloading == true && enabledAction == true) {
+    if (enabledReloading && enabledAction) {
         mReloadAction->setEnabled(true);
         mResumePauseAction->setEnabled(true);
     } else {

@@ -79,7 +79,7 @@ void ProcessOutputLogFileReader::watchFile(bool enable)
 {
     Q_D(ProcessOutputLogFileReader);
 
-    if (enable == true) {
+    if (enable) {
         logDebug() << "Monitoring process : " << d->logFile.url().toLocalFile();
 
         // Reinit current file position
@@ -102,7 +102,7 @@ void ProcessOutputLogFileReader::startProcess()
 
     Q_D(ProcessOutputLogFileReader);
 
-    if (d->logFile.url().isValid() == false) {
+    if (!d->logFile.url().isValid()) {
         const QString message(i18n("This file is not valid. Please adjust it in the settings of KSystemLog."));
         Q_EMIT errorOccured(i18n("File Does Not Exist"), message);
         Q_EMIT statusBarChanged(message);
@@ -228,7 +228,7 @@ void ProcessOutputLogFileReader::emptyBuffer()
 {
     Q_D(ProcessOutputLogFileReader);
 
-    if (d->mBuffer.isEmpty() == false) {
+    if (!d->mBuffer.isEmpty()) {
         logWarning() << "Buffer was not empty !!";
         d->mAvailableStandardOutput.append(d->mBuffer);
         d->mBuffer.clear();

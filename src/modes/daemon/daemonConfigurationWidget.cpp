@@ -61,7 +61,7 @@ void DaemonConfigurationWidget::defaultConfig()
 
 bool DaemonConfigurationWidget::isValid() const
 {
-    if (mFileList->isEmpty() == false) {
+    if (!mFileList->isEmpty()) {
         return true;
     }
 

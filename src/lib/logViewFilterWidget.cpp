@@ -214,7 +214,7 @@ void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
     d->mFilterList->addItem(i18n("All"));
 
     foreach (const LogViewColumn &column, columns.columns()) {
-        if (column.isFiltered() == true) {
+        if (column.isFiltered()) {
             d->mFilterList->addItem(column.columnName());
         }
     }

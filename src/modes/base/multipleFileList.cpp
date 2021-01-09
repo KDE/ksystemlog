@@ -95,7 +95,7 @@ void MultipleFileList::updateButtons()
 {
     logDebug() << "Updating buttons...";
 
-    if (isFileListsEmpty() == true) {
+    if (isFileListsEmpty()) {
         mFileListHelper.setEnabledAction(removeAll, false);
     } else {
         mFileListHelper.setEnabledAction(removeAll, true);
@@ -105,7 +105,7 @@ void MultipleFileList::updateButtons()
 
     // If the selection is not empty and a empty item is not selected
     QTreeWidgetItem *categoryItem = nullptr;
-    if (selectedItems.isEmpty() == false && isEmptyItem(selectedItems.at(0)) == false) {
+    if (!selectedItems.isEmpty() && !isEmptyItem(selectedItems.at(0))) {
         categoryItem = findCategoryOfChild(selectedItems.at(0));
     }
 
@@ -179,7 +179,7 @@ int MultipleFileList::categoryCount(int index) const
     int count = 0;
     for (int i = 0, total = item->childCount(); i < total; ++i) {
         QTreeWidgetItem *childItem = item->child(i);
-        if (isEmptyItem(childItem) == false) {
+        if (!isEmptyItem(childItem)) {
             count++;
         }
     }
@@ -275,7 +275,7 @@ void MultipleFileList::modifyItem()
 void MultipleFileList::modifyItem(QTreeWidgetItem *item)
 {
     // If the user tries to modify a category item, we do nothing
-    if (findCategoryOfChild(item) == nullptr || isEmptyItem(item) == true) {
+    if (!findCategoryOfChild(item) || isEmptyItem(item)) {
         return;
     }
 
@@ -404,7 +404,7 @@ void MultipleFileList::removeEmptyItems()
         for (int i = 0; i < categoryItem->childCount(); ++i) {
             QTreeWidgetItem *childItem = categoryItem->child(i);
 
-            if (isEmptyItem(childItem) == true && categoryItem->childCount() > 1) {
+            if (isEmptyItem(childItem) && categoryItem->childCount() > 1) {
                 logDebug() << "Remove a child item";
                 delete categoryItem->takeChild(i);
                 break;

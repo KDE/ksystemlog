@@ -54,7 +54,7 @@ LogLine *LogViewWidgetItem::logLine() const
 
 void LogViewWidgetItem::toggleToolTip(bool displayed)
 {
-    if (displayed == true) {
+    if (displayed) {
         setToolTip(columnCount() - 1, mLine->logMode()->itemBuilder()->createToolTipText(mLine));
     } else {
         setToolTip(columnCount() - 1, QString());

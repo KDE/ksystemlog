@@ -277,7 +277,7 @@ void LogViewWidget::scrollToNewestItem()
     logDebug() << "Scrolling to the newest item...";
 
     // Scroll to last item if requested
-    if (KSystemLogConfig::newLinesDisplayed() == true) {
+    if (KSystemLogConfig::newLinesDisplayed()) {
         LogViewWidgetItem *newestItem = findNewestItem();
         if (newestItem != nullptr) {
             scrollToItem(newestItem);
@@ -303,7 +303,7 @@ void LogViewWidget::toggleHeader(QAction *action)
     logDebug() << "Toggling header";
 
     int columnIndex = action->data().toInt();
-    if (header()->isSectionHidden(columnIndex) == true) {
+    if (header()->isSectionHidden(columnIndex)) {
         header()->setSectionHidden(columnIndex, false);
     } else {
         header()->setSectionHidden(columnIndex, true);

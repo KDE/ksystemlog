@@ -62,7 +62,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
         }
 
         // The configuration widget could be shared between Log Modes
-        if (mLogModeConfigurations.contains(logMode->logModeConfigurationWidget()) == true) {
+        if (mLogModeConfigurations.contains(logMode->logModeConfigurationWidget())) {
             continue;
         }
 
@@ -129,7 +129,7 @@ void ConfigurationDialog::updateConfiguration()
     bool valid = mGeneralConfiguration->isValid();
     if (valid) {
         for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
-            if (logModeConfigurationWidget->isValid() == false) {
+            if (!logModeConfigurationWidget->isValid()) {
                 valid = false;
                 break;
             }

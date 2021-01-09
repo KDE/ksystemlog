@@ -44,7 +44,7 @@ LogLine *CronAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
     QStringList list = syslogLine->logItems();
 
-    if (isCronLine(syslogLine) == false) {
+    if (!isCronLine(syslogLine)) {
         delete syslogLine;
         return nullptr;
     }

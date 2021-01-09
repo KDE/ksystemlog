@@ -65,7 +65,7 @@ public:
         // If the process line does not match the cron process, then ignore this line
         const QStringList list = syslogLine->logItems();
         QString processLine = list.at(1);
-        if (processLine.contains(cronConfiguration->processFilter(), Qt::CaseInsensitive) == true) {
+        if (processLine.contains(cronConfiguration->processFilter(), Qt::CaseInsensitive)) {
             return true;
         }
 

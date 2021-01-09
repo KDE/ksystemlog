@@ -95,7 +95,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
         logDebug() << "File " << filePath << " has been modified on partial read";
     }
 
-    if (mParsingPaused == true) {
+    if (mParsingPaused) {
         logDebug() << "Pause enabled. Nothing read.";
         return;
     }

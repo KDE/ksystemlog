@@ -95,7 +95,7 @@ void AuthenticationConfigurationWidget::defaultConfig()
 
 bool AuthenticationConfigurationWidget::isValid() const
 {
-    if (mAuthenticationUrlRequester->url().toLocalFile().isEmpty() == false) {
+    if (!mAuthenticationUrlRequester->url().toLocalFile().isEmpty()) {
         return true;
     }
 
