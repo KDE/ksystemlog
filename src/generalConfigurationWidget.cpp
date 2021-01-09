@@ -93,7 +93,7 @@ void GeneralConfigurationWidget::addDateFormatExample()
 
 void GeneralConfigurationWidget::readConfig()
 {
-    for (int i = 0; i < startupLogMode->count(); ++i) {
+    for (int i = 0, total = startupLogMode->count(); i < total; ++i) {
         if (KSystemLogConfig::startupLogMode() == startupLogMode->itemData(i)) {
             startupLogMode->setCurrentIndex(i);
             break;
@@ -109,7 +109,7 @@ void GeneralConfigurationWidget::readConfig()
     colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
 
     // KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
-    QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
+    const QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
     QAbstractButton *selectedButton = mDateFormatGroup->button(dateFormat);
     selectedButton->setChecked(true);
 }

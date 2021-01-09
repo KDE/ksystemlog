@@ -42,8 +42,9 @@
 #include "acpidFactory.h"
 #include "xsessionFactory.h"
 #include "sambaFactory.h"
+#ifdef HAVE_JOURNALD
 #include "journaldFactory.h"
-
+#endif
 LogModePluginsLoader::LogModePluginsLoader(QWidget *parent)
     : mParent(parent)
 {

@@ -57,7 +57,7 @@ DetailDialog::~DetailDialog()
 
 void DetailDialog::selectionChanged(LogViewWidget *logViewWidget)
 {
-    this->mLogViewWidget = logViewWidget;
+    mLogViewWidget = logViewWidget;
 
     updateDetails();
 }
@@ -94,7 +94,7 @@ void DetailDialog::updateDetails()
 
     /*
     header->adjustSize();
-    this->adjustSize();
+    adjustSize();
     */
 }
 

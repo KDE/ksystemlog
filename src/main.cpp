@@ -90,7 +90,7 @@ int main(int argc, char **argv)
         } else {
             // KSystemLog::MainWindow* mainWindow;
             new KSystemLog::MainWindow();
-            for (int i = 0; i < args.count(); i++) {
+            for (int i = 0, total = args.count(); i < total; ++i) {
                 logDebug() << "Loading file " << args.at(i);
 
                 // TODO Implement this kind of loading

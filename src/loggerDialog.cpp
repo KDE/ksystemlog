@@ -76,7 +76,7 @@ LoggerDialog::LoggerDialog(QWidget *parent)
     }
 
     // Select the right facility
-    for (int i = 0; i < facility->count(); ++i) {
+    for (int i = 0, total = facility->count(); i < total; ++i) {
         if (facility->itemText(i) == i18n("User")) {
             facility->setCurrentIndex(i);
             break;
