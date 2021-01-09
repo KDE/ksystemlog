@@ -46,7 +46,7 @@ XorgLogMode::XorgLogMode()
                                 "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
                                 "accelerations or why your input device is not recognized."));
 
-    XorgConfiguration *configuration = logModeConfiguration<XorgConfiguration *>();
+    auto *configuration = logModeConfiguration<XorgConfiguration *>();
     checkLogFilesPresence(configuration->xorgPaths());
 }
 
@@ -62,6 +62,6 @@ Analyzer *XorgLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> XorgLogMode::createLogFiles()
 {
-    XorgConfiguration *configuration = logModeConfiguration<XorgConfiguration *>();
+    auto *configuration = logModeConfiguration<XorgConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->xorgPaths());
 }

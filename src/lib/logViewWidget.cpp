@@ -107,7 +107,7 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
     int columnIndex = 0;
 
     foreach (const LogViewColumn &column, columns.columns()) {
-        QAction *action = new QAction(this);
+        auto *action = new QAction(this);
         action->setText(column.columnName());
         // helloAction->setIcon(QIcon::fromTheme( QLatin1String( "media-playback-start" )));
         // helloAction->setShortcut(Qt::CTRL | Qt::Key_M);
@@ -154,7 +154,7 @@ QList<LogLine *> LogViewWidget::logLines()
 
     QTreeWidgetItemIterator it(this);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
         logLines.append(item->logLine());
         ++it;
     }
@@ -168,7 +168,7 @@ LogViewWidgetItem *LogViewWidget::findNewestItem()
 
     QTreeWidgetItemIterator it(this);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
         if (newestItem == nullptr || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
             newestItem = item;
         }
@@ -183,7 +183,7 @@ LogViewWidgetItem *LogViewWidget::findItem(LogLine *searchedLogLine)
 {
     QTreeWidgetItemIterator it(this);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
         if (item->logLine()->equals(*searchedLogLine)) {
             return item;
         }
@@ -264,7 +264,7 @@ void LogViewWidget::toggleToolTip(bool enabled)
 
     QTreeWidgetItemIterator it(this);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
         item->toggleToolTip(enabled);
 
         ++it;

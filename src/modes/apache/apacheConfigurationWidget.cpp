@@ -24,7 +24,7 @@
 ApacheConfigurationWidget::ApacheConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON), i18n("Apache Log"))
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
 
     mApacheFileList
         = new MultipleFileList(this, i18n(
@@ -44,7 +44,7 @@ void ApacheConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Apache Options...";
 
-    ApacheConfiguration *apacheConfiguration = Globals::instance()
+    auto *apacheConfiguration = Globals::instance()
                                                .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
                                                ->logModeConfiguration<ApacheConfiguration *>();
     apacheConfiguration->setApachePaths(mApacheFileList->paths(mApachePathsId));
@@ -59,7 +59,7 @@ void ApacheConfigurationWidget::defaultConfig()
 
 void ApacheConfigurationWidget::readConfig()
 {
-    ApacheConfiguration *apacheConfiguration = Globals::instance()
+    auto *apacheConfiguration = Globals::instance()
                                                .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
                                                ->logModeConfiguration<ApacheConfiguration *>();
 

@@ -85,7 +85,7 @@ void GeneralConfigurationWidget::addDateFormatExample()
 {
     const auto buttons = mDateFormatGroup->buttons();
     for (QAbstractButton *button : buttons) {
-        const Globals::DateFormat currentButtonFormat = static_cast<Globals::DateFormat>(mDateFormatGroup->id(button));
+        const auto currentButtonFormat = static_cast<Globals::DateFormat>(mDateFormatGroup->id(button));
         const QString formattedDate = Globals::instance().formatDate(currentButtonFormat, QDateTime().currentDateTime());
         button->setText(i18nc("Date format option (date example)", "%1 (%2)", button->text(), formattedDate));
     }
@@ -109,7 +109,7 @@ void GeneralConfigurationWidget::readConfig()
     colorizeLogLines->setChecked(KSystemLogConfig::colorizeLogLines());
 
     // KLocale::DateFormat dateFormat = (KLocale::DateFormat) KSystemLogConfig::dateFormat();
-    const QLocale::FormatType dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
+    const auto dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
     QAbstractButton *selectedButton = mDateFormatGroup->button(dateFormat);
     selectedButton->setChecked(true);
 }

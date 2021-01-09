@@ -32,11 +32,11 @@
 LoadingBar::LoadingBar(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *widgetLayout = new QHBoxLayout(this);
+    auto *widgetLayout = new QHBoxLayout(this);
 
     widgetLayout->addStretch();
 
-    QVBoxLayout *layout = new QVBoxLayout();
+    auto *layout = new QVBoxLayout();
     widgetLayout->addLayout(layout);
 
     widgetLayout->addStretch();

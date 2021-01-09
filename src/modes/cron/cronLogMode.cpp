@@ -46,7 +46,7 @@ CronLogMode::CronLogMode()
                                 "planned tasks on your system, like security checks, or auto-restarting of some services. Use this "
                                 "menu to see the recently launched processes."));
 
-    CronConfiguration *cronConfiguration = logModeConfiguration<CronConfiguration *>();
+    auto *cronConfiguration = logModeConfiguration<CronConfiguration *>();
     checkLogFilesPresence(cronConfiguration->cronPaths());
 }
 
@@ -62,6 +62,6 @@ Analyzer *CronLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> CronLogMode::createLogFiles()
 {
-    CronConfiguration *cronConfiguration = logModeConfiguration<CronConfiguration *>();
+    auto *cronConfiguration = logModeConfiguration<CronConfiguration *>();
     return cronConfiguration->findNoModeLogFiles(cronConfiguration->cronPaths());
 }

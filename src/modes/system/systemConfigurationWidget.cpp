@@ -24,7 +24,7 @@
 SystemConfigurationWidget::SystemConfigurationWidget()
     : LogModeConfigurationWidget(i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON), i18n("System Log"))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
 
     QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
@@ -50,7 +50,7 @@ void SystemConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from System Options...";
 
-    SystemConfiguration *systemConfiguration = Globals::instance()
+    auto *systemConfiguration = Globals::instance()
                                                .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
                                                ->logModeConfiguration<SystemConfiguration *>();
     systemConfiguration->setLogFilesPaths(mFileList->paths());
@@ -59,7 +59,7 @@ void SystemConfigurationWidget::saveConfig()
 
 void SystemConfigurationWidget::readConfig()
 {
-    SystemConfiguration *systemConfiguration = Globals::instance()
+    auto *systemConfiguration = Globals::instance()
                                                .findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))
                                                ->logModeConfiguration<SystemConfiguration *>();
 

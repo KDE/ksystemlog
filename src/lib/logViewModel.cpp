@@ -209,7 +209,7 @@ void LogViewModel::removeOldestLogLine()
 void LogViewModel::insert(LogLine *line)
 {
     // The item is automatically added to the LogViewWidget
-    LogViewWidgetItem *item = new LogViewWidgetItem(mLogViewWidget, line);
+    auto *item = new LogViewWidgetItem(mLogViewWidget, line);
 
     // Update the oldest item
     if (mOldestItem == nullptr) {

@@ -46,7 +46,7 @@
 View::View(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *topLayout = new QVBoxLayout(this);
+    auto *topLayout = new QVBoxLayout(this);
     topLayout->setContentsMargins(2, 2, 2, 2);
     topLayout->setSpacing(2);
 

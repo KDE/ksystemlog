@@ -24,7 +24,7 @@
 SambaConfigurationWidget::SambaConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Samba Log"), QStringLiteral(SAMBA_MODE_ICON), i18n("Samba Log"))
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
 
     mSambaFileList
         = new MultipleFileList(this, i18n(
@@ -45,7 +45,7 @@ void SambaConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Samba Options...";
 
-    SambaConfiguration *sambaConfiguration = Globals::instance()
+    auto *sambaConfiguration = Globals::instance()
                                              .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
                                              ->logModeConfiguration<SambaConfiguration *>();
     sambaConfiguration->setSambaPaths(mSambaFileList->paths(mSambaPathsId));
@@ -61,7 +61,7 @@ void SambaConfigurationWidget::defaultConfig()
 
 void SambaConfigurationWidget::readConfig()
 {
-    SambaConfiguration *sambaConfiguration = Globals::instance()
+    auto *sambaConfiguration = Globals::instance()
                                              .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
                                              ->logModeConfiguration<SambaConfiguration *>();
 

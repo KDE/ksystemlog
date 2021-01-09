@@ -60,7 +60,7 @@ void LogViewExport::sendMail()
     int i = 0;
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
 
         body += item->logLine()->exportToText();
         body += QLatin1Char('\n');
@@ -110,7 +110,7 @@ void LogViewExport::printSelection()
      */
 
     // initialize the printer using the print dialog
-    QPrintDialog *printDialog = new QPrintDialog(&printer, mParent);
+    auto *printDialog = new QPrintDialog(&printer, mParent);
     if (printDialog->exec() == false) {
         delete printDialog;
         return;
@@ -138,7 +138,7 @@ void LogViewExport::printSelection()
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
         QString body = item->logLine()->exportToText();
         painter.setPen(originalPen);
         painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
@@ -182,7 +182,7 @@ void LogViewExport::copyToClipboard()
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it != nullptr) {
-        LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+        auto *item = static_cast<LogViewWidgetItem *>(*it);
 
         // Copy the item content to the text string
         text.append(item->logLine()->exportToText());
@@ -225,7 +225,7 @@ void LogViewExport::fileSave()
         return;
     }
 
-    QFile *ioDev = new QFile(filename);
+    auto *ioDev = new QFile(filename);
 
     if (ioDev->open(QIODevice::WriteOnly)) {
         QTextStream stream(ioDev);
@@ -233,7 +233,7 @@ void LogViewExport::fileSave()
         int nbCopied = 0;
 
         while (*it != nullptr) {
-            LogViewWidgetItem *item = static_cast<LogViewWidgetItem *>(*it);
+            auto *item = static_cast<LogViewWidgetItem *>(*it);
 
             // Copy the item content to the stream
             stream << item->logLine()->exportToText() << '\n';

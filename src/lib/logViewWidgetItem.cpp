@@ -67,7 +67,7 @@ bool LogViewWidgetItem::operator<(const QTreeWidgetItem &other) const
 
     // If we sort items by date (always the first column)
     if (sortedColumn == 0) {
-        const LogViewWidgetItem &otherItem = static_cast<const LogViewWidgetItem &>(other);
+        const auto &otherItem = static_cast<const LogViewWidgetItem &>(other);
         return mLine->isOlderThan(*(otherItem.logLine()));
     }
     // Default sorting

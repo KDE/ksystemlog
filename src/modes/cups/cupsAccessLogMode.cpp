@@ -64,6 +64,6 @@ Analyzer *CupsAccessLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> CupsAccessLogMode::createLogFiles()
 {
-    CupsConfiguration *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
+    auto *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
     return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsAccessPaths());
 }

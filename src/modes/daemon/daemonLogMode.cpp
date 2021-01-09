@@ -39,7 +39,7 @@ DaemonLogMode::DaemonLogMode()
                                 "background of the system. See this log if you want to know what occurs in the background of your "
                                 "system."));
 
-    DaemonConfiguration *configuration = logModeConfiguration<DaemonConfiguration *>();
+    auto *configuration = logModeConfiguration<DaemonConfiguration *>();
     checkLogFilesPresence(configuration->daemonPaths());
 }
 
@@ -55,6 +55,6 @@ Analyzer *DaemonLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> DaemonLogMode::createLogFiles()
 {
-    DaemonConfiguration *configuration = logModeConfiguration<DaemonConfiguration *>();
+    auto *configuration = logModeConfiguration<DaemonConfiguration *>();
     return configuration->findGenericLogFiles(configuration->daemonPaths());
 }

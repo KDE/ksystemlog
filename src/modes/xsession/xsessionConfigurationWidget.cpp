@@ -55,7 +55,7 @@ XSessionConfigurationWidget::XSessionConfigurationWidget()
 
 void XSessionConfigurationWidget::saveConfig()
 {
-    XSessionConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 
@@ -65,7 +65,7 @@ void XSessionConfigurationWidget::saveConfig()
 
 void XSessionConfigurationWidget::readConfig()
 {
-    XSessionConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 
@@ -96,7 +96,7 @@ bool XSessionConfigurationWidget::isValid() const
 
 void XSessionConfigurationWidget::prepareXorgErrorsDescription()
 {
-    XSessionConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 

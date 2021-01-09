@@ -61,6 +61,6 @@ Analyzer *ApacheLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> ApacheLogMode::createLogFiles()
 {
-    ApacheConfiguration *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
+    auto *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
     return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apachePaths());
 }

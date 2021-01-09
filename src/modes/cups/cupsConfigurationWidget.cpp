@@ -25,7 +25,7 @@ CupsConfigurationWidget::CupsConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON),
                                  i18n("Cups &amp; Cups Web Server Log"))
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
 
     mCupsFileList = new MultipleFileList(this, i18n(
                                              "<p>These files will be analyzed to show the <b>Cups "
@@ -47,7 +47,7 @@ void CupsConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Cups Options...";
 
-    CupsConfiguration *cupsConfiguration = Globals::instance()
+    auto *cupsConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
                                            ->logModeConfiguration<CupsConfiguration *>();
     cupsConfiguration->setCupsPaths(mCupsFileList->paths(mCupsPathsId));
@@ -64,7 +64,7 @@ void CupsConfigurationWidget::defaultConfig()
 
 void CupsConfigurationWidget::readConfig()
 {
-    CupsConfiguration *cupsConfiguration = Globals::instance()
+    auto *cupsConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
                                            ->logModeConfiguration<CupsConfiguration *>();
 

@@ -61,7 +61,7 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
     const auto logLevels = Globals::instance().logLevels();
 
     for (LogLevel *level : logLevels) {
-        QCheckBox *button = new QCheckBox(level->name()); //, m_btnGroup, 0
+        auto *button = new QCheckBox(level->name()); //, m_btnGroup, 0
 
         mLevelCheckBoxes.append(button);
         mBtnGroup->addButton(button, level->id());

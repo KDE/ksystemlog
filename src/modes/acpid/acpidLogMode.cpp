@@ -45,7 +45,7 @@ AcpidLogMode::AcpidLogMode()
                                 "Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
                                 "computer, like notebook batteries, reset buttons..."));
 
-    AcpidConfiguration *configuration = logModeConfiguration<AcpidConfiguration *>();
+    auto *configuration = logModeConfiguration<AcpidConfiguration *>();
     checkLogFilesPresence(configuration->acpidPaths());
 }
 
@@ -61,6 +61,6 @@ Analyzer *AcpidLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> AcpidLogMode::createLogFiles()
 {
-    AcpidConfiguration *configuration = logModeConfiguration<AcpidConfiguration *>();
+    auto *configuration = logModeConfiguration<AcpidConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->acpidPaths());
 }

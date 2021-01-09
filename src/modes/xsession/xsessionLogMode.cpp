@@ -46,7 +46,7 @@ XSessionLogMode::XSessionLogMode()
                                 "write their output. See this log if you want to know why a program has crashed, or why your desktop "
                                 "environment (Plasma, Gnome, Unity, Xfce, LXQt, ...) has not started."));
 
-    XSessionConfiguration *configuration = logModeConfiguration<XSessionConfiguration *>();
+    auto *configuration = logModeConfiguration<XSessionConfiguration *>();
     checkLogFilesPresence(QStringList() << configuration->xsessionPath());
 }
 
@@ -62,7 +62,7 @@ Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> XSessionLogMode::createLogFiles()
 {
-    XSessionConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 

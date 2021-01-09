@@ -35,7 +35,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
 {
     // Initialize journal access flags and open the journal.
     mJournalFlags = 0;
-    JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
+    auto *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
     switch (configuration->entriesType()) {
     case JournaldConfiguration::EntriesAll:
         break;
@@ -97,7 +97,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
     mWorkerMutex.unlock();
 
     if (enabled) {
-        JournalWatcher *watcher = new JournalWatcher();
+        auto *watcher = new JournalWatcher();
         mWorkerMutex.lock();
         mJournalWatchers.append(watcher);
         mWorkerMutex.unlock();
@@ -149,7 +149,7 @@ void JournaldLocalAnalyzer::readJournalUpdateFinished()
 
 void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 {
-    JournalWatcher *watcher = static_cast<JournalWatcher *>(sender());
+    auto *watcher = static_cast<JournalWatcher *>(sender());
     if (!watcher) {
         return;
     }
@@ -209,7 +209,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
         return;
     }
 
-    JournalWatcher *watcher = new JournalWatcher();
+    auto *watcher = new JournalWatcher();
     mWorkerMutex.lock();
     mJournalWatchers.append(watcher);
     mWorkerMutex.unlock();

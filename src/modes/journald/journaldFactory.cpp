@@ -40,7 +40,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     JournaldLogMode *logMode = dynamic_cast<JournaldLogMode *>(
         Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID)));
 
-    MultipleActions *multipleActions
+    auto *multipleActions
         = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
 
     QIcon filterIcon = QIcon::fromTheme(QLatin1String("view-filter"));
@@ -57,11 +57,11 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
 
-    KActionMenu *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")),
+    auto *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")),
                                               i18n("Local journal"), multipleActions);
 
     // Add "All messages" action.
-    QAction *action = new QAction(filterIcon, i18n("All messages"), actionMenu);
+    auto *action = new QAction(filterIcon, i18n("All messages"), actionMenu);
     action->setData(QVariant::fromValue(actionData));
     actionMenu->addAction(action);
     multipleActions->addInnerAction(action, false, true);
@@ -72,7 +72,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     actionMenu->addAction(action);
 
     // Add filtering by systemd unit.
-    KActionMenu *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
+    auto *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
     QStringList units = JournaldLocalAnalyzer::unitsStatic();
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
@@ -111,7 +111,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     multipleActions->addInnerAction(action, true, false);
 
     // Create remote journal submenus.
-    JournaldConfiguration *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
+    auto *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     auto remoteJournals = configuration->remoteJournals();
     for (const auto &addressInfo : remoteJournals) {
         QString menuText = QStringLiteral("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
@@ -132,7 +132,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         // Add filtering by systemd unit.
         JournalFilters filters = logMode->filters(addressInfo);
         if (!filters.systemdUnits.isEmpty()) {
-            KActionMenu *filterActionSystemdMenu
+            auto *filterActionSystemdMenu
                 = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
 
             for (const QString &unit : filters.systemdUnits) {
@@ -150,7 +150,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
         // Add filtering by syslog identifier.
         if (!filters.syslogIdentifiers.isEmpty()) {
-            KActionMenu *filterActionMenu
+            auto *filterActionMenu
                 = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
 
             for (const QString &id : filters.syslogIdentifiers) {

@@ -48,7 +48,7 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
-        QStyleOptionViewItem &refToNonConstOption = const_cast<QStyleOptionViewItem &>(option);
+        auto &refToNonConstOption = const_cast<QStyleOptionViewItem &>(option);
         refToNonConstOption.showDecorationSelected = false;
         QStyledItemDelegate::paint(painter, refToNonConstOption, index);
     }
@@ -125,7 +125,7 @@ bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QSt
 LogViewFilterWidget::LogViewFilterWidget()
     : d(new LogViewFilterWidgetPrivate())
 {
-    QHBoxLayout *filterBarLayout = new QHBoxLayout();
+    auto *filterBarLayout = new QHBoxLayout();
     filterBarLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(filterBarLayout);
 
@@ -135,12 +135,12 @@ LogViewFilterWidget::LogViewFilterWidget()
     d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
     d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
 
-    QLabel *filterIcon = new QLabel();
+    auto *filterIcon = new QLabel();
     filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
     filterIcon->setBuddy(d->filterLine);
     filterBarLayout->addWidget(filterIcon);
 
-    QLabel *filterLabel = new QLabel(i18n("Filter:"));
+    auto *filterLabel = new QLabel(i18n("Filter:"));
     filterLabel->setBuddy(d->filterLine);
     filterBarLayout->addWidget(filterLabel);
 
@@ -151,7 +151,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     filterBarLayout->addWidget(d->mFilterList);
 
     d->mPrioritiesComboBox = new QComboBox(this);
-    ComboBoxDelegate *delegate = new ComboBoxDelegate(d->mPrioritiesComboBox);
+    auto *delegate = new ComboBoxDelegate(d->mPrioritiesComboBox);
     d->mPrioritiesComboBox->setItemDelegate(delegate);
     filterBarLayout->addWidget(d->mPrioritiesComboBox);
 
@@ -160,7 +160,7 @@ LogViewFilterWidget::LogViewFilterWidget()
     d->mPrioritiesModel = new QStandardItemModel(d->mPrioritiesComboBox);
     d->mPrioritiesComboBox->setModel(d->mPrioritiesModel);
 
-    QStandardItem *item = new QStandardItem(i18n("Select priorities"));
+    auto *item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
     d->mPrioritiesModel->appendRow(item);
     connect(d->mPrioritiesModel, &QStandardItemModel::itemChanged, this, &LogViewFilterWidget::prioritiesChanged);
@@ -170,7 +170,7 @@ LogViewFilterWidget::LogViewFilterWidget()
         int id = metaEnum.value(i);
         LogLevel *logLevel = Globals::instance().logLevelByPriority(id);
 
-        QStandardItem *item = new QStandardItem(logLevel->name());
+        auto *item = new QStandardItem(logLevel->name());
         item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
         item->setData(Qt::Checked, Qt::CheckStateRole);
         item->setData(metaEnum.value(i), Qt::UserRole);

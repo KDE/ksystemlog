@@ -41,7 +41,7 @@ LogModeAction *AcpidLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
+    auto *logModeAction = new SimpleAction(logMode->action(), logMode);
     logModeAction->setCategory(LogModeAction::OthersCategory);
 
     return logModeAction;

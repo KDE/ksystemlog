@@ -38,7 +38,7 @@ QList<LogMode *> ApacheLogModeFactory::createLogModes() const
     // Create the shared configuration and configuration widget between the logModes
 
     QSharedPointer<ApacheConfiguration> logModeConfiguration = QSharedPointer<ApacheConfiguration>(new ApacheConfiguration());
-    ApacheConfigurationWidget *logModeConfigurationWidget = new ApacheConfigurationWidget();
+    auto *logModeConfigurationWidget = new ApacheConfigurationWidget();
 
     QList<LogMode *> logModes;
     logModes.append(new ApacheLogMode(logModeConfiguration, logModeConfigurationWidget));
@@ -59,7 +59,7 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    MultipleActions *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
+    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
                                                            i18n("Apache"), apacheLogMode);
     if (apacheLogsExist) {
         multipleActions->addInnerAction(apacheLogMode->action());

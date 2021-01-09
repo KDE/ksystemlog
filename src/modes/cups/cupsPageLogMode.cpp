@@ -63,6 +63,6 @@ Analyzer *CupsPageLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> CupsPageLogMode::createLogFiles()
 {
-    CupsConfiguration *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
+    auto *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
     return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPagePaths());
 }

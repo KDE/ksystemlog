@@ -43,7 +43,7 @@ LogViewColumns XSessionAnalyzer::initColumns()
 
 Analyzer::LogFileSortMode XSessionAnalyzer::logFileSortMode()
 {
-    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
+    auto *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     if (configuration->isIgnoreXorgErrors()) {
         return Analyzer::FilteredLogFile;
     } else {
@@ -94,7 +94,7 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
 
 bool XSessionAnalyzer::isXorgError(const QString &program)
 {
-    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
+    auto *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     if (configuration->isIgnoreXorgErrors() && configuration->xorgErrorKeywords().contains(program)) {
         return true;
     }
@@ -104,13 +104,13 @@ bool XSessionAnalyzer::isXorgError(const QString &program)
 
 bool XSessionAnalyzer::hasWarningKeywords(const QString &message)
 {
-    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
+    auto *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     return hasKeywords(message, configuration->warningKeywords());
 }
 
 bool XSessionAnalyzer::hasErrorKeywords(const QString &message)
 {
-    XSessionConfiguration *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
+    auto *configuration = mLogMode->logModeConfiguration<XSessionConfiguration *>();
     return hasKeywords(message, configuration->errorKeywords());
 }
 

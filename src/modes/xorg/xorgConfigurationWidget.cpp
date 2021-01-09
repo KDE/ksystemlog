@@ -24,7 +24,7 @@
 XorgConfigurationWidget::XorgConfigurationWidget()
     : LogModeConfigurationWidget(i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON), i18n("X.org Log"))
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
 
     mFileList
         = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
@@ -34,7 +34,7 @@ XorgConfigurationWidget::XorgConfigurationWidget()
 
 void XorgConfigurationWidget::saveConfig()
 {
-    XorgConfiguration *xorgConfiguration = Globals::instance()
+    auto *xorgConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
                                            ->logModeConfiguration<XorgConfiguration *>();
 
@@ -43,7 +43,7 @@ void XorgConfigurationWidget::saveConfig()
 
 void XorgConfigurationWidget::readConfig()
 {
-    XorgConfiguration *xorgConfiguration = Globals::instance()
+    auto *xorgConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
                                            ->logModeConfiguration<XorgConfiguration *>();
 

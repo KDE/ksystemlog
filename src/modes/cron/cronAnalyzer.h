@@ -57,7 +57,7 @@ public:
 
     inline bool isCronLine(LogLine *syslogLine)
     {
-        CronConfiguration *cronConfiguration = mLogMode->logModeConfiguration<CronConfiguration *>();
+        auto *cronConfiguration = mLogMode->logModeConfiguration<CronConfiguration *>();
         if (cronConfiguration->processFilter().isEmpty()) {
             return true;
         }

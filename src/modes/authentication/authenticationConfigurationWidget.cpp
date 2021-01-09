@@ -25,7 +25,7 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Authentication Log"), QStringLiteral(AUTHENTICATION_MODE_ICON),
                                  i18n("Authentication Log"))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
 
     mWarningBox = new KMessageWidget(this);
     mWarningBox->setVisible(false);
@@ -35,9 +35,9 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
     mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
 
     // Authentication log file
-    QGroupBox *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
-    QVBoxLayout *authenticationLayout = new QVBoxLayout();
-    QHBoxLayout *filePathLayout = new QHBoxLayout();
+    auto *authenticationBox = new QGroupBox(i18n("Authentication Log File"));
+    auto *authenticationLayout = new QVBoxLayout();
+    auto *filePathLayout = new QHBoxLayout();
     authenticationBox->setLayout(authenticationLayout);
 
     authenticationLayout->addWidget(mWarningBox);
@@ -65,7 +65,7 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
 
 void AuthenticationConfigurationWidget::saveConfig()
 {
-    AuthenticationConfiguration *authenticationConfiguration
+    auto *authenticationConfiguration
         = Globals::instance()
           .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
           ->logModeConfiguration<AuthenticationConfiguration *>();
@@ -75,7 +75,7 @@ void AuthenticationConfigurationWidget::saveConfig()
 
 void AuthenticationConfigurationWidget::readConfig()
 {
-    AuthenticationConfiguration *authenticationConfiguration
+    auto *authenticationConfiguration
         = Globals::instance()
           .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
           ->logModeConfiguration<AuthenticationConfiguration *>();

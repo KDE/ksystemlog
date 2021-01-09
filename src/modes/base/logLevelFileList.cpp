@@ -83,7 +83,7 @@ LogLevelFileList::~LogLevelFileList()
 
 void LogLevelFileList::insertItem(LogLevel *level, const QString &itemText, bool missing)
 {
-    QListWidgetItem *item = new QListWidgetItem(level->icon(), itemText, fileList);
+    auto *item = new QListWidgetItem(level->icon(), itemText, fileList);
     if (missing) {
         item->setForeground(Qt::red);
     }

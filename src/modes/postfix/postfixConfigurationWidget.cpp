@@ -25,7 +25,7 @@ PostfixConfigurationWidget::PostfixConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
                                  i18n("Postfix Log"))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
 
     const QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 
@@ -51,7 +51,7 @@ void PostfixConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Postfix Options...";
 
-    PostfixConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                           .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
                                           ->logModeConfiguration<PostfixConfiguration *>();
     configuration->setLogFilesPaths(mLileList->paths());
@@ -60,7 +60,7 @@ void PostfixConfigurationWidget::saveConfig()
 
 void PostfixConfigurationWidget::readConfig()
 {
-    PostfixConfiguration *configuration = Globals::instance()
+    auto *configuration = Globals::instance()
                                           .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
                                           ->logModeConfiguration<PostfixConfiguration *>();
 

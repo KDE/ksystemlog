@@ -97,7 +97,7 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
   logDebug() << "--------------------------------";
         */
 
-    LogLine *line
+    auto *line
         = new LogLine(mLogLineInternalIdGenerator++, dateTime, messages, originalLogFile.url().toLocalFile(),
                       Globals::instance().informationLogLevel(), mLogMode);
 

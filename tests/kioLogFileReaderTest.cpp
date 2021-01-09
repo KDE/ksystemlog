@@ -57,7 +57,7 @@ void KioLogFileReaderTest::testKioLogFileReader()
     LogFile logFile(QUrl::fromLocalFile(fixturePath),
                     Globals::instance().informationLogLevel());
 
-    KioLogFileReader *logFileReader = new KioLogFileReader(logFile);
+    auto *logFileReader = new KioLogFileReader(logFile);
     logFileReader->open();
 
     connect(logFileReader, &KioLogFileReader::lineRead, this, [=](const QString &line) {

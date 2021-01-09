@@ -61,6 +61,6 @@ Analyzer *NetbiosLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> NetbiosLogMode::createLogFiles()
 {
-    SambaConfiguration *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
+    auto *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
     return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->netbiosPaths());
 }

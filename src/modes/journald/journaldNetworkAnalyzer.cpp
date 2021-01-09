@@ -42,7 +42,7 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *mode, const JournaldAn
 
     connect(&mNetworkManager, &QNetworkAccessManager::sslErrors, this, &JournaldNetworkAnalyzer::sslErrors);
 
-    JournaldConfiguration *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
+    auto *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
 
     mBaseUrl = QStringLiteral("%1://%2:%3/")
                .arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http"))
@@ -131,7 +131,7 @@ void JournaldNetworkAnalyzer::httpFinished()
         {
             mSystemdUnits = identifiersList;
             mSystemdUnits.sort();
-            JournaldLogMode *journalLogMode = dynamic_cast<JournaldLogMode *>(mLogMode);
+            auto *journalLogMode = dynamic_cast<JournaldLogMode *>(mLogMode);
             JournalFilters filters;
             filters.syslogIdentifiers = mSyslogIdentifiers;
             filters.systemdUnits = mSystemdUnits;
@@ -203,7 +203,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         }
 
         JournalEntry entry;
-        quint64 timestampUsec = object[QStringLiteral("__REALTIME_TIMESTAMP")].toVariant().value<quint64>();
+        auto timestampUsec = object[QStringLiteral("__REALTIME_TIMESTAMP")].toVariant().value<quint64>();
         entry.date.setMSecsSinceEpoch(timestampUsec / 1000);
         entry.message = object[QStringLiteral("MESSAGE")].toString();
         if (entry.message.isEmpty()) {

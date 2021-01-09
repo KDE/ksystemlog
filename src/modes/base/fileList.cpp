@@ -60,7 +60,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
                                   SLOT(modifyItem()), fileList);
 
     // Add a separator in the FileList
-    QAction *separator = new QAction(this);
+    auto *separator = new QAction(this);
     separator->setSeparator(true);
     fileList->addAction(separator);
 
@@ -246,7 +246,7 @@ void FileList::addPaths(const QStringList &paths)
 {
     bool missingFiles = false;
     for (const QString &path : paths) {
-        QListWidgetItem *item = new QListWidgetItem(path);
+        auto *item = new QListWidgetItem(path);
         const QFileInfo checkFile(path);
         if (!checkFile.exists()) {
             item->setForeground(Qt::red);

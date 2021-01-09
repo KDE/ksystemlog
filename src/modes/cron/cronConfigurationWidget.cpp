@@ -24,7 +24,7 @@
 CronConfigurationWidget::CronConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Cron Log"), QStringLiteral(CRON_MODE_ICON), i18n("Cron Log"))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
 
     const QString description = i18n(
         "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned tasks logs). <a "
@@ -44,7 +44,7 @@ CronConfigurationWidget::CronConfigurationWidget()
 
     layout->addWidget(mProcessFilterGroup);
 
-    QHBoxLayout *processFilterLayout = new QHBoxLayout();
+    auto *processFilterLayout = new QHBoxLayout();
 
     mProcessFilterGroup->setLayout(processFilterLayout);
 
@@ -78,7 +78,7 @@ void CronConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Cron Options...";
 
-    CronConfiguration *cronConfiguration = Globals::instance()
+    auto *cronConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
                                            ->logModeConfiguration<CronConfiguration *>();
     cronConfiguration->setCronPaths(mFileList->paths());
@@ -92,7 +92,7 @@ void CronConfigurationWidget::saveConfig()
 
 void CronConfigurationWidget::readConfig()
 {
-    CronConfiguration *cronConfiguration = Globals::instance()
+    auto *cronConfiguration = Globals::instance()
                                            .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
                                            ->logModeConfiguration<CronConfiguration *>();
 

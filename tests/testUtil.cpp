@@ -60,8 +60,8 @@ void TestUtil::registerLogModeFactories() const
 
 LogViewModel *TestUtil::defineLogViewModel(Analyzer *analyzer) const
 {
-    LogViewWidget *logViewWidget = new LogViewWidget();
-    LogViewModel *model = new LogViewModel(logViewWidget);
+    auto *logViewWidget = new LogViewWidget();
+    auto *model = new LogViewModel(logViewWidget);
 
     analyzer->setLogViewModel(model);
 
