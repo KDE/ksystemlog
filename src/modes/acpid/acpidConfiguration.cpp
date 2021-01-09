@@ -25,8 +25,7 @@ AcpidConfiguration::AcpidConfiguration()
 {
     mConfiguration->setCurrentGroup(QStringLiteral("AcpidLogMode"));
 
-    QStringList defaultAcpidPaths;
-    defaultAcpidPaths << QStringLiteral("/var/log/acpid");
+    const QStringList defaultAcpidPaths {QStringLiteral("/var/log/acpid")};
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mAcpidPaths, defaultAcpidPaths,
                                       QStringLiteral("LogFilesPaths"));
 }

@@ -52,8 +52,8 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
     LogMode *apacheLogMode = Globals::instance().findLogMode(QStringLiteral(APACHE_LOG_MODE_ID));
     LogMode *apacheAccessLogMode = Globals::instance().findLogMode(QStringLiteral(APACHE_ACCESS_LOG_MODE_ID));
 
-    bool apacheLogsExist = apacheLogMode->filesExist();
-    bool apacheAccessLogsExist = apacheAccessLogMode->filesExist();
+    const bool apacheLogsExist = apacheLogMode->filesExist();
+    const bool apacheAccessLogsExist = apacheAccessLogMode->filesExist();
 
     if (!apacheLogsExist && !apacheAccessLogsExist) {
         return nullptr;

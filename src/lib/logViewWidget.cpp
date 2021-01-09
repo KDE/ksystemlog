@@ -106,7 +106,8 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
     // Add new actions
     int columnIndex = 0;
 
-    foreach (const LogViewColumn &column, columns.columns()) {
+    const auto columnsLst = columns.columns();
+    for (const LogViewColumn &column : columnsLst) {
         auto *action = new QAction(this);
         action->setText(column.columnName());
         // helloAction->setIcon(QIcon::fromTheme( QLatin1String( "media-playback-start" )));
@@ -289,7 +290,7 @@ int LogViewWidget::notHiddenItemCount()
     int count = 0;
 
     QTreeWidgetItemIterator it(this, QTreeWidgetItemIterator::NotHidden);
-    while (*it != nullptr) {
+    while (*it) {
         count++;
         ++it;
     }

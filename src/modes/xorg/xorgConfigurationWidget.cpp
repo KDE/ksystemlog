@@ -60,7 +60,7 @@ void XorgConfigurationWidget::defaultConfig()
 
 bool XorgConfigurationWidget::isValid() const
 {
-    if (mFileList->isEmpty() == false) {
+    if (!mFileList->isEmpty()) {
         return true;
     }
 

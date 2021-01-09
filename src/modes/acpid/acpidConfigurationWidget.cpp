@@ -60,7 +60,7 @@ void AcpidConfigurationWidget::defaultConfig()
 
 bool AcpidConfigurationWidget::isValid() const
 {
-    if (mFileList->isEmpty() == false) {
+    if (!mFileList->isEmpty()) {
         return true;
     }
 

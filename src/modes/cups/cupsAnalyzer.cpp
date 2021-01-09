@@ -55,7 +55,7 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 {
     QString line(logLine);
 
-    QChar level = logLine[0];
+    const QChar level = logLine[0];
 
     const QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(logLine.mid(3, 26));
 

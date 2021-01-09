@@ -60,7 +60,7 @@ CronConfigurationWidget::CronConfigurationWidget()
 
 bool CronConfigurationWidget::isValid() const
 {
-    if (mFileList->isEmpty() == true) {
+    if (mFileList->isEmpty()) {
         logDebug() << "Cron configuration not valid";
         return false;
     }

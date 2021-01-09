@@ -64,7 +64,6 @@ QList<LogFile> AuthenticationLogMode::createLogFiles()
 {
     auto *configuration = logModeConfiguration<AuthenticationConfiguration *>();
 
-    QList<LogFile> logFiles;
-    logFiles.append(configuration->findGenericLogFile(configuration->authenticationPath()));
+    const QList<LogFile> logFiles {configuration->findGenericLogFile(configuration->authenticationPath())};
     return logFiles;
 }

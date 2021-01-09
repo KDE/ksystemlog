@@ -29,13 +29,6 @@
 #include "globals.h"
 
 #include "ksystemlogConfig.h"
-
-class GenericLogModeConfigurationPrivate
-{
-public:
-
-};
-
 GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths, const QList<int> &defaultLogFilesLevels)
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;
@@ -87,8 +80,8 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
     QListIterator<int> itInt(mLogFilesLevels);
 
     while (itString.hasNext()) {
-        int intValue = itInt.next();
-        QString stringValue = itString.next();
+        const int intValue = itInt.next();
+        const QString stringValue = itString.next();
 
         if (intValue >= 0 && intValue < static_cast<int>(Globals::instance().logLevels().count())) {
             level = Globals::instance().logLevels().at(intValue);

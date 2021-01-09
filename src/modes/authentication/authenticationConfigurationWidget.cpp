@@ -80,8 +80,8 @@ void AuthenticationConfigurationWidget::readConfig()
           .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
           ->logModeConfiguration<AuthenticationConfiguration *>();
 
-    QString path = authenticationConfiguration->authenticationPath();
-    QFileInfo fileInfo(path);
+    const QString path = authenticationConfiguration->authenticationPath();
+    const QFileInfo fileInfo(path);
     mWarningBox->setVisible(!fileInfo.exists());
 
     mAuthenticationUrlRequester->setUrl(QUrl::fromLocalFile(path));

@@ -66,7 +66,6 @@ QList<LogFile> XSessionLogMode::createLogFiles()
                                            .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
                                            ->logModeConfiguration<XSessionConfiguration *>();
 
-    QList<LogFile> logFiles;
-    logFiles.append(configuration->findGenericLogFile(configuration->xsessionPath()));
+    const QList<LogFile> logFiles {configuration->findGenericLogFile(configuration->xsessionPath())};
     return logFiles;
 }

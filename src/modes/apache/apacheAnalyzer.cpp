@@ -72,17 +72,17 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         QString type;
         QString message;
 
-        QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
+        const QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
-        QString month = strDate.mid(4, 3);
+        const QString month = strDate.mid(4, 3);
 
-        QString day = strDate.mid(8, 2);
+        const QString day = strDate.mid(8, 2);
 
-        QString hour = strDate.mid(11, 2);
-        QString min = strDate.mid(14, 2);
-        QString sec = strDate.mid(17, 2);
+        const QString hour = strDate.mid(11, 2);
+        const QString min = strDate.mid(14, 2);
+        const QString sec = strDate.mid(17, 2);
 
-        QString year = strDate.mid(20, 4);
+        const QString year = strDate.mid(20, 4);
 
         date = QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
         time = QTime(hour.toInt(), min.toInt(), sec.toInt());

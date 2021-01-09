@@ -30,7 +30,7 @@ LogLine *AuthenticationAnalyzer::parseMessage(const QString &logLine, const LogF
 {
     LogLine *syslogLine = SyslogAnalyzer::parseMessage(logLine, originalLogFile);
 
-    QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
+    const QString message = syslogLine->logItems().at(syslogLine->logItems().count() - 1);
 
     if (hasErrorKeywords(message)) {
         syslogLine->setLogLevel(Globals::instance().errorLogLevel());

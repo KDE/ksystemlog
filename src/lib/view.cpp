@@ -163,7 +163,7 @@ QSize View::sizeHint() const
 
 void View::dropEvent(QDropEvent *event)
 {
-    QList<QUrl> urls = event->mimeData()->urls();
+    const QList<QUrl> urls = event->mimeData()->urls();
 
     // If URLs have been dropped
     if (!urls.isEmpty()) {

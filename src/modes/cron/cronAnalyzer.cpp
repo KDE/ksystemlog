@@ -55,7 +55,7 @@ LogLine *CronAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
     int leftBracket = message.indexOf(QLatin1Char('('));
     int rightBracket = message.indexOf(QLatin1Char(')'));
 
-    QString user = message.mid(leftBracket + 1, rightBracket - leftBracket - 1);
+    const QString user = message.mid(leftBracket + 1, rightBracket - leftBracket - 1);
 
     list.append(user);
 

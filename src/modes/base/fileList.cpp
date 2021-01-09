@@ -135,7 +135,7 @@ void FileList::modifyItem(QListWidgetItem *item)
     const QStringList paths = mFileListHelper.findPaths(urls);
 
     // We only take the first path
-    if (paths.count() >= 1) {
+    if (!paths.isEmpty()) {
         item->setText(paths.at(0));
     }
 

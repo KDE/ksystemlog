@@ -144,7 +144,7 @@ void MultipleFileList::updateButtons()
 
 bool MultipleFileList::isFileListsEmpty() const
 {
-    for (int i = 0; i < fileList->topLevelItemCount(); ++i) {
+    for (int i = 0, total = fileList->topLevelItemCount(); i < total; ++i) {
         if (categoryCount(i) != 0) {
             logDebug() << "Is not empty";
             return false;
@@ -157,7 +157,7 @@ bool MultipleFileList::isFileListsEmpty() const
 
 bool MultipleFileList::isOneOfCategoryEmpty() const
 {
-    for (int i = 0; i < fileList->topLevelItemCount(); ++i) {
+    for (int i = 0, total = fileList->topLevelItemCount(); i < total; ++i) {
         if (categoryCount(i) == 0) {
             logDebug() << "A category is empty";
             return true;
@@ -177,7 +177,7 @@ int MultipleFileList::categoryCount(int index) const
     }
 
     int count = 0;
-    for (int i = 0; i < item->childCount(); ++i) {
+    for (int i = 0, total = item->childCount(); i < total; ++i) {
         QTreeWidgetItem *childItem = item->child(i);
         if (isEmptyItem(childItem) == false) {
             count++;
@@ -220,7 +220,7 @@ void MultipleFileList::addItem(int category)
     logDebug() << "Adding item" << category;
 
     // Open a standard Filedialog
-    QList<QUrl> urls = mFileListHelper.openUrls();
+    const QList<QUrl> urls = mFileListHelper.openUrls();
 
     QTreeWidgetItem *categoryItem = fileList->topLevelItem(category);
 
@@ -253,7 +253,7 @@ QTreeWidgetItem *MultipleFileList::findCategoryOfChild(QTreeWidgetItem *childIte
 {
     logDebug() << "Finding Category of" << childItem->text(0);
 
-    for (int i = 0; i < fileList->topLevelItemCount(); ++i) {
+    for (int i = 0, total = fileList->topLevelItemCount(); i < total; ++i) {
         QTreeWidgetItem *item = fileList->topLevelItem(i);
 
         if (item->indexOfChild(childItem) != -1) {
@@ -377,7 +377,7 @@ void MultipleFileList::updateEmptyItems()
 
     logDebug() << "Adding empty items...";
 
-    for (int i = 0; i < fileList->topLevelItemCount(); ++i) {
+    for (int i = 0, total = fileList->topLevelItemCount(); i < total; ++i) {
         QTreeWidgetItem *categoryItem = fileList->topLevelItem(i);
 
         // If it's a category item and it's empty
@@ -457,7 +457,7 @@ QStringList MultipleFileList::paths(int category)
     QTreeWidgetItemIterator it(fileList, QTreeWidgetItemIterator::All);
 
     QStringList paths;
-    while (*it != nullptr) {
+    while (*it) {
         QTreeWidgetItem *item = *it;
 
         if (categoryItem->indexOfChild(item) != -1) {

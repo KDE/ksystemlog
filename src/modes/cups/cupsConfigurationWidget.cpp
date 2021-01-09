@@ -78,7 +78,7 @@ void CupsConfigurationWidget::readConfig()
 
 bool CupsConfigurationWidget::isValid() const
 {
-    if (mCupsFileList->isOneOfCategoryEmpty() == true) {
+    if (mCupsFileList->isOneOfCategoryEmpty()) {
         logDebug() << "Cups configuration not valid";
         return false;
     }

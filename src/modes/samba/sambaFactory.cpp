@@ -56,9 +56,9 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
     LogMode *sambaAccessLogMode = Globals::instance().findLogMode(QStringLiteral(SAMBA_ACCESS_LOG_MODE_ID));
     LogMode *sambaNetbiosLogMode = Globals::instance().findLogMode(QStringLiteral(NETBIOS_LOG_MODE_ID));
 
-    bool sambaLogsExist = sambaLogMode->filesExist();
-    bool sambaAccessLogsExist = sambaAccessLogMode->filesExist();
-    bool sambaNetbiosLogsExist = sambaNetbiosLogMode->filesExist();
+    const bool sambaLogsExist = sambaLogMode->filesExist();
+    const bool sambaAccessLogsExist = sambaAccessLogMode->filesExist();
+    const bool sambaNetbiosLogsExist = sambaNetbiosLogMode->filesExist();
 
     if (!sambaLogsExist && !sambaAccessLogsExist && !sambaNetbiosLogsExist) {
         return nullptr;

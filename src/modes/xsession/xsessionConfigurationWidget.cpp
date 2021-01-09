@@ -87,7 +87,7 @@ void XSessionConfigurationWidget::defaultConfig()
 
 bool XSessionConfigurationWidget::isValid() const
 {
-    if (xsessionUrlRequester->url().toLocalFile().isEmpty() == false) {
+    if (!xsessionUrlRequester->url().toLocalFile().isEmpty()) {
         return true;
     }
 

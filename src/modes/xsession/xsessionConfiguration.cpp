@@ -39,13 +39,11 @@ XSessionConfiguration::XSessionConfiguration()
     mConfiguration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords,
                                       defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
 
-    QStringList defaultWarningKeywords;
-    defaultWarningKeywords.append(QStringLiteral("WARNING"));
+    const QStringList defaultWarningKeywords {QStringLiteral("WARNING")};
     mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
                                       defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
-    QStringList defaultErrorKeywords;
-    defaultErrorKeywords.append(QStringLiteral("ERROR"));
+    const QStringList defaultErrorKeywords {QStringLiteral("ERROR")};
     mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
                                       defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }

@@ -73,7 +73,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by systemd unit.
     auto *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
-    QStringList units = JournaldLocalAnalyzer::unitsStatic();
+    const QStringList units = JournaldLocalAnalyzer::unitsStatic();
     for (const QString &unit : units) {
         action = new QAction(unit, filterActionMenu);
 

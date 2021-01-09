@@ -71,7 +71,7 @@ void ApacheConfigurationWidget::readConfig()
 
 bool ApacheConfigurationWidget::isValid() const
 {
-    if (mApacheFileList->isOneOfCategoryEmpty() == true) {
+    if (mApacheFileList->isOneOfCategoryEmpty()) {
         logDebug() << "Apache configuration not valid";
         return false;
     }

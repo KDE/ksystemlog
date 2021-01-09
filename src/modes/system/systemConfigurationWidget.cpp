@@ -26,7 +26,7 @@ SystemConfigurationWidget::SystemConfigurationWidget()
 {
     auto *layout = new QVBoxLayout(this);
 
-    QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
+    const QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
     mFileList = new LogLevelFileList(this, description);
 
@@ -37,7 +37,7 @@ SystemConfigurationWidget::SystemConfigurationWidget()
 
 bool SystemConfigurationWidget::isValid() const
 {
-    if (mFileList->isEmpty() == false) {
+    if (!mFileList->isEmpty()) {
         logDebug() << "System configuration valid";
         return true;
     }
