@@ -158,7 +158,7 @@ void View::unselectHiddenItems()
 
 QSize View::sizeHint() const
 {
-    return QSize(500, 500);
+    return {500, 500};
 }
 
 void View::dropEvent(QDropEvent *event)

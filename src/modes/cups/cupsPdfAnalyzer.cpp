@@ -24,7 +24,7 @@
 CupsPdfAnalyzer::CupsPdfAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
     , mCupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
-                    + QLatin1String("[ ]+\\[(\\w*)\\][ ]+(.*)"))
+                    + QLatin1String(R"([ ]+\[(\w*)\][ ]+(.*))"))
 { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
 }
 
