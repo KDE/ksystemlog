@@ -133,8 +133,8 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     initIterator(it, direction);
 
     // Go to the selected position + 1 (if we already found an item)
-    if (fromItem != nullptr) {
-        while (*it != nullptr) {
+    if (fromItem) {
+        while (*it) {
             auto *item = static_cast<LogViewWidgetItem *>(*it);
 
             if (item == fromItem) {
@@ -147,7 +147,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     }
 
     // Iterates to fromItem +1 to the last item of the list
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
 
         bool found = findItem(item);
@@ -159,12 +159,12 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     }
 
     // If we do not begin the search from the beginning, we do it now
-    if (fromItem != nullptr) {
+    if (fromItem) {
         it = QTreeWidgetItemIterator(mLogViewWidget, QTreeWidgetItemIterator::NotHidden);
         initIterator(it, direction);
 
         LogViewWidgetItem *item = nullptr;
-        while (*it != nullptr && item != fromItem) {
+        while (*it && item != fromItem) {
             item = static_cast<LogViewWidgetItem *>(*it);
 
             bool found = findItem(item);
@@ -292,7 +292,7 @@ void LogViewSearchWidget::highlightAll()
 
         logDebug() << "Highlighting all";
         QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::All);
-        while (*it != nullptr) {
+        while (*it) {
             auto *item = static_cast<LogViewWidgetItem *>(*it);
 
             if (compareItem(item)) {
@@ -311,7 +311,7 @@ void LogViewSearchWidget::unlightAll()
     logDebug() << "Unlighting all";
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::All);
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
 
         // We retrieve the default column background using the first column data, where the background never

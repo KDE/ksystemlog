@@ -145,7 +145,7 @@ void View::unselectHiddenItems()
 {
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
 
-    while (*it != nullptr) {
+    while (*it) {
         QTreeWidgetItem *item = *it;
 
         if (item->isHidden()) {

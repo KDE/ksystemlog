@@ -145,7 +145,7 @@ void LogLine::setRecent(bool recent)
 {
     mRecent = recent;
 
-    if (mItem != nullptr) {
+    if (mItem) {
         QFont currentFont = mItem->font(mItem->columnCount() - 1);
 
         // We avoid doing the same process

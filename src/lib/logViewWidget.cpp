@@ -154,7 +154,7 @@ QList<LogLine *> LogViewWidget::logLines()
     QList<LogLine *> logLines;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
         logLines.append(item->logLine());
         ++it;
@@ -168,7 +168,7 @@ LogViewWidgetItem *LogViewWidget::findNewestItem()
     LogViewWidgetItem *newestItem = nullptr;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
         if (newestItem == nullptr || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
             newestItem = item;
@@ -183,7 +183,7 @@ LogViewWidgetItem *LogViewWidget::findNewestItem()
 LogViewWidgetItem *LogViewWidget::findItem(LogLine *searchedLogLine)
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
         if (item->logLine()->equals(*searchedLogLine)) {
             return item;
@@ -200,7 +200,7 @@ QList<LogViewWidgetItem *> LogViewWidget::items()
     QList<LogViewWidgetItem *> items;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         items.append(static_cast<LogViewWidgetItem *>(*it));
         ++it;
     }
@@ -244,7 +244,7 @@ LogViewWidgetItem *LogViewWidget::lastSelectedItem()
 void LogViewWidget::expandAll()
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         expandItem(*it);
         ++it;
     }
@@ -253,7 +253,7 @@ void LogViewWidget::expandAll()
 void LogViewWidget::collapseAll()
 {
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         collapseItem(*it);
         ++it;
     }
@@ -264,7 +264,7 @@ void LogViewWidget::toggleToolTip(bool enabled)
     logDebug() << "Toggle tool tip " << enabled;
 
     QTreeWidgetItemIterator it(this);
-    while (*it != nullptr) {
+    while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
         item->toggleToolTip(enabled);
 
@@ -279,7 +279,7 @@ void LogViewWidget::scrollToNewestItem()
     // Scroll to last item if requested
     if (KSystemLogConfig::newLinesDisplayed()) {
         LogViewWidgetItem *newestItem = findNewestItem();
-        if (newestItem != nullptr) {
+        if (newestItem) {
             scrollToItem(newestItem);
         }
     }

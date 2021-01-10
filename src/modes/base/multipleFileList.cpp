@@ -109,7 +109,7 @@ void MultipleFileList::updateButtons()
         categoryItem = findCategoryOfChild(selectedItems.at(0));
     }
 
-    if (categoryItem != nullptr) {
+    if (categoryItem) {
         int categoryIndex = fileList->indexOfTopLevelItem(categoryItem);
 
         mFileListHelper.setEnabledAction(remove, true);

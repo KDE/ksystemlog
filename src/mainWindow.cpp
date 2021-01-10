@@ -223,7 +223,7 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
 void MainWindow::updateDetailDialog()
 {
     LogManager *currentManager = mTabs->activeLogManager();
-    if (mDetailDialog != nullptr) {
+    if (mDetailDialog) {
         mDetailDialog->selectionChanged(currentManager->usedView()->logViewWidget());
     }
 }
@@ -340,7 +340,7 @@ void MainWindow::toggleResumePauseParsing(bool paused)
     logDebug() << "Pausing parsing : " << paused;
 
     LogManager *currentLogManager = mTabs->activeLogManager();
-    if (currentLogManager != nullptr) {
+    if (currentLogManager) {
         currentLogManager->setParsingPaused(paused);
     }
 

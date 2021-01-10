@@ -109,7 +109,7 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
     }
 
     if (line.indexOf(QLatin1String("  ")) != -1) {
-        if (mCurrentLogLine != nullptr) {
+        if (mCurrentLogLine) {
             QStringList list = mCurrentLogLine->logItems();
 
             // A line has already been added

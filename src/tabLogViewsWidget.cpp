@@ -279,7 +279,7 @@ void TabLogViewsWidget::reloadCurrent()
 
     LogManager *manager = activeLogManager();
 
-    if (manager != nullptr) {
+    if (manager) {
         manager->reload();
     }
 }

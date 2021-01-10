@@ -45,7 +45,7 @@ LogViewModel::~LogViewModel()
 bool LogViewModel::logLineAlreadyExists(LogLine *line) const
 {
     LogViewWidgetItem *item = mLogViewWidget->findItem(line);
-    if (item != nullptr) {
+    if (item) {
         return true;
     }
 
