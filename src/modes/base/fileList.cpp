@@ -130,8 +130,7 @@ void FileList::modifyItem(QListWidgetItem *item)
     // Open a standard Filedialog
     const QUrl url = mFileListHelper.openUrl(previousPath);
 
-    QList<QUrl> urls;
-    urls.append(url);
+    const QList<QUrl> urls{url};
     const QStringList paths = mFileListHelper.findPaths(urls);
 
     // We only take the first path

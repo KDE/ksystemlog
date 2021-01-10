@@ -80,7 +80,7 @@ QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
 {
     QStringList paths;
 
-    for (QList<QUrl>::ConstIterator it = urls.constBegin(); it != urls.constEnd(); ++it) {
+    for (QList<QUrl>::ConstIterator it = urls.constBegin(), total = urls.constEnd(); it != total; ++it) {
         QUrl url(*it);
 
         if (isValidFile(url)) {

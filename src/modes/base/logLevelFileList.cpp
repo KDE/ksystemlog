@@ -105,7 +105,7 @@ void LogLevelFileList::addItem()
 
 void LogLevelFileList::updateSpecificButtons()
 {
-    if (fileList->selectedItems().count() > 0) {
+    if (!fileList->selectedItems().isEmpty()) {
         changeItem->setEnabled(true);
     } else {
         changeItem->setEnabled(false);
@@ -152,7 +152,7 @@ QList<int> LogLevelFileList::levels()
 {
     QList<int> levels;
     const int count = fileList->count();
-
+    levels.reserve(count);
     for (int i = 0; i < count; i++) {
         levels.append(this->level(i)->id());
     }

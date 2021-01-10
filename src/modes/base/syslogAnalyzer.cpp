@@ -147,7 +147,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
         // If the delete process identifier option is enabled
         if (KSystemLogConfig::deleteProcessIdentifier()) {
-            int squareBracket = process.indexOf(QLatin1Char('['));
+            const int squareBracket = process.indexOf(QLatin1Char('['));
 
             // If we find a bracket, we remove the useless part
             if (squareBracket != -1) {
