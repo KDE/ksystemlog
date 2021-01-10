@@ -172,47 +172,47 @@ QList<LogLevel *> Globals::logLevels() const
     return d->mLogLevels;
 }
 
-LogLevel *Globals::noLogLevel()
+LogLevel *Globals::noLogLevel() const
 {
     return d->mNoLogLevel;
 }
 
-LogLevel *Globals::debugLogLevel()
+LogLevel *Globals::debugLogLevel() const
 {
     return d->mDebugLogLevel;
 }
 
-LogLevel *Globals::informationLogLevel()
+LogLevel *Globals::informationLogLevel() const
 {
     return d->mInformationLogLevel;
 }
 
-LogLevel *Globals::noticeLogLevel()
+LogLevel *Globals::noticeLogLevel() const
 {
     return d->mNoticeLogLevel;
 }
 
-LogLevel *Globals::warningLogLevel()
+LogLevel *Globals::warningLogLevel() const
 {
     return d->mWarningLogLevel;
 }
 
-LogLevel *Globals::errorLogLevel()
+LogLevel *Globals::errorLogLevel() const
 {
     return d->mErrorLogLevel;
 }
 
-LogLevel *Globals::criticalLogLevel()
+LogLevel *Globals::criticalLogLevel() const
 {
     return d->mCriticalLogLevel;
 }
 
-LogLevel *Globals::alertLogLevel()
+LogLevel *Globals::alertLogLevel() const
 {
     return d->mAlertLogLevel;
 }
 
-LogLevel *Globals::emergencyLogLevel()
+LogLevel *Globals::emergencyLogLevel() const
 {
     return d->mEmergencyLogLevel;
 }

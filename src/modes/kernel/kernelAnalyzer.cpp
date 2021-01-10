@@ -64,7 +64,7 @@ void KernelAnalyzer::startupTime()
 
 LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
+    const QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
 
     //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
     //			QRegExp messageRegexp(timeRegex + "(.*)");

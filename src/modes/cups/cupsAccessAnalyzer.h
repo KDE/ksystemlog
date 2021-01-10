@@ -46,7 +46,7 @@ public:
     LogViewColumns initColumns() override;
 
 protected:
-    QRegExp mCupsAccessRegex;
+    const QRegExp mCupsAccessRegex;
 
     LogFileReader *createLogFileReader(const LogFile &logFile) override;
 

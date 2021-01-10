@@ -71,15 +71,15 @@ public:
 
     QList<LogLevel *> logLevels() const;
 
-    LogLevel *noLogLevel();
-    LogLevel *debugLogLevel();
-    LogLevel *informationLogLevel();
-    LogLevel *noticeLogLevel();
-    LogLevel *warningLogLevel();
-    LogLevel *errorLogLevel();
-    LogLevel *criticalLogLevel();
-    LogLevel *alertLogLevel();
-    LogLevel *emergencyLogLevel();
+    LogLevel *noLogLevel() const;
+    LogLevel *debugLogLevel() const;
+    LogLevel *informationLogLevel() const;
+    LogLevel *noticeLogLevel() const;
+    LogLevel *warningLogLevel() const;
+    LogLevel *errorLogLevel() const;
+    LogLevel *criticalLogLevel() const;
+    LogLevel *alertLogLevel() const;
+    LogLevel *emergencyLogLevel() const;
 
     LogLevel *logLevelByPriority(int id);
 
