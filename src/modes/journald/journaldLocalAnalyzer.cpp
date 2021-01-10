@@ -45,16 +45,14 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     case JournaldConfiguration::EntriesSystem:
         mJournalFlags |= SD_JOURNAL_SYSTEM;
         break;
-    default:
-        break;
     }
-    int ret = sd_journal_open(&mJournal, mJournalFlags);
+    const int ret = sd_journal_open(&mJournal, mJournalFlags);
     if (ret < 0) {
         logWarning() << "Journald analyzer failed to open system journal";
         return;
     }
 
-    qintptr fd = sd_journal_get_fd(mJournal);
+    const qintptr fd = sd_journal_get_fd(mJournal);
     mJournalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
     mJournalNotifier->setEnabled(false);
     connect(mJournalNotifier, &QSocketNotifier::activated, this,

@@ -45,7 +45,7 @@ QString XSessionItemBuilder::createToolTipText(LogLine *line) const
 
     result.append(QLatin1String("<table>"));
 
-    QString type = it.next();
+    const QString type = it.next();
     if (type.isEmpty()) {
         result.append(labelMessageFormat(i18n("Program:"), i18n("none")));
     } else {

@@ -45,7 +45,7 @@ QString XorgItemBuilder::createToolTipText(LogLine *line) const
 
     result.append(QLatin1String("<table>"));
 
-    QString type = it.next();
+    const QString type = it.next();
     if (type.isEmpty()) {
         result.append(labelMessageFormat(i18n("Type:"), i18n("none")));
     } else {
