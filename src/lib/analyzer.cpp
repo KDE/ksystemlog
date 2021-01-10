@@ -32,7 +32,7 @@
 Analyzer::Analyzer(LogMode *mode)
     : QObject(nullptr)
     , mLogMode(mode)
-    , mInsertionLocking(QMutex::Recursive)
+    , mInsertionLocking()
 {
 }
 

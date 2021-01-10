@@ -87,7 +87,7 @@ protected:
     bool mParsingPaused = false;
     LogViewModel *mLogViewModel = nullptr;
     LogMode *const mLogMode;
-    QMutex mInsertionLocking;
+    QRecursiveMutex mInsertionLocking;
     long mLogLineInternalIdGenerator = 0;
 };
 
