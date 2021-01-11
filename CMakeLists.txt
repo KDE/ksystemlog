@@ -109,7 +109,7 @@ if (${JOURNALD_FOUND})
     add_subdirectory(src/modes/journald)
 endif (${JOURNALD_FOUND})
 
-add_subdirectory(tests)
+add_subdirectory(autotests)
 add_subdirectory(doc)
 
 find_package(KF5I18n CONFIG REQUIRED)
