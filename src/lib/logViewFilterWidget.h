@@ -41,7 +41,7 @@ class LogViewFilterWidget : public QWidget
     Q_OBJECT
 
 public:
-    LogViewFilterWidget();
+    explicit LogViewFilterWidget(QWidget *parent = nullptr);
 
     ~LogViewFilterWidget() override;
 

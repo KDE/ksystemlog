@@ -35,7 +35,8 @@
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
 
-LogViewSearchWidget::LogViewSearchWidget()
+LogViewSearchWidget::LogViewSearchWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setupUi(this);
 

@@ -50,7 +50,7 @@ View::View(QWidget *parent)
     topLayout->setContentsMargins(2, 2, 2, 2);
     topLayout->setSpacing(2);
 
-    mLogViewFilterWidget = new LogViewFilterWidget();
+    mLogViewFilterWidget = new LogViewFilterWidget(this);
     connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
             &View::searchFilterChanged);
     connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
@@ -75,7 +75,7 @@ View::View(QWidget *parent)
 
     topLayout->addWidget(mLogViewSearchWidget);
 
-    mLoadingBar = new LoadingBar();
+    mLoadingBar = new LoadingBar(this);
     connect(mLoadingBar, &LoadingBar::displayed, this, &View::displayLoadingBar);
 
     topLayout->addWidget(mLoadingBar);

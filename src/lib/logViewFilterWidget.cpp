@@ -122,12 +122,12 @@ bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QSt
     return KTreeWidgetSearchLine::itemMatches(item, pattern);
 }
 
-LogViewFilterWidget::LogViewFilterWidget()
-    : d(new LogViewFilterWidgetPrivate())
+LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
+    : QWidget(parent)
+    , d(new LogViewFilterWidgetPrivate())
 {
-    auto *filterBarLayout = new QHBoxLayout();
+    auto *filterBarLayout = new QHBoxLayout(this);
     filterBarLayout->setContentsMargins(0, 0, 0, 0);
-    setLayout(filterBarLayout);
 
     d->filterLine = new LogViewWidgetSearchLine();
 

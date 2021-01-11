@@ -21,7 +21,8 @@
 
 #include "logModeAction.h"
 
-LogModeAction::LogModeAction()
+LogModeAction::LogModeAction(QObject *parent)
+    : QObject(parent)
 {
 }
 

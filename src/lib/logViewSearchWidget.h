@@ -35,7 +35,7 @@ class LogViewSearchWidget : public QWidget, public Ui::LogViewSearchWidgetBase
     Q_OBJECT
 
 public:
-    LogViewSearchWidget();
+    explicit LogViewSearchWidget(QWidget *parent = nullptr);
 
     ~LogViewSearchWidget() override;
 

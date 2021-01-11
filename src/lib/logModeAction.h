@@ -37,7 +37,7 @@ public:
 
     Q_DECLARE_FLAGS(Categories, Category)
 
-    LogModeAction();
+    explicit LogModeAction(QObject *parent = nullptr);
 
     ~LogModeAction() override;
 
