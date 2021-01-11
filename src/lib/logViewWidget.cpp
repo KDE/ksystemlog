@@ -170,7 +170,7 @@ LogViewWidgetItem *LogViewWidget::findNewestItem()
     QTreeWidgetItemIterator it(this);
     while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
-        if (newestItem == nullptr || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
+        if (!newestItem || newestItem->logLine()->isOlderThan(*(item->logLine()))) {
             newestItem = item;
         }
 

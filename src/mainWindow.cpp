@@ -291,7 +291,7 @@ TabLogViewsWidget *MainWindow::tabs()
 void MainWindow::showDetailsDialog()
 {
     // Create the Detail dialog if it was not created
-    if (mDetailDialog == nullptr) {
+    if (!mDetailDialog) {
         mDetailDialog = new DetailDialog(this);
         updateDetailDialog();
     }
@@ -393,7 +393,7 @@ void MainWindow::showLogMessageDialog()
 {
     logDebug() << "Launching the Send message dialog box...";
 
-    if (mLoggedDialog == nullptr) {
+    if (!mLoggedDialog) {
         mLoggedDialog = new LoggerDialog(this);
     }
 
@@ -436,7 +436,7 @@ void MainWindow::changeCurrentTab()
 
     bool enabledAction;
     // Change the title of the window
-    if (currentManager->logMode() == nullptr) {
+    if (!currentManager->logMode()) {
         changeWindowTitle(i18nc("Newly created tab", "Empty Log"));
         enabledAction = false;
     } else {
@@ -745,7 +745,7 @@ void MainWindow::selectLogModeAction(bool)
         }
     }
 
-    if (currentMode == nullptr) {
+    if (!currentMode) {
         logCritical() << "The selected mode does not exist";
         return;
     }

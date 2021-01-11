@@ -70,7 +70,7 @@ QString TabLogManager::title() const
 
 QString TabLogManager::logModeName() const
 {
-    if (mLogManager->logMode() == nullptr) {
+    if (!mLogManager->logMode()) {
         return i18nc("Newly created tab", "Empty Log");
     } else {
         return mLogManager->title();

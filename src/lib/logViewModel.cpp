@@ -163,7 +163,7 @@ void LogViewModel::clear()
 bool LogViewModel::isNewer(LogLine *newLine) const
 {
     // No element in the list in this case
-    if (mOldestItem == nullptr) {
+    if (!mOldestItem) {
         return true;
     }
 
@@ -195,7 +195,7 @@ void LogViewModel::removeOldestLogLine()
 
     // Find the next oldest item
     foreach (LogViewWidgetItem *item, mLogViewWidget->items()) {
-        if (mOldestItem == nullptr) {
+        if (!mOldestItem) {
             mOldestItem = item;
             continue;
         }

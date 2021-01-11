@@ -171,7 +171,7 @@ bool MultipleFileList::isOneOfCategoryEmpty() const
 int MultipleFileList::categoryCount(int index) const
 {
     QTreeWidgetItem *item = fileList->topLevelItem(index);
-    if (item == nullptr) {
+    if (!item) {
         logCritical() << "Index out of range" << index;
         return 0;
     }

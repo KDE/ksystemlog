@@ -220,7 +220,7 @@ void LogManager::showErrorMessage(const QString &title, const QString &message)
 
 void LogManager::setParsingPaused(bool paused)
 {
-    if (d->mLogMode == nullptr) {
+    if (!d->mLogMode) {
         logWarning() << "Log manager is not yet initialized";
         return;
     }
@@ -236,7 +236,7 @@ void LogManager::setParsingPaused(bool paused)
 
 bool LogManager::isParsingPaused() const
 {
-    if (d->mLogMode == nullptr) {
+    if (!d->mLogMode) {
         logWarning() << "Log manager is not yet initialized";
         return false;
     }

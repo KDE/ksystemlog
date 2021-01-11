@@ -30,7 +30,7 @@ ParsingHelper *ParsingHelper::self = nullptr;
 
 ParsingHelper *ParsingHelper::instance()
 {
-    if (ParsingHelper::self == nullptr) {
+    if (!ParsingHelper::self) {
         ParsingHelper::self = new ParsingHelper();
     }
 

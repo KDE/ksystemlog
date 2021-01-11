@@ -261,7 +261,7 @@ void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVaria
 {
     logDebug() << "Loading a new mode : " << logMode->name();
 
-    if (manager == nullptr) {
+    if (!manager) {
         logCritical() << "Error while loading a manager ";
         return;
     }
@@ -401,7 +401,7 @@ void TabLogViewsWidget::printSelectionCurrentView()
 
 QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode) const
 {
-    if (logMode == nullptr) {
+    if (!logMode) {
         return QIcon::fromTheme(QStringLiteral(NO_MODE_ICON));
     } else {
         return logMode->icon();
@@ -410,7 +410,7 @@ QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode) const
 
 void TabLogViewsWidget::prepareContextMenu(bool /*onTab*/)
 {
-    if (mContextMenu == nullptr) {
+    if (!mContextMenu) {
         mContextMenu = new QMenu(this);
         mContextMenu->addActions(actions());
     }

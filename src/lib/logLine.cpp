@@ -160,7 +160,7 @@ QString LogLine::exportToText() const
 {
     QString exporting;
 
-    if (mItem == nullptr) {
+    if (!mItem) {
         logCritical() << "Trying to export text from NULL item";
         return exporting;
     }
