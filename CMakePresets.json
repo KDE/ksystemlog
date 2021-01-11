@@ -7,7 +7,8 @@
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+		"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             }
         },
         {
@@ -21,6 +22,16 @@
             }
         },
         {
+            "name": "unity",
+            "displayName": "Build with CMake unity support.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-unity",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+		"CMAKE_UNITY_BUILD": "ON"
+            }
+        },
+        {
             "name": "release",
             "displayName": "Build as release mode.",
             "generator": "Ninja",
@@ -28,6 +39,15 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
-        }
+        },
+        {
+            "name": "profile",
+            "displayName": "profile",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-profile",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+	}
     ]
 }
