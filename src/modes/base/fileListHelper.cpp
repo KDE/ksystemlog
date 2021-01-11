@@ -124,7 +124,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
     return true;
 }
 
-QList<QUrl> FileListHelper::openUrls()
+QList<QUrl> FileListHelper::openUrls() const
 {
     QFileDialog fileDialog(mParent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), QLatin1String("*|") + i18n("All Files (*)")
                            + QLatin1String("\n*.log|")
@@ -136,7 +136,7 @@ QList<QUrl> FileListHelper::openUrls()
     return fileDialog.selectedUrls();
 }
 
-QUrl FileListHelper::openUrl(const QString &originPath)
+QUrl FileListHelper::openUrl(const QString &originPath) const
 {
     QFileDialog fileDialog(mParent, QString(), originPath, QLatin1String("*|") + i18n("All Files (*)")
                            + QLatin1String("\n*.log|")

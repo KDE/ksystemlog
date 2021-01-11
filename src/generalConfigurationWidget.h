@@ -37,8 +37,6 @@ public:
 
     bool isValid() const;
 
-    enum dateFormat {};
-
 public Q_SLOTS:
     void saveConfig() const;
 

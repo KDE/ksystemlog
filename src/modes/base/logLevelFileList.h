@@ -36,12 +36,12 @@ public:
 
     ~LogLevelFileList() override;
 
-    QList<int> levels();
+    QList<int> levels() const;
 
     void addPaths(const QStringList &filePaths, const QList<int> &fileLevels);
 
 private:
-    LogLevel *level(int i);
+    LogLevel *level(int i) const;
 
     void insertItem(LogLevel *level, const QString &itemText, bool missing = false);
 

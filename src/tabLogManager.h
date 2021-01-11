@@ -40,7 +40,7 @@ public:
 
     ~TabLogManager() override;
 
-    LogManager *logManager();
+    LogManager *logManager() const;
 
     void addNewLinesCount(int newLines);
     void initNewLinesCount();

@@ -45,8 +45,8 @@ public:
     bool isValidFile(const QUrl &url);
     QStringList expandJoker(const QUrl &url);
 
-    QList<QUrl> openUrls();
-    QUrl openUrl(const QString &originPath);
+    QList<QUrl> openUrls() const;
+    QUrl openUrl(const QString &originPath) const;
 
     /**
      * Change the enabled status of the button and of its QActions

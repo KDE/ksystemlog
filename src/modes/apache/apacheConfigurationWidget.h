@@ -60,8 +60,8 @@ protected:
 private:
     MultipleFileList *mApacheFileList = nullptr;
 
-    int mApachePathsId;
-    int mApacheAccessPathsId;
+    int mApachePathsId = -1;
+    int mApacheAccessPathsId = -1;
 };
 
 #endif // _APACHE_CONFIGURATION_WIDGET_H

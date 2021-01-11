@@ -101,7 +101,7 @@ void MultipleFileList::updateButtons()
         mFileListHelper.setEnabledAction(removeAll, true);
     }
 
-    QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
+    const QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
 
     // If the selection is not empty and a empty item is not selected
     QTreeWidgetItem *categoryItem = nullptr;
@@ -110,7 +110,7 @@ void MultipleFileList::updateButtons()
     }
 
     if (categoryItem) {
-        int categoryIndex = fileList->indexOfTopLevelItem(categoryItem);
+        const int categoryIndex = fileList->indexOfTopLevelItem(categoryItem);
 
         mFileListHelper.setEnabledAction(remove, true);
         mFileListHelper.setEnabledAction(modify, true);

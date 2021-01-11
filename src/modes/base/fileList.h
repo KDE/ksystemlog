@@ -35,7 +35,7 @@ class FileList : public QWidget, public Ui::FileListBase
 {
     Q_OBJECT
 public:
-    FileList(QWidget *parent, const QString &descriptionText);
+    explicit FileList(QWidget *parent, const QString &descriptionText);
     ~FileList() override;
 
     int count() const;

@@ -142,13 +142,13 @@ void LogLevelFileList::changeItemType()
     }
 }
 
-LogLevel *LogLevelFileList::level(int i)
+LogLevel *LogLevelFileList::level(int i) const
 {
     return Globals::instance().logLevels().at(
         fileList->item(i)->data(LogLevelFileList::LogLevelRole).toInt());
 }
 
-QList<int> LogLevelFileList::levels()
+QList<int> LogLevelFileList::levels() const
 {
     QList<int> levels;
     const int count = fileList->count();
@@ -175,7 +175,7 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
 
     while (itString.hasNext()) {
         int valueInt = itInt.next();
-        QString valueString = itString.next();
+        const QString valueString = itString.next();
         bool missingFile = false;
 
         QFileInfo checkFile(valueString);
@@ -185,7 +185,7 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
         }
 
         LogLevel *level;
-        if (valueInt >= 0 && valueInt < (int)Globals::instance().logLevels().count()) {
+        if (valueInt >= 0 && valueInt < static_cast<int>(Globals::instance().logLevels().count())) {
             level = Globals::instance().logLevels().at(valueInt);
         } else {
             level = Globals::instance().informationLogLevel();

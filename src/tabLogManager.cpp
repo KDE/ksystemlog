@@ -43,7 +43,7 @@ TabLogManager::~TabLogManager()
     delete mLogManager;
 }
 
-LogManager *TabLogManager::logManager()
+LogManager *TabLogManager::logManager() const
 {
     return mLogManager;
 }
