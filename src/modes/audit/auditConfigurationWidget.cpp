@@ -13,10 +13,9 @@
 AuditConfigurationWidget::AuditConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Audit Log"), QStringLiteral(AUDIT_MODE_ICON), i18n("Audit Log"))
 {
-    QVBoxLayout *layout = new QVBoxLayout();
-    this->setLayout(layout);
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
-    QString description = i18n("<p>These files will be analyzed to show the <b>Audit logs</b>.</p>");
+    const QString description = i18n("<p>These files will be analyzed to show the <b>Audit logs</b>.</p>");
 
     fileList = new LogLevelFileList(this, description);
 
@@ -27,7 +26,7 @@ AuditConfigurationWidget::AuditConfigurationWidget()
 
 bool AuditConfigurationWidget::isValid() const
 {
-    if (fileList->isEmpty() == false) {
+    if (!fileList->isEmpty()) {
         logDebug() << "Audit configuration valid";
         return true;
     }

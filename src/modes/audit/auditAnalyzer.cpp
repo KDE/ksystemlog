@@ -30,7 +30,7 @@ void AuditAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
     // Remove previous files
     deleteLogFiles();
 
-    foreach (const LogFile &logFile, logFiles) {
+    for (const LogFile &logFile : logFiles) {
         LogFileReader *logFileReader = createLogFileReader(logFile);
         mLogFileReaders.append(logFileReader);
 
@@ -55,17 +55,17 @@ LogLine *AuditAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
     if (logLine.length() < 15)
         return nullptr;
 
-    QRegularExpression re(QStringLiteral("^type=(.*)\\s.*msg=audit\\((\\d*\\.\\d*).*"));
+    static QRegularExpression re(QStringLiteral("^type=(.*)\\s.*msg=audit\\((\\d*\\.\\d*).*"));
     QRegularExpressionMatch match = re.match(logLine);
 
     if (!match.hasMatch())
         return nullptr;
 
-    QString messageType = match.captured(1);
+    const QString messageType = match.captured(1);
 
-    qint64 msecs = qint64(match.captured(2).toDouble() * 1000.);
+    const qint64 msecs = qint64(match.captured(2).toDouble() * 1000.);
 
-    QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(msecs);
+    const QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(msecs);
 
     QString message(logLine);
     re.setPattern(QStringLiteral("^type=.*\\):\\s"));
@@ -98,7 +98,7 @@ int AuditAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &
     logDebug() << "Inserting lines...";
 
     // If there is no line
-    if (bufferedLines.size() == 0) {
+    if (bufferedLines.isEmpty()) {
         logWarning() << "File is empty : " << logFile.url().path();
     }
 
@@ -166,7 +166,7 @@ bool AuditAnalyzer::insertLine(const QStringList &event, const LogFile &original
     LogLine *line = parseEvent(event, originalFile);
 
     // Invalid log line
-    if (line == NULL) {
+    if (!line) {
         return false;
     }
 
@@ -181,7 +181,7 @@ bool AuditAnalyzer::insertLine(const QStringList &event, const LogFile &original
 void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode readingMode,
                                    const QStringList &content)
 {
-    QString filePath = logFileReader->logFile().url().path();
+    const QString filePath = logFileReader->logFile().url().path();
     if (readingMode == Analyzer::FullRead)
         logDebug() << "File " << filePath << " has been modified on full read.";
     else
@@ -208,28 +208,28 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
     } else {
         logDebug() << "Reading file " << filePath;
 
-        emit statusBarChanged(i18n("Opening '%1'...", filePath));
+        Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
-        emit readFileStarted(*mLogMode, logFileReader->logFile(),
+        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(),
                              mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
                              mLogFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
-        emit statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
+        Q_EMIT statusBarChanged(i18n("Log file '%1' loaded successfully.", filePath));
     }
 
     mLogViewModel->endingMultipleInsertions(readingMode, insertedLogLineCount);
 
     // Inform connected LoadingBar that the reading is now finished
-    emit readEnded();
+    Q_EMIT readEnded();
 
     // Inform LogManager that new lines have been added
-    emit logUpdated(insertedLogLineCount);
+    Q_EMIT logUpdated(insertedLogLineCount);
 
     // Inform MainWindow status bar
-    emit statusBarChanged(i18n("Log file '%1' has changed.", filePath));
+    Q_EMIT statusBarChanged(i18n("Log file '%1' has changed.", filePath));
 
     logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
 
@@ -238,8 +238,8 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
 
 QString AuditAnalyzer::getMsgField(const QString &logLine)
 {
-    QRegularExpression re(QStringLiteral("^.*msg=audit\\((\\d*\\.\\d*:\\d*)\\)"));
-    QRegularExpressionMatch match = re.match(logLine);
+    static const QRegularExpression re(QStringLiteral("^.*msg=audit\\((\\d*\\.\\d*:\\d*)\\)"));
+    const QRegularExpressionMatch match = re.match(logLine);
 
     if (!match.hasMatch()) {
         return QString();
@@ -259,8 +259,8 @@ LogLine *AuditAnalyzer::parseEvent(const QStringList &event, const LogFile &orig
     if (!match.hasMatch())
         return nullptr;
 
-    qint64 msecs = qint64(match.captured(1).toDouble() * 1000.);
-    QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(msecs);
+    const qint64 msecs = qint64(match.captured(1).toDouble() * 1000.);
+    const QDateTime dateTime = QDateTime::fromMSecsSinceEpoch(msecs);
 
     QStringList messages;
     QString message;

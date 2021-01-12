@@ -94,7 +94,7 @@ void LogViewModel::startingMultipleInsertions()
     if (hasLocked) {
         logDebug() << "Starting multiple insertions...";
 
-        emit(processingMultipleInsertions(true));
+        Q_EMIT(processingMultipleInsertions(true));
 
         mLogViewWidget->setUpdatesEnabled(false);
 
@@ -123,7 +123,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
         logDebug() << "Enabling log view widget refresh...";
         mLogViewWidget->setUpdatesEnabled(true);
 
-        emit(processingMultipleInsertions(false));
+        Q_EMIT(processingMultipleInsertions(false));
     }
 }
 

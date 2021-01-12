@@ -12,8 +12,7 @@
 
 QList<LogMode *> AuditLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes;
-    logModes.append(new AuditLogMode());
+    const QList<LogMode *> logModes{new AuditLogMode()};
     return logModes;
 }
 

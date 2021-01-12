@@ -39,8 +39,8 @@ AuditConvertor::AuditConvertor()
 
 QString AuditConvertor::getParam(const QString &message, const QString &name)
 {
-    QRegularExpression re(QStringLiteral("\\s%1=([^\\s]*)").arg(name));
-    QRegularExpressionMatch match = re.match(message);
+    const QRegularExpression re(QStringLiteral("\\s%1=([^\\s]*)").arg(name));
+    const QRegularExpressionMatch match = re.match(message);
 
     if (match.hasMatch()) {
         return match.captured(1);
@@ -51,7 +51,7 @@ QString AuditConvertor::getParam(const QString &message, const QString &name)
 
 QString AuditConvertor::replaceParam(const QString &message, const QString &name, const QString &value)
 {
-    QRegularExpression re(QStringLiteral("\\s%1=[^\\s]*").arg(name));
+    const QRegularExpression re(QStringLiteral("\\s%1=[^\\s]*").arg(name));
     QString newMessage = message;
 
     return newMessage.replace(re, QStringLiteral(" %1=%2").arg(name).arg(value));
@@ -241,7 +241,7 @@ QString AuditConvertor::convertMode(const QString &mode, int base)
 
     name = audit_ftype_to_name(ival & S_IFMT);
 
-    if (name != NULL) {
+    if (name) {
         newMode = QString::fromLatin1(name);
     } else {
         unsigned first_ifmt_bit = S_IFMT & ~(S_IFMT - 1);
