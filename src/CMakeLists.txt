@@ -23,6 +23,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/modes/authentication
     ${CMAKE_CURRENT_SOURCE_DIR}/modes/postfix
     ${CMAKE_CURRENT_SOURCE_DIR}/modes/journald
+    ${CMAKE_CURRENT_SOURCE_DIR}/modes/audit
 )
 
 set(ksystemlog_sources
@@ -71,6 +72,11 @@ if (${JOURNALD_FOUND})
 target_link_libraries(ksystemlog
     ksystemlog_journald)
 endif(${JOURNALD_FOUND})
+
+if (${AUDIT_FOUND})
+target_link_libraries(ksystemlog
+    ksystemlog_audit)
+endif(${AUDIT_FOUND})
 
 ########### Installation ###############
 

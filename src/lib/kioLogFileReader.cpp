@@ -63,7 +63,7 @@ void KioLogFileReader::open()
     connect(mFileJob, &KIO::FileJob::data, this,
             &KioLogFileReader::dataReceived);
 #if KIO_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    connect(fileJob, &KIO::FileJob::mimetype, this,
+    connect(mFileJob, &KIO::FileJob::mimetype, this,
             &KioLogFileReader::mimetypeReceived);
 #else
     connect(mFileJob, &KIO::FileJob::mimeTypeFound, this,

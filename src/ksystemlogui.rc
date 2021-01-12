@@ -57,6 +57,7 @@
     <Action name="daemonLogMode" />
     <Action name="xorgLogMode" />
     <Action name="journaldLogMode" />
+    <Action name="auditLogMode" />
   </ToolBar>
   
   <ToolBar name="mainToolBar" position="top" iconText="textundericon" noMerge="1" >

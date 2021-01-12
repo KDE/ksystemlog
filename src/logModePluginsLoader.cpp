@@ -45,6 +45,10 @@
 #ifdef HAVE_JOURNALD
 #include "journaldFactory.h"
 #endif
+#ifdef HAVE_AUDIT
+#include "auditFactory.h"
+#endif
+
 LogModePluginsLoader::LogModePluginsLoader(QWidget *parent)
     : mParent(parent)
 {
@@ -94,6 +98,11 @@ void LogModePluginsLoader::loadPlugins()
 
     // XSession
     Globals::instance().registerLogModeFactory(new XSessionLogModeFactory());
+
+    // Audit
+#ifdef HAVE_AUDIT
+    Globals::instance().registerLogModeFactory(new AuditLogModeFactory());
+#endif
 
     // Journald
 #ifdef HAVE_JOURNALD

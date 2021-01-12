@@ -49,6 +49,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 find_package(Journald)
+find_package(Audit)
 
 include(CheckIncludeFile)
 include(CheckIncludeFiles)
@@ -84,6 +85,10 @@ if (${JOURNALD_FOUND})
     add_definitions(-DHAVE_JOURNALD)
 endif (${JOURNALD_FOUND})
 
+if (${AUDIT_FOUND})
+    add_definitions(-DHAVE_AUDIT)
+endif (${AUDIT_FOUND})
+
 ########### Subfolders ##########
 
 add_subdirectory(src)
@@ -105,6 +110,9 @@ add_subdirectory(src/modes/apache)
 add_subdirectory(src/modes/postfix)
 add_subdirectory(src/modes/samba)
 add_subdirectory(src/modes/cups)
+if (${AUDIT_FOUND})
+add_subdirectory(src/modes/audit)
+endif (${AUDIT_FOUND})
 if (${JOURNALD_FOUND})
     add_subdirectory(src/modes/journald)
 endif (${JOURNALD_FOUND})
