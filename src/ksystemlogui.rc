@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ksystemlog" version="6">
+<gui name="ksystemlog" version="7">
   
   <MenuBar>
     
