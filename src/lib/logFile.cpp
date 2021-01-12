@@ -29,7 +29,6 @@ LogFile::LogFile()
 }
 
 LogFile::LogFile(const LogFile &logFile)
-    : QObject()
 {
     mUrl = logFile.url();
     mDefaultLogLevel = logFile.defaultLogLevel();

@@ -29,17 +29,15 @@
 
 class LogLevel;
 
-class LogFile : public QObject
+class LogFile
 {
-    Q_OBJECT
-
 public:
     LogFile();
 
     LogFile(const LogFile &logFile);
     LogFile(const QUrl &url, LogLevel *defaultLogLevel);
 
-    ~LogFile() override;
+    ~LogFile();
 
     bool operator==(const LogFile &other) const;
 
