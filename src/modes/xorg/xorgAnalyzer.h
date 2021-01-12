@@ -59,7 +59,7 @@ private:
     LogLevel *findTypeName(const QString &type);
 
     QMap<QString, LogLevel *> mXorgLevels;
-    QDateTime mCurrentDateTime;
+    const QDateTime mCurrentDateTime;
 };
 
 #endif // _XORG_ANALYZER_H
