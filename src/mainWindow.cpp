@@ -249,7 +249,7 @@ void MainWindow::updateReloading()
 {
     View *currentView = mTabs->activeLogManager()->usedView();
 
-    bool enabled = !currentView->logViewWidget()->model()->isProcessingMultipleInsertions();
+    const bool enabled = !currentView->logViewWidget()->model()->isProcessingMultipleInsertions();
 
     mReloadAction->setEnabled(enabled);
     mResumePauseAction->setEnabled(enabled);

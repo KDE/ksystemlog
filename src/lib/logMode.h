@@ -55,11 +55,11 @@ public:
 
     QIcon icon;
 
-    QAction *action;
+    QAction *action = nullptr;
 
-    LogModeItemBuilder *itemBuilder;
+    LogModeItemBuilder *itemBuilder = nullptr;
 
-    LogModeConfigurationWidget *logModeConfigurationWidget;
+    LogModeConfigurationWidget *logModeConfigurationWidget = nullptr;
 
     QSharedPointer<LogModeConfiguration> logModeConfiguration;
 

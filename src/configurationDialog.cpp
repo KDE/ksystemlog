@@ -57,7 +57,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
     const auto logModes = Globals::instance().logModes();
     for (LogMode *logMode : logModes) {
         // Some Log mode does not need a configuration widget
-        if (logMode->logModeConfigurationWidget() == nullptr) {
+        if (!logMode->logModeConfigurationWidget()) {
             continue;
         }
 

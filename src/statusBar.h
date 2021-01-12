@@ -26,7 +26,7 @@
 
 class QString;
 class QLabel;
-class KComboBox;
+class QComboBox;
 class QPushButton;
 namespace KSystemLog {
 /**
@@ -52,7 +52,7 @@ private Q_SLOTS:
 
 private:
     QLabel *mLineCountLabel = nullptr;
-    KComboBox *mMessageList = nullptr;
+    QComboBox *mMessageList = nullptr;
     QLabel *mLastModificationLabel = nullptr;
     QPushButton *mToggleHistory = nullptr;
 };

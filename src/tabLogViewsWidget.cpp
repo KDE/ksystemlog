@@ -158,7 +158,7 @@ void TabLogViewsWidget::moveTabLeft()
     logDebug() << "Duplicate tab to the left";
 
     TabLogManager *currentTabLogManager = activeTabLogManager();
-    int position = indexOf(currentTabLogManager->logManager()->usedView());
+    const int position = indexOf(currentTabLogManager->logManager()->usedView());
 
     if (position <= 0) {
         logCritical() << "Tab Position <= 0 : " << position;

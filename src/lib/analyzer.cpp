@@ -66,7 +66,7 @@ void Analyzer::setParsingPaused(bool paused)
 
 void Analyzer::setLogViewModel(LogViewModel *logViewModel)
 {
-    this->mLogViewModel = logViewModel;
+    mLogViewModel = logViewModel;
 }
 
 void Analyzer::informOpeningProgress(int currentPosition, int total)

@@ -43,10 +43,10 @@ StatusBar::StatusBar(QWidget *parent)
     mLineCountLabel->setLineWidth(2);
     mLineCountLabel->setMidLineWidth(2);
     addPermanentWidget(mLineCountLabel, 1);
-    mMessageList = new KComboBox(this);
+    mMessageList = new QComboBox(this);
     mMessageList->setInsertPolicy(QComboBox::InsertAtTop);
     mMessageList->setMaxVisibleItems(5);
-    connect(mMessageList, QOverload<int>::of(&KComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
+    connect(mMessageList, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
     addPermanentWidget(mMessageList, 4);
 
     mLastModificationLabel = new QLabel(this);
