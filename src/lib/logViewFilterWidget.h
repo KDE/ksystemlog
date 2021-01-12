@@ -31,7 +31,7 @@
 
 class LogViewWidget;
 class LogViewWidgetSearchLine;
-class KComboBox;
+class QComboBox;
 
 class LogViewWidgetSearchLinePrivate;
 class LogViewFilterWidgetPrivate;
@@ -45,8 +45,8 @@ public:
 
     ~LogViewFilterWidget() override;
 
-    KComboBox *filterList();
-    LogViewWidgetSearchLine *filterLine();
+    QComboBox *filterList() const;
+    LogViewWidgetSearchLine *filterLine() const;
 
 public Q_SLOTS:
     void updateFilterColumns(const LogViewColumns &list);

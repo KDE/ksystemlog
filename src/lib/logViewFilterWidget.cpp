@@ -62,7 +62,7 @@ public:
     /**
      * Filter of the column list
      */
-    KComboBox *mFilterList = nullptr;
+    QComboBox *mFilterList = nullptr;
 
     QComboBox *mPrioritiesComboBox = nullptr;
 
@@ -167,7 +167,7 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
 
     // Don't add last enum value into combobox.
     for (int i = 0; i < metaEnum.keyCount() - 1; i++) {
-        int id = metaEnum.value(i);
+        const int id = metaEnum.value(i);
         LogLevel *logLevel = Globals::instance().logLevelByPriority(id);
 
         auto *item = new QStandardItem(logLevel->name());
@@ -187,7 +187,7 @@ LogViewFilterWidget::~LogViewFilterWidget()
 
 void LogViewFilterWidget::initSearchListFilter()
 {
-    d->mFilterList = new KComboBox();
+    d->mFilterList = new QComboBox();
 
     d->mFilterList->setToolTip(i18n("Choose the filtered column here"));
     d->mFilterList->setWhatsThis(i18n(
@@ -199,7 +199,7 @@ void LogViewFilterWidget::initSearchListFilter()
     d->mFilterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
     connect(d->mFilterList, SIGNAL(activated(int)), d->filterLine, SLOT(setFocus()));
-    connect(d->mFilterList, QOverload<int>::of(&KComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
+    connect(d->mFilterList, QOverload<int>::of(&QComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
     connect(d->mFilterList, SIGNAL(activated(int)), d->filterLine, SLOT(updateSearch()));
 }
 
@@ -213,7 +213,8 @@ void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
     // Then we insert the default items
     d->mFilterList->addItem(i18n("All"));
 
-    foreach (const LogViewColumn &column, columns.columns()) {
+    const auto cols = columns.columns();
+    for (const LogViewColumn &column : cols) {
         if (column.isFiltered()) {
             d->mFilterList->addItem(column.columnName());
         }
@@ -234,17 +235,16 @@ void LogViewFilterWidget::changeColumnFilter(int column)
 
     logDebug() << "Searching on " << d->mFilterList->currentIndex() << " column";
 
-    QList<int> filterColumns;
     // currentIndex() - 1 to do not count the "All" columns item
-    filterColumns.append(d->mFilterList->currentIndex() - 1);
+    const QList<int> filterColumns { d->mFilterList->currentIndex() - 1 };
 
     d->filterLine->setSearchColumns(filterColumns);
 }
 
 void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
 {
-    int priority = item->data(Qt::UserRole).toInt();
-    bool priorityEnabled = (item->checkState() == Qt::Checked);
+    const int priority = item->data(Qt::UserRole).toInt();
+    const bool priorityEnabled = (item->checkState() == Qt::Checked);
     d->filterLine->setPriorityEnabled(priority, priorityEnabled);
     if (priorityEnabled) {
         logDebug() << "Show entries with priority" << priority;
@@ -253,12 +253,12 @@ void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
     }
 }
 
-KComboBox *LogViewFilterWidget::filterList()
+QComboBox *LogViewFilterWidget::filterList() const
 {
     return d->mFilterList;
 }
 
-LogViewWidgetSearchLine *LogViewFilterWidget::filterLine()
+LogViewWidgetSearchLine *LogViewFilterWidget::filterLine() const
 {
     return d->filterLine;
 }

@@ -90,9 +90,8 @@ void LogViewExport::sendMail()
     // const QCString &   startup_id
     // KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log
     // Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
-    KToolInvocation::invokeMailer(QLatin1String(""), QLatin1String(""), QLatin1String(""),
-                                  i18n("Log Lines of my problem"), body, QLatin1String(""), QStringList(),
-                                  QByteArray());
+    KToolInvocation::invokeMailer(QString(), QString(), QString(),
+                                  i18n("Log Lines of my problem"), body);
 }
 
 void LogViewExport::printSelection()
