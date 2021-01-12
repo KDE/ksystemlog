@@ -1,6 +1,30 @@
 
 ########### Build ###############
 
+add_subdirectory(lib)
+add_subdirectory(config)
+
+add_subdirectory(modes/base)
+add_subdirectory(modes/open)
+
+add_subdirectory(modes/system)
+add_subdirectory(modes/kernel)
+add_subdirectory(modes/xorg)
+add_subdirectory(modes/cron)
+add_subdirectory(modes/authentication)
+add_subdirectory(modes/daemon)
+add_subdirectory(modes/acpid)
+add_subdirectory(modes/xsession)
+add_subdirectory(modes/apache)
+add_subdirectory(modes/postfix)
+add_subdirectory(modes/samba)
+add_subdirectory(modes/cups)
+if (${AUDIT_FOUND})
+    add_subdirectory(modes/audit)
+endif (${AUDIT_FOUND})
+if (${JOURNALD_FOUND})
+    add_subdirectory(modes/journald)
+endif (${JOURNALD_FOUND})
 
 set(ksystemlog_sources
     main.cpp
