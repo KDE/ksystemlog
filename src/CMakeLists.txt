@@ -1,30 +1,6 @@
 
 ########### Build ###############
 
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/config
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib
-    ${CMAKE_CURRENT_BINARY_DIR}/config
-    ${CMAKE_CURRENT_BINARY_DIR}/lib
-    ${CMAKE_CURRENT_SOURCE_DIR}
-
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/open
-
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/system
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/kernel
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/daemon
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/xorg
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/cron
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/acpid
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/xsession
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/apache
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/cups
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/samba
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/authentication
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/postfix
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/journald
-    ${CMAKE_CURRENT_SOURCE_DIR}/modes/audit
-)
 
 set(ksystemlog_sources
     main.cpp
@@ -69,13 +45,13 @@ target_link_libraries(ksystemlog
 )
 
 if (${JOURNALD_FOUND})
-target_link_libraries(ksystemlog
-    ksystemlog_journald)
+    target_link_libraries(ksystemlog
+        ksystemlog_journald)
 endif(${JOURNALD_FOUND})
 
 if (${AUDIT_FOUND})
-target_link_libraries(ksystemlog
-    ksystemlog_audit)
+    target_link_libraries(ksystemlog
+        ksystemlog_audit)
 endif(${AUDIT_FOUND})
 
 ########### Installation ###############
