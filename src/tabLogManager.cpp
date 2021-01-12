@@ -38,9 +38,7 @@ TabLogManager::TabLogManager(LogManager *logManager)
 
 TabLogManager::~TabLogManager()
 {
-    delete mLogManager->usedView();
-
-    delete mLogManager;
+    //delete mLogManager->usedView();
 }
 
 LogManager *TabLogManager::logManager() const
