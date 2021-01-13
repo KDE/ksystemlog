@@ -45,7 +45,7 @@ LoadingBar::LoadingBar(QWidget *parent)
     mLabel->setMinimumWidth(250);
     layout->addWidget(mLabel, 1, Qt::AlignBottom);
 
-    mProgressBar = new QProgressBar();
+    mProgressBar = new QProgressBar(this);
     mProgressBar->setRange(0, 100);
     mProgressBar->setMinimumWidth(250);
     layout->addWidget(mProgressBar, 1, Qt::AlignCenter | Qt::AlignTop);

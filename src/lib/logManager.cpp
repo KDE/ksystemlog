@@ -52,9 +52,6 @@ LogManager::LogManager(View *view)
 {
     d->mLastUpdate = QTime::currentTime();
 
-    d->mLogMode = nullptr;
-    d->mAnalyzer = nullptr;
-
     d->mUsedView = view;
     connect(d->mUsedView, &View::droppedUrls, this, &LogManager::loadDroppedUrls);
 }
