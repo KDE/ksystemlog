@@ -32,7 +32,8 @@
 
 #include "ksystemlogConfig.h"
 
-LogModeConfiguration::LogModeConfiguration()
+LogModeConfiguration::LogModeConfiguration(QObject *parent)
+    : QObject(parent)
 {
     mConfiguration = KSystemLogConfig::self();
 }

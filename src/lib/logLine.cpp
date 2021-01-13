@@ -37,9 +37,6 @@ LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &
     mLogLevel = logLevel;
     mLogMode = logMode;
 
-    // No linked item when constructs this LogLine
-    mItem = nullptr;
-
     // By default in newly created item has the recent state
     setRecent(true);
 }

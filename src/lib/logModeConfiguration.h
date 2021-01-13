@@ -35,7 +35,7 @@ class LogModeConfiguration : public QObject
     Q_OBJECT
 
 public:
-    LogModeConfiguration();
+    explicit LogModeConfiguration(QObject *parent = nullptr);
 
     ~LogModeConfiguration() override;
 

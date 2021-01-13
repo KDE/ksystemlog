@@ -218,7 +218,7 @@ void LogViewExport::fileSave()
         return;
     }
 
-    QString filename
+    const QString filename
         = QFileDialog::getSaveFileName(mParent, i18n("Save selected log entries to..."), QString());
     if (filename.isEmpty()) {
         return;
@@ -249,7 +249,7 @@ void LogViewExport::fileSave()
         Q_EMIT statusBarChanged(
             i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
     } else {
-        QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
+        const QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
         KMessageBox::error(mParent, message, i18n("Unable to save file."));
     }
 }

@@ -113,7 +113,7 @@ void LogViewWidgetSearchLine::setPriorityEnabled(int priority, bool enabled)
 bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QString &pattern) const
 {
     // Hide item if its priority is not enabled.
-    int priority = item->data(0, Qt::UserRole).toInt();
+    const int priority = item->data(0, Qt::UserRole).toInt();
     if ((priority >= 0) && (priority < Globals::LOG_LEVEL_NUM)) {
         if (!d->priorities[priority]) {
             return false;

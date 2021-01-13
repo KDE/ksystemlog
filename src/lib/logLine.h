@@ -81,7 +81,7 @@ protected:
 
     LogMode *mLogMode = nullptr;
 
-    bool mRecent;
+    bool mRecent = false;
 
     LogViewWidgetItem *mItem = nullptr;
 
