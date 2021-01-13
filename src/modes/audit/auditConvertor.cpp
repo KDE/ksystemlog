@@ -680,7 +680,7 @@ QString AuditConvertor::convertSockOptLevel(const QString &level)
         return QStringLiteral("SOL_SOCKET");
     } else {
         protoent *p = getprotobynumber(ival);
-        if (p == nullptr) {
+        if (!p) {
             return socklevelMap.value(ival, QStringLiteral("unknown-sockopt-level(0x%1)").arg(level));
         } else {
             return QString::fromLatin1(p->p_name);

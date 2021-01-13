@@ -291,7 +291,7 @@ void TabLogViewsWidget::reloadAll()
     const auto tabLogManagers = mTabLogManagers;
     for (TabLogManager *tabLogManager : tabLogManagers) {
         // Log manager without log mode does not need to be reloaded
-        if (tabLogManager->logManager()->logMode() == nullptr) {
+        if (!tabLogManager->logManager()->logMode()) {
             continue;
         }
 

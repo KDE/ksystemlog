@@ -213,7 +213,7 @@ void LogViewExport::fileSave()
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
 
     // No item selected
-    if (*it == nullptr) {
+    if (!(*it)) {
         Q_EMIT statusBarChanged(i18n("No items selected. Please select items to be able to save them."));
         return;
     }

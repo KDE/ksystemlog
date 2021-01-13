@@ -80,13 +80,13 @@ void DetailDialog::updateDetails()
 
     message->setText(item->logLine()->logItems().last());
 
-    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) - 1) == nullptr) {
+    if (!mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) - 1)) {
         previous->setEnabled(false);
     } else {
         previous->setEnabled(true);
     }
 
-    if (mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + 1) == nullptr) {
+    if (!mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + 1)) {
         next->setEnabled(false);
     } else {
         next->setEnabled(true);
@@ -108,7 +108,7 @@ void DetailDialog::moveToItem(int direction)
 
     // Get the current-last item selected
     LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
-    if (item == nullptr) {
+    if (!item) {
         logDebug() << "No item found.";
         return;
     }

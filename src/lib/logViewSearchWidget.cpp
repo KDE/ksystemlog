@@ -188,7 +188,7 @@ inline void LogViewSearchWidget::initIterator(QTreeWidgetItemIterator &it, Direc
         QTreeWidgetItemIterator testedIterator(it);
         while (true) {
             ++testedIterator;
-            if (*testedIterator == nullptr) {
+            if (!(*testedIterator)) {
                 break;
             }
 
