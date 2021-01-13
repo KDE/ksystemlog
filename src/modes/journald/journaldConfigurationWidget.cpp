@@ -60,7 +60,7 @@ void JournaldConfigurationWidget::saveConfig()
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
     configuration->setEntriesType((JournaldConfiguration::EntriesType)entriesTypeComboBox->currentIndex());
 
-    QList<JournalAddress> remoteJournals;
+    QVector<JournalAddress> remoteJournals;
     for (int row = 0; row < remoteJournalsListWidget->rowCount(); row++) {
         QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
         QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
@@ -91,7 +91,7 @@ void JournaldConfigurationWidget::readConfig()
         remoteJournalsListWidget->removeRow(0);
     }
 
-    const QList<JournalAddress> remoteJournals = configuration->remoteJournals();
+    const QVector<JournalAddress> remoteJournals = configuration->remoteJournals();
     for (const JournalAddress &addressInfo : remoteJournals) {
         if (haveJournalAddress(addressInfo.address, QString::number(addressInfo.port), addressInfo.https)) {
             continue;

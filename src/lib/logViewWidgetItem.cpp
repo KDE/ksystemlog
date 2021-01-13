@@ -63,7 +63,7 @@ void LogViewWidgetItem::toggleToolTip(bool displayed)
 
 bool LogViewWidgetItem::operator<(const QTreeWidgetItem &other) const
 {
-    int sortedColumn = treeWidget()->sortColumn();
+    const int sortedColumn = treeWidget()->sortColumn();
 
     // If we sort items by date (always the first column)
     if (sortedColumn == 0) {

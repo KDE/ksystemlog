@@ -51,8 +51,8 @@ public:
     EntriesType entriesType();
     void setEntriesType(EntriesType entriesType);
 
-    QList<JournalAddress> remoteJournals() const;
-    void setRemoteJournals(const QList<JournalAddress> &remoteJournals);
+    QVector<JournalAddress> remoteJournals() const;
+    void setRemoteJournals(const QVector<JournalAddress> &remoteJournals);
 
 private:
     bool mDisplayCurrentBootOnly;

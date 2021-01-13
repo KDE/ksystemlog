@@ -56,9 +56,9 @@ void JournaldConfiguration::setEntriesType(JournaldConfiguration::EntriesType en
     mEntriesType = entriesType;
 }
 
-QList<JournalAddress> JournaldConfiguration::remoteJournals() const
+QVector<JournalAddress> JournaldConfiguration::remoteJournals() const
 {
-    QList<JournalAddress> journals;
+    QVector<JournalAddress> journals;
     for (const QString &addressItem : qAsConst(mRemoteJournals)) {
         JournalAddress addressInfo;
         addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
@@ -70,7 +70,7 @@ QList<JournalAddress> JournaldConfiguration::remoteJournals() const
     return journals;
 }
 
-void JournaldConfiguration::setRemoteJournals(const QList<JournalAddress> &remoteJournals)
+void JournaldConfiguration::setRemoteJournals(const QVector<JournalAddress> &remoteJournals)
 {
     mRemoteJournals.clear();
     for (const JournalAddress &addressInfo : remoteJournals) {
