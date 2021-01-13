@@ -102,7 +102,7 @@ void LogViewColumns::addColumn(const LogViewColumn &column)
     mColumns.append(column);
 }
 
-QList<LogViewColumn> LogViewColumns::columns() const
+QVector<LogViewColumn> LogViewColumns::columns() const
 {
     return mColumns;
 }

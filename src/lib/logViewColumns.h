@@ -45,7 +45,7 @@ public:
     void setGroupByHour(bool value);
     void setGroupByLogFile(bool value);
 
-    QList<LogViewColumn> columns() const;
+    QVector<LogViewColumn> columns() const;
 
     void addColumn(const LogViewColumn &column);
     QStringList toStringList() const;
@@ -53,7 +53,7 @@ public:
     LogViewColumns &operator=(const LogViewColumns &columns);
 
 private:
-    QList<LogViewColumn> mColumns;
+    QVector<LogViewColumn> mColumns;
     bool mGroupByLogLevel = true;
     bool mGroupByDay = true;
     bool mGroupByHour = true;
