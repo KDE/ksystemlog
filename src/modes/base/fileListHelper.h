@@ -62,7 +62,7 @@ public:
     QAction *prepareButtonAndAction(QPushButton *button, const QIcon &icon, const QObject *receiver, const char *member);
 
 private:
-    QWidget *mParent = nullptr;
+    QWidget *const mParent = nullptr;
 };
 
 #endif //_FILE_LIST_HELPER_H
