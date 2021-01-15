@@ -116,11 +116,7 @@ void JournaldNetworkAnalyzer::httpFinished()
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), QString::SkipEmptyParts);
-#else
         QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), Qt::SkipEmptyParts);
-#endif
         switch (mCurrentRequest) {
         case RequestType::SyslogIds:
             mSyslogIdentifiers = identifiersList;
