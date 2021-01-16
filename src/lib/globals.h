@@ -69,7 +69,7 @@ public:
 
     QString formatDate(DateFormat format, const QDateTime &dateTime) const;
 
-    QList<LogLevel *> logLevels() const;
+    QHash<LogLevelIds, LogLevel *> logLevels() const;
 
     LogLevel *noLogLevel() const;
     LogLevel *debugLogLevel() const;

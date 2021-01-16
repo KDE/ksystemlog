@@ -83,11 +83,8 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
         const int intValue = itInt.next();
         const QString stringValue = itString.next();
 
-        if (intValue >= 0 && intValue < static_cast<int>(Globals::instance().logLevels().count())) {
-            level = Globals::instance().logLevels().at(intValue);
-        } else {
-            level = Globals::instance().informationLogLevel();
-        }
+        level = Globals::instance().logLevels().value(Globals::LogLevelIds(intValue),
+                                                      Globals::instance().informationLogLevel());
 
         const QUrl url = QUrl::fromLocalFile(stringValue);
         if (!url.isValid()) {

@@ -57,7 +57,7 @@ public:
     /**
      * Existing Log levels. The id value corresponds to the index in the vector
      */
-    QList<LogLevel *> mLogLevels;
+    QHash<Globals::LogLevelIds, LogLevel *> mLogLevels;
 
     QList<LogModeFactory *> mFactories;
 
@@ -126,40 +126,40 @@ void Globals::setupLogLevels()
 
     d->mNoLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("edit-none"),
                                   QColor(208, 210, 220));
-    d->mLogLevels.append(d->mNoLogLevel);
+    d->mLogLevels[NONE_LOG_LEVEL_ID] = d->mNoLogLevel;
 
     d->mDebugLogLevel
         = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QStringLiteral("debug-run"), QColor(156, 157, 165));
-    d->mLogLevels.append(d->mDebugLogLevel);
+    d->mLogLevels[DEBUG_LOG_LEVEL_ID] = d->mDebugLogLevel;
 
     d->mInformationLogLevel
         = new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QStringLiteral("dialog-information"),
                        QColor(36, 49, 103) /*QColor(0, 0, 0)*/);
-    d->mLogLevels.append(d->mInformationLogLevel);
+    d->mLogLevels[INFORMATION_LOG_LEVEL_ID] = d->mInformationLogLevel;
 
     d->mNoticeLogLevel
         = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QStringLiteral("note"), QColor(36, 138, 22));
-    d->mLogLevels.append(d->mNoticeLogLevel);
+    d->mLogLevels[NOTICE_LOG_LEVEL_ID] = d->mNoticeLogLevel;
 
     d->mWarningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QStringLiteral("dialog-warning"),
                                        QColor(238, 144, 21));
-    d->mLogLevels.append(d->mWarningLogLevel);
+    d->mLogLevels[WARNING_LOG_LEVEL_ID] = d->mWarningLogLevel;
 
     d->mErrorLogLevel
         = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QStringLiteral("dialog-error"), QColor(173, 28, 28));
-    d->mLogLevels.append(d->mErrorLogLevel);
+    d->mLogLevels[ERROR_LOG_LEVEL_ID] = d->mErrorLogLevel;
 
     d->mCriticalLogLevel
         = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QStringLiteral("dialog-error"), QColor(214, 26, 26));
-    d->mLogLevels.append(d->mCriticalLogLevel);
+    d->mLogLevels[CRITICAL_LOG_LEVEL_ID] = d->mCriticalLogLevel;
 
     d->mAlertLogLevel
         = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QStringLiteral("preferences-desktop-notification-bell"), QColor(214, 0, 0));
-    d->mLogLevels.append(d->mAlertLogLevel);
+    d->mLogLevels[ALERT_LOG_LEVEL_ID] = d->mAlertLogLevel;
 
     d->mEmergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"),
                                          QStringLiteral("application-exit"), QColor(255, 0, 0));
-    d->mLogLevels.append(d->mEmergencyLogLevel);
+    d->mLogLevels[EMERGENCY_LOG_LEVEL_ID] = d->mEmergencyLogLevel;
 }
 
 QList<LogMode *> Globals::logModes() const
@@ -167,7 +167,7 @@ QList<LogMode *> Globals::logModes() const
     return d->mLogModes.values();
 }
 
-QList<LogLevel *> Globals::logLevels() const
+QHash<Globals::LogLevelIds, LogLevel *> Globals::logLevels() const
 {
     return d->mLogLevels;
 }
