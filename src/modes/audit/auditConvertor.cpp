@@ -19,22 +19,22 @@ AuditConvertor::AuditConvertor()
     , m_a1(-1)
 {
     m_paramMap = {{QStringLiteral("arch"), &AuditConvertor::convertArch},
-                  {QStringLiteral("exit"), &AuditConvertor::convertExit},
-                  {QStringLiteral("uid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("auid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("old-auid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("euid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("suid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("fsuid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("ouid"), &AuditConvertor::convertUid},
-                  {QStringLiteral("gid"), &AuditConvertor::convertGid},
-                  {QStringLiteral("egid"), &AuditConvertor::convertGid},
-                  {QStringLiteral("sgid"), &AuditConvertor::convertGid},
-                  {QStringLiteral("fsgid"), &AuditConvertor::convertGid},
-                  {QStringLiteral("ogid"), &AuditConvertor::convertGid},
-                  {QStringLiteral("mode"), &AuditConvertor::convertMode},
-                  {QStringLiteral("a2"), &AuditConvertor::convertA2},
-                  {QStringLiteral("a3"), &AuditConvertor::convertA3}};
+        {QStringLiteral("exit"), &AuditConvertor::convertExit},
+        {QStringLiteral("uid"), &AuditConvertor::convertUid},
+        {QStringLiteral("auid"), &AuditConvertor::convertUid},
+        {QStringLiteral("old-auid"), &AuditConvertor::convertUid},
+        {QStringLiteral("euid"), &AuditConvertor::convertUid},
+        {QStringLiteral("suid"), &AuditConvertor::convertUid},
+        {QStringLiteral("fsuid"), &AuditConvertor::convertUid},
+        {QStringLiteral("ouid"), &AuditConvertor::convertUid},
+        {QStringLiteral("gid"), &AuditConvertor::convertGid},
+        {QStringLiteral("egid"), &AuditConvertor::convertGid},
+        {QStringLiteral("sgid"), &AuditConvertor::convertGid},
+        {QStringLiteral("fsgid"), &AuditConvertor::convertGid},
+        {QStringLiteral("ogid"), &AuditConvertor::convertGid},
+        {QStringLiteral("mode"), &AuditConvertor::convertMode},
+        {QStringLiteral("a2"), &AuditConvertor::convertA2},
+        {QStringLiteral("a3"), &AuditConvertor::convertA3}};
 }
 
 QString AuditConvertor::getParam(const QString &message, const QString &name)
@@ -131,8 +131,9 @@ QString AuditConvertor::convertProcTitle(const QString &proctitle)
 {
     QString newProcTitle = proctitle;
 
-    if (proctitle[0] == QChar::fromLatin1('\"'))
+    if (proctitle[0] == QChar::fromLatin1('\"')) {
         return newProcTitle.remove(QChar::fromLatin1('\"'));
+    }
 
     newProcTitle.replace(QLatin1String("00"), QLatin1String("20"));
 
@@ -175,8 +176,8 @@ QString AuditConvertor::convertExit(const QString &exit)
     if (ival < 0) {
         const char *name = audit_errno_to_name(-ival);
         return QStringLiteral("%1(%2)")
-            .arg(QString::fromLocal8Bit(name))
-            .arg(QString::fromLocal8Bit(strerror(-ival)));
+               .arg(QString::fromLocal8Bit(name))
+               .arg(QString::fromLocal8Bit(strerror(-ival)));
     } else {
         return exit;
     }
@@ -248,12 +249,15 @@ QString AuditConvertor::convertMode(const QString &mode, int base)
         newMode = QStringLiteral("0%1").arg((ival & S_IFMT) / first_ifmt_bit, 3, 8, QLatin1Char('0'));
     }
 
-    if (S_ISUID & ival)
+    if (S_ISUID & ival) {
         newMode += QLatin1String(",suid");
-    if (S_ISGID & ival)
+    }
+    if (S_ISGID & ival) {
         newMode += QLatin1String(",sgid");
-    if (S_ISVTX & ival)
+    }
+    if (S_ISVTX & ival) {
         newMode += QLatin1String(",sticky");
+    }
 
     newMode += QStringLiteral(",0%1").arg((S_IRWXU | S_IRWXG | S_IRWXO) & ival, 3, 8, QLatin1Char('0'));
 
@@ -435,8 +439,9 @@ QString AuditConvertor::convertSignals(const QString &sig, unsigned int base)
     } else if (signalMap.contains(ival)) {
         return signalMap.value(ival);
     } else {
-        if (base == 16)
+        if (base == 16) {
             value = QLatin1String("0x");
+        }
         value += sig;
         return QStringLiteral("unknown-signal(%1)").arg(value);
     }
@@ -462,14 +467,16 @@ QString AuditConvertor::convertCloneFlags(const QString &cloneFlags)
 
     flags = cloneFlags.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(cloneFlags);
+    }
 
     auto it = cloneFlagMap.constBegin();
     while (it != cloneFlagMap.constEnd()) {
         if (it.key() & flags) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
             retValue += it.value();
             cnt++;
         }
@@ -479,8 +486,9 @@ QString AuditConvertor::convertCloneFlags(const QString &cloneFlags)
     clone_sig = flags & 0xFF;
 
     if (signalMap.contains(clone_sig)) {
-        if (cnt)
+        if (cnt) {
             retValue += QLatin1String("|");
+        }
         retValue += signalMap.value(clone_sig);
     }
 
@@ -510,8 +518,9 @@ QString AuditConvertor::convertPersonality(const QString &personality)
 
     pers = personality.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(personality);
+    }
 
     pers2 = pers & PER_MASK;
 
@@ -637,22 +646,26 @@ QString AuditConvertor::convertModeShortInt(int mode)
 {
     QString newMode;
 
-    if (S_ISUID & mode)
+    if (S_ISUID & mode) {
         newMode = QLatin1String("suid");
+    }
 
     if (S_ISGID & mode) {
-        if (!newMode.isEmpty())
+        if (!newMode.isEmpty()) {
             newMode += QLatin1String(",");
+        }
         newMode += QLatin1String("sgid");
     }
     if (S_ISVTX & mode) {
-        if (!newMode.isEmpty())
+        if (!newMode.isEmpty()) {
             newMode += QLatin1String(",");
+        }
         newMode += QLatin1String("sticky");
     }
 
-    if (!newMode.isEmpty())
+    if (!newMode.isEmpty()) {
         newMode += QStringLiteral(",");
+    }
 
     return newMode += QStringLiteral("0%1").arg((S_IRWXU | S_IRWXG | S_IRWXO) & mode, 3, 8, QLatin1Char('0'));
 }
@@ -705,14 +718,16 @@ QString AuditConvertor::convertSched(const QString &sched)
     bool ok = false;
     ulong pol = sched.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(sched);
+    }
 
     QString retValue
         = schedMap.value(pol & 0x0F, QStringLiteral("unknown-scheduler-policy(0x%1)").arg(sched));
 
-    if (schedMap.contains(pol & 0x0F) && (pol & 0x40000000))
+    if (schedMap.contains(pol & 0x0F) && (pol & 0x40000000)) {
         retValue += QLatin1String("|SCHED_RESET_ON_FORK");
+    }
 
     return retValue;
 }
@@ -724,8 +739,9 @@ QString AuditConvertor::convertOpenFlags(const QString &flags)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(flags);
+    }
 
     if ((ival & O_ACCMODE) == 0) {
         retValue = QLatin1String("O_RDONLY");
@@ -735,8 +751,9 @@ QString AuditConvertor::convertOpenFlags(const QString &flags)
     auto it = openflagMap.constBegin();
     while (it != openflagMap.constEnd()) {
         if (it.key() & ival) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -758,17 +775,20 @@ QString AuditConvertor::convertAccess(const QString &access)
     QString retValue;
     unsigned int cnt = 0;
 
-    if (!ok)
+    if (!ok) {
         return convertError(access);
+    }
 
-    if ((mode & 0xF) == 0)
+    if ((mode & 0xF) == 0) {
         return QString::fromLatin1("F_OK");
+    }
 
     auto it = accessMap.constBegin();
     while (it != accessMap.constEnd()) {
         if (it.key() & mode) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
             retValue += it.value();
             cnt++;
         }
@@ -805,8 +825,9 @@ QString AuditConvertor::convertCapabilities(const QString &capabilities, int bas
     } else if (capMap.contains(cap)) {
         return capMap.value(cap);
     } else {
-        if (base == 16)
+        if (base == 16) {
             value = QLatin1String("0x");
+        }
         value += capabilities;
         return QStringLiteral("unknown-capability(%1)").arg(value);
     }
@@ -819,14 +840,16 @@ QString AuditConvertor::convertUmount(const QString &umount)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(umount);
+    }
 
     auto it = umountMap.constBegin();
     while (it != umountMap.constEnd()) {
         if (it.key() & flags) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -858,8 +881,9 @@ QString AuditConvertor::convertFcntl(const QString &fcntl)
     bool ok = false;
     int val = fcntl.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(fcntl);
+    }
 
     switch (m_a1) {
     case F_SETOWN:
@@ -892,13 +916,15 @@ QString AuditConvertor::convertSockOptName(const QString &name)
     bool ok = false;
     ulong opt = name.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(name);
+    }
 
     int machine = audit_detect_machine();
 
-    if ((machine == MACH_PPC64 || machine == MACH_PPC) && opt >= 16 && opt <= 21)
+    if ((machine == MACH_PPC64 || machine == MACH_PPC) && opt >= 16 && opt <= 21) {
         opt += 100;
+    }
 
     return sockoptnameMap.value(opt, QStringLiteral("unknown-sockopt-name(0x%1)").arg(name));
 }
@@ -920,8 +946,9 @@ QString AuditConvertor::convertUdpOptName(const QString &name)
     bool ok = false;
     int opt = name.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(name);
+    }
 
     if (opt == 1) {
         return QStringLiteral("UDP_CORK");
@@ -961,8 +988,9 @@ QString AuditConvertor::convertSocketProto(const QString &proto)
     bool ok = false;
     unsigned int val = proto.toULong(&ok, 16);
 
-    if (!ok)
+    if (!ok) {
         return convertError(proto);
+    }
 
     struct protoent *p = getprotobynumber(val);
 
@@ -980,14 +1008,16 @@ QString AuditConvertor::convertRecv(const QString &recv)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(recv);
+    }
 
     auto it = recvMap.constBegin();
     while (it != recvMap.constEnd()) {
         if (it.key() & rec) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -1010,16 +1040,18 @@ QString AuditConvertor::convertShmFlags(const QString &shmflags)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(shmflags);
+    }
 
     partial = flags & 00003000;
 
     auto it = ipccmdMap.constBegin();
     while (it != ipccmdMap.constEnd()) {
         if (it.key() & partial) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -1032,8 +1064,9 @@ QString AuditConvertor::convertShmFlags(const QString &shmflags)
     auto it1 = shmmodeMap.constBegin();
     while (it1 != shmmodeMap.constEnd()) {
         if (it1.key() & partial) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it1.value();
             cnt++;
@@ -1046,8 +1079,9 @@ QString AuditConvertor::convertShmFlags(const QString &shmflags)
     QString tmode = convertModeShortInt(partial);
 
     if (!tmode.isEmpty()) {
-        if (!retValue.isEmpty())
+        if (!retValue.isEmpty()) {
             retValue += QLatin1String("|");
+        }
         return retValue + tmode;
     } else {
         return QStringLiteral("0x") + shmflags;
@@ -1061,22 +1095,26 @@ QString AuditConvertor::convertProt(const QString &proto, unsigned int is_mmap)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(proto);
+    }
 
-    if ((prot & 0x07) == 0)
+    if ((prot & 0x07) == 0) {
         return QStringLiteral("PROT_NONE");
+    }
 
     auto it = protMap.constBegin();
     auto endIt = protMap.constEnd();
 
-    if (!is_mmap)
+    if (!is_mmap) {
         endIt--;
+    }
 
     while (it != endIt) {
         if (it.key() & prot) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -1110,8 +1148,9 @@ QString AuditConvertor::convertMmap(const QString &mmap)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(mmap);
+    }
 
     if ((maps & 0x0F) == 0) {
         retValue = QLatin1String("MAP_FILE");
@@ -1121,8 +1160,9 @@ QString AuditConvertor::convertMmap(const QString &mmap)
     auto it = mmapMap.constBegin();
     while (it != mmapMap.constEnd()) {
         if (it.key() & maps) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;
@@ -1144,14 +1184,16 @@ QString AuditConvertor::convertMount(const QString &mnt)
     int cnt = 0;
     QString retValue;
 
-    if (!ok)
+    if (!ok) {
         return convertError(mnt);
+    }
 
     auto it = mmapMap.constBegin();
     while (it != mmapMap.constEnd()) {
         if (it.key() & mounts) {
-            if (cnt)
+            if (cnt) {
                 retValue += QLatin1String("|");
+            }
 
             retValue += it.value();
             cnt++;

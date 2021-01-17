@@ -60,7 +60,7 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
     }
 
     auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
-                                                           i18n("Apache"), apacheLogMode);
+                                                i18n("Apache"), apacheLogMode);
     if (apacheLogsExist) {
         multipleActions->addInnerAction(apacheLogMode->action());
     }

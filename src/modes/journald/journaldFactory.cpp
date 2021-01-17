@@ -58,7 +58,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
 
     auto *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")),
-                                              i18n("Local journal"), multipleActions);
+                                       i18n("Local journal"), multipleActions);
 
     // Add "All messages" action.
     auto *action = new QAction(filterIcon, i18n("All messages"), actionMenu);

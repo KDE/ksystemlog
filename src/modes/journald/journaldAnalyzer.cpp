@@ -52,7 +52,7 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
         const JournalEntry &entry = entries.at(i);
         const QStringList itemComponents {entry.unit, entry.message};
         auto *line = new LogLine(mLogLineInternalIdGenerator++, entry.date, itemComponents, QString(),
-                                    Globals::instance().logLevelByPriority(entry.priority), mLogMode);
+                                 Globals::instance().logLevelByPriority(entry.priority), mLogMode);
         line->setRecent(readingMode == UpdatingRead);
         mLogViewModel->insertNewLogLine(line);
 

@@ -36,8 +36,8 @@ DaemonConfigurationWidget::DaemonConfigurationWidget()
 void DaemonConfigurationWidget::saveConfig()
 {
     auto *daemonConfiguration = Globals::instance()
-                                               .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
-                                               ->logModeConfiguration<DaemonConfiguration *>();
+                                .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
+                                ->logModeConfiguration<DaemonConfiguration *>();
 
     daemonConfiguration->setDaemonPaths(mFileList->paths());
 }
@@ -45,8 +45,8 @@ void DaemonConfigurationWidget::saveConfig()
 void DaemonConfigurationWidget::readConfig()
 {
     auto *daemonConfiguration = Globals::instance()
-                                               .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
-                                               ->logModeConfiguration<DaemonConfiguration *>();
+                                .findLogMode(QStringLiteral(DAEMON_LOG_MODE_ID))
+                                ->logModeConfiguration<DaemonConfiguration *>();
 
     mFileList->removeAllItems();
 

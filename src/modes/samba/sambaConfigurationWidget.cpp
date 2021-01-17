@@ -46,8 +46,8 @@ void SambaConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Samba Options...";
 
     auto *sambaConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
-                                             ->logModeConfiguration<SambaConfiguration *>();
+                               .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
+                               ->logModeConfiguration<SambaConfiguration *>();
     sambaConfiguration->setSambaPaths(mSambaFileList->paths(mSambaPathsId));
     sambaConfiguration->setSambaAccessPaths(mSambaFileList->paths(mSambaAccessPathsId));
     sambaConfiguration->setNetbiosPaths(mSambaFileList->paths(mNetbiosPathsId));
@@ -62,8 +62,8 @@ void SambaConfigurationWidget::defaultConfig()
 void SambaConfigurationWidget::readConfig()
 {
     auto *sambaConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
-                                             ->logModeConfiguration<SambaConfiguration *>();
+                               .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
+                               ->logModeConfiguration<SambaConfiguration *>();
 
     mSambaFileList->removeAllItems();
 

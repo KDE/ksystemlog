@@ -35,8 +35,8 @@ XorgConfigurationWidget::XorgConfigurationWidget()
 void XorgConfigurationWidget::saveConfig()
 {
     auto *xorgConfiguration = Globals::instance()
-                                           .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                                           ->logModeConfiguration<XorgConfiguration *>();
+                              .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
+                              ->logModeConfiguration<XorgConfiguration *>();
 
     xorgConfiguration->setXorgPaths(mFileList->paths());
 }
@@ -44,8 +44,8 @@ void XorgConfigurationWidget::saveConfig()
 void XorgConfigurationWidget::readConfig()
 {
     auto *xorgConfiguration = Globals::instance()
-                                           .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                                           ->logModeConfiguration<XorgConfiguration *>();
+                              .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
+                              ->logModeConfiguration<XorgConfiguration *>();
 
     mFileList->removeAllItems();
 

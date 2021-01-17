@@ -56,8 +56,8 @@ XSessionConfigurationWidget::XSessionConfigurationWidget()
 void XSessionConfigurationWidget::saveConfig()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
-                                           ->logModeConfiguration<XSessionConfiguration *>();
+                          .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
+                          ->logModeConfiguration<XSessionConfiguration *>();
 
     configuration->setXSessionPath(xsessionUrlRequester->url().toLocalFile());
     configuration->setIgnoreXorgErrors(ignoreXorgErrors->isChecked());
@@ -66,8 +66,8 @@ void XSessionConfigurationWidget::saveConfig()
 void XSessionConfigurationWidget::readConfig()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
-                                           ->logModeConfiguration<XSessionConfiguration *>();
+                          .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
+                          ->logModeConfiguration<XSessionConfiguration *>();
 
     const QString path = configuration->xsessionPath();
     const QFileInfo fileInfo(path);
@@ -97,8 +97,8 @@ bool XSessionConfigurationWidget::isValid() const
 void XSessionConfigurationWidget::prepareXorgErrorsDescription()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
-                                           ->logModeConfiguration<XSessionConfiguration *>();
+                          .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
+                          ->logModeConfiguration<XSessionConfiguration *>();
 
     // Prepare Ignore Xorg Errors description
     if (!mXorgErrorsDescriptionDefined) {

@@ -63,8 +63,8 @@ Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
 QList<LogFile> XSessionLogMode::createLogFiles()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
-                                           ->logModeConfiguration<XSessionConfiguration *>();
+                          .findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))
+                          ->logModeConfiguration<XSessionConfiguration *>();
 
     const QList<LogFile> logFiles {configuration->findGenericLogFile(configuration->xsessionPath())};
     return logFiles;

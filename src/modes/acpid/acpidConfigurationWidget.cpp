@@ -35,8 +35,8 @@ AcpidConfigurationWidget::AcpidConfigurationWidget()
 void AcpidConfigurationWidget::saveConfig()
 {
     auto *acpidConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
-                                             ->logModeConfiguration<AcpidConfiguration *>();
+                               .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
+                               ->logModeConfiguration<AcpidConfiguration *>();
 
     acpidConfiguration->setAcpidPaths(mFileList->paths());
 }
@@ -44,8 +44,8 @@ void AcpidConfigurationWidget::saveConfig()
 void AcpidConfigurationWidget::readConfig()
 {
     auto *acpidConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
-                                             ->logModeConfiguration<AcpidConfiguration *>();
+                               .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
+                               ->logModeConfiguration<AcpidConfiguration *>();
 
     mFileList->removeAllItems();
 

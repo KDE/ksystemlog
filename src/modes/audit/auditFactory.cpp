@@ -20,8 +20,9 @@ LogModeAction *AuditLogModeFactory::createLogModeAction() const
 {
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID));
 
-    if (!logMode->filesExist())
+    if (!logMode->filesExist()) {
         return nullptr;
+    }
 
     SimpleAction *logModeAction = new SimpleAction(logMode->action(), logMode);
 

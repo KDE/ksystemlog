@@ -45,8 +45,8 @@ void ApacheConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Apache Options...";
 
     auto *apacheConfiguration = Globals::instance()
-                                               .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-                                               ->logModeConfiguration<ApacheConfiguration *>();
+                                .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
+                                ->logModeConfiguration<ApacheConfiguration *>();
     apacheConfiguration->setApachePaths(mApacheFileList->paths(mApachePathsId));
     apacheConfiguration->setApacheAccessPaths(mApacheFileList->paths(mApacheAccessPathsId));
 }
@@ -60,8 +60,8 @@ void ApacheConfigurationWidget::defaultConfig()
 void ApacheConfigurationWidget::readConfig()
 {
     auto *apacheConfiguration = Globals::instance()
-                                               .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
-                                               ->logModeConfiguration<ApacheConfiguration *>();
+                                .findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))
+                                ->logModeConfiguration<ApacheConfiguration *>();
 
     mApacheFileList->removeAllItems();
 

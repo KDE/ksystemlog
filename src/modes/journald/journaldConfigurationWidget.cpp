@@ -54,8 +54,8 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
 void JournaldConfigurationWidget::saveConfig()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                           ->logModeConfiguration<JournaldConfiguration *>();
+                          .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                          ->logModeConfiguration<JournaldConfiguration *>();
 
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
     configuration->setEntriesType((JournaldConfiguration::EntriesType)entriesTypeComboBox->currentIndex());
@@ -80,8 +80,8 @@ void JournaldConfigurationWidget::saveConfig()
 void JournaldConfigurationWidget::readConfig()
 {
     auto *configuration = Globals::instance()
-                                           .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                                           ->logModeConfiguration<JournaldConfiguration *>();
+                          .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
+                          ->logModeConfiguration<JournaldConfiguration *>();
 
     lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
     entriesTypeComboBox->setCurrentIndex(configuration->entriesType());

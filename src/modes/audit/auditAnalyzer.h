@@ -44,8 +44,7 @@ private:
     LogLine *parseEvent(const QStringList &event, const LogFile &originalFile);
 
 private Q_SLOTS:
-    void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode,
-                        const QStringList &content);
+    void logFileChanged(LogFileReader *logFileReader, Analyzer::ReadingMode readingMode, const QStringList &content);
 
 private:
     AuditConvertor m_conv;

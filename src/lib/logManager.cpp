@@ -47,8 +47,8 @@ class LogManagerPrivate
 };
 
 LogManager::LogManager(View *view)
-    : QObject(view),
-      d(new LogManagerPrivate())
+    : QObject(view)
+    , d(new LogManagerPrivate())
 {
     d->mLastUpdate = QTime::currentTime();
 

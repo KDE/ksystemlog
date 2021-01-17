@@ -64,7 +64,6 @@
 #include "globals.h"
 
 namespace KSystemLog {
-
 MainWindow::MainWindow()
     : KXmlGuiWindow(nullptr)
 {
@@ -328,8 +327,8 @@ void MainWindow::updateStatusBar()
                    currentManager->usedView()->logViewWidget()->itemCount()));
     } else {
         mStatusBar->changeLineCountMessage(i18ncp("Line not hidden by search / Total displayed lines",
-                                                    "1 line / %2 total.", "%1 lines / %2 total.",
-                                                    notHiddenItemCount, itemCount));
+                                                  "1 line / %2 total.", "%1 lines / %2 total.",
+                                                  notHiddenItemCount, itemCount));
     }
 
     mStatusBar->changeLastModification(currentManager->lastUpdate());
@@ -363,8 +362,8 @@ void MainWindow::changeResumePauseAction(bool paused)
         mResumePauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
         mResumePauseAction->setToolTip(i18n("Pause the watching of the current log"));
         mResumePauseAction->setWhatsThis(i18n(
-                                               "Pauses the watching of the current log. This action is particularly useful when the system is "
-                                               "writing too many lines to log files, causing KSystemLog to reload too frequently."));
+                                             "Pauses the watching of the current log. This action is particularly useful when the system is "
+                                             "writing too many lines to log files, causing KSystemLog to reload too frequently."));
         mResumePauseAction->setChecked(false);
         actionCollection()->setDefaultShortcut(mResumePauseAction, Qt::CTRL | Qt::Key_P);
     }
@@ -543,8 +542,8 @@ void MainWindow::setupActions()
     mPrintAction->setText(i18n("&Print Selection..."));
     mPrintAction->setToolTip(i18n("Print the selection"));
     mPrintAction->setWhatsThis(i18n(
-                                     "Prints the selection. Simply select the important lines and click on this menu entry to print the "
-                                     "selection."));
+                                   "Prints the selection. Simply select the important lines and click on this menu entry to print the "
+                                   "selection."));
     mPrintAction->setEnabled(false);
 
     mSaveAction = actionCollection()->addAction(KStandardAction::SaveAs);
@@ -563,16 +562,16 @@ void MainWindow::setupActions()
     mCopyAction = actionCollection()->addAction(KStandardAction::Copy);
     mCopyAction->setToolTip(i18n("Copy the selection to the clipboard"));
     mCopyAction->setWhatsThis(i18n(
-                                    "Copies the selection to the clipboard. This action is useful if you want to paste the selection in "
-                                    "a chat or an email."));
+                                  "Copies the selection to the clipboard. This action is useful if you want to paste the selection in "
+                                  "a chat or an email."));
     mCopyAction->setEnabled(false);
 
     mExpandAllAction = actionCollection()->addAction(QStringLiteral("expand_all"));
     mExpandAllAction->setText(i18n("Ex&pand All"));
     mExpandAllAction->setToolTip(i18n("Expand all categories"));
     mExpandAllAction->setWhatsThis(i18n(
-                                         "This action opens all main categories. This is enabled only if an option has been selected in the "
-                                         "<b>Group By</b> menu."));
+                                       "This action opens all main categories. This is enabled only if an option has been selected in the "
+                                       "<b>Group By</b> menu."));
     mExpandAllAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mExpandAllAction, Qt::CTRL | Qt::Key_X);
 
@@ -580,8 +579,8 @@ void MainWindow::setupActions()
     mCollapseAllAction->setText(i18n("Col&lapse All"));
     mCollapseAllAction->setToolTip(i18n("Collapse all categories"));
     mCollapseAllAction->setWhatsThis(i18n(
-                                           "This action closes all main categories. This is enabled only if an option has been selected in the "
-                                           "<b>Group By</b> menu."));
+                                         "This action closes all main categories. This is enabled only if an option has been selected in the "
+                                         "<b>Group By</b> menu."));
     mCollapseAllAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mCollapseAllAction, Qt::CTRL | Qt::Key_L);
 
@@ -590,8 +589,8 @@ void MainWindow::setupActions()
     mSendMailAction->setIcon(QIcon::fromTheme(QStringLiteral("mail-message-new")));
     mSendMailAction->setToolTip(i18n("Send the selection by mail"));
     mSendMailAction->setWhatsThis(i18n(
-                                        "Sends the selection by mail. Simply select the important lines and click on this menu entry to send "
-                                        "the selection to a friend or a mailing list."));
+                                      "Sends the selection by mail. Simply select the important lines and click on this menu entry to send "
+                                      "the selection to a friend or a mailing list."));
     mSendMailAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mSendMailAction, Qt::CTRL | Qt::Key_M);
 
@@ -608,8 +607,8 @@ void MainWindow::setupActions()
     mSelectAllAction = actionCollection()->addAction(KStandardAction::SelectAll);
     mSelectAllAction->setToolTip(i18n("Select all lines of the current log"));
     mSelectAllAction->setWhatsThis(i18n(
-                                         "Selects all lines of the current log. This action is useful if you want, for example, to save all "
-                                         "the content of the current log in a file."));
+                                       "Selects all lines of the current log. This action is useful if you want, for example, to save all "
+                                       "the content of the current log in a file."));
 
     mFindAction = actionCollection()->addAction(KStandardAction::Find, this, SLOT(showSearchBar()));
     mFindNextAction = actionCollection()->addAction(KStandardAction::FindNext, this, SLOT(findNext()));
@@ -695,8 +694,8 @@ void MainWindow::setupActions()
     mDetailAction->setIcon(QIcon::fromTheme(QStringLiteral("document-preview")));
     mDetailAction->setToolTip(i18n("Display details on the selected line"));
     mDetailAction->setWhatsThis(i18n(
-                                      "Displays a dialog box which contains details on the selected line. You are able to navigate through "
-                                      "the logs from this dialog box with the <b>Previous</b> and <b>Next</b> buttons."));
+                                    "Displays a dialog box which contains details on the selected line. You are able to navigate through "
+                                    "the logs from this dialog box with the <b>Previous</b> and <b>Next</b> buttons."));
     mDetailAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mDetailAction, Qt::ALT | Qt::Key_Return);
 

@@ -125,7 +125,7 @@ void Globals::setupLogLevels()
     d->mLogLevelsMetaEnum = metaObject()->enumerator(index);
 
     d->mNoLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("edit-none"),
-                                 QColor(208, 210, 220));
+                                  QColor(208, 210, 220));
     d->mLogLevels.append(d->mNoLogLevel);
 
     d->mDebugLogLevel
@@ -142,7 +142,7 @@ void Globals::setupLogLevels()
     d->mLogLevels.append(d->mNoticeLogLevel);
 
     d->mWarningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QStringLiteral("dialog-warning"),
-                                      QColor(238, 144, 21));
+                                       QColor(238, 144, 21));
     d->mLogLevels.append(d->mWarningLogLevel);
 
     d->mErrorLogLevel
@@ -158,7 +158,7 @@ void Globals::setupLogLevels()
     d->mLogLevels.append(d->mAlertLogLevel);
 
     d->mEmergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"),
-                                        QStringLiteral("application-exit"), QColor(255, 0, 0));
+                                         QStringLiteral("application-exit"), QColor(255, 0, 0));
     d->mLogLevels.append(d->mEmergencyLogLevel);
 }
 

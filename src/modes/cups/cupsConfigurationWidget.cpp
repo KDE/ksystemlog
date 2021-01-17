@@ -48,8 +48,8 @@ void CupsConfigurationWidget::saveConfig()
     logDebug() << "Saving config from Cups Options...";
 
     auto *cupsConfiguration = Globals::instance()
-                                           .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-                                           ->logModeConfiguration<CupsConfiguration *>();
+                              .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
+                              ->logModeConfiguration<CupsConfiguration *>();
     cupsConfiguration->setCupsPaths(mCupsFileList->paths(mCupsPathsId));
     cupsConfiguration->setCupsAccessPaths(mCupsFileList->paths(mCupsAccessPathsId));
     cupsConfiguration->setCupsPagePaths(mCupsFileList->paths(mCupsPagePathsId));
@@ -65,8 +65,8 @@ void CupsConfigurationWidget::defaultConfig()
 void CupsConfigurationWidget::readConfig()
 {
     auto *cupsConfiguration = Globals::instance()
-                                           .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
-                                           ->logModeConfiguration<CupsConfiguration *>();
+                              .findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))
+                              ->logModeConfiguration<CupsConfiguration *>();
 
     mCupsFileList->removeAllItems();
 
