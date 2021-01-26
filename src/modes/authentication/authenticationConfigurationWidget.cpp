@@ -22,8 +22,7 @@
 #include "authenticationConfigurationWidget.h"
 
 AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
-    : LogModeConfigurationWidget(i18n("Authentication Log"), QStringLiteral(AUTHENTICATION_MODE_ICON),
-                                 i18n("Authentication Log"))
+    : LogModeConfigurationWidget(i18n("Authentication Log"), QStringLiteral(AUTHENTICATION_MODE_ICON), i18n("Authentication Log"))
 {
     auto *layout = new QVBoxLayout(this);
 
@@ -50,35 +49,29 @@ AuthenticationConfigurationWidget::AuthenticationConfigurationWidget()
     mAuthenticationUrlRequester = new KUrlRequester(authenticationBox);
     mAuthenticationUrlRequester->setMode(KFile::File);
 
-    mAuthenticationUrlRequester->setToolTip(
-        i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
-    mAuthenticationUrlRequester->setWhatsThis(i18n(
-                                                  "You can type or choose here the authentication log file. This file will be analyzed when you "
-                                                  "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
+    mAuthenticationUrlRequester->setToolTip(i18n("You can type or choose the authentication log file (example: <i>/var/log/auth.log</i>)."));
+    mAuthenticationUrlRequester->setWhatsThis(
+        i18n("You can type or choose here the authentication log file. This file will be analyzed when you "
+             "select the <b>Authentication log</b> menu. Generally, its name is <i>/var/log/auth.log</i>"));
     filePathLayout->addWidget(mAuthenticationUrlRequester);
 
-    connect(mAuthenticationUrlRequester, &KUrlRequester::textChanged, this,
-            &LogModeConfigurationWidget::configurationChanged);
+    connect(mAuthenticationUrlRequester, &KUrlRequester::textChanged, this, &LogModeConfigurationWidget::configurationChanged);
 
     layout->addStretch();
 }
 
 void AuthenticationConfigurationWidget::saveConfig()
 {
-    auto *authenticationConfiguration
-        = Globals::instance()
-          .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-          ->logModeConfiguration<AuthenticationConfiguration *>();
+    auto *authenticationConfiguration =
+        Globals::instance().findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))->logModeConfiguration<AuthenticationConfiguration *>();
 
     authenticationConfiguration->setAuthenticationPath(mAuthenticationUrlRequester->url().toLocalFile());
 }
 
 void AuthenticationConfigurationWidget::readConfig()
 {
-    auto *authenticationConfiguration
-        = Globals::instance()
-          .findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))
-          ->logModeConfiguration<AuthenticationConfiguration *>();
+    auto *authenticationConfiguration =
+        Globals::instance().findLogMode(QStringLiteral(AUTHENTICATION_LOG_MODE_ID))->logModeConfiguration<AuthenticationConfiguration *>();
 
     const QString path = authenticationConfiguration->authenticationPath();
     const QFileInfo fileInfo(path);

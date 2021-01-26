@@ -29,7 +29,7 @@
 
 QList<LogMode *> XSessionLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new XSessionLogMode()};
+    const QList<LogMode *> logModes{new XSessionLogMode()};
     return logModes;
 }
 

@@ -21,8 +21,8 @@
 
 #include "logModeConfiguration.h"
 
-#include "logging.h"
 #include "defaults.h"
+#include "logging.h"
 
 #include <KLocalizedString>
 

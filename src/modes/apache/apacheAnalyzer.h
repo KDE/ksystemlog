@@ -28,8 +28,8 @@
 
 #include "logging.h"
 
-#include "localLogFileReader.h"
 #include "apacheLogMode.h"
+#include "localLogFileReader.h"
 #include "parsingHelper.h"
 
 class ApacheAnalyzer : public FileAnalyzer

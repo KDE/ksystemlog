@@ -26,9 +26,9 @@ AuditLogMode::AuditLogMode()
     d->action = createDefaultAction();
     d->action->setText(i18n("Audit Log"));
     d->action->setToolTip(i18n("Display the audit log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the audit log in the current tab. This log is generally used by non-specialized processes "
-                                "(like \"sudo\" or \"fsck\" commands)"));
+    d->action->setWhatsThis(
+        i18n("Displays the audit log in the current tab. This log is generally used by non-specialized processes "
+             "(like \"sudo\" or \"fsck\" commands)"));
 
     checkLogFilesPresence(logModeConfiguration<AuditConfiguration *>()->logFilesPaths());
 }

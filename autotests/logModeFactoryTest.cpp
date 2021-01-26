@@ -26,9 +26,9 @@
 #include "analyzer.h"
 #include "globals.h"
 
+#include "logFile.h"
 #include "logLevel.h"
 #include "logMode.h"
-#include "logFile.h"
 #include "logViewModel.h"
 #include "logViewWidget.h"
 

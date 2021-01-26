@@ -24,8 +24,8 @@
 
 #include <QObject>
 
-#include "globals.h"
 #include "analyzer.h"
+#include "globals.h"
 
 class LogLine;
 class LogViewWidget;

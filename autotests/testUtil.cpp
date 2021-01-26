@@ -26,8 +26,8 @@
 
 //#include <qtest_kde.h>
 
-#include "systemFactory.h"
 #include "kernelFactory.h"
+#include "systemFactory.h"
 
 #include "logging.h"
 

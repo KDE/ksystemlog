@@ -26,8 +26,8 @@
 #include <KLocalizedString>
 
 #include "ksystemlog_version.h"
-#include "mainWindow.h"
 #include "logging.h"
+#include "mainWindow.h"
 
 int main(int argc, char **argv)
 {
@@ -39,20 +39,24 @@ int main(int argc, char **argv)
 
     KLocalizedString::setApplicationDomain("ksystemlog");
 
-    KAboutData about(QStringLiteral("ksystemlog"), i18n("KSystemlog"), QStringLiteral(KSYSTEMLOG_VERSION_STRING),
-                     i18n("System Logs Viewer by KDE"), KAboutLicense::GPL_V2,
+    KAboutData about(QStringLiteral("ksystemlog"),
+                     i18n("KSystemlog"),
+                     QStringLiteral(KSYSTEMLOG_VERSION_STRING),
+                     i18n("System Logs Viewer by KDE"),
+                     KAboutLicense::GPL_V2,
                      i18n("(C) 2007-2015, Nicolas Ternisien"),
                      i18n("Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
                           "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"),
-                     QStringLiteral("https://apps.kde.org/en/ksystemlog"), QString());
+                     QStringLiteral("https://apps.kde.org/en/ksystemlog"),
+                     QString());
 
     about.setOrganizationDomain("kde.org");
 
-    about.addAuthor(i18n("Nicolas Ternisien"), i18n("Main developer"),
+    about.addAuthor(i18n("Nicolas Ternisien"),
+                    i18n("Main developer"),
                     QStringLiteral("nicolas.ternisien@gmail.com"),
                     QStringLiteral("https://www.forum-software.org"));
-    about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"),
-                    QStringLiteral("v.matyushin@gmail.com"));
+    about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"), QStringLiteral("v.matyushin@gmail.com"));
     about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));
 
     KAboutData::setApplicationData(about);

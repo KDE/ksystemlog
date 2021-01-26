@@ -22,10 +22,10 @@
 #ifndef LOG_MODE_H
 #define LOG_MODE_H
 
-#include <QObject>
 #include <QIcon>
-#include <QString>
 #include <QList>
+#include <QObject>
+#include <QString>
 
 #include "logFile.h"
 

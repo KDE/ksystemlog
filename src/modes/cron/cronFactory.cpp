@@ -24,12 +24,12 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "cronLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> CronLogModeFactory::createLogModes() const
 {
-    QList<LogMode *> logModes {new CronLogMode()};
+    QList<LogMode *> logModes{new CronLogMode()};
     return logModes;
 }
 

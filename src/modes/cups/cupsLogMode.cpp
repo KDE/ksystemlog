@@ -28,9 +28,9 @@
 #include "logging.h"
 
 #include "cupsAnalyzer.h"
-#include "cupsItemBuilder.h"
-#include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
+#include "cupsConfigurationWidget.h"
+#include "cupsItemBuilder.h"
 
 CupsLogMode::CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration, CupsConfigurationWidget *cupsConfigurationWidget)
     : LogMode(QStringLiteral(CUPS_LOG_MODE_ID), i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON))
@@ -43,9 +43,9 @@ CupsLogMode::CupsLogMode(QSharedPointer<CupsConfiguration> &cupsConfiguration, C
     // Cups Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Cups log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the CUPS log in the current tab. CUPS is the program which manages printing on your "
-                                "computer."));
+    d->action->setWhatsThis(
+        i18n("Displays the CUPS log in the current tab. CUPS is the program which manages printing on your "
+             "computer."));
 
     checkLogFilesPresence(cupsConfiguration->cupsPaths());
 }

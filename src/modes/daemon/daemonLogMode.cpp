@@ -34,10 +34,10 @@ DaemonLogMode::DaemonLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the daemons' logs."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the daemons' logs in the current tab. The daemons are all processes launched in the "
-                                "background of the system. See this log if you want to know what occurs in the background of your "
-                                "system."));
+    d->action->setWhatsThis(
+        i18n("Displays the daemons' logs in the current tab. The daemons are all processes launched in the "
+             "background of the system. See this log if you want to know what occurs in the background of your "
+             "system."));
 
     auto *configuration = logModeConfiguration<DaemonConfiguration *>();
     checkLogFilesPresence(configuration->daemonPaths());

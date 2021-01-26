@@ -23,22 +23,22 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
 #include "defaults.h"
+#include "logging.h"
 
 #include "globals.h"
 
 #include "ksystemlogConfig.h"
-GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup, const QStringList &defaultLogFilesPaths, const QList<int> &defaultLogFilesLevels)
+GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configurationGroup,
+                                                         const QStringList &defaultLogFilesPaths,
+                                                         const QList<int> &defaultLogFilesLevels)
 {
     logDebug() << "Using Configuration Group : " << configurationGroup;
     mConfiguration->setCurrentGroup(configurationGroup);
 
-    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mLogFilesPaths, defaultLogFilesPaths,
-                                      QStringLiteral("LogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mLogFilesPaths, defaultLogFilesPaths, QStringLiteral("LogFilesPaths"));
 
-    mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), mLogFilesLevels, defaultLogFilesLevels,
-                                   QStringLiteral("LogFilesLevels"));
+    mConfiguration->addItemIntList(QStringLiteral("LogFilesLevels"), mLogFilesLevels, defaultLogFilesLevels, QStringLiteral("LogFilesLevels"));
 }
 
 GenericLogModeConfiguration::~GenericLogModeConfiguration()
@@ -83,8 +83,7 @@ QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
         const int intValue = itInt.next();
         const QString stringValue = itString.next();
 
-        level = Globals::instance().logLevels().value(Globals::LogLevelIds(intValue),
-                                                      Globals::instance().informationLogLevel());
+        level = Globals::instance().logLevels().value(Globals::LogLevelIds(intValue), Globals::instance().informationLogLevel());
 
         const QUrl url = QUrl::fromLocalFile(stringValue);
         if (!url.isValid()) {

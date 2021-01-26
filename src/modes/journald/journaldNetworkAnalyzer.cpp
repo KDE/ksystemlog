@@ -23,9 +23,9 @@
 #include "journaldNetworkAnalyzer.h"
 #include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
-#include "logging.h"
-#include "logViewModel.h"
 #include "logFile.h"
+#include "logViewModel.h"
+#include "logging.h"
 
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -44,10 +44,7 @@ JournaldNetworkAnalyzer::JournaldNetworkAnalyzer(LogMode *mode, const JournaldAn
 
     auto *configuration = mode->logModeConfiguration<JournaldConfiguration *>();
 
-    mBaseUrl = QStringLiteral("%1://%2:%3/")
-               .arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http"))
-               .arg(mAddress.address)
-               .arg(mAddress.port);
+    mBaseUrl = QStringLiteral("%1://%2:%3/").arg(mAddress.https ? QStringLiteral("https") : QStringLiteral("http")).arg(mAddress.address).arg(mAddress.port);
 
     mEntriesUrlUpdating = mBaseUrl + QStringLiteral("entries");
     mEntriesUrlFull = mEntriesUrlUpdating;
@@ -123,8 +120,7 @@ void JournaldNetworkAnalyzer::httpFinished()
             mSyslogIdentifiers.sort();
             sendRequest(RequestType::Units);
             break;
-        case RequestType::Units:
-        {
+        case RequestType::Units: {
             mSystemdUnits = identifiersList;
             mSystemdUnits.sort();
             auto *journalLogMode = dynamic_cast<JournaldLogMode *>(mLogMode);
@@ -272,8 +268,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     case RequestType::Units:
         url = mSystemdUnitsUrl;
         break;
-    case RequestType::EntriesFull:
-    {
+    case RequestType::EntriesFull: {
         url = mEntriesUrlFull;
         int entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");

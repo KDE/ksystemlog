@@ -19,22 +19,22 @@ AuditConvertor::AuditConvertor()
     , m_a1(-1)
 {
     m_paramMap = {{QStringLiteral("arch"), &AuditConvertor::convertArch},
-        {QStringLiteral("exit"), &AuditConvertor::convertExit},
-        {QStringLiteral("uid"), &AuditConvertor::convertUid},
-        {QStringLiteral("auid"), &AuditConvertor::convertUid},
-        {QStringLiteral("old-auid"), &AuditConvertor::convertUid},
-        {QStringLiteral("euid"), &AuditConvertor::convertUid},
-        {QStringLiteral("suid"), &AuditConvertor::convertUid},
-        {QStringLiteral("fsuid"), &AuditConvertor::convertUid},
-        {QStringLiteral("ouid"), &AuditConvertor::convertUid},
-        {QStringLiteral("gid"), &AuditConvertor::convertGid},
-        {QStringLiteral("egid"), &AuditConvertor::convertGid},
-        {QStringLiteral("sgid"), &AuditConvertor::convertGid},
-        {QStringLiteral("fsgid"), &AuditConvertor::convertGid},
-        {QStringLiteral("ogid"), &AuditConvertor::convertGid},
-        {QStringLiteral("mode"), &AuditConvertor::convertMode},
-        {QStringLiteral("a2"), &AuditConvertor::convertA2},
-        {QStringLiteral("a3"), &AuditConvertor::convertA3}};
+                  {QStringLiteral("exit"), &AuditConvertor::convertExit},
+                  {QStringLiteral("uid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("auid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("old-auid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("euid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("suid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("fsuid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("ouid"), &AuditConvertor::convertUid},
+                  {QStringLiteral("gid"), &AuditConvertor::convertGid},
+                  {QStringLiteral("egid"), &AuditConvertor::convertGid},
+                  {QStringLiteral("sgid"), &AuditConvertor::convertGid},
+                  {QStringLiteral("fsgid"), &AuditConvertor::convertGid},
+                  {QStringLiteral("ogid"), &AuditConvertor::convertGid},
+                  {QStringLiteral("mode"), &AuditConvertor::convertMode},
+                  {QStringLiteral("a2"), &AuditConvertor::convertA2},
+                  {QStringLiteral("a3"), &AuditConvertor::convertA3}};
 }
 
 QString AuditConvertor::getParam(const QString &message, const QString &name)
@@ -175,9 +175,7 @@ QString AuditConvertor::convertExit(const QString &exit)
 
     if (ival < 0) {
         const char *name = audit_errno_to_name(-ival);
-        return QStringLiteral("%1(%2)")
-               .arg(QString::fromLocal8Bit(name))
-               .arg(QString::fromLocal8Bit(strerror(-ival)));
+        return QStringLiteral("%1(%2)").arg(QString::fromLocal8Bit(name)).arg(QString::fromLocal8Bit(strerror(-ival)));
     } else {
         return exit;
     }
@@ -273,12 +271,10 @@ QString AuditConvertor::convertA0(const QString &a0)
 {
     if (m_syscall == QLatin1String("rt_sigaction")) {
         return convertSignals(a0, 16);
-    } else if ((m_syscall == QLatin1String("renameat")) || (m_syscall == QLatin1String("readlinkat"))
-               || (m_syscall == QLatin1String("mkdirat")) || (m_syscall == QLatin1String("mknodat"))
-               || (m_syscall == QLatin1String("fchownat")) || (m_syscall == QLatin1String("futimesat"))
-               || (m_syscall == QLatin1String("fchmodat")) || (m_syscall == QLatin1String("faccessat"))
-               || (m_syscall == QLatin1String("futimensat")) || (m_syscall == QLatin1String("unlinkat"))
-               || (m_syscall == QLatin1String("utimensat")) || (m_syscall == QLatin1String("linkat"))
+    } else if ((m_syscall == QLatin1String("renameat")) || (m_syscall == QLatin1String("readlinkat")) || (m_syscall == QLatin1String("mkdirat"))
+               || (m_syscall == QLatin1String("mknodat")) || (m_syscall == QLatin1String("fchownat")) || (m_syscall == QLatin1String("futimesat"))
+               || (m_syscall == QLatin1String("fchmodat")) || (m_syscall == QLatin1String("faccessat")) || (m_syscall == QLatin1String("futimensat"))
+               || (m_syscall == QLatin1String("unlinkat")) || (m_syscall == QLatin1String("utimensat")) || (m_syscall == QLatin1String("linkat"))
                || (m_syscall == QLatin1String("newfstatat")) || (m_syscall == QLatin1String("openat"))) {
         return convertDirFd(a0);
     } else if ((m_syscall == QLatin1String("clone")) || (m_syscall == QLatin1String("unshare"))) {
@@ -293,11 +289,11 @@ QString AuditConvertor::convertA0(const QString &a0)
         return convertPrctlOpt(a0);
     } else if ((m_syscall == QLatin1String("getrlimit")) || (m_syscall == QLatin1String("setrlimit"))) {
         return convertRlimit(a0);
-    } else if ((m_syscall == QLatin1String("setuid")) || (m_syscall == QLatin1String("setreuid"))
-               || (m_syscall == QLatin1String("setresuid")) || (m_syscall == QLatin1String("setfsuid"))) {
+    } else if ((m_syscall == QLatin1String("setuid")) || (m_syscall == QLatin1String("setreuid")) || (m_syscall == QLatin1String("setresuid"))
+               || (m_syscall == QLatin1String("setfsuid"))) {
         return convertUid(a0, 16);
-    } else if ((m_syscall == QLatin1String("setgid")) || (m_syscall == QLatin1String("setregid"))
-               || (m_syscall == QLatin1String("setresgid")) || (m_syscall == QLatin1String("setfsgid"))) {
+    } else if ((m_syscall == QLatin1String("setgid")) || (m_syscall == QLatin1String("setregid")) || (m_syscall == QLatin1String("setresgid"))
+               || (m_syscall == QLatin1String("setfsgid"))) {
         return convertGid(a0, 16);
     } else if (m_syscall == QLatin1String("socket")) {
         return convertSocketDomain(a0);
@@ -316,13 +312,12 @@ QString AuditConvertor::convertA0(const QString &a0)
 
 QString AuditConvertor::convertA1(const QString &a1)
 {
-    if ((m_syscall == QLatin1String("fchmod")) || (m_syscall == QLatin1String("chmod"))
-        || (m_syscall == QLatin1String("creat")) || (m_syscall == QLatin1String("mkdir"))) {
+    if ((m_syscall == QLatin1String("fchmod")) || (m_syscall == QLatin1String("chmod")) || (m_syscall == QLatin1String("creat"))
+        || (m_syscall == QLatin1String("mkdir"))) {
         return convertModeShort(a1, 16);
     } else if (m_syscall.indexOf(QLatin1String("fcntl")) == 0) {
         return convertFcntlCmd(a1);
-    } else if ((m_syscall == QLatin1String("chown")) || (m_syscall == QLatin1String("setreuid"))
-               || (m_syscall == QLatin1String("setresuid"))) {
+    } else if ((m_syscall == QLatin1String("chown")) || (m_syscall == QLatin1String("setreuid")) || (m_syscall == QLatin1String("setresuid"))) {
         return convertUid(a1, 16);
     } else if (m_syscall == QLatin1String("etsockopt")) {
         return convertSockOptLevel(a1);
@@ -381,8 +376,7 @@ QString AuditConvertor::convertA2(const QString &a2)
         return convertOpenFlags(a2);
     } else if ((m_syscall == QLatin1String("open")) && (m_a1 & O_CREAT)) {
         return convertModeShort(a2, 16);
-    } else if ((m_syscall == QLatin1String("fchmodat")) || (m_syscall == QLatin1String("mkdirat"))
-               || (m_syscall == QLatin1String("mknodat"))) {
+    } else if ((m_syscall == QLatin1String("fchmodat")) || (m_syscall == QLatin1String("mkdirat")) || (m_syscall == QLatin1String("mknodat"))) {
         return convertModeShort(a2, 16);
     } else if (m_syscall == QLatin1String("faccessat")) {
         return convertAccess(a2);
@@ -419,9 +413,8 @@ QString AuditConvertor::convertA3(const QString &a3)
         return convertMmap(a3);
     } else if (m_syscall == QLatin1String("mount")) {
         return convertMount(a3);
-    } else if ((m_syscall == QLatin1String("recv")) || (m_syscall == QLatin1String("recvfrom"))
-               || (m_syscall == QLatin1String("recvmmsg")) || (m_syscall == QLatin1String("send"))
-               || (m_syscall == QLatin1String("sendto")) || (m_syscall == QLatin1String("sendmmsg"))) {
+    } else if ((m_syscall == QLatin1String("recv")) || (m_syscall == QLatin1String("recvfrom")) || (m_syscall == QLatin1String("recvmmsg"))
+               || (m_syscall == QLatin1String("send")) || (m_syscall == QLatin1String("sendto")) || (m_syscall == QLatin1String("sendmmsg"))) {
         return convertRecv(a3);
     }
 
@@ -722,8 +715,7 @@ QString AuditConvertor::convertSched(const QString &sched)
         return convertError(sched);
     }
 
-    QString retValue
-        = schedMap.value(pol & 0x0F, QStringLiteral("unknown-scheduler-policy(0x%1)").arg(sched));
+    QString retValue = schedMap.value(pol & 0x0F, QStringLiteral("unknown-scheduler-policy(0x%1)").arg(sched));
 
     if (schedMap.contains(pol & 0x0F) && (pol & 0x40000000)) {
         retValue += QLatin1String("|SCHED_RESET_ON_FORK");

@@ -23,8 +23,7 @@
 
 CupsAccessAnalyzer::CupsAccessAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , mCupsAccessRegex(
-        QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
+    , mCupsAccessRegex(QStringLiteral("(\\S*) (\\S*) (\\S*) \\[(.*)\\] \"(.*)\" (\\S*) (\\S*) (\\S*) (\\S*)"))
 {
 }
 
@@ -75,6 +74,5 @@ LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile 
 
     LogLevel *logLevel = findLevel(capturedTexts.at(capturedTexts.count() - 1));
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
-                       originalLogFile.url().toLocalFile(), logLevel, mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts, originalLogFile.url().toLocalFile(), logLevel, mLogMode);
 }

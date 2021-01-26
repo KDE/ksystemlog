@@ -24,8 +24,8 @@
 #include <QAction>
 #include <QFileInfo>
 
-#include "multipleActions.h"
 #include "logModeItemBuilder.h"
+#include "multipleActions.h"
 
 LogMode::LogMode(const QString &id, const QString &name, const QString &iconName)
     : d(new LogModePrivate())

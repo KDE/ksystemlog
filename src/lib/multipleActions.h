@@ -22,9 +22,9 @@
 #ifndef MULTIPLE_ACTIONS_H
 #define MULTIPLE_ACTIONS_H
 
+#include <QList>
 #include <QObject>
 #include <QString>
-#include <QList>
 
 #include <KActionMenu>
 

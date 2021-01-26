@@ -22,13 +22,14 @@
 #ifndef KIO_LOG_FILE_READER_H
 #define KIO_LOG_FILE_READER_H
 
-#include <QObject>
 #include <QByteArray>
+#include <QObject>
 #include <QString>
 
 #include "logFile.h"
 
-namespace KIO {
+namespace KIO
+{
 class Job;
 class FileJob;
 }

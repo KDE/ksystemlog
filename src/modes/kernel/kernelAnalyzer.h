@@ -22,8 +22,8 @@
 #ifndef KERNEL_ANALYZER_H
 #define KERNEL_ANALYZER_H
 
-#include <QRegExp>
 #include <QFile>
+#include <QRegExp>
 
 #include <KLocalizedString>
 
@@ -31,9 +31,9 @@
 
 #include "fileAnalyzer.h"
 
+#include "kernelLogMode.h"
 #include "localLogFileReader.h"
 #include "processOutputLogFileReader.h"
-#include "kernelLogMode.h"
 
 class LogMode;
 

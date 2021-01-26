@@ -24,8 +24,8 @@
 
 #include <QDateTime>
 
-#include <QString>
 #include <QMap>
+#include <QString>
 
 /**
  * TODO Fork this class in SyslogParsingHelper and HttpParsingHelper

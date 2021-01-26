@@ -21,12 +21,12 @@
 
 #include "logViewModel.h"
 
-#include "view.h"
 #include "logLine.h"
+#include "view.h"
 
-#include "logViewWidgetItem.h"
-#include "logViewWidget.h"
 #include "logModeItemBuilder.h"
+#include "logViewWidget.h"
+#include "logViewWidgetItem.h"
 
 #include "logging.h"
 
@@ -94,7 +94,7 @@ void LogViewModel::startingMultipleInsertions()
     if (hasLocked) {
         logDebug() << "Starting multiple insertions...";
 
-        Q_EMIT (processingMultipleInsertions(true));
+        Q_EMIT(processingMultipleInsertions(true));
 
         mLogViewWidget->setUpdatesEnabled(false);
 
@@ -123,7 +123,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
         logDebug() << "Enabling log view widget refresh...";
         mLogViewWidget->setUpdatesEnabled(true);
 
-        Q_EMIT (processingMultipleInsertions(false));
+        Q_EMIT(processingMultipleInsertions(false));
     }
 }
 

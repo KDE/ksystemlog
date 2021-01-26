@@ -22,18 +22,16 @@
 #ifndef LOG_MODE_ACTION_H
 #define LOG_MODE_ACTION_H
 
-#include <QObject>
-#include <QList>
 #include <QAction>
+#include <QList>
+#include <QObject>
 
 class LogModeAction : public QObject
 {
     Q_OBJECT
 
 public:
-    enum Category {
-        RootCategory, ServicesCategory, OthersCategory
-    };
+    enum Category { RootCategory, ServicesCategory, OthersCategory };
 
     Q_DECLARE_FLAGS(Categories, Category)
 

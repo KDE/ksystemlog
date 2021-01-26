@@ -21,18 +21,18 @@
 
 #include "generalConfigurationWidget.h"
 
+#include <QButtonGroup>
 #include <QCheckBox>
 #include <QPushButton>
-#include <QButtonGroup>
 
-#include <KMessageWidget>
 #include <KLocalizedString>
+#include <KMessageWidget>
 #include <QIcon>
 
-#include "logging.h"
 #include "defaults.h"
 #include "globals.h"
 #include "ksystemlogConfig.h"
+#include "logging.h"
 
 GeneralConfigurationWidget::GeneralConfigurationWidget()
     : QWidget()
@@ -47,8 +47,7 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     startupModeVerticalLayout->addWidget(mWarningBox);
 
-    startupLogMode->addItem(QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log Mode"),
-                            QVariant(QLatin1String("")));
+    startupLogMode->addItem(QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log Mode"), QVariant(QLatin1String("")));
     const auto logModes = Globals::instance().logModes();
     for (LogMode *logMode : logModes) {
         // Ignore this special case

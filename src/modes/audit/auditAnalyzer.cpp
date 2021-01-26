@@ -77,8 +77,7 @@ LogLine *AuditAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
     list.append(messageType);
     list.append(message);
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().path(),
-                       originalFile.defaultLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().path(), originalFile.defaultLogLevel(), mLogMode);
 }
 
 void AuditAnalyzer::deleteLogFiles()
@@ -213,9 +212,7 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
         Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
-        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(),
-                               mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
-                               mLogFileReaders.count());
+        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(), mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader), mLogFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 
@@ -281,6 +278,5 @@ LogLine *AuditAnalyzer::parseEvent(const QStringList &event, const LogFile &orig
     QStringList list;
     list.append(messages.join(QStringLiteral(" \n")));
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().path(),
-                       originalFile.defaultLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().path(), originalFile.defaultLogLevel(), mLogMode);
 }

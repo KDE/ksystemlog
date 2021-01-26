@@ -26,12 +26,10 @@ CronConfiguration::CronConfiguration()
     mConfiguration->setCurrentGroup(QStringLiteral("CronLogMode"));
 
     const QStringList defaultCronPaths{QStringLiteral("/var/log/syslog")};
-    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mCronPaths, defaultCronPaths,
-                                      QStringLiteral("LogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mCronPaths, defaultCronPaths, QStringLiteral("LogFilesPaths"));
 
     const QString defaultProcessFilter(QStringLiteral("/usr/sbin/cron"));
-    mConfiguration->addItemString(QStringLiteral("ProcessFilter"), mProcessFilter, defaultProcessFilter,
-                                  QStringLiteral("ProcessFilter"));
+    mConfiguration->addItemString(QStringLiteral("ProcessFilter"), mProcessFilter, defaultProcessFilter, QStringLiteral("ProcessFilter"));
 }
 
 CronConfiguration::~CronConfiguration()

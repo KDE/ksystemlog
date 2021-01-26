@@ -24,8 +24,8 @@
 
 #include <QObject>
 
-#include <QString>
 #include <QList>
+#include <QString>
 
 class LogViewModel;
 class Analyzer;

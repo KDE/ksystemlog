@@ -61,16 +61,14 @@ LogLine *CupsAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
 
     const QString message = line.remove(0, 31);
 
-    const QStringList list {message};
+    const QStringList list{message};
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
-                       findLogLevel(level), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(), findLogLevel(level), mLogMode);
 }
 
 void CupsAnalyzer::initializeTypeLevels()
 {
-    mMapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QStringLiteral(DEBUG2_LOG_LEVEL_ICON),
-                                                    QColor(169, 189, 165), this);
+    mMapTypeLevels[QLatin1Char('d')] = new LogLevel(20, i18n("debug 2"), QStringLiteral(DEBUG2_LOG_LEVEL_ICON), QColor(169, 189, 165), this);
     mMapTypeLevels[QLatin1Char('D')] = Globals::instance().debugLogLevel();
     mMapTypeLevels[QLatin1Char('I')] = Globals::instance().informationLogLevel();
     mMapTypeLevels[QLatin1Char('N')] = Globals::instance().noticeLogLevel();
@@ -90,8 +88,7 @@ LogLevel *CupsAnalyzer::findLogLevel(const QChar &type)
     if (it != mMapTypeLevels.end()) {
         return *it;
     } else {
-        logCritical() << i18n(
-            "New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
+        logCritical() << i18n("New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
         return Globals::instance().noLogLevel();
     }
 }

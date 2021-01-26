@@ -35,8 +35,8 @@
 #include "globals.h"
 #include "ksystemlogConfig.h"
 
-#include "logging.h"
 #include "defaults.h"
+#include "logging.h"
 
 ConfigurationDialog::ConfigurationDialog(QWidget *parent)
     : KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self())
@@ -72,11 +72,13 @@ void ConfigurationDialog::setupLogModeConfigurations()
     for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
         logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
 
-        addPage(logModeConfigurationWidget, logModeConfigurationWidget->itemName(),
-                logModeConfigurationWidget->iconName(), logModeConfigurationWidget->header(), false);
+        addPage(logModeConfigurationWidget,
+                logModeConfigurationWidget->itemName(),
+                logModeConfigurationWidget->iconName(),
+                logModeConfigurationWidget->header(),
+                false);
 
-        connect(logModeConfigurationWidget, &LogModeConfigurationWidget::configurationChanged, this,
-                &ConfigurationDialog::updateConfiguration);
+        connect(logModeConfigurationWidget, &LogModeConfigurationWidget::configurationChanged, this, &ConfigurationDialog::updateConfiguration);
     }
 }
 
@@ -91,8 +93,7 @@ void ConfigurationDialog::setupGeneralConfiguration()
 {
     mGeneralConfiguration = new GeneralConfigurationWidget();
 
-    addPage(mGeneralConfiguration, i18n("General"), QStringLiteral("utilities-log-viewer"), i18n("General"),
-            false);
+    addPage(mGeneralConfiguration, i18n("General"), QStringLiteral("utilities-log-viewer"), i18n("General"), false);
 
     connect(mGeneralConfiguration, &GeneralConfigurationWidget::configurationChanged, this, &ConfigurationDialog::updateConfiguration);
 }

@@ -22,9 +22,9 @@
 #ifndef FILE_LIST_HELPER_H
 #define FILE_LIST_HELPER_H
 
+#include <QIcon>
 #include <QUrl>
 #include <QWidget>
-#include <QIcon>
 
 class QAction;
 class QPushButton;

@@ -27,8 +27,8 @@
 
 #include "defaults.h"
 
-#include "journaldTypes.h"
 #include "journaldLogMode.h"
+#include "journaldTypes.h"
 
 #include "ksystemlogConfig.h"
 
@@ -39,9 +39,7 @@ class JournaldConfiguration : public LogModeConfiguration
     Q_OBJECT
 
 public:
-    enum EntriesType {
-        EntriesAll = 0, EntriesCurrentUser = 1, EntriesSystem = 2
-    };
+    enum EntriesType { EntriesAll = 0, EntriesCurrentUser = 1, EntriesSystem = 2 };
 
     JournaldConfiguration();
 

@@ -25,27 +25,22 @@ XSessionConfiguration::XSessionConfiguration()
 {
     mConfiguration->setCurrentGroup(QStringLiteral("XSessionLogMode"));
 
-    mConfiguration->addItemString(QStringLiteral("LogFilePath"), mXsessionPath,
-                                  QStringLiteral("~/.xsession-errors"), QStringLiteral("LogFilePath"));
+    mConfiguration->addItemString(QStringLiteral("LogFilePath"), mXsessionPath, QStringLiteral("~/.xsession-errors"), QStringLiteral("LogFilePath"));
 
-    mConfiguration->addItemBool(QStringLiteral("IgnoreXorgErrors"), mIgnoreXorgErrors, false,
-                                QStringLiteral("IgnoreXorgErrors"));
+    mConfiguration->addItemBool(QStringLiteral("IgnoreXorgErrors"), mIgnoreXorgErrors, false, QStringLiteral("IgnoreXorgErrors"));
 
     QStringList defaultXorgErrorKeywords;
     defaultXorgErrorKeywords.append(QStringLiteral("X Error"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Major opcode"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Minor opcode"));
     defaultXorgErrorKeywords.append(QStringLiteral("  Resource id"));
-    mConfiguration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords,
-                                      defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
+    mConfiguration->addItemStringList(QStringLiteral("XorgErrorKeywords"), mXorgErrorKeywords, defaultXorgErrorKeywords, QStringLiteral("XorgErrorKeywords"));
 
-    const QStringList defaultWarningKeywords {QStringLiteral("WARNING")};
-    mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
-                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+    const QStringList defaultWarningKeywords{QStringLiteral("WARNING")};
+    mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords, defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
-    const QStringList defaultErrorKeywords {QStringLiteral("ERROR")};
-    mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
-                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
+    const QStringList defaultErrorKeywords{QStringLiteral("ERROR")};
+    mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords, defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
 XSessionConfiguration::~XSessionConfiguration()

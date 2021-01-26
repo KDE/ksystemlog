@@ -39,18 +39,14 @@ void AuditConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Audit Options...";
 
-    AuditConfiguration *auditConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID))
-                                             ->logModeConfiguration<AuditConfiguration *>();
+    AuditConfiguration *auditConfiguration = Globals::instance().findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID))->logModeConfiguration<AuditConfiguration *>();
     auditConfiguration->setLogFilesPaths(fileList->paths());
     auditConfiguration->setLogFilesLevels(fileList->levels());
 }
 
 void AuditConfigurationWidget::readConfig()
 {
-    AuditConfiguration *auditConfiguration = Globals::instance()
-                                             .findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID))
-                                             ->logModeConfiguration<AuditConfiguration *>();
+    AuditConfiguration *auditConfiguration = Globals::instance().findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID))->logModeConfiguration<AuditConfiguration *>();
     fileList->removeAllItems();
     fileList->addPaths(auditConfiguration->logFilesPaths(), auditConfiguration->logFilesLevels());
 }

@@ -26,16 +26,13 @@ AuthenticationConfiguration::AuthenticationConfiguration()
     mConfiguration->setCurrentGroup(QStringLiteral("AuthenticationLogMode"));
 
     const QString defaultAuthenticationPath{QStringLiteral("/var/log/auth.log")};
-    mConfiguration->addItemString(QStringLiteral("LogFilePath"), mAuthenticationPath,
-                                  defaultAuthenticationPath, QStringLiteral("LogFilePath"));
+    mConfiguration->addItemString(QStringLiteral("LogFilePath"), mAuthenticationPath, defaultAuthenticationPath, QStringLiteral("LogFilePath"));
 
-    const QStringList defaultWarningKeywords {QStringLiteral("failed")};
-    mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords,
-                                      defaultWarningKeywords, QStringLiteral("WarningKeywords"));
+    const QStringList defaultWarningKeywords{QStringLiteral("failed")};
+    mConfiguration->addItemStringList(QStringLiteral("WarningKeywords"), mWarningKeywords, defaultWarningKeywords, QStringLiteral("WarningKeywords"));
 
     const QStringList defaultErrorKeywords{QStringLiteral("error")};
-    mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords,
-                                      defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
+    mConfiguration->addItemStringList(QStringLiteral("ErrorKeywords"), mErrorKeywords, defaultErrorKeywords, QStringLiteral("ErrorKeywords"));
 }
 
 AuthenticationConfiguration::~AuthenticationConfiguration()

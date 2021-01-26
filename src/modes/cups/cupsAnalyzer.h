@@ -26,8 +26,8 @@
 
 #include "logging.h"
 
-#include "localLogFileReader.h"
 #include "cupsLogMode.h"
+#include "localLogFileReader.h"
 #include "parsingHelper.h"
 
 #define DEBUG2_LOG_LEVEL_ICON "source"

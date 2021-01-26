@@ -28,9 +28,9 @@
 #include "logging.h"
 
 #include "apacheAnalyzer.h"
-#include "apacheItemBuilder.h"
-#include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
+#include "apacheConfigurationWidget.h"
+#include "apacheItemBuilder.h"
 
 ApacheLogMode::ApacheLogMode(QSharedPointer<ApacheConfiguration> &apacheConfiguration, ApacheConfigurationWidget *apacheConfigurationWidget)
     : LogMode(QStringLiteral(APACHE_LOG_MODE_ID), i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON))
@@ -43,8 +43,7 @@ ApacheLogMode::ApacheLogMode(QSharedPointer<ApacheConfiguration> &apacheConfigur
     // Apache Log Action
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Apache log."));
-    d->action->setWhatsThis(
-        i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
+    d->action->setWhatsThis(i18n("Displays the Apache log in the current tab. Apache is the main used Web server in the world."));
 
     checkLogFilesPresence(apacheConfiguration->apachePaths());
 }

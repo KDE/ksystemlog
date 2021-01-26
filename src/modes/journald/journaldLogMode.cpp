@@ -27,11 +27,11 @@
 
 #include "logging.h"
 
+#include "journaldConfiguration.h"
+#include "journaldConfigurationWidget.h"
+#include "journaldItemBuilder.h"
 #include "journaldLocalAnalyzer.h"
 #include "journaldNetworkAnalyzer.h"
-#include "journaldConfigurationWidget.h"
-#include "journaldConfiguration.h"
-#include "journaldItemBuilder.h"
 
 JournaldLogMode::JournaldLogMode()
     : LogMode(QLatin1String(JOURNALD_LOG_MODE_ID), i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON))
@@ -40,7 +40,9 @@ JournaldLogMode::JournaldLogMode()
 
     d->logModeConfigurationWidget = new JournaldConfigurationWidget();
     connect(qobject_cast<JournaldConfigurationWidget *>(d->logModeConfigurationWidget),
-            &JournaldConfigurationWidget::configSaved, this, &JournaldLogMode::menuChanged);
+            &JournaldConfigurationWidget::configSaved,
+            this,
+            &JournaldLogMode::menuChanged);
 
     d->itemBuilder = new JournaldItemBuilder();
 

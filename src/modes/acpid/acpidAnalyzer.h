@@ -26,9 +26,9 @@
 
 #include "fileAnalyzer.h"
 
+#include "acpidLogMode.h"
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
-#include "acpidLogMode.h"
 
 class AcpidAnalyzer : public FileAnalyzer
 {

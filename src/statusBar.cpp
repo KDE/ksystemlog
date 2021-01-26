@@ -21,9 +21,9 @@
 
 #include "statusBar.h"
 
+#include <QComboBox>
 #include <QLabel>
 #include <QPushButton>
-#include <QComboBox>
 #include <QTime>
 
 #include <QIcon>
@@ -70,8 +70,7 @@ void StatusBar::changeLastModification(const QTime &lastModification)
 {
     // lastModificationLabel->setText(i18n("Last updated: %1.",
     // KLocale::global()->formatTime(lastModification, true, false) ));
-    mLastModificationLabel->setText(
-        i18n("Last updated: %1.", QLocale().toString(lastModification, QStringLiteral("hh:mm:ss"))));
+    mLastModificationLabel->setText(i18n("Last updated: %1.", QLocale().toString(lastModification, QStringLiteral("hh:mm:ss"))));
 }
 
 void StatusBar::changeMessage(const QString &message)
@@ -79,8 +78,7 @@ void StatusBar::changeMessage(const QString &message)
     // messageLabel->setText(message);
     // messageList->insertItem(0, i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
     // false), message));
-    mMessageList->insertItem(
-        0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QStringLiteral("hh:mm:ss")), message));
+    mMessageList->insertItem(0, i18n("%1: %2", QLocale().toString(QTime::currentTime(), QStringLiteral("hh:mm:ss")), message));
 
     // 100 log history message max.
     if (mMessageList->count() > 100) {

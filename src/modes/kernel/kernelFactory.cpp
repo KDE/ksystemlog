@@ -24,8 +24,8 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "kernelLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> KernelLogModeFactory::createLogModes() const
 {

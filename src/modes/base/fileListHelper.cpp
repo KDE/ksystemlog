@@ -21,10 +21,10 @@
 
 #include "fileListHelper.h"
 
-#include <QObject>
 #include <QAction>
-#include <QPushButton>
 #include <QFileDialog>
+#include <QObject>
+#include <QPushButton>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -126,9 +126,7 @@ bool FileListHelper::isValidFile(const QUrl &url)
 
 QList<QUrl> FileListHelper::openUrls() const
 {
-    QFileDialog fileDialog(mParent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), i18n("All Files (*)")
-                           + QLatin1String(";;")
-                           + i18n("Log Files (*.log)"));
+    QFileDialog fileDialog(mParent, QString(), QStringLiteral(DEFAULT_LOG_FOLDER), i18n("All Files (*)") + QLatin1String(";;") + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));
     fileDialog.setFileMode(QFileDialog::ExistingFiles);
 
@@ -138,9 +136,7 @@ QList<QUrl> FileListHelper::openUrls() const
 
 QUrl FileListHelper::openUrl(const QString &originPath) const
 {
-    QFileDialog fileDialog(mParent, QString(), originPath, i18n("All Files (*)")
-                           + QLatin1String(";;")
-                           + i18n("Log Files (*.log)"));
+    QFileDialog fileDialog(mParent, QString(), originPath, i18n("All Files (*)") + QLatin1String(";;") + i18n("Log Files (*.log)"));
     fileDialog.setWindowTitle(i18n("Choose Log File"));
     fileDialog.setFileMode(QFileDialog::AnyFile);
 

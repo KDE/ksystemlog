@@ -110,8 +110,7 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     list.append(client);
     list.append(line);
 
-    return new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
-                       originalLogFile.url().toLocalFile(), findLogLevel(level), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list, originalLogFile.url().toLocalFile(), findLogLevel(level), mLogMode);
 }
 
 void ApacheAnalyzer::initializeTypeLevels()
@@ -129,9 +128,7 @@ LogLevel *ApacheAnalyzer::findLogLevel(const QString &type)
     if (it != mMapTypeLevels.end()) {
         return *it;
     } else {
-        logCritical()
-            << "New Log Level detected: Please send this log file to the KSystemLog developer to add it ("
-            << type << ")";
+        logCritical() << "New Log Level detected: Please send this log file to the KSystemLog developer to add it (" << type << ")";
         return Globals::instance().noLogLevel();
     }
 }

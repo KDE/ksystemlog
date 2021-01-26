@@ -24,13 +24,13 @@
 #include <KLocalizedString>
 #include <QElapsedTimer>
 
-#include "logging.h"
 #include "ksystemlogConfig.h"
+#include "logging.h"
 
 #include "logViewModel.h"
 
-#include "logMode.h"
 #include "logFileReader.h"
+#include "logMode.h"
 
 FileAnalyzer::FileAnalyzer(LogMode *logMode)
     : Analyzer(logMode)
@@ -119,9 +119,7 @@ void FileAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode read
         Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
         // Inform that we are now reading the "index" file
-        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(),
-                               mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader),
-                               mLogFileReaders.count());
+        Q_EMIT readFileStarted(*mLogMode, logFileReader->logFile(), mLogFileReaders.count() - mLogFileReaders.indexOf(logFileReader), mLogFileReaders.count());
 
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::FullRead);
 

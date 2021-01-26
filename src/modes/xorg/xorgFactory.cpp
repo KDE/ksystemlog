@@ -29,7 +29,7 @@
 
 QList<LogMode *> XorgLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new XorgLogMode()};
+    const QList<LogMode *> logModes{new XorgLogMode()};
     return logModes;
 }
 

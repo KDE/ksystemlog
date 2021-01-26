@@ -24,12 +24,12 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "authenticationLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> AuthenticationLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new AuthenticationLogMode()};
+    const QList<LogMode *> logModes{new AuthenticationLogMode()};
     return logModes;
 }
 

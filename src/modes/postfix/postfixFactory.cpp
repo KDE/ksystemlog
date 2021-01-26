@@ -24,12 +24,12 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "postfixLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> PostfixLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new PostfixLogMode()};
+    const QList<LogMode *> logModes{new PostfixLogMode()};
     return logModes;
 }
 

@@ -26,8 +26,8 @@
 #include "logging.h"
 
 #include "cronAnalyzer.h"
-#include "cronConfigurationWidget.h"
 #include "cronConfiguration.h"
+#include "cronConfigurationWidget.h"
 #include "cronItemBuilder.h"
 
 CronLogMode::CronLogMode()
@@ -41,10 +41,10 @@ CronLogMode::CronLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the planned tasks log (Cron log)."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the planned tasks log in the current tab. Cron process is a program in charge of launching "
-                                "planned tasks on your system, like security checks, or auto-restarting of some services. Use this "
-                                "menu to see the recently launched processes."));
+    d->action->setWhatsThis(
+        i18n("Displays the planned tasks log in the current tab. Cron process is a program in charge of launching "
+             "planned tasks on your system, like security checks, or auto-restarting of some services. Use this "
+             "menu to see the recently launched processes."));
 
     auto *cronConfiguration = logModeConfiguration<CronConfiguration *>();
     checkLogFilesPresence(cronConfiguration->cronPaths());

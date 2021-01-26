@@ -20,9 +20,9 @@
  ***************************************************************************/
 
 #include "journaldFactory.h"
+#include "journaldConfiguration.h"
 #include "journaldLocalAnalyzer.h"
 #include "journaldLogMode.h"
-#include "journaldConfiguration.h"
 #include "logMode.h"
 #include "logging.h"
 #include "multipleActions.h"
@@ -31,17 +31,15 @@
 
 QList<LogMode *> JournaldModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new JournaldLogMode()};
+    const QList<LogMode *> logModes{new JournaldLogMode()};
     return logModes;
 }
 
 LogModeAction *JournaldModeFactory::createLogModeAction() const
 {
-    JournaldLogMode *logMode = dynamic_cast<JournaldLogMode *>(
-        Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID)));
+    JournaldLogMode *logMode = dynamic_cast<JournaldLogMode *>(Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID)));
 
-    auto *multipleActions
-        = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
+    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
 
     QIcon filterIcon = QIcon::fromTheme(QLatin1String("view-filter"));
     QIcon remoteIcon = QIcon::fromTheme(QLatin1String("preferences-system-network-sharing"));
@@ -57,8 +55,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     actionData.analyzerOptions = QVariant::fromValue(analyzerOptions);
 
-    auto *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")),
-                                       i18n("Local journal"), multipleActions);
+    auto *actionMenu = new KActionMenu(QIcon::fromTheme(QLatin1String("drive-harddisk")), i18n("Local journal"), multipleActions);
 
     // Add "All messages" action.
     auto *action = new QAction(filterIcon, i18n("All messages"), actionMenu);
@@ -132,8 +129,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         // Add filtering by systemd unit.
         JournalFilters filters = logMode->filters(addressInfo);
         if (!filters.systemdUnits.isEmpty()) {
-            auto *filterActionSystemdMenu
-                = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
+            auto *filterActionSystemdMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
 
             for (const QString &unit : filters.systemdUnits) {
                 action = new QAction(unit, filterActionSystemdMenu);
@@ -150,8 +146,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
         // Add filtering by syslog identifier.
         if (!filters.syslogIdentifiers.isEmpty()) {
-            auto *filterActionMenu
-                = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
+            auto *filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
 
             for (const QString &id : filters.syslogIdentifiers) {
                 action = new QAction(id, filterActionMenu);

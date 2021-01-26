@@ -26,11 +26,11 @@
 
 #include "globals.h"
 
-#include "logMode.h"
 #include "logFile.h"
+#include "logMode.h"
 
-#include "logViewModel.h"
 #include "logViewColumns.h"
+#include "logViewModel.h"
 
 class View;
 

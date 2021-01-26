@@ -26,8 +26,8 @@
 
 #include "syslogAnalyzer.h"
 
-#include "cronLogMode.h"
 #include "cronConfiguration.h"
+#include "cronLogMode.h"
 
 class LogMode;
 
@@ -47,7 +47,7 @@ public:
 
     /*
      * Cron line example :
-* Sep 16 01:3;D (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)
+     * Sep 16 01:3;D (  [ -d /var/lib/php5 ] && find /var/lib/php5/ -type f -cmin +$(/usr/lib/php5/maxlifetime) -print0 | xargs -r -0 rm)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5479]: (CRON) INFO (pidfile fd = 3)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) STARTUP (fork ok)
      * Sep 16 18:39:05 localhost /usr/sbin/cron[5480]: (CRON) INFO (Running @reboot jobs)

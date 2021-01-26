@@ -21,19 +21,19 @@
 
 #include "logViewSearchWidget.h"
 
+#include <QCheckBox>
+#include <QColor>
+#include <QPalette>
 #include <QPushButton>
 #include <QString>
-#include <QCheckBox>
-#include <QPalette>
-#include <QColor>
 #include <QTimer>
 
-#include <QIcon>
 #include <KLocalizedString>
+#include <QIcon>
 
-#include "logging.h"
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
+#include "logging.h"
 
 LogViewSearchWidget::LogViewSearchWidget(QWidget *parent)
     : QWidget(parent)
@@ -317,8 +317,7 @@ void LogViewSearchWidget::unlightAll()
 
         // We retrieve the default column background using the first column data, where the background never
         // changes
-        item->setBackground(item->columnCount() - 1,
-                            qvariant_cast<QBrush>(item->data(0, Qt::BackgroundRole)));
+        item->setBackground(item->columnCount() - 1, qvariant_cast<QBrush>(item->data(0, Qt::BackgroundRole)));
 
         ++it;
     }

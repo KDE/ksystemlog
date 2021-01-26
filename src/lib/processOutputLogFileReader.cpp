@@ -21,8 +21,8 @@
 
 #include "processOutputLogFileReader.h"
 
-#include <QTimer>
 #include <QStringList>
+#include <QTimer>
 
 #include <KLocalizedString>
 
@@ -112,8 +112,7 @@ void ProcessOutputLogFileReader::startProcess()
 
     d->mProcess = new QProcess();
     connect(d->mProcess, &QProcess::readyReadStandardOutput, this, &ProcessOutputLogFileReader::logFileModified);
-    connect(d->mProcess, SIGNAL(finished(int,QProcess::ExitStatus)), this,
-            SLOT(emitProcessOutput(int,QProcess::ExitStatus)));
+    connect(d->mProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(emitProcessOutput(int, QProcess::ExitStatus)));
 
     d->mProcess->start(d->logFile.url().toLocalFile(), QStringList(), QIODevice::ReadOnly | QIODevice::Text);
 
@@ -150,8 +149,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
     // First commit last lines of the buffer to the line list
     emptyBuffer();
 
-    logDebug() << "Process terminated" << d->mPreviousLinesCount << "previously /"
-               << d->mAvailableStandardOutput.count() << "currently";
+    logDebug() << "Process terminated" << d->mPreviousLinesCount << "previously /" << d->mAvailableStandardOutput.count() << "currently";
 
     if (exitStatus == QProcess::CrashExit) {
         QString message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));

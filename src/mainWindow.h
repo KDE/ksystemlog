@@ -23,8 +23,8 @@
 #define MAIN_WINDOW_H
 
 // KDE includes
-#include <kxmlguiwindow.h>
 #include <KConfig>
+#include <kxmlguiwindow.h>
 
 #include "logModeAction.h"
 
@@ -38,7 +38,8 @@ class QPrinter;
 class DetailDialog;
 class LoggerDialog;
 class ConfigurationDialog;
-namespace KSystemLog {
+namespace KSystemLog
+{
 class StatusBar;
 /**
  * This class serves as the main window for ksystemlog.  It handles the

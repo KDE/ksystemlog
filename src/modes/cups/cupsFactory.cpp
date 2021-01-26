@@ -23,17 +23,17 @@
 
 #include <KLocalizedString>
 
-#include "multipleActions.h"
 #include "logMode.h"
 #include "logging.h"
+#include "multipleActions.h"
 
-#include "cupsLogMode.h"
 #include "cupsAccessLogMode.h"
+#include "cupsLogMode.h"
 #include "cupsPageLogMode.h"
 #include "cupsPdfLogMode.h"
 
-#include "cupsConfigurationWidget.h"
 #include "cupsConfiguration.h"
+#include "cupsConfigurationWidget.h"
 
 QList<LogMode *> CupsLogModeFactory::createLogModes() const
 {
@@ -66,8 +66,7 @@ LogModeAction *CupsLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *multipleActions
-        = new MultipleActions(QIcon::fromTheme(QStringLiteral(CUPS_MODE_ICON)), i18n("Cups"), cupsLogMode);
+    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(CUPS_MODE_ICON)), i18n("Cups"), cupsLogMode);
 
     if (cupsLogsExist) {
         multipleActions->addInnerAction(cupsLogMode->action());

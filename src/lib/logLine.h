@@ -22,8 +22,8 @@
 #ifndef LOG_LINE_H
 #define LOG_LINE_H
 
-#include <QStringList>
 #include <QDateTime>
+#include <QStringList>
 
 #include "globals.h"
 

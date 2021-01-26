@@ -24,12 +24,12 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "acpidLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> AcpidLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new AcpidLogMode()};
+    const QList<LogMode *> logModes{new AcpidLogMode()};
     return logModes;
 }
 

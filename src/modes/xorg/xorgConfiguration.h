@@ -26,9 +26,9 @@
 
 #include "logModeConfiguration.h"
 
-#include "logging.h"
 #include "defaults.h"
 #include "ksystemlogConfig.h"
+#include "logging.h"
 
 #include "xorgLogMode.h"
 

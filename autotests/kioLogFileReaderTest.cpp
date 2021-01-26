@@ -25,8 +25,8 @@
 
 //#include <qtest_kde.h>
 
-#include "logFile.h"
 #include "kioLogFileReader.h"
+#include "logFile.h"
 
 #include "testUtil.h"
 
@@ -54,8 +54,7 @@ void KioLogFileReaderTest::initTestCase()
 void KioLogFileReaderTest::testKioLogFileReader()
 {
     QString fixturePath = QFINDTESTDATA("testFiles/logFileReader/file.txt");
-    LogFile logFile(QUrl::fromLocalFile(fixturePath),
-                    Globals::instance().informationLogLevel());
+    LogFile logFile(QUrl::fromLocalFile(fixturePath), Globals::instance().informationLogLevel());
 
     auto *logFileReader = new KioLogFileReader(logFile);
     logFileReader->open();

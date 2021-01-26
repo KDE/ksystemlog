@@ -74,9 +74,6 @@ void JournaldConfiguration::setRemoteJournals(const QVector<JournalAddress> &rem
 {
     mRemoteJournals.clear();
     for (const JournalAddress &addressInfo : remoteJournals) {
-        mRemoteJournals.append(QStringLiteral("%1|%2|%3")
-                               .arg(addressInfo.address)
-                               .arg(addressInfo.port)
-                               .arg(addressInfo.https ? 1 : 0));
+        mRemoteJournals.append(QStringLiteral("%1|%2|%3").arg(addressInfo.address).arg(addressInfo.port).arg(addressInfo.https ? 1 : 0));
     }
 }

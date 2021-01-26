@@ -101,9 +101,12 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 
         LogLine *returnedLogLine = mCurrentLogLine;
 
-        mCurrentLogLine = new LogLine(mLogLineInternalIdGenerator++, QDateTime(date, time), list,
+        mCurrentLogLine = new LogLine(mLogLineInternalIdGenerator++,
+                                      QDateTime(date, time),
+                                      list,
                                       originalLogFile.url().toLocalFile(),
-                                      Globals::instance().informationLogLevel(), mLogMode);
+                                      Globals::instance().informationLogLevel(),
+                                      mLogMode);
 
         return returnedLogLine;
     }

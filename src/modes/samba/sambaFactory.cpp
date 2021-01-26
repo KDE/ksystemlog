@@ -23,23 +23,22 @@
 
 #include <KLocalizedString>
 
-#include "multipleActions.h"
 #include "logMode.h"
 #include "logging.h"
+#include "multipleActions.h"
 
-#include "sambaLogMode.h"
-#include "sambaAccessLogMode.h"
 #include "netbiosLogMode.h"
+#include "sambaAccessLogMode.h"
+#include "sambaLogMode.h"
 
-#include "sambaConfigurationWidget.h"
 #include "sambaConfiguration.h"
+#include "sambaConfigurationWidget.h"
 #include "sambaItemBuilder.h"
 
 QList<LogMode *> SambaLogModeFactory::createLogModes() const
 {
     // Create the shared configuration and configuration widget between the logModes
-    QSharedPointer<SambaConfiguration> configuration
-        = QSharedPointer<SambaConfiguration>(new SambaConfiguration());
+    QSharedPointer<SambaConfiguration> configuration = QSharedPointer<SambaConfiguration>(new SambaConfiguration());
     auto *configurationWidget = new SambaConfigurationWidget();
 
     QList<LogMode *> logModes;
@@ -64,8 +63,7 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *multipleActions
-        = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
+    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
 
     if (sambaLogsExist) {
         multipleActions->addInnerAction(sambaLogMode->action());

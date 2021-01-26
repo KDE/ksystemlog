@@ -22,8 +22,8 @@
 #ifndef TAB_LOG_VIEWS_WIDGET_H
 #define TAB_LOG_VIEWS_WIDGET_H
 
-#include <QTabWidget>
 #include <QList>
+#include <QTabWidget>
 #include <QVariant>
 
 class QString;

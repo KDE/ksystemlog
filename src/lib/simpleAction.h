@@ -22,9 +22,9 @@
 #ifndef SIMPLE_ACTIONS_H
 #define SIMPLE_ACTIONS_H
 
-#include <QString>
-#include <QList>
 #include <QIcon>
+#include <QList>
+#include <QString>
 
 #include "globals.h"
 

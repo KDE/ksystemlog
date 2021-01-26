@@ -32,8 +32,7 @@ LogViewColumns ApacheAccessAnalyzer::initColumns()
 
     columns.addColumn(LogViewColumn(i18n("Date"), true, false));
     columns.addColumn(LogViewColumn(i18n("Host Name"), true, true));
-    columns.addColumn(LogViewColumn(
-                          i18n("Id."), true, true)); //=Identification protocol [From RFC1413 (see Google for more infos)]
+    columns.addColumn(LogViewColumn(i18n("Id."), true, true)); //=Identification protocol [From RFC1413 (see Google for more infos)]
     columns.addColumn(LogViewColumn(i18n("User"), true, true));
     columns.addColumn(LogViewColumn(i18n("Response"), true, true));
     columns.addColumn(LogViewColumn(i18n("Bytes Sent"), true, false));
@@ -75,8 +74,7 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
     QString strDateTime = line.left(endDate);
     line.remove(0, endDate + 3);
 
-    QDateTime dateTime
-        = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
+    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
 
     int endQuote = line.indexOf(QLatin1Char('\"'));
     QString message = line.left(endQuote);
@@ -116,6 +114,5 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
     list.append(message);
     list.append(url);
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(),
-                       Globals::instance().informationLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), mLogMode);
 }

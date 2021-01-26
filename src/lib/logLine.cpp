@@ -25,8 +25,8 @@
 #include "logModeItemBuilder.h"
 #include "logViewWidgetItem.h"
 
-#include "logging.h"
 #include "ksystemlogConfig.h"
+#include "logging.h"
 
 LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file, LogLevel *logLevel, LogMode *logMode)
 {

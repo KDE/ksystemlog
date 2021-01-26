@@ -25,7 +25,8 @@
 
 #include <QStringList>
 
-namespace JournaldTypes {
+namespace JournaldTypes
+{
 struct JournalAddress {
     QString address;
     quint16 port = 0;
@@ -39,9 +40,7 @@ struct JournalFilters {
     QStringList systemdUnits;
 };
 
-enum class JournaldAnalyzerType {
-    Local, Network
-};
+enum class JournaldAnalyzerType { Local, Network };
 
 struct JournaldAnalyzerOptions {
     JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;

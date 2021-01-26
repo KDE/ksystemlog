@@ -27,9 +27,9 @@
 
 #include "view.h"
 
-#include "logMode.h"
 #include "defaults.h"
 #include "logManager.h"
+#include "logMode.h"
 
 TabLogManager::TabLogManager(LogManager *logManager)
     : mLogManager(logManager)
@@ -38,7 +38,7 @@ TabLogManager::TabLogManager(LogManager *logManager)
 
 TabLogManager::~TabLogManager()
 {
-    //delete mLogManager->usedView();
+    // delete mLogManager->usedView();
 }
 
 LogManager *TabLogManager::logManager() const
@@ -61,8 +61,7 @@ QString TabLogManager::title() const
     if (mNewLinesCount == 0) {
         return logModeName();
     } else {
-        return i18nc("Log mode name (added lines count)", "%1 (%2)", mLogManager->title(),
-                     mNewLinesCount);
+        return i18nc("Log mode name (added lines count)", "%1 (%2)", mLogManager->title(), mNewLinesCount);
     }
 }
 

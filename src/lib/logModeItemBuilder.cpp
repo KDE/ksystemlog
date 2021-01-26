@@ -26,8 +26,8 @@
 #include "logging.h"
 
 #include "logLine.h"
-#include "logViewWidgetItem.h"
 #include "logMode.h"
+#include "logViewWidgetItem.h"
 
 #include "ksystemlogConfig.h"
 
@@ -97,8 +97,8 @@ QString LogModeItemBuilder::createToolTipText(LogLine *line) const
 
 QString LogModeItemBuilder::labelMessageFormat(const QString &label, const QString &value) const
 {
-    return QLatin1String("<tr><td align='right'><b><nobr>") + label + QLatin1String("</nobr></b></td><td>")
-           + messageFormat(value) + QLatin1String("</td></tr>");
+    return QLatin1String("<tr><td align='right'><b><nobr>") + label + QLatin1String("</nobr></b></td><td>") + messageFormat(value)
+        + QLatin1String("</td></tr>");
 }
 
 QString LogModeItemBuilder::messageFormat(const QString &message) const

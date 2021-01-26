@@ -22,13 +22,13 @@
 #include "multipleFileList.h"
 
 #include <QAction>
-#include <QPushButton>
 #include <QHeaderView>
+#include <QPushButton>
 
 #include <KLocalizedString>
 
-#include <QIcon>
 #include <QFileInfo>
+#include <QIcon>
 
 #include "defaults.h"
 
@@ -45,16 +45,16 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     mWarningBox = new KMessageWidget(this);
     mWarningBox->setVisible(false);
     mWarningBox->setMessageType(KMessageWidget::Warning);
-    mWarningBox->setText(i18n("Some log files do not exist.\n"
-                              "Modes with missing log files will be unavailable."));
+    mWarningBox->setText(
+        i18n("Some log files do not exist.\n"
+             "Modes with missing log files will be unavailable."));
     mWarningBox->setCloseButtonVisible(false);
     mWarningBox->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     vboxLayout->insertWidget(1, mWarningBox);
 
     description->setText(descriptionText);
 
-    mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this,
-                                  SLOT(modifyItem()), fileList);
+    mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this, SLOT(modifyItem()), fileList);
 
     fileList->header()->setVisible(false);
 
@@ -63,21 +63,16 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     separator->setSeparator(true);
     fileList->addAction(separator);
 
-    mFileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this,
-                                  SLOT(removeSelectedItem()), fileList);
+    mFileListHelper.prepareButton(remove, QIcon::fromTheme(QStringLiteral("list-remove")), this, SLOT(removeSelectedItem()), fileList);
 
-    mFileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()),
-                                  fileList);
+    mFileListHelper.prepareButton(up, QIcon::fromTheme(QStringLiteral("go-up")), this, SLOT(moveUpItem()), fileList);
 
-    mFileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()),
-                                  fileList);
+    mFileListHelper.prepareButton(down, QIcon::fromTheme(QStringLiteral("go-down")), this, SLOT(moveDownItem()), fileList);
 
-    mFileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this,
-                                  SLOT(removeAllItems()), fileList);
+    mFileListHelper.prepareButton(removeAll, QIcon::fromTheme(QStringLiteral("trash-empty")), this, SLOT(removeAllItems()), fileList);
 
     connect(fileList, &QTreeWidget::itemSelectionChanged, this, &MultipleFileList::updateButtons);
-    connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), this,
-            SLOT(modifyItem(QTreeWidgetItem*)));
+    connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(modifyItem(QTreeWidgetItem *)));
     connect(this, &MultipleFileList::fileListChanged, this, &MultipleFileList::updateButtons);
 
     connect(&mAddButtons, SIGNAL(buttonClicked(int)), this, SLOT(addItem(int)));
@@ -198,8 +193,7 @@ int MultipleFileList::addCategory(const QString &itemName, const QString &button
     int index = fileList->indexOfTopLevelItem(item);
 
     auto *addButton = new QPushButton(buttonName, this);
-    QAction *action
-        = mFileListHelper.prepareButtonAndAction(addButton, QIcon::fromTheme(QStringLiteral("document-new")));
+    QAction *action = mFileListHelper.prepareButtonAndAction(addButton, QIcon::fromTheme(QStringLiteral("document-new")));
 
     // Insert the action in first position
     fileList->insertAction(fileList->actions().at(mAddButtons.buttons().size()), action);

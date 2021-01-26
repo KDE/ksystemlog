@@ -22,8 +22,8 @@
 #ifndef LOG_MODE_ITEM_BUILDER_H
 #define LOG_MODE_ITEM_BUILDER_H
 
-#include <QString>
 #include <QDateTime>
+#include <QString>
 
 class LogViewWidgetItem;
 class LogLine;

@@ -22,8 +22,8 @@
 #ifndef LOG_MODE_OPEN_FACTORY_H
 #define LOG_MODE_OPEN_FACTORY_H
 
-#include "logModeFactory.h"
 #include "logModeConfiguration.h"
+#include "logModeFactory.h"
 
 class OpenLogModeFactory : public LogModeFactory
 {

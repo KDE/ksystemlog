@@ -23,19 +23,19 @@
 
 #include <QApplication>
 #include <QClipboard>
-#include <QPrinter>
-#include <QPrintDialog>
 #include <QFileDialog>
+#include <QPrintDialog>
+#include <QPrinter>
 
 #include <KLocalizedString>
-#include <KToolInvocation>
 #include <KMessageBox>
+#include <KToolInvocation>
 
 #include "logging.h"
 
-#include "logViewWidgetItem.h"
-#include "logViewWidget.h"
 #include "logLine.h"
+#include "logViewWidget.h"
+#include "logViewWidgetItem.h"
 
 #include "levelPrintPage.h"
 
@@ -73,9 +73,7 @@ void LogViewExport::sendMail()
 
     // Too much lines selected
     if (i > 1000) {
-        KMessageBox::sorry(mParent,
-                           i18n("You have selected too many lines. Please only select important log lines."),
-                           i18n("Too Many Lines Selected"));
+        KMessageBox::sorry(mParent, i18n("You have selected too many lines. Please only select important log lines."), i18n("Too Many Lines Selected"));
         return;
     }
 
@@ -90,8 +88,7 @@ void LogViewExport::sendMail()
     // const QCString &   startup_id
     // KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log
     // Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
-    KToolInvocation::invokeMailer(QString(), QString(), QString(),
-                                  i18n("Log Lines of my problem"), body);
+    KToolInvocation::invokeMailer(QString(), QString(), QString(), i18n("Log Lines of my problem"), body);
 }
 
 void LogViewExport::printSelection()
@@ -127,8 +124,7 @@ void LogViewExport::printSelection()
     QPaintDevice *painterDevice = painter.device();
     int dpiy = painterDevice->logicalDpiY();
     int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
-    QRect printView(margin, margin, painterDevice->width() - 2 * margin,
-                    painterDevice->height() - 2 * margin);
+    QRect printView(margin, margin, painterDevice->width() - 2 * margin, painterDevice->height() - 2 * margin);
 
     int page = 1;
 
@@ -169,7 +165,8 @@ void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int mov
     printView.moveTo(QPoint(0, printView.height()));
     painter.translate(0, -printView.height());
     painter.drawText(printView.right() - painter.fontMetrics().boundingRect(QString::number(page)).width(),
-                     printView.bottom() + painter.fontMetrics().ascent() + 5, QString::number(page));
+                     printView.bottom() + painter.fontMetrics().ascent() + 5,
+                     QString::number(page));
 }
 
 void LogViewExport::copyToClipboard()
@@ -199,8 +196,7 @@ void LogViewExport::copyToClipboard()
         QApplication::clipboard()->setText(text, QClipboard::Clipboard);
         QApplication::clipboard()->setText(text, QClipboard::Selection);
 
-        Q_EMIT statusBarChanged(
-            i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
+        Q_EMIT statusBarChanged(i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
     }
 
     logDebug() << "Copied " << nbCopied << " log lines";
@@ -218,8 +214,7 @@ void LogViewExport::fileSave()
         return;
     }
 
-    const QString filename
-        = QFileDialog::getSaveFileName(mParent, i18n("Save selected log entries to..."), QString());
+    const QString filename = QFileDialog::getSaveFileName(mParent, i18n("Save selected log entries to..."), QString());
     if (filename.isEmpty()) {
         return;
     }
@@ -246,8 +241,7 @@ void LogViewExport::fileSave()
 
         delete ioDev;
 
-        Q_EMIT statusBarChanged(
-            i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
+        Q_EMIT statusBarChanged(i18np("1 log line saved to '%2'.", "%1 log lines saved to '%2'.", nbCopied, filename));
     } else {
         const QString message(i18n("Unable to save file '%1': Permission Denied.", filename));
         KMessageBox::error(mParent, message, i18n("Unable to save file."));

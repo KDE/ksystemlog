@@ -25,21 +25,20 @@ CupsConfiguration::CupsConfiguration()
 {
     mConfiguration->setCurrentGroup(QStringLiteral("CupsLogMode"));
 
-    const QStringList defaultCupsPaths {QStringLiteral("/var/log/cups/error_log")};
-    mConfiguration->addItemStringList(QStringLiteral("CupsLogFilesPaths"), mCupsPaths, defaultCupsPaths,
-                                      QStringLiteral("CupsLogFilesPaths"));
+    const QStringList defaultCupsPaths{QStringLiteral("/var/log/cups/error_log")};
+    mConfiguration->addItemStringList(QStringLiteral("CupsLogFilesPaths"), mCupsPaths, defaultCupsPaths, QStringLiteral("CupsLogFilesPaths"));
 
     const QStringList defaultCupsAccessPaths{QStringLiteral("/var/log/cups/access_log")};
-    mConfiguration->addItemStringList(QStringLiteral("CupsAccessLogFilesPaths"), mCupsAccessPaths,
-                                      defaultCupsAccessPaths, QStringLiteral("CupsAccessLogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("CupsAccessLogFilesPaths"),
+                                      mCupsAccessPaths,
+                                      defaultCupsAccessPaths,
+                                      QStringLiteral("CupsAccessLogFilesPaths"));
 
     const QStringList defaultCupsPagePaths{QStringLiteral("/var/log/cups/page_log")};
-    mConfiguration->addItemStringList(QStringLiteral("CupsPageLogFilesPaths"), mCupsPagePaths,
-                                      defaultCupsPagePaths, QStringLiteral("CupsPageLogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("CupsPageLogFilesPaths"), mCupsPagePaths, defaultCupsPagePaths, QStringLiteral("CupsPageLogFilesPaths"));
 
     const QStringList defaultCupsPdfPaths{QStringLiteral("/var/log/cups/cups-pdf_log")};
-    mConfiguration->addItemStringList(QStringLiteral("CupsPdfLogFilesPaths"), mCupsPdfPaths,
-                                      defaultCupsPdfPaths, QStringLiteral("CupsPdfLogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("CupsPdfLogFilesPaths"), mCupsPdfPaths, defaultCupsPdfPaths, QStringLiteral("CupsPdfLogFilesPaths"));
 }
 
 CupsConfiguration::~CupsConfiguration()

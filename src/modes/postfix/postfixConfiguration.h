@@ -22,12 +22,12 @@
 #ifndef POSTFIX_CONFIGURATION_H
 #define POSTFIX_CONFIGURATION_H
 
-#include <QStringList>
 #include <QList>
+#include <QStringList>
 
+#include "defaults.h"
 #include "genericConfiguration.h"
 #include "globals.h"
-#include "defaults.h"
 
 #include "postfixLogMode.h"
 

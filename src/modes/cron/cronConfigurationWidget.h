@@ -24,9 +24,9 @@
 
 #include "logModeConfigurationWidget.h"
 
-#include <QVBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QVBoxLayout>
 
 #include <KLocalizedString>
 

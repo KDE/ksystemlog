@@ -22,8 +22,8 @@
 #ifndef LOG_MODE_CONFIGURATION_WIDGET_H
 #define LOG_MODE_CONFIGURATION_WIDGET_H
 
-#include <QWidget>
 #include <QString>
+#include <QWidget>
 
 class LogModeConfigurationWidget : public QWidget
 {

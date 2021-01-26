@@ -22,11 +22,11 @@
 #include "loadingBar.h"
 
 #include <QApplication>
-#include <QPushButton>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QProgressBar>
+#include <QPushButton>
 #include <QVBoxLayout>
-#include <QHBoxLayout>
 
 #include <KLocalizedString>
 LoadingBar::LoadingBar(QWidget *parent)
@@ -70,22 +70,26 @@ void LoadingBar::startLoading(const LogMode &logMode, const LogFile &logFile, in
     if (fileCount > 1 && fileIndex >= 1) {
         if (mFirstLoading) {
             mLabel->setText(i18np("Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
-                                  "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
-                                  logMode.name(), logFile.url().toLocalFile(), fileIndex));
+                                  "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
+                                  fileCount,
+                                  logMode.name(),
+                                  logFile.url().toLocalFile(),
+                                  fileIndex));
         } else {
             mLabel->setText(i18np("Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)",
-                                  "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)", fileCount,
-                                  logMode.name(), logFile.url().toLocalFile(), fileIndex));
+                                  "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)",
+                                  fileCount,
+                                  logMode.name(),
+                                  logFile.url().toLocalFile(),
+                                  fileIndex));
         }
     }
     // Only one file
     else {
         if (mFirstLoading) {
-            mLabel->setText(
-                i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
+            mLabel->setText(i18n("Loading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
         } else {
-            mLabel->setText(
-                i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
+            mLabel->setText(i18n("Reloading <b>%1</b>...<br /><i>%2</i>", logMode.name(), logFile.url().toLocalFile()));
         }
     }
 }

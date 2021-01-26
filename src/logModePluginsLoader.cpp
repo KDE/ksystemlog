@@ -23,25 +23,25 @@
 
 #include "globals.h"
 
-#include "logging.h"
 #include "defaults.h"
+#include "logging.h"
 
 // Includes existing log modes
 #include "openFactory.h"
 
 #include "systemFactory.h"
 
-#include "kernelFactory.h"
-#include "xorgFactory.h"
-#include "cronFactory.h"
-#include "daemonFactory.h"
-#include "authenticationFactory.h"
-#include "apacheFactory.h"
-#include "cupsFactory.h"
-#include "postfixFactory.h"
 #include "acpidFactory.h"
-#include "xsessionFactory.h"
+#include "apacheFactory.h"
+#include "authenticationFactory.h"
+#include "cronFactory.h"
+#include "cupsFactory.h"
+#include "daemonFactory.h"
+#include "kernelFactory.h"
+#include "postfixFactory.h"
 #include "sambaFactory.h"
+#include "xorgFactory.h"
+#include "xsessionFactory.h"
 #ifdef HAVE_JOURNALD
 #include "journaldFactory.h"
 #endif

@@ -23,8 +23,8 @@
 #include "journaldLocalAnalyzer.h"
 #include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
-#include "logging.h"
 #include "logViewModel.h"
+#include "logging.h"
 
 #include <KLocalizedString>
 
@@ -55,8 +55,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     const qintptr fd = sd_journal_get_fd(mJournal);
     mJournalNotifier = new QSocketNotifier(fd, QSocketNotifier::Read);
     mJournalNotifier->setEnabled(false);
-    connect(mJournalNotifier, &QSocketNotifier::activated, this,
-            &JournaldLocalAnalyzer::journalDescriptorUpdated);
+    connect(mJournalNotifier, &QSocketNotifier::activated, this, &JournaldLocalAnalyzer::journalDescriptorUpdated);
 
     if (configuration->displayCurrentBootOnly()) {
         QFile file(QLatin1String("/proc/sys/kernel/random/boot_id"));

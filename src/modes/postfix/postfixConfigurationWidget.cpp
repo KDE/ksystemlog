@@ -22,8 +22,7 @@
 #include "postfixConfigurationWidget.h"
 
 PostfixConfigurationWidget::PostfixConfigurationWidget()
-    : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON),
-                                 i18n("Postfix Log"))
+    : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON), i18n("Postfix Log"))
 {
     auto *layout = new QVBoxLayout(this);
 
@@ -51,18 +50,14 @@ void PostfixConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Postfix Options...";
 
-    auto *configuration = Globals::instance()
-                          .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-                          ->logModeConfiguration<PostfixConfiguration *>();
+    auto *configuration = Globals::instance().findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))->logModeConfiguration<PostfixConfiguration *>();
     configuration->setLogFilesPaths(mLileList->paths());
     configuration->setLogFilesLevels(mLileList->levels());
 }
 
 void PostfixConfigurationWidget::readConfig()
 {
-    auto *configuration = Globals::instance()
-                          .findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))
-                          ->logModeConfiguration<PostfixConfiguration *>();
+    auto *configuration = Globals::instance().findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))->logModeConfiguration<PostfixConfiguration *>();
 
     mLileList->removeAllItems();
 

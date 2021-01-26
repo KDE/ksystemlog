@@ -24,12 +24,12 @@
 #include "logMode.h"
 #include "logging.h"
 
-#include "simpleAction.h"
 #include "daemonLogMode.h"
+#include "simpleAction.h"
 
 QList<LogMode *> DaemonLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new DaemonLogMode() };
+    const QList<LogMode *> logModes{new DaemonLogMode()};
     return logModes;
 }
 

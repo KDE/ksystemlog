@@ -22,15 +22,15 @@
 #ifndef AUTHENTICATION_CONFIGURATION_WIDGET_H
 #define AUTHENTICATION_CONFIGURATION_WIDGET_H
 
-#include <QHBoxLayout>
 #include <QGroupBox>
+#include <QHBoxLayout>
 
 #include <KLocalizedString>
 #include <KUrlRequester>
 
+#include "fileList.h"
 #include "globals.h"
 #include "logging.h"
-#include "fileList.h"
 
 #include "logLevel.h"
 

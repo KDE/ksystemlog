@@ -26,9 +26,9 @@
 #include "logging.h"
 
 #include "acpidAnalyzer.h"
-#include "acpidItemBuilder.h"
-#include "acpidConfigurationWidget.h"
 #include "acpidConfiguration.h"
+#include "acpidConfigurationWidget.h"
+#include "acpidItemBuilder.h"
 
 AcpidLogMode::AcpidLogMode()
     : LogMode(QStringLiteral(ACPID_LOG_MODE_ID), i18n("ACPI Log"), QStringLiteral(ACPID_MODE_ICON))
@@ -41,9 +41,9 @@ AcpidLogMode::AcpidLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the ACPI log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
-                                "computer, like notebook batteries, reset buttons..."));
+    d->action->setWhatsThis(
+        i18n("Displays the ACPI log in the current tab. ACPI is used to manage the hardware components of your "
+             "computer, like notebook batteries, reset buttons..."));
 
     auto *configuration = logModeConfiguration<AcpidConfiguration *>();
     checkLogFilesPresence(configuration->acpidPaths());

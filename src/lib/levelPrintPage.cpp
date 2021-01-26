@@ -23,10 +23,10 @@
 
 #include <KLocalizedString>
 
+#include <QButtonGroup>
 #include <QCheckBox>
 #include <QGridLayout>
 #include <QLabel>
-#include <QButtonGroup>
 
 #include "logLevel.h"
 #include "logViewWidgetItem.h"

@@ -24,8 +24,8 @@
 
 #include <QWidget>
 
-#include "logMode.h"
 #include "logFile.h"
+#include "logMode.h"
 
 class QProgressBar;
 class QLabel;

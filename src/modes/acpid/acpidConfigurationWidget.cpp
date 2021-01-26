@@ -26,26 +26,21 @@ AcpidConfigurationWidget::AcpidConfigurationWidget()
 {
     auto *layout = new QHBoxLayout(this);
 
-    mFileList
-        = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
+    mFileList = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
     connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
     layout->addWidget(mFileList);
 }
 
 void AcpidConfigurationWidget::saveConfig()
 {
-    auto *acpidConfiguration = Globals::instance()
-                               .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
-                               ->logModeConfiguration<AcpidConfiguration *>();
+    auto *acpidConfiguration = Globals::instance().findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))->logModeConfiguration<AcpidConfiguration *>();
 
     acpidConfiguration->setAcpidPaths(mFileList->paths());
 }
 
 void AcpidConfigurationWidget::readConfig()
 {
-    auto *acpidConfiguration = Globals::instance()
-                               .findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))
-                               ->logModeConfiguration<AcpidConfiguration *>();
+    auto *acpidConfiguration = Globals::instance().findLogMode(QStringLiteral(ACPID_LOG_MODE_ID))->logModeConfiguration<AcpidConfiguration *>();
 
     mFileList->removeAllItems();
 

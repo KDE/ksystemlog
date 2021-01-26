@@ -21,8 +21,8 @@
 
 #include "view.h"
 
-#include <QDropEvent>
 #include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QFileInfo>
 #include <QMimeData>
 
@@ -51,18 +51,15 @@ View::View(QWidget *parent)
     topLayout->setSpacing(2);
 
     mLogViewFilterWidget = new LogViewFilterWidget(this);
-    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
-            &View::searchFilterChanged);
-    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this,
-            &View::unselectHiddenItems);
+    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this, &View::searchFilterChanged);
+    connect(mLogViewFilterWidget->filterLine(), &LogViewWidgetSearchLine::treeWidgetUpdated, this, &View::unselectHiddenItems);
 
     mLogViewFilterWidget->setVisible(KSystemLogConfig::toggleFilterBar());
 
     topLayout->addWidget(mLogViewFilterWidget);
 
     mLogViewWidget = new LogViewWidget(this);
-    connect(mLogViewWidget, &LogViewWidget::columnsChanged, mLogViewFilterWidget,
-            &LogViewFilterWidget::updateFilterColumns);
+    connect(mLogViewWidget, &LogViewWidget::columnsChanged, mLogViewFilterWidget, &LogViewFilterWidget::updateFilterColumns);
 
     mLogViewFilterWidget->filterLine()->setTreeWidget(mLogViewWidget);
     topLayout->addWidget(mLogViewWidget);

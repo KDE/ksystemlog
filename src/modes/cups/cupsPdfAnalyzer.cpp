@@ -23,8 +23,7 @@
 
 CupsPdfAnalyzer::CupsPdfAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
-    , mCupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp()
-                    + QLatin1String(R"([ ]+\[(\w*)\][ ]+(.*))"))
+    , mCupsPdfRegex(QLatin1String("\\S* ") + ParsingHelper::instance()->syslogDateTimeRegexp() + QLatin1String(R"([ ]+\[(\w*)\][ ]+(.*))"))
 { // \\[(.*)\\] (\\S*) (\\S*) (\\S*)
 }
 
@@ -62,8 +61,7 @@ LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &or
     const QDateTime dateTime = ParsingHelper::instance()->parseSyslogDateTime(capturedTexts.takeAt(0));
     LogLevel *logLevel = findLogLevel(capturedTexts.takeAt(0));
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
-                       originalLogFile.url().toLocalFile(), logLevel, mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts, originalLogFile.url().toLocalFile(), logLevel, mLogMode);
 }
 
 LogLevel *CupsPdfAnalyzer::findLogLevel(const QString &level)

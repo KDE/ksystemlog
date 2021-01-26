@@ -67,6 +67,10 @@ LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &o
 
     const QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(capturedTexts.takeAt(3));
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts,
-                       originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++,
+                       dateTime,
+                       capturedTexts,
+                       originalLogFile.url().toLocalFile(),
+                       Globals::instance().informationLogLevel(),
+                       mLogMode);
 }

@@ -26,8 +26,8 @@
 #include "logging.h"
 
 #include "postfixAnalyzer.h"
-#include "postfixConfigurationWidget.h"
 #include "postfixConfiguration.h"
+#include "postfixConfigurationWidget.h"
 
 #include "logModeItemBuilder.h"
 
@@ -42,9 +42,9 @@ PostfixLogMode::PostfixLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the Postfix log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the Postfix log in the current tab. Postfix is the most known and used mail server in the "
-                                "Linux world."));
+    d->action->setWhatsThis(
+        i18n("Displays the Postfix log in the current tab. Postfix is the most known and used mail server in the "
+             "Linux world."));
 
     checkLogFilesPresence(logModeConfiguration<PostfixConfiguration *>()->logFilesPaths());
 }

@@ -22,8 +22,8 @@
 #ifndef LEVELPRINTPAGE_H
 #define LEVELPRINTPAGE_H
 
-#include <QWidget>
 #include <QString>
+#include <QWidget>
 
 class QButtonGroup;
 class QVBoxLayout;

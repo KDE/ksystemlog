@@ -22,9 +22,9 @@
 #ifndef LOG_FILE_H
 #define LOG_FILE_H
 
-#include <QObject>
 #include <QDataStream>
 #include <QDebug>
+#include <QObject>
 #include <QUrl>
 
 class LogLevel;

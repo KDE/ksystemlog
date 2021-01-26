@@ -21,8 +21,8 @@
 
 #include <QList>
 #include <QStringList>
-#include <QThread>
 #include <QTest>
+#include <QThread>
 
 #include <KDirWatch>
 
@@ -31,8 +31,8 @@
 #include "analyzer.h"
 #include "globals.h"
 
-#include "logLevel.h"
 #include "logFile.h"
+#include "logLevel.h"
 #include "logViewModel.h"
 #include "logViewWidget.h"
 
@@ -117,14 +117,12 @@ void KernelAnalyzerTest::testUbuntuDmesg()
 
     QList<LogLine *> logLines = model->logLines();
 
-    QStringList items = QStringList() << QStringLiteral("ADDRCONF(NETDEV_UP)")
-                                      << QStringLiteral("eth0: link is not ready");
+    QStringList items = QStringList() << QStringLiteral("ADDRCONF(NETDEV_UP)") << QStringLiteral("eth0: link is not ready");
     QDateTime assertedDateTime = kernelAnalyzer->findStartupTime();
     assertedDateTime = assertedDateTime.addSecs(22);
     assertedDateTime = assertedDateTime.addMSecs(232);
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(),
-                      assertedDateTime, items);
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(), assertedDateTime, items);
 
     testUtil.destroyReader(kernelAnalyzer);
 }
@@ -155,8 +153,7 @@ void KernelAnalyzerTest::testSuseDmesg()
 
     QStringList items = QStringList() << QStringLiteral("r8169") << QStringLiteral("eth0: link down");
 
-    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(),
-                      kernelAnalyzer->findStartupTime(), items);
+    testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(), kernelAnalyzer->findStartupTime(), items);
 
     testUtil.destroyReader(kernelAnalyzer);
 }

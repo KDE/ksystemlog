@@ -22,8 +22,8 @@
 #ifndef LOG_MODE_GENERIC_CONFIGURATION_H
 #define LOG_MODE_GENERIC_CONFIGURATION_H
 
-#include <QStringList>
 #include <QList>
+#include <QStringList>
 
 #include "logFile.h"
 

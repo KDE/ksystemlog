@@ -22,8 +22,8 @@
 #ifndef LOG_VIEW_FILTER_WIDGET_H
 #define LOG_VIEW_FILTER_WIDGET_H
 
-#include <QWidget>
 #include <QStandardItem>
+#include <QWidget>
 
 #include <KTreeWidgetSearchLine>
 

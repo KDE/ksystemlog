@@ -78,9 +78,7 @@ void CronConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Cron Options...";
 
-    auto *cronConfiguration = Globals::instance()
-                              .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
-                              ->logModeConfiguration<CronConfiguration *>();
+    auto *cronConfiguration = Globals::instance().findLogMode(QStringLiteral(CRON_LOG_MODE_ID))->logModeConfiguration<CronConfiguration *>();
     cronConfiguration->setCronPaths(mFileList->paths());
 
     if (!mProcessFilterGroup->isChecked()) {
@@ -92,9 +90,7 @@ void CronConfigurationWidget::saveConfig()
 
 void CronConfigurationWidget::readConfig()
 {
-    auto *cronConfiguration = Globals::instance()
-                              .findLogMode(QStringLiteral(CRON_LOG_MODE_ID))
-                              ->logModeConfiguration<CronConfiguration *>();
+    auto *cronConfiguration = Globals::instance().findLogMode(QStringLiteral(CRON_LOG_MODE_ID))->logModeConfiguration<CronConfiguration *>();
 
     mFileList->removeAllItems();
 

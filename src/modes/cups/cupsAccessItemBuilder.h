@@ -31,8 +31,8 @@
 #include "logging.h"
 
 #include "logLine.h"
-#include "logViewWidgetItem.h"
 #include "logMode.h"
+#include "logViewWidgetItem.h"
 
 class CupsAccessItemBuilder : public LogModeItemBuilder
 {

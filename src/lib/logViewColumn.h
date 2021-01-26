@@ -22,9 +22,9 @@
 #ifndef LOG_VIEW_COLUMN_H
 #define LOG_VIEW_COLUMN_H
 
-#include <QString>
 #include <QDataStream>
 #include <QDebug>
+#include <QString>
 
 #include "globals.h"
 

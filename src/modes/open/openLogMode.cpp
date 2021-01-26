@@ -21,8 +21,8 @@
 
 #include "openLogMode.h"
 
-#include <QString>
 #include <QFileDialog>
+#include <QString>
 
 #include <KLocalizedString>
 

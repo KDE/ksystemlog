@@ -22,48 +22,49 @@
 #include "mainWindow.h"
 
 // Qt includes
-#include <QActionGroup>
 #include <QAction>
+#include <QActionGroup>
+#include <QIcon>
 #include <QList>
 #include <QPrinter>
-#include <QIcon>
 
 // KDE includes
+#include <KActionCollection>
 #include <KActionMenu>
 #include <KLocalizedString>
-#include <KStandardShortcut>
 #include <KStandardAction>
-#include <KActionCollection>
+#include <KStandardShortcut>
 
 // Project includes
 #include "ksystemlogConfig.h"
 
 #include "statusBar.h"
 
+#include "configurationDialog.h"
 #include "logViewWidget.h"
 #include "tabLogViewsWidget.h"
-#include "configurationDialog.h"
 
 #include "loggerDialog.h"
 
 #include "detailDialog.h"
 
-#include "logModeConfiguration.h"
 #include "logManager.h"
+#include "logModeConfiguration.h"
 
-#include "logMode.h"
-#include "logLevel.h"
 #include "logFile.h"
+#include "logLevel.h"
+#include "logMode.h"
 
 #include "logging.h"
 
-#include "view.h"
-#include "logViewSearchWidget.h"
 #include "logModePluginsLoader.h"
+#include "logViewSearchWidget.h"
+#include "view.h"
 
 #include "globals.h"
 
-namespace KSystemLog {
+namespace KSystemLog
+{
 MainWindow::MainWindow()
     : KXmlGuiWindow(nullptr)
 {
@@ -148,8 +149,7 @@ void MainWindow::setupTabLogViews()
     mTabs = new TabLogViewsWidget(this);
 
     connect(mTabs, &TabLogViewsWidget::statusBarChanged, this, &MainWindow::changeStatusBar);
-    connect(mTabs, &TabLogViewsWidget::logManagerCreated, this,
-            &MainWindow::prepareCreatedLogManager);
+    connect(mTabs, &TabLogViewsWidget::logManagerCreated, this, &MainWindow::prepareCreatedLogManager);
     connect(mTabs, &QTabWidget::currentChanged, this, &MainWindow::changeCurrentTab);
 
     setCentralWidget(mTabs);
@@ -208,12 +208,9 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
     connect(manager, &LogManager::reloaded, this, &MainWindow::changeCurrentTab);
 
     connect(manager->usedView(), &View::searchFilterChanged, this, &MainWindow::updateStatusBar);
-    connect(manager->usedView()->logViewWidget(), &QTreeWidget::itemDoubleClicked, this,
-            &MainWindow::showDetailsDialog);
-    connect(manager->usedView()->logViewWidget(), &QTreeWidget::itemSelectionChanged, this,
-            &MainWindow::updateSelection);
-    connect(manager->usedView()->logViewWidget()->model(), &LogViewModel::processingMultipleInsertions, this,
-            &MainWindow::updateReloading);
+    connect(manager->usedView()->logViewWidget(), &QTreeWidget::itemDoubleClicked, this, &MainWindow::showDetailsDialog);
+    connect(manager->usedView()->logViewWidget(), &QTreeWidget::itemSelectionChanged, this, &MainWindow::updateSelection);
+    connect(manager->usedView()->logViewWidget()->model(), &LogViewModel::processingMultipleInsertions, this, &MainWindow::updateReloading);
 
     // Correctly initialize the Status Bar
     updateStatusBar();
@@ -322,13 +319,10 @@ void MainWindow::updateStatusBar()
     int notHiddenItemCount = currentManager->usedView()->logViewWidget()->notHiddenItemCount();
 
     if (itemCount == notHiddenItemCount) {
-        mStatusBar->changeLineCountMessage(
-            i18ncp("Total displayed lines", "1 line.", "%1 lines.",
-                   currentManager->usedView()->logViewWidget()->itemCount()));
+        mStatusBar->changeLineCountMessage(i18ncp("Total displayed lines", "1 line.", "%1 lines.", currentManager->usedView()->logViewWidget()->itemCount()));
     } else {
-        mStatusBar->changeLineCountMessage(i18ncp("Line not hidden by search / Total displayed lines",
-                                                  "1 line / %2 total.", "%1 lines / %2 total.",
-                                                  notHiddenItemCount, itemCount));
+        mStatusBar->changeLineCountMessage(
+            i18ncp("Line not hidden by search / Total displayed lines", "1 line / %2 total.", "%1 lines / %2 total.", notHiddenItemCount, itemCount));
     }
 
     mStatusBar->changeLastModification(currentManager->lastUpdate());
@@ -361,9 +355,9 @@ void MainWindow::changeResumePauseAction(bool paused)
         mResumePauseAction->setText(i18n("S&top"));
         mResumePauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-stop")));
         mResumePauseAction->setToolTip(i18n("Pause the watching of the current log"));
-        mResumePauseAction->setWhatsThis(i18n(
-                                             "Pauses the watching of the current log. This action is particularly useful when the system is "
-                                             "writing too many lines to log files, causing KSystemLog to reload too frequently."));
+        mResumePauseAction->setWhatsThis(
+            i18n("Pauses the watching of the current log. This action is particularly useful when the system is "
+                 "writing too many lines to log files, causing KSystemLog to reload too frequently."));
         mResumePauseAction->setChecked(false);
         actionCollection()->setDefaultShortcut(mResumePauseAction, Qt::CTRL | Qt::Key_P);
     }
@@ -430,8 +424,7 @@ void MainWindow::changeCurrentTab()
     // Updating the current reloading status
     updateReloading();
 
-    bool enabledReloading
-        = !currentManager->usedView()->logViewWidget()->model()->isProcessingMultipleInsertions();
+    bool enabledReloading = !currentManager->usedView()->logViewWidget()->model()->isProcessingMultipleInsertions();
 
     bool enabledAction;
     // Change the title of the window
@@ -535,15 +528,14 @@ void MainWindow::setupActions()
 
     QAction *fileOpenAction = actionCollection()->addAction(KStandardAction::Open, this, SLOT(fileOpen()));
     fileOpenAction->setToolTip(i18n("Open a file in KSystemLog"));
-    fileOpenAction->setWhatsThis(
-        i18n("Opens a file in KSystemLog and displays its content in the current tab."));
+    fileOpenAction->setWhatsThis(i18n("Opens a file in KSystemLog and displays its content in the current tab."));
 
     mPrintAction = actionCollection()->addAction(KStandardAction::Print);
     mPrintAction->setText(i18n("&Print Selection..."));
     mPrintAction->setToolTip(i18n("Print the selection"));
-    mPrintAction->setWhatsThis(i18n(
-                                   "Prints the selection. Simply select the important lines and click on this menu entry to print the "
-                                   "selection."));
+    mPrintAction->setWhatsThis(
+        i18n("Prints the selection. Simply select the important lines and click on this menu entry to print the "
+             "selection."));
     mPrintAction->setEnabled(false);
 
     mSaveAction = actionCollection()->addAction(KStandardAction::SaveAs);
@@ -561,26 +553,26 @@ void MainWindow::setupActions()
 
     mCopyAction = actionCollection()->addAction(KStandardAction::Copy);
     mCopyAction->setToolTip(i18n("Copy the selection to the clipboard"));
-    mCopyAction->setWhatsThis(i18n(
-                                  "Copies the selection to the clipboard. This action is useful if you want to paste the selection in "
-                                  "a chat or an email."));
+    mCopyAction->setWhatsThis(
+        i18n("Copies the selection to the clipboard. This action is useful if you want to paste the selection in "
+             "a chat or an email."));
     mCopyAction->setEnabled(false);
 
     mExpandAllAction = actionCollection()->addAction(QStringLiteral("expand_all"));
     mExpandAllAction->setText(i18n("Ex&pand All"));
     mExpandAllAction->setToolTip(i18n("Expand all categories"));
-    mExpandAllAction->setWhatsThis(i18n(
-                                       "This action opens all main categories. This is enabled only if an option has been selected in the "
-                                       "<b>Group By</b> menu."));
+    mExpandAllAction->setWhatsThis(
+        i18n("This action opens all main categories. This is enabled only if an option has been selected in the "
+             "<b>Group By</b> menu."));
     mExpandAllAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mExpandAllAction, Qt::CTRL | Qt::Key_X);
 
     mCollapseAllAction = actionCollection()->addAction(QStringLiteral("collapse_all"));
     mCollapseAllAction->setText(i18n("Col&lapse All"));
     mCollapseAllAction->setToolTip(i18n("Collapse all categories"));
-    mCollapseAllAction->setWhatsThis(i18n(
-                                         "This action closes all main categories. This is enabled only if an option has been selected in the "
-                                         "<b>Group By</b> menu."));
+    mCollapseAllAction->setWhatsThis(
+        i18n("This action closes all main categories. This is enabled only if an option has been selected in the "
+             "<b>Group By</b> menu."));
     mCollapseAllAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mCollapseAllAction, Qt::CTRL | Qt::Key_L);
 
@@ -588,45 +580,40 @@ void MainWindow::setupActions()
     mSendMailAction->setText(i18n("&Email Selection..."));
     mSendMailAction->setIcon(QIcon::fromTheme(QStringLiteral("mail-message-new")));
     mSendMailAction->setToolTip(i18n("Send the selection by mail"));
-    mSendMailAction->setWhatsThis(i18n(
-                                      "Sends the selection by mail. Simply select the important lines and click on this menu entry to send "
-                                      "the selection to a friend or a mailing list."));
+    mSendMailAction->setWhatsThis(
+        i18n("Sends the selection by mail. Simply select the important lines and click on this menu entry to send "
+             "the selection to a friend or a mailing list."));
     mSendMailAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mSendMailAction, Qt::CTRL | Qt::Key_M);
 
-    mLogMessageAction
-        = actionCollection()->addAction(QStringLiteral("log_message"), this, SLOT(showLogMessageDialog()));
+    mLogMessageAction = actionCollection()->addAction(QStringLiteral("log_message"), this, SLOT(showLogMessageDialog()));
     mLogMessageAction->setText(i18n("&Add Log Entry..."));
     mLogMessageAction->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     mLogMessageAction->setShortcut(Qt::CTRL | Qt::Key_L);
     mLogMessageAction->setToolTip(i18n("Add a log entry to the log system"));
-    mLogMessageAction->setWhatsThis(
-        i18n("This action will open a dialog which lets you send a message to the log system."));
+    mLogMessageAction->setWhatsThis(i18n("This action will open a dialog which lets you send a message to the log system."));
     actionCollection()->setDefaultShortcut(mLogMessageAction, Qt::CTRL | Qt::Key_L);
 
     mSelectAllAction = actionCollection()->addAction(KStandardAction::SelectAll);
     mSelectAllAction->setToolTip(i18n("Select all lines of the current log"));
-    mSelectAllAction->setWhatsThis(i18n(
-                                       "Selects all lines of the current log. This action is useful if you want, for example, to save all "
-                                       "the content of the current log in a file."));
+    mSelectAllAction->setWhatsThis(
+        i18n("Selects all lines of the current log. This action is useful if you want, for example, to save all "
+             "the content of the current log in a file."));
 
     mFindAction = actionCollection()->addAction(KStandardAction::Find, this, SLOT(showSearchBar()));
     mFindNextAction = actionCollection()->addAction(KStandardAction::FindNext, this, SLOT(findNext()));
-    mFindPreviousAction
-        = actionCollection()->addAction(KStandardAction::FindPrev, this, SLOT(findPrevious()));
+    mFindPreviousAction = actionCollection()->addAction(KStandardAction::FindPrev, this, SLOT(findPrevious()));
 
     actionCollection()->addAction(KStandardAction::Preferences, this, SLOT(showConfigurationDialog()));
 
     // TODO Find a solution to display at the right place this action (see Akregator interface)
-    mFilterBarAction
-        = actionCollection()->addAction(QStringLiteral("show_quick_filter"), this, SLOT(toggleFilterBar()));
+    mFilterBarAction = actionCollection()->addAction(QStringLiteral("show_quick_filter"), this, SLOT(toggleFilterBar()));
     mFilterBarAction->setText(i18n("Show &Filter Bar"));
     mFilterBarAction->setEnabled(true);
     mFilterBarAction->setCheckable(true);
     mFilterBarAction->setChecked(KSystemLogConfig::toggleFilterBar());
 
-    QAction *newTabAction
-        = actionCollection()->addAction(QStringLiteral("new_tab"), mTabs, SLOT(createTab()));
+    QAction *newTabAction = actionCollection()->addAction(QStringLiteral("new_tab"), mTabs, SLOT(createTab()));
     newTabAction->setText(i18n("&New Tab"));
     newTabAction->setIcon(QIcon::fromTheme(QStringLiteral("tab-new")));
     newTabAction->setToolTip(i18n("Create a new tab"));
@@ -634,8 +621,7 @@ void MainWindow::setupActions()
     mTabs->addAction(newTabAction);
     actionCollection()->setDefaultShortcut(newTabAction, Qt::CTRL | Qt::Key_T);
 
-    QAction *closeTabAction
-        = actionCollection()->addAction(QStringLiteral("close_tab"), mTabs, SLOT(closeTab()));
+    QAction *closeTabAction = actionCollection()->addAction(QStringLiteral("close_tab"), mTabs, SLOT(closeTab()));
     closeTabAction->setText(i18n("&Close Tab"));
     closeTabAction->setIcon(QIcon::fromTheme(QStringLiteral("tab-close")));
     closeTabAction->setToolTip(i18n("Close the current tab"));
@@ -643,8 +629,7 @@ void MainWindow::setupActions()
     mTabs->addAction(closeTabAction);
     actionCollection()->setDefaultShortcut(closeTabAction, Qt::CTRL | Qt::Key_W);
 
-    QAction *duplicateTabAction
-        = actionCollection()->addAction(QStringLiteral("duplicate_tab"), mTabs, SLOT(duplicateTab()));
+    QAction *duplicateTabAction = actionCollection()->addAction(QStringLiteral("duplicate_tab"), mTabs, SLOT(duplicateTab()));
     duplicateTabAction->setText(i18n("&Duplicate Tab"));
     duplicateTabAction->setIcon(QIcon::fromTheme(QStringLiteral("tab-duplicate")));
     duplicateTabAction->setToolTip(i18n("Duplicate the current tab"));
@@ -656,8 +641,7 @@ void MainWindow::setupActions()
     separatorAction->setSeparator(true);
     mTabs->addAction(separatorAction);
 
-    QAction *moveTabLeftAction
-        = actionCollection()->addAction(QStringLiteral("move_tab_left"), mTabs, SLOT(moveTabLeft()));
+    QAction *moveTabLeftAction = actionCollection()->addAction(QStringLiteral("move_tab_left"), mTabs, SLOT(moveTabLeft()));
     moveTabLeftAction->setText(i18n("Move Tab &Left"));
     moveTabLeftAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-left")));
     moveTabLeftAction->setToolTip(i18n("Move the current tab to the left"));
@@ -665,8 +649,7 @@ void MainWindow::setupActions()
     mTabs->addAction(moveTabLeftAction);
     actionCollection()->setDefaultShortcut(moveTabLeftAction, Qt::SHIFT | Qt::CTRL | Qt::Key_Left);
 
-    QAction *moveTabRightAction
-        = actionCollection()->addAction(QStringLiteral("move_tab_right"), mTabs, SLOT(moveTabRight()));
+    QAction *moveTabRightAction = actionCollection()->addAction(QStringLiteral("move_tab_right"), mTabs, SLOT(moveTabRight()));
     moveTabRightAction->setText(i18n("Move Tab &Right"));
     moveTabRightAction->setIcon(QIcon::fromTheme(QStringLiteral("arrow-right")));
     moveTabRightAction->setToolTip(i18n("Move the current tab to the right"));
@@ -678,8 +661,7 @@ void MainWindow::setupActions()
     mReloadAction->setText(i18n("&Reload"));
     mReloadAction->setIcon(QIcon::fromTheme(QStringLiteral("view-refresh")));
     mReloadAction->setToolTip(i18n("Reload the current log"));
-    mReloadAction->setWhatsThis(
-        i18n("Reloads the current log, if you want to be sure that the view is correctly updated."));
+    mReloadAction->setWhatsThis(i18n("Reloads the current log, if you want to be sure that the view is correctly updated."));
     actionCollection()->setDefaultShortcut(mReloadAction, Qt::Key_F5);
 
     mResumePauseAction = actionCollection()->addAction(QStringLiteral("resume_pause_parsing"));
@@ -688,22 +670,20 @@ void MainWindow::setupActions()
     connect(mResumePauseAction, &QAction::toggled, this, &MainWindow::toggleResumePauseParsing);
     changeResumePauseAction(false);
 
-    mDetailAction
-        = actionCollection()->addAction(QStringLiteral("details"), this, SLOT(showDetailsDialog()));
+    mDetailAction = actionCollection()->addAction(QStringLiteral("details"), this, SLOT(showDetailsDialog()));
     mDetailAction->setText(i18n("&Details"));
     mDetailAction->setIcon(QIcon::fromTheme(QStringLiteral("document-preview")));
     mDetailAction->setToolTip(i18n("Display details on the selected line"));
-    mDetailAction->setWhatsThis(i18n(
-                                    "Displays a dialog box which contains details on the selected line. You are able to navigate through "
-                                    "the logs from this dialog box with the <b>Previous</b> and <b>Next</b> buttons."));
+    mDetailAction->setWhatsThis(
+        i18n("Displays a dialog box which contains details on the selected line. You are able to navigate through "
+             "the logs from this dialog box with the <b>Previous</b> and <b>Next</b> buttons."));
     mDetailAction->setEnabled(false);
     actionCollection()->setDefaultShortcut(mDetailAction, Qt::ALT | Qt::Key_Return);
 
     mTooltipEnabledAction = actionCollection()->addAction(QStringLiteral("tooltipEnabled"));
     mTooltipEnabledAction->setText(i18n("&Enable Detailed Tooltips"));
     mTooltipEnabledAction->setToolTip(i18n("Disable/Enable the tooltip on the current view"));
-    mTooltipEnabledAction->setWhatsThis(
-        i18n("Disables/Enables the tooltip displayed when the cursor hovers a log line."));
+    mTooltipEnabledAction->setWhatsThis(i18n("Disables/Enables the tooltip displayed when the cursor hovers a log line."));
     mTooltipEnabledAction->setCheckable(true);
     mTooltipEnabledAction->setChecked(KSystemLogConfig::tooltipEnabled());
     connect(mTooltipEnabledAction, &QAction::toggled, this, &MainWindow::toggleItemTooltip);
@@ -770,10 +750,8 @@ void MainWindow::setupLogModeMenu()
     int serviceItems = 0;
     int othersItems = 0;
 
-    auto *servicesAction = new KActionMenu(
-        QIcon::fromTheme(QStringLiteral("preferences-system-session-services")), i18n("Services"), this);
-    auto *othersAction
-        = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-other")), i18n("Others"), this);
+    auto *servicesAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-system-session-services")), i18n("Services"), this);
+    auto *othersAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-other")), i18n("Others"), this);
 
     foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         if (logModeAction->category() == LogModeAction::RootCategory) {

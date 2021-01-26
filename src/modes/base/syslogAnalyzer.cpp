@@ -21,8 +21,8 @@
 
 #include "syslogAnalyzer.h"
 
-#include <QStringList>
 #include <QDateTime>
+#include <QStringList>
 
 #include <KLocalizedString>
 
@@ -30,9 +30,9 @@
 #include "logging.h"
 
 #include "localLogFileReader.h"
+#include "logLevel.h"
 #include "logLine.h"
 #include "logMode.h"
-#include "logLevel.h"
 #include "logViewWidget.h"
 
 #include "logViewModel.h"
@@ -161,8 +161,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     // If we can't find any ':' character, it means that this line is a
     // internal message of syslogd
     else {
-        if (line.contains(QLatin1String("last message repeated"))
-            || line.contains(QLatin1String("-- MARK --"))) {
+        if (line.contains(QLatin1String("last message repeated")) || line.contains(QLatin1String("-- MARK --"))) {
             process = QStringLiteral("syslog");
         } else {
             process = undefinedProcess();
@@ -176,16 +175,19 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     list.append(process);
     list.append(message);
 
-    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().toLocalFile(),
-                       originalFile.defaultLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().toLocalFile(), originalFile.defaultLogLevel(), mLogMode);
 }
 
 inline LogLine *SyslogAnalyzer::undefinedLogLine(const QString &message, const LogFile &originalFile)
 {
     QStringList items;
     items << undefinedHostName() << undefinedProcess() << message;
-    return new LogLine(mLogLineInternalIdGenerator++, QDateTime::currentDateTime(), items,
-                       originalFile.url().toLocalFile(), originalFile.defaultLogLevel(), mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++,
+                       QDateTime::currentDateTime(),
+                       items,
+                       originalFile.url().toLocalFile(),
+                       originalFile.defaultLogLevel(),
+                       mLogMode);
 }
 
 inline QString SyslogAnalyzer::undefinedHostName()

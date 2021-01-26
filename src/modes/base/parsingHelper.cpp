@@ -21,8 +21,8 @@
 
 #include "parsingHelper.h"
 
-#include <KLocalizedString>
 #include <KFormat>
+#include <KLocalizedString>
 
 #include "logging.h"
 
@@ -124,8 +124,7 @@ QDateTime ParsingHelper::parseHttpDateTime(const QString &logLine)
 
     // QString zone=logLine.mid(22,5);
 
-    return QDateTime(QDate(year.toInt(), parseSyslogMonth(month), day.toInt()),
-                     QTime(hour.toInt(), min.toInt(), sec.toInt()));
+    return QDateTime(QDate(year.toInt(), parseSyslogMonth(month), day.toInt()), QTime(hour.toInt(), min.toInt(), sec.toInt()));
 }
 
 /**

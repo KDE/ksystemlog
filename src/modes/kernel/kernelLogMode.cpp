@@ -39,10 +39,10 @@ KernelLogMode::KernelLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the kernel log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the kernel log in the current tab. This log is only useful for users who want to know why "
-                                "the Kernel does not detect their hardware or what is the cause of the last <i>kernel "
-                                "panic/oops</i>."));
+    d->action->setWhatsThis(
+        i18n("Displays the kernel log in the current tab. This log is only useful for users who want to know why "
+             "the Kernel does not detect their hardware or what is the cause of the last <i>kernel "
+             "panic/oops</i>."));
 }
 
 KernelLogMode::~KernelLogMode()
@@ -57,6 +57,6 @@ Analyzer *KernelLogMode::createAnalyzer(const QVariant &options)
 
 QList<LogFile> KernelLogMode::createLogFiles()
 {
-    const QList<LogFile> logFiles {LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel())};
+    const QList<LogFile> logFiles{LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel())};
     return logFiles;
 }

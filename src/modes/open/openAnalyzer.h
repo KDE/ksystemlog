@@ -24,8 +24,8 @@
 
 #include "syslogAnalyzer.h"
 
-#include "logging.h"
 #include "logFile.h"
+#include "logging.h"
 
 #include "openLogMode.h"
 

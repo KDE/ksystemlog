@@ -22,8 +22,8 @@
 #ifndef LOG_VIEW_WIDGET_H
 #define LOG_VIEW_WIDGET_H
 
-#include <QTreeWidget>
 #include <QList>
+#include <QTreeWidget>
 
 #include "logViewColumns.h"
 

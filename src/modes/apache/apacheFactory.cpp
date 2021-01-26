@@ -23,15 +23,15 @@
 
 #include <KLocalizedString>
 
-#include "multipleActions.h"
 #include "logMode.h"
 #include "logging.h"
+#include "multipleActions.h"
 
-#include "apacheLogMode.h"
 #include "apacheAccessLogMode.h"
+#include "apacheLogMode.h"
 
-#include "apacheConfigurationWidget.h"
 #include "apacheConfiguration.h"
+#include "apacheConfigurationWidget.h"
 
 QList<LogMode *> ApacheLogModeFactory::createLogModes() const
 {
@@ -59,8 +59,7 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)),
-                                                i18n("Apache"), apacheLogMode);
+    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(APACHE_MODE_ICON)), i18n("Apache"), apacheLogMode);
     if (apacheLogsExist) {
         multipleActions->addInnerAction(apacheLogMode->action());
     }

@@ -24,16 +24,16 @@
 #include <QAction>
 #include <QHeaderView>
 
-#include <QIcon>
 #include <KLocalizedString>
+#include <QIcon>
 
 #include "logging.h"
 
 #include "logViewColumn.h"
 
-#include "logViewWidgetItem.h"
 #include "logLine.h"
 #include "logViewModel.h"
+#include "logViewWidgetItem.h"
 
 #include "ksystemlogConfig.h"
 
@@ -45,7 +45,7 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     // log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
     // lines in <b>bold</b> are the last added to the list.</p>"));
 
-    const QStringList headerLabels {i18n("Date"), i18n("Message")};
+    const QStringList headerLabels{i18n("Date"), i18n("Message")};
 
     mLogViewModel = new LogViewModel(this);
     mHeadersTogglingActions = new QActionGroup(this);

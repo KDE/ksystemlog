@@ -29,8 +29,8 @@
 #include "logging.h"
 
 #include "localLogFileReader.h"
-#include "sambaLogMode.h"
 #include "parsingHelper.h"
+#include "sambaLogMode.h"
 
 class SambaAnalyzer : public FileAnalyzer
 {

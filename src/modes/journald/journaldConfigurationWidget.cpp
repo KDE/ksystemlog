@@ -21,41 +21,34 @@
  ***************************************************************************/
 
 #include "journaldConfigurationWidget.h"
+#include "globals.h"
 #include "journaldAddressDialog.h"
 #include "journaldConfiguration.h"
-#include "globals.h"
 
 #include <KLocalizedString>
 
 #include <QCheckBox>
 
 JournaldConfigurationWidget::JournaldConfigurationWidget()
-    : LogModeConfigurationWidget(i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON),
-                                 i18n("Journald Log"))
+    : LogModeConfigurationWidget(i18n("Journald Log"), QLatin1String(JOURNALD_MODE_ICON), i18n("Journald Log"))
 {
     setupUi(this);
 
     remoteJournalsListWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    connect(remoteJournalsListWidget, &QTableWidget::itemSelectionChanged, this,
-            &JournaldConfigurationWidget::updateButtons);
+    connect(remoteJournalsListWidget, &QTableWidget::itemSelectionChanged, this, &JournaldConfigurationWidget::updateButtons);
 
     connect(lastBootOnly, &QCheckBox::stateChanged, this, &JournaldConfigurationWidget::configurationChanged);
     connect(entriesTypeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &JournaldConfigurationWidget::configurationChanged);
 
     connect(addAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::addRemoteJournal);
-    connect(modifyAddressButton, &QPushButton::clicked, this,
-            &JournaldConfigurationWidget::modifyRemoteJournal);
-    connect(removeAddressButton, &QPushButton::clicked, this,
-            &JournaldConfigurationWidget::removeRemoteJournal);
-    connect(remoteJournalsListWidget, &QTableWidget::cellDoubleClicked, this,
-            &JournaldConfigurationWidget::tableItemClicked);
+    connect(modifyAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::modifyRemoteJournal);
+    connect(removeAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::removeRemoteJournal);
+    connect(remoteJournalsListWidget, &QTableWidget::cellDoubleClicked, this, &JournaldConfigurationWidget::tableItemClicked);
 }
 
 void JournaldConfigurationWidget::saveConfig()
 {
-    auto *configuration = Globals::instance()
-                          .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                          ->logModeConfiguration<JournaldConfiguration *>();
+    auto *configuration = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))->logModeConfiguration<JournaldConfiguration *>();
 
     configuration->setDisplayCurrentBootOnly(lastBootOnly->isChecked());
     configuration->setEntriesType((JournaldConfiguration::EntriesType)entriesTypeComboBox->currentIndex());
@@ -79,9 +72,7 @@ void JournaldConfigurationWidget::saveConfig()
 
 void JournaldConfigurationWidget::readConfig()
 {
-    auto *configuration = Globals::instance()
-                          .findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))
-                          ->logModeConfiguration<JournaldConfiguration *>();
+    auto *configuration = Globals::instance().findLogMode(QLatin1String(JOURNALD_LOG_MODE_ID))->logModeConfiguration<JournaldConfiguration *>();
 
     lastBootOnly->setChecked(configuration->displayCurrentBootOnly());
     entriesTypeComboBox->setCurrentIndex(configuration->entriesType());
@@ -97,10 +88,8 @@ void JournaldConfigurationWidget::readConfig()
             continue;
         }
         remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
-        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
-                                          new QTableWidgetItem(addressInfo.address));
-        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1,
-                                          new QTableWidgetItem(QString::number(addressInfo.port)));
+        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0, new QTableWidgetItem(addressInfo.address));
+        remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1, new QTableWidgetItem(QString::number(addressInfo.port)));
         auto *item = new QTableWidgetItem(i18n("Enabled"));
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(addressInfo.https ? Qt::Checked : Qt::Unchecked);
@@ -131,10 +120,8 @@ void JournaldConfigurationWidget::addRemoteJournal()
 
         if (!haveJournalAddress(address, port, httpsEnabled)) {
             remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
-            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0,
-                                              new QTableWidgetItem(address));
-            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1,
-                                              new QTableWidgetItem(port));
+            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0, new QTableWidgetItem(address));
+            remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1, new QTableWidgetItem(port));
             auto *item = new QTableWidgetItem(i18n("Enabled"));
             item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
             item->setCheckState(dialog.httpsEnabled() ? Qt::Checked : Qt::Unchecked);
@@ -159,8 +146,7 @@ void JournaldConfigurationWidget::tableItemClicked(int row)
     QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
     QTableWidgetItem *httpsItem = remoteJournalsListWidget->item(row, 2);
     bool httpsEnabled = (Qt::Checked == httpsItem->checkState());
-    JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text(),
-                                 httpsEnabled);
+    JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text(), httpsEnabled);
     if (dialog.exec() == QDialog::Accepted) {
         QString address = dialog.address();
         QString port = dialog.port();

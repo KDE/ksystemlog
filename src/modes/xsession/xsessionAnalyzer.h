@@ -29,8 +29,8 @@
 #include "localLogFileReader.h"
 #include "parsingHelper.h"
 
-#include "xsessionLogMode.h"
 #include "xsessionConfiguration.h"
+#include "xsessionLogMode.h"
 
 class XSessionAnalyzer : public FileAnalyzer
 {

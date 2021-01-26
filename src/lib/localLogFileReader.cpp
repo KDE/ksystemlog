@@ -21,14 +21,14 @@
 
 #include "localLogFileReader.h"
 
-#include <QMutex>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
+#include <QMutex>
 
 #include <KDirWatch>
-#include <KLocalizedString>
 #include <KFilterDev>
+#include <KLocalizedString>
 
 #include "logFileReaderPrivate.h"
 
@@ -208,8 +208,7 @@ void LocalLogFileReader::logFileModified()
 
     // If there are new lines in the file, insert only them or this is the first time we read this file
     if (d->mPreviousFilePosition != 0 && d->mPreviousFilePosition <= inputDevice->size()) {
-        logDebug() << "Reading from position " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile()
-                   << ")";
+        logDebug() << "Reading from position " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
 
         if (inputDevice->isSequential()) {
             logCritical() << "The file current position could not be modified";

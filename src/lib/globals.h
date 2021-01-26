@@ -23,8 +23,8 @@
 #define GLOBALS_H
 
 #include <QList>
-#include <QString>
 #include <QMetaEnum>
+#include <QString>
 
 #include "logMode.h"
 #include "logModeFactory.h"
@@ -63,9 +63,7 @@ public:
     };
     Q_ENUM(LogLevelIds)
 
-    enum DateFormat {
-        LongFormat = 0, ShortFormat, PreciseFormat
-    };
+    enum DateFormat { LongFormat = 0, ShortFormat, PreciseFormat };
 
     QString formatDate(DateFormat format, const QDateTime &dateTime) const;
 

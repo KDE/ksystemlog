@@ -24,8 +24,8 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include "logging.h"
 #include "analyzer.h"
+#include "logging.h"
 #include "view.h"
 
 #include "logViewWidget.h"
@@ -196,12 +196,10 @@ void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFile
     });
 
     connect(d->mAnalyzer, &Analyzer::statusBarChanged, this, &LogManager::statusBarChanged);
-    connect(d->mAnalyzer, &Analyzer::errorOccured, this,
-            &LogManager::showErrorMessage);
+    connect(d->mAnalyzer, &Analyzer::errorOccured, this, &LogManager::showErrorMessage);
     connect(d->mAnalyzer, &Analyzer::logUpdated, this, &LogManager::updateLog);
 
-    connect(d->mAnalyzer, &Analyzer::readFileStarted, d->mUsedView->loadingBar(),
-            &LoadingBar::startLoading);
+    connect(d->mAnalyzer, &Analyzer::readFileStarted, d->mUsedView->loadingBar(), &LoadingBar::startLoading);
     connect(d->mAnalyzer, &Analyzer::openingProgressed, d->mUsedView->loadingBar(), &LoadingBar::progressLoading);
     connect(d->mAnalyzer, &Analyzer::readEnded, d->mUsedView->loadingBar(), &LoadingBar::endLoading);
 

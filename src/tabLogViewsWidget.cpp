@@ -21,35 +21,33 @@
 
 #include "tabLogViewsWidget.h"
 
-#include <QPushButton>
 #include <QMenu>
+#include <QPushButton>
 
 #include <KLocalizedString>
 #include <QIcon>
 
 #include "logging.h"
 
-#include "view.h"
 #include "logViewExport.h"
+#include "view.h"
 
-#include "logMode.h"
 #include "defaults.h"
 #include "logManager.h"
-#include "tabLogManager.h"
+#include "logMode.h"
 #include "logViewWidget.h"
+#include "tabLogManager.h"
 
 TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
 {
-    auto *tabNewTabButton
-        = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
+    auto *tabNewTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
     connect(tabNewTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::createTab);
 
     tabNewTabButton->setToolTip(i18n("Create a new tab"));
     tabNewTabButton->setWhatsThis(i18n("Creates a new tab which can display another log."));
 
-    auto *tabCloseTabButton
-        = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-close")), QLatin1String(""), this);
+    auto *tabCloseTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-close")), QLatin1String(""), this);
     connect(tabCloseTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::closeTab);
 
     tabCloseTabButton->setToolTip(i18n("Close the current tab"));
@@ -302,8 +300,7 @@ void TabLogViewsWidget::reloadAll()
         }
 
         // Do a full loading of other log modes (needed if log files have been modified)
-        load(tabLogManager->logManager()->logMode(), tabLogManager->logManager(),
-             tabLogManager->logManager()->analyzerOptions());
+        load(tabLogManager->logManager()->logMode(), tabLogManager->logManager(), tabLogManager->logManager()->analyzerOptions());
     }
 }
 
@@ -321,8 +318,7 @@ void TabLogViewsWidget::changeCurrentTab(int index)
     tabLogManager->initNewLinesCount();
 
     // If the tab displayed the new added line count, rename it to the default log mode name
-    changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()),
-              tabLogManager->title());
+    changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
 
     logDebug() << "Current tab changed";
 }
@@ -332,11 +328,9 @@ void TabLogViewsWidget::changeReloadingTab(View *view, bool reloading)
     TabLogManager *tabLogManager = findRelatedTabLogManager(view);
 
     if (reloading) {
-        changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme(QStringLiteral("view-refresh")),
-                  tabLogManager->title());
+        changeTab(tabLogManager->logManager()->usedView(), QIcon::fromTheme(QStringLiteral("view-refresh")), tabLogManager->title());
     } else {
-        changeTab(tabLogManager->logManager()->usedView(),
-                  logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
+        changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
     }
 }
 
@@ -351,8 +345,7 @@ void TabLogViewsWidget::changeTitleAddedLines(View *view, int addedLinesSinceLas
         tabLogManager->addNewLinesCount(addedLinesSinceLastUpdate);
 
         // Update the tab title
-        changeTab(tabLogManager->logManager()->usedView(),
-                  logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
+        changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
     }
 }
 

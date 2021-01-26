@@ -24,8 +24,8 @@
 
 #include "syslogAnalyzer.h"
 
-#include "authenticationLogMode.h"
 #include "authenticationConfiguration.h"
+#include "authenticationLogMode.h"
 
 class AuthenticationAnalyzer : public SyslogAnalyzer
 {

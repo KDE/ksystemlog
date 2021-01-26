@@ -26,14 +26,12 @@ SambaConfigurationWidget::SambaConfigurationWidget()
 {
     auto *layout = new QHBoxLayout(this);
 
-    mSambaFileList
-        = new MultipleFileList(this, i18n(
-                                   "<p>These files will be analyzed to show <b>Samba log</b>, "
-                                   "<b>Samba Access log</b> and <b>Netbios log</b>.</p>"));
+    mSambaFileList = new MultipleFileList(this,
+                                          i18n("<p>These files will be analyzed to show <b>Samba log</b>, "
+                                               "<b>Samba Access log</b> and <b>Netbios log</b>.</p>"));
 
     mSambaPathsId = mSambaFileList->addCategory(i18n("Samba Log Files"), i18n("Add Samba File..."));
-    mSambaAccessPathsId
-        = mSambaFileList->addCategory(i18n("Samba Access Log Files"), i18n("Add Samba Access File..."));
+    mSambaAccessPathsId = mSambaFileList->addCategory(i18n("Samba Access Log Files"), i18n("Add Samba Access File..."));
     mNetbiosPathsId = mSambaFileList->addCategory(i18n("Netbios Log Files"), i18n("Add Netbios File..."));
 
     connect(mSambaFileList, &MultipleFileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
@@ -45,9 +43,7 @@ void SambaConfigurationWidget::saveConfig()
 {
     logDebug() << "Saving config from Samba Options...";
 
-    auto *sambaConfiguration = Globals::instance()
-                               .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
-                               ->logModeConfiguration<SambaConfiguration *>();
+    auto *sambaConfiguration = Globals::instance().findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))->logModeConfiguration<SambaConfiguration *>();
     sambaConfiguration->setSambaPaths(mSambaFileList->paths(mSambaPathsId));
     sambaConfiguration->setSambaAccessPaths(mSambaFileList->paths(mSambaAccessPathsId));
     sambaConfiguration->setNetbiosPaths(mSambaFileList->paths(mNetbiosPathsId));
@@ -61,9 +57,7 @@ void SambaConfigurationWidget::defaultConfig()
 
 void SambaConfigurationWidget::readConfig()
 {
-    auto *sambaConfiguration = Globals::instance()
-                               .findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))
-                               ->logModeConfiguration<SambaConfiguration *>();
+    auto *sambaConfiguration = Globals::instance().findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))->logModeConfiguration<SambaConfiguration *>();
 
     mSambaFileList->removeAllItems();
 

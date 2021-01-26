@@ -29,7 +29,7 @@
 
 QList<LogMode *> SystemLogModeFactory::createLogModes() const
 {
-    const QList<LogMode *> logModes {new SystemLogMode()};
+    const QList<LogMode *> logModes{new SystemLogMode()};
     return logModes;
 }
 

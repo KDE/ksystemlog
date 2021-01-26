@@ -26,9 +26,9 @@
 #include "logging.h"
 
 #include "xorgAnalyzer.h"
-#include "xorgItemBuilder.h"
-#include "xorgConfigurationWidget.h"
 #include "xorgConfiguration.h"
+#include "xorgConfigurationWidget.h"
+#include "xorgItemBuilder.h"
 
 XorgLogMode::XorgLogMode()
     : LogMode(QStringLiteral(XORG_LOG_MODE_ID), i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON))
@@ -41,10 +41,10 @@ XorgLogMode::XorgLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the X.org log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the X.org log in the current tab. X.org is the service which displays on screen your "
-                                "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
-                                "accelerations or why your input device is not recognized."));
+    d->action->setWhatsThis(
+        i18n("Displays the X.org log in the current tab. X.org is the service which displays on screen your "
+             "desktop and manage your graphical hardware. See this log if you want to know why you do not have 3D "
+             "accelerations or why your input device is not recognized."));
 
     auto *configuration = logModeConfiguration<XorgConfiguration *>();
     checkLogFilesPresence(configuration->xorgPaths());

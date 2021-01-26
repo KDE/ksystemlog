@@ -30,8 +30,8 @@
 // Project includes
 #include "logging.h"
 
-#include "logLevel.h"
 #include "globals.h"
+#include "logLevel.h"
 
 LoggerDialog::LoggerDialog(QWidget *parent)
     : QDialog(parent)
@@ -138,22 +138,14 @@ void LoggerDialog::buildMaps()
     mPriorities[Globals::instance().emergencyLogLevel()->name()] = QStringLiteral("emerg");
 
     // Fill the priority icon map
-    mPriorityIcons[Globals::instance().debugLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().debugLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().informationLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().informationLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().noticeLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().noticeLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().warningLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().warningLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().errorLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().errorLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().criticalLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().criticalLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().alertLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().alertLogLevel()->icon().name());
-    mPriorityIcons[Globals::instance().emergencyLogLevel()->name()]
-        = QIcon::fromTheme(Globals::instance().emergencyLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().debugLogLevel()->name()] = QIcon::fromTheme(Globals::instance().debugLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().informationLogLevel()->name()] = QIcon::fromTheme(Globals::instance().informationLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().noticeLogLevel()->name()] = QIcon::fromTheme(Globals::instance().noticeLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().warningLogLevel()->name()] = QIcon::fromTheme(Globals::instance().warningLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().errorLogLevel()->name()] = QIcon::fromTheme(Globals::instance().errorLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().criticalLogLevel()->name()] = QIcon::fromTheme(Globals::instance().criticalLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().alertLogLevel()->name()] = QIcon::fromTheme(Globals::instance().alertLogLevel()->icon().name());
+    mPriorityIcons[Globals::instance().emergencyLogLevel()->name()] = QIcon::fromTheme(Globals::instance().emergencyLogLevel()->icon().name());
 }
 
 void LoggerDialog::textChanged()
@@ -242,23 +234,21 @@ void LoggerDialog::sendMessage()
 
     // If the launching of the command failed
     if (process.error() == QProcess::FailedToStart) {
-        KMessageBox::error(this, i18n(
-                               "Unable to find the 'logger' command on your system. Please type "
-                               "'logger' in a Konsole to determine whether this command is installed."),
+        KMessageBox::error(this,
+                           i18n("Unable to find the 'logger' command on your system. Please type "
+                                "'logger' in a Konsole to determine whether this command is installed."),
                            i18n("Command not found"));
         return;
     }
 
     if (process.exitStatus() == QProcess::CrashExit) {
-        KMessageBox::error(this, i18n("The 'logger' command has not been properly exited."),
-                           i18n("Execution problem"));
+        KMessageBox::error(this, i18n("The 'logger' command has not been properly exited."), i18n("Execution problem"));
         return;
     }
 
     // No such file or directory
     if (process.exitCode() == 1) {
-        KMessageBox::error(this, i18n("This file does not exist, please choose another."),
-                           i18n("File not valid"));
+        KMessageBox::error(this, i18n("This file does not exist, please choose another."), i18n("File not valid"));
         return;
     }
 

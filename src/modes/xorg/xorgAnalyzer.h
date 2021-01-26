@@ -53,7 +53,6 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 
 private:
-
     void initializeTypeName();
 
     LogLevel *findTypeName(const QString &type);

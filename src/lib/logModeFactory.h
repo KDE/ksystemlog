@@ -22,8 +22,8 @@
 #ifndef LOG_MODE_FACTORY_H
 #define LOG_MODE_FACTORY_H
 
-#include <QObject>
 #include <QList>
+#include <QObject>
 
 class LogModeAction;
 class LogMode;

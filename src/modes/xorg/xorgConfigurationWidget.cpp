@@ -26,26 +26,21 @@ XorgConfigurationWidget::XorgConfigurationWidget()
 {
     auto *layout = new QHBoxLayout(this);
 
-    mFileList
-        = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
+    mFileList = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
     connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);
     layout->addWidget(mFileList);
 }
 
 void XorgConfigurationWidget::saveConfig()
 {
-    auto *xorgConfiguration = Globals::instance()
-                              .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                              ->logModeConfiguration<XorgConfiguration *>();
+    auto *xorgConfiguration = Globals::instance().findLogMode(QStringLiteral(XORG_LOG_MODE_ID))->logModeConfiguration<XorgConfiguration *>();
 
     xorgConfiguration->setXorgPaths(mFileList->paths());
 }
 
 void XorgConfigurationWidget::readConfig()
 {
-    auto *xorgConfiguration = Globals::instance()
-                              .findLogMode(QStringLiteral(XORG_LOG_MODE_ID))
-                              ->logModeConfiguration<XorgConfiguration *>();
+    auto *xorgConfiguration = Globals::instance().findLogMode(QStringLiteral(XORG_LOG_MODE_ID))->logModeConfiguration<XorgConfiguration *>();
 
     mFileList->removeAllItems();
 

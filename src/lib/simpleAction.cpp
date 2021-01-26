@@ -47,7 +47,7 @@ SimpleAction::~SimpleAction()
 
 QList<QAction *> SimpleAction::innerActions()
 {
-    const QList<QAction *> actions {mAction};
+    const QList<QAction *> actions{mAction};
 
     return actions;
 }

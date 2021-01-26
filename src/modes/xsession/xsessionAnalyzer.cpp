@@ -88,8 +88,12 @@ LogLine *XSessionAnalyzer::parseMessage(const QString &logLine, const LogFile &o
         logLevel = Globals::instance().informationLogLevel();
     }
 
-    return new LogLine(mLogLineInternalIdGenerator++, mCurrentDateTime, QStringList() << program << message,
-                       originalFile.url().toLocalFile(), logLevel, mLogMode);
+    return new LogLine(mLogLineInternalIdGenerator++,
+                       mCurrentDateTime,
+                       QStringList() << program << message,
+                       originalFile.url().toLocalFile(),
+                       logLevel,
+                       mLogMode);
 }
 
 bool XSessionAnalyzer::isXorgError(const QString &program)

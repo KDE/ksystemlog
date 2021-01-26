@@ -20,20 +20,20 @@
  ***************************************************************************/
 
 #include "logViewFilterWidget.h"
-#include "logViewWidget.h"
-#include "logViewColumn.h"
-#include "logging.h"
 #include "logLevel.h"
+#include "logViewColumn.h"
+#include "logViewWidget.h"
+#include "logging.h"
 
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QString>
-#include <QHBoxLayout>
 
 #include <QComboBox>
-#include <QStyledItemDelegate>
 #include <QMetaEnum>
 #include <QStandardItemModel>
+#include <QStyledItemDelegate>
 
 #include <KComboBox>
 #include <KLocalizedString>
@@ -190,9 +190,9 @@ void LogViewFilterWidget::initSearchListFilter()
     d->mFilterList = new QComboBox();
 
     d->mFilterList->setToolTip(i18n("Choose the filtered column here"));
-    d->mFilterList->setWhatsThis(i18n(
-                                     "Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means "
-                                     "no specific filter."));
+    d->mFilterList->setWhatsThis(
+        i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means "
+             "no specific filter."));
 
     d->mFilterList->addItem(i18n("All"));
 
@@ -236,7 +236,7 @@ void LogViewFilterWidget::changeColumnFilter(int column)
     logDebug() << "Searching on " << d->mFilterList->currentIndex() << " column";
 
     // currentIndex() - 1 to do not count the "All" columns item
-    const QList<int> filterColumns { d->mFilterList->currentIndex() - 1 };
+    const QList<int> filterColumns{d->mFilterList->currentIndex() - 1};
 
     d->filterLine->setSearchColumns(filterColumns);
 }

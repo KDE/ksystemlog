@@ -26,8 +26,8 @@
 #include "logging.h"
 
 #include "systemAnalyzer.h"
-#include "systemConfigurationWidget.h"
 #include "systemConfiguration.h"
+#include "systemConfigurationWidget.h"
 
 #include "logModeItemBuilder.h"
 
@@ -42,9 +42,9 @@ SystemLogMode::SystemLogMode()
 
     d->action = createDefaultAction();
     d->action->setToolTip(i18n("Display the system log."));
-    d->action->setWhatsThis(i18n(
-                                "Displays the system log in the current tab. This log is generally used by non-specialized processes "
-                                "(like \"sudo\" or \"fsck\" commands)"));
+    d->action->setWhatsThis(
+        i18n("Displays the system log in the current tab. This log is generally used by non-specialized processes "
+             "(like \"sudo\" or \"fsck\" commands)"));
 
     checkLogFilesPresence(logModeConfiguration<SystemConfiguration *>()->logFilesPaths());
 }

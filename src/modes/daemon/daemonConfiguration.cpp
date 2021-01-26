@@ -26,8 +26,7 @@ DaemonConfiguration::DaemonConfiguration()
     mConfiguration->setCurrentGroup(QStringLiteral("DaemonLogMode"));
 
     const QStringList defaultDaemonPaths{QStringLiteral("/var/log/daemon.log")};
-    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mDaemonPaths, defaultDaemonPaths,
-                                      QStringLiteral("LogFilesPaths"));
+    mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mDaemonPaths, defaultDaemonPaths, QStringLiteral("LogFilesPaths"));
 }
 
 DaemonConfiguration::~DaemonConfiguration()

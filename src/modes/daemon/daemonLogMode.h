@@ -34,12 +34,12 @@
 
 #include <QList>
 
-#include "logging.h"
 #include "logMode.h"
+#include "logging.h"
 
-#include "syslogAnalyzer.h"
-#include "daemonConfigurationWidget.h"
 #include "daemonConfiguration.h"
+#include "daemonConfigurationWidget.h"
+#include "syslogAnalyzer.h"
 
 #include "logModeItemBuilder.h"
 

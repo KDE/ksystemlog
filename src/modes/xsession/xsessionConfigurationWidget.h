@@ -27,9 +27,9 @@
 #include <KLocalizedString>
 #include <KUrlRequester>
 
+#include "fileList.h"
 #include "globals.h"
 #include "logging.h"
-#include "fileList.h"
 
 #include "logLevel.h"
 

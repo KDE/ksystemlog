@@ -23,9 +23,9 @@
 #define LOG_LEVEL_H
 
 #include <QColor>
-#include <QString>
-#include <QObject>
 #include <QIcon>
+#include <QObject>
+#include <QString>
 class LogLevel : QObject
 {
 public:

@@ -21,14 +21,14 @@
 
 #include "openFactory.h"
 
-#include "logMode.h"
 #include "defaults.h"
-#include "logFile.h"
-#include "logging.h"
 #include "ksystemlogConfig.h"
+#include "logFile.h"
+#include "logMode.h"
+#include "logging.h"
 
-#include "openLogMode.h"
 #include "logModeItemBuilder.h"
+#include "openLogMode.h"
 
 OpenLogModeFactory::OpenLogModeFactory(QWidget *parent)
     : mParent(parent)

@@ -23,14 +23,14 @@
 
 // Qt includes
 
-#include <QIcon>
-#include <KLocalizedString>
 #include <KGuiItem>
+#include <KLocalizedString>
 #include <KStandardGuiItem>
+#include <QIcon>
 
+#include "logLine.h"
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
-#include "logLine.h"
 
 #include "logging.h"
 
@@ -113,8 +113,7 @@ void DetailDialog::moveToItem(int direction)
         return;
     }
 
-    QTreeWidgetItem *destinationItem
-        = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
+    QTreeWidgetItem *destinationItem = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
     if (!destinationItem) {
         if (direction < 0) {
             logDebug() << "No previous item found.";
