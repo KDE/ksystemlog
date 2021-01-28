@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KToolInvocation>
+#include <QPrintPreviewDialog>
 
 #include "logging.h"
 
@@ -91,33 +92,13 @@ void LogViewExport::sendMail()
     KToolInvocation::invokeMailer(QString(), QString(), QString(), i18n("Log Lines of my problem"), body);
 }
 
-void LogViewExport::printSelection()
+void LogViewExport::print(QPrinter *printer)
 {
-    logDebug() << "Printing selection...";
-
-    QPrinter printer;
-
-    // do some printer initialization
-    printer.setFullPage(true);
-
-    /*
-     LevelPrintPage* dialogPage = new LevelPrintPage(parent);
-     printer.addDialogPage(dialogPage);
-     */
-
-    // initialize the printer using the print dialog
-    auto *printDialog = new QPrintDialog(&printer, mParent);
-    if (!printDialog->exec()) {
-        delete printDialog;
-        return;
-    }
-    delete printDialog;
-
     // create a painter to paint on the printer object
     QPainter painter;
 
     // start painting
-    painter.begin(&printer);
+    painter.begin(printer);
 
     QPen originalPen(painter.pen());
 
@@ -145,7 +126,7 @@ void LogViewExport::printSelection()
         if (movement + margin >= printView.height()) {
             painter.setPen(originalPen);
             printPageNumber(painter, printView, movement, page);
-            printer.newPage();
+            printer->newPage();
             page++;
             movement = 0;
         }
@@ -155,6 +136,44 @@ void LogViewExport::printSelection()
 
     // stop painting, this will automatically send the print data to the printer
     painter.end();
+}
+
+void LogViewExport::printSelection()
+{
+    logDebug() << "Printing selection...";
+
+    QPrinter printer;
+
+    // do some printer initialization
+    printer.setFullPage(true);
+
+    /*
+     LevelPrintPage* dialogPage = new LevelPrintPage(parent);
+     printer.addDialogPage(dialogPage);
+     */
+
+    // initialize the printer using the print dialog
+    auto *printDialog = new QPrintDialog(&printer, mParent);
+    if (!printDialog->exec()) {
+        delete printDialog;
+        return;
+    }
+    delete printDialog;
+}
+
+void LogViewExport::printPreview()
+{
+    logDebug() << "Printing selection...";
+
+    auto dialog = new QPrintPreviewDialog(mParent);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->resize(800, 750);
+
+    connect(dialog, &QPrintPreviewDialog::paintRequested, this, [=](QPrinter *printing) {
+        print(printing);
+    });
+
+    dialog->open();
 }
 
 void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int movement, int page)

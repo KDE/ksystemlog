@@ -392,6 +392,13 @@ void TabLogViewsWidget::printSelectionCurrentView()
     logViewExport.printSelection();
 }
 
+void TabLogViewsWidget::printPreviewSelectionCurrentView()
+{
+    LogViewExport logViewExport(this, activeLogManager()->usedView()->logViewWidget());
+    connect(&logViewExport, &LogViewExport::statusBarChanged, this, &TabLogViewsWidget::statusBarChanged);
+    logViewExport.printPreview();
+}
+
 QIcon TabLogViewsWidget::logModeIcon(LogMode *logMode) const
 {
     if (!logMode) {

@@ -147,6 +147,7 @@ private:
     QAction *mResumePauseAction = nullptr;
     QAction *mDetailAction = nullptr;
     QAction *mPrintAction = nullptr;
+    QAction *mPrintPreviewAction = nullptr;
 
     QAction *mFindAction = nullptr;
     QAction *mFindNextAction = nullptr;

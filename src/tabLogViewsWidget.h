@@ -77,6 +77,7 @@ public Q_SLOTS:
     void copyToClipboardCurrentView();
     void sendMailCurrentView();
     void printSelectionCurrentView();
+    void printPreviewSelectionCurrentView();
 
 private Q_SLOTS:
     void changeTab(View *view, const QIcon &icon, const QString &label);

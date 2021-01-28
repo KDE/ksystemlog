@@ -25,6 +25,7 @@
 #include <QObject>
 #include <QPainter>
 #include <QRect>
+class QPrinter;
 
 class LogViewWidget;
 
@@ -33,7 +34,7 @@ class LogViewExport : public QObject
     Q_OBJECT
 
 public:
-    LogViewExport(QWidget *parent, LogViewWidget *logViewWidget);
+    explicit LogViewExport(QWidget *parent, LogViewWidget *logViewWidget);
 
     ~LogViewExport() override;
 
@@ -45,6 +46,7 @@ public:
 
     void printSelection();
 
+    void printPreview();
 Q_SIGNALS:
     void statusBarChanged(const QString &message);
 
@@ -54,6 +56,7 @@ private:
     QWidget *const mParent;
 
     LogViewWidget *const mLogViewWidget;
+    void print(QPrinter *printer);
 };
 
 #endif //_LOG_VIEW_EXPORT_H

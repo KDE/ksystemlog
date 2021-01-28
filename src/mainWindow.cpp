@@ -239,6 +239,7 @@ void MainWindow::updateSelection()
     mDetailAction->setEnabled(selection);
     mSendMailAction->setEnabled(selection);
     mPrintAction->setEnabled(selection);
+    mPrintPreviewAction->setEnabled(selection);
 }
 
 void MainWindow::updateReloading()
@@ -538,6 +539,14 @@ void MainWindow::setupActions()
              "selection."));
     mPrintAction->setEnabled(false);
 
+    mPrintPreviewAction = actionCollection()->addAction(KStandardAction::PrintPreview);
+    mPrintPreviewAction->setText(i18n("&Print Preview Selection..."));
+    mPrintPreviewAction->setToolTip(i18n("Print preview the selection"));
+    mPrintPreviewAction->setWhatsThis(
+        i18n("Prints preview the selection. Simply select the important lines and click on this menu entry to print the "
+             "selection."));
+    mPrintPreviewAction->setEnabled(false);
+
     mSaveAction = actionCollection()->addAction(KStandardAction::SaveAs);
     // TODO Retrieve the system's shortcut of the save action (and not Save as...)
     mSaveAction->setToolTip(i18n("Save the selection to a file"));
@@ -705,6 +714,7 @@ void MainWindow::setupActions()
     connect(mCopyAction, &QAction::triggered, mTabs, &TabLogViewsWidget::copyToClipboardCurrentView);
     connect(mSendMailAction, &QAction::triggered, mTabs, &TabLogViewsWidget::sendMailCurrentView);
     connect(mPrintAction, &QAction::triggered, mTabs, &TabLogViewsWidget::printSelectionCurrentView);
+    connect(mPrintPreviewAction, &QAction::triggered, mTabs, &TabLogViewsWidget::printPreviewSelectionCurrentView);
     connect(mSelectAllAction, &QAction::triggered, mTabs, &TabLogViewsWidget::selectAllCurrentView);
 }
 
