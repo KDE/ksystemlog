@@ -57,41 +57,18 @@ public:
 class LogViewFilterWidgetPrivate
 {
 public:
-    LogViewWidgetSearchLine *filterLine = nullptr;
-
-    /**
-     * Filter of the column list
-     */
-    QComboBox *mFilterList = nullptr;
-
-    QComboBox *mPrioritiesComboBox = nullptr;
-
-    QStandardItemModel *mPrioritiesModel = nullptr;
-};
-
-class LogViewWidgetSearchLinePrivate
-{
-public:
-    bool priorities[Globals::LOG_LEVEL_NUM];
-
-    LogViewWidgetSearchLinePrivate()
-    {
-        // Show all priorities.
-        for (int i = 0; i < Globals::LOG_LEVEL_NUM; i++) {
-            priorities[i] = true;
-        }
-    }
 };
 
 LogViewWidgetSearchLine::LogViewWidgetSearchLine(QWidget *parent)
     : KTreeWidgetSearchLine(parent)
-    , d(new LogViewWidgetSearchLinePrivate())
 {
+    for (int i = 0; i < Globals::LOG_LEVEL_NUM; i++) {
+        mPriorities[i] = true;
+    }
 }
 
 LogViewWidgetSearchLine::~LogViewWidgetSearchLine()
 {
-    delete d;
 }
 
 void LogViewWidgetSearchLine::updateSearch(const QString &pattern)
@@ -106,7 +83,7 @@ void LogViewWidgetSearchLine::setPriorityEnabled(int priority, bool enabled)
     if ((priority < 0) || (priority >= Globals::LOG_LEVEL_NUM)) {
         return;
     }
-    d->priorities[priority] = enabled;
+    mPriorities[priority] = enabled;
     updateSearch(QString());
 }
 
@@ -115,7 +92,7 @@ bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QSt
     // Hide item if its priority is not enabled.
     const int priority = item->data(0, Qt::UserRole).toInt();
     if ((priority >= 0) && (priority < Globals::LOG_LEVEL_NUM)) {
-        if (!d->priorities[priority]) {
+        if (!mPriorities[priority]) {
             return false;
         }
     }
@@ -124,46 +101,45 @@ bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QSt
 
 LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     : QWidget(parent)
-    , d(new LogViewFilterWidgetPrivate())
 {
     auto *filterBarLayout = new QHBoxLayout(this);
     filterBarLayout->setContentsMargins(0, 0, 0, 0);
 
-    d->filterLine = new LogViewWidgetSearchLine();
+    mFilterLine = new LogViewWidgetSearchLine();
 
-    d->filterLine->setToolTip(i18n("Type your filter here"));
-    d->filterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
-    d->filterLine->setPlaceholderText(i18n("Enter your search here..."));
+    mFilterLine->setToolTip(i18n("Type your filter here"));
+    mFilterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
+    mFilterLine->setPlaceholderText(i18n("Enter your search here..."));
 
     auto *filterIcon = new QLabel();
     filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
-    filterIcon->setBuddy(d->filterLine);
+    filterIcon->setBuddy(mFilterLine);
     filterBarLayout->addWidget(filterIcon);
 
     auto *filterLabel = new QLabel(i18n("Filter:"));
-    filterLabel->setBuddy(d->filterLine);
+    filterLabel->setBuddy(mFilterLine);
     filterBarLayout->addWidget(filterLabel);
 
-    filterBarLayout->addWidget(d->filterLine);
+    filterBarLayout->addWidget(mFilterLine);
 
     initSearchListFilter();
 
-    filterBarLayout->addWidget(d->mFilterList);
+    filterBarLayout->addWidget(mFilterList);
 
-    d->mPrioritiesComboBox = new QComboBox(this);
-    auto *delegate = new ComboBoxDelegate(d->mPrioritiesComboBox);
-    d->mPrioritiesComboBox->setItemDelegate(delegate);
-    filterBarLayout->addWidget(d->mPrioritiesComboBox);
+    mPrioritiesComboBox = new QComboBox(this);
+    auto *delegate = new ComboBoxDelegate(mPrioritiesComboBox);
+    mPrioritiesComboBox->setItemDelegate(delegate);
+    filterBarLayout->addWidget(mPrioritiesComboBox);
 
     QMetaEnum &metaEnum = Globals::instance().logLevelsMetaEnum();
 
-    d->mPrioritiesModel = new QStandardItemModel(d->mPrioritiesComboBox);
-    d->mPrioritiesComboBox->setModel(d->mPrioritiesModel);
+    mPrioritiesModel = new QStandardItemModel(mPrioritiesComboBox);
+    mPrioritiesComboBox->setModel(mPrioritiesModel);
 
     auto *item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
-    d->mPrioritiesModel->appendRow(item);
-    connect(d->mPrioritiesModel, &QStandardItemModel::itemChanged, this, &LogViewFilterWidget::prioritiesChanged);
+    mPrioritiesModel->appendRow(item);
+    connect(mPrioritiesModel, &QStandardItemModel::itemChanged, this, &LogViewFilterWidget::prioritiesChanged);
 
     // Don't add last enum value into combobox.
     for (int i = 0; i < metaEnum.keyCount() - 1; i++) {
@@ -176,31 +152,30 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
         item->setData(metaEnum.value(i), Qt::UserRole);
         item->setData(QVariant(logLevel->color()), Qt::ForegroundRole);
 
-        d->mPrioritiesModel->appendRow(item);
+        mPrioritiesModel->appendRow(item);
     }
 }
 
 LogViewFilterWidget::~LogViewFilterWidget()
 {
-    delete d;
 }
 
 void LogViewFilterWidget::initSearchListFilter()
 {
-    d->mFilterList = new QComboBox();
+    mFilterList = new QComboBox();
 
-    d->mFilterList->setToolTip(i18n("Choose the filtered column here"));
-    d->mFilterList->setWhatsThis(
+    mFilterList->setToolTip(i18n("Choose the filtered column here"));
+    mFilterList->setWhatsThis(
         i18n("Allows you to apply the item filter only on the specified column here. \"<i>All</i>\" column means "
              "no specific filter."));
 
-    d->mFilterList->addItem(i18n("All"));
+    mFilterList->addItem(i18n("All"));
 
-    d->mFilterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+    mFilterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
-    connect(d->mFilterList, SIGNAL(activated(int)), d->filterLine, SLOT(setFocus()));
-    connect(d->mFilterList, QOverload<int>::of(&QComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
-    connect(d->mFilterList, SIGNAL(activated(int)), d->filterLine, SLOT(updateSearch()));
+    connect(mFilterList, SIGNAL(activated(int)), mFilterLine, SLOT(setFocus()));
+    connect(mFilterList, QOverload<int>::of(&QComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
+    connect(mFilterList, SIGNAL(activated(int)), mFilterLine, SLOT(updateSearch()));
 }
 
 void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
@@ -208,19 +183,19 @@ void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
     logDebug() << "Changing columns...";
 
     // We first delete all items
-    d->mFilterList->clear();
+    mFilterList->clear();
 
     // Then we insert the default items
-    d->mFilterList->addItem(i18n("All"));
+    mFilterList->addItem(i18n("All"));
 
     const auto cols = columns.columns();
     for (const LogViewColumn &column : cols) {
         if (column.isFiltered()) {
-            d->mFilterList->addItem(column.columnName());
+            mFilterList->addItem(column.columnName());
         }
     }
 
-    d->mFilterList->setCurrentIndex(0);
+    mFilterList->setCurrentIndex(0);
 }
 
 void LogViewFilterWidget::changeColumnFilter(int column)
@@ -229,23 +204,23 @@ void LogViewFilterWidget::changeColumnFilter(int column)
     if (column == 0) {
         logDebug() << "Searching on all columns";
 
-        d->filterLine->setSearchColumns(QList<int>());
+        mFilterLine->setSearchColumns(QList<int>());
         return;
     }
 
-    logDebug() << "Searching on " << d->mFilterList->currentIndex() << " column";
+    logDebug() << "Searching on " << mFilterList->currentIndex() << " column";
 
     // currentIndex() - 1 to do not count the "All" columns item
-    const QList<int> filterColumns{d->mFilterList->currentIndex() - 1};
+    const QList<int> filterColumns{mFilterList->currentIndex() - 1};
 
-    d->filterLine->setSearchColumns(filterColumns);
+    mFilterLine->setSearchColumns(filterColumns);
 }
 
 void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
 {
     const int priority = item->data(Qt::UserRole).toInt();
     const bool priorityEnabled = (item->checkState() == Qt::Checked);
-    d->filterLine->setPriorityEnabled(priority, priorityEnabled);
+    mFilterLine->setPriorityEnabled(priority, priorityEnabled);
     if (priorityEnabled) {
         logDebug() << "Show entries with priority" << priority;
     } else {
@@ -255,10 +230,10 @@ void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
 
 QComboBox *LogViewFilterWidget::filterList() const
 {
-    return d->mFilterList;
+    return mFilterList;
 }
 
 LogViewWidgetSearchLine *LogViewFilterWidget::filterLine() const
 {
-    return d->filterLine;
+    return mFilterLine;
 }

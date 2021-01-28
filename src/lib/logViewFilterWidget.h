@@ -27,14 +27,12 @@
 
 #include <KTreeWidgetSearchLine>
 
+#include "globals.h"
 #include "logViewColumns.h"
 
 class LogViewWidget;
 class LogViewWidgetSearchLine;
 class QComboBox;
-
-class LogViewWidgetSearchLinePrivate;
-class LogViewFilterWidgetPrivate;
 
 class LogViewFilterWidget : public QWidget
 {
@@ -60,8 +58,16 @@ Q_SIGNALS:
 
 private:
     void initSearchListFilter();
+    LogViewWidgetSearchLine *mFilterLine = nullptr;
 
-    LogViewFilterWidgetPrivate *const d;
+    /**
+     * Filter of the column list
+     */
+    QComboBox *mFilterList = nullptr;
+
+    QComboBox *mPrioritiesComboBox = nullptr;
+
+    QStandardItemModel *mPrioritiesModel = nullptr;
 };
 
 class LogViewWidgetSearchLine : public KTreeWidgetSearchLine
@@ -88,7 +94,7 @@ Q_SIGNALS:
     void treeWidgetUpdated();
 
 private:
-    LogViewWidgetSearchLinePrivate *const d;
+    bool mPriorities[Globals::LOG_LEVEL_NUM];
 };
 
 #endif // LOG_VIEW_FILTER_WIDGET_H
