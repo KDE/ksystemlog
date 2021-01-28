@@ -55,7 +55,7 @@ LoadingBar::~LoadingBar()
 {
 }
 
-QProgressBar *LoadingBar::progressBar()
+QProgressBar *LoadingBar::progressBar() const
 {
     return mProgressBar;
 }

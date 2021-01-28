@@ -41,7 +41,7 @@ public:
 
     ~LoadingBar() override;
 
-    QProgressBar *progressBar();
+    QProgressBar *progressBar() const;
 
 public Q_SLOTS:
 
