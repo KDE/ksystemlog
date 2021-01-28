@@ -159,6 +159,7 @@ void LogViewExport::printSelection()
         return;
     }
     delete printDialog;
+    print(&printer);
 }
 
 void LogViewExport::printPreview()
