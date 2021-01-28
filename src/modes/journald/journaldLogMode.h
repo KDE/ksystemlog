@@ -53,7 +53,7 @@ public:
 
     Analyzer *createAnalyzer(const QVariant &analyzerOptions = QVariant()) override;
 
-    QList<LogFile> createLogFiles() override;
+    QVector<LogFile> createLogFiles() override;
 
     void updateJournalFilters(const JournalAddress &address, const JournalFilters &filters);
     JournalFilters filters(const JournalAddress &address) const;

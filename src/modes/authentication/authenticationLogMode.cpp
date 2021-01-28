@@ -59,10 +59,10 @@ Analyzer *AuthenticationLogMode::createAnalyzer(const QVariant &options)
     return new AuthenticationAnalyzer(this);
 }
 
-QList<LogFile> AuthenticationLogMode::createLogFiles()
+QVector<LogFile> AuthenticationLogMode::createLogFiles()
 {
     auto *configuration = logModeConfiguration<AuthenticationConfiguration *>();
 
-    const QList<LogFile> logFiles{configuration->findGenericLogFile(configuration->authenticationPath())};
+    const QVector<LogFile> logFiles{configuration->findGenericLogFile(configuration->authenticationPath())};
     return logFiles;
 }

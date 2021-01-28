@@ -55,8 +55,8 @@ Analyzer *KernelLogMode::createAnalyzer(const QVariant &options)
     return new KernelAnalyzer(this);
 }
 
-QList<LogFile> KernelLogMode::createLogFiles()
+QVector<LogFile> KernelLogMode::createLogFiles()
 {
-    const QList<LogFile> logFiles{LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel())};
+    const QVector<LogFile> logFiles{LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel())};
     return logFiles;
 }

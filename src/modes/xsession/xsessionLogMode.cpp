@@ -60,10 +60,10 @@ Analyzer *XSessionLogMode::createAnalyzer(const QVariant &options)
     return new XSessionAnalyzer(this);
 }
 
-QList<LogFile> XSessionLogMode::createLogFiles()
+QVector<LogFile> XSessionLogMode::createLogFiles()
 {
     auto *configuration = Globals::instance().findLogMode(QStringLiteral(X_SESSION_LOG_MODE_ID))->logModeConfiguration<XSessionConfiguration *>();
 
-    const QList<LogFile> logFiles{configuration->findGenericLogFile(configuration->xsessionPath())};
+    const QVector<LogFile> logFiles{configuration->findGenericLogFile(configuration->xsessionPath())};
     return logFiles;
 }

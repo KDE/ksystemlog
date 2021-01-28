@@ -50,7 +50,7 @@ public:
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 
-    QList<LogFile> createLogFiles() override;
+    QVector<LogFile> createLogFiles() override;
 };
 
 #endif // _KERNEL_LOG_MODE_H

@@ -50,7 +50,7 @@ public:
 
     void watchLogFiles(bool enabled) override;
 
-    void setLogFiles(const QList<LogFile> &logFiles) override;
+    void setLogFiles(const QVector<LogFile> &logFiles) override;
 
 protected:
     virtual LogFileReader *createLogFileReader(const LogFile &logFile) = 0;

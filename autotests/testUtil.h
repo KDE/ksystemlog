@@ -65,7 +65,7 @@ public:
     /*
      * Create a LogFile list from a single resourceFileName
      */
-    QList<LogFile> createLogFiles(const QString &resourceFileName) const;
+    QVector<LogFile> createLogFiles(const QString &resourceFileName) const;
 
     /*
      * Add the "addedLines" list to the file "fileName"

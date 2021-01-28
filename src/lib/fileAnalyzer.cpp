@@ -71,7 +71,7 @@ void FileAnalyzer::deleteLogFiles()
     mLogFileReaders.clear();
 }
 
-void FileAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+void FileAnalyzer::setLogFiles(const QVector<LogFile> &logFiles)
 {
     // Remove previous files
     deleteLogFiles();

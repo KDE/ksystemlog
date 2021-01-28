@@ -59,7 +59,7 @@ Analyzer *PostfixLogMode::createAnalyzer(const QVariant &options)
     return new PostfixAnalyzer(this);
 }
 
-QList<LogFile> PostfixLogMode::createLogFiles()
+QVector<LogFile> PostfixLogMode::createLogFiles()
 {
     return logModeConfiguration<PostfixConfiguration *>()->findGenericLogFiles();
 }

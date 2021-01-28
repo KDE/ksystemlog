@@ -59,7 +59,7 @@ Analyzer *SystemLogMode::createAnalyzer(const QVariant &options)
     return new SystemAnalyzer(this);
 }
 
-QList<LogFile> SystemLogMode::createLogFiles()
+QVector<LogFile> SystemLogMode::createLogFiles()
 {
     return logModeConfiguration<SystemConfiguration *>()->findGenericLogFiles();
 }

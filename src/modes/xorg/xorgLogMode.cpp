@@ -60,7 +60,7 @@ Analyzer *XorgLogMode::createAnalyzer(const QVariant &options)
     return new XorgAnalyzer(this);
 }
 
-QList<LogFile> XorgLogMode::createLogFiles()
+QVector<LogFile> XorgLogMode::createLogFiles()
 {
     auto *configuration = logModeConfiguration<XorgConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->xorgPaths());

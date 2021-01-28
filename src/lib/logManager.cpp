@@ -173,7 +173,7 @@ void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
     internalInitialize(mode, mode->createLogFiles(), analyzerOptions);
 }
 
-void LogManager::internalInitialize(LogMode *mode, const QList<LogFile> &logFiles, const QVariant &analyzerOptions)
+void LogManager::internalInitialize(LogMode *mode, const QVector<LogFile> &logFiles, const QVariant &analyzerOptions)
 {
     logDebug() << "Initializing LogManager...";
 
@@ -244,7 +244,7 @@ void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
 {
     logDebug() << "Drop " << urls;
 
-    QList<LogFile> logFiles;
+    QVector<LogFile> logFiles;
     logFiles.reserve(urls.count());
 
     for (const QUrl &url : urls) {

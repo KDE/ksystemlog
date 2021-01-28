@@ -25,7 +25,7 @@ LogViewColumns AuditAnalyzer::initColumns()
     return columns;
 }
 
-void AuditAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+void AuditAnalyzer::setLogFiles(const QVector<LogFile> &logFiles)
 {
     // Remove previous files
     deleteLogFiles();

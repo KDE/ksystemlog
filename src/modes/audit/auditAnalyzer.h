@@ -17,7 +17,7 @@ public:
 
     LogViewColumns initColumns() override;
 
-    void setLogFiles(const QList<LogFile> &logFiles) override;
+    void setLogFiles(const QVector<LogFile> &logFiles) override;
 
 protected:
     LogFileReader *createLogFileReader(const LogFile &logFile) override;

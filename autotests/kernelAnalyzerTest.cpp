@@ -106,7 +106,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/ubuntu.dmesg"));
+    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/ubuntu.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 
@@ -140,7 +140,7 @@ void KernelAnalyzerTest::testSuseDmesg()
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QList<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/suse.dmesg"));
+    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/suse.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 

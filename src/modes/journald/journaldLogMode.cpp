@@ -64,10 +64,10 @@ Analyzer *JournaldLogMode::createAnalyzer(const QVariant &analyzerOptions)
     return new JournaldLocalAnalyzer(this);
 }
 
-QList<LogFile> JournaldLogMode::createLogFiles()
+QVector<LogFile> JournaldLogMode::createLogFiles()
 {
     // No log file for journald.
-    return QList<LogFile>();
+    return QVector<LogFile>();
 }
 
 void JournaldLogMode::updateJournalFilters(const JournalAddress &address, const JournalFilters &filters)

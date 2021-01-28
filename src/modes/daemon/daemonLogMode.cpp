@@ -53,7 +53,7 @@ Analyzer *DaemonLogMode::createAnalyzer(const QVariant &options)
     return new SyslogAnalyzer(this);
 }
 
-QList<LogFile> DaemonLogMode::createLogFiles()
+QVector<LogFile> DaemonLogMode::createLogFiles()
 {
     auto *configuration = logModeConfiguration<DaemonConfiguration *>();
     return configuration->findGenericLogFiles(configuration->daemonPaths());

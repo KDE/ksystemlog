@@ -39,7 +39,7 @@ LogViewColumns JournaldAnalyzer::initColumns()
     return columns;
 }
 
-void JournaldAnalyzer::setLogFiles(const QList<LogFile> &logFiles)
+void JournaldAnalyzer::setLogFiles(const QVector<LogFile> &logFiles)
 {
     Q_UNUSED(logFiles)
     // Do nothing.

@@ -61,7 +61,7 @@ Analyzer *SambaLogMode::createAnalyzer(const QVariant &options)
     return new SambaAnalyzer(this);
 }
 
-QList<LogFile> SambaLogMode::createLogFiles()
+QVector<LogFile> SambaLogMode::createLogFiles()
 {
     auto *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
     return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaPaths());

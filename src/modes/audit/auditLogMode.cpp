@@ -39,7 +39,7 @@ Analyzer *AuditLogMode::createAnalyzer(const QVariant &options)
     return new AuditAnalyzer(this);
 }
 
-QList<LogFile> AuditLogMode::createLogFiles()
+QVector<LogFile> AuditLogMode::createLogFiles()
 {
     return logModeConfiguration<AuditConfiguration *>()->findGenericLogFiles();
 }

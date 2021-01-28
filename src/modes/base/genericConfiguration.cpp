@@ -65,9 +65,9 @@ void GenericLogModeConfiguration::setLogFilesLevels(const QList<int> &logFilesLe
     mLogFilesLevels = logFilesLevels;
 }
 
-QList<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
+QVector<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
 {
-    QList<LogFile> logFiles;
+    QVector<LogFile> logFiles;
 
     if (mLogFilesPaths.size() != mLogFilesLevels.size()) {
         logDebug() << i18n("The two arrays size are different, skipping the reading of log files.");

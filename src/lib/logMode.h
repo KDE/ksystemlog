@@ -26,6 +26,7 @@
 #include <QList>
 #include <QObject>
 #include <QString>
+#include <QVector>
 
 #include "logFile.h"
 
@@ -108,7 +109,7 @@ public:
     /**
      * Create the log file list which will be read
      */
-    virtual QList<LogFile> createLogFiles() = 0;
+    virtual QVector<LogFile> createLogFiles() = 0;
 
 Q_SIGNALS:
     void menuChanged();

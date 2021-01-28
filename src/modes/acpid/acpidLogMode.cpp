@@ -59,7 +59,7 @@ Analyzer *AcpidLogMode::createAnalyzer(const QVariant &options)
     return new AcpidAnalyzer(this);
 }
 
-QList<LogFile> AcpidLogMode::createLogFiles()
+QVector<LogFile> AcpidLogMode::createLogFiles()
 {
     auto *configuration = logModeConfiguration<AcpidConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->acpidPaths());

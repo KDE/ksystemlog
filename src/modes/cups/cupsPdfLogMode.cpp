@@ -61,7 +61,7 @@ Analyzer *CupsPdfLogMode::createAnalyzer(const QVariant &options)
     return new CupsPdfAnalyzer(this);
 }
 
-QList<LogFile> CupsPdfLogMode::createLogFiles()
+QVector<LogFile> CupsPdfLogMode::createLogFiles()
 {
     auto *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
     return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPdfPaths());

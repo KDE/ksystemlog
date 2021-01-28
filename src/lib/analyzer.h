@@ -54,7 +54,7 @@ public:
 
     virtual void watchLogFiles(bool enabled) = 0;
 
-    virtual void setLogFiles(const QList<LogFile> &logFiles) = 0;
+    virtual void setLogFiles(const QVector<LogFile> &logFiles) = 0;
 
     virtual LogViewColumns initColumns() = 0;
 

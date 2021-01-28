@@ -60,7 +60,7 @@ Analyzer *ApacheAccessLogMode::createAnalyzer(const QVariant &options)
     return new ApacheAccessAnalyzer(this);
 }
 
-QList<LogFile> ApacheAccessLogMode::createLogFiles()
+QVector<LogFile> ApacheAccessLogMode::createLogFiles()
 {
     auto *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
     return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apacheAccessPaths());

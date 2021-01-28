@@ -40,9 +40,9 @@ public:
     ~LogModeConfiguration() override;
 
     LogFile findGenericLogFile(const QString &file);
-    QList<LogFile> findGenericLogFiles(const QStringList &files);
+    QVector<LogFile> findGenericLogFiles(const QStringList &files);
 
-    QList<LogFile> findNoModeLogFiles(const QStringList &stringList);
+    QVector<LogFile> findNoModeLogFiles(const QStringList &stringList);
 
 protected:
     KSystemLogConfig *mConfiguration = nullptr;

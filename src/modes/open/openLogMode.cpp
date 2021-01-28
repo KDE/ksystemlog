@@ -54,19 +54,19 @@ Analyzer *OpenLogMode::createAnalyzer(const QVariant &options)
     return new OpenAnalyzer(this);
 }
 
-QList<LogFile> OpenLogMode::createLogFiles()
+QVector<LogFile> OpenLogMode::createLogFiles()
 {
     // Open a standard Filedialog
     const QUrl openingFileName(QFileDialog::getOpenFileUrl(mParent, i18n("Open Location"), QUrl(), QString()));
     logDebug() << "Opening file : " << openingFileName.url();
 
     if (openingFileName.isEmpty()) {
-        return QList<LogFile>();
+        return QVector<LogFile>();
     }
 
     if (openingFileName.isValid()) {
         const LogFile logFile(openingFileName, Globals::instance().informationLogLevel());
-        const QList<LogFile> logFiles{logFile};
+        const QVector<LogFile> logFiles{logFile};
 
         return logFiles;
     }
@@ -74,5 +74,5 @@ QList<LogFile> OpenLogMode::createLogFiles()
     const QString message(i18n("Malformed URL. Unable to open this file."));
     KMessageBox::error(mParent, message, i18n("Unable to open this file."), KMessageBox::Notify);
 
-    return QList<LogFile>();
+    return QVector<LogFile>();
 }

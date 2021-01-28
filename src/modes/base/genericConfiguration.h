@@ -47,7 +47,7 @@ public:
 
     void setLogFilesLevels(const QList<int> &logFilesLevels);
 
-    QList<LogFile> findGenericLogFiles() const;
+    QVector<LogFile> findGenericLogFiles() const;
 
 private:
     QStringList mLogFilesPaths;

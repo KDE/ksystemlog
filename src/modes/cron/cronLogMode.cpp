@@ -60,7 +60,7 @@ Analyzer *CronLogMode::createAnalyzer(const QVariant &options)
     return new CronAnalyzer(this);
 }
 
-QList<LogFile> CronLogMode::createLogFiles()
+QVector<LogFile> CronLogMode::createLogFiles()
 {
     auto *cronConfiguration = logModeConfiguration<CronConfiguration *>();
     return cronConfiguration->findNoModeLogFiles(cronConfiguration->cronPaths());

@@ -108,16 +108,16 @@ Reader* ReaderFactory::createReader(LogMode* logMode) {
 
 // TODO Move this method in LogModeFactory subclasses
 /*
-QList<LogFile> LogFilesFactory::createLogFiles(LogMode* logMode) {
+QVector<LogFile> LogFilesFactory::createLogFiles(LogMode* logMode) {
 
     else if (logMode==Globals::instance().bootMode()) {
-        QList<LogFile> list;
+        QVector<LogFile> list;
         list.append(LogFilesFactory::instance().getBootLogFile());
         return list;
     }
 
     else if (logMode==Globals::instance().authenticationMode()) {
-        QList<LogFile> list;
+        QVector<LogFile> list;
         list.append(LogFilesFactory::instance().getAuthenticationLogFile());
         return list;
     }
@@ -154,7 +154,7 @@ QList<LogFile> LogFilesFactory::createLogFiles(LogMode* logMode) {
 
   logError() << "LogFiles not found : returns NULL Reader";
 
-    return QList<LogFile>();
+    return QVector<LogFile>();
 
 }
 
@@ -169,39 +169,39 @@ LogFile LogFilesFactory::getAuthenticationLogFile() {
     return getGenericLogFile(file);
 }
 
-QList<LogFile> LogFilesFactory::getDaemonLogFiles() {
+QVector<LogFile> LogFilesFactory::getDaemonLogFiles() {
     QStringList files=KSystemLogConfig::daemonPaths();
     QList<int> levels=KSystemLogConfig::daemonLevels();
     return LogFilesFactory::getGenericLogFiles(files, levels);
 }
 
-QList<LogFile> LogFilesFactory::getCupsLogFiles() {
+QVector<LogFile> LogFilesFactory::getCupsLogFiles() {
     QStringList stringList=KSystemLogConfig::cupsPaths();
     return getNoModeLogFiles(stringList);
 }
 
-QList<LogFile> LogFilesFactory::getCupsAccessLogFiles() {
+QVector<LogFile> LogFilesFactory::getCupsAccessLogFiles() {
     QStringList stringList=KSystemLogConfig::cupsAccessPaths();
     return getNoModeLogFiles(stringList);
 }
 
-QList<LogFile> LogFilesFactory::getPostfixLogFiles() {
+QVector<LogFile> LogFilesFactory::getPostfixLogFiles() {
     QStringList files=KSystemLogConfig::postfixPaths();
     QList<int> levels=KSystemLogConfig::postfixLevels();
     return LogFilesFactory::getGenericLogFiles(files, levels);
 }
 
-QList<LogFile> LogFilesFactory::getSambaLogFiles() {
+QVector<LogFile> LogFilesFactory::getSambaLogFiles() {
     QStringList stringList=KSystemLogConfig::sambaPaths();
     return getNoModeLogFiles(stringList);
 }
 
-QList<LogFile> LogFilesFactory::getSSHLogFiles() {
+QVector<LogFile> LogFilesFactory::getSSHLogFiles() {
     QStringList stringList=KSystemLogConfig::sshPaths();
     return getNoModeLogFiles(stringList);
 }
 
-QList<LogFile> LogFilesFactory::getXSessionLogFiles() {
+QVector<LogFile> LogFilesFactory::getXSessionLogFiles() {
     QStringList stringList=KSystemLogConfig::xSessionPaths();
     return getNoModeLogFiles(stringList);
 }
@@ -220,9 +220,9 @@ LogFile LogModeConfiguration::findGenericLogFile(const QString &file)
     return LogFile(url, level);
 }
 
-QList<LogFile> LogModeConfiguration::findGenericLogFiles(const QStringList &files)
+QVector<LogFile> LogModeConfiguration::findGenericLogFiles(const QStringList &files)
 {
-    QList<LogFile> logFiles;
+    QVector<LogFile> logFiles;
 
     for (const QString &file : files) {
         logFiles.append(findGenericLogFile(file));
@@ -231,9 +231,9 @@ QList<LogFile> LogModeConfiguration::findGenericLogFiles(const QStringList &file
     return logFiles;
 }
 
-QList<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &stringList)
+QVector<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &stringList)
 {
-    QList<LogFile> logFiles;
+    QVector<LogFile> logFiles;
 
     // Default level used for No Mode logs
     LogLevel *level = Globals::instance().noLogLevel();

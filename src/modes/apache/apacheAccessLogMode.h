@@ -52,7 +52,7 @@ public:
 
     Analyzer *createAnalyzer(const QVariant &options = QVariant()) override;
 
-    QList<LogFile> createLogFiles() override;
+    QVector<LogFile> createLogFiles() override;
 };
 
 #endif // _APACHE_ACCESS_LOG_MODE_H
