@@ -115,12 +115,12 @@ void LogViewExport::print(QPrinter *printer)
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it) {
         auto *item = static_cast<LogViewWidgetItem *>(*it);
-        QString body = item->logLine()->exportToText();
+        const QString body = item->logLine()->exportToText();
         painter.setPen(originalPen);
         painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
-        int fontHeight = painter.fontMetrics().height();
-        int lines = painter.fontMetrics().boundingRect(body).width() / printView.width() + 1;
-        int moveBy = (fontHeight + 2) * lines;
+        const int fontHeight = painter.fontMetrics().height();
+        const int lines = painter.fontMetrics().boundingRect(body).width() / printView.width() + 1;
+        const int moveBy = (fontHeight + 2) * lines;
         painter.translate(0, moveBy);
         movement = movement + moveBy;
         if (movement + margin >= printView.height()) {
