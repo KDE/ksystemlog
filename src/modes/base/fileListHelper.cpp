@@ -45,7 +45,7 @@ FileListHelper::~FileListHelper()
 QAction *FileListHelper::prepareButtonAndAction(QPushButton *button, const QIcon &icon)
 {
     // Initialize action
-    auto *action = new QAction(button);
+    auto action = new QAction(button);
     action->setIcon(icon);
     action->setText(button->text());
 

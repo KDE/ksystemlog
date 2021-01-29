@@ -41,7 +41,7 @@ LogModeAction *XorgLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *logModeAction = new SimpleAction(logMode->action(), logMode);
+    auto logModeAction = new SimpleAction(logMode->action(), logMode);
 
     logModeAction->setCategory(LogModeAction::ServicesCategory);
 

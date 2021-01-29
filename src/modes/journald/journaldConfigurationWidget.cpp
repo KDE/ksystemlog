@@ -90,7 +90,7 @@ void JournaldConfigurationWidget::readConfig()
         remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0, new QTableWidgetItem(addressInfo.address));
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1, new QTableWidgetItem(QString::number(addressInfo.port)));
-        auto *item = new QTableWidgetItem(i18n("Enabled"));
+        auto item = new QTableWidgetItem(i18n("Enabled"));
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
         item->setCheckState(addressInfo.https ? Qt::Checked : Qt::Unchecked);
         remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 2, item);
@@ -122,7 +122,7 @@ void JournaldConfigurationWidget::addRemoteJournal()
             remoteJournalsListWidget->insertRow(remoteJournalsListWidget->rowCount());
             remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 0, new QTableWidgetItem(address));
             remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 1, new QTableWidgetItem(port));
-            auto *item = new QTableWidgetItem(i18n("Enabled"));
+            auto item = new QTableWidgetItem(i18n("Enabled"));
             item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
             item->setCheckState(dialog.httpsEnabled() ? Qt::Checked : Qt::Unchecked);
             remoteJournalsListWidget->setItem(remoteJournalsListWidget->rowCount() - 1, 2, item);

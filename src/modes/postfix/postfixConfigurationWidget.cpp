@@ -24,7 +24,7 @@
 PostfixConfigurationWidget::PostfixConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Postfix Log"), QStringLiteral(POSTFIX_MODE_ICON), i18n("Postfix Log"))
 {
-    auto *layout = new QVBoxLayout(this);
+    auto layout = new QVBoxLayout(this);
 
     const QString description = i18n("<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>");
 

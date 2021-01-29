@@ -102,7 +102,7 @@ bool LogViewWidgetSearchLine::itemMatches(const QTreeWidgetItem *item, const QSt
 LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto *filterBarLayout = new QHBoxLayout(this);
+    auto filterBarLayout = new QHBoxLayout(this);
     filterBarLayout->setContentsMargins(0, 0, 0, 0);
 
     mFilterLine = new LogViewWidgetSearchLine();
@@ -111,12 +111,12 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     mFilterLine->setWhatsThis(i18n("Allows you to only list items that match the content of this text."));
     mFilterLine->setPlaceholderText(i18n("Enter your search here..."));
 
-    auto *filterIcon = new QLabel();
+    auto filterIcon = new QLabel();
     filterIcon->setPixmap(QIcon::fromTheme(QStringLiteral("view-filter")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
     filterIcon->setBuddy(mFilterLine);
     filterBarLayout->addWidget(filterIcon);
 
-    auto *filterLabel = new QLabel(i18n("Filter:"));
+    auto filterLabel = new QLabel(i18n("Filter:"));
     filterLabel->setBuddy(mFilterLine);
     filterBarLayout->addWidget(filterLabel);
 
@@ -127,7 +127,7 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     filterBarLayout->addWidget(mFilterList);
 
     mPrioritiesComboBox = new QComboBox(this);
-    auto *delegate = new ComboBoxDelegate(mPrioritiesComboBox);
+    auto delegate = new ComboBoxDelegate(mPrioritiesComboBox);
     mPrioritiesComboBox->setItemDelegate(delegate);
     filterBarLayout->addWidget(mPrioritiesComboBox);
 
@@ -136,7 +136,7 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     mPrioritiesModel = new QStandardItemModel(mPrioritiesComboBox);
     mPrioritiesComboBox->setModel(mPrioritiesModel);
 
-    auto *item = new QStandardItem(i18n("Select priorities"));
+    auto item = new QStandardItem(i18n("Select priorities"));
     item->setSelectable(false);
     mPrioritiesModel->appendRow(item);
     connect(mPrioritiesModel, &QStandardItemModel::itemChanged, this, &LogViewFilterWidget::prioritiesChanged);
@@ -146,7 +146,7 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
         const int id = metaEnum.value(i);
         LogLevel *logLevel = Globals::instance().logLevelByPriority(id);
 
-        auto *item = new QStandardItem(logLevel->name());
+        auto item = new QStandardItem(logLevel->name());
         item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
         item->setData(Qt::Checked, Qt::CheckStateRole);
         item->setData(metaEnum.value(i), Qt::UserRole);

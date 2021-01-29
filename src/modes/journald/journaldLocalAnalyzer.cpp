@@ -94,7 +94,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
     mWorkerMutex.unlock();
 
     if (enabled) {
-        auto *watcher = new JournalWatcher();
+        auto watcher = new JournalWatcher();
         mWorkerMutex.lock();
         mJournalWatchers.append(watcher);
         mWorkerMutex.unlock();
@@ -146,7 +146,7 @@ void JournaldLocalAnalyzer::readJournalUpdateFinished()
 
 void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 {
-    auto *watcher = static_cast<JournalWatcher *>(sender());
+    auto watcher = static_cast<JournalWatcher *>(sender());
     if (!watcher) {
         return;
     }
@@ -206,7 +206,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
         return;
     }
 
-    auto *watcher = new JournalWatcher();
+    auto watcher = new JournalWatcher();
     mWorkerMutex.lock();
     mJournalWatchers.append(watcher);
     mWorkerMutex.unlock();

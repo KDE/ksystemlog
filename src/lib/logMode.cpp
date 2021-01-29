@@ -87,7 +87,7 @@ LogModeConfiguration *LogMode::innerConfiguration() const
 
 QAction *LogMode::createDefaultAction()
 {
-    auto *action = new QAction(d->icon, d->name, this);
+    auto action = new QAction(d->icon, d->name, this);
     ActionData data;
     data.id = d->id;
     action->setData(QVariant::fromValue(data));

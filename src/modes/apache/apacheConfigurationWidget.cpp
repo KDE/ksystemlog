@@ -24,7 +24,7 @@
 ApacheConfigurationWidget::ApacheConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Apache Log"), QStringLiteral(APACHE_MODE_ICON), i18n("Apache Log"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mApacheFileList = new MultipleFileList(this,
                                            i18n("<p>These files will be analyzed to show the <b>Apache log</b> "

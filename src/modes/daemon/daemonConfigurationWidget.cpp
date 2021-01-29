@@ -24,7 +24,7 @@
 DaemonConfigurationWidget::DaemonConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Daemons' Logs"), QStringLiteral(DAEMON_MODE_ICON), i18n("Daemons' Logs"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mFileList = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"));
     connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);

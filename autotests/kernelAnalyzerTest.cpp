@@ -100,7 +100,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral("kernelLogMode"));
-    auto *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
+    auto kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
     QVERIFY(kernelAnalyzer);
@@ -134,7 +134,7 @@ void KernelAnalyzerTest::testSuseDmesg()
     KSystemLogConfig::setDeleteDuplicatedLines(false);
 
     LogMode *logMode = Globals::instance().findLogMode(QStringLiteral("kernelLogMode"));
-    auto *kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
+    auto kernelAnalyzer = new KernelAnalyzerLocalReader(logMode);
     LogViewModel *model = testUtil.defineLogViewModel(kernelAnalyzer);
 
     QVERIFY(kernelAnalyzer);

@@ -24,7 +24,7 @@
 CupsConfigurationWidget::CupsConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Cups Log"), QStringLiteral(CUPS_MODE_ICON), i18n("Cups &amp; Cups Web Server Log"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mCupsFileList = new MultipleFileList(this,
                                          i18n("<p>These files will be analyzed to show the <b>Cups "

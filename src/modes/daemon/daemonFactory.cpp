@@ -41,7 +41,7 @@ LogModeAction *DaemonLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *logModeAction = new SimpleAction(logMode->action(), logMode);
+    auto logModeAction = new SimpleAction(logMode->action(), logMode);
 
     return logModeAction;
 }

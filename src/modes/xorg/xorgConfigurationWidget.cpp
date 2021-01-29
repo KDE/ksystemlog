@@ -24,7 +24,7 @@
 XorgConfigurationWidget::XorgConfigurationWidget()
     : LogModeConfigurationWidget(i18n("X.org Log"), QStringLiteral(XORG_MODE_ICON), i18n("X.org Log"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mFileList = new FileList(this, i18n("<p>These files will be analyzed to show the <b>X.org log</b>.</p>"));
     connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);

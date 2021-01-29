@@ -24,7 +24,7 @@
 AcpidConfigurationWidget::AcpidConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Acpid Log"), QStringLiteral(ACPID_MODE_ICON), i18n("Acpid Log"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mFileList = new FileList(this, i18n("<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"));
     connect(mFileList, &FileList::fileListChanged, this, &LogModeConfigurationWidget::configurationChanged);

@@ -59,7 +59,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
     mFileListHelper.prepareButton(modify, QIcon::fromTheme(QStringLiteral("document-open")), this, SLOT(modifyItem()), fileList);
 
     // Add a separator in the FileList
-    auto *separator = new QAction(this);
+    auto separator = new QAction(this);
     separator->setSeparator(true);
     fileList->addAction(separator);
 
@@ -239,7 +239,7 @@ void FileList::addPaths(const QStringList &paths)
 {
     bool missingFiles = false;
     for (const QString &path : paths) {
-        auto *item = new QListWidgetItem(path);
+        auto item = new QListWidgetItem(path);
         const QFileInfo checkFile(path);
         if (!checkFile.exists()) {
             item->setForeground(Qt::red);

@@ -39,7 +39,7 @@ QList<LogMode *> SambaLogModeFactory::createLogModes() const
 {
     // Create the shared configuration and configuration widget between the logModes
     QSharedPointer<SambaConfiguration> configuration = QSharedPointer<SambaConfiguration>(new SambaConfiguration());
-    auto *configurationWidget = new SambaConfigurationWidget();
+    auto configurationWidget = new SambaConfigurationWidget();
 
     QList<LogMode *> logModes;
     logModes.append(new SambaLogMode(configuration, configurationWidget, new SambaItemBuilder()));
@@ -63,7 +63,7 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
         return nullptr;
     }
 
-    auto *multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
+    auto multipleActions = new MultipleActions(QIcon::fromTheme(QStringLiteral(SAMBA_MODE_ICON)), i18n("Samba"), sambaLogMode);
 
     if (sambaLogsExist) {
         multipleActions->addInnerAction(sambaLogMode->action());

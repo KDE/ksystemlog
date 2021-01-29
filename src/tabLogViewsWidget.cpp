@@ -41,13 +41,13 @@
 TabLogViewsWidget::TabLogViewsWidget(QWidget *parent)
     : QTabWidget(parent)
 {
-    auto *tabNewTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
+    auto tabNewTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-new")), QLatin1String(""), this);
     connect(tabNewTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::createTab);
 
     tabNewTabButton->setToolTip(i18n("Create a new tab"));
     tabNewTabButton->setWhatsThis(i18n("Creates a new tab which can display another log."));
 
-    auto *tabCloseTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-close")), QLatin1String(""), this);
+    auto tabCloseTabButton = new QPushButton(QIcon::fromTheme(QStringLiteral("tab-close")), QLatin1String(""), this);
     connect(tabCloseTabButton, &QAbstractButton::clicked, this, &TabLogViewsWidget::closeTab);
 
     tabCloseTabButton->setToolTip(i18n("Close the current tab"));
@@ -211,13 +211,13 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
 
     logDebug() << "Creating new LogManager...";
 
-    auto *logManager = new LogManager(view);
+    auto logManager = new LogManager(view);
 
     // Signals from LogManager to Main Class
     connect(logManager, &LogManager::tabTitleChanged, this, &TabLogViewsWidget::changeTab);
     connect(logManager, &LogManager::logUpdated, this, &TabLogViewsWidget::changeTitleAddedLines);
 
-    auto *tabLogManager = new TabLogManager(logManager);
+    auto tabLogManager = new TabLogManager(logManager);
     mTabLogManagers.append(tabLogManager);
 
     logDebug() << "New LogManager created";

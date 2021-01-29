@@ -24,7 +24,7 @@
 SambaConfigurationWidget::SambaConfigurationWidget()
     : LogModeConfigurationWidget(i18n("Samba Log"), QStringLiteral(SAMBA_MODE_ICON), i18n("Samba Log"))
 {
-    auto *layout = new QHBoxLayout(this);
+    auto layout = new QHBoxLayout(this);
 
     mSambaFileList = new MultipleFileList(this,
                                           i18n("<p>These files will be analyzed to show <b>Samba log</b>, "

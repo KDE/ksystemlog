@@ -61,7 +61,7 @@ void LogViewExport::sendMail()
     int i = 0;
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it) {
-        auto *item = static_cast<LogViewWidgetItem *>(*it);
+        auto item = static_cast<LogViewWidgetItem *>(*it);
 
         body += item->logLine()->exportToText();
         body += QLatin1Char('\n');
@@ -114,7 +114,7 @@ void LogViewExport::print(QPrinter *printer)
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it) {
-        auto *item = static_cast<LogViewWidgetItem *>(*it);
+        auto item = static_cast<LogViewWidgetItem *>(*it);
         const QString body = item->logLine()->exportToText();
         painter.setPen(originalPen);
         painter.drawText(printView, Qt::AlignLeft | Qt::TextWordWrap, body);
@@ -153,7 +153,7 @@ void LogViewExport::printSelection()
      */
 
     // initialize the printer using the print dialog
-    auto *printDialog = new QPrintDialog(&printer, mParent);
+    auto printDialog = new QPrintDialog(&printer, mParent);
     if (!printDialog->exec()) {
         delete printDialog;
         return;
@@ -198,7 +198,7 @@ void LogViewExport::copyToClipboard()
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
     while (*it) {
-        auto *item = static_cast<LogViewWidgetItem *>(*it);
+        auto item = static_cast<LogViewWidgetItem *>(*it);
 
         // Copy the item content to the text string
         text.append(item->logLine()->exportToText());
@@ -239,7 +239,7 @@ void LogViewExport::fileSave()
         return;
     }
 
-    auto *ioDev = new QFile(filename);
+    auto ioDev = new QFile(filename);
 
     if (ioDev->open(QIODevice::WriteOnly)) {
         QTextStream stream(ioDev);
@@ -247,7 +247,7 @@ void LogViewExport::fileSave()
         int nbCopied = 0;
 
         while (*it) {
-            auto *item = static_cast<LogViewWidgetItem *>(*it);
+            auto item = static_cast<LogViewWidgetItem *>(*it);
 
             // Copy the item content to the stream
             stream << item->logLine()->exportToText() << '\n';

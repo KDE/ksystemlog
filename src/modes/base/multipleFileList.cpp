@@ -59,7 +59,7 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     fileList->header()->setVisible(false);
 
     // Add a separator in the MultipleFileList
-    auto *separator = new QAction(this);
+    auto separator = new QAction(this);
     separator->setSeparator(true);
     fileList->addAction(separator);
 
@@ -184,7 +184,7 @@ int MultipleFileList::categoryCount(int index) const
 
 int MultipleFileList::addCategory(const QString &itemName, const QString &buttonName)
 {
-    auto *item = new QTreeWidgetItem(fileList, QStringList(itemName));
+    auto item = new QTreeWidgetItem(fileList, QStringList(itemName));
     item->setExpanded(true);
     QFont font = item->font(0);
     font.setBold(true);
@@ -192,7 +192,7 @@ int MultipleFileList::addCategory(const QString &itemName, const QString &button
 
     int index = fileList->indexOfTopLevelItem(item);
 
-    auto *addButton = new QPushButton(buttonName, this);
+    auto addButton = new QPushButton(buttonName, this);
     QAction *action = mFileListHelper.prepareButtonAndAction(addButton, QIcon::fromTheme(QStringLiteral("document-new")));
 
     // Insert the action in first position
@@ -231,7 +231,7 @@ void MultipleFileList::addItem(int category)
 void MultipleFileList::addItemInternal(QTreeWidgetItem *categoryItem, const QString &path)
 {
     logDebug() << "Adding" << path << "to" << categoryItem->text(0);
-    auto *item = new QTreeWidgetItem(QStringList(path));
+    auto item = new QTreeWidgetItem(QStringList(path));
 
     QFileInfo checkFile(path);
     if (!checkFile.exists()) {
@@ -422,7 +422,7 @@ void MultipleFileList::addEmptyItem(QTreeWidgetItem *item)
 {
     logDebug() << "Adding an empty item...";
 
-    auto *emptyItem = new QTreeWidgetItem(item, QStringList(i18n("No log file...")));
+    auto emptyItem = new QTreeWidgetItem(item, QStringList(i18n("No log file...")));
     item->setExpanded(true);
     QFont font = emptyItem->font(0);
     font.setItalic(true);

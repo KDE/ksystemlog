@@ -180,7 +180,7 @@ void MainWindow::prepareCreatedLogManager(LogManager *manager)
     manager->usedView()->logViewWidget()->addAction(mReloadAction);
     manager->usedView()->logViewWidget()->addAction(mSelectAllAction);
 
-    auto *separator = new QAction(this);
+    auto separator = new QAction(this);
     separator->setSeparator(true);
     manager->usedView()->logViewWidget()->addAction(separator);
 
@@ -646,7 +646,7 @@ void MainWindow::setupActions()
     mTabs->addAction(duplicateTabAction);
     actionCollection()->setDefaultShortcut(duplicateTabAction, Qt::SHIFT | Qt::CTRL | Qt::Key_N);
 
-    auto *separatorAction = new QAction(this);
+    auto separatorAction = new QAction(this);
     separatorAction->setSeparator(true);
     mTabs->addAction(separatorAction);
 
@@ -720,7 +720,7 @@ void MainWindow::setupActions()
 
 void MainWindow::selectLogModeAction(bool)
 {
-    auto *action = qobject_cast<QAction *>(sender());
+    auto action = qobject_cast<QAction *>(sender());
     ActionData actionData = action->data().value<ActionData>();
     QString selectedModeId = actionData.id;
 
@@ -760,8 +760,8 @@ void MainWindow::setupLogModeMenu()
     int serviceItems = 0;
     int othersItems = 0;
 
-    auto *servicesAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-system-session-services")), i18n("Services"), this);
-    auto *othersAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-other")), i18n("Others"), this);
+    auto servicesAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-system-session-services")), i18n("Services"), this);
+    auto othersAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-other")), i18n("Others"), this);
 
     foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
         if (logModeAction->category() == LogModeAction::RootCategory) {

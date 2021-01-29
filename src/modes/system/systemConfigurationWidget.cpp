@@ -24,7 +24,7 @@
 SystemConfigurationWidget::SystemConfigurationWidget()
     : LogModeConfigurationWidget(i18n("System Log"), QStringLiteral(SYSTEM_MODE_ICON), i18n("System Log"))
 {
-    auto *layout = new QVBoxLayout(this);
+    auto layout = new QVBoxLayout(this);
 
     const QString description = i18n("<p>These files will be analyzed to show the <b>System logs</b>.</p>");
 
