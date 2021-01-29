@@ -80,7 +80,7 @@ endif(${AUDIT_FOUND})
 
 ########### Installation ###############
 
-install(TARGETS ksystemlog ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS ksystemlog ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES org.kde.ksystemlog.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
