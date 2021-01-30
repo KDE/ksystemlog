@@ -26,6 +26,7 @@
 #include <QFileDialog>
 #include <QPrintDialog>
 #include <QPrinter>
+#include <QDesktopServices>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -78,18 +79,9 @@ void LogViewExport::sendMail()
         return;
     }
 
-    // Parameters list of this method
-    // const QString &   to,
-    // const QString &   cc,
-    // const QString &   bcc,
-    // const QString &   subject,
-    // const QString &   body,
-    // const QString &   messageFile,
-    // const QStringList &   attachURLs,
-    // const QCString &   startup_id
-    // KToolInvocation::invokeMailer(QLatin1String( "" ), QLatin1String( "" ), QLatin1String( "" ), i18n("Log
-    // Lines of my problem"), body, QLatin1String( "" ), QStringList(), kapp->startupId());
-    KToolInvocation::invokeMailer(QString(), QString(), QString(), i18n("Log Lines of my problem"), body);
+    const QString url = QStringLiteral("mailto:?subject=%1&body=%2")
+                            .arg(i18n("Log Lines of my problem")).arg(body);
+    QDesktopServices::openUrl(QUrl(url));
 }
 
 void LogViewExport::print(QPrinter *printer)
