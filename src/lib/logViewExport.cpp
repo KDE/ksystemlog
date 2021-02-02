@@ -109,7 +109,6 @@ void LogViewExport::print(QPrinter *printer)
 
     int page = 1;
 
-    int i = 0;
     int movement = 0;
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
@@ -122,7 +121,7 @@ void LogViewExport::print(QPrinter *printer)
         const int lines = painter.fontMetrics().boundingRect(body).width() / printView.width() + 1;
         const int moveBy = (fontHeight + 2) * lines;
         painter.translate(0, moveBy);
-        movement = movement + moveBy;
+        movement += moveBy;
         if (movement + margin >= printView.height()) {
             painter.setPen(originalPen);
             printPageNumber(painter, printView, movement, page);
@@ -131,7 +130,6 @@ void LogViewExport::print(QPrinter *printer)
             movement = 0;
         }
         ++it;
-        ++i;
     }
 
     // stop painting, this will automatically send the print data to the printer
