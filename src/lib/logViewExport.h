@@ -51,7 +51,7 @@ Q_SIGNALS:
     void statusBarChanged(const QString &message);
 
 private:
-    void printPageNumber(QPainter &painter, QRect &printView, int movement, int page);
+    void printPageNumber(QPainter &painter, QRect &printView, int movement, int page, int margin);
 
     QWidget *const mParent;
 

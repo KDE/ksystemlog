@@ -104,7 +104,7 @@ void LogViewExport::print(QPrinter *printer)
 
     QPaintDevice *painterDevice = painter.device();
     int dpiy = painterDevice->logicalDpiY();
-    int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
+    const int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
     QRect printView(margin, margin, painterDevice->width() - 2 * margin, painterDevice->height() - 2 * margin);
 
     int page = 1;
@@ -124,7 +124,7 @@ void LogViewExport::print(QPrinter *printer)
         movement += moveBy;
         if (movement + margin >= printView.height()) {
             painter.setPen(originalPen);
-            printPageNumber(painter, printView, movement, page);
+            printPageNumber(painter, printView, movement, page, margin);
             printer->newPage();
             page++;
             movement = 0;
@@ -175,12 +175,12 @@ void LogViewExport::printPreview()
     dialog->open();
 }
 
-void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int movement, int page)
+void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int movement, int page, int margin)
 {
     logDebug() << "Printing page number...";
 
     painter.translate(0, -movement);
-    printView.moveTo(QPoint(0, printView.height()));
+    printView.moveTo(QPoint(margin, printView.height() * page + margin));
     painter.translate(0, -printView.height());
     painter.drawText(printView.right() - painter.fontMetrics().boundingRect(QString::number(page)).width(),
                      printView.bottom() + painter.fontMetrics().ascent() + 5,
