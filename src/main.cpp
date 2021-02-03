@@ -61,10 +61,7 @@ int main(int argc, char **argv)
 
     KAboutData::setApplicationData(about);
 
-    app.setApplicationName(about.componentName());
     app.setApplicationDisplayName(about.displayName());
-    app.setOrganizationDomain(about.organizationDomain());
-    app.setApplicationVersion(about.version());
 
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("utilities-log-viewer")));
 
