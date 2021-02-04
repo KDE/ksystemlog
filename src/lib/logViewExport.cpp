@@ -27,6 +27,7 @@
 #include <QPrintDialog>
 #include <QPrinter>
 #include <QDesktopServices>
+#include <QUrlQuery>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -79,9 +80,12 @@ void LogViewExport::sendMail()
         return;
     }
 
-    const QString url = QStringLiteral("mailto:?subject=%1&body=%2")
-                            .arg(i18n("Log Lines of my problem")).arg(body);
-    QDesktopServices::openUrl(QUrl(url));
+    const QUrlQuery urlQuery = {{QStringLiteral("subject"), i18n("Log Lines of my problem")}, {QStringLiteral("body"), body}};
+    QUrl url;
+    url.setScheme(QStringLiteral("mailto"));
+    url.setQuery(urlQuery);
+
+    QDesktopServices::openUrl(url);
 }
 
 void LogViewExport::print(QPrinter *printer)
