@@ -82,6 +82,6 @@ endif(${AUDIT_FOUND})
 
 install(TARGETS ksystemlog ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.ksystemlog.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES ksystemlogui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/ksystemlog)
+install(FILES ksystemlogui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/ksystemlog)
