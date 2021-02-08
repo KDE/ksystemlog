@@ -69,9 +69,6 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         int dateBegin = line.indexOf(QLatin1String("["));
         int dateEnd = line.indexOf(QLatin1String("]"));
 
-        QString type;
-        QString message;
-
         const QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
         const QString month = strDate.mid(4, 3);
