@@ -210,8 +210,8 @@ void SystemAnalyzerTest::testStrangeLines()
 
     QStringList items;
 
-    const int year = QDate::currentDate().year();
     QSKIP("This test/code is broken");
+    const int year = QDate::currentDate().year();
 
     // Classical log line
     items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel") << QStringLiteral("Kernel panic");
@@ -369,8 +369,7 @@ void SystemAnalyzerTest::compareWithMinTime(const QList<LogLine *> &logLines, co
     for (LogLine *logLine : logLines) {
         if (logLine->time() < minTime) {
             QFAIL(QString::fromLatin1("The line '%1' has a lesser time than the required min time (%2)")
-                      .arg(logLine->logItems().join(QLatin1Char(' ')))
-                      .arg(logLine->time().toString())
+                      .arg(logLine->logItems().join(QLatin1Char(' ')), logLine->time().toString())
                       .toUtf8()
                       .constData());
         }

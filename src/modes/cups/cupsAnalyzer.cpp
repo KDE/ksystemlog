@@ -80,7 +80,7 @@ void CupsAnalyzer::initializeTypeLevels()
     mMapTypeLevels[QLatin1Char(' ')] = Globals::instance().noLogLevel();
 }
 
-LogLevel *CupsAnalyzer::findLogLevel(const QChar &type)
+LogLevel *CupsAnalyzer::findLogLevel(QChar type)
 {
     QMap<QChar, LogLevel *>::iterator it;
 

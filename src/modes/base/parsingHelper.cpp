@@ -55,55 +55,55 @@ ParsingHelper::ParsingHelper()
 
     // Initialize HTTP Responses
     // 1xx Responses
-    mMapHTTPResponse[QStringLiteral("100")] = QLatin1String("Continue");
-    mMapHTTPResponse[QStringLiteral("101")] = QLatin1String("Switching Protocols");
+    mMapHTTPResponse[QStringLiteral("100")] = QStringLiteral("Continue");
+    mMapHTTPResponse[QStringLiteral("101")] = QStringLiteral("Switching Protocols");
 
     // 2xx Responses
-    mMapHTTPResponse[QStringLiteral("200")] = QLatin1String("OK");
-    mMapHTTPResponse[QStringLiteral("201")] = QLatin1String("Created");
-    mMapHTTPResponse[QStringLiteral("202")] = QLatin1String("Accepted");
-    mMapHTTPResponse[QStringLiteral("203")] = QLatin1String("Non-Authoritative Information");
-    mMapHTTPResponse[QStringLiteral("204")] = QLatin1String("No Content");
-    mMapHTTPResponse[QStringLiteral("205")] = QLatin1String("Reset Content");
-    mMapHTTPResponse[QStringLiteral("206")] = QLatin1String("Partial Content");
+    mMapHTTPResponse[QStringLiteral("200")] = QStringLiteral("OK");
+    mMapHTTPResponse[QStringLiteral("201")] = QStringLiteral("Created");
+    mMapHTTPResponse[QStringLiteral("202")] = QStringLiteral("Accepted");
+    mMapHTTPResponse[QStringLiteral("203")] = QStringLiteral("Non-Authoritative Information");
+    mMapHTTPResponse[QStringLiteral("204")] = QStringLiteral("No Content");
+    mMapHTTPResponse[QStringLiteral("205")] = QStringLiteral("Reset Content");
+    mMapHTTPResponse[QStringLiteral("206")] = QStringLiteral("Partial Content");
 
     // 3xx Responses
-    mMapHTTPResponse[QStringLiteral("300")] = QLatin1String("OK");
-    mMapHTTPResponse[QStringLiteral("301")] = QLatin1String("Moved Permanently");
-    mMapHTTPResponse[QStringLiteral("302")] = QLatin1String("Found");
-    mMapHTTPResponse[QStringLiteral("303")] = QLatin1String("See Other");
-    mMapHTTPResponse[QStringLiteral("304")] = QLatin1String("Not Modified");
-    mMapHTTPResponse[QStringLiteral("305")] = QLatin1String("Use Proxy");
-    mMapHTTPResponse[QStringLiteral("306")] = QLatin1String("(Unused)");
-    mMapHTTPResponse[QStringLiteral("307")] = QLatin1String("Temporary Redirect");
+    mMapHTTPResponse[QStringLiteral("300")] = QStringLiteral("OK");
+    mMapHTTPResponse[QStringLiteral("301")] = QStringLiteral("Moved Permanently");
+    mMapHTTPResponse[QStringLiteral("302")] = QStringLiteral("Found");
+    mMapHTTPResponse[QStringLiteral("303")] = QStringLiteral("See Other");
+    mMapHTTPResponse[QStringLiteral("304")] = QStringLiteral("Not Modified");
+    mMapHTTPResponse[QStringLiteral("305")] = QStringLiteral("Use Proxy");
+    mMapHTTPResponse[QStringLiteral("306")] = QStringLiteral("(Unused)");
+    mMapHTTPResponse[QStringLiteral("307")] = QStringLiteral("Temporary Redirect");
 
     // 4xx Responses
-    mMapHTTPResponse[QStringLiteral("400")] = QLatin1String("Bad Request");
-    mMapHTTPResponse[QStringLiteral("401")] = QLatin1String("Unauthorized");
-    mMapHTTPResponse[QStringLiteral("402")] = QLatin1String("Payment Required");
-    mMapHTTPResponse[QStringLiteral("403")] = QLatin1String("Forbidden");
-    mMapHTTPResponse[QStringLiteral("404")] = QLatin1String("Not Found");
-    mMapHTTPResponse[QStringLiteral("405")] = QLatin1String("Method Not Allowed");
-    mMapHTTPResponse[QStringLiteral("406")] = QLatin1String("Not Acceptable");
-    mMapHTTPResponse[QStringLiteral("407")] = QLatin1String("Proxy Authentication Required");
-    mMapHTTPResponse[QStringLiteral("408")] = QLatin1String("Request Timeout");
-    mMapHTTPResponse[QStringLiteral("409")] = QLatin1String("Conflict");
-    mMapHTTPResponse[QStringLiteral("410")] = QLatin1String("Gone");
+    mMapHTTPResponse[QStringLiteral("400")] = QStringLiteral("Bad Request");
+    mMapHTTPResponse[QStringLiteral("401")] = QStringLiteral("Unauthorized");
+    mMapHTTPResponse[QStringLiteral("402")] = QStringLiteral("Payment Required");
+    mMapHTTPResponse[QStringLiteral("403")] = QStringLiteral("Forbidden");
+    mMapHTTPResponse[QStringLiteral("404")] = QStringLiteral("Not Found");
+    mMapHTTPResponse[QStringLiteral("405")] = QStringLiteral("Method Not Allowed");
+    mMapHTTPResponse[QStringLiteral("406")] = QStringLiteral("Not Acceptable");
+    mMapHTTPResponse[QStringLiteral("407")] = QStringLiteral("Proxy Authentication Required");
+    mMapHTTPResponse[QStringLiteral("408")] = QStringLiteral("Request Timeout");
+    mMapHTTPResponse[QStringLiteral("409")] = QStringLiteral("Conflict");
+    mMapHTTPResponse[QStringLiteral("410")] = QStringLiteral("Gone");
     mMapHTTPResponse[QStringLiteral("411")] = QLatin1String("Length Required");
-    mMapHTTPResponse[QStringLiteral("412")] = QLatin1String("Precondition Failed");
-    mMapHTTPResponse[QStringLiteral("413")] = QLatin1String("Request Entity Too Large");
-    mMapHTTPResponse[QStringLiteral("414")] = QLatin1String("Request-URI Too Long");
-    mMapHTTPResponse[QStringLiteral("415")] = QLatin1String("Unsupported Media Type");
-    mMapHTTPResponse[QStringLiteral("416")] = QLatin1String("Requested Range Not Satisfiable");
-    mMapHTTPResponse[QStringLiteral("417")] = QLatin1String("Expectation Failed");
+    mMapHTTPResponse[QStringLiteral("412")] = QStringLiteral("Precondition Failed");
+    mMapHTTPResponse[QStringLiteral("413")] = QStringLiteral("Request Entity Too Large");
+    mMapHTTPResponse[QStringLiteral("414")] = QStringLiteral("Request-URI Too Long");
+    mMapHTTPResponse[QStringLiteral("415")] = QStringLiteral("Unsupported Media Type");
+    mMapHTTPResponse[QStringLiteral("416")] = QStringLiteral("Requested Range Not Satisfiable");
+    mMapHTTPResponse[QStringLiteral("417")] = QStringLiteral("Expectation Failed");
 
     // 5xx Responses
-    mMapHTTPResponse[QStringLiteral("500")] = QLatin1String("Internal Server Error");
-    mMapHTTPResponse[QStringLiteral("501")] = QLatin1String("Not Implemented");
-    mMapHTTPResponse[QStringLiteral("502")] = QLatin1String("Bad Gateway");
-    mMapHTTPResponse[QStringLiteral("503")] = QLatin1String("Service Unavailable");
-    mMapHTTPResponse[QStringLiteral("504")] = QLatin1String("Gateway Timeout");
-    mMapHTTPResponse[QStringLiteral("505")] = QLatin1String("HTTP Version Not Supported");
+    mMapHTTPResponse[QStringLiteral("500")] = QStringLiteral("Internal Server Error");
+    mMapHTTPResponse[QStringLiteral("501")] = QStringLiteral("Not Implemented");
+    mMapHTTPResponse[QStringLiteral("502")] = QStringLiteral("Bad Gateway");
+    mMapHTTPResponse[QStringLiteral("503")] = QStringLiteral("Service Unavailable");
+    mMapHTTPResponse[QStringLiteral("504")] = QStringLiteral("Gateway Timeout");
+    mMapHTTPResponse[QStringLiteral("505")] = QStringLiteral("HTTP Version Not Supported");
 }
 
 ParsingHelper::~ParsingHelper()

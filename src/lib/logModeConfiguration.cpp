@@ -224,6 +224,7 @@ QVector<LogFile> LogModeConfiguration::findGenericLogFiles(const QStringList &fi
 {
     QVector<LogFile> logFiles;
 
+    logFiles.reserve(files.count());
     for (const QString &file : files) {
         logFiles.append(findGenericLogFile(file));
     }

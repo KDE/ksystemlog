@@ -76,7 +76,7 @@ private:
 
     void initializeTypeLevels();
 
-    LogLevel *findLogLevel(const QChar &type);
+    LogLevel *findLogLevel(QChar type);
 };
 
 #endif // _CUPS_ANALYZER_H
