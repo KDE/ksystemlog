@@ -58,6 +58,7 @@ int main(int argc, char **argv)
                     QStringLiteral("https://www.forum-software.org"));
     about.addAuthor(i18n("Vyacheslav Matyushin"), i18n("Journald mode, bugfixes"), QStringLiteral("v.matyushin@gmail.com"));
     about.addCredit(i18n("Bojan Djurkovic"), i18n("Log Printing"), QStringLiteral("dbojan@gmail.com"));
+    about.addCredit(i18n("Laurent Montel"), i18n("Bug Fixing"), QStringLiteral("montel@kde.org"));
 
     KAboutData::setApplicationData(about);
 
