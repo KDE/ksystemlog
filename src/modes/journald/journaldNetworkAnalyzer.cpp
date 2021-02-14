@@ -288,7 +288,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     connect(mReply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
     connect(mReply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    connect(m_reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
+    connect(mReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &JournaldNetworkAnalyzer::httpError);
 #else
     connect(mReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::errorOccurred), this, &JournaldNetworkAnalyzer::httpError);
 #endif
