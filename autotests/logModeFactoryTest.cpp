@@ -70,6 +70,7 @@ void LogModeFactoryTest::testReaderFactory()
 
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
+    delete systemAnalyzer;
 }
 
 QTEST_MAIN(LogModeFactoryTest)

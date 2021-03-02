@@ -86,6 +86,7 @@ void TestUtil::destroyReader(Analyzer *analyzer) const
 QVector<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
 {
     QTemporaryFile *tempFile = QTemporaryFile::createNativeFile(resourceFileName);
+    tempFile->setAutoRemove(false);
     logDebug() << "Using log file name " << tempFile;
     tempFile->setPermissions(QFile::WriteUser | QFile::ReadUser | QFile::ReadOwner | QFile::WriteOwner);
 
@@ -93,6 +94,7 @@ QVector<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
 
     QVector<LogFile> logFiles;
     LogFile logFile(QUrl::fromLocalFile(tempFile->fileName()), informationLogLevel);
+    delete tempFile;
     logFiles.append(logFile);
 
     return logFiles;

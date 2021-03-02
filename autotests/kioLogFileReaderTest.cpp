@@ -70,6 +70,7 @@ void KioLogFileReaderTest::testKioLogFileReader()
         static QTextStream stream(&file);
         QCOMPARE(line, stream.readLine());
     });
+    delete logFileReader;
 }
 
 QTEST_MAIN(KioLogFileReaderTest)
