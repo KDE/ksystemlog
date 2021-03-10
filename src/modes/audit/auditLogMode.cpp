@@ -1,11 +1,9 @@
 #include "auditLogMode.h"
 
 #include <QAction>
-#include <QList>
 
 #include <KLocalizedString>
 
-#include "logMode.h"
 #include "logging.h"
 
 #include "auditAnalyzer.h"
