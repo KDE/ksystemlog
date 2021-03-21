@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef VIEW_H
-#define VIEW_H
+#pragma once
 
 // Qt includes
 #include <QWidget>
@@ -102,4 +101,3 @@ private:
     LoadingBar *mLoadingBar = nullptr;
 };
 
-#endif // VIEW_H

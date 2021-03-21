@@ -1,5 +1,4 @@
-#ifndef AUDITCONVERTOR_H
-#define AUDITCONVERTOR_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -81,4 +80,3 @@ private:
     unsigned int m_a1;
 };
 
-#endif // AUDITCONVERTOR_H

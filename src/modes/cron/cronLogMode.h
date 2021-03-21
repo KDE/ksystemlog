@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CRON_LOG_MODE_H
-#define CRON_LOG_MODE_H
+#pragma once
 
 /**
  * Cron Log Mode Identifier
@@ -51,4 +50,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _CRON_LOG_MODE_H

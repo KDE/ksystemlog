@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef APACHE_ACCESS_ANALYZER_H
-#define APACHE_ACCESS_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -53,4 +52,3 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 };
 
-#endif // _APACHE_ACCESS_ANALYZER_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef SAMBA_CONFIGURATION_H
-#define SAMBA_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -62,4 +61,3 @@ private:
     QStringList mNetbiosPaths;
 };
 
-#endif // _SAMBA_CONFIGURATION_H

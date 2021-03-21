@@ -1,5 +1,4 @@
-#ifndef _AUDIT_CONFIGURATION_H_
-#define _AUDIT_CONFIGURATION_H_
+#pragma once
 
 #include "genericConfiguration.h"
 
@@ -11,4 +10,3 @@ public:
     AuditConfiguration();
 };
 
-#endif // _AUDIT_CONFIGURATION_H_

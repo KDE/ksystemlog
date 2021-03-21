@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef SYSTEM_CONFIGURATION_WIDGET_H
-#define SYSTEM_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include "logModeConfigurationWidget.h"
 
@@ -62,4 +61,3 @@ private:
     LogLevelFileList *mFileList = nullptr;
 };
 
-#endif // _SYSTEM_CONFIGURATION_WIDGET_H

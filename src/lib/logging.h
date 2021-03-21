@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef KSYSTEMLOG_LOGGING_H
-#define KSYSTEMLOG_LOGGING_H
+#pragma once
 
 #include "ksystemlog_debug.h"
 
@@ -77,4 +76,3 @@
 
 #define logFatal() qCFatal(KSYSTEMLOG) << LOG_PREFIX(LOG_FATAL_COLOR)
 
-#endif // _KSYSTEMLOG_LOGGING_H

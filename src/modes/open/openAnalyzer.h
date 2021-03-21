@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef OPEN_ANALYZER_H
-#define OPEN_ANALYZER_H
+#pragma once
 
 #include "syslogAnalyzer.h"
 
@@ -41,4 +40,3 @@ public:
     }
 };
 
-#endif

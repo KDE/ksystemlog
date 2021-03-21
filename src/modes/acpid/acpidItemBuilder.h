@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef ACPID_ITEM_BUILDER_H
-#define ACPID_ITEM_BUILDER_H
+#pragma once
 
 #include <QString>
 
@@ -50,4 +49,3 @@ public:
     QString createFormattedText(LogLine *line) const override;
 };
 
-#endif // _ACPID_ITEM_BUILDER_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef ACPID_ANALYZER_H
-#define ACPID_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -57,4 +56,3 @@ protected:
     LogLine *parseMessage(const QString &logLine, const LogFile &originalFile) override;
 };
 
-#endif // _ACPID_ANALYZER_H

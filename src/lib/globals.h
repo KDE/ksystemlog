@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#pragma once
 
 #include <QList>
 #include <QMetaEnum>
@@ -104,4 +103,3 @@ private:
     GlobalsPrivate *const d;
 };
 
-#endif

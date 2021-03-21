@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef XORG_ANALYZER_H
-#define XORG_ANALYZER_H
+#pragma once
 
 #include "fileAnalyzer.h"
 
@@ -61,4 +60,3 @@ private:
     const QDateTime mCurrentDateTime;
 };
 
-#endif // _XORG_ANALYZER_H

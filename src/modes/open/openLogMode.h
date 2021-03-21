@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef OPEN_LOG_MODE_H
-#define OPEN_LOG_MODE_H
+#pragma once
 
 /**
  * Open Log Mode Identifier
@@ -57,4 +56,3 @@ private:
     QWidget *const mParent;
 };
 
-#endif // _OPEN_LOG_MODE_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_MODE_CONFIGURATION_WIDGET_H
-#define LOG_MODE_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include <QString>
 #include <QWidget>
@@ -54,4 +53,3 @@ private:
     QString mHeader;
 };
 
-#endif // _LOG_MODE_CONFIGURATION_WIDGET_H

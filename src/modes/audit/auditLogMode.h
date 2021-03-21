@@ -1,5 +1,4 @@
-#ifndef _AUDIT_LOG_MODE_H_
-#define _AUDIT_LOG_MODE_H_
+#pragma once
 
 /**
  * Audit Log Mode Identifier
@@ -28,4 +27,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _AUDIT_LOG_MODE_H_

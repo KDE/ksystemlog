@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOGGER_DIALOG_H
-#define LOGGER_DIALOG_H
+#pragma once
 
 #include <QWidget>
 
@@ -54,4 +53,3 @@ private:
     QMap<QString, QIcon> mPriorityIcons;
 };
 
-#endif // _LOGGER_DIALOG_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef DETAIL_DIALOG_H
-#define DETAIL_DIALOG_H
+#pragma once
 
 #include <QDialog>
 
@@ -55,4 +54,3 @@ private:
     LogViewWidget *mLogViewWidget = nullptr;
 };
 
-#endif //_DETAIL_DIALOG_H

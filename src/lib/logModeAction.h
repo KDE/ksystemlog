@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_MODE_ACTION_H
-#define LOG_MODE_ACTION_H
+#pragma once
 
 #include <QAction>
 #include <QList>
@@ -52,4 +51,3 @@ private:
     bool mInToolBar = true;
 };
 
-#endif // _LOG_MODE_ACTION_H

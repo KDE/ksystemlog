@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef JOURNALD_ITEM_BUILDER_H
-#define JOURNALD_ITEM_BUILDER_H
+#pragma once
 
 #include "logModeItemBuilder.h"
 
@@ -34,4 +33,3 @@ public:
     QString createToolTipText(LogLine *line) const override;
 };
 
-#endif // _JOURNALD_ITEM_BUILDER_H

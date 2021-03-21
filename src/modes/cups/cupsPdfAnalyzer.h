@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CUPS_PDF_ANALYZER_H
-#define CUPS_PDF_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -74,4 +73,3 @@ protected:
     LogLevel *findLogLevel(const QString &level);
 };
 
-#endif // _CUPS_PDF_ANALYZER_H

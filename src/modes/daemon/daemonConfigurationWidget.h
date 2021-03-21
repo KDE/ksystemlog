@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef DAEMON_CONFIGURATION_WIDGET_H
-#define DAEMON_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -63,4 +62,3 @@ private:
     FileList *mFileList = nullptr;
 };
 
-#endif // _DAEMON_CONFIGURATION_WIDGET_H

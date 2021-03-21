@@ -1,5 +1,4 @@
-#ifndef _AUDIT_CONFIGURATION_WIDGET_H_
-#define _AUDIT_CONFIGURATION_WIDGET_H_
+#pragma once
 
 #include "logModeConfigurationWidget.h"
 
@@ -23,4 +22,3 @@ private:
     QLineEdit *keyLineEdit;
 };
 
-#endif // _AUDIT_CONFIGURATION_WIDGET_H_

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef FILEANALYZER_H
-#define FILEANALYZER_H
+#pragma once
 
 #include <QList>
 #include <QString>
@@ -80,4 +79,3 @@ protected:
     QList<LogFileReader *> mLogFileReaders;
 };
 
-#endif // _FILEANALYZER_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_LEVEL_FILE_LIST_H
-#define LOG_LEVEL_FILE_LIST_H
+#pragma once
 
 #include "fileList.h"
 
@@ -58,4 +57,3 @@ private Q_SLOTS:
     void changeItemType();
 };
 
-#endif //_LOG_LEVEL_FILE_LIST_H

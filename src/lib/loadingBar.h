@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOADING_BAR_H
-#define LOADING_BAR_H
+#pragma once
 
 #include <QWidget>
 
@@ -61,4 +60,3 @@ private:
     QProgressBar *mProgressBar = nullptr;
 };
 
-#endif // _LOADING_BAR_H

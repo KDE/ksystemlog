@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef ACPID_CONFIGURATION_H
-#define ACPID_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -50,4 +49,3 @@ private:
     QStringList mAcpidPaths;
 };
 
-#endif // _ACPID_CONFIGURATION_H

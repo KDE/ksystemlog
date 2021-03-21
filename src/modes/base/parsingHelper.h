@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef PARSING_HELPER_H
-#define PARSING_HELPER_H
+#pragma once
 
 #include <QDateTime>
 
@@ -67,4 +66,3 @@ private:
     QMap<QString, QString> mMapHTTPResponse;
 };
 
-#endif

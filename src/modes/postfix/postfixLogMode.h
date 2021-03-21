@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef POSTFIX_LOG_MODE_H
-#define POSTFIX_LOG_MODE_H
+#pragma once
 
 /**
  * Postfix Log Mode Identifier
@@ -51,4 +50,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _POSTFIX_LOG_MODE_H

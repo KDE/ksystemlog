@@ -1,5 +1,4 @@
-#ifndef _AUDIT_ANALYZER_H_
-#define _AUDIT_ANALYZER_H_
+#pragma once
 
 #include <QMap>
 
@@ -50,4 +49,3 @@ private:
     AuditConvertor m_conv;
 };
 
-#endif // _AUDIT_ANALYZER_H_

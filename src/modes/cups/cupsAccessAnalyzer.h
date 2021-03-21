@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CUPS_ACCESS_ANALYZER_H
-#define CUPS_ACCESS_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -79,4 +78,3 @@ protected:
     }
 };
 
-#endif // _CUPS_ACCESS_ANALYZER_H

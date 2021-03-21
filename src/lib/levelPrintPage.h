@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LEVELPRINTPAGE_H
-#define LEVELPRINTPAGE_H
+#pragma once
 
 #include <QString>
 #include <QWidget>
@@ -50,4 +49,3 @@ private:
     QList<QCheckBox *> mLevelCheckBoxes;
 };
 
-#endif

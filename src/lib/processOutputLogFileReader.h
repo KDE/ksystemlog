@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef PROCESS_OUTPUT_LOG_FILE_READER_H
-#define PROCESS_OUTPUT_LOG_FILE_READER_H
+#pragma once
 
 #define PROCESS_OUTPUT_UPDATER_INTERVAL 10000
 
@@ -68,4 +67,3 @@ private:
     Q_DECLARE_PRIVATE(ProcessOutputLogFileReader)
 };
 
-#endif // _PROCESS_OUTPUT_LOG_FILE_READER_H

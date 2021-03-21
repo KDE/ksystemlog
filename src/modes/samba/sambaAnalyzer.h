@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef SAMBA_ANALYZER_H
-#define SAMBA_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -76,4 +75,3 @@ protected:
     LogLine *mCurrentLogLine;
 };
 
-#endif // _SAMBA_ANALYZER_H

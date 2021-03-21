@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef TEST_UTIL_H
-#define TEST_UTIL_H
+#pragma once
 
 #include <QObject>
 
@@ -78,4 +77,3 @@ public:
     void testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel, const QDateTime &time, const QStringList &items) const;
 };
 
-#endif // TEST_UTIL_H

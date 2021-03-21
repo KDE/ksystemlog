@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef NETBIOS_LOG_MODE_H
-#define NETBIOS_LOG_MODE_H
+#pragma once
 
 /**
  * Netbios Log Mode Identifier
@@ -58,4 +57,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _NETBIOS_LOG_MODE_H

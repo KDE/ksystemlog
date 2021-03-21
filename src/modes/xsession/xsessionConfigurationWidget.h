@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef X_SESSION_CONFIGURATION_WIDGET_H
-#define X_SESSION_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include <QCheckBox>
 
@@ -70,4 +69,3 @@ private:
     KMessageWidget *mWarningBox = nullptr;
 };
 
-#endif // _X_SESSION_CONFIGURATION_WIDGET_H

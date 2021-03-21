@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_MODE_PLUGINS_LOADER_H
-#define LOG_MODE_PLUGINS_LOADER_H
+#pragma once
 
 #include <QObject>
 
@@ -39,4 +38,3 @@ private:
     QWidget *const mParent;
 };
 
-#endif //_LOG_MODE_PLUGINS_LOADER_H

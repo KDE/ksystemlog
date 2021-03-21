@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef DAEMON_LOG_MODE_H
-#define DAEMON_LOG_MODE_H
+#pragma once
 
 /**
  * Daemon Log Mode Identifier
@@ -57,4 +56,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _DAEMON_LOG_MODE_H

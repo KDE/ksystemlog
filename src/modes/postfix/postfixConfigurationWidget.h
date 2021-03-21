@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef POSTFIX_CONFIGURATION_WIDGET_H
-#define POSTFIX_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include "logModeConfigurationWidget.h"
 
@@ -62,4 +61,3 @@ private:
     LogLevelFileList *mLileList = nullptr;
 };
 
-#endif // _POSTFIX_CONFIGURATION_WIDGET_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef APACHE_LOG_MODE_H
-#define APACHE_LOG_MODE_H
+#pragma once
 
 /**
  * Apache Log Mode Identifier
@@ -55,4 +54,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _APACHE_LOG_MODE_H

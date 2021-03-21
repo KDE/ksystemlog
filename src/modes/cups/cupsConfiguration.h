@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CUPS_CONFIGURATION_H
-#define CUPS_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -68,4 +67,3 @@ private:
     QStringList mCupsPdfPaths;
 };
 
-#endif // _CUPS_CONFIGURATION_H

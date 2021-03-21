@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef XORG_CONFIGURATION_H
-#define XORG_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -49,4 +48,3 @@ private:
     QStringList mXorgPaths;
 };
 
-#endif // _XORG_CONFIGURATION_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_MANAGER_H
-#define LOG_MANAGER_H
+#pragma once
 
 #include <QList>
 
@@ -89,4 +88,3 @@ private:
     LogManagerPrivate *d;
 };
 
-#endif // LOG_MANAGER_H

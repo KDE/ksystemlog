@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef MULTIPLE_FILE_LIST_H
-#define MULTIPLE_FILE_LIST_H
+#pragma once
 
 #include <QButtonGroup>
 #include <QWidget>
@@ -92,4 +91,3 @@ private:
     bool mMissingFiles = false;
 };
 
-#endif //_MULTIPLE_FILE_LIST_H

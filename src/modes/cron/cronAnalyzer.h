@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CRON_ANALYZER_H
-#define CRON_ANALYZER_H
+#pragma once
 
 #include <KLocalizedString>
 
@@ -73,4 +72,3 @@ public:
     }
 };
 
-#endif

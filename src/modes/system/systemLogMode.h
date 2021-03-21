@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef SYSTEM_LOG_MODE_H
-#define SYSTEM_LOG_MODE_H
+#pragma once
 
 /**
  * System Log Mode Identifier
@@ -51,4 +50,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _SYSTEM_LOG_MODE_H

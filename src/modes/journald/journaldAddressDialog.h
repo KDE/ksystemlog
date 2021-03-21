@@ -20,8 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef JOURNALD_ADDRESS_DIALOG_H
-#define JOURNALD_ADDRESS_DIALOG_H
+#pragma once
 
 #include "ui_journaldAddressDialog.h"
 
@@ -46,4 +45,3 @@ public Q_SLOTS:
     void accept() override;
 };
 
-#endif // _JOURNALD_ADDRESS_DIALOG_H

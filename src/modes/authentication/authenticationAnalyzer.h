@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef AUTHENTICATION_ANALYZER_H
-#define AUTHENTICATION_ANALYZER_H
+#pragma once
 
 #include "syslogAnalyzer.h"
 
@@ -48,4 +47,3 @@ private:
     bool hasKeywords(const QString &message, const QStringList &keywords);
 };
 
-#endif

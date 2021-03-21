@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_VIEW_EXPORT_H
-#define LOG_VIEW_EXPORT_H
+#pragma once
 
 #include <QObject>
 #include <QPainter>
@@ -59,4 +58,3 @@ private:
     void print(QPrinter *printer);
 };
 
-#endif //_LOG_VIEW_EXPORT_H

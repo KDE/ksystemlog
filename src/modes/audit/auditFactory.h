@@ -1,5 +1,4 @@
-#ifndef _AUDIT_FACTORY_H_
-#define _AUDIT_FACTORY_H_
+#pragma once
 
 #include <QList>
 
@@ -18,4 +17,3 @@ public:
     LogModeAction *createLogModeAction() const override;
 };
 
-#endif // _AUDIT_FACTORY_H_

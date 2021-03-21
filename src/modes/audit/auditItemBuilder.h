@@ -1,5 +1,4 @@
-#ifndef _AUDIT_ITEM_BUILDER_H_
-#define _AUDIT_ITEM_BUILDER_H_
+#pragma once
 
 #include "logModeItemBuilder.h"
 
@@ -13,4 +12,3 @@ public:
     QString createToolTipText(LogLine *line) const override;
 };
 
-#endif // _AUDIT_ITEM_BUILDER_H_

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef KERNEL_ANALYZER_H
-#define KERNEL_ANALYZER_H
+#pragma once
 
 #include <QFile>
 #include <QRegExp>
@@ -84,4 +83,3 @@ protected:
     QDateTime mStartupDateTime;
 };
 
-#endif

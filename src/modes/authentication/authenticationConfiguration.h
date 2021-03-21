@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef AUTHENTICATION_CONFIGURATION_H
-#define AUTHENTICATION_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -57,4 +56,3 @@ private:
     QStringList mErrorKeywords;
 };
 
-#endif // _AUTHENTICATION_CONFIGURATION_H

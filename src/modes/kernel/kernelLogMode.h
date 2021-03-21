@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef KERNEL_LOG_MODE_H
-#define KERNEL_LOG_MODE_H
+#pragma once
 
 /**
  * Kernel Log Mode Identifier
@@ -53,4 +52,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _KERNEL_LOG_MODE_H

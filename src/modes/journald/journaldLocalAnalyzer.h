@@ -20,8 +20,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef JOURNALD_LOCAL_ANALYZER_H
-#define JOURNALD_LOCAL_ANALYZER_H
+#pragma once
 
 #include "journaldAnalyzer.h"
 
@@ -78,4 +77,3 @@ private:
     QList<JournalWatcher *> mJournalWatchers;
 };
 
-#endif // _JOURNALD_LOCAL_ANALYZER_H

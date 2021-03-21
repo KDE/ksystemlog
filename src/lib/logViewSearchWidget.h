@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_VIEW_SEARCH_WIDGET_H
-#define LOG_VIEW_SEARCH_WIDGET_H
+#pragma once
 
 #include <QTreeWidgetItemIterator>
 #include <QWidget>
@@ -81,4 +80,3 @@ private:
     QTimer *mMessageHidingTimer = nullptr;
 };
 
-#endif //_LOG_VIEW_SEARCH_WIDGET_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef X_SESSION_LOG_MODE_H
-#define X_SESSION_LOG_MODE_H
+#pragma once
 
 /**
  * Xorg Log Mode Identifier
@@ -52,4 +51,3 @@ public:
     QVector<LogFile> createLogFiles() override;
 };
 
-#endif // _X_SESSION_LOG_MODE_H

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CONFIGURATION_DIALOG_H
-#define CONFIGURATION_DIALOG_H
+#pragma once
 
 #include <KConfigDialog>
 
@@ -64,4 +63,3 @@ private:
     bool mChanged = false;
 };
 
-#endif //_CONFIGURATION_DIALOG_H

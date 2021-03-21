@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef STATUS_BAR_
-#define STATUS_BAR_
+#pragma once
 
 #include <QStatusBar>
 
@@ -59,4 +58,3 @@ private:
 };
 }
 
-#endif // _STATUS_BAR_

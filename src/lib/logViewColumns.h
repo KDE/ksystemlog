@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_VIEW_COLUMNS_H
-#define LOG_VIEW_COLUMNS_H
+#pragma once
 
 #include <QList>
 
@@ -63,4 +62,3 @@ private:
 QDataStream &operator<<(QDataStream &out, const LogViewColumns &columns);
 QDebug &operator<<(QDebug &out, const LogViewColumns &columns);
 
-#endif

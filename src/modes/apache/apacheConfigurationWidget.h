@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef APACHE_CONFIGURATION_WIDGET_H
-#define APACHE_CONFIGURATION_WIDGET_H
+#pragma once
 
 #include "logModeConfigurationWidget.h"
 
@@ -64,4 +63,3 @@ private:
     int mApacheAccessPathsId = -1;
 };
 
-#endif // _APACHE_CONFIGURATION_WIDGET_H

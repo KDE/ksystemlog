@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_LINE_H
-#define LOG_LINE_H
+#pragma once
 
 #include <QDateTime>
 #include <QStringList>
@@ -89,4 +88,3 @@ private:
     void initializeItem();
 };
 
-#endif

@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef TAB_LOG_VIEWS_WIDGET_H
-#define TAB_LOG_VIEWS_WIDGET_H
+#pragma once
 
 #include <QList>
 #include <QTabWidget>
@@ -112,4 +111,3 @@ private:
     QMenu *mContextMenu = nullptr;
 };
 
-#endif // _TAB_LOG_VIEWS_WIDGET_H

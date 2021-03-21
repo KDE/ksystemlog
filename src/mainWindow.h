@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef MAIN_WINDOW_H
-#define MAIN_WINDOW_H
+#pragma once
 
 // KDE includes
 #include <KConfig>
@@ -184,4 +183,3 @@ private:
 };
 }
 
-#endif // MAIN_WINDOW_H

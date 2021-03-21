@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_FILE_READER_PRIVATE_H
-#define LOG_FILE_READER_PRIVATE_H
+#pragma once
 
 #include "logFile.h"
 
@@ -34,4 +33,3 @@ public:
     LogFile logFile;
 };
 
-#endif // _LOG_FILE_READER_PRIVATE_H

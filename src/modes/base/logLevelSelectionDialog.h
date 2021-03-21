@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_LEVEL_SELECTION_DIALOG_H
-#define LOG_LEVEL_SELECTION_DIALOG_H
+#pragma once
 
 #include <QDialog>
 
@@ -36,4 +35,3 @@ public:
     QListWidget *logLevels() const;
 };
 
-#endif //_LOG_LEVEL_SELECTION_DIALOG_H

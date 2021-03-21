@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef LOG_FILE_H
-#define LOG_FILE_H
+#pragma once
 
 #include <QDataStream>
 #include <QDebug>
@@ -56,4 +55,3 @@ private:
 QDataStream &operator<<(QDataStream &out, const LogFile &column);
 QDebug &operator<<(QDebug &out, const LogFile &column);
 
-#endif // _LOG_FILE_H

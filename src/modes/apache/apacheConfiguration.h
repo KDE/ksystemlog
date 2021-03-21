@@ -19,8 +19,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef APACHE_CONFIGURATION_H
-#define APACHE_CONFIGURATION_H
+#pragma once
 
 #include <QStringList>
 
@@ -56,4 +55,3 @@ private:
     QStringList mApacheAccessPaths;
 };
 
-#endif // _APACHE_CONFIGURATION_H
