@@ -63,11 +63,7 @@ void FileAnalyzer::deleteLogFiles()
     watchLogFiles(false);
 
     // Remove the watching on the monitored files
-    foreach (LogFileReader *logFileReader, mLogFileReaders) {
-        logDebug() << "Remove file : " << logFileReader->logFile().url().toLocalFile();
-        delete logFileReader;
-    }
-
+    qDeleteAll(mLogFileReaders);
     mLogFileReaders.clear();
 }
 

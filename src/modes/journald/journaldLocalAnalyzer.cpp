@@ -232,7 +232,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
 
     if (prepareJournalReading(journal, filters)) {
         // Iterate over filtered entries.
-        forever {
+        while (1) {
             JournalEntry entry;
             res = sd_journal_next(journal);
             if (res < 0) {

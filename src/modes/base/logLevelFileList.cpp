@@ -117,7 +117,8 @@ void LogLevelFileList::changeItemType()
     LogLevelSelectionDialog logLevelSelectionDialog(this);
     QListWidget *logLevels = logLevelSelectionDialog.logLevels();
 
-    foreach (LogLevel *level, Globals::instance().logLevels()) {
+    const auto logLevelsItems{Globals::instance().logLevels()};
+    for (LogLevel *level : logLevelsItems) {
         logLevels->addItem(new QListWidgetItem(level->icon(), level->name()));
     }
 

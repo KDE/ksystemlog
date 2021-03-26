@@ -74,7 +74,8 @@ bool LogViewModel::isEmpty() const
 void LogViewModel::removeRecentStatusOfLogLines()
 {
     // The older lines are no longer recent
-    foreach (LogViewWidgetItem *item, mLogViewWidget->items()) {
+    const auto items = mLogViewWidget->items();
+    for (LogViewWidgetItem *item : items) {
         item->logLine()->setRecent(false);
     }
 }
@@ -194,7 +195,8 @@ void LogViewModel::removeOldestLogLine()
     mOldestItem = nullptr;
 
     // Find the next oldest item
-    foreach (LogViewWidgetItem *item, mLogViewWidget->items()) {
+    const auto items{mLogViewWidget->items()};
+    for (LogViewWidgetItem *item : items) {
         if (!mOldestItem) {
             mOldestItem = item;
             continue;

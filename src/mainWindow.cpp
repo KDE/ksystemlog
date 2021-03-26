@@ -260,7 +260,8 @@ void MainWindow::updateReloading()
     mTabs->changeReloadingTab(currentView, !enabled);
 
     // Enables/Disables all Log Mode menus (useful for multiple actions menus)
-    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
+    const auto logModeActions{Globals::instance().logModeActions()};
+    for (LogModeAction *logModeAction : logModeActions) {
         logModeAction->actionMenu()->setEnabled(enabled);
     }
 }
@@ -300,7 +301,8 @@ void MainWindow::toggleItemTooltip(bool enabled)
 {
     KSystemLogConfig::setTooltipEnabled(enabled);
 
-    foreach (LogManager *manager, mTabs->logManagers()) {
+    const auto logManagers{mTabs->logManagers()};
+    for (LogManager *manager : logManagers) {
         manager->usedView()->logViewWidget()->toggleToolTip(enabled);
     }
 }
@@ -364,7 +366,8 @@ void MainWindow::changeResumePauseAction(bool paused)
     }
 
     // Be sure that the button will always have a good size
-    foreach (QWidget *widget, mResumePauseAction->associatedWidgets()) {
+    const auto associatedWidgets{mResumePauseAction->associatedWidgets()};
+    for (QWidget *widget : associatedWidgets) {
         if (widget->sizeHint().width() > widget->size().width()) {
             widget->setMinimumSize(widget->sizeHint());
         }
@@ -487,7 +490,8 @@ void MainWindow::toggleFilterBar()
 {
     logDebug() << "Toggling filter bar..." << mFilterBarAction->isChecked();
 
-    foreach (LogManager *manager, mTabs->logManagers()) {
+    const auto logManagers{mTabs->logManagers()};
+    for (LogManager *manager : logManagers) {
         manager->usedView()->toggleLogViewFilter(mFilterBarAction->isChecked());
     }
 
@@ -727,7 +731,8 @@ void MainWindow::selectLogModeAction(bool)
     logDebug() << "Selected action" << selectedModeId;
 
     LogMode *currentMode = nullptr;
-    foreach (LogMode *logMode, Globals::instance().logModes()) {
+    const auto logModes{Globals::instance().logModes()};
+    for (LogMode *logMode : logModes) {
         if (logMode->id() == selectedModeId) {
             currentMode = logMode;
             break;
@@ -763,7 +768,8 @@ void MainWindow::setupLogModeMenu()
     auto servicesAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-system-session-services")), i18n("Services"), this);
     auto othersAction = new KActionMenu(QIcon::fromTheme(QStringLiteral("preferences-other")), i18n("Others"), this);
 
-    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
+    const auto logModeActions{Globals::instance().logModeActions()};
+    for (LogModeAction *logModeAction : logModeActions) {
         if (logModeAction->category() == LogModeAction::RootCategory) {
             menuLogModeActions.append(logModeAction->actionMenu());
         } else if (logModeAction->category() == LogModeAction::ServicesCategory) {
@@ -791,8 +797,10 @@ void MainWindow::setupLogModeMenu()
 void MainWindow::setupLogActions()
 {
     // Sets up log mode actions.
-    foreach (LogModeAction *logModeAction, Globals::instance().logModeActions()) {
-        foreach (QAction *action, logModeAction->innerActions()) {
+    const auto logModeActions{Globals::instance().logModeActions()};
+    for (LogModeAction *logModeAction : logModeActions) {
+        const auto innerActions{logModeAction->innerActions()};
+        for (QAction *action : innerActions) {
             ActionData actionData = action->data().value<ActionData>();
             if (actionData.addToActionCollection) {
                 logDebug() << "Adding action" << actionData.id;

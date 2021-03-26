@@ -84,24 +84,16 @@ Globals::Globals()
 
 Globals::~Globals()
 {
-    foreach (LogModeAction *logModeAction, d->mLogModeActions) {
-        delete logModeAction;
-    }
+    qDeleteAll(d->mLogModeActions);
     d->mLogModeActions.clear();
 
-    foreach (LogMode *logMode, d->mLogModes) {
-        delete logMode;
-    }
+    qDeleteAll(d->mLogModes);
     d->mLogModes.clear();
 
-    foreach (LogLevel *logLevel, d->mLogLevels) {
-        delete logLevel;
-    }
+    qDeleteAll(d->mLogLevels);
     d->mLogLevels.clear();
 
-    foreach (LogModeFactory *factory, d->mFactories) {
-        delete factory;
-    }
+    qDeleteAll(d->mFactories);
     d->mFactories.clear();
 
     delete d;
@@ -262,13 +254,11 @@ LogMode *Globals::findLogMode(const QString &logModeName)
 void Globals::recreateLogModeActions()
 {
     // Delete existing log mode actions.
-    foreach (LogModeAction *logModeAction, d->mLogModeActions) {
-        delete logModeAction;
-    }
+    qDeleteAll(d->mLogModeActions);
     d->mLogModeActions.clear();
 
     // Create new log mode action for each log mode.
-    foreach (LogModeFactory *factory, d->mFactories) {
+    for (LogModeFactory *factory : qAsConst(d->mFactories)) {
         LogModeAction *logModeAction = factory->createLogModeAction();
         if (logModeAction) {
             d->mLogModeActions.append(logModeAction);

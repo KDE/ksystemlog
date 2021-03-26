@@ -344,8 +344,8 @@ void MultipleFileList::removeAllItems()
     while (*it) {
         QTreeWidgetItem *item = *it;
 
-        QList<QTreeWidgetItem *> children = item->takeChildren();
-        foreach (QTreeWidgetItem *childItem, children) {
+        const QList<QTreeWidgetItem *> children = item->takeChildren();
+        for (QTreeWidgetItem *childItem : children) {
             delete childItem;
         }
 
