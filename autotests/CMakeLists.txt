@@ -14,7 +14,7 @@ include_directories(
 
 add_library(testCore STATIC testUtil.cpp testResources.qrc )
 target_link_libraries(testCore PUBLIC
-    Qt5::Test
+    Qt::Test
     ksystemlog_lib
     ksystemlog_base_mode
     ksystemlog_config

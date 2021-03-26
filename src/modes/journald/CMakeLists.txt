@@ -29,6 +29,6 @@ target_link_libraries(
     ksystemlog_base_mode
     ksystemlog_config
     ${JOURNALD_LIBRARIES}
-    Qt5::Concurrent
-    Qt5::Network
+    Qt::Concurrent
+    Qt::Network
 )
