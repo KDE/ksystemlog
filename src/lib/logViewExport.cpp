@@ -31,7 +31,6 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KToolInvocation>
 #include <QPrintPreviewDialog>
 
 #include "logging.h"
