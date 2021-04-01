@@ -54,7 +54,7 @@ target_link_libraries(ksystemlog_lib
     Qt::PrintSupport
     KF5::I18n
     KF5::Archive
-    KF5::ConfigWidgets
+    KF5::WidgetsAddons
     KF5::ItemViews
     KF5::KIOCore
     KF5::Completion
