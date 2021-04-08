@@ -29,7 +29,6 @@
 
 #include "logFileReader.h"
 
-class QProcess;
 
 class ProcessOutputLogFileReaderPrivate;
 

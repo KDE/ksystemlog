@@ -29,8 +29,6 @@
 #include "logLevel.h"
 
 class LogViewWidget;
-class QDateTime;
-class QStringList;
 class LogViewWidgetItem;
 
 class LogLine
