@@ -81,6 +81,7 @@
     <p xml:lang="fi">KSystemLog näyttää kaikki järjestelmälokit yleisiin (oletusloki, tunnistauminen, ydin, X.org…) ja lisäpalveluihin (Apache, Cups jne.) ryhmiteltynä. Sillä on monia ominaisuuksia, jotka helpottavat lokien tarkastelua:</p>
     <p xml:lang="fr">KSystemLog affiche tous les journaux de votre système, groupés par catégories : Général (journal système par défaut, authentification, noyau, X.org, etc.) et services optionnels (Apache, Cups, etc.). Il inclut de nombreuses fonctionnalités facilitant la lecture de vos fichiers de journaux :</p>
     <p xml:lang="gl">KSystemLog mostra todos os rexistros do sistema, agrupados en xerais (rexistro predeterminado do sistema, autenticación, kernel, X.org…) e servizos opcionais (Apache, Cups, etc.). Inclúe moitas funcionalidades para ler facilmente os ficheiros de rexistro:</p>
+    <p xml:lang="ia">KSystemLog monstra omne registros de tu systema, gruppate per Registro General  (registro de systema redefinite, Authentication, Kernel, X.org...) e Servitios optional  (Apache, Cups, etc, ...). Illo  include multe characteristicas per leger agradibilemente tu files de registro:</p>
     <p xml:lang="id">KSystemLog menampilkan semua catatan log sistemmu, dikelompokkan berdasarkan General (Catatan log sistem baku, Autentikasi, Kernel, X.org...), dan Layanan (Apache, Cups, dll, ...) opsional. Serta banyak fitur-fitur pembacaan secara baik file-file catatan log-mu:</p>
     <p xml:lang="it">KSystemLog mostra tutti i registri di sistema, raggruppati per Generale (registro predefinito di sistema, autenticazione, Kernel, X.org...) e Servizi opzionali (Apache, Cups, ecc, ...). Include molte funzionalità per leggere bene i file di registro:</p>
     <p xml:lang="ko">KSystemLog는 시스템의 모든 로그를 볼 수 있는 도구입니다. 일반(기본 시스템 로그, 인증, 커널, X.org, ...) 및 추가 서비스(Apache, CUPS, ...) 로그로 분류합니다. 로그 파일을 읽기 편하게 하는 도구를 제공합니다.</p>
@@ -110,6 +111,7 @@
       <li xml:lang="fi">lokirivien väritys niiden vakavuusasteen mukaan</li>
       <li xml:lang="fr">Mise en couleur des lignes des journaux en fonction de leur sévérité</li>
       <li xml:lang="gl">Colorar as liñas de rexistro segundo a súa gravidade</li>
+      <li xml:lang="ia">Colora lineas de registro dependente de lor severitate</li>
       <li xml:lang="id">Pewarnaan baris log tergantung pada kepelikannya</li>
       <li xml:lang="it">Colorazione delle righe del registro in base alla loro gravità</li>
       <li xml:lang="ko">심각도에 따라서 로그 줄 자동 색상 지정</li>
