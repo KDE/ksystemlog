@@ -233,4 +233,7 @@
     <binary>ksystemlog</binary>
   </provides>
   <project_group>KDE</project_group>
+  <releases>
+    <release version="21.04.0" date="2021-04-22"/>
+  </releases>
 </component>
