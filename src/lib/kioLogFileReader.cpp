@@ -118,7 +118,7 @@ void KioLogFileReader::dataReceived(KIO::Job *job, const QByteArray &data)
 void KioLogFileReader::emitCompleteLines()
 {
     int endLinePos = mBuffer.indexOf(QLatin1String("\n"));
-    while (1) {
+    while (true) {
         if (endLinePos == -1) {
             break;
         }

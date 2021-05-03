@@ -203,7 +203,7 @@ void ProcessOutputLogFileReader::logFileModified()
 
     // Parse buffer
     int endLinePos = d->mBuffer.indexOf(QLatin1String("\n"));
-    while (1) {
+    while (true) {
         if (endLinePos == -1) {
             break;
         }
