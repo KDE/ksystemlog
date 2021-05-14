@@ -42,7 +42,7 @@ public:
     ~StatusBar() override;
 
     void changeLineCountMessage(const QString &lineCountMessage);
-    void changeLastModification(const QTime &lastModification);
+    void changeLastModification(QTime lastModification);
 
     void changeMessage(const QString &message);
 

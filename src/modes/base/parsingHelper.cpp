@@ -89,7 +89,7 @@ ParsingHelper::ParsingHelper()
     mMapHTTPResponse[QStringLiteral("408")] = QStringLiteral("Request Timeout");
     mMapHTTPResponse[QStringLiteral("409")] = QStringLiteral("Conflict");
     mMapHTTPResponse[QStringLiteral("410")] = QStringLiteral("Gone");
-    mMapHTTPResponse[QStringLiteral("411")] = QLatin1String("Length Required");
+    mMapHTTPResponse[QStringLiteral("411")] = QStringLiteral("Length Required");
     mMapHTTPResponse[QStringLiteral("412")] = QStringLiteral("Precondition Failed");
     mMapHTTPResponse[QStringLiteral("413")] = QStringLiteral("Request Entity Too Large");
     mMapHTTPResponse[QStringLiteral("414")] = QStringLiteral("Request-URI Too Long");

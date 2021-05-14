@@ -112,7 +112,7 @@ void ProcessOutputLogFileReader::startProcess()
 
     d->mProcess = new QProcess();
     connect(d->mProcess, &QProcess::readyReadStandardOutput, this, &ProcessOutputLogFileReader::logFileModified);
-    connect(d->mProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(emitProcessOutput(int, QProcess::ExitStatus)));
+    connect(d->mProcess, &QProcess::finished, this, &ProcessOutputLogFileReader::emitProcessOutput);
 
     d->mProcess->start(d->logFile.url().toLocalFile(), QStringList(), QIODevice::ReadOnly | QIODevice::Text);
 

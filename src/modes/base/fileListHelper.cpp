@@ -162,6 +162,7 @@ QStringList FileListHelper::expandJoker(const QUrl &url)
 
     QStringList foundPaths;
     const QStringList files = info.dir().entryList(QStringList(filename), QDir::Files | QDir::NoSymLinks);
+    foundPaths.reserve(files.count());
     for (const QString &file : files) {
         foundPaths.append(info.dir().absoluteFilePath(file));
     }

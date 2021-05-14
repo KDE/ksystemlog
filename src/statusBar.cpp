@@ -66,7 +66,7 @@ void StatusBar::changeLineCountMessage(const QString &lineCountMessage)
     mLineCountLabel->setText(lineCountMessage);
 }
 
-void StatusBar::changeLastModification(const QTime &lastModification)
+void StatusBar::changeLastModification(QTime lastModification)
 {
     // lastModificationLabel->setText(i18n("Last updated: %1.",
     // KLocale::global()->formatTime(lastModification, true, false) ));
