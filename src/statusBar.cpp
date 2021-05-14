@@ -46,7 +46,7 @@ StatusBar::StatusBar(QWidget *parent)
     mMessageList = new QComboBox(this);
     mMessageList->setInsertPolicy(QComboBox::InsertAtTop);
     mMessageList->setMaxVisibleItems(5);
-    connect(mMessageList, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &StatusBar::selectLastHistory);
+    connect(mMessageList, &QComboBox::currentIndexChanged, this, &StatusBar::selectLastHistory);
     addPermanentWidget(mMessageList, 4);
 
     mLastModificationLabel = new QLabel(this);
