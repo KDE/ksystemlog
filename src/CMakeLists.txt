@@ -26,7 +26,8 @@ if (${JOURNALD_FOUND})
     add_subdirectory(modes/journald)
 endif (${JOURNALD_FOUND})
 
-set(ksystemlog_sources
+add_executable(ksystemlog)
+target_sources(ksystemlog PRIVATE
     main.cpp
     mainWindow.cpp
     logModePluginsLoader.cpp
@@ -39,13 +40,12 @@ set(ksystemlog_sources
     statusBar.cpp
 )
 
-ki18n_wrap_ui(ksystemlog_sources
+ki18n_wrap_ui(ksystemlog
     detailDialogBase.ui
     loggerDialogBase.ui
     generalConfigurationWidgetBase.ui
 )
 
-add_executable(ksystemlog ${ksystemlog_sources})
 
 target_link_libraries(ksystemlog
     ksystemlog_lib
