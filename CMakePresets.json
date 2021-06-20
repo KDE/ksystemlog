@@ -72,6 +72,14 @@
             "configurePreset": "dev"
         },
         {
+            "name": "asan",
+            "configurePreset": "asan"
+        },
+	{
+            "name": "unity",
+            "configurePreset": "unity"
+        },
+        {
             "name": "clazy",
             "configurePreset": "clazy",
             "environment": {
