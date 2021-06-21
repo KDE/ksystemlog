@@ -60,11 +60,7 @@ void KioLogFileReader::open()
     connect(mFileJob, SIGNAL(close(KIO::Job *)), this, SLOT(closeDone(KIO::Job *)));
 
     connect(mFileJob, &KIO::FileJob::data, this, &KioLogFileReader::dataReceived);
-#if KIO_VERSION < QT_VERSION_CHECK(5, 78, 0)
-    connect(mFileJob, &KIO::FileJob::mimetype, this, &KioLogFileReader::mimetypeReceived);
-#else
     connect(mFileJob, &KIO::FileJob::mimeTypeFound, this, &KioLogFileReader::mimetypeReceived);
-#endif
     logDebug() << "File opened.";
 }
 
