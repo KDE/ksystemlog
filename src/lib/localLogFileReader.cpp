@@ -27,8 +27,13 @@
 #include <QMutex>
 
 #include <KDirWatch>
-#include <KFilterDev>
 #include <KLocalizedString>
+#include <karchive_version.h>
+#if KARCHIVE_VERSION >= QT_VERSION_CHECK(5, 85, 0)
+#include <KCompressionDevice>
+#else
+#include <KFilterDev>
+#endif
 
 #include "logFileReaderPrivate.h"
 
@@ -142,7 +147,12 @@ QIODevice *LocalLogFileReader::open()
         logDebug() << "Using KFilterDev input device";
 
         // inputDevice = KFilterDev::deviceForFile(filePath, mimeType);
+
+#if KARCHIVE_VERSION >= QT_VERSION_CHECK(5, 85, 0)
+        inputDevice.reset(new KCompressionDevice(filePath, KCompressionDevice::compressionTypeForMimeType(mimeType)));
+#else
         inputDevice.reset(new KCompressionDevice(filePath, KFilterDev::compressionTypeForMimeType(mimeType)));
+#endif
 
         if (!inputDevice) {
             const QString message(i18n("Unable to uncompress the '%2' format of '%1'.", filePath, mimeType));
