@@ -258,7 +258,7 @@ void Globals::recreateLogModeActions()
     d->mLogModeActions.clear();
 
     // Create new log mode action for each log mode.
-    for (LogModeFactory *factory : qAsConst(d->mFactories)) {
+    for (LogModeFactory *factory : std::as_const(d->mFactories)) {
         LogModeAction *logModeAction = factory->createLogModeAction();
         if (logModeAction) {
             d->mLogModeActions.append(logModeAction);

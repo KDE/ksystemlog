@@ -59,7 +59,7 @@ void JournaldConfiguration::setEntriesType(JournaldConfiguration::EntriesType en
 QVector<JournalAddress> JournaldConfiguration::remoteJournals() const
 {
     QVector<JournalAddress> journals;
-    for (const QString &addressItem : qAsConst(mRemoteJournals)) {
+    for (const QString &addressItem : std::as_const(mRemoteJournals)) {
         JournalAddress addressInfo;
         addressInfo.address = addressItem.section(QChar::fromLatin1('|'), 0, 0);
         addressInfo.port = addressItem.section(QChar::fromLatin1('|'), 1, 1).toUInt();

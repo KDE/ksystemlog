@@ -118,7 +118,7 @@ LogManager *TabLogViewsWidget::findRelatedLogManager(View *view)
 
 TabLogManager *TabLogViewsWidget::findRelatedTabLogManager(View *view) const
 {
-    for (TabLogManager *tabLogManager : qAsConst(mTabLogManagers)) {
+    for (TabLogManager *tabLogManager : std::as_const(mTabLogManagers)) {
         if (tabLogManager->logManager()->usedView() == view) {
             return tabLogManager;
         }

@@ -69,7 +69,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
         mLogModeConfigurations.append(logMode->logModeConfigurationWidget());
     }
 
-    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
         logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
 
         addPage(logModeConfigurationWidget,
@@ -106,7 +106,7 @@ void ConfigurationDialog::updateSettings()
 
     mGeneralConfiguration->saveConfig();
 
-    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
         logModeConfigurationWidget->saveConfig();
     }
 
@@ -129,7 +129,7 @@ void ConfigurationDialog::updateConfiguration()
 
     bool valid = mGeneralConfiguration->isValid();
     if (valid) {
-        for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
+        for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
             if (!logModeConfigurationWidget->isValid()) {
                 valid = false;
                 break;
@@ -159,7 +159,7 @@ void ConfigurationDialog::updateWidgets()
     logDebug() << "Reading configuration...";
 
     mGeneralConfiguration->readConfig();
-    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
         logModeConfigurationWidget->readConfig();
     }
 
@@ -171,7 +171,7 @@ void ConfigurationDialog::updateWidgetsDefault()
     logDebug() << "Loading default configuration...";
 
     mGeneralConfiguration->defaultConfig();
-    for (LogModeConfigurationWidget *logModeConfigurationWidget : qAsConst(mLogModeConfigurations)) {
+    for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
         logModeConfigurationWidget->defaultConfig();
     }
 

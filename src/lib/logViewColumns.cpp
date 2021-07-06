@@ -90,7 +90,7 @@ QStringList LogViewColumns::toStringList() const
     QStringList columnNames;
     columnNames.reserve(mColumns.count());
 
-    for (const LogViewColumn &column : qAsConst(mColumns)) {
+    for (const LogViewColumn &column : std::as_const(mColumns)) {
         columnNames.append(column.columnName());
     }
 
