@@ -57,7 +57,8 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
     m_btnGroupLayout->setAlignment( Qt::AlignTop );
     */
 
-    int row = 0, col = 0;
+    int row = 0;
+    int col = 0;
     const auto logLevels = Globals::instance().logLevels();
     mLevelCheckBoxes.reserve(logLevels.count());
     for (LogLevel *level : logLevels) {
