@@ -1,4 +1,6 @@
-set(ksystemlog_authentication_sources
+add_library(ksystemlog_authentication STATIC)
+
+target_sources(ksystemlog_authentication PRIVATE
 	authenticationConfigurationWidget.cpp
 	authenticationConfiguration.cpp
 	authenticationAnalyzer.cpp
@@ -6,7 +8,6 @@ set(ksystemlog_authentication_sources
 	authenticationFactory.cpp
 )
 
-add_library(ksystemlog_authentication STATIC ${ksystemlog_authentication_sources})
 
 add_dependencies(
 	ksystemlog_authentication

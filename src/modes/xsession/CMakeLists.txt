@@ -1,4 +1,5 @@
-set(ksystemlog_xsession_sources
+add_library(ksystemlog_xsession STATIC)
+target_sources(ksystemlog_xsession PRIVATE
 	xsessionConfigurationWidget.cpp
 	xsessionConfiguration.cpp
 	xsessionAnalyzer.cpp
@@ -9,7 +10,6 @@ set(ksystemlog_xsession_sources
 
 ki18n_wrap_ui(ksystemlog_xsession_sources xsessionConfigurationWidgetBase.ui )
 
-add_library(ksystemlog_xsession STATIC ${ksystemlog_xsession_sources})
 
 add_dependencies(
 	ksystemlog_xsession

@@ -1,11 +1,12 @@
-set(ksystemlog_daemon_sources
+add_library(ksystemlog_daemon STATIC)
+
+target_sources(ksystemlog_daemon PRIVATE
 	daemonConfigurationWidget.cpp
 	daemonConfiguration.cpp
 	daemonLogMode.cpp
 	daemonFactory.cpp
 )
 
-add_library(ksystemlog_daemon STATIC ${ksystemlog_daemon_sources})
 
 add_dependencies(
 	ksystemlog_daemon

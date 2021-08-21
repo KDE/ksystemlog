@@ -1,4 +1,5 @@
-set(ksystemlog_system_sources
+add_library(ksystemlog_system STATIC)
+target_sources(ksystemlog_system PRIVATE
 	systemFactory.cpp
 	systemConfigurationWidget.cpp
 	systemConfiguration.cpp
@@ -6,7 +7,6 @@ set(ksystemlog_system_sources
 	systemLogMode.cpp
 )
 
-add_library(ksystemlog_system STATIC ${ksystemlog_system_sources})
 
 add_dependencies(
 	ksystemlog_system 

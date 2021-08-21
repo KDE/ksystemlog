@@ -1,4 +1,6 @@
-set(ksystemlog_cups_sources
+add_library(ksystemlog_cups STATIC)
+
+target_sources(ksystemlog_cups PRIVATE
 	cupsConfiguration.cpp
 	cupsConfigurationWidget.cpp
 	
@@ -22,7 +24,6 @@ set(ksystemlog_cups_sources
 	
 )
 
-add_library(ksystemlog_cups STATIC ${ksystemlog_cups_sources})
 
 add_dependencies(
 	ksystemlog_cups

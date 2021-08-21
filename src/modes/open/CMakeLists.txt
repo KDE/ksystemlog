@@ -1,11 +1,11 @@
-set(ksystemlog_open_sources
+add_library(ksystemlog_open STATIC)
+target_sources(ksystemlog_open PRIVATE
 	openAnalyzer.cpp
 	openFactory.cpp
 	openLogMode.cpp
 )
 
 
-add_library(ksystemlog_open STATIC ${ksystemlog_open_sources})
 
 add_dependencies(
 	ksystemlog_open 

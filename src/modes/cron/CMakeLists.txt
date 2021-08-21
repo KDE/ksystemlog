@@ -1,4 +1,6 @@
-set(ksystemlog_cron_sources
+add_library(ksystemlog_cron STATIC)
+
+target_sources(ksystemlog_cron PRIVATE
 	cronConfigurationWidget.cpp
 	cronConfiguration.cpp
 	cronAnalyzer.cpp
@@ -7,7 +9,6 @@ set(ksystemlog_cron_sources
 	cronFactory.cpp
 )
 
-add_library(ksystemlog_cron STATIC ${ksystemlog_cron_sources})
 
 add_dependencies(
 	ksystemlog_cron

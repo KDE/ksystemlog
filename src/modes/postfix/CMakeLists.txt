@@ -1,4 +1,5 @@
-set(ksystemlog_postfix_sources
+add_library(ksystemlog_postfix STATIC)
+target_sources(ksystemlog_postfix PRIVATE
 	postfixFactory.cpp
 	postfixConfigurationWidget.cpp
 	postfixConfiguration.cpp
@@ -6,7 +7,6 @@ set(ksystemlog_postfix_sources
 	postfixLogMode.cpp
 )
 
-add_library(ksystemlog_postfix STATIC ${ksystemlog_postfix_sources})
 
 add_dependencies(
 	ksystemlog_postfix

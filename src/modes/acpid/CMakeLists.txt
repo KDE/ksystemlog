@@ -1,5 +1,6 @@
+add_library(ksystemlog_acpid STATIC)
 
-set(ksystemlog_acpid_sources
+target_sources(ksystemlog_acpid PRIVATE
 	acpidConfigurationWidget.cpp
 	acpidConfiguration.cpp
 	acpidAnalyzer.cpp
@@ -8,7 +9,6 @@ set(ksystemlog_acpid_sources
 	acpidFactory.cpp
 )
 
-add_library(ksystemlog_acpid STATIC ${ksystemlog_acpid_sources})
 
 add_dependencies(
 	ksystemlog_acpid

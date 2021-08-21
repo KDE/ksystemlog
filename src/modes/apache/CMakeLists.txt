@@ -1,4 +1,6 @@
-set(ksystemlog_apache_sources
+add_library(ksystemlog_apache STATIC ${ksystemlog_apache_sources})
+
+target_sources(ksystemlog_apache PRIVATE
 	apacheConfiguration.cpp
 	apacheConfigurationWidget.cpp
 	apacheAnalyzer.cpp
@@ -10,7 +12,6 @@ set(ksystemlog_apache_sources
 	apacheAccessLogMode.cpp
 )
 
-add_library(ksystemlog_apache STATIC ${ksystemlog_apache_sources})
 
 add_dependencies(
 	ksystemlog_apache

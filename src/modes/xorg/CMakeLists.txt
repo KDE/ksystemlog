@@ -1,4 +1,5 @@
-set(ksystemlog_xorg_sources
+add_library(ksystemlog_xorg STATIC)
+target_sources(ksystemlog_xorg PRIVATE
 	xorgConfigurationWidget.cpp
 	xorgConfiguration.cpp
 	xorgAnalyzer.cpp
@@ -7,7 +8,6 @@ set(ksystemlog_xorg_sources
 	xorgFactory.cpp
 )
 
-add_library(ksystemlog_xorg STATIC ${ksystemlog_xorg_sources})
 
 add_dependencies(
 	ksystemlog_xorg

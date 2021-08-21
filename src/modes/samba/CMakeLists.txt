@@ -1,4 +1,5 @@
-set(ksystemlog_samba_sources
+add_library(ksystemlog_samba STATIC)
+target_sources(ksystemlog_samba PRIVATE
 	sambaConfiguration.cpp
 	sambaConfigurationWidget.cpp
 	sambaAnalyzer.cpp
@@ -10,7 +11,6 @@ set(ksystemlog_samba_sources
 	
 )
 
-add_library(ksystemlog_samba STATIC ${ksystemlog_samba_sources})
 
 add_dependencies(
 	ksystemlog_samba

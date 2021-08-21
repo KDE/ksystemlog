@@ -1,4 +1,6 @@
-set(ksystemlog_base_mode_sources
+add_library(ksystemlog_base_mode STATIC)
+
+target_sources(ksystemlog_base_mode PRIVATE
 	parsingHelper.cpp
 	fileList.cpp
 	logLevelFileList.cpp
@@ -14,7 +16,6 @@ ki18n_wrap_ui(ksystemlog_base_mode_sources multipleFileListBase.ui )
 
 ki18n_wrap_ui(ksystemlog_base_mode_sources logLevelSelectionDialogBase.ui )
 
-add_library(ksystemlog_base_mode STATIC ${ksystemlog_base_mode_sources})
 
 add_dependencies(
 	ksystemlog_base_mode 
