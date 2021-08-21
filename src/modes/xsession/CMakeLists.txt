@@ -8,7 +8,7 @@ target_sources(ksystemlog_xsession PRIVATE
 	xsessionFactory.cpp
 )
 
-ki18n_wrap_ui(ksystemlog_xsession_sources xsessionConfigurationWidgetBase.ui )
+ki18n_wrap_ui(ksystemlog_xsession xsessionConfigurationWidgetBase.ui )
 
 
 add_dependencies(

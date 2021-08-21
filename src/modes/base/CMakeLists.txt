@@ -11,10 +11,10 @@ target_sources(ksystemlog_base_mode PRIVATE
 	syslogAnalyzer.cpp
 )
 
-ki18n_wrap_ui(ksystemlog_base_mode_sources fileListBase.ui )
-ki18n_wrap_ui(ksystemlog_base_mode_sources multipleFileListBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode fileListBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode multipleFileListBase.ui )
 
-ki18n_wrap_ui(ksystemlog_base_mode_sources logLevelSelectionDialogBase.ui )
+ki18n_wrap_ui(ksystemlog_base_mode logLevelSelectionDialogBase.ui )
 
 
 add_dependencies(

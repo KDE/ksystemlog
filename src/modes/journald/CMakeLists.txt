@@ -1,4 +1,6 @@
-set(ksystemlog_journald_sources
+add_library(ksystemlog_journald STATIC)
+
+target_sources(ksystemlog_journald PRIVATE
     journaldAddressDialog.cpp
     journaldAnalyzer.cpp
     journaldConfiguration.cpp
@@ -11,9 +13,8 @@ set(ksystemlog_journald_sources
     journaldTypes.cpp
 )
 
-ki18n_wrap_ui(ksystemlog_journald_sources journaldAddressDialog.ui journaldConfigurationWidget.ui )
+ki18n_wrap_ui(ksystemlog_journald journaldAddressDialog.ui journaldConfigurationWidget.ui )
 
-add_library(ksystemlog_journald STATIC ${ksystemlog_journald_sources})
 
 add_dependencies(
     ksystemlog_journald
