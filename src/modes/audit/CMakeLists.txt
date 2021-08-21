@@ -1,14 +1,14 @@
-set(ksystemlog_audit_sources
-	auditFactory.cpp
-	auditConfigurationWidget.cpp
-	auditConfiguration.cpp
-	auditAnalyzer.cpp
-	auditLogMode.cpp
-	auditItemBuilder.cpp
+
+add_library(ksystemlog_audit STATIC)
+target_sources(ksystemlog_audit PRIVATE
+        auditFactory.cpp
+        auditConfigurationWidget.cpp
+        auditConfiguration.cpp
+        auditAnalyzer.cpp
+        auditLogMode.cpp
+        auditItemBuilder.cpp
         auditConvertor.cpp
 )
-
-add_library(ksystemlog_audit STATIC ${ksystemlog_audit_sources})
 
 add_dependencies(
 	ksystemlog_audit
