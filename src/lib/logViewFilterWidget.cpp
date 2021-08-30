@@ -174,7 +174,7 @@ void LogViewFilterWidget::initSearchListFilter()
     mFilterList->setSizeAdjustPolicy(QComboBox::AdjustToContents);
 
     connect(mFilterList, SIGNAL(activated(int)), mFilterLine, SLOT(setFocus()));
-    connect(mFilterList, QOverload<int>::of(&QComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
+    connect(mFilterList, qOverload<int>(&QComboBox::activated), this, &LogViewFilterWidget::changeColumnFilter);
     connect(mFilterList, SIGNAL(activated(int)), mFilterLine, SLOT(updateSearch()));
 }
 
