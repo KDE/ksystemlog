@@ -155,6 +155,9 @@ void LogManager::cleanPreviousLogMode()
 
 void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
 {
+    if (!mode) {
+        return;
+    }
     internalInitialize(mode, mode->createLogFiles(), analyzerOptions);
 }
 
