@@ -282,7 +282,7 @@ Hide menu entries and actions for modes with missing log files
 
 	<para>&ksystemlog;</para>
 	<para>
-	&ksystemlog;, Copyright 2008 by Nicolas Ternisien
+	&ksystemlog;, SPDX-FileCopyrightText: 2008 Nicolas Ternisien
 	</para>
 
 	<para>Contributors:</para>

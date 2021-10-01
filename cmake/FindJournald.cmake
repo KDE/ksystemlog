@@ -9,7 +9,7 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-# Copyright (c) 2015 David Edmundson
+# SPDX-FileCopyrightText: 2015 David Edmundson
 #
 
 # use pkg-config to get the directories and then use these values
