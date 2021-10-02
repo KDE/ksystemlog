@@ -1,12 +1,12 @@
-/***************************************************************************
- *   KSystemLog, a system log viewer tool                                  *
- *   SPDX-FileCopyrightText: 2007 Nicolas Ternisien *
- *   nicolas.ternisien@gmail.com                                           *
- *   SPDX-FileCopyrightText: 2016 Harald Sitter *
- *   sitter@kde.org                                                        *
- *                                                                         *
- *   SPDX-License-Identifier: GPL-2.0-or-later
- ***************************************************************************/
+/*
+    KSystemLog, a system log viewer tool
+    SPDX-FileCopyrightText: 2007 Nicolas Ternisien
+    nicolas.ternisien@gmail.com
+    SPDX-FileCopyrightText: 2016 Harald Sitter
+    sitter@kde.org
+
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
 
 #include <QTest>
 
