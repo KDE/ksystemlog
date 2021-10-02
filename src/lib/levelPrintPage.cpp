@@ -13,9 +13,9 @@
 #include <QGridLayout>
 #include <QLabel>
 
+#include "ksystemlog_debug.h"
 #include "logLevel.h"
 #include "logViewWidgetItem.h"
-#include "logging.h"
 
 #include "globals.h"
 
@@ -53,7 +53,7 @@ LevelPrintPage::LevelPrintPage(QWidget *parent)
         mBtnGroup->addButton(button, level->id());
         mBtnGroupLayout->addWidget(button, row, col);
 
-        logDebug() << "name: " << level->name() << " id: " << level->id();
+        qCDebug(KSYSTEMLOG) << "name: " << level->name() << " id: " << level->id();
 
         row++;
         if (row >= 4) {

@@ -19,7 +19,7 @@
 #include "logModeConfiguration.h"
 #include "logModeConfigurationWidget.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 Globals &Globals::instance()
 {

@@ -16,13 +16,13 @@
 
 #include "defaults.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 FileList::FileList(QWidget *parent, const QString &descriptionText)
     : QWidget(parent)
     , mFileListHelper(this)
 {
-    logDebug() << "Initializing file list...";
+    qCDebug(KSYSTEMLOG) << "Initializing file list...";
 
     setupUi(this);
 
@@ -62,7 +62,7 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
 
     updateButtons();
 
-    logDebug() << "File list initialized";
+    qCDebug(KSYSTEMLOG) << "File list initialized";
 }
 
 FileList::~FileList()

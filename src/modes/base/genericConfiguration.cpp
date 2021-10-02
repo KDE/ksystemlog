@@ -9,7 +9,7 @@
 #include <KLocalizedString>
 
 #include "defaults.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "globals.h"
 
@@ -18,7 +18,7 @@ GenericLogModeConfiguration::GenericLogModeConfiguration(const QString &configur
                                                          const QStringList &defaultLogFilesPaths,
                                                          const QList<int> &defaultLogFilesLevels)
 {
-    logDebug() << "Using Configuration Group : " << configurationGroup;
+    qCDebug(KSYSTEMLOG) << "Using Configuration Group : " << configurationGroup;
     mConfiguration->setCurrentGroup(configurationGroup);
 
     mConfiguration->addItemStringList(QStringLiteral("LogFilesPaths"), mLogFilesPaths, defaultLogFilesPaths, QStringLiteral("LogFilesPaths"));
@@ -55,7 +55,7 @@ QVector<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
     QVector<LogFile> logFiles;
 
     if (mLogFilesPaths.size() != mLogFilesLevels.size()) {
-        logDebug() << i18n("The two arrays size are different, skipping the reading of log files.");
+        qCDebug(KSYSTEMLOG) << i18n("The two arrays size are different, skipping the reading of log files.");
         return logFiles;
     }
 
@@ -72,7 +72,7 @@ QVector<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
 
         const QUrl url = QUrl::fromLocalFile(stringValue);
         if (!url.isValid()) {
-            logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
+            qCWarning(KSYSTEMLOG) << i18n("URL '%1' is not valid, skipping this URL.", url.path());
             continue;
         }
 

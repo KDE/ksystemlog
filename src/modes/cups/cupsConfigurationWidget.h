@@ -11,7 +11,7 @@
 #include <KLocalizedString>
 
 #include "globals.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 #include "multipleFileList.h"
 
 #include "logLevel.h"

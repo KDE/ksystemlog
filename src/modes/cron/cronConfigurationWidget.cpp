@@ -46,22 +46,22 @@ CronConfigurationWidget::CronConfigurationWidget()
 bool CronConfigurationWidget::isValid() const
 {
     if (mFileList->isEmpty()) {
-        logDebug() << "Cron configuration not valid";
+        qCDebug(KSYSTEMLOG) << "Cron configuration not valid";
         return false;
     }
 
     if (mProcessFilterGroup->isChecked() && mProcessFilter->text().isEmpty()) {
-        logDebug() << "Cron configuration not valid";
+        qCDebug(KSYSTEMLOG) << "Cron configuration not valid";
         return false;
     }
 
-    logDebug() << "Cron configuration valid";
+    qCDebug(KSYSTEMLOG) << "Cron configuration valid";
     return true;
 }
 
 void CronConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Cron Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Cron Options...";
 
     auto *cronConfiguration = Globals::instance().findLogMode(QStringLiteral(CRON_LOG_MODE_ID))->logModeConfiguration<CronConfiguration *>();
     cronConfiguration->setCronPaths(mFileList->paths());

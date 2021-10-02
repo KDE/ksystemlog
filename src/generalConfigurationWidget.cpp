@@ -17,7 +17,7 @@
 #include "defaults.h"
 #include "globals.h"
 #include "ksystemlogConfig.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 GeneralConfigurationWidget::GeneralConfigurationWidget()
     : QWidget()
@@ -100,7 +100,7 @@ void GeneralConfigurationWidget::readConfig()
 
 void GeneralConfigurationWidget::saveConfig() const
 {
-    logDebug() << "Save config from General preferences";
+    qCDebug(KSYSTEMLOG) << "Save config from General preferences";
 
     KSystemLogConfig::setStartupLogMode(startupLogMode->itemData(startupLogMode->currentIndex()).toString());
 
@@ -128,10 +128,10 @@ bool GeneralConfigurationWidget::isValid() const
             LogMode *mode = Globals::instance().findLogMode(modeString);
             if (mode) {
                 if (!mode->filesExist()) {
-                    logDebug() << "Log files are missing for mode" << mode->name();
+                    qCDebug(KSYSTEMLOG) << "Log files are missing for mode" << mode->name();
                     mWarningBox->setVisible(true);
                 } else {
-                    logDebug() << "General configuration is valid";
+                    qCDebug(KSYSTEMLOG) << "General configuration is valid";
                     mWarningBox->setVisible(false);
                     return true;
                 }
@@ -143,6 +143,6 @@ bool GeneralConfigurationWidget::isValid() const
         }
     }
 
-    logDebug() << "General configuration is not valid";
+    qCDebug(KSYSTEMLOG) << "General configuration is not valid";
     return false;
 }

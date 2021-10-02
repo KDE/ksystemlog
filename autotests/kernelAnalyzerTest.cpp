@@ -24,7 +24,7 @@
 
 #include "ksystemlogConfig.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "kernelAnalyzer.h"
 #include "localLogFileReader.h"

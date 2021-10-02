@@ -8,9 +8,9 @@
 #include "journaldNetworkAnalyzer.h"
 #include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
+#include "ksystemlog_debug.h"
 #include "logFile.h"
 #include "logViewModel.h"
-#include "logging.h"
 
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -93,8 +93,8 @@ void JournaldNetworkAnalyzer::httpFinished()
         if (!mCursor.isEmpty()) {
             sendRequest(RequestType::EntriesUpdate);
         } else {
-            logWarning() << "Network journal analyzer failed to extract cursor string. "
-                            "Journal updates will be unavailable.";
+            qCWarning(KSYSTEMLOG) << "Network journal analyzer failed to extract cursor string. "
+                                     "Journal updates will be unavailable.";
         }
     } else {
         QString identifiersString = QString::fromUtf8(data);
@@ -143,7 +143,7 @@ void JournaldNetworkAnalyzer::httpError(QNetworkReply::NetworkError code)
     }
 
     updateStatus(i18n("Connection error"));
-    logWarning() << "Network journald connection error:" << code;
+    qCWarning(KSYSTEMLOG) << "Network journald connection error:" << code;
 }
 
 void JournaldNetworkAnalyzer::sslErrors(QNetworkReply *reply, const QList<QSslError> &errors)
@@ -155,7 +155,7 @@ void JournaldNetworkAnalyzer::sslErrors(QNetworkReply *reply, const QList<QSslEr
 void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMode readingMode)
 {
     if (mParsingPaused) {
-        logDebug() << "Parsing is paused, discarding journald entries.";
+        qCDebug(KSYSTEMLOG) << "Parsing is paused, discarding journald entries.";
         return;
     }
 
@@ -205,7 +205,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
     }
 
     if (entries.empty()) {
-        logDebug() << "Received no entries.";
+        qCDebug(KSYSTEMLOG) << "Received no entries.";
     } else {
         mInsertionLocking.lock();
         mLogViewModel->startingMultipleInsertions();
@@ -268,7 +268,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
     }
 
     request.setUrl(QUrl(url));
-    logDebug() << "Journal network analyzer requested" << url;
+    qCDebug(KSYSTEMLOG) << "Journal network analyzer requested" << url;
     mReply = mNetworkManager.get(request);
     connect(mReply, &QNetworkReply::finished, this, &JournaldNetworkAnalyzer::httpFinished);
     connect(mReply, &QNetworkReply::readyRead, this, &JournaldNetworkAnalyzer::httpReadyRead);

@@ -12,7 +12,7 @@
 #include <KLocalizedString>
 
 #include "globals.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "localLogFileReader.h"
 #include "logLevel.h"
@@ -61,12 +61,12 @@ Analyzer::LogFileSortMode SyslogAnalyzer::logFileSortMode()
  */
 LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &originalFile)
 {
-    // logDebug() << QTime::currentTime() << " : Reading line : " << logLine << " from " <<
+    // qCDebug(KSYSTEMLOG) << QTime::currentTime() << " : Reading line : " << logLine << " from " <<
     // originalFile.url.path();
 
     // 15 is the default date size format
     if (logLine.length() < 15) {
-        logDebug() << "Too short line";
+        qCDebug(KSYSTEMLOG) << "Too short line";
         return undefinedLogLine(logLine, originalFile);
     }
 
@@ -97,7 +97,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     const QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
     if (!dateTime.isValid()) {
-        logDebug() << "Malformed date and time";
+        qCDebug(KSYSTEMLOG) << "Malformed date and time";
         return undefinedLogLine(logLine, originalFile);
     }
 

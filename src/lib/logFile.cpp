@@ -6,7 +6,7 @@
 
 #include "logFile.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 LogFile::LogFile()
 {

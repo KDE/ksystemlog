@@ -10,7 +10,7 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "sambaAnalyzer.h"
 #include "sambaConfiguration.h"

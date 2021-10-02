@@ -15,7 +15,7 @@
 
 #include <QVBoxLayout>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewWidget.h"
 
@@ -159,7 +159,7 @@ void View::dragEnterEvent(QDragEnterEvent *event)
 
     // If URLs have been dropped
     if (urls.isEmpty()) {
-        logWarning() << "Empty drag and drop";
+        qCWarning(KSYSTEMLOG) << "Empty drag and drop";
         return;
     }
 
@@ -169,12 +169,12 @@ void View::dragEnterEvent(QDragEnterEvent *event)
         // TODO Add a recognition of binary files (using the Url mimetype) and refuse them
 
         if (!fileInfo.isReadable()) {
-            logWarning() << "The drag and dropped file is not readable " << url.path();
+            qCWarning(KSYSTEMLOG) << "The drag and dropped file is not readable " << url.path();
             return;
         }
 
         if (fileInfo.isDir()) {
-            logWarning() << "Tried to drag and drop a directory " << url.path();
+            qCWarning(KSYSTEMLOG) << "Tried to drag and drop a directory " << url.path();
             return;
         }
     }

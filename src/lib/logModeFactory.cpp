@@ -6,7 +6,7 @@
 
 #include "logModeFactory.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 LogModeFactory::LogModeFactory()
 {

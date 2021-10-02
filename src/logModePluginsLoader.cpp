@@ -9,7 +9,7 @@
 #include "globals.h"
 
 #include "defaults.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 // Includes existing log modes
 #include "openFactory.h"

@@ -14,7 +14,7 @@
 #include <kio/netaccess.h>
 #include <qtest_kde.h>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class FindIncompatibleKioTest : public QObject
 {
@@ -72,7 +72,7 @@ void FindIncompatibleKioTest::find()
     existingMethods << QLatin1String("void SlaveBase::setSubUrl(QUrl const &)");
     existingMethods << QLatin1String("void SlaveBase::multiGet(const QByteArray &)");
 
-    // logDebug() << existingMethods << endl;
+    // qCDebug(KSYSTEMLOG) << existingMethods << endl;
 
     QFile file(outputPath);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
@@ -211,7 +211,7 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList &meth
             continue;
         }
 
-        // logDebug() << "Line" << convertMethod(line) << endl;
+        // qCDebug(KSYSTEMLOG) << "Line" << convertMethod(line) << endl;
 
         foreach (const QString &method, methods) {
             if (line == convertMethod(method)) {
@@ -219,13 +219,13 @@ QMap<QString, bool> FindIncompatibleKioTest::findMethods(const QStringList &meth
             }
             /*
              else {
-             logDebug() << method << " != " << line << endl;
+             qCDebug(KSYSTEMLOG) << method << " != " << line << endl;
              }
              */
         }
     }
 
-    logDebug() << endl;
+    qCDebug(KSYSTEMLOG) << endl;
 
     return foundMethods;
 }
@@ -272,7 +272,7 @@ QStringList FindIncompatibleKioTest::headerContent(const QUrl &url)
 
         KIO::NetAccess::removeTempFile(tmpFile);
     } else {
-        logDebug() << KIO::NetAccess::lastErrorString() << endl;
+        qCDebug(KSYSTEMLOG) << KIO::NetAccess::lastErrorString() << endl;
     }
 
     return kioHeaderContent;

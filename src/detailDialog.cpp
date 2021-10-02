@@ -17,7 +17,7 @@
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 DetailDialog::DetailDialog(QWidget *parent)
     : QDialog(parent)
@@ -50,12 +50,12 @@ void DetailDialog::selectionChanged(LogViewWidget *logViewWidget)
 // TODO Try to find a method that reload (an resize) correctly the content of the detail dialog
 void DetailDialog::updateDetails()
 {
-    // logDebug() << "Updating Detail Dialog...";
+    // qCDebug(KSYSTEMLOG) << "Updating Detail Dialog...";
 
     // Get the current-last item selected
     LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
     if (!item) {
-        logDebug() << "No item found.";
+        qCDebug(KSYSTEMLOG) << "No item found.";
         return;
     }
 
@@ -86,24 +86,24 @@ void DetailDialog::updateDetails()
 void DetailDialog::moveToItem(int direction)
 {
     if (direction < 0) {
-        logDebug() << "Go to previous item...";
+        qCDebug(KSYSTEMLOG) << "Go to previous item...";
     } else {
-        logDebug() << "Go to next item...";
+        qCDebug(KSYSTEMLOG) << "Go to next item...";
     }
 
     // Get the current-last item selected
     LogViewWidgetItem *item = mLogViewWidget->lastSelectedItem();
     if (!item) {
-        logDebug() << "No item found.";
+        qCDebug(KSYSTEMLOG) << "No item found.";
         return;
     }
 
     QTreeWidgetItem *destinationItem = mLogViewWidget->topLevelItem(mLogViewWidget->indexOfTopLevelItem(item) + direction);
     if (!destinationItem) {
         if (direction < 0) {
-            logDebug() << "No previous item found.";
+            qCDebug(KSYSTEMLOG) << "No previous item found.";
         } else {
-            logDebug() << "No next item found.";
+            qCDebug(KSYSTEMLOG) << "No next item found.";
         }
         return;
     }

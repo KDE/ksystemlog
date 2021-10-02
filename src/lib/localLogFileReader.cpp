@@ -18,7 +18,7 @@
 
 #include "logFileReaderPrivate.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class LocalLogFileReaderPrivate : public LogFileReaderPrivate
 {
@@ -65,7 +65,7 @@ void LocalLogFileReader::init()
     // Init current file position
     d->mPreviousFilePosition = 0;
 
-    logDebug() << "Reading local file " << d->logFile.url().toLocalFile();
+    qCDebug(KSYSTEMLOG) << "Reading local file " << d->logFile.url().toLocalFile();
 }
 
 void LocalLogFileReader::watchFile(bool enable)
@@ -74,7 +74,7 @@ void LocalLogFileReader::watchFile(bool enable)
     const QString filePath = d->logFile.url().toLocalFile();
 
     if (enable) {
-        logDebug() << "Monitoring file : " << filePath;
+        qCDebug(KSYSTEMLOG) << "Monitoring file : " << filePath;
 
         if (!d->mWatch->contains(filePath)) {
             d->mWatch->addFile(filePath);
@@ -104,7 +104,7 @@ QIODevice *LocalLogFileReader::open()
     QMimeDatabase db;
     const QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
-    logDebug() << filePath << " : " << mimeType;
+    qCDebug(KSYSTEMLOG) << filePath << " : " << mimeType;
     QScopedPointer<QIODevice> inputDevice;
 
     // Try to see if this file exists
@@ -119,13 +119,13 @@ QIODevice *LocalLogFileReader::open()
 
     // Plain text file : we use a QFile object
     if (mimeType == QLatin1String("text/plain") || mimeType == QLatin1String("application/octet-stream")) {
-        logDebug() << "Using QFile input device";
+        qCDebug(KSYSTEMLOG) << "Using QFile input device";
 
         inputDevice.reset(new QFile(filePath));
     }
     // Compressed file : we use the KFilterDev helper
     else {
-        logDebug() << "Using KFilterDev input device";
+        qCDebug(KSYSTEMLOG) << "Using KFilterDev input device";
 
         // inputDevice = KFilterDev::deviceForFile(filePath, mimeType);
 
@@ -157,7 +157,7 @@ void LocalLogFileReader::close(QIODevice *inputDevice)
 
 QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
 {
-    logDebug() << "Retrieving raw buffer...";
+    qCDebug(KSYSTEMLOG) << "Retrieving raw buffer...";
 
     Q_D(LocalLogFileReader);
 
@@ -168,11 +168,11 @@ QStringList LocalLogFileReader::readContent(QIODevice *inputDevice)
         rawBuffer.append(inputStream.readLine());
     }
 
-    logDebug() << "Raw buffer retrieved.";
+    qCDebug(KSYSTEMLOG) << "Raw buffer retrieved.";
 
     // Get the size file for the next calculation
     d->mPreviousFilePosition = inputDevice->size();
-    logDebug() << "New file position : " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
+    qCDebug(KSYSTEMLOG) << "New file position : " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
 
     return rawBuffer;
 }
@@ -181,42 +181,42 @@ void LocalLogFileReader::logFileModified()
 {
     Q_D(LocalLogFileReader);
 
-    logDebug() << "Locking log file modification...";
+    qCDebug(KSYSTEMLOG) << "Locking log file modification...";
     if (!d->mInsertionLocking.tryLock()) {
-        logDebug() << "Log file modification already detected.";
+        qCDebug(KSYSTEMLOG) << "Log file modification already detected.";
         return;
     }
 
     QIODevice *inputDevice = open();
     if (!inputDevice) {
-        logCritical() << "Could not open file " << d->logFile.url().toLocalFile();
+        qCCritical(KSYSTEMLOG) << "Could not open file " << d->logFile.url().toLocalFile();
         return;
     }
 
     // If there are new lines in the file, insert only them or this is the first time we read this file
     if (d->mPreviousFilePosition != 0 && d->mPreviousFilePosition <= inputDevice->size()) {
-        logDebug() << "Reading from position " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
+        qCDebug(KSYSTEMLOG) << "Reading from position " << d->mPreviousFilePosition << " (" << d->logFile.url().toLocalFile() << ")";
 
         if (inputDevice->isSequential()) {
-            logCritical() << "The file current position could not be modified";
+            qCCritical(KSYSTEMLOG) << "The file current position could not be modified";
         } else {
             // Place the cursor to the last line opened
             inputDevice->seek(d->mPreviousFilePosition);
         }
 
-        logDebug() << "Retrieving a part of the file...";
+        qCDebug(KSYSTEMLOG) << "Retrieving a part of the file...";
 
         Q_EMIT contentChanged(this, Analyzer::UpdatingRead, readContent(inputDevice));
     }
     // Else reread all lines, clear log list
     else {
-        logDebug() << "New file or file truncated. (Re-)Loading log file";
+        qCDebug(KSYSTEMLOG) << "New file or file truncated. (Re-)Loading log file";
 
         Q_EMIT contentChanged(this, Analyzer::FullRead, readContent(inputDevice));
     }
 
     close(inputDevice);
 
-    logDebug() << "Unlocking log file modification...";
+    qCDebug(KSYSTEMLOG) << "Unlocking log file modification...";
     d->mInsertionLocking.unlock();
 }

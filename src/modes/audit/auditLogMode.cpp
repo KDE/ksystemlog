@@ -4,7 +4,7 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "auditAnalyzer.h"
 #include "auditConfiguration.h"

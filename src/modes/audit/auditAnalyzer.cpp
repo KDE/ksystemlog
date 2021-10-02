@@ -4,7 +4,7 @@
 #include <KLocalizedString>
 
 #include "ksystemlogConfig.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewModel.h"
 
@@ -91,11 +91,11 @@ void AuditAnalyzer::deleteLogFiles()
 
 int AuditAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &logFile, ReadingMode readingMode)
 {
-    logDebug() << "Inserting lines...";
+    qCDebug(KSYSTEMLOG) << "Inserting lines...";
 
     // If there is no line
     if (bufferedLines.isEmpty()) {
-        logWarning() << "File is empty : " << logFile.url().path();
+        qCWarning(KSYSTEMLOG) << "File is empty : " << logFile.url().path();
     }
 
     int stop = 0;
@@ -127,7 +127,7 @@ int AuditAnalyzer::insertLines(const QStringList &bufferedLines, const LogFile &
      *
      * TODO Read revertly the file and ignore last lines if we are in Descending mode
      */
-    logDebug() << "Log file Sort mode is " << logFileSortMode();
+    qCDebug(KSYSTEMLOG) << "Log file Sort mode is " << logFileSortMode();
     if (logFileSortMode() == Analyzer::AscendingSortedLogFile) {
         // Calculate how many lines we will ignore
         if (eventLines.size() > KSystemLogConfig::maxLines()) {
@@ -179,19 +179,19 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
 {
     const QString filePath = logFileReader->logFile().url().path();
     if (readingMode == Analyzer::FullRead) {
-        logDebug() << "File " << filePath << " has been modified on full read.";
+        qCDebug(KSYSTEMLOG) << "File " << filePath << " has been modified on full read.";
     } else {
-        logDebug() << "File " << filePath << " has been modified on partial read";
+        qCDebug(KSYSTEMLOG) << "File " << filePath << " has been modified on partial read";
     }
 
     if (mParsingPaused == true) {
-        logDebug() << "Pause enabled. Nothing read.";
+        qCDebug(KSYSTEMLOG) << "Pause enabled. Nothing read.";
         return;
     }
 
-    logDebug() << "Locking file modifications of " << filePath;
+    qCDebug(KSYSTEMLOG) << "Locking file modifications of " << filePath;
     mInsertionLocking.lock();
-    logDebug() << "Unlocking file modifications of " << filePath;
+    qCDebug(KSYSTEMLOG) << "Unlocking file modifications of " << filePath;
 
     QElapsedTimer benchmark;
     benchmark.start();
@@ -203,7 +203,7 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
     if (readingMode == Analyzer::UpdatingRead) {
         insertedLogLineCount = insertLines(content, logFileReader->logFile(), Analyzer::UpdatingRead);
     } else {
-        logDebug() << "Reading file " << filePath;
+        qCDebug(KSYSTEMLOG) << "Reading file " << filePath;
 
         Q_EMIT statusBarChanged(i18n("Opening '%1'...", filePath));
 
@@ -226,7 +226,7 @@ void AuditAnalyzer::logFileChanged(LogFileReader *logFileReader, ReadingMode rea
     // Inform MainWindow status bar
     Q_EMIT statusBarChanged(i18n("Log file '%1' has changed.", filePath));
 
-    logDebug() << "Updating log files in " << benchmark.elapsed() << " ms";
+    qCDebug(KSYSTEMLOG) << "Updating log files in " << benchmark.elapsed() << " ms";
 
     mInsertionLocking.unlock();
 }

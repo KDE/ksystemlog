@@ -8,9 +8,9 @@
 
 #include "defaults.h"
 #include "ksystemlogConfig.h"
+#include "ksystemlog_debug.h"
 #include "logFile.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "logModeItemBuilder.h"
 #include "openLogMode.h"

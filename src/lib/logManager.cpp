@@ -10,7 +10,7 @@
 #include <KMessageBox>
 
 #include "analyzer.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 #include "view.h"
 
 #include "logViewWidget.h"
@@ -59,11 +59,11 @@ View *LogManager::usedView() const
 void LogManager::reload()
 {
     if (!d->mLogMode) {
-        logWarning() << "Log manager is not yet initialized";
+        qCWarning(KSYSTEMLOG) << "Log manager is not yet initialized";
         return;
     }
 
-    logDebug() << "Reloading with log mode " << d->mLogMode->name() << "...";
+    qCDebug(KSYSTEMLOG) << "Reloading with log mode " << d->mLogMode->name() << "...";
 
     Q_EMIT statusBarChanged(i18n("Loading log..."));
 
@@ -71,19 +71,19 @@ void LogManager::reload()
     Q_EMIT tabTitleChanged(d->mUsedView, d->mLogMode->icon(), d->mLogMode->name());
     Q_EMIT windowTitleChanged(d->mLogMode->name());
 
-    logDebug() << "Emptying view...";
+    qCDebug(KSYSTEMLOG) << "Emptying view...";
 
     // Empty the current list, to better fill it
     d->mUsedView->logViewWidget()->model()->clear();
 
-    logDebug() << "Initializing view...";
+    qCDebug(KSYSTEMLOG) << "Initializing view...";
 
     // Init the Log View
-    logDebug() << "Initializing columns view...";
+    qCDebug(KSYSTEMLOG) << "Initializing columns view...";
 
     d->mUsedView->logViewWidget()->setColumns(d->mAnalyzer->initColumns());
 
-    logDebug() << "Reading log...";
+    qCDebug(KSYSTEMLOG) << "Reading log...";
 
     // Read the log files
     d->mAnalyzer->watchLogFiles(false);
@@ -94,7 +94,7 @@ void LogManager::reload()
     // Log List has been totally reloaded
     Q_EMIT reloaded();
 
-    logDebug() << "Log mode " << d->mLogMode->name() << " reloaded";
+    qCDebug(KSYSTEMLOG) << "Log mode " << d->mLogMode->name() << " reloaded";
 }
 
 void LogManager::stopWatching()
@@ -130,7 +130,7 @@ const QTime &LogManager::lastUpdate() const
 
 void LogManager::updateLog(int lineCount)
 {
-    logDebug() << "Updating log " << lineCount << " new lines";
+    qCDebug(KSYSTEMLOG) << "Updating log " << lineCount << " new lines";
 
     if (lineCount == 0) {
         return;
@@ -143,7 +143,7 @@ void LogManager::updateLog(int lineCount)
 
 void LogManager::cleanPreviousLogMode()
 {
-    logDebug() << "Cleaning previous LogMode...";
+    qCDebug(KSYSTEMLOG) << "Cleaning previous LogMode...";
 
     d->mLogMode = nullptr;
 
@@ -160,9 +160,9 @@ void LogManager::initialize(LogMode *mode, const QVariant &analyzerOptions)
 
 void LogManager::internalInitialize(LogMode *mode, const QVector<LogFile> &logFiles, const QVariant &analyzerOptions)
 {
-    logDebug() << "Initializing LogManager...";
+    qCDebug(KSYSTEMLOG) << "Initializing LogManager...";
 
-    logDebug() << "Using files" << logFiles;
+    qCDebug(KSYSTEMLOG) << "Using files" << logFiles;
 
     cleanPreviousLogMode();
 
@@ -191,7 +191,7 @@ void LogManager::internalInitialize(LogMode *mode, const QVector<LogFile> &logFi
     // Find the log files used for this kind of mode, and set them to our log manager
     d->mAnalyzer->setLogFiles(logFiles);
 
-    logDebug() << "LogManager initialized";
+    qCDebug(KSYSTEMLOG) << "LogManager initialized";
 }
 
 void LogManager::showErrorMessage(const QString &title, const QString &message)
@@ -202,7 +202,7 @@ void LogManager::showErrorMessage(const QString &title, const QString &message)
 void LogManager::setParsingPaused(bool paused)
 {
     if (!d->mLogMode) {
-        logWarning() << "Log manager is not yet initialized";
+        qCWarning(KSYSTEMLOG) << "Log manager is not yet initialized";
         return;
     }
 
@@ -218,7 +218,7 @@ void LogManager::setParsingPaused(bool paused)
 bool LogManager::isParsingPaused() const
 {
     if (!d->mLogMode) {
-        logWarning() << "Log manager is not yet initialized";
+        qCWarning(KSYSTEMLOG) << "Log manager is not yet initialized";
         return false;
     }
 
@@ -227,7 +227,7 @@ bool LogManager::isParsingPaused() const
 
 void LogManager::loadDroppedUrls(const QList<QUrl> &urls)
 {
-    logDebug() << "Drop " << urls;
+    qCDebug(KSYSTEMLOG) << "Drop " << urls;
 
     QVector<LogFile> logFiles;
     logFiles.reserve(urls.count());

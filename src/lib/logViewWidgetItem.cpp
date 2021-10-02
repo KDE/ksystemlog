@@ -11,7 +11,7 @@
 #include <QBrush>
 
 // KDE includes
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logModeItemBuilder.h"
 #include "logViewWidget.h"

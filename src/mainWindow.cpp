@@ -40,7 +40,7 @@
 #include "logLevel.h"
 #include "logMode.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logModePluginsLoader.h"
 #include "logViewSearchWidget.h"
@@ -53,13 +53,13 @@ namespace KSystemLog
 MainWindow::MainWindow()
     : KXmlGuiWindow(nullptr)
 {
-    logDebug() << "Starting KSystemLog...";
+    qCDebug(KSYSTEMLOG) << "Starting KSystemLog...";
 
     // Load log modes plugins
     loadLogModePlugins();
 
     // Create the GUI from XML configuration
-    logDebug() << "Creating Gui...";
+    qCDebug(KSYSTEMLOG) << "Creating Gui...";
     createGUI();
 
     // TODO Improve the status bar to add a custom widget which shows an history of latest message, and add a
@@ -80,7 +80,7 @@ MainWindow::MainWindow()
     // automatically save settings if changed: window size, toolbar
     // position, icon size, etc.  Also to add actions for the statusbar
     // toolbar, and keybindings if necessary.
-    logDebug() << "Setup Gui...";
+    qCDebug(KSYSTEMLOG) << "Setup Gui...";
     setupGUI();
 
     // Setup Logs menu, needs to be called after setupGUI()
@@ -107,7 +107,7 @@ MainWindow::MainWindow()
             if (mode->filesExist()) {
                 mTabs->load(mode, firstLogManager);
             } else {
-                logWarning() << mode->name() << "is selected by default, but log files do not exist.";
+                qCWarning(KSYSTEMLOG) << mode->name() << "is selected by default, but log files do not exist.";
             }
         }
     }
@@ -129,7 +129,7 @@ void MainWindow::loadLogModePlugins()
 
 void MainWindow::setupTabLogViews()
 {
-    logDebug() << "Creating tab widget...";
+    qCDebug(KSYSTEMLOG) << "Creating tab widget...";
 
     mTabs = new TabLogViewsWidget(this);
 
@@ -158,7 +158,7 @@ void MainWindow::setupStatusBar()
 
 void MainWindow::prepareCreatedLogManager(LogManager *manager)
 {
-    logDebug() << "Connecting to actions the new log manager and view...";
+    qCDebug(KSYSTEMLOG) << "Connecting to actions the new log manager and view...";
 
     // Contextual menu Log Manager signals
 
@@ -211,7 +211,7 @@ void MainWindow::updateDetailDialog()
 
 void MainWindow::updateSelection()
 {
-    // logDebug() << "Updating selection...";
+    // qCDebug(KSYSTEMLOG) << "Updating selection...";
 
     LogManager *currentLogManager = mTabs->activeLogManager();
 
@@ -259,7 +259,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     if (currentLogManager) {
         currentLogManager->stopWatching();
     }
-    logDebug() << "Saving configuration before exit...";
+    qCDebug(KSYSTEMLOG) << "Saving configuration before exit...";
     qCDebug(KSYSTEMLOG) << "Saving configuration before exit...";
     // Write the config to the file
     KSystemLogConfig::self()->save();
@@ -299,7 +299,7 @@ void MainWindow::toggleNewLinesDisplaying(bool displayed)
 
 void MainWindow::updateStatusBar()
 {
-    logDebug() << "Updating status bar...";
+    qCDebug(KSYSTEMLOG) << "Updating status bar...";
 
     LogManager *currentManager = mTabs->activeLogManager();
 
@@ -318,14 +318,14 @@ void MainWindow::updateStatusBar()
 
 void MainWindow::toggleResumePauseParsing(bool paused)
 {
-    logDebug() << "Pausing parsing : " << paused;
+    qCDebug(KSYSTEMLOG) << "Pausing parsing : " << paused;
 
     LogManager *currentLogManager = mTabs->activeLogManager();
     if (currentLogManager) {
         currentLogManager->setParsingPaused(paused);
     }
 
-    logDebug() << "Parsing paused : " << paused;
+    qCDebug(KSYSTEMLOG) << "Parsing paused : " << paused;
 }
 
 void MainWindow::changeResumePauseAction(bool paused)
@@ -367,13 +367,13 @@ void MainWindow::fileOpen()
 
 void MainWindow::showConfigurationDialog()
 {
-    logDebug() << "Showing configuration dialog...";
+    qCDebug(KSYSTEMLOG) << "Showing configuration dialog...";
     mConfigurationDialog->showConfiguration();
 }
 
 void MainWindow::showLogMessageDialog()
 {
-    logDebug() << "Launching the Send message dialog box...";
+    qCDebug(KSYSTEMLOG) << "Launching the Send message dialog box...";
 
     if (!mLoggedDialog) {
         mLoggedDialog = new LoggerDialog(this);
@@ -396,7 +396,7 @@ void MainWindow::changeWindowTitle(const QString &text)
 
 void MainWindow::changeCurrentTab()
 {
-    logDebug() << "Tab has changed";
+    qCDebug(KSYSTEMLOG) << "Tab has changed";
 
     LogManager *currentManager = mTabs->activeLogManager();
 
@@ -443,7 +443,7 @@ void MainWindow::changeCurrentTab()
     // Updating Detail dialog
     updateDetailDialog();
 
-    logDebug() << "Tab changing done";
+    qCDebug(KSYSTEMLOG) << "Tab changing done";
 }
 
 /**
@@ -455,7 +455,7 @@ void MainWindow::changeCurrentTab()
  */
 void MainWindow::saveProperties(KConfigGroup & /*configuration*/)
 {
-    logDebug() << "Saving properties...";
+    qCDebug(KSYSTEMLOG) << "Saving properties...";
 }
 
 /**
@@ -468,12 +468,12 @@ void MainWindow::saveProperties(KConfigGroup & /*configuration*/)
  */
 void MainWindow::readProperties(const KConfigGroup & /*configuration*/)
 {
-    logDebug() << "Reading properties...";
+    qCDebug(KSYSTEMLOG) << "Reading properties...";
 }
 
 void MainWindow::toggleFilterBar()
 {
-    logDebug() << "Toggling filter bar..." << mFilterBarAction->isChecked();
+    qCDebug(KSYSTEMLOG) << "Toggling filter bar..." << mFilterBarAction->isChecked();
 
     const auto logManagers{mTabs->logManagers()};
     for (LogManager *manager : logManagers) {
@@ -497,7 +497,7 @@ void MainWindow::findPrevious()
 
 void MainWindow::showSearchBar()
 {
-    logDebug() << "Showing search bar...";
+    qCDebug(KSYSTEMLOG) << "Showing search bar...";
 
     LogManager *activeLogManager = mTabs->activeLogManager();
 
@@ -514,7 +514,7 @@ void MainWindow::showSearchBar()
 
 void MainWindow::setupActions()
 {
-    logDebug() << "Creating actions...";
+    qCDebug(KSYSTEMLOG) << "Creating actions...";
 
     QAction *fileOpenAction = actionCollection()->addAction(KStandardAction::Open, this, SLOT(fileOpen()));
     fileOpenAction->setToolTip(i18n("Open a file in KSystemLog"));
@@ -713,7 +713,7 @@ void MainWindow::selectLogModeAction(bool)
     ActionData actionData = action->data().value<ActionData>();
     QString selectedModeId = actionData.id;
 
-    logDebug() << "Selected action" << selectedModeId;
+    qCDebug(KSYSTEMLOG) << "Selected action" << selectedModeId;
 
     LogMode *currentMode = nullptr;
     const auto logModes{Globals::instance().logModes()};
@@ -725,11 +725,11 @@ void MainWindow::selectLogModeAction(bool)
     }
 
     if (!currentMode) {
-        logCritical() << "The selected mode does not exist";
+        qCCritical(KSYSTEMLOG) << "The selected mode does not exist";
         return;
     }
 
-    logDebug() << "Selecting " << currentMode->name() << " (" << currentMode->id() << ")";
+    qCDebug(KSYSTEMLOG) << "Selecting " << currentMode->name() << " (" << currentMode->id() << ")";
 
     mTabs->load(currentMode, mTabs->activeLogManager(), actionData.analyzerOptions);
 }
@@ -788,7 +788,7 @@ void MainWindow::setupLogActions()
         for (QAction *action : innerActions) {
             ActionData actionData = action->data().value<ActionData>();
             if (actionData.addToActionCollection) {
-                logDebug() << "Adding action" << actionData.id;
+                qCDebug(KSYSTEMLOG) << "Adding action" << actionData.id;
                 action = actionCollection()->addAction(actionData.id, action);
             }
             connect(action, &QAction::triggered, this, &MainWindow::selectLogModeAction);

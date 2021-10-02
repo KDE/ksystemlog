@@ -20,7 +20,7 @@
 #include "defaults.h"
 
 #include "globals.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logLevel.h"
 #include "logLevelSelectionDialog.h"
@@ -30,7 +30,7 @@ int LogLevelFileList::LogLevelRole = 33;
 LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
     : FileList(parent, description)
 {
-    logDebug() << "Initializing specific file list...";
+    qCDebug(KSYSTEMLOG) << "Initializing specific file list...";
 
     changeItem = new QPushButton(i18n("&Change Status..."));
     changeItem->setToolTip(i18n("Change the level of the current file(s)"));
@@ -56,7 +56,7 @@ LogLevelFileList::LogLevelFileList(QWidget *parent, const QString &description)
 
     updateSpecificButtons();
 
-    logDebug() << "Specific file list initialized";
+    qCDebug(KSYSTEMLOG) << "Specific file list initialized";
 }
 
 LogLevelFileList::~LogLevelFileList()
@@ -97,7 +97,7 @@ void LogLevelFileList::updateSpecificButtons()
 
 void LogLevelFileList::changeItemType()
 {
-    logDebug() << "Changing item type...";
+    qCDebug(KSYSTEMLOG) << "Changing item type...";
 
     LogLevelSelectionDialog logLevelSelectionDialog(this);
     QListWidget *logLevels = logLevelSelectionDialog.logLevels();
@@ -147,7 +147,7 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
 {
     // A little security test
     if (stringList.size() != valueList.size()) {
-        logDebug() << i18n("The two arrays size are different, skipping the reading of generic paths.");
+        qCDebug(KSYSTEMLOG) << i18n("The two arrays size are different, skipping the reading of generic paths.");
         return;
     }
 

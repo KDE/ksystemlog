@@ -16,7 +16,7 @@
 
 #include "defaults.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 FileListHelper::FileListHelper(QWidget *p)
     : mParent(p)
@@ -72,7 +72,7 @@ QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
             // If this Url uses a joker (i.e. : "/var/log/apache2/*")
             if (url.fileName().contains(QLatin1Char('*'))) {
                 const QStringList foundPaths = expandJoker(url);
-                logDebug() << "Found paths of " << url.path() << ":" << foundPaths;
+                qCDebug(KSYSTEMLOG) << "Found paths of " << url.path() << ":" << foundPaths;
                 for (const QString &foundPath : foundPaths) {
                     paths.append(foundPath);
                 }
@@ -138,7 +138,7 @@ QStringList FileListHelper::expandJoker(const QUrl &url)
 {
     const QFileInfo info(url.toLocalFile());
 
-    logDebug() << "Dir " << info.dir().path();
+    qCDebug(KSYSTEMLOG) << "Dir " << info.dir().path();
     const QString filename = info.fileName();
 
     if (filename.isEmpty()) {

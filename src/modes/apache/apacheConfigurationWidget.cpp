@@ -26,7 +26,7 @@ ApacheConfigurationWidget::ApacheConfigurationWidget()
 
 void ApacheConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Apache Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Apache Options...";
 
     auto *apacheConfiguration = Globals::instance().findLogMode(QStringLiteral(APACHE_LOG_MODE_ID))->logModeConfiguration<ApacheConfiguration *>();
     apacheConfiguration->setApachePaths(mApacheFileList->paths(mApachePathsId));
@@ -52,10 +52,10 @@ void ApacheConfigurationWidget::readConfig()
 bool ApacheConfigurationWidget::isValid() const
 {
     if (mApacheFileList->isOneOfCategoryEmpty()) {
-        logDebug() << "Apache configuration not valid";
+        qCDebug(KSYSTEMLOG) << "Apache configuration not valid";
         return false;
     }
 
-    logDebug() << "Apache configuration valid";
+    qCDebug(KSYSTEMLOG) << "Apache configuration valid";
     return true;
 }

@@ -27,7 +27,7 @@ SambaConfigurationWidget::SambaConfigurationWidget()
 
 void SambaConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Samba Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Samba Options...";
 
     auto *sambaConfiguration = Globals::instance().findLogMode(QStringLiteral(SAMBA_LOG_MODE_ID))->logModeConfiguration<SambaConfiguration *>();
     sambaConfiguration->setSambaPaths(mSambaFileList->paths(mSambaPathsId));
@@ -55,10 +55,10 @@ void SambaConfigurationWidget::readConfig()
 bool SambaConfigurationWidget::isValid() const
 {
     if (mSambaFileList->isOneOfCategoryEmpty()) {
-        logDebug() << "Samba configuration not valid";
+        qCDebug(KSYSTEMLOG) << "Samba configuration not valid";
         return false;
     }
 
-    logDebug() << "Samba configuration valid";
+    qCDebug(KSYSTEMLOG) << "Samba configuration valid";
     return true;
 }

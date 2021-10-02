@@ -8,7 +8,7 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "kernelAnalyzer.h"
 #include "kernelItemBuilder.h"

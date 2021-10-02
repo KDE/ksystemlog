@@ -8,8 +8,8 @@
 
 #include "syslogAnalyzer.h"
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 class PostfixAnalyzer : public SyslogAnalyzer
 {
@@ -34,7 +34,7 @@ public:
 
         items.append(message + "\n" + message);
 
-  logDebug() << "Coucou" << items.at(items.count()-1);
+  qCDebug(KSYSTEMLOG) << "Coucou" << items.at(items.count()-1);
 
         syslogLine->setLogItems(items);
         return syslogLine;

@@ -28,7 +28,7 @@ CupsConfigurationWidget::CupsConfigurationWidget()
 
 void CupsConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Cups Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Cups Options...";
 
     auto *cupsConfiguration = Globals::instance().findLogMode(QStringLiteral(CUPS_LOG_MODE_ID))->logModeConfiguration<CupsConfiguration *>();
     cupsConfiguration->setCupsPaths(mCupsFileList->paths(mCupsPathsId));
@@ -58,10 +58,10 @@ void CupsConfigurationWidget::readConfig()
 bool CupsConfigurationWidget::isValid() const
 {
     if (mCupsFileList->isOneOfCategoryEmpty()) {
-        logDebug() << "Cups configuration not valid";
+        qCDebug(KSYSTEMLOG) << "Cups configuration not valid";
         return false;
     }
 
-    logDebug() << "Cups configuration valid";
+    qCDebug(KSYSTEMLOG) << "Cups configuration valid";
     return true;
 }

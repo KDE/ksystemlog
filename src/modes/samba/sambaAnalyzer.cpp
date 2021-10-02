@@ -82,7 +82,7 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
         list.append(function);
         list.append(lineNumber);
 
-        logDebug() << "Creating new line ";
+        qCDebug(KSYSTEMLOG) << "Creating new line ";
 
         LogLine *returnedLogLine = mCurrentLogLine;
 

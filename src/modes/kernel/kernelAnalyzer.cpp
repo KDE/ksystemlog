@@ -44,7 +44,7 @@ void KernelAnalyzer::startupTime()
     const long updateSeconds = pureSecondsString.toLong();
 
     mStartupDateTime = QDateTime::currentDateTime().addSecs(-updateSeconds);
-    logDebug() << "Startup time : " << mStartupDateTime;
+    qCDebug(KSYSTEMLOG) << "Startup time : " << mStartupDateTime;
 }
 
 LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
@@ -61,7 +61,7 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     // If we have the date, we are able to update the start date
     if (timeExists != -1) {
-        // logDebug() << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
+        // qCDebug(KSYSTEMLOG) << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
         dateTime = dateTime.addSecs(timeRegex.cap(1).toInt());
         dateTime = dateTime.addMSecs(timeRegex.cap(2).toInt() / 1000);
 
@@ -73,13 +73,13 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     }
 
     /*
-  logDebug() << "--------------------------------";
-  logDebug() << logLine;
-  logDebug() << "Secs : " << dateTime.time().second();
-  logDebug() << "MSec : " << dateTime.time().msec();
-  logDebug() << "Comp : " << messages.at(0);
-  logDebug() << "Msg  : " << messages.at(1);
-  logDebug() << "--------------------------------";
+  qCDebug(KSYSTEMLOG) << "--------------------------------";
+  qCDebug(KSYSTEMLOG) << logLine;
+  qCDebug(KSYSTEMLOG) << "Secs : " << dateTime.time().second();
+  qCDebug(KSYSTEMLOG) << "MSec : " << dateTime.time().msec();
+  qCDebug(KSYSTEMLOG) << "Comp : " << messages.at(0);
+  qCDebug(KSYSTEMLOG) << "Msg  : " << messages.at(1);
+  qCDebug(KSYSTEMLOG) << "--------------------------------";
         */
 
     auto line = new LogLine(mLogLineInternalIdGenerator++,

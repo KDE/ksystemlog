@@ -8,7 +8,7 @@
 
 #include <QAction>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 MultipleActions::MultipleActions(const QIcon &icon, const QString &text, QObject *parent)
 {

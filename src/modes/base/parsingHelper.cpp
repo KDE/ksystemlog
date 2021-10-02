@@ -9,7 +9,7 @@
 #include <KFormat>
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 ParsingHelper *ParsingHelper::self = nullptr;
 
@@ -122,7 +122,7 @@ QDateTime ParsingHelper::parseSyslogDateTime(const QString &dateTime)
 
     const int firstPosition = regex.indexIn(dateTime);
     if (firstPosition == -1) {
-        logDebug() << "Unable to parse date " << dateTime;
+        qCDebug(KSYSTEMLOG) << "Unable to parse date " << dateTime;
         return QDateTime::currentDateTime();
     }
 

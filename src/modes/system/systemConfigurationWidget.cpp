@@ -23,17 +23,17 @@ SystemConfigurationWidget::SystemConfigurationWidget()
 bool SystemConfigurationWidget::isValid() const
 {
     if (!mFileList->isEmpty()) {
-        logDebug() << "System configuration valid";
+        qCDebug(KSYSTEMLOG) << "System configuration valid";
         return true;
     }
 
-    logDebug() << "System configuration not valid";
+    qCDebug(KSYSTEMLOG) << "System configuration not valid";
     return false;
 }
 
 void SystemConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from System Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from System Options...";
 
     auto *systemConfiguration = Globals::instance().findLogMode(QStringLiteral(SYSTEM_LOG_MODE_ID))->logModeConfiguration<SystemConfiguration *>();
     systemConfiguration->setLogFilesPaths(mFileList->paths());

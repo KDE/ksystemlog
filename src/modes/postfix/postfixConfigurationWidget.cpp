@@ -23,17 +23,17 @@ PostfixConfigurationWidget::PostfixConfigurationWidget()
 bool PostfixConfigurationWidget::isValid() const
 {
     if (!mLileList->isEmpty()) {
-        logDebug() << "Postfix configuration valid";
+        qCDebug(KSYSTEMLOG) << "Postfix configuration valid";
         return true;
     }
 
-    logDebug() << "Postfix configuration not valid";
+    qCDebug(KSYSTEMLOG) << "Postfix configuration not valid";
     return false;
 }
 
 void PostfixConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Postfix Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Postfix Options...";
 
     auto *configuration = Globals::instance().findLogMode(QStringLiteral(POSTFIX_LOG_MODE_ID))->logModeConfiguration<PostfixConfiguration *>();
     configuration->setLogFilesPaths(mLileList->paths());

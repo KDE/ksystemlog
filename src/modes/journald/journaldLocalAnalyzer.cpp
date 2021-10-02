@@ -8,8 +8,8 @@
 #include "journaldLocalAnalyzer.h"
 #include "journaldConfiguration.h"
 #include "ksystemlogConfig.h"
+#include "ksystemlog_debug.h"
 #include "logViewModel.h"
-#include "logging.h"
 
 #include <KLocalizedString>
 
@@ -33,7 +33,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
     }
     const int ret = sd_journal_open(&mJournal, mJournalFlags);
     if (ret < 0) {
-        logWarning() << "Journald analyzer failed to open system journal";
+        qCWarning(KSYSTEMLOG) << "Journald analyzer failed to open system journal";
         return;
     }
 
@@ -50,7 +50,7 @@ JournaldLocalAnalyzer::JournaldLocalAnalyzer(LogMode *mode, QString filter)
             mCurrentBootID.remove(QChar::fromLatin1('-'));
             mFilters << QStringLiteral("_BOOT_ID=%1").arg(mCurrentBootID);
         } else {
-            logWarning() << "Journald analyzer failed to open /proc/sys/kernel/random/boot_id";
+            qCWarning(KSYSTEMLOG) << "Journald analyzer failed to open /proc/sys/kernel/random/boot_id";
         }
     }
 
@@ -139,9 +139,9 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
     QList<JournalEntry> entries = watcher->result();
 
     if (mParsingPaused) {
-        logDebug() << "Parsing is paused, discarding journald entries.";
+        qCDebug(KSYSTEMLOG) << "Parsing is paused, discarding journald entries.";
     } else if (entries.empty()) {
-        logDebug() << "Received no entries.";
+        qCDebug(KSYSTEMLOG) << "Received no entries.";
     } else {
         mInsertionLocking.lock();
         mLogViewModel->startingMultipleInsertions();
@@ -180,14 +180,14 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
 
 void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
 {
-    logDebug() << "Journal was updated.";
+    qCDebug(KSYSTEMLOG) << "Journal was updated.";
     QFile file;
     file.open(fd, QIODevice::ReadOnly);
     file.readAll();
     file.close();
 
     if (mParsingPaused) {
-        logDebug() << "Parsing is paused, will not fetch new journald entries.";
+        qCDebug(KSYSTEMLOG) << "Parsing is paused, will not fetch new journald entries.";
         return;
     }
 
@@ -211,7 +211,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
 
     int res = sd_journal_open(&journal, mJournalFlags);
     if (res < 0) {
-        logWarning() << "Failed to access the journal.";
+        qCWarning(KSYSTEMLOG) << "Failed to access the journal.";
         return QList<JournalEntry>();
     }
 
@@ -221,7 +221,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
             JournalEntry entry;
             res = sd_journal_next(journal);
             if (res < 0) {
-                logWarning() << "Failed to access next journal entry.";
+                qCWarning(KSYSTEMLOG) << "Failed to access next journal entry.";
                 break;
             }
             if (res == 0) {
@@ -238,7 +238,7 @@ QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(co
 
     sd_journal_close(journal);
     if (!entryList.empty()) {
-        logDebug() << "Read" << entryList.size() << "journal entries.";
+        qCDebug(KSYSTEMLOG) << "Read" << entryList.size() << "journal entries.";
     }
     return entryList;
 }
@@ -251,7 +251,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
     for (const QString &filter : filters) {
         res = sd_journal_add_match(journal, filter.toUtf8().constData(), 0);
         if (res < 0) {
-            logWarning() << "Failed to set journal filter.";
+            qCWarning(KSYSTEMLOG) << "Failed to set journal filter.";
             return false;
         }
     }
@@ -259,7 +259,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
     // Go to the latest journal entry.
     res = sd_journal_seek_tail(journal);
     if (res < 0) {
-        logWarning() << "Failed to seek journal tail.";
+        qCWarning(KSYSTEMLOG) << "Failed to seek journal tail.";
         return false;
     }
 
@@ -276,7 +276,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
 
             res = sd_journal_previous(journal);
             if (res < 0) {
-                logWarning() << "Failed to seek previous journal entry.";
+                qCWarning(KSYSTEMLOG) << "Failed to seek previous journal entry.";
                 return false;
             }
 
@@ -297,7 +297,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
             // Seek failed. Read entries from the beginning.
             res = sd_journal_seek_head(journal);
             if (res < 0) {
-                logWarning() << "Failed to seek journal head.";
+                qCWarning(KSYSTEMLOG) << "Failed to seek journal head.";
                 return false;
             }
         }
@@ -374,7 +374,7 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString &id, int f
         units.sort();
         sd_journal_close(journal);
     } else {
-        logWarning() << "Failed to open the journal and extract unique values for field" << id;
+        qCWarning(KSYSTEMLOG) << "Failed to open the journal and extract unique values for field" << id;
     }
     return units;
 }

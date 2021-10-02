@@ -21,7 +21,7 @@
 #include "ksystemlogConfig.h"
 
 #include "defaults.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 ConfigurationDialog::ConfigurationDialog(QWidget *parent)
     : KConfigDialog(parent, i18n("Settings"), KSystemLogConfig::self())
@@ -37,7 +37,7 @@ ConfigurationDialog::~ConfigurationDialog()
 
 void ConfigurationDialog::setupLogModeConfigurations()
 {
-    logDebug() << "Setup Log Mode Configurations...";
+    qCDebug(KSYSTEMLOG) << "Setup Log Mode Configurations...";
 
     const auto logModes = Globals::instance().logModes();
     for (LogMode *logMode : logModes) {
@@ -55,7 +55,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
     }
 
     for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
-        logDebug() << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
+        qCDebug(KSYSTEMLOG) << "Adding " << logModeConfigurationWidget->itemName() << " configuration...";
 
         addPage(logModeConfigurationWidget,
                 logModeConfigurationWidget->itemName(),
@@ -69,7 +69,7 @@ void ConfigurationDialog::setupLogModeConfigurations()
 
 void ConfigurationDialog::showConfiguration()
 {
-    logDebug() << "Showing Configuration dialog...";
+    qCDebug(KSYSTEMLOG) << "Showing Configuration dialog...";
 
     show();
 }
@@ -85,7 +85,7 @@ void ConfigurationDialog::setupGeneralConfiguration()
 
 void ConfigurationDialog::updateSettings()
 {
-    logDebug() << "Saving configuration...";
+    qCDebug(KSYSTEMLOG) << "Saving configuration...";
 
     mChanged = false;
 
@@ -99,18 +99,18 @@ void ConfigurationDialog::updateSettings()
 
     Q_EMIT configurationSaved();
 
-    logDebug() << "Configuration saved";
+    qCDebug(KSYSTEMLOG) << "Configuration saved";
 }
 
 bool ConfigurationDialog::hasChanged()
 {
-    logDebug() << "Current change status : " << mChanged;
+    qCDebug(KSYSTEMLOG) << "Current change status : " << mChanged;
     return mChanged;
 }
 
 void ConfigurationDialog::updateConfiguration()
 {
-    logDebug() << "Updating configuration...";
+    qCDebug(KSYSTEMLOG) << "Updating configuration...";
 
     bool valid = mGeneralConfiguration->isValid();
     if (valid) {
@@ -134,14 +134,14 @@ void ConfigurationDialog::updateConfiguration()
 
 void ConfigurationDialog::updateButtons()
 {
-    logDebug() << "Updating configuration buttons...";
+    qCDebug(KSYSTEMLOG) << "Updating configuration buttons...";
 
     mChanged = true;
 }
 
 void ConfigurationDialog::updateWidgets()
 {
-    logDebug() << "Reading configuration...";
+    qCDebug(KSYSTEMLOG) << "Reading configuration...";
 
     mGeneralConfiguration->readConfig();
     for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {
@@ -153,7 +153,7 @@ void ConfigurationDialog::updateWidgets()
 
 void ConfigurationDialog::updateWidgetsDefault()
 {
-    logDebug() << "Loading default configuration...";
+    qCDebug(KSYSTEMLOG) << "Loading default configuration...";
 
     mGeneralConfiguration->defaultConfig();
     for (LogModeConfigurationWidget *logModeConfigurationWidget : std::as_const(mLogModeConfigurations)) {

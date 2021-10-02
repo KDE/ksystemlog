@@ -6,8 +6,8 @@
 
 #include "kernelFactory.h"
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "kernelLogMode.h"
 #include "simpleAction.h"

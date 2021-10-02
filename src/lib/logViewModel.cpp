@@ -13,7 +13,7 @@
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "ksystemlogConfig.h"
 
@@ -78,7 +78,7 @@ void LogViewModel::startingMultipleInsertions()
     mConcurrentMultipleInsertions++;
 
     if (hasLocked) {
-        logDebug() << "Starting multiple insertions...";
+        qCDebug(KSYSTEMLOG) << "Starting multiple insertions...";
 
         Q_EMIT processingMultipleInsertions(true);
 
@@ -95,7 +95,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
     mConcurrentMultipleInsertions--;
 
     if (lockMultipleInsertions()) {
-        logDebug() << "Ending multiple insertions...";
+        qCDebug(KSYSTEMLOG) << "Ending multiple insertions...";
 
         // Scroll to the newest item if some lines have been added
         if (insertedLogLineCount > 0) {
@@ -106,7 +106,7 @@ void LogViewModel::endingMultipleInsertions(Analyzer::ReadingMode readingMode, i
             mLogViewWidget->resizeColumns();
         }
 
-        logDebug() << "Enabling log view widget refresh...";
+        qCDebug(KSYSTEMLOG) << "Enabling log view widget refresh...";
         mLogViewWidget->setUpdatesEnabled(true);
 
         Q_EMIT processingMultipleInsertions(false);
@@ -121,9 +121,9 @@ bool LogViewModel::lockMultipleInsertions()
 
     // Debug messages
     if (mConcurrentMultipleInsertions > 0) {
-        logDebug() << "Existing multiple insertions request is still active";
+        qCDebug(KSYSTEMLOG) << "Existing multiple insertions request is still active";
     } else if (mConcurrentMultipleInsertions < 0) {
-        logCritical() << "Existing multiple insertions forgot to call this method";
+        qCCritical(KSYSTEMLOG) << "Existing multiple insertions forgot to call this method";
     }
 
     return false;
@@ -162,14 +162,14 @@ bool LogViewModel::isNewer(LogLine *newLine) const
 
 void LogViewModel::removeOldestLogLine()
 {
-    // logDebug() << "Removing oldest log line";
+    // qCDebug(KSYSTEMLOG) << "Removing oldest log line";
 
     if (isEmpty()) {
         return;
     }
 
     if (!mOldestItem) {
-        logWarning() << "Oldest item is null";
+        qCWarning(KSYSTEMLOG) << "Oldest item is null";
         return;
     }
 
@@ -230,7 +230,7 @@ bool LogViewModel::insertNewLogLine(LogLine *line)
         return true;
     }
 
-    // logDebug() << "Do not insert an old line : " << line->logItems();
+    // qCDebug(KSYSTEMLOG) << "Do not insert an old line : " << line->logItems();
 
     return false;
 }

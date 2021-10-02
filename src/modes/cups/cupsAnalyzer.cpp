@@ -73,7 +73,7 @@ LogLevel *CupsAnalyzer::findLogLevel(QChar type)
     if (it != mMapTypeLevels.end()) {
         return *it;
     } else {
-        logCritical() << i18n("New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
+        qCCritical(KSYSTEMLOG) << i18n("New Log Level detected: Please send this log file to the KSystemLog developer to add it.");
         return Globals::instance().noLogLevel();
     }
 }

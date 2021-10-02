@@ -10,7 +10,7 @@
 
 #include "fileAnalyzer.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "apacheLogMode.h"
 #include "localLogFileReader.h"

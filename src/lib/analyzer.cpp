@@ -7,7 +7,7 @@
 #include "analyzer.h"
 
 #include "ksystemlogConfig.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewModel.h"
 
@@ -39,10 +39,10 @@ void Analyzer::setParsingPaused(bool paused)
     bool watching;
     // If we resume the parsing, then parse files to know if new lines have been appended.
     if (mParsingPaused) {
-        logDebug() << "Pausing reading";
+        qCDebug(KSYSTEMLOG) << "Pausing reading";
         watching = false;
     } else {
-        logDebug() << "Relaunch reading";
+        qCDebug(KSYSTEMLOG) << "Relaunch reading";
         watching = true;
     }
 

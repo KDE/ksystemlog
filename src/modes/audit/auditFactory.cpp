@@ -1,8 +1,7 @@
 #include "auditFactory.h"
 
-
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "auditLogMode.h"
 #include "simpleAction.h"

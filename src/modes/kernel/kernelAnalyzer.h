@@ -11,7 +11,7 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "fileAnalyzer.h"
 

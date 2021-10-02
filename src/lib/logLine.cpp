@@ -11,7 +11,7 @@
 #include "logViewWidgetItem.h"
 
 #include "ksystemlogConfig.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 LogLine::LogLine(long internalId, const QDateTime &dateTime, const QStringList &logItems, const QString &file, LogLevel *logLevel, LogMode *logMode)
 {
@@ -143,7 +143,7 @@ QString LogLine::exportToText() const
     QString exporting;
 
     if (!mItem) {
-        logCritical() << "Trying to export text from NULL item";
+        qCCritical(KSYSTEMLOG) << "Trying to export text from NULL item";
         return exporting;
     }
 

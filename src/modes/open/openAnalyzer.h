@@ -8,8 +8,8 @@
 
 #include "syslogAnalyzer.h"
 
+#include "ksystemlog_debug.h"
 #include "logFile.h"
-#include "logging.h"
 
 #include "openLogMode.h"
 

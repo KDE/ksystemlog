@@ -7,7 +7,7 @@
 #include "logModeConfiguration.h"
 
 #include "defaults.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include <KLocalizedString>
 
@@ -86,7 +86,7 @@ Reader* ReaderFactory::createReader(LogMode* logMode) {
         return reader;
     }
 
-  logCritical() << "LogMode not found : returns NULL Reader";
+  qCCritical(KSYSTEMLOG) << "LogMode not found : returns NULL Reader";
     return NULL;
 }
 */
@@ -199,7 +199,7 @@ LogFile LogModeConfiguration::findGenericLogFile(const QString &file)
 
     const QUrl url = QUrl::fromLocalFile(file);
     if (!url.isValid()) {
-        logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
+        qCWarning(KSYSTEMLOG) << i18n("URL '%1' is not valid, skipping this URL.", url.path());
         return LogFile(QUrl(), Globals::instance().noLogLevel());
     }
     return LogFile(url, level);
@@ -227,7 +227,7 @@ QVector<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &str
     for (const QString &string : stringList) {
         const QUrl url = QUrl::fromLocalFile(string);
         if (!url.isValid()) {
-            logWarning() << i18n("URL '%1' is not valid, skipping this URL.", url.path());
+            qCWarning(KSYSTEMLOG) << i18n("URL '%1' is not valid, skipping this URL.", url.path());
             continue;
         }
 

@@ -12,7 +12,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewExport.h"
 #include "view.h"
@@ -68,7 +68,7 @@ TabLogViewsWidget::~TabLogViewsWidget()
 
 void TabLogViewsWidget::newTab(View *view)
 {
-    logDebug() << "Inserting to a new tab the view ";
+    qCDebug(KSYSTEMLOG) << "Inserting to a new tab the view ";
 
     // Add a tab at the end of the widget
     insertTab(count(), view, QIcon::fromTheme(QStringLiteral(NO_MODE_ICON)), i18n("No Log"));
@@ -78,7 +78,7 @@ void TabLogViewsWidget::newTab(View *view)
 
 void TabLogViewsWidget::changeTab(View *view, const QIcon &icon, const QString &label)
 {
-    logDebug() << "Changing tab " << label;
+    qCDebug(KSYSTEMLOG) << "Changing tab " << label;
     const int index = indexOf(view);
     setTabIcon(index, icon);
     setTabText(index, label);
@@ -109,7 +109,7 @@ TabLogManager *TabLogViewsWidget::findRelatedTabLogManager(View *view) const
         }
     }
 
-    logCritical() << "No log manager found";
+    qCCritical(KSYSTEMLOG) << "No log manager found";
     return nullptr;
 }
 
@@ -131,20 +131,20 @@ LogManager *TabLogViewsWidget::activeLogManager() const
 
 LogManager *TabLogViewsWidget::createTab()
 {
-    logDebug() << "Creating a new tab";
+    qCDebug(KSYSTEMLOG) << "Creating a new tab";
 
     return newTabLogManager()->logManager();
 }
 
 void TabLogViewsWidget::moveTabLeft()
 {
-    logDebug() << "Duplicate tab to the left";
+    qCDebug(KSYSTEMLOG) << "Duplicate tab to the left";
 
     TabLogManager *currentTabLogManager = activeTabLogManager();
     const int position = indexOf(currentTabLogManager->logManager()->usedView());
 
     if (position <= 0) {
-        logCritical() << "Tab Position <= 0 : " << position;
+        qCCritical(KSYSTEMLOG) << "Tab Position <= 0 : " << position;
         return;
     }
 
@@ -156,13 +156,13 @@ void TabLogViewsWidget::moveTabLeft()
 
 void TabLogViewsWidget::moveTabRight()
 {
-    logDebug() << "Duplicate tab to the right";
+    qCDebug(KSYSTEMLOG) << "Duplicate tab to the right";
 
     TabLogManager *currentTabLogManager = activeTabLogManager();
     const int position = indexOf(currentTabLogManager->logManager()->usedView());
 
     if (position >= count() - 1) {
-        logCritical() << "Tab Position >= count()-1 : " << position;
+        qCCritical(KSYSTEMLOG) << "Tab Position >= count()-1 : " << position;
         return;
     }
 
@@ -174,7 +174,7 @@ void TabLogViewsWidget::moveTabRight()
 
 LogManager *TabLogViewsWidget::duplicateTab()
 {
-    logDebug() << "Duplicate current tab";
+    qCDebug(KSYSTEMLOG) << "Duplicate current tab";
 
     TabLogManager *currentManager = activeTabLogManager();
 
@@ -190,11 +190,11 @@ LogManager *TabLogViewsWidget::duplicateTab()
 
 TabLogManager *TabLogViewsWidget::newTabLogManager()
 {
-    logDebug() << "Creating new View...";
+    qCDebug(KSYSTEMLOG) << "Creating new View...";
 
     View *view = new View(this);
 
-    logDebug() << "Creating new LogManager...";
+    qCDebug(KSYSTEMLOG) << "Creating new LogManager...";
 
     auto logManager = new LogManager(view);
 
@@ -205,7 +205,7 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
     auto tabLogManager = new TabLogManager(logManager);
     mTabLogManagers.append(tabLogManager);
 
-    logDebug() << "New LogManager created";
+    qCDebug(KSYSTEMLOG) << "New LogManager created";
 
     // Finally add the view to the tabs
     newTab(view);
@@ -224,7 +224,7 @@ TabLogManager *TabLogViewsWidget::newTabLogManager()
 void TabLogViewsWidget::closeTab()
 {
     if (count() == 1) {
-        logCritical() << "Cannot close tab, one tab left";
+        qCCritical(KSYSTEMLOG) << "Cannot close tab, one tab left";
         return;
     }
 
@@ -242,10 +242,10 @@ void TabLogViewsWidget::closeTab()
 
 void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVariant &analyzerOptions)
 {
-    logDebug() << "Loading a new mode : " << logMode->name();
+    qCDebug(KSYSTEMLOG) << "Loading a new mode : " << logMode->name();
 
     if (!manager) {
-        logCritical() << "Error while loading a manager ";
+        qCCritical(KSYSTEMLOG) << "Error while loading a manager ";
         return;
     }
 
@@ -258,7 +258,7 @@ void TabLogViewsWidget::load(LogMode *logMode, LogManager *manager, const QVaria
 
 void TabLogViewsWidget::reloadCurrent()
 {
-    logDebug() << "Reloading current log manager...";
+    qCDebug(KSYSTEMLOG) << "Reloading current log manager...";
 
     LogManager *manager = activeLogManager();
 
@@ -269,7 +269,7 @@ void TabLogViewsWidget::reloadCurrent()
 
 void TabLogViewsWidget::reloadAll()
 {
-    logDebug() << "Reloading all tabs...";
+    qCDebug(KSYSTEMLOG) << "Reloading all tabs...";
 
     const auto tabLogManagers = mTabLogManagers;
     for (TabLogManager *tabLogManager : tabLogManagers) {
@@ -291,7 +291,7 @@ void TabLogViewsWidget::reloadAll()
 
 void TabLogViewsWidget::changeCurrentTab(int index)
 {
-    logDebug() << "Changing current tab...";
+    qCDebug(KSYSTEMLOG) << "Changing current tab...";
 
     if (index == -1) {
         return;
@@ -305,7 +305,7 @@ void TabLogViewsWidget::changeCurrentTab(int index)
     // If the tab displayed the new added line count, rename it to the default log mode name
     changeTab(tabLogManager->logManager()->usedView(), logModeIcon(tabLogManager->logManager()->logMode()), tabLogManager->title());
 
-    logDebug() << "Current tab changed";
+    qCDebug(KSYSTEMLOG) << "Current tab changed";
 }
 
 void TabLogViewsWidget::changeReloadingTab(View *view, bool reloading)
@@ -321,7 +321,7 @@ void TabLogViewsWidget::changeReloadingTab(View *view, bool reloading)
 
 void TabLogViewsWidget::changeTitleAddedLines(View *view, int addedLinesSinceLastUpdate)
 {
-    logDebug() << "Changing title" << addedLinesSinceLastUpdate << " added lines...";
+    qCDebug(KSYSTEMLOG) << "Changing title" << addedLinesSinceLastUpdate << " added lines...";
     LogManager *currentManager = activeLogManager();
 
     // Only display added line on tab title if this is not an update of the current tab
@@ -405,7 +405,7 @@ void TabLogViewsWidget::prepareContextMenu(bool /*onTab*/)
 
 void TabLogViewsWidget::showContextMenu(const QPoint &cursorPosition)
 {
-    logDebug() << "Showing context menu at " << cursorPosition;
+    qCDebug(KSYSTEMLOG) << "Showing context menu at " << cursorPosition;
 
     prepareContextMenu(false);
 
@@ -414,7 +414,7 @@ void TabLogViewsWidget::showContextMenu(const QPoint &cursorPosition)
 
 void TabLogViewsWidget::showContextMenu(QWidget *tab, const QPoint &cursorPosition)
 {
-    logDebug() << "Showing context menu at " << cursorPosition << " at " << tab->objectName();
+    qCDebug(KSYSTEMLOG) << "Showing context menu at " << cursorPosition << " at " << tab->objectName();
 
     prepareContextMenu(true);
 

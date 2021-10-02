@@ -18,8 +18,8 @@
 
 #include <QList>
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "daemonConfiguration.h"
 #include "daemonConfigurationWidget.h"

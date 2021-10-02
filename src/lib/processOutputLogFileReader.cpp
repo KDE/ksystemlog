@@ -13,7 +13,7 @@
 
 #include "logFileReaderPrivate.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class ProcessOutputLogFileReaderPrivate : public LogFileReaderPrivate
 {
@@ -57,7 +57,7 @@ void ProcessOutputLogFileReader::init()
     d->mProcessUpdater.setInterval(PROCESS_OUTPUT_UPDATER_INTERVAL);
     connect(&(d->mProcessUpdater), &QTimer::timeout, this, &ProcessOutputLogFileReader::startProcess);
 
-    logDebug() << "Using process name " << d->logFile.url().toLocalFile();
+    qCDebug(KSYSTEMLOG) << "Using process name " << d->logFile.url().toLocalFile();
 }
 
 void ProcessOutputLogFileReader::watchFile(bool enable)
@@ -65,7 +65,7 @@ void ProcessOutputLogFileReader::watchFile(bool enable)
     Q_D(ProcessOutputLogFileReader);
 
     if (enable) {
-        logDebug() << "Monitoring process : " << d->logFile.url().toLocalFile();
+        qCDebug(KSYSTEMLOG) << "Monitoring process : " << d->logFile.url().toLocalFile();
 
         // Reinit current file position
         d->mPreviousLinesCount = 0;
@@ -83,7 +83,7 @@ void ProcessOutputLogFileReader::watchFile(bool enable)
 
 void ProcessOutputLogFileReader::startProcess()
 {
-    logDebug() << "Starting process...";
+    qCDebug(KSYSTEMLOG) << "Starting process...";
 
     Q_D(ProcessOutputLogFileReader);
 
@@ -93,7 +93,7 @@ void ProcessOutputLogFileReader::startProcess()
         Q_EMIT statusBarChanged(message);
     }
 
-    logDebug() << "Starting process...";
+    qCDebug(KSYSTEMLOG) << "Starting process...";
 
     d->mProcess = new QProcess();
     connect(d->mProcess, &QProcess::readyReadStandardOutput, this, &ProcessOutputLogFileReader::logFileModified);
@@ -103,18 +103,18 @@ void ProcessOutputLogFileReader::startProcess()
 
     d->mProcess->waitForStarted();
 
-    logDebug() << "Process started";
+    qCDebug(KSYSTEMLOG) << "Process started";
 }
 
 void ProcessOutputLogFileReader::closeProcess()
 {
-    logDebug() << "Closing process...";
+    qCDebug(KSYSTEMLOG) << "Closing process...";
 
     Q_D(ProcessOutputLogFileReader);
 
     // Get the size file for the next calculation
     d->mPreviousLinesCount = d->mAvailableStandardOutput.count();
-    logDebug() << "New lines count : " << d->mPreviousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
+    qCDebug(KSYSTEMLOG) << "New lines count : " << d->mPreviousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
 
     d->mAvailableStandardOutput.clear();
 
@@ -124,7 +124,7 @@ void ProcessOutputLogFileReader::closeProcess()
         d->mProcess = nullptr;
     }
 
-    logDebug() << "Process closed";
+    qCDebug(KSYSTEMLOG) << "Process closed";
 }
 
 void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::ExitStatus exitStatus)
@@ -134,7 +134,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
     // First commit last lines of the buffer to the line list
     emptyBuffer();
 
-    logDebug() << "Process terminated" << d->mPreviousLinesCount << "previously /" << d->mAvailableStandardOutput.count() << "currently";
+    qCDebug(KSYSTEMLOG) << "Process terminated" << d->mPreviousLinesCount << "previously /" << d->mAvailableStandardOutput.count() << "currently";
 
     if (exitStatus == QProcess::CrashExit) {
         QString message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));
@@ -151,7 +151,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
     }
     // If there are new lines in the file, insert only them or this is the first time we read this file
     else if (d->mPreviousLinesCount != 0 && d->mPreviousLinesCount <= d->mAvailableStandardOutput.count()) {
-        logDebug() << "Reading from line " << d->mPreviousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
+        qCDebug(KSYSTEMLOG) << "Reading from line " << d->mPreviousLinesCount << " (" << d->logFile.url().toLocalFile() << ")";
 
         QStringList newOutputs;
 
@@ -162,13 +162,13 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
             ++index;
         }
 
-        logDebug() << "Retrieving a part of the file...";
+        qCDebug(KSYSTEMLOG) << "Retrieving a part of the file...";
 
         Q_EMIT contentChanged(this, Analyzer::UpdatingRead, newOutputs);
     }
     // Else reread all lines, clear log list
     else {
-        logDebug() << "New process or process already read. Reading entire content";
+        qCDebug(KSYSTEMLOG) << "New process or process already read. Reading entire content";
 
         Q_EMIT contentChanged(this, Analyzer::FullRead, d->mAvailableStandardOutput);
     }
@@ -180,7 +180,7 @@ void ProcessOutputLogFileReader::logFileModified()
 {
     Q_D(ProcessOutputLogFileReader);
 
-    logDebug() << "Content available on process output...";
+    qCDebug(KSYSTEMLOG) << "Content available on process output...";
 
     // New added lines
     QByteArray bytesOutput = d->mProcess->readAllStandardOutput();
@@ -200,7 +200,7 @@ void ProcessOutputLogFileReader::logFileModified()
         endLinePos = d->mBuffer.indexOf(QLatin1String("\n"));
     }
 
-    logDebug() << "Received a total of" << d->mAvailableStandardOutput.count() << "new lines";
+    qCDebug(KSYSTEMLOG) << "Received a total of" << d->mAvailableStandardOutput.count() << "new lines";
 }
 
 /**
@@ -212,7 +212,7 @@ void ProcessOutputLogFileReader::emptyBuffer()
     Q_D(ProcessOutputLogFileReader);
 
     if (!d->mBuffer.isEmpty()) {
-        logWarning() << "Buffer was not empty !!";
+        qCWarning(KSYSTEMLOG) << "Buffer was not empty !!";
         d->mAvailableStandardOutput.append(d->mBuffer);
         d->mBuffer.clear();
     }

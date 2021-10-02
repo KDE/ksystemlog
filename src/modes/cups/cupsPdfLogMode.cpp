@@ -10,7 +10,7 @@
 
 #include <KLocalizedString>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "cupsConfiguration.h"
 #include "cupsConfigurationWidget.h"

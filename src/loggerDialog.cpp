@@ -13,7 +13,7 @@
 #include <QDesktopServices>
 
 // Project includes
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "globals.h"
 #include "logLevel.h"
@@ -81,7 +81,7 @@ void LoggerDialog::slotLinkClicked(const QString &link)
 
 void LoggerDialog::initialize()
 {
-    logDebug() << "Initializing Logger dialog...";
+    qCDebug(KSYSTEMLOG) << "Initializing Logger dialog...";
 
     message->clear();
     message->setFocus();

@@ -9,8 +9,8 @@
 
 #include <KLocalizedString>
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 #include "multipleActions.h"
 
 #include "netbiosLogMode.h"

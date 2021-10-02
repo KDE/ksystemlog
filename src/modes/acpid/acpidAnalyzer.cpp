@@ -55,8 +55,8 @@ LogLine *AcpidAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
         date = QDate(year.toInt(), ParsingHelper::instance()->parseSyslogMonth(month), day.toInt());
         time = QTime(hour.toInt(), min.toInt(), sec.toInt());
 
-        // logDebug() << "Date=" << date.toString();
-        // logDebug() << "Time=" << time.toString();
+        // qCDebug(KSYSTEMLOG) << "Date=" << date.toString();
+        // qCDebug(KSYSTEMLOG) << "Time=" << time.toString();
 
         line.remove(0, dateEnd + 2);
 

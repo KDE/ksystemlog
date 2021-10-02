@@ -6,8 +6,8 @@
 
 #include "postfixFactory.h"
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "postfixLogMode.h"
 #include "simpleAction.h"

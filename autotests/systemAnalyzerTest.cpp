@@ -24,7 +24,7 @@
 
 #include "ksystemlogConfig.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class SystemAnalyzerTest : public QObject
 {
@@ -349,7 +349,7 @@ void SystemAnalyzerTest::testMaxLines()
 
 void SystemAnalyzerTest::compareWithMinTime(const QList<LogLine *> &logLines, const QDateTime &minTime)
 {
-    logDebug() << "Min time : " << minTime.toString();
+    qCDebug(KSYSTEMLOG) << "Min time : " << minTime.toString();
 
     for (LogLine *logLine : logLines) {
         if (logLine->time() < minTime) {

@@ -43,7 +43,7 @@ LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile 
 {
     int firstPosition = mCupsAccessRegex.indexIn(logLine);
     if (firstPosition == -1) {
-        logDebug() << "Unable to parse line " << logLine;
+        qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;
     }
 

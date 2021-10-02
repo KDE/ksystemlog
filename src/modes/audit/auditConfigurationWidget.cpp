@@ -4,8 +4,8 @@
 
 #include "globals.h"
 
+#include "ksystemlog_debug.h"
 #include "logLevelFileList.h"
-#include "logging.h"
 
 #include "auditConfiguration.h"
 #include "auditLogMode.h"
@@ -27,17 +27,17 @@ AuditConfigurationWidget::AuditConfigurationWidget()
 bool AuditConfigurationWidget::isValid() const
 {
     if (!fileList->isEmpty()) {
-        logDebug() << "Audit configuration valid";
+        qCDebug(KSYSTEMLOG) << "Audit configuration valid";
         return true;
     }
 
-    logDebug() << "Audit configuration not valid";
+    qCDebug(KSYSTEMLOG) << "Audit configuration not valid";
     return false;
 }
 
 void AuditConfigurationWidget::saveConfig()
 {
-    logDebug() << "Saving config from Audit Options...";
+    qCDebug(KSYSTEMLOG) << "Saving config from Audit Options...";
 
     AuditConfiguration *auditConfiguration = Globals::instance().findLogMode(QStringLiteral(AUDIT_LOG_MODE_ID))->logModeConfiguration<AuditConfiguration *>();
     auditConfiguration->setLogFilesPaths(fileList->paths());

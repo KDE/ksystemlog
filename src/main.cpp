@@ -10,8 +10,8 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include "ksystemlog_debug.h"
 #include "ksystemlog_version.h"
-#include "logging.h"
 #include "mainWindow.h"
 
 int main(int argc, char **argv)
@@ -78,7 +78,7 @@ int main(int argc, char **argv)
             // KSystemLog::MainWindow* mainWindow;
             new KSystemLog::MainWindow();
             for (int i = 0, total = args.count(); i < total; ++i) {
-                logDebug() << "Loading file " << args.at(i);
+                qCDebug(KSYSTEMLOG) << "Loading file " << args.at(i);
 
                 // TODO Implement this kind of loading
                 // LogManager* firstLogManager = d->tabs->createTab();

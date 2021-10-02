@@ -14,7 +14,7 @@
 
 #include "testUtil.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class KioLogFileReaderTest : public QObject
 {
@@ -32,7 +32,7 @@ private:
 
 void KioLogFileReaderTest::initTestCase()
 {
-    logDebug() << "Hello";
+    qCDebug(KSYSTEMLOG) << "Hello";
 }
 
 void KioLogFileReaderTest::testKioLogFileReader()
@@ -44,7 +44,7 @@ void KioLogFileReaderTest::testKioLogFileReader()
     logFileReader->open();
 
     connect(logFileReader, &KioLogFileReader::lineRead, this, [=](const QString &line) {
-        logDebug() << "Line " << line;
+        qCDebug(KSYSTEMLOG) << "Line " << line;
         static QFile file(fixturePath);
         static bool open = false;
         if (!open) {

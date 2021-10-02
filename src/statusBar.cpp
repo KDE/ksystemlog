@@ -17,7 +17,7 @@
 #include <KLocalizedString>
 #include <KSqueezedTextLabel>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 using namespace KSystemLog;
 StatusBar::StatusBar(QWidget *parent)
     : QStatusBar(parent)
@@ -78,6 +78,6 @@ void StatusBar::selectLastHistory()
 
 void StatusBar::toggleHistory()
 {
-    logDebug() << "Toggling History...";
+    qCDebug(KSYSTEMLOG) << "Toggling History...";
     mMessageList->showPopup();
 }

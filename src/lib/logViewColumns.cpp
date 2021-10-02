@@ -8,7 +8,7 @@
 
 #include <QStringList>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "globals.h"
 #include "logViewColumn.h"

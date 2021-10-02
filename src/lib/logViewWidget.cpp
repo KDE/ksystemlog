@@ -12,7 +12,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewColumn.h"
 
@@ -67,7 +67,7 @@ LogViewWidget::~LogViewWidget()
 
 void LogViewWidget::setColumns(const LogViewColumns &columns)
 {
-    logDebug() << "Updating columns using " << columns << "...";
+    qCDebug(KSYSTEMLOG) << "Updating columns using " << columns << "...";
 
     // First, delete all current columns
     setColumnCount(0);
@@ -111,7 +111,7 @@ void LogViewWidget::setColumns(const LogViewColumns &columns)
 
     Q_EMIT columnsChanged(columns);
 
-    logDebug() << "Log View Widget updated...";
+    qCDebug(KSYSTEMLOG) << "Log View Widget updated...";
 }
 
 void LogViewWidget::resizeColumns()
@@ -246,7 +246,7 @@ void LogViewWidget::collapseAll()
 
 void LogViewWidget::toggleToolTip(bool enabled)
 {
-    logDebug() << "Toggle tool tip " << enabled;
+    qCDebug(KSYSTEMLOG) << "Toggle tool tip " << enabled;
 
     QTreeWidgetItemIterator it(this);
     while (*it) {
@@ -259,7 +259,7 @@ void LogViewWidget::toggleToolTip(bool enabled)
 
 void LogViewWidget::scrollToNewestItem()
 {
-    logDebug() << "Scrolling to the newest item...";
+    qCDebug(KSYSTEMLOG) << "Scrolling to the newest item...";
 
     // Scroll to last item if requested
     if (KSystemLogConfig::newLinesDisplayed()) {
@@ -285,7 +285,7 @@ int LogViewWidget::notHiddenItemCount()
 
 void LogViewWidget::toggleHeader(QAction *action)
 {
-    logDebug() << "Toggling header";
+    qCDebug(KSYSTEMLOG) << "Toggling header";
 
     int columnIndex = action->data().toInt();
     if (header()->isSectionHidden(columnIndex)) {

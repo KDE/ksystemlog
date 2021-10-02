@@ -10,8 +10,8 @@
 
 #include "fileAnalyzer.h"
 
+#include "ksystemlog_debug.h"
 #include "localLogFileReader.h"
-#include "logging.h"
 #include "parsingHelper.h"
 
 #include "cupsPageLogMode.h"

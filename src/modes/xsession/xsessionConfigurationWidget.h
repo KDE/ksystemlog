@@ -13,7 +13,7 @@
 
 #include "fileList.h"
 #include "globals.h"
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logLevel.h"
 

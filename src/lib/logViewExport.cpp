@@ -18,7 +18,7 @@
 #include <KMessageBox>
 #include <QPrintPreviewDialog>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logLine.h"
 #include "logViewWidget.h"
@@ -38,7 +38,7 @@ LogViewExport::~LogViewExport()
 
 void LogViewExport::sendMail()
 {
-    logDebug() << "Exporting to mail...";
+    qCDebug(KSYSTEMLOG) << "Exporting to mail...";
 
     QString body(i18n("Here are my logs:\n"));
 
@@ -118,7 +118,7 @@ void LogViewExport::print(QPrinter *printer)
 
 void LogViewExport::printSelection()
 {
-    logDebug() << "Printing selection...";
+    qCDebug(KSYSTEMLOG) << "Printing selection...";
 
     QPrinter printer;
 
@@ -142,7 +142,7 @@ void LogViewExport::printSelection()
 
 void LogViewExport::printPreview()
 {
-    logDebug() << "Printing selection...";
+    qCDebug(KSYSTEMLOG) << "Printing selection...";
 
     auto dialog = new QPrintPreviewDialog(mParent);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
@@ -157,7 +157,7 @@ void LogViewExport::printPreview()
 
 void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int movement, int page, int margin)
 {
-    logDebug() << "Printing page number...";
+    qCDebug(KSYSTEMLOG) << "Printing page number...";
 
     painter.translate(0, -movement);
     printView.moveTo(QPoint(margin, printView.height() * page + margin));
@@ -169,7 +169,7 @@ void LogViewExport::printPageNumber(QPainter &painter, QRect &printView, int mov
 
 void LogViewExport::copyToClipboard()
 {
-    logDebug() << "Copying to clipboard...";
+    qCDebug(KSYSTEMLOG) << "Copying to clipboard...";
 
     int nbCopied = 0;
     QString text;
@@ -197,12 +197,12 @@ void LogViewExport::copyToClipboard()
         Q_EMIT statusBarChanged(i18np("1 log line copied to clipboard.", "%1 log lines copied to clipboard.", nbCopied));
     }
 
-    logDebug() << "Copied " << nbCopied << " log lines";
+    qCDebug(KSYSTEMLOG) << "Copied " << nbCopied << " log lines";
 }
 
 void LogViewExport::fileSave()
 {
-    logDebug() << "Saving to a file...";
+    qCDebug(KSYSTEMLOG) << "Saving to a file...";
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::Selected);
 

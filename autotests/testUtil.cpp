@@ -14,7 +14,7 @@
 #include "kernelFactory.h"
 #include "systemFactory.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logViewModel.h"
 #include "logViewWidget.h"
@@ -38,7 +38,7 @@ TestUtil::~TestUtil()
 
 void TestUtil::registerLogModeFactories() const
 {
-    logDebug() << "Registering existing log mode factories";
+    qCDebug(KSYSTEMLOG) << "Registering existing log mode factories";
     Globals::instance().registerLogModeFactory(new SystemLogModeFactory());
     Globals::instance().registerLogModeFactory(new KernelLogModeFactory());
 }
@@ -72,7 +72,7 @@ QVector<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
 {
     QTemporaryFile *tempFile = QTemporaryFile::createNativeFile(resourceFileName);
     tempFile->setAutoRemove(false);
-    logDebug() << "Using log file name " << tempFile;
+    qCDebug(KSYSTEMLOG) << "Using log file name " << tempFile;
     tempFile->setPermissions(QFile::WriteUser | QFile::ReadUser | QFile::ReadOwner | QFile::WriteOwner);
 
     LogLevel *informationLogLevel = Globals::instance().informationLogLevel();
@@ -104,7 +104,7 @@ void TestUtil::addLogLines(const QString &fileName, const QStringList &addedLine
 
     QFile data(fileName);
     if (data.open(QFile::Append | QIODevice::Text)) {
-        logDebug() << "Opening " << fileName << " for writing " << addedLines.count() << " line(s).";
+        qCDebug(KSYSTEMLOG) << "Opening " << fileName << " for writing " << addedLines.count() << " line(s).";
 
         QTextStream out(&data);
         for (const QString &line : addedLines) {

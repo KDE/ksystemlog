@@ -26,18 +26,18 @@ LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &or
 {
     int firstPosition = mCupsPdfRegex.indexIn(logLine);
     if (firstPosition == -1) {
-        logDebug() << "Unable to parse line " << logLine;
+        qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;
     }
 
     QStringList capturedTexts = mCupsPdfRegex.capturedTexts();
 
     /*
-  logDebug() << "------------------------------------------";
+  qCDebug(KSYSTEMLOG) << "------------------------------------------";
         foreach(QString cap, capturedTexts) {
-    logDebug() << cap;
+    qCDebug(KSYSTEMLOG) << cap;
         }
-  logDebug() << "------------------------------------------";
+  qCDebug(KSYSTEMLOG) << "------------------------------------------";
         */
 
     // Remove full line

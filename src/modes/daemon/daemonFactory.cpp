@@ -6,8 +6,8 @@
 
 #include "daemonFactory.h"
 
+#include "ksystemlog_debug.h"
 #include "logMode.h"
-#include "logging.h"
 
 #include "daemonLogMode.h"
 #include "simpleAction.h"

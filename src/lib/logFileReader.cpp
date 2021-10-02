@@ -8,7 +8,7 @@
 
 #include "logFileReaderPrivate.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 LogFileReader::LogFileReader(const LogFile &logFile)
     : d_ptr(new LogFileReaderPrivate)

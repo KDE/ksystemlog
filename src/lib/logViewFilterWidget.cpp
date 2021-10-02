@@ -5,10 +5,10 @@
 */
 
 #include "logViewFilterWidget.h"
+#include "ksystemlog_debug.h"
 #include "logLevel.h"
 #include "logViewColumn.h"
 #include "logViewWidget.h"
-#include "logging.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
@@ -165,7 +165,7 @@ void LogViewFilterWidget::initSearchListFilter()
 
 void LogViewFilterWidget::updateFilterColumns(const LogViewColumns &columns)
 {
-    logDebug() << "Changing columns...";
+    qCDebug(KSYSTEMLOG) << "Changing columns...";
 
     // We first delete all items
     mFilterList->clear();
@@ -187,13 +187,13 @@ void LogViewFilterWidget::changeColumnFilter(int column)
 {
     // The user select all columns
     if (column == 0) {
-        logDebug() << "Searching on all columns";
+        qCDebug(KSYSTEMLOG) << "Searching on all columns";
 
         mFilterLine->setSearchColumns(QList<int>());
         return;
     }
 
-    logDebug() << "Searching on " << mFilterList->currentIndex() << " column";
+    qCDebug(KSYSTEMLOG) << "Searching on " << mFilterList->currentIndex() << " column";
 
     // currentIndex() - 1 to do not count the "All" columns item
     const QList<int> filterColumns{mFilterList->currentIndex() - 1};
@@ -207,9 +207,9 @@ void LogViewFilterWidget::prioritiesChanged(QStandardItem *item)
     const bool priorityEnabled = (item->checkState() == Qt::Checked);
     mFilterLine->setPriorityEnabled(priority, priorityEnabled);
     if (priorityEnabled) {
-        logDebug() << "Show entries with priority" << priority;
+        qCDebug(KSYSTEMLOG) << "Show entries with priority" << priority;
     } else {
-        logDebug() << "Hide entries with priority" << priority;
+        qCDebug(KSYSTEMLOG) << "Hide entries with priority" << priority;
     }
 }
 

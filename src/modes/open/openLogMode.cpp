@@ -13,7 +13,7 @@
 
 #include <KMessageBox>
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 #include "logModeItemBuilder.h"
 #include "openAnalyzer.h"
@@ -43,7 +43,7 @@ QVector<LogFile> OpenLogMode::createLogFiles()
 {
     // Open a standard Filedialog
     const QUrl openingFileName(QFileDialog::getOpenFileUrl(mParent, i18n("Open Location"), QUrl(), QString()));
-    logDebug() << "Opening file : " << openingFileName.url();
+    qCDebug(KSYSTEMLOG) << "Opening file : " << openingFileName.url();
 
     if (openingFileName.isEmpty()) {
         return QVector<LogFile>();

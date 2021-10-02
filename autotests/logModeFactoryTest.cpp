@@ -17,7 +17,7 @@
 #include "logViewModel.h"
 #include "logViewWidget.h"
 
-#include "logging.h"
+#include "ksystemlog_debug.h"
 
 class LogModeFactoryTest : public QObject
 {

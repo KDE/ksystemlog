@@ -16,9 +16,9 @@
 #include <KLocalizedString>
 #include <QIcon>
 
+#include "ksystemlog_debug.h"
 #include "logViewWidget.h"
 #include "logViewWidgetItem.h"
-#include "logging.h"
 
 LogViewSearchWidget::LogViewSearchWidget(QWidget *parent)
     : QWidget(parent)
@@ -95,7 +95,7 @@ void LogViewSearchWidget::findFirst()
 
 void LogViewSearchWidget::findNext()
 {
-    logDebug() << "Finding next";
+    qCDebug(KSYSTEMLOG) << "Finding next";
 
     LogViewWidgetItem *lastSelectedItem = mLogViewWidget->lastSelectedItem();
     internalFind(lastSelectedItem, LogViewSearchWidget::Next);
@@ -103,7 +103,7 @@ void LogViewSearchWidget::findNext()
 
 void LogViewSearchWidget::findPrevious()
 {
-    logDebug() << "Finding previous";
+    qCDebug(KSYSTEMLOG) << "Finding previous";
 
     LogViewWidgetItem *firstSelectedItem = mLogViewWidget->firstSelectedItem();
     internalFind(firstSelectedItem, LogViewSearchWidget::Previous);
@@ -276,7 +276,7 @@ void LogViewSearchWidget::highlightAll()
     if (highlightAllButton->isChecked()) {
         unlightAll();
 
-        logDebug() << "Highlighting all";
+        qCDebug(KSYSTEMLOG) << "Highlighting all";
         QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::All);
         while (*it) {
             auto item = static_cast<LogViewWidgetItem *>(*it);
@@ -294,7 +294,7 @@ void LogViewSearchWidget::highlightAll()
 
 void LogViewSearchWidget::unlightAll()
 {
-    logDebug() << "Unlighting all";
+    qCDebug(KSYSTEMLOG) << "Unlighting all";
 
     QTreeWidgetItemIterator it(mLogViewWidget, QTreeWidgetItemIterator::All);
     while (*it) {
