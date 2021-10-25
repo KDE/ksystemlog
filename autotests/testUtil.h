@@ -26,7 +26,7 @@ class TestUtil : public QObject
 public:
     TestUtil();
 
-    virtual ~TestUtil();
+    ~TestUtil() override;
 
     /*
      * Init method, used to register existing Log Modes
