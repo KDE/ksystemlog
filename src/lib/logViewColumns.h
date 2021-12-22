@@ -7,9 +7,9 @@
 #pragma once
 
 #include <QList>
+#include <QStringList>
 
 class LogViewColumn;
-class QStringList;
 
 class LogViewColumns
 {

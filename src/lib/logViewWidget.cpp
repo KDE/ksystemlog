@@ -7,6 +7,7 @@
 #include "logViewWidget.h"
 
 #include <QAction>
+#include <QActionGroup>
 #include <QHeaderView>
 
 #include <KLocalizedString>

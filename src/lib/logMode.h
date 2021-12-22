@@ -10,6 +10,7 @@
 #include <QList>
 #include <QObject>
 #include <QString>
+#include <QVariant>
 #include <QVector>
 
 #include "logFile.h"

@@ -10,7 +10,6 @@
 
 #include <kio/filejob.h>
 #include <kio/job.h>
-#include <kio_version.h>
 
 #include <KDirWatch>
 

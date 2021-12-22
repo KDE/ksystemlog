@@ -13,7 +13,6 @@
 
 #include <KDirWatch>
 #include <KLocalizedString>
-#include <karchive_version.h>
 #include <KCompressionDevice>
 
 #include "logFileReaderPrivate.h"
