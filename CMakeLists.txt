@@ -50,10 +50,14 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     KIO
     Config
     Archive
-    DocTools
     I18n
     Completion
     TextWidgets
+)
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
 )
 
 find_package(Journald)
@@ -105,11 +109,14 @@ add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
 add_subdirectory(src)
 
 add_subdirectory(autotests)
-add_subdirectory(doc)
 
 find_package(KF5I18n CONFIG REQUIRED)
+if (KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
+
 ki18n_install(po)
-kdoctools_install(po)
 ecm_qt_install_logging_categories(EXPORT KSYSTEMLOG FILE ksystemlog.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
