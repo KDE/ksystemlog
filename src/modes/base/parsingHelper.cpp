@@ -8,6 +8,7 @@
 
 #include <KFormat>
 #include <KLocalizedString>
+#include <QRegExp>
 
 #include "ksystemlog_debug.h"
 

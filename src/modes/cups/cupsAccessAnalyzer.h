@@ -15,7 +15,7 @@
 #include "parsingHelper.h"
 
 #include "cupsAccessLogMode.h"
-
+#include <QRegExp>
 class CupsAccessAnalyzer : public FileAnalyzer
 {
     Q_OBJECT

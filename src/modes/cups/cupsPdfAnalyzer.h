@@ -15,7 +15,7 @@
 #include "parsingHelper.h"
 
 #include "cupsPdfLogMode.h"
-
+#include <QRegExp>
 class CupsPdfAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
