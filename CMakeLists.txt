@@ -9,7 +9,7 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 project(KSystemlog VERSION ${RELEASE_SERVICE_VERSION})
 
 set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.89.0")
+set (KF5_MIN_VERSION "5.90.0")
 
 find_package (ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -33,7 +33,7 @@ kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KSYSTEMLOG
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/ksystemlog_version.h")
 
-find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package (Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Concurrent
     Core
     Network
@@ -41,6 +41,9 @@ find_package (Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Test
     PrintSupport
 )
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6Core5Compat)
+endif()
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
@@ -102,8 +105,8 @@ if (${AUDIT_FOUND})
 endif (${AUDIT_FOUND})
 
 ########### Subfolders ##########
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f02)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
 
 
 add_subdirectory(src)
