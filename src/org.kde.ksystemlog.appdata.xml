@@ -4,6 +4,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
   <name>KSystemLog</name>
+  <name xml:lang="ar">سجلّات نظامك</name>
   <name xml:lang="az">KSystemLog</name>
   <name xml:lang="ca">KSystemLog</name>
   <name xml:lang="ca-valencia">KSystemLog</name>
@@ -38,6 +39,7 @@
   <name xml:lang="zh-CN">KSystemLog 系统日志</name>
   <name xml:lang="zh-TW">KSystemLog</name>
   <summary>system log viewer</summary>
+  <summary xml:lang="ar">عارض سجلّات النّظام</summary>
   <summary xml:lang="az">sistem jurnalı göstəricisi</summary>
   <summary xml:lang="ca">Visor dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
@@ -74,6 +76,7 @@
     <p>KSystemLog show all logs of your system, grouped by General (Default system
     log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups,
     etc, ...). It includes many features to read nicely your log files:</p>
+    <p xml:lang="ar">يعرض سجلات نظامك جميع سجلات المتعلقة بالحاسوب ، مجمعة بشكل عام (سجل النظام الافتراضي، المصادقة، النواة، أكس.أورغ ...) والخدمات الاختيارية (Apache ،Cups، إلخ ...). يتضمن العديد من الميزات لقراءة ملفات السجل الخاصة بك بشكل جيد:</p>
     <p xml:lang="az">KsystemLog, sisteminizin bütün jurnalını ümumi qruplaşdırılmış (Standart sistem jurnalı, Kimlik doğrulaması, Nüvə bidirişləri jurnalı, X.org jurnalı...) və əlavə xidmətlər (Apache, Cups və s...) şəklində baxmağa imkan verir. Bu tətbiq, jurnal faylları ilə sadə şəkildə işləmək aşağıdakı funksiyaları təqdim edir:</p>
     <p xml:lang="ca">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS...). Inclou moltes funcionalitats per a llegir de manera agradable els fitxers de registre:</p>
     <p xml:lang="ca-valencia">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS...). Inclou moltes funcionalitats per a llegir de manera agradable els fitxers de registre:</p>
@@ -106,6 +109,7 @@
     <p xml:lang="zh-TW">KSystemLog 顯示您系統的所有日誌，並分類成「一般」（預設系統日誌、認證、內核及 X.org 等…），和選用服務（Apache、Cups 等等…）。其包含許多能讓您更好閱讀日誌檔案的功能：</p>
     <ul>
       <li>Colorize log lines depending on their severities</li>
+      <li xml:lang="ar">تلوين خطوط السجل حسب خطورتها</li>
       <li xml:lang="az">Üstünlüyündən asılı olaraq jurnal sətirlərinin rənglənməsi</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
       <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua severitat</li>
@@ -138,6 +142,7 @@
       <li xml:lang="zh-CN">根据严重程度将日志信息行显示为不同颜色</li>
       <li xml:lang="zh-TW">基於日誌中行的重要性上色</li>
       <li>Tabbed view to allow displaying several logs at the same time</li>
+      <li xml:lang="ar">عرض مبوب للسماح بعرض عدة سجلات في نفس الوقت</li>
       <li xml:lang="az">Bir neçə jurnalın eyni vaxtda vərəqlər şəkildində göstərilməsi</li>
       <li xml:lang="ca">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
       <li xml:lang="ca-valencia">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
@@ -169,6 +174,7 @@
       <li xml:lang="zh-CN">标签页视图，可同时显示多个日志</li>
       <li xml:lang="zh-TW">分頁檢視，允許同時顯示多個日誌</li>
       <li>Auto display new lines logged</li>
+      <li xml:lang="ar">عرض آلي للسطور المضافة في السجل</li>
       <li xml:lang="az">Yeni jurnal sətirlərinin avtomatik göstərilməsi</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
@@ -201,6 +207,7 @@
       <li xml:lang="zh-CN">自动显示新日志记录</li>
       <li xml:lang="zh-TW">自動顯示新記錄的行</li>
       <li>Detailed information for each log lines</li>
+      <li xml:lang="ar">معلومات مفصلة عن كل سطر من الأسطر</li>
       <li xml:lang="az">Hər jurnal sətri haqqında ətraflı məlumat</li>
       <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
       <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
