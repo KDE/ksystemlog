@@ -6,7 +6,7 @@ Terminal=false
 Categories=Qt;KDE;System;Monitor;
 X-DocPath=ksystemlog/index.html
 X-KDE-SubstituteUID=true
-Keywords=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog
+Keywords=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
 
 Name=KSystemLog
 Name[ar]=سجلّات نظامك
