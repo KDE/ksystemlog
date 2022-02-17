@@ -9,8 +9,10 @@ X-KDE-SubstituteUID=true
 Keywords=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
 Keywords[ca]=registre;fitxer de registre;missatges del sistema;registre del sistema;registre del nucli;registre d'autenticació;registre del X.org;registre del journald;registres dels serveis;visor d'esdeveniments;eventvwr;registre d'esdeveniments;
 Keywords[es]=registro;archivo de registro;mensajes del sistema;registro del sistema;registro del kernel;registro de autenticación;registro de X.org;registro de journald;registros de los servicios;visor de eventos;registro de eventos;
+Keywords[fr]=journal ; fichier de journal ; messages du système ; journal du système ; journal du noyau ; journal des  authentifications ; journal de X.org ; journal de journald ; journaux des services ; afficheur d'évènements ; eventvwr ; journal des évènements ;
 Keywords[nl]=log;logbestand;systeemmelding;systeemlog;kernellog;authenticatielog;X.org-log;journald-log;serviceslogs;Gebeurtenisviewer;eventvwr;gebeurtenislog;
 Keywords[sl]=dnevnik;datoteka dnevnika;sistemska sporočila;sistemski dnevnik;dnevnik jedra;dnevnik prijav;dnevnik X.org;dnevnik journald;dnevnik storitev;vpogledovalnik dogodkov;eventvwr;eventlog;
+Keywords[sv]=log;loggfil;system meddelanden;systemlogg;kärnlogg;behörighetslogg;X.org logg;journald-logg;tjänstloggar;Händelsevisning;händelselogg;
 Keywords[uk]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;журнал;файл журналу;системні повідомлення;журнал системи;системний журнал;журнал ядра;журнал розпізнавання;журнал автентифікації;журнал X.Org;журнал journald;журнал служб;перегляд подій;переглядач подій;
 Keywords[x-test]=xxlogxx;xxlogfilexx;xxsystem messagesxx;xxsystem logxx;xxkernel logxx;xxauthentication logxx;xxX.org logxx;xxjournald logxx;xxservices logsxx;xxEvent Viewerxx;xxeventvwrxx;xxeventlogxx;
 
