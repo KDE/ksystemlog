@@ -12,6 +12,7 @@ Keywords[en_GB]=log;logfile;system messages;system log;kernel log;authentication
 Keywords[es]=registro;archivo de registro;mensajes del sistema;registro del sistema;registro del kernel;registro de autenticación;registro de X.org;registro de journald;registros de los servicios;visor de eventos;registro de eventos;
 Keywords[fr]=journal ; fichier de journal ; messages du système ; journal du système ; journal du noyau ; journal des  authentifications ; journal de X.org ; journal de journald ; journaux des services ; afficheur d'évènements ; eventvwr ; journal des évènements ;
 Keywords[it]=registro;file di registro;messaggi;registro di sistema;registro del kernel;registro di autenticazione;registro di Xorg;registro di journald;registro dei servizi;visore di eventi;eventvwr;eventlog;
+Keywords[ko]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;로그;기록;로그 파일;시스템 메시지;시스템 로그;커널 로그;인증 로그;X.org 로그;journald 로그;저널 로그;서비스 로그;이벤트 뷰어;이벤트 로그;
 Keywords[nl]=log;logbestand;systeemmelding;systeemlog;kernellog;authenticatielog;X.org-log;journald-log;serviceslogs;Gebeurtenisviewer;eventvwr;gebeurtenislog;
 Keywords[sl]=dnevnik;datoteka dnevnika;sistemska sporočila;sistemski dnevnik;dnevnik jedra;dnevnik prijav;dnevnik X.org;dnevnik journald;dnevnik storitev;vpogledovalnik dogodkov;eventvwr;eventlog;
 Keywords[sv]=log;loggfil;system meddelanden;systemlogg;kärnlogg;behörighetslogg;X.org logg;journald-logg;tjänstloggar;Händelsevisning;händelselogg;
