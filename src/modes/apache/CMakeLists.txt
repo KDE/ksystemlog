@@ -10,7 +10,17 @@ target_sources(ksystemlog_apache PRIVATE
 	apacheFactory.cpp
 	apacheLogMode.cpp
 	apacheAccessLogMode.cpp
-)
+
+        apacheConfiguration.h
+        apacheConfigurationWidget.h
+        apacheAnalyzer.h
+        apacheItemBuilder.h
+        apacheAccessAnalyzer.h
+        apacheAccessItemBuilder.h
+        apacheFactory.h
+        apacheLogMode.h
+        apacheAccessLogMode.h
+    )
 
 
 add_dependencies(

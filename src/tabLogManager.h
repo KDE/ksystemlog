@@ -29,7 +29,7 @@ public:
     void addNewLinesCount(int newLines);
     void initNewLinesCount();
 
-    QString title() const;
+    Q_REQUIRED_RESULT QString title() const;
 
 private:
     QString logModeName() const;

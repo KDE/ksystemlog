@@ -5,7 +5,12 @@ target_sources(ksystemlog_daemon PRIVATE
 	daemonConfiguration.cpp
 	daemonLogMode.cpp
 	daemonFactory.cpp
-)
+
+        daemonConfigurationWidget.h
+        daemonConfiguration.h
+        daemonLogMode.h
+        daemonFactory.h
+    )
 
 
 add_dependencies(

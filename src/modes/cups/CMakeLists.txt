@@ -21,7 +21,28 @@ target_sources(ksystemlog_cups PRIVATE
 	cupsPdfLogMode.cpp
 	
 	cupsFactory.cpp
-	
+
+        cupsConfiguration.h
+        cupsConfigurationWidget.h
+
+        cupsAnalyzer.h
+        cupsItemBuilder.h
+        cupsLogMode.h
+
+        cupsAccessAnalyzer.h
+        cupsAccessItemBuilder.h
+        cupsAccessLogMode.h
+
+        cupsPageAnalyzer.h
+        cupsPageItemBuilder.h
+        cupsPageLogMode.h
+
+        cupsPdfAnalyzer.h
+        cupsPdfItemBuilder.h
+        cupsPdfLogMode.h
+
+        cupsFactory.h
+
 )
 
 

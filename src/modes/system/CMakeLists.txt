@@ -5,7 +5,13 @@ target_sources(ksystemlog_system PRIVATE
 	systemConfiguration.cpp
 	systemAnalyzer.cpp
 	systemLogMode.cpp
-)
+
+        systemFactory.h
+        systemConfigurationWidget.h
+        systemConfiguration.h
+        systemAnalyzer.h
+        systemLogMode.h
+    )
 
 
 add_dependencies(

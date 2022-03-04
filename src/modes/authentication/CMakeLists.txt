@@ -6,7 +6,13 @@ target_sources(ksystemlog_authentication PRIVATE
 	authenticationAnalyzer.cpp
 	authenticationLogMode.cpp
 	authenticationFactory.cpp
-)
+
+        authenticationConfigurationWidget.h
+        authenticationConfiguration.h
+        authenticationAnalyzer.h
+        authenticationLogMode.h
+        authenticationFactory.h
+    )
 
 
 add_dependencies(

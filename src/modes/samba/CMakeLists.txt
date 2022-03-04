@@ -8,7 +8,16 @@ target_sources(ksystemlog_samba PRIVATE
 	sambaAccessLogMode.cpp
 	netbiosLogMode.cpp
 	sambaFactory.cpp
-	
+
+        sambaConfiguration.h
+        sambaConfigurationWidget.h
+        sambaAnalyzer.h
+        sambaLogMode.h
+        sambaItemBuilder.h
+        sambaAccessLogMode.h
+        netbiosLogMode.h
+        sambaFactory.h
+
 )
 
 

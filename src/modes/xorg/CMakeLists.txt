@@ -6,7 +6,14 @@ target_sources(ksystemlog_xorg PRIVATE
 	xorgItemBuilder.cpp
 	xorgLogMode.cpp
 	xorgFactory.cpp
-)
+
+        xorgConfigurationWidget.h
+        xorgConfiguration.h
+        xorgAnalyzer.h
+        xorgItemBuilder.h
+        xorgLogMode.h
+        xorgFactory.h
+    )
 
 
 add_dependencies(

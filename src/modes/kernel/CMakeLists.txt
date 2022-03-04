@@ -4,7 +4,12 @@ target_sources(ksystemlog_kernel PRIVATE
 	kernelAnalyzer.cpp
 	kernelLogMode.cpp
 	kernelItemBuilder.cpp
-)
+
+        kernelFactory.h
+        kernelAnalyzer.h
+        kernelLogMode.h
+        kernelItemBuilder.h
+    )
 
 
 add_dependencies(

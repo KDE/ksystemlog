@@ -3,7 +3,11 @@ target_sources(ksystemlog_open PRIVATE
 	openAnalyzer.cpp
 	openFactory.cpp
 	openLogMode.cpp
-)
+
+        openAnalyzer.h
+        openFactory.h
+        openLogMode.h
+    )
 
 
 

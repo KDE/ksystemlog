@@ -36,6 +36,37 @@ target_sources(ksystemlog_lib PRIVATE
     simpleAction.cpp
     multipleActions.cpp
     levelPrintPage.cpp
+
+    analyzer.h
+    fileAnalyzer.h
+    logModeFactory.h
+    logModeConfiguration.h
+    logModeConfigurationWidget.h
+    logModeItemBuilder.h
+    logManager.h
+    view.h
+    globals.h
+    logMode.h
+    logLevel.h
+    logFile.h
+    logFileReader.h
+    localLogFileReader.h
+    processOutputLogFileReader.h
+    kioLogFileReader.h
+    logLine.h
+    logViewModel.h
+    logViewColumn.h
+    logViewColumns.h
+    logViewWidgetItem.h
+    logViewWidget.h
+    logViewExport.h
+    logViewFilterWidget.h
+    logViewSearchWidget.h
+    loadingBar.h
+    logModeAction.h
+    simpleAction.h
+    multipleActions.h
+    levelPrintPage.h
 )
 ecm_qt_declare_logging_category(ksystemlog_lib HEADER ksystemlog_debug.h IDENTIFIER KSYSTEMLOG CATEGORY_NAME log_ksystemlog DESCRIPTION "ksystemlog" EXPORT KSYSTEMLOG)
 

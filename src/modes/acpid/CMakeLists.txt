@@ -7,6 +7,12 @@ target_sources(ksystemlog_acpid PRIVATE
 	acpidItemBuilder.cpp
 	acpidLogMode.cpp
 	acpidFactory.cpp
+        acpidConfigurationWidget.h
+        acpidConfiguration.h
+        acpidAnalyzer.h
+        acpidItemBuilder.h
+        acpidLogMode.h
+        acpidFactory.h
 )
 
 

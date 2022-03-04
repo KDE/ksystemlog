@@ -11,6 +11,17 @@ target_sources(ksystemlog_journald PRIVATE
     journaldLogMode.cpp
     journaldNetworkAnalyzer.cpp
     journaldTypes.cpp
+
+    journaldAddressDialog.h
+    journaldAnalyzer.h
+    journaldConfiguration.h
+    journaldConfigurationWidget.h
+    journaldFactory.h
+    journaldItemBuilder.h
+    journaldLocalAnalyzer.h
+    journaldLogMode.h
+    journaldNetworkAnalyzer.h
+    journaldTypes.h
 )
 
 ki18n_wrap_ui(ksystemlog_journald journaldAddressDialog.ui journaldConfigurationWidget.ui )

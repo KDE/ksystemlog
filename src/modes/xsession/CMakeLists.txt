@@ -6,7 +6,14 @@ target_sources(ksystemlog_xsession PRIVATE
 	xsessionItemBuilder.cpp
 	xsessionLogMode.cpp
 	xsessionFactory.cpp
-)
+
+        xsessionConfigurationWidget.h
+        xsessionConfiguration.h
+        xsessionAnalyzer.h
+        xsessionItemBuilder.h
+        xsessionLogMode.h
+        xsessionFactory.h
+    )
 
 ki18n_wrap_ui(ksystemlog_xsession xsessionConfigurationWidgetBase.ui )
 

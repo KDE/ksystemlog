@@ -7,7 +7,14 @@ target_sources(ksystemlog_cron PRIVATE
 	cronItemBuilder.cpp
 	cronLogMode.cpp
 	cronFactory.cpp
-)
+
+        cronConfigurationWidget.h
+        cronConfiguration.h
+        cronAnalyzer.h
+        cronItemBuilder.h
+        cronLogMode.h
+        cronFactory.h
+    )
 
 
 add_dependencies(

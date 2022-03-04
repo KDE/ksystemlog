@@ -38,6 +38,15 @@ target_sources(ksystemlog PRIVATE
     tabLogViewsWidget.cpp
     tabLogManager.cpp
     statusBar.cpp
+    mainWindow.h
+    logModePluginsLoader.h
+    loggerDialog.h
+    detailDialog.h
+    generalConfigurationWidget.h
+    configurationDialog.h
+    tabLogViewsWidget.h
+    tabLogManager.h
+    statusBar.h
 )
 
 ki18n_wrap_ui(ksystemlog
