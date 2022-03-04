@@ -89,4 +89,5 @@ target_link_libraries(ksystemlog_lib
     KF5::ItemViews
     KF5::KIOCore
     KF5::Completion
+    KF5::ConfigWidgets
 )

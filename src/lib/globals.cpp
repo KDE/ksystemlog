@@ -21,6 +21,8 @@
 
 #include "ksystemlog_debug.h"
 
+#include <KColorScheme>
+
 Globals &Globals::instance()
 {
     static Globals self;
@@ -98,35 +100,42 @@ QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTim
 
 void Globals::setupLogLevels()
 {
+    KColorScheme scheme(QPalette::Active, KColorScheme::View);
+
+    QColor redColor = scheme.foreground(KColorScheme::NegativeText).color();
+    QColor inactiveText = scheme.foreground(KColorScheme::InactiveText).color();
     int index = metaObject()->indexOfEnumerator("LogLevelIds");
     d->mLogLevelsMetaEnum = metaObject()->enumerator(index);
 
-    d->mNoLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("edit-none"), QColor(208, 210, 220));
+    d->mNoLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("edit-none"), inactiveText.darker(120));
     d->mLogLevels[NONE_LOG_LEVEL_ID] = d->mNoLogLevel;
 
-    d->mDebugLogLevel = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QStringLiteral("debug-run"), QColor(156, 157, 165));
+    d->mDebugLogLevel = new LogLevel(DEBUG_LOG_LEVEL_ID, i18n("Debug"), QStringLiteral("debug-run"), inactiveText);
     d->mLogLevels[DEBUG_LOG_LEVEL_ID] = d->mDebugLogLevel;
 
-    d->mInformationLogLevel =
-        new LogLevel(INFORMATION_LOG_LEVEL_ID, i18n("Information"), QStringLiteral("dialog-information"), QColor(36, 49, 103) /*QColor(0, 0, 0)*/);
+    d->mInformationLogLevel = new LogLevel(INFORMATION_LOG_LEVEL_ID,
+                                           i18n("Information"),
+                                           QStringLiteral("dialog-information"),
+                                           scheme.foreground(KColorScheme::ActiveText).color() /*QColor(0, 0, 0)*/);
     d->mLogLevels[INFORMATION_LOG_LEVEL_ID] = d->mInformationLogLevel;
 
-    d->mNoticeLogLevel = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QStringLiteral("note"), QColor(36, 138, 22));
+    d->mNoticeLogLevel = new LogLevel(NOTICE_LOG_LEVEL_ID, i18n("Notice"), QStringLiteral("note"), scheme.foreground(KColorScheme::PositiveText).color());
     d->mLogLevels[NOTICE_LOG_LEVEL_ID] = d->mNoticeLogLevel;
 
-    d->mWarningLogLevel = new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QStringLiteral("dialog-warning"), QColor(238, 144, 21));
+    d->mWarningLogLevel =
+        new LogLevel(WARNING_LOG_LEVEL_ID, i18n("Warning"), QStringLiteral("dialog-warning"), scheme.foreground(KColorScheme::NeutralText).color());
     d->mLogLevels[WARNING_LOG_LEVEL_ID] = d->mWarningLogLevel;
 
-    d->mErrorLogLevel = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QStringLiteral("dialog-error"), QColor(173, 28, 28));
+    d->mErrorLogLevel = new LogLevel(ERROR_LOG_LEVEL_ID, i18n("Error"), QStringLiteral("dialog-error"), redColor.darker(200));
     d->mLogLevels[ERROR_LOG_LEVEL_ID] = d->mErrorLogLevel;
 
-    d->mCriticalLogLevel = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QStringLiteral("dialog-error"), QColor(214, 26, 26));
+    d->mCriticalLogLevel = new LogLevel(CRITICAL_LOG_LEVEL_ID, i18n("Critical"), QStringLiteral("dialog-error"), redColor.darker(150));
     d->mLogLevels[CRITICAL_LOG_LEVEL_ID] = d->mCriticalLogLevel;
 
-    d->mAlertLogLevel = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QStringLiteral("preferences-desktop-notification-bell"), QColor(214, 0, 0));
+    d->mAlertLogLevel = new LogLevel(ALERT_LOG_LEVEL_ID, i18n("Alert"), QStringLiteral("preferences-desktop-notification-bell"), redColor.darker(120));
     d->mLogLevels[ALERT_LOG_LEVEL_ID] = d->mAlertLogLevel;
 
-    d->mEmergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"), QStringLiteral("application-exit"), QColor(255, 0, 0));
+    d->mEmergencyLogLevel = new LogLevel(EMERGENCY_LOG_LEVEL_ID, i18n("Emergency"), QStringLiteral("application-exit"), redColor);
     d->mLogLevels[EMERGENCY_LOG_LEVEL_ID] = d->mEmergencyLogLevel;
 }
 
