@@ -112,7 +112,7 @@
       <li xml:lang="ar">تلوين خطوط السجل حسب خطورتها</li>
       <li xml:lang="az">Üstünlüyündən asılı olaraq jurnal sətirlərinin rənglənməsi</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
-      <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua severitat</li>
+      <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua gravetat</li>
       <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
       <li xml:lang="el">Ο χρωματισμός γραμμών καταγραφών εξαρτάται από τη σπουδαιότητά τους</li>
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
