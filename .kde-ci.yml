@@ -18,4 +18,4 @@ Dependencies:
     'frameworks/ktextwidgets': '@stable'
 
 Options:
-  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]      
+  require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      
