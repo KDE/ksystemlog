@@ -16,3 +16,6 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kcompletion': '@stable'
     'frameworks/ktextwidgets': '@stable'
+
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]      
