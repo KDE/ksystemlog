@@ -6,8 +6,6 @@
 
 #include "logViewColumns.h"
 
-#include <QStringList>
-
 #include "ksystemlog_debug.h"
 
 #include "globals.h"
