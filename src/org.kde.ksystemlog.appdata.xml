@@ -115,7 +115,7 @@
       <li xml:lang="ar">تلوين خطوط السجل حسب خطورتها</li>
       <li xml:lang="az">Üstünlüyündən asılı olaraq jurnal sətirlərinin rənglənməsi</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
-      <li xml:lang="ca-valencia">Acoloreix les llínees de registre en funció de la seua gravetat</li>
+      <li xml:lang="ca-valencia">Acoloreix les línies de registre en funció de la seua gravetat</li>
       <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
       <li xml:lang="el">Ο χρωματισμός γραμμών καταγραφών εξαρτάται από τη σπουδαιότητά τους</li>
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
@@ -182,7 +182,7 @@
       <li xml:lang="ar">عرض آلي للسطور المضافة في السجل</li>
       <li xml:lang="az">Yeni jurnal sətirlərinin avtomatik göstərilməsi</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
-      <li xml:lang="ca-valencia">Presentació automàtica de les llínees noves del registre</li>
+      <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="de">Automatische Anzeiger neuer Protokollzeilen</li>
       <li xml:lang="el">Αυτόματη εμφάνιση νέων γραμμών καταγραφής.</li>
       <li xml:lang="en-GB">Auto display new lines logged</li>
@@ -216,7 +216,7 @@
       <li xml:lang="ar">معلومات مفصلة عن كل سطر من الأسطر</li>
       <li xml:lang="az">Hər jurnal sətri haqqında ətraflı məlumat</li>
       <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
-      <li xml:lang="ca-valencia">Informació detallada per a cada llínea de registre</li>
+      <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
       <li xml:lang="de">Ausführliche Informationen zu jeder Protokoll-Zeile</li>
       <li xml:lang="el">Λεπτομερής πληροφόρηση για κάθε γραμμή καταγραφής</li>
       <li xml:lang="en-GB">Detailed information for each log lines</li>
