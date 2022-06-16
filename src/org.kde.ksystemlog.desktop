@@ -11,6 +11,7 @@ Keywords[ar]=سجل;رسائل النظام;رسائل;سجل النواة;سج�
 Keywords[az]=jurnal;jurnal faylı;sistem ismarıcı;sistem jurnalı;nüvə jurnalı;kimlik doğrulaması jurnalı;X.org jurnalı;journald jurnalı;xidmətlər jurnalı;Hadisələrə Baxış;eventvwr;hadisələr jurnalı;
 Keywords[ca]=registre;fitxer de registre;missatges del sistema;registre del sistema;registre del nucli;registre d'autenticació;registre del X.org;registre del journald;registres dels serveis;visor d'esdeveniments;eventvwr;registre d'esdeveniments;
 Keywords[ca@valencia]=registre;fitxer de registre;missatges del sistema;registre del sistema;registre del nucli;registre d'autenticació;registre del X.org;registre de journald;registres dels serveis;visor d'esdeveniments;eventvwr;registre d'esdeveniments;
+Keywords[de]=systemnachrichten,protokoll,systemprotokoll,kernelprotokoll,ereignisanzeige
 Keywords[en_GB]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
 Keywords[es]=registro;archivo de registro;mensajes del sistema;registro del sistema;registro del kernel;registro de autenticación;registro de X.org;registro de journald;registros de los servicios;visor de eventos;registro de eventos;
 Keywords[fi]=loki;lokitiedosto;järjestelmäviestit;järjestelmäloki;ydinloki;todennusloki;X.org-loki;journald-loki;palveluloki;tapahtumakatselin;eventvwr;tapahtumaloki
