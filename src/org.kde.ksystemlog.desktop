@@ -22,6 +22,7 @@ Keywords[ia]=log;logfile;system messages;system log;kernel log;authentication lo
 Keywords[it]=registro;file di registro;messaggi;registro di sistema;registro del kernel;registro di autenticazione;registro di Xorg;registro di journald;registro dei servizi;visore di eventi;eventvwr;eventlog;
 Keywords[ko]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;로그;기록;로그 파일;시스템 메시지;시스템 로그;커널 로그;인증 로그;X.org 로그;journald 로그;저널 로그;서비스 로그;이벤트 뷰어;이벤트 로그;
 Keywords[nl]=log;logbestand;systeemmelding;systeemlog;kernellog;authenticatielog;X.org-log;journald-log;serviceslogs;Gebeurtenisviewer;eventvwr;gebeurtenislog;
+Keywords[nn]=logg;loggfil;systemmeldingar;systemlogg;kjernelogg;autentiseringslogg;X.org-log;journald-log;tenestelogg;hendingsvisar;eventvwr;eventlog;hendingslogg
 Keywords[pl]=dziennik;plik dziennika;wiadomości systemowe;dziennik systemowy;dziennik jądra;dziennik uwierzytelniania;dziennik X.org;dziennik journald;dziennik usług;Przeglądarka Wydarzeń;eventvwr;dziennik wydarzeń;
 Keywords[pt]=registo;ficheiro de registo;mensagens do sistema;registo do sistema;registo do kernel;registo de autenticação;registo do X.org;registo do journald;registos dos serviços;Visualizador de Eventos;eventvwr;eventlog;
 Keywords[pt_BR]=log;registro;arquivo de registro;arquivo de log;mensagens do sistema;log do sistema;log do kernel; log de autenticação;log do X.org; log do journald;log dos serviços;visualizador de eventos;log de eventos;
