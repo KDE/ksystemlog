@@ -60,7 +60,7 @@ void LogViewExport::sendMail()
 
     // Too much lines selected
     if (i > 1000) {
-        KMessageBox::sorry(mParent, i18n("You have selected too many lines. Please only select important log lines."), i18n("Too Many Lines Selected"));
+        KMessageBox::error(mParent, i18n("You have selected too many lines. Please only select important log lines."), i18n("Too Many Lines Selected"));
         return;
     }
 
