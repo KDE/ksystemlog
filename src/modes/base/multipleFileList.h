@@ -75,4 +75,3 @@ private:
     KMessageWidget *mWarningBox = nullptr;
     bool mMissingFiles = false;
 };
-

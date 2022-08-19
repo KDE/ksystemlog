@@ -9,4 +9,3 @@ class AuditConfiguration : public GenericLogModeConfiguration
 public:
     AuditConfiguration();
 };
-

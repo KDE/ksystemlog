@@ -57,4 +57,3 @@ protected:
 
     LogLevel *findLogLevel(const QString &level);
 };
-

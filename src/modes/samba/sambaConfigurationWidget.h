@@ -48,4 +48,3 @@ private:
     int mSambaAccessPathsId;
     int mNetbiosPathsId;
 };
-

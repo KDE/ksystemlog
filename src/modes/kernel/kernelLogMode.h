@@ -36,4 +36,3 @@ public:
 
     QVector<LogFile> createLogFiles() override;
 };
-

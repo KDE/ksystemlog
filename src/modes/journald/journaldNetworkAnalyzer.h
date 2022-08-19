@@ -58,4 +58,3 @@ private:
     JournalAddress mAddress;
     QString mFilterName;
 };
-

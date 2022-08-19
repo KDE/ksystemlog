@@ -41,4 +41,3 @@ private:
     int mEntriesType;
     QStringList mRemoteJournals;
 };
-

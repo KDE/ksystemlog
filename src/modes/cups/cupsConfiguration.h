@@ -51,4 +51,3 @@ private:
 
     QStringList mCupsPdfPaths;
 };
-

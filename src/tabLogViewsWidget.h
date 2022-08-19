@@ -95,4 +95,3 @@ private:
 
     QMenu *mContextMenu = nullptr;
 };
-

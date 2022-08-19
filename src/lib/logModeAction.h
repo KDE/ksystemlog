@@ -35,4 +35,3 @@ private:
     LogModeAction::Category mCategory = LogModeAction::RootCategory;
     bool mInToolBar = true;
 };
-

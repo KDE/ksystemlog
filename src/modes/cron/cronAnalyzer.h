@@ -56,4 +56,3 @@ public:
         return false;
     }
 };
-

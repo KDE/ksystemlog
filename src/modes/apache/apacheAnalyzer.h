@@ -56,4 +56,3 @@ private:
 
     LogLevel *findLogLevel(const QString &type);
 };
-

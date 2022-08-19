@@ -36,4 +36,3 @@ private:
     LogManager *const mLogManager;
     int mNewLinesCount = 0;
 };
-

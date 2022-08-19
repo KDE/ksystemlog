@@ -81,7 +81,8 @@ public:
      */
     LogModeConfigurationWidget *logModeConfigurationWidget() const;
 
-    template<typename T> T logModeConfiguration()
+    template<typename T>
+    T logModeConfiguration()
     {
         return static_cast<T>(innerConfiguration());
     }
@@ -115,4 +116,3 @@ private:
      */
     LogModeConfiguration *innerConfiguration() const;
 };
-

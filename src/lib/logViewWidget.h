@@ -66,4 +66,3 @@ private:
 
     QActionGroup *mHeadersTogglingActions = nullptr;
 };
-

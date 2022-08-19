@@ -45,4 +45,3 @@ public:
 private:
     LogLevelFileList *mFileList = nullptr;
 };
-

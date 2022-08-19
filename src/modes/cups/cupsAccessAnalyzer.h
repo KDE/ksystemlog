@@ -62,4 +62,3 @@ protected:
         return Globals::instance().noticeLogLevel();
     }
 };
-

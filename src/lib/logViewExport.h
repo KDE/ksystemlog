@@ -42,4 +42,3 @@ private:
     LogViewWidget *const mLogViewWidget;
     void print(QPrinter *printer);
 };
-

@@ -44,4 +44,3 @@ private:
 
     QProgressBar *mProgressBar = nullptr;
 };
-

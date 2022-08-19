@@ -17,4 +17,3 @@
  * Icon name of No Mode icon
  */
 #define NO_MODE_ICON "text-x-generic"
-

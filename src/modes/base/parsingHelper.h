@@ -50,4 +50,3 @@ private:
 
     QMap<QString, QString> mMapHTTPResponse;
 };
-

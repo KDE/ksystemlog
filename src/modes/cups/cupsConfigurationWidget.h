@@ -49,4 +49,3 @@ private:
     int mCupsPagePathsId;
     int mCupsPdfPathsId;
 };
-

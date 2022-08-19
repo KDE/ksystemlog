@@ -48,4 +48,3 @@ private Q_SLOTS:
 private:
     AuditConvertor m_conv;
 };
-

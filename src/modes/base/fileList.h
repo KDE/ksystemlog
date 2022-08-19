@@ -68,4 +68,3 @@ protected:
 
     KMessageWidget *mWarningBox = nullptr;
 };
-

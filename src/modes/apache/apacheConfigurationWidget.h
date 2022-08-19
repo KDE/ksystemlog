@@ -47,4 +47,3 @@ private:
     int mApachePathsId = -1;
     int mApacheAccessPathsId = -1;
 };
-

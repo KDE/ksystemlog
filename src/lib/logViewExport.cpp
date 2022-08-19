@@ -8,10 +8,10 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QDesktopServices>
 #include <QFileDialog>
 #include <QPrintDialog>
 #include <QPrinter>
-#include <QDesktopServices>
 #include <QUrlQuery>
 
 #include <KLocalizedString>

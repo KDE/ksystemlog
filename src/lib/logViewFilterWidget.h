@@ -80,4 +80,3 @@ Q_SIGNALS:
 private:
     bool mPriorities[Globals::LOG_LEVEL_NUM];
 };
-

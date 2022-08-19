@@ -49,4 +49,3 @@ private:
     KUrlRequester *mAuthenticationUrlRequester = nullptr;
     KMessageWidget *mWarningBox = nullptr;
 };
-

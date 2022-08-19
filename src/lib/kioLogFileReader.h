@@ -55,4 +55,3 @@ private:
 
     KDirWatch *const mFileWatch;
 };
-

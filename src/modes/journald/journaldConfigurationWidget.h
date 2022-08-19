@@ -35,4 +35,3 @@ private Q_SLOTS:
 private:
     bool haveJournalAddress(const QString &address, const QString &port, bool httpsEnabled) const;
 };
-

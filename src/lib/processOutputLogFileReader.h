@@ -14,7 +14,6 @@
 
 #include "logFileReader.h"
 
-
 class ProcessOutputLogFileReaderPrivate;
 
 class ProcessOutputLogFileReader : public LogFileReader
@@ -50,4 +49,3 @@ protected:
 private:
     Q_DECLARE_PRIVATE(ProcessOutputLogFileReader)
 };
-

@@ -63,4 +63,3 @@ private Q_SLOTS:
 protected:
     QList<LogFileReader *> mLogFileReaders;
 };
-

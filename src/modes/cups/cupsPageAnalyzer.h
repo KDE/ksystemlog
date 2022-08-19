@@ -45,4 +45,3 @@ protected:
      */
     LogLine *parseMessage(const QString &logLine, const LogFile &originalLogFile) override;
 };
-

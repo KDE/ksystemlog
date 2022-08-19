@@ -30,4 +30,3 @@ protected:
 
     virtual QString formatDate(const QDateTime &dateTime) const;
 };
-

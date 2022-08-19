@@ -31,4 +31,3 @@ public:
 protected:
     KSystemLogConfig *mConfiguration = nullptr;
 };
-

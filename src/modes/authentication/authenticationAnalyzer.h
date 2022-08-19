@@ -31,4 +31,3 @@ private:
 
     bool hasKeywords(const QString &message, const QStringList &keywords);
 };
-

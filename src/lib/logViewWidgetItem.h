@@ -33,4 +33,3 @@ private:
     // TODO Move this log line to QTreeWidgetItem::data() method
     LogLine *mLine = nullptr;
 };
-

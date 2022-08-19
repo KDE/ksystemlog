@@ -50,4 +50,3 @@ private:
     QStringList mWarningKeywords;
     QStringList mErrorKeywords;
 };
-

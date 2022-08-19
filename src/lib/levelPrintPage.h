@@ -33,4 +33,3 @@ private:
     QLabel *mLblChoose = nullptr;
     QList<QCheckBox *> mLevelCheckBoxes;
 };
-

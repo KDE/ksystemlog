@@ -19,4 +19,3 @@ public:
 
     LogModeAction *createLogModeAction() const override;
 };
-

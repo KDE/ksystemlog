@@ -48,4 +48,3 @@ public:
 private:
     QWidget *const mParent = nullptr;
 };
-

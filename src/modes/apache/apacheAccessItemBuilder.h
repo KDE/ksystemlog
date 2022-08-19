@@ -31,4 +31,3 @@ public:
 
     QString createFormattedText(LogLine *line) const override;
 };
-

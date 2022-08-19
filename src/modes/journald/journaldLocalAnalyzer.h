@@ -61,4 +61,3 @@ private:
     bool mForgetWatchers = true;
     QList<JournalWatcher *> mJournalWatchers;
 };
-

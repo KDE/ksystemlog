@@ -79,4 +79,3 @@ private:
     unsigned int m_a0;
     unsigned int m_a1;
 };
-

@@ -45,4 +45,3 @@ public:
 private:
     QMap<JournalAddress, JournalFilters> mRemoteJournalFilters;
 };
-

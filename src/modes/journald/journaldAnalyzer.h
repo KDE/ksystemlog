@@ -36,4 +36,3 @@ protected:
 
     int updateModel(QList<JournalEntry> &entries, ReadingMode readingMode);
 };
-

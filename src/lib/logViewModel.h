@@ -74,4 +74,3 @@ private:
 
     int mConcurrentMultipleInsertions = 0;
 };
-

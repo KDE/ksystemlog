@@ -32,4 +32,3 @@ public:
 private:
     QStringList mXorgPaths;
 };
-

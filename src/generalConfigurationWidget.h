@@ -36,4 +36,3 @@ private:
     QButtonGroup *mDateFormatGroup = nullptr;
     KMessageWidget *mWarningBox = nullptr;
 };
-

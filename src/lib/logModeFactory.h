@@ -28,4 +28,3 @@ public:
      */
     virtual QList<LogMode *> createLogModes() const = 0;
 };
-

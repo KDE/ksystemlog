@@ -6,7 +6,6 @@
 #include "auditLogMode.h"
 #include "simpleAction.h"
 
-
 QList<LogMode *> AuditLogModeFactory::createLogModes() const
 {
     const QList<LogMode *> logModes{new AuditLogMode()};

@@ -37,4 +37,3 @@ private:
     QMap<QString, QString> mPriorities;
     QMap<QString, QIcon> mPriorityIcons;
 };
-

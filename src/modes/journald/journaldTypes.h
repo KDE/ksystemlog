@@ -34,4 +34,3 @@ struct JournaldAnalyzerOptions {
 
 extern const char *ConsoleColorEscapeSequence;
 }
-

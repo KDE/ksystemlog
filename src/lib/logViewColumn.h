@@ -39,4 +39,3 @@ private:
 
 QDataStream &operator<<(QDataStream &out, const LogViewColumn &column);
 QDebug &operator<<(QDebug &out, const LogViewColumn &column);
-

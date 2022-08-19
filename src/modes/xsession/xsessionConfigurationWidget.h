@@ -53,4 +53,3 @@ private:
 
     KMessageWidget *mWarningBox = nullptr;
 };
-

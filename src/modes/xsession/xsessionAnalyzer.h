@@ -50,4 +50,3 @@ private:
 
     QDateTime mCurrentDateTime;
 };
-

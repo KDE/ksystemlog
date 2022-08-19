@@ -11,4 +11,3 @@ public:
 
     QString createToolTipText(LogLine *line) const override;
 };
-

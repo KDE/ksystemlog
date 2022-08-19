@@ -34,4 +34,3 @@ public:
 private:
     QAction *mAction = nullptr;
 };
-

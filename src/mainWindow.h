@@ -167,4 +167,3 @@ private:
     KSystemLog::StatusBar *mStatusBar = nullptr;
 };
 }
-

@@ -38,4 +38,3 @@ private:
     inline QString undefinedProcess();
     inline LogLine *undefinedLogLine(const QString &message, const LogFile &originalFile);
 };
-

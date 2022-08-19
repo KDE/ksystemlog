@@ -21,4 +21,3 @@ private:
     LogLevelFileList *fileList;
     QLineEdit *keyLineEdit;
 };
-

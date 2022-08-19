@@ -44,4 +44,3 @@ private:
     QMap<QString, LogLevel *> mXorgLevels;
     const QDateTime mCurrentDateTime;
 };
-

@@ -46,4 +46,3 @@ protected:
 private:
     FileList *mFileList = nullptr;
 };
-

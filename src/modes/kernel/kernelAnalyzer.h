@@ -67,4 +67,3 @@ protected:
 protected:
     QDateTime mStartupDateTime;
 };
-

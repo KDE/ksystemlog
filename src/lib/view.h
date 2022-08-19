@@ -85,4 +85,3 @@ private:
 
     LoadingBar *mLoadingBar = nullptr;
 };
-

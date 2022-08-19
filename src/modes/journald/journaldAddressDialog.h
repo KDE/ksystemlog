@@ -29,4 +29,3 @@ public:
 public Q_SLOTS:
     void accept() override;
 };
-

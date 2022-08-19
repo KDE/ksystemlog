@@ -47,4 +47,3 @@ private:
 
     bool mChanged = false;
 };
-

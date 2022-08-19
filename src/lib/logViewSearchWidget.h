@@ -64,4 +64,3 @@ private:
 
     QTimer *mMessageHidingTimer = nullptr;
 };
-

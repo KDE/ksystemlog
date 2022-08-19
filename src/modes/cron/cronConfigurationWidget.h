@@ -54,4 +54,3 @@ private:
     QLineEdit *mProcessFilter = nullptr;
     QLabel *mProcessFilterLabel = nullptr;
 };
-

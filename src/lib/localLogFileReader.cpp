@@ -11,9 +11,9 @@
 #include <QMimeDatabase>
 #include <QMutex>
 
+#include <KCompressionDevice>
 #include <KDirWatch>
 #include <KLocalizedString>
-#include <KCompressionDevice>
 
 #include "logFileReaderPrivate.h"
 

@@ -40,4 +40,3 @@ public:
 private:
     QWidget *const mParent;
 };
-

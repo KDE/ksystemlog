@@ -70,4 +70,3 @@ protected:
     QRecursiveMutex mInsertionLocking;
     long mLogLineInternalIdGenerator = 0;
 };
-

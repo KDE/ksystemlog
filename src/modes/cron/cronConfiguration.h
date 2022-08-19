@@ -39,4 +39,3 @@ private:
 
     QString mProcessFilter;
 };
-

@@ -19,4 +19,3 @@ public:
 
     QListWidget *logLevels() const;
 };
-

@@ -38,4 +38,3 @@ private:
 
     QList<int> mLogFilesLevels;
 };
-

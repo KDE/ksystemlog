@@ -61,4 +61,3 @@ public:
      */
     void testLine(LogLine *line, const QString &originalFileName, LogLevel *logLevel, const QDateTime &time, const QStringList &items) const;
 };
-
