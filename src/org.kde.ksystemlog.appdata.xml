@@ -23,6 +23,7 @@
   <name xml:lang="ia">KSystemLog</name>
   <name xml:lang="id">KSystemLog</name>
   <name xml:lang="it">KSystemLog</name>
+  <name xml:lang="ka">KSystemLog</name>
   <name xml:lang="ko">KSystemLog</name>
   <name xml:lang="nl">KSystemLog</name>
   <name xml:lang="nn">KSystemLog</name>
@@ -58,6 +59,7 @@
   <summary xml:lang="ia">visor de registro de systema</summary>
   <summary xml:lang="id">penampil catatan log sistem</summary>
   <summary xml:lang="it">Visore dei registri di sistema</summary>
+  <summary xml:lang="ka">სისტემური ჟურნალის დამთვალიერებელი</summary>
   <summary xml:lang="ko">시스템 로그 뷰어</summary>
   <summary xml:lang="nl">Systeemlogviewer</summary>
   <summary xml:lang="nn">Systemloggvisar</summary>
@@ -129,6 +131,7 @@
       <li xml:lang="ia">Colora lineas de registro dependente de lor severitate</li>
       <li xml:lang="id">Pewarnaan baris log tergantung pada kepelikannya</li>
       <li xml:lang="it">Colorazione delle righe del registro in base alla loro gravità</li>
+      <li xml:lang="ka">ჟურნალის ხაზების მათი მნიშვნელობის მიხედვით გაფერადება</li>
       <li xml:lang="ko">심각도에 따라서 로그 줄 자동 색상 지정</li>
       <li xml:lang="nl">Logregels kleuren afhankelijk van hun ernst</li>
       <li xml:lang="nn">Fargelegg logglinjer basert på alvorsgrad</li>
@@ -196,6 +199,7 @@
       <li xml:lang="ia">Monstra automaticamente nove lineas registrate</li>
       <li xml:lang="id">Auto tayang baris baru yang di-log</li>
       <li xml:lang="it">Visualizzazione automatica delle nuove righe registrate</li>
+      <li xml:lang="ka">ჟურნალის ახალი ხაზების ავტომატური ჩვენება</li>
       <li xml:lang="ko">새로 로그에 추가된 줄 자동 표시</li>
       <li xml:lang="nl">Automatische nieuwe logregels weergeven</li>
       <li xml:lang="nn">Automatisk vising av nye logglinjer</li>
@@ -230,6 +234,7 @@
       <li xml:lang="ia">Informationdetaliate per cata lineas de registro (log)</li>
       <li xml:lang="id">Informasi terperinci untuk setiap baris log</li>
       <li xml:lang="it">Informazioni dettagliate per ciascuna riga del registro</li>
+      <li xml:lang="ka">ჟურნალის თთოეული ხაზის დეტალური ინფორმაცია</li>
       <li xml:lang="ko">각각 로그 줄별 자세한 정보</li>
       <li xml:lang="nl">Gedetailleerde informatie voor elke logregel</li>
       <li xml:lang="nn">Detaljert informasjon om kvar logglinje</li>
