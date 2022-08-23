@@ -2,7 +2,6 @@
 Type=Application
 Exec=ksystemlog -qwindowtitle %c
 Icon=utilities-log-viewer
-Terminal=false
 Categories=Qt;KDE;System;Monitor;
 X-DocPath=ksystemlog/index.html
 X-KDE-SubstituteUID=true
