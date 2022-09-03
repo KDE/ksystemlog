@@ -36,8 +36,6 @@ int main(int argc, char **argv)
                      QStringLiteral("https://apps.kde.org/en/ksystemlog"),
                      QString());
 
-    about.setOrganizationDomain("kde.org");
-
     about.addAuthor(i18n("Nicolas Ternisien"),
                     i18n("Main developer"),
                     QStringLiteral("nicolas.ternisien@gmail.com"),
