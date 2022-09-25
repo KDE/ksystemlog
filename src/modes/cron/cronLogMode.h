@@ -16,8 +16,6 @@
  */
 #define CRON_MODE_ICON "preferences-system-time"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

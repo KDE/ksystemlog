@@ -16,8 +16,6 @@
  */
 #define CUPS_ACCESS_MODE_ICON "preferences-devices-printer"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

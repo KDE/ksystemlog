@@ -5,6 +5,7 @@
 */
 
 #include "kernelAnalyzer.h"
+#include <QFile>
 
 KernelAnalyzer::KernelAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)

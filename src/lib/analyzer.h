@@ -6,8 +6,7 @@
 
 #pragma once
 
-#include <QList>
-#include <QMutex>
+#include <QRecursiveMutex>
 #include <QString>
 
 #include "globals.h"

@@ -8,8 +8,6 @@
 
 // Qt includes
 
-#include <QBrush>
-
 // KDE includes
 #include "ksystemlog_debug.h"
 

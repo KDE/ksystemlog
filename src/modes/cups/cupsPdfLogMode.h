@@ -16,8 +16,6 @@
  */
 #define CUPS_PDF_MODE_ICON "application-pdf"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

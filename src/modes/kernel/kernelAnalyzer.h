@@ -6,9 +6,6 @@
 
 #pragma once
 
-#include <QFile>
-#include <QRegExp>
-
 #include <KLocalizedString>
 
 #include "ksystemlog_debug.h"

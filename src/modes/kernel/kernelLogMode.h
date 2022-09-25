@@ -18,8 +18,6 @@
 
 #define UPTIME_FILE "/proc/uptime"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

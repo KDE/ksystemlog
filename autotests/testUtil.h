@@ -8,7 +8,6 @@
 
 #include <QObject>
 
-#include <QList>
 #include <QString>
 
 class LogViewModel;

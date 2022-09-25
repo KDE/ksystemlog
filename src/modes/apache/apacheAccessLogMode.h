@@ -16,8 +16,6 @@
  */
 #define APACHE_ACCESS_MODE_ICON "preferences-system-network-server-web"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

@@ -16,8 +16,6 @@
  */
 #define XORG_MODE_ICON "xorg"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

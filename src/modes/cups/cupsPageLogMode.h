@@ -16,8 +16,6 @@
  */
 #define CUPS_PAGE_MODE_ICON "document-new"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

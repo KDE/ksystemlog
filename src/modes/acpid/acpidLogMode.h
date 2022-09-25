@@ -16,8 +16,6 @@
  */
 #define ACPID_MODE_ICON "preferences-system-power-management"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

@@ -16,8 +16,6 @@
  */
 #define APACHE_MODE_ICON "preferences-system-network"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

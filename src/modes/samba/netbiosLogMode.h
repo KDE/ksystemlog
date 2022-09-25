@@ -17,8 +17,6 @@
  */
 #define NETBIOS_MODE_ICON "folder-remote"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

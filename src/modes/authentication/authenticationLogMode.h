@@ -16,8 +16,6 @@
  */
 #define AUTHENTICATION_MODE_ICON "dialog-password"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

@@ -16,8 +16,6 @@
  */
 #define POSTFIX_MODE_ICON "internet-mail"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

@@ -9,7 +9,6 @@
 #include <QCheckBox>
 
 #include <KLocalizedString>
-#include <KUrlRequester>
 
 #include "fileList.h"
 #include "globals.h"

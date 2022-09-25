@@ -6,9 +6,6 @@
 
 #pragma once
 
-#include <QList>
-#include <QStringList>
-
 #include "defaults.h"
 #include "genericConfiguration.h"
 #include "globals.h"

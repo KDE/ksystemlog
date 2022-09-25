@@ -8,8 +8,6 @@
 
 #include "logModeConfigurationWidget.h"
 
-#include <QVBoxLayout>
-
 #include <KLocalizedString>
 
 #include "globals.h"

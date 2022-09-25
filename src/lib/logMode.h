@@ -7,7 +7,6 @@
 #pragma once
 
 #include <QIcon>
-#include <QList>
 #include <QObject>
 #include <QString>
 #include <QVariant>

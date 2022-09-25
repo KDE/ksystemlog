@@ -6,7 +6,6 @@
 
 #include "configurationDialog.h"
 
-#include <QList>
 #include <QPushButton>
 
 #include <KLocalizedString>

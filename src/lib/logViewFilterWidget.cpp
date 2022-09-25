@@ -20,7 +20,6 @@
 #include <QStandardItemModel>
 #include <QStyledItemDelegate>
 
-#include <KComboBox>
 #include <KLocalizedString>
 
 class ComboBoxDelegate : public QStyledItemDelegate

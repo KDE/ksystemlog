@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <QList>
 #include <QStringList>
 
 class LogViewColumn;

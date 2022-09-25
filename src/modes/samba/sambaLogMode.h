@@ -16,8 +16,6 @@
  */
 #define SAMBA_MODE_ICON "preferences-system-network-share-windows"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

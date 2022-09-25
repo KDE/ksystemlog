@@ -17,8 +17,6 @@
  */
 #define JOURNALD_MODE_ICON "preferences-system-startup"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

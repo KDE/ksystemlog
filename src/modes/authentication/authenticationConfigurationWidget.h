@@ -6,9 +6,6 @@
 
 #pragma once
 
-#include <QGroupBox>
-#include <QHBoxLayout>
-
 #include <KLocalizedString>
 #include <KUrlRequester>
 

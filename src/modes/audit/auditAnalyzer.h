@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QMap>
-
 #include "auditConvertor.h"
 #include "fileAnalyzer.h"
 

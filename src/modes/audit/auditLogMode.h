@@ -10,8 +10,6 @@
  */
 #define AUDIT_MODE_ICON "preferences-log"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

@@ -16,8 +16,6 @@
  */
 #define X_SESSION_MODE_ICON "preferences-system-windows-effect-coverswitch"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

@@ -10,8 +10,6 @@
 #include <QTest>
 #include <QThread>
 
-#include <KDirWatch>
-
 #include "testUtil.h"
 
 #include "analyzer.h"

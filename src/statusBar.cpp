@@ -11,11 +11,7 @@
 #include <QPushButton>
 #include <QTime>
 
-#include <QIcon>
-
-#include <KComboBox>
 #include <KLocalizedString>
-#include <KSqueezedTextLabel>
 
 #include "ksystemlog_debug.h"
 using namespace KSystemLog;

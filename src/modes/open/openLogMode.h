@@ -16,8 +16,6 @@
  */
 #define OPEN_MODE_ICON "document-open"
 
-#include <QList>
-
 #include "logFile.h"
 
 #include "logMode.h"

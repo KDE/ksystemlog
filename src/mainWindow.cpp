@@ -8,10 +8,8 @@
 
 // Qt includes
 #include <QAction>
-#include <QActionGroup>
 #include <QIcon>
 #include <QList>
-#include <QPrinter>
 
 // KDE includes
 #include <KActionCollection>

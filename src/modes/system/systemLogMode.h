@@ -16,8 +16,6 @@
  */
 #define SYSTEM_MODE_ICON "preferences-desktop-wallpaper"
 
-#include <QList>
-
 #include "logFile.h"
 #include "logMode.h"
 

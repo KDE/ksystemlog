@@ -16,8 +16,6 @@
  */
 #define DAEMON_MODE_ICON "utilities-terminal"
 
-#include <QList>
-
 #include "ksystemlog_debug.h"
 #include "logMode.h"
 
