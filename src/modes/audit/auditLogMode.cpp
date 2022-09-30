@@ -1,5 +1,7 @@
 #include "auditLogMode.h"
 
+#include <QAction>
+
 #include <KLocalizedString>
 
 #include "ksystemlog_debug.h"
