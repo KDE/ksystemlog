@@ -1,0 +1,3393 @@
+# translation of ksystemlog.po to Romanian
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# Laurenţiu Buzdugan <lbuz@rolix.org>, 2008.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2011, 2012, 2014, 2021, 2022.
+# Cristian Oneț <onet.cristian@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ksystemlog\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"PO-Revision-Date: 2022-02-06 20:20+0000\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:13
+#, kde-format
+msgid "Load this log mode at startup."
+msgstr "Încarcă acest regim de jurnalizare la pornire."
+
+#. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:18
+#, kde-format
+msgid "The log view line count limit."
+msgstr "Limita de linii a vizualizării jurnalului."
+
+#. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:23
+#, kde-format
+msgid "Option is true if the user wants to delete repeated log lines."
+msgstr ""
+"Opțiunea este adevărată dacă utilizatorul dorește să șteargă liniile de "
+"jurnal repetate."
+
+#. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:28
+#, kde-format
+msgid ""
+"Option is true if the PID in the process column of the SystemLog is to be "
+"omitted."
+msgstr ""
+"Opțiunea este adevărată dacă PID-ul din coloana proceselor jurnalului de "
+"sistem trebuie omis."
+
+#. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:33
+#, kde-format
+msgid ""
+"Option is true if the log lines are to be colored depending on their log "
+"level."
+msgstr ""
+"Opțiunea este adevărată dacă liniile de jurnal trebuie să fie colorate în "
+"funcție de nivelul jurnalului lor."
+
+#. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:39
+#, kde-format
+msgid "Whether the tooltips are enabled."
+msgstr "Dacă indiciile sunt activate."
+
+#. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:44
+#, kde-format
+msgid "Whether new lines are displayed."
+msgstr "Dacă se afișează liniile noi."
+
+#. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:49
+#, kde-format
+msgid "Whether the filter bar is shown."
+msgstr "Dacă este arătată bara de filtrare."
+
+#. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:54
+#, kde-format
+msgid "The date format of log lines."
+msgstr "Formatul datei în liniile din jurnal."
+
+#. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:71
+#, kde-format
+msgid "The Samba log file paths."
+msgstr "Căile fișierelor de jurnal Samba."
+
+#: src/configurationDialog.cpp:26
+#, kde-format
+msgid "Settings"
+msgstr "Configurări"
+
+#: src/configurationDialog.cpp:80
+#, kde-format
+msgid "General"
+msgstr "General"
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialog.cpp:27 src/lib/logViewSearchWidgetBase.ui:68
+#, kde-format
+msgid "&Previous"
+msgstr "&Precedent"
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialog.cpp:31 src/lib/logViewSearchWidgetBase.ui:58
+#, kde-format
+msgid "&Next"
+msgstr "&Următor"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:14
+#, kde-format
+msgid "Log Line Details"
+msgstr "Detalii în linia de jurnal"
+
+#. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:17
+#, kde-format
+msgid ""
+"This dialog displays detailed information about the currently selected log "
+"line."
+msgstr ""
+"Acest dialog afișează informații detaliate despre linia de jurnal aleasă "
+"acum."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#. i18n: ectx: property (text), widget (KTextEdit, message)
+#: src/detailDialogBase.ui:41 src/lib/logViewWidget.cpp:34
+#: src/loggerDialogBase.ui:33 src/modes/acpid/acpidAnalyzer.cpp:19
+#: src/modes/apache/apacheAnalyzer.cpp:20 src/modes/audit/auditAnalyzer.cpp:23
+#: src/modes/base/syslogAnalyzer.cpp:44 src/modes/cups/cupsAnalyzer.cpp:24
+#: src/modes/cups/cupsPdfAnalyzer.cpp:20
+#: src/modes/journald/journaldAnalyzer.cpp:23
+#: src/modes/kernel/kernelAnalyzer.cpp:22 src/modes/samba/sambaAnalyzer.cpp:23
+#: src/modes/xorg/xorgAnalyzer.cpp:27
+#: src/modes/xsession/xsessionAnalyzer.cpp:21
+#, kde-format
+msgid "Message"
+msgstr "Mesaj"
+
+#. i18n: ectx: property (text), widget (QLabel, icon)
+#: src/detailDialogBase.ui:54
+#, kde-format
+msgid "Icon"
+msgstr "Pictogramă"
+
+#. i18n: ectx: property (text), widget (QLabel, header)
+#: src/detailDialogBase.ui:70
+#, kde-format
+msgid "Main information"
+msgstr "Informație principală"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:100
+#, kde-format
+msgid "Move to the previous line"
+msgstr "Mută la linia precedentă"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:103
+#, kde-format
+msgid ""
+"Moves to the previous line. This button is deactivated if there is no "
+"previous log line."
+msgstr ""
+"Se mută la linia precedentă. Acest buton este dezactivat dacă nu este nicio "
+"linie de jurnal precedentă."
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:106
+#, kde-format
+msgid "&Back"
+msgstr "Înap&oi"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, next)
+#: src/detailDialogBase.ui:122
+#, kde-format
+msgid "Move to the next line"
+msgstr "Mută la linia următoare"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, next)
+#: src/detailDialogBase.ui:125
+#, kde-format
+msgid ""
+"Moves to the next line. This button is deactivated if there is no next log "
+"line."
+msgstr ""
+"Se mută la linia următoare. Acest buton este dezactivat dacă nu este nicio "
+"linie de jurnal ulterioară."
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialogBase.ui:128
+#, kde-format
+msgid "&Forward"
+msgstr "În&ainte"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:160
+#, kde-format
+msgid "Close the Detail dialog."
+msgstr "Închide dialogul de detalii."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:163
+#, kde-format
+msgid "Closes this Detail dialog."
+msgstr "Închide acest dialog de detalii."
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:166
+#, kde-format
+msgid "&Close"
+msgstr "Î&nchide"
+
+#: src/generalConfigurationWidget.cpp:30
+#, kde-format
+msgid "This mode is unavailable because its log files do not exist."
+msgstr ""
+
+#: src/generalConfigurationWidget.cpp:35
+#, kde-format
+msgid "No Log Mode"
+msgstr "Fără mod jurnal"
+
+#: src/generalConfigurationWidget.cpp:74
+#, fuzzy, kde-format
+#| msgctxt "Date format Option (Date example)"
+#| msgid "%1 (%2)"
+msgctxt "Date format option (date example)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
+#: src/generalConfigurationWidgetBase.ui:18
+#, kde-format
+msgid "Startup"
+msgstr "Pornire"
+
+#. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
+#: src/generalConfigurationWidgetBase.ui:26
+#, fuzzy, kde-format
+#| msgid "Load this log mode at startup:"
+msgid "Load &this log mode at startup:"
+msgstr "Încarcă acest mod de jurnal la pornire: "
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:36
+#, kde-format
+msgid "The log mode which is loaded by default at startup"
+msgstr "Modul de jurnal care este încărcat implicit la pornire"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:39
+#, kde-format
+msgid ""
+"The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
+"not want this to happen."
+msgstr ""
+"Modul de jurnal a fost încărcat implicit la pornire. Alegeți „Fără mod de "
+"jurnal” dacă doriți ca acest lucru să nu se întâmple."
+
+#. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
+#: src/generalConfigurationWidgetBase.ui:51
+#, kde-format
+msgid "Log Lines List"
+msgstr "Lista liniilor de jurnal"
+
+#. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
+#: src/generalConfigurationWidgetBase.ui:59
+#, fuzzy, kde-format
+#| msgid "Maximum lines displayed:"
+msgid "&Maximum lines displayed:"
+msgstr "Maximum de linii afișate: "
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:75
+#, kde-format
+msgid "Choose here the maximum number of log lines displayed in the main view."
+msgstr ""
+"Alegeți numărul maxim al liniilor de jurnal afișate în imaginea principală."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:78
+#, kde-format
+msgid ""
+"You can choose here the maximum number of log lines displayed in the main "
+"view."
+msgstr ""
+"Aici puteți alege numărul maxim al liniilor de jurnal afișate în imaginea "
+"principală."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:96
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines <b>(may be "
+"slow)</b>."
+msgstr ""
+"Selectați această opțiune dacă doriți să ștergeți liniile de jurnal "
+"duplicate <b>(poate fi lentă)</b>."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:99
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines. <b>This option "
+"can slow log reading</b>."
+msgstr ""
+"Selectați această opțiune dacă doriți să ștergeți liniile de jurnal "
+"duplicate <b>Această opțiune poate îngreuna citirea jurnalelor</b>."
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:102
+#, kde-format
+msgid "Remove &duplicate log lines (may be slower)"
+msgstr "Șterge &duplică liniile de jurnal (poate fi mai lentă)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
+#: src/generalConfigurationWidgetBase.ui:112 src/loggerDialogBase.ui:206
+#, kde-format
+msgid "Options"
+msgstr "Opțiuni"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:118
+#, kde-format
+msgid "Remove process identifier from process name."
+msgstr "Șterge identificatorul procesului din denumirea acestuia."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:121
+#, kde-format
+msgid ""
+"Select this option if you want to remove the process identifier from the "
+"process name. For example, the <b>Process</b> column may contain entries "
+"such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
+"will be removed."
+msgstr ""
+"Selectați această opțiune dacă doriți să ștergeți indentificatorul "
+"procesului de la numele procesului. De exemplu, coloana <b>Proces</b> poate "
+"conține intrări cum ar fi <i>cron<b>[3433]</b></i>. Dacă această opțiune "
+"este activată, partea îngroșată va fi înlăturată."
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:124
+#, kde-format
+msgid "Remove &identifier from process name"
+msgstr "Elimină &identificatorul din denumirea procesului"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:131
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level."
+msgstr ""
+"Această opțiune permite liniilor de jurnal să fie colorate depinzând de "
+"nivelul lor de jurnal."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:134
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level. For "
+"example, errors will be shown in red, warnings in orange, and so on. This "
+"will help you to see problems more easily."
+msgstr ""
+"Această opțiune permite liniilor de jurnal să fie colorate depinzând de "
+"nivelul lor de jurnal. De exemplu, erorile vor fi afișate cu roșu, "
+"avertizările cu portocaliu, și așa mai departe. Aceasta vă va ajuta să "
+"vedeți problemele mai ușor."
+
+#. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:137
+#, kde-format
+msgid "&Colored log lines"
+msgstr "&Liniile colorate ale jurnalului"
+
+#. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
+#: src/generalConfigurationWidgetBase.ui:147
+#, kde-format
+msgid "Date Format"
+msgstr "Format dată"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
+#: src/generalConfigurationWidgetBase.ui:156
+#, kde-format
+msgid "&Short date format"
+msgstr "Format dată &scurt"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
+#: src/generalConfigurationWidgetBase.ui:163
+#, kde-format
+msgid "&Long date format"
+msgstr "Format dată &lung"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
+#: src/generalConfigurationWidgetBase.ui:170
+#, fuzzy, kde-format
+#| msgid "&Short date format"
+msgid "&Precise date format"
+msgstr "Format dată &scurt"
+
+#. i18n: ectx: Menu (edit)
+#: src/ksystemlogui.rc:13
+#, kde-format
+msgid "&Edit"
+msgstr "&Editare"
+
+#. i18n: ectx: Menu (logs)
+#: src/ksystemlogui.rc:31
+#, kde-format
+msgid "Logs"
+msgstr "Jurnale"
+
+#. i18n: ectx: Menu (window)
+#: src/ksystemlogui.rc:36
+#, kde-format
+msgid "&Window"
+msgstr "&Fereastră"
+
+#. i18n: ectx: ToolBar (logToolBar)
+#: src/ksystemlogui.rc:53
+#, kde-format
+msgid "Logs Toolbar"
+msgstr "Bara de jurnale"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/ksystemlogui.rc:64
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bara de unelte principală"
+
+#: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
+#, kde-format
+msgid "Opening '%1'..."
+msgstr "Deschidere „%1”..."
+
+#: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
+#, kde-format
+msgid "Log file '%1' loaded successfully."
+msgstr "Fișierul de jurnal „%1” a fost încărcat cu succes."
+
+#: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
+#, kde-format
+msgid "Log file '%1' has changed."
+msgstr "Fișierul de jurnal „%1” s-a modificat."
+
+#: src/lib/globals.cpp:110
+#, kde-format
+msgid "None"
+msgstr "Niciunul"
+
+#: src/lib/globals.cpp:113
+#, kde-format
+msgid "Debug"
+msgstr "Depanare"
+
+#: src/lib/globals.cpp:117
+#, kde-format
+msgid "Information"
+msgstr "Informații"
+
+#: src/lib/globals.cpp:122
+#, kde-format
+msgid "Notice"
+msgstr "Atenționare"
+
+#: src/lib/globals.cpp:126
+#, kde-format
+msgid "Warning"
+msgstr "Avertizare"
+
+#: src/lib/globals.cpp:129
+#, kde-format
+msgid "Error"
+msgstr "Eroare"
+
+#: src/lib/globals.cpp:132
+#, kde-format
+msgid "Critical"
+msgstr "Critică"
+
+#: src/lib/globals.cpp:135
+#, kde-format
+msgid "Alert"
+msgstr "Alertă"
+
+#: src/lib/globals.cpp:138
+#, kde-format
+msgid "Emergency"
+msgstr "Urgență"
+
+#: src/lib/levelPrintPage.cpp:25
+#, kde-format
+msgid "Log Level Printing"
+msgstr "Nivelul la care se tipărește jurnalul"
+
+#: src/lib/levelPrintPage.cpp:32
+#, kde-format
+msgid "Choose which log levels you wish to print in color."
+msgstr "Alegeți ce niveluri de jurnalizare doriți să fie tipărite colorat."
+
+#: src/lib/loadingBar.cpp:29
+#, kde-format
+msgid "Loading Progress..."
+msgstr "Progres încărcare..."
+
+#: src/lib/loadingBar.cpp:57
+#, kde-format
+msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] "Încărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Încărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 fișiere)"
+msgstr[2] "Încărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 de fișiere)"
+
+#: src/lib/loadingBar.cpp:64
+#, kde-format
+msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] "Reîncărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Reîncărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 fișiere)"
+msgstr[2] "Reîncărcare <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 de fișiere)"
+
+#: src/lib/loadingBar.cpp:75
+#, kde-format
+msgid "Loading <b>%1</b>...<br /><i>%2</i>"
+msgstr "Încărcare <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/loadingBar.cpp:77
+#, kde-format
+msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
+msgstr "Reîncărcare <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
+#, kde-format
+msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
+msgstr "Acest fișier nu este valid. Ajustați-l în configurările KSystemLog."
+
+#: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
+#: src/lib/processOutputLogFileReader.cpp:92
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "Fișierul nu există"
+
+#: src/lib/localLogFileReader.cpp:113
+#, kde-format
+msgid "The file '%1' does not exist."
+msgstr "Fișierul „%1” nu există."
+
+#: src/lib/localLogFileReader.cpp:134
+#, kde-format
+msgid "Unable to uncompress the '%2' format of '%1'."
+msgstr "Nu se poate decomprima  „%2” din „%1”."
+
+#: src/lib/localLogFileReader.cpp:135
+#, kde-format
+msgid "Unable to Uncompress File"
+msgstr "Fișierul nu poate fi decomprimat"
+
+#: src/lib/localLogFileReader.cpp:142
+#, kde-format
+msgid "You do not have sufficient permissions to read '%1'."
+msgstr "Nu aveți suficiente drepturi pentru a citi „%1”."
+
+#: src/lib/localLogFileReader.cpp:143
+#, kde-format
+msgid "Insufficient Permissions"
+msgstr "Permisiuni insuficiente"
+
+#: src/lib/logManager.cpp:68
+#, kde-format
+msgid "Loading log..."
+msgstr "Încărcare jurnal..."
+
+#: src/lib/logManager.cpp:92
+#, kde-format
+msgid "Log successfully loaded."
+msgstr "Jurnal încărcat cu succes."
+
+#: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
+#: src/modes/base/genericConfiguration.cpp:75
+#, kde-format
+msgid "URL '%1' is not valid, skipping this URL."
+msgstr "URL-ul „%1” nu este valid, se sare peste acest URL."
+
+#: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
+#: src/modes/acpid/acpidItemBuilder.cpp:17
+#: src/modes/apache/apacheAccessItemBuilder.cpp:17
+#: src/modes/apache/apacheItemBuilder.cpp:17
+#: src/modes/audit/auditItemBuilder.cpp:14
+#: src/modes/cron/cronItemBuilder.cpp:17
+#: src/modes/cups/cupsAccessItemBuilder.cpp:17
+#: src/modes/cups/cupsItemBuilder.cpp:15
+#: src/modes/cups/cupsPageItemBuilder.cpp:17
+#: src/modes/cups/cupsPdfItemBuilder.cpp:17
+#: src/modes/journald/journaldItemBuilder.cpp:22
+#: src/modes/kernel/kernelItemBuilder.cpp:17
+#: src/modes/samba/sambaItemBuilder.cpp:17
+#, kde-format
+msgid "Date:"
+msgstr "Dată:"
+
+#: src/lib/logModeItemBuilder.cpp:58 src/modes/cron/cronItemBuilder.cpp:18
+#: src/modes/cups/cupsAccessItemBuilder.cpp:19
+#, kde-format
+msgid "Hostname:"
+msgstr "Nume gazdă:"
+
+#: src/lib/logModeItemBuilder.cpp:59 src/modes/cron/cronItemBuilder.cpp:19
+#, kde-format
+msgid "Process:"
+msgstr "Proces:"
+
+#: src/lib/logModeItemBuilder.cpp:60 src/lib/logModeItemBuilder.cpp:75
+#: src/modes/acpid/acpidItemBuilder.cpp:18
+#: src/modes/apache/apacheAccessItemBuilder.cpp:18
+#: src/modes/apache/apacheItemBuilder.cpp:18
+#: src/modes/audit/auditItemBuilder.cpp:15
+#: src/modes/cron/cronItemBuilder.cpp:21
+#: src/modes/cups/cupsAccessItemBuilder.cpp:18
+#: src/modes/cups/cupsItemBuilder.cpp:16
+#: src/modes/cups/cupsPageItemBuilder.cpp:18
+#: src/modes/cups/cupsPdfItemBuilder.cpp:18
+#: src/modes/kernel/kernelItemBuilder.cpp:18
+#: src/modes/samba/sambaItemBuilder.cpp:18
+#, kde-format
+msgid "Level:"
+msgstr "Nivel:"
+
+#: src/lib/logModeItemBuilder.cpp:61 src/lib/logModeItemBuilder.cpp:76
+#: src/modes/cron/cronItemBuilder.cpp:22 src/modes/xorg/xorgItemBuilder.cpp:40
+#: src/modes/xsession/xsessionItemBuilder.cpp:40
+#, kde-format
+msgid "Original file:"
+msgstr "Fișier original:"
+
+#: src/lib/logViewExport.cpp:43
+#, kde-format
+msgid "Here are my logs:\n"
+msgstr "Iată jurnalele mele:\n"
+
+#: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
+#, kde-format
+msgid "---------------------------------------\n"
+msgstr "---------------------------------------\n"
+
+#: src/lib/logViewExport.cpp:63
+#, kde-format
+msgid ""
+"You have selected too many lines. Please only select important log lines."
+msgstr "Ați ales prea multe linii. Alegeți numai liniile de jurnal importante."
+
+#: src/lib/logViewExport.cpp:63
+#, kde-format
+msgid "Too Many Lines Selected"
+msgstr "Prea multe linii alese"
+
+#: src/lib/logViewExport.cpp:67
+#, kde-format
+msgid "Log Lines of my problem"
+msgstr "Liniile de jurnal ale problemei mele. "
+
+#: src/lib/logViewExport.cpp:191
+#, kde-format
+msgid "No items selected. Nothing copied to clipboard."
+msgstr "Niciun element ales. Nimic nu a fost copiat în clipboard."
+
+#: src/lib/logViewExport.cpp:197
+#, kde-format
+msgid "1 log line copied to clipboard."
+msgid_plural "%1 log lines copied to clipboard."
+msgstr[0] "1 linie de jurnal copiată în clipboard."
+msgstr[1] "%1 linii de jurnal copiate în clipboard."
+msgstr[2] "%1 de linii de jurnal copiate în clipboard."
+
+#: src/lib/logViewExport.cpp:211
+#, kde-format
+msgid "No items selected. Please select items to be able to save them."
+msgstr "Niciun element ales. Alegeți elemente pentru a le putea salva."
+
+#: src/lib/logViewExport.cpp:215
+#, kde-format
+msgid "Save selected log entries to..."
+msgstr ""
+
+#: src/lib/logViewExport.cpp:242
+#, kde-format
+msgid "1 log line saved to '%2'."
+msgid_plural "%1 log lines saved to '%2'."
+msgstr[0] "1 linie de jurnal salvată la „%2”."
+msgstr[1] "%1 linii de jurnal salvate la „%2”."
+msgstr[2] "%1 de linii de jurnal salvate la „%2”."
+
+#: src/lib/logViewExport.cpp:244
+#, kde-format
+msgid "Unable to save file '%1': Permission Denied."
+msgstr "Imposibil de salvat fișierul „%1”: Permisiune refuzată"
+
+#: src/lib/logViewExport.cpp:245
+#, kde-format
+msgid "Unable to save file."
+msgstr "Imposibil de salvat fișierul."
+
+#: src/lib/logViewFilterWidget.cpp:94
+#, kde-format
+msgid "Type your filter here"
+msgstr "Tastați filtrul aici"
+
+#: src/lib/logViewFilterWidget.cpp:95
+#, kde-format
+msgid "Allows you to only list items that match the content of this text."
+msgstr ""
+"Vă permite să enumerați numai elementele ce se potrivesc cu conținutul "
+"acestui text."
+
+#: src/lib/logViewFilterWidget.cpp:96
+#, kde-format
+msgid "Enter your search here..."
+msgstr "Introduceți căutarea aici..."
+
+#: src/lib/logViewFilterWidget.cpp:103
+#, kde-format
+msgid "Filter:"
+msgstr "Filtru:"
+
+#: src/lib/logViewFilterWidget.cpp:123
+#, kde-format
+msgid "Select priorities"
+msgstr ""
+
+#: src/lib/logViewFilterWidget.cpp:151
+#, kde-format
+msgid "Choose the filtered column here"
+msgstr "Alegeți coloana filtrată aici"
+
+#: src/lib/logViewFilterWidget.cpp:153
+#, kde-format
+msgid ""
+"Allows you to apply the item filter only on the specified column here. "
+"\"<i>All</i>\" column means no specific filter."
+msgstr ""
+"Vă permite să aplicați filtrul elementului doar pentru coloanele specificate "
+"aici. „<i>Toate</i>”Coloana inseamnă niciun filtru specific. "
+
+#: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
+#, kde-format
+msgid "All"
+msgstr "Toate"
+
+#: src/lib/logViewSearchWidget.cpp:158
+#, kde-format
+msgid "Reached end of list."
+msgstr "A fost atins sfârșitul listei."
+
+#: src/lib/logViewSearchWidget.cpp:241
+#, kde-format
+msgid "Phrase not found."
+msgstr "Fraza nu a fost găsită."
+
+#. i18n: ectx: property (text), widget (QLabel, searchLabel)
+#: src/lib/logViewSearchWidgetBase.ui:41
+#, kde-format
+msgid "Find:"
+msgstr "Caută:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, caseSensitive)
+#: src/lib/logViewSearchWidgetBase.ui:78
+#, kde-format
+msgid "Match &case"
+msgstr "Potrivește &registrul"
+
+#. i18n: ectx: property (text), widget (QCheckBox, highlightAllButton)
+#: src/lib/logViewSearchWidgetBase.ui:85
+#, kde-format
+msgid "&Highlight all"
+msgstr "&Evidențiere toate "
+
+#. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
+#. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
+#. lines in <b>bold</b> are the last added to the list.</p>"));
+#: src/lib/logViewWidget.cpp:34 src/modes/acpid/acpidAnalyzer.cpp:17
+#: src/modes/apache/apacheAccessAnalyzer.cpp:18
+#: src/modes/apache/apacheAnalyzer.cpp:18 src/modes/audit/auditAnalyzer.cpp:22
+#: src/modes/base/syslogAnalyzer.cpp:41 src/modes/cron/cronAnalyzer.cpp:12
+#: src/modes/cups/cupsAccessAnalyzer.cpp:19 src/modes/cups/cupsAnalyzer.cpp:23
+#: src/modes/cups/cupsPageAnalyzer.cpp:19 src/modes/cups/cupsPdfAnalyzer.cpp:19
+#: src/modes/journald/journaldAnalyzer.cpp:21
+#: src/modes/kernel/kernelAnalyzer.cpp:20 src/modes/samba/sambaAnalyzer.cpp:19
+#, kde-format
+msgid "Date"
+msgstr "Dată"
+
+#: src/lib/logViewWidget.cpp:103
+#, kde-format
+msgid "Display/Hide the '%1' column"
+msgstr "Arată/ascunde coloana „%1”"
+
+#: src/lib/processOutputLogFileReader.cpp:140
+#, kde-format
+msgid "The process '%1' crashed."
+msgstr "Procesul „%1” a eșuat."
+
+#: src/lib/processOutputLogFileReader.cpp:141
+#, kde-format
+msgid "Process Crashed"
+msgstr "Procesul a eșuat"
+
+#: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
+#: src/modes/apache/apacheAccessAnalyzer.cpp:21
+#: src/modes/cron/cronAnalyzer.cpp:15 src/modes/cups/cupsAccessAnalyzer.cpp:22
+#: src/modes/cups/cupsPageAnalyzer.cpp:21
+#, kde-format
+msgid "User"
+msgstr "Utilizator"
+
+#: src/loggerDialog.cpp:93
+#, kde-format
+msgid "Authentication"
+msgstr "Autentificare"
+
+#: src/loggerDialog.cpp:94
+#, kde-format
+msgid "Private Authentication"
+msgstr "Autentificare privată"
+
+#: src/loggerDialog.cpp:95
+#, kde-format
+msgid "Cron"
+msgstr "Cron"
+
+#: src/loggerDialog.cpp:96
+#, kde-format
+msgid "Daemon"
+msgstr "Serviciu"
+
+#: src/loggerDialog.cpp:97
+#, kde-format
+msgid "FTP"
+msgstr "FTP"
+
+#: src/loggerDialog.cpp:98
+#, kde-format
+msgid "Kernel"
+msgstr "Nucleu"
+
+#: src/loggerDialog.cpp:99
+#, kde-format
+msgid "LPR"
+msgstr "LPR"
+
+#: src/loggerDialog.cpp:100
+#, kde-format
+msgid "Mail"
+msgstr "Poștă"
+
+#: src/loggerDialog.cpp:101
+#, kde-format
+msgid "News"
+msgstr "Știri"
+
+#: src/loggerDialog.cpp:102
+#, kde-format
+msgid "Syslog"
+msgstr "Jurnal de sistem"
+
+#: src/loggerDialog.cpp:104
+#, kde-format
+msgid "UUCP"
+msgstr "UUCP"
+
+#: src/loggerDialog.cpp:106
+#, kde-format
+msgid "Local 0"
+msgstr "Local 0"
+
+#: src/loggerDialog.cpp:107
+#, kde-format
+msgid "Local 1"
+msgstr "Local 1"
+
+#: src/loggerDialog.cpp:108
+#, kde-format
+msgid "Local 2"
+msgstr "Local 2"
+
+#: src/loggerDialog.cpp:109
+#, kde-format
+msgid "Local 3"
+msgstr "Local 3"
+
+#: src/loggerDialog.cpp:110
+#, kde-format
+msgid "Local 4"
+msgstr "Local 4"
+
+#: src/loggerDialog.cpp:111
+#, kde-format
+msgid "Local 5"
+msgstr "Local 5"
+
+#: src/loggerDialog.cpp:112
+#, kde-format
+msgid "Local 6"
+msgstr "Local 6"
+
+#: src/loggerDialog.cpp:113
+#, kde-format
+msgid "Local 7"
+msgstr "Local 7"
+
+#: src/loggerDialog.cpp:223
+#, kde-format
+msgid ""
+"Unable to find the 'logger' command on your system. Please type 'logger' in "
+"a Konsole to determine whether this command is installed."
+msgstr ""
+"Comanda „logger” nu poate fi găsită în sistem. Scrieți „logger” în Konsole "
+"pentru a determina dacă această comandă este instalată. "
+
+#: src/loggerDialog.cpp:225
+#, kde-format
+msgid "Command not found"
+msgstr "Comanda nu a fost găsită"
+
+#: src/loggerDialog.cpp:230
+#, kde-format
+msgid "The 'logger' command has not been properly exited."
+msgstr "Comanda „logger” nu a fost închisă corect ."
+
+#: src/loggerDialog.cpp:230
+#, kde-format
+msgid "Execution problem"
+msgstr "Problemă de execuție"
+
+#: src/loggerDialog.cpp:236
+#, kde-format
+msgid "This file does not exist, please choose another."
+msgstr "Acest fișier nu există, alegeți alt fișier."
+
+#: src/loggerDialog.cpp:236
+#, kde-format
+msgid "File not valid"
+msgstr "Fișier nevalid"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
+#: src/loggerDialogBase.ui:24
+#, kde-format
+msgid "Log Message"
+msgstr "Istoric mesaje"
+
+#. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
+#: src/loggerDialogBase.ui:39
+#, kde-format
+msgid "&Message:"
+msgstr "&Mesaj:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, fileActivation)
+#: src/loggerDialogBase.ui:52
+#, kde-format
+msgid "&File content:"
+msgstr "&Conținut fișier:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/loggerDialogBase.ui:75
+#, kde-format
+msgid "Properties"
+msgstr "Proprietăți"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: src/loggerDialogBase.ui:101
+#, kde-format
+msgid "&Priority:"
+msgstr "&Prioritate:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: src/loggerDialogBase.ui:162
+#, kde-format
+msgid "&Facility:"
+msgstr "&Facilitate:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
+#: src/loggerDialogBase.ui:229
+#, kde-format
+msgid "&Tag:"
+msgstr "M&arcaj:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
+#: src/loggerDialogBase.ui:241
+#, kde-format
+msgid "Log process &identifier"
+msgstr "Proces istoric &identificator"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:290
+#, kde-format
+msgid "Open the 'logger' command manual."
+msgstr "Deschide comanda „logger” manual."
+
+#. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:293
+#, kde-format
+msgid "This link opens the 'logger' command manual."
+msgstr "Acest link deschide comanda „logger” manual."
+
+#. i18n: ectx: property (text), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:296
+#, kde-format
+msgid "<a href=\"man:/logger\">Logger Manual</a>"
+msgstr "<a href=\"man:/logger\">Manual de înregistrări</a>"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonOK)
+#: src/loggerDialogBase.ui:322
+#, kde-format
+msgid "&OK"
+msgstr "&OK"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
+#: src/loggerDialogBase.ui:338
+#, kde-format
+msgid "&Cancel"
+msgstr "&Renunță"
+
+#: src/main.cpp:29
+#, kde-format
+msgid "KSystemlog"
+msgstr "KSystemlog"
+
+#: src/main.cpp:31
+#, fuzzy, kde-format
+#| msgid "System Logs Viewer for KDE"
+msgid "System Logs Viewer by KDE"
+msgstr "Vizualizator jurnale de sistem pentru KDE"
+
+#: src/main.cpp:33
+#, fuzzy, kde-format
+#| msgid "(C) 2007, Nicolas Ternisien"
+msgid "(C) 2007-2015, Nicolas Ternisien"
+msgstr "(C) 2007, Nicolas Ternisien"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+msgstr ""
+"Nu ezitați să raportați defecte și probleme către Nicolas Ternisien <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Nicolas Ternisien"
+msgstr "Nicolas Ternisien"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "Main developer"
+msgstr "Dezvoltator principal"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Vyacheslav Matyushin"
+msgstr ""
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Journald mode, bugfixes"
+msgstr ""
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Bojan Djurkovic"
+msgstr "Bojan Djurkovic"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Log Printing"
+msgstr "Tipărirea jurnalului"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Bug Fixing"
+msgstr "Corecții de defecte"
+
+#: src/main.cpp:58
+#, kde-format
+msgid "Document to open."
+msgstr "Document de deschis."
+
+#: src/mainWindow.cpp:308
+#, kde-format
+msgctxt "Total displayed lines"
+msgid "1 line."
+msgid_plural "%1 lines."
+msgstr[0] "1 linie."
+msgstr[1] "%1 linii."
+msgstr[2] "%1 de linii."
+
+#: src/mainWindow.cpp:311
+#, kde-format
+msgctxt "Line not hidden by search / Total displayed lines"
+msgid "1 line / %2 total."
+msgid_plural "%1 lines / %2 total."
+msgstr[0] "1 linie / %2 total."
+msgstr[1] "%1 linii / %2 total."
+msgstr[2] "%1 de linii / %2 total."
+
+#: src/mainWindow.cpp:332
+#, kde-format
+msgid "Resu&me"
+msgstr "&Reia"
+
+#: src/mainWindow.cpp:334
+#, kde-format
+msgid "Resume the watching of the current log"
+msgstr "Reia urmărirea jurnalului curent"
+
+#: src/mainWindow.cpp:336
+#, kde-format
+msgid ""
+"Resumes the watching of the current log. This action is only available when "
+"the user has already paused the reading."
+msgstr ""
+"Reia vizualizarea jurnalului curent. Această acțiune este disponibilă numai "
+"când utilizatorul a suspendat citirea."
+
+#: src/mainWindow.cpp:341
+#, kde-format
+msgid "S&top"
+msgstr "Opreș&te"
+
+#: src/mainWindow.cpp:343
+#, kde-format
+msgid "Pause the watching of the current log"
+msgstr "Întrerupe urmărirea jurnalului curent"
+
+#: src/mainWindow.cpp:345
+#, kde-format
+msgid ""
+"Pauses the watching of the current log. This action is particularly useful "
+"when the system is writing too many lines to log files, causing KSystemLog "
+"to reload too frequently."
+msgstr ""
+"Suspendă vizualizarea jurnalului curent. Această acțiune este folositoare in "
+"mod special când sistemul scrie prea multe linii în fișierele de jurnal , "
+"cauzând KSystemLog să se reîncarce prea frecvent. "
+
+#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#, kde-format
+msgctxt "Newly created tab"
+msgid "Empty Log"
+msgstr "Jurnal gol"
+
+#: src/mainWindow.cpp:529
+#, kde-format
+msgid "Open a file in KSystemLog"
+msgstr "Deschide un fișier în KSystemLog"
+
+#: src/mainWindow.cpp:530
+#, kde-format
+msgid "Opens a file in KSystemLog and displays its content in the current tab."
+msgstr ""
+"Deschide fișierul în KSystemLog și îi afișează conținutul în fila actuală."
+
+#: src/mainWindow.cpp:533
+#, kde-format
+msgid "&Print Selection..."
+msgstr "&Tipărește selecția…"
+
+#: src/mainWindow.cpp:534
+#, kde-format
+msgid "Print the selection"
+msgstr "Tipărește selecția"
+
+#: src/mainWindow.cpp:536
+#, kde-format
+msgid ""
+"Prints the selection. Simply select the important lines and click on this "
+"menu entry to print the selection."
+msgstr ""
+"Tipărește selecția. Alegeți liniile importante și apăsați pe această "
+"înregistrare a meniului pentru a tipării selecția."
+
+#: src/mainWindow.cpp:541
+#, fuzzy, kde-format
+#| msgid "&Print Selection..."
+msgid "&Print Preview Selection..."
+msgstr "&Tipărește selecția..."
+
+#: src/mainWindow.cpp:542
+#, fuzzy, kde-format
+#| msgid "Print the selection"
+msgid "Print preview the selection"
+msgstr "Tipărește selecția"
+
+#: src/mainWindow.cpp:544
+#, fuzzy, kde-format
+#| msgid ""
+#| "Prints the selection. Simply select the important lines and click on this "
+#| "menu entry to print the selection."
+msgid ""
+"Prints preview the selection. Simply select the important lines and click on "
+"this menu entry to print the selection."
+msgstr ""
+"Se tiperăște selecția. Selectați liniile importante și apăsați pe această "
+"înregistrare a meniului pentru a tipării selecția."
+
+#: src/mainWindow.cpp:550
+#, kde-format
+msgid "Save the selection to a file"
+msgstr "Salvează selecția în fișier"
+
+#: src/mainWindow.cpp:552
+#, kde-format
+msgid ""
+"Saves the selection to a file. This action is useful if you want to create "
+"an attachment or a backup of a particular log."
+msgstr ""
+"Se salvează selecția intr-un fișier. Această acțiune este folositoare dacă "
+"doriți să creați un atașament sau o rezervă a unui jurnal anume."
+
+#: src/mainWindow.cpp:558
+#, kde-format
+msgid "Quit KSystemLog"
+msgstr "Părăsește KSystemLog"
+
+#: src/mainWindow.cpp:559
+#, kde-format
+msgid "Quits KSystemLog."
+msgstr "Se părăsește KSystemLog."
+
+#: src/mainWindow.cpp:562
+#, kde-format
+msgid "Copy the selection to the clipboard"
+msgstr "Copiază selecția în clipboard"
+
+#: src/mainWindow.cpp:564
+#, kde-format
+msgid ""
+"Copies the selection to the clipboard. This action is useful if you want to "
+"paste the selection in a chat or an email."
+msgstr ""
+"Se copiază selecția în clipboard.Această acțiune este folositoare dacă "
+"doriți să lipiți selecția intr-o conversație sau email."
+
+#: src/mainWindow.cpp:569
+#, kde-format
+msgid "Ex&pand All"
+msgstr "Des&fășoară toate"
+
+#: src/mainWindow.cpp:570
+#, kde-format
+msgid "Expand all categories"
+msgstr "Desfășoară toate categoriile"
+
+#: src/mainWindow.cpp:572
+#, kde-format
+msgid ""
+"This action opens all main categories. This is enabled only if an option has "
+"been selected in the <b>Group By</b> menu."
+msgstr ""
+"Această acțiune deschide toate categoriile principale. Aceasta se activează "
+"numai dacă o opțiune a fost selectată in meniul <b>Grupați după</b>"
+
+#: src/mainWindow.cpp:578
+#, kde-format
+msgid "Col&lapse All"
+msgstr "Restrânge &toate"
+
+#: src/mainWindow.cpp:579
+#, kde-format
+msgid "Collapse all categories"
+msgstr "Restrânge toate categoriile"
+
+#: src/mainWindow.cpp:581
+#, kde-format
+msgid ""
+"This action closes all main categories. This is enabled only if an option "
+"has been selected in the <b>Group By</b> menu."
+msgstr ""
+"Această acțiune închide toate categoriile principale. Aceasta este activată "
+"doar dacă o opțiune a fost selectată în meniul <b>Grupează după</b> ."
+
+#: src/mainWindow.cpp:587
+#, kde-format
+msgid "&Email Selection..."
+msgstr "&Expediază selecția..."
+
+#: src/mainWindow.cpp:589
+#, kde-format
+msgid "Send the selection by mail"
+msgstr "Exediază selecția prin poșta electronică"
+
+#: src/mainWindow.cpp:591
+#, kde-format
+msgid ""
+"Sends the selection by mail. Simply select the important lines and click on "
+"this menu entry to send the selection to a friend or a mailing list."
+msgstr ""
+"Se trimite selecția prin mail. Selectați liniile importante și apăsați pe "
+"înregistrarea meniului pentru a trimite selecția sau lista de discuții unui "
+"prieten."
+
+#: src/mainWindow.cpp:597
+#, kde-format
+msgid "&Add Log Entry..."
+msgstr "&Adaugă înregistrare de jurnal..."
+
+#: src/mainWindow.cpp:600
+#, kde-format
+msgid "Add a log entry to the log system"
+msgstr "Adaugă o înregistrare de jurnal în sistemul de jurnale"
+
+#: src/mainWindow.cpp:601
+#, kde-format
+msgid ""
+"This action will open a dialog which lets you send a message to the log "
+"system."
+msgstr ""
+"Această acțiune va deschide o fereastră de dialog care vă permite să "
+"trimiteți jurnalul către sistem."
+
+#: src/mainWindow.cpp:605
+#, kde-format
+msgid "Select all lines of the current log"
+msgstr "Alege toate liniile jurnalului curent"
+
+#: src/mainWindow.cpp:607
+#, kde-format
+msgid ""
+"Selects all lines of the current log. This action is useful if you want, for "
+"example, to save all the content of the current log in a file."
+msgstr ""
+"Se selectează toate liniile jurnalului curent. Această acțiune este "
+"folositoare dacă doriți , de exemplu, pentru a salva tot conținutul "
+"jurnalului curent intr-un fișier."
+
+#: src/mainWindow.cpp:618
+#, kde-format
+msgid "Show &Filter Bar"
+msgstr "Arată bara de &filtrare"
+
+#: src/mainWindow.cpp:624
+#, kde-format
+msgid "&New Tab"
+msgstr "Filă &nouă"
+
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#, kde-format
+msgid "Create a new tab"
+msgstr "Creează o filă nouă"
+
+#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#, kde-format
+msgid "Creates a new tab which can display another log."
+msgstr "Creează o filă nouă ce poate afișa alt jurnal."
+
+#: src/mainWindow.cpp:632
+#, kde-format
+msgid "&Close Tab"
+msgstr "În&chide fila"
+
+#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#, kde-format
+msgid "Close the current tab"
+msgstr "Închide fila curentă"
+
+#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#, kde-format
+msgid "Closes the current tab."
+msgstr "Fila curentă se închide."
+
+#: src/mainWindow.cpp:640
+#, kde-format
+msgid "&Duplicate Tab"
+msgstr "&Duplică fila"
+
+#: src/mainWindow.cpp:642
+#, kde-format
+msgid "Duplicate the current tab"
+msgstr "Duplică fila curentă"
+
+#: src/mainWindow.cpp:643
+#, kde-format
+msgid "Duplicates the current tab."
+msgstr "Fila curentă se duplică."
+
+#: src/mainWindow.cpp:652
+#, kde-format
+msgid "Move Tab &Left"
+msgstr "Mută fila &la stânga"
+
+#: src/mainWindow.cpp:654
+#, kde-format
+msgid "Move the current tab to the left"
+msgstr "Mută fila curentă la stânga"
+
+#: src/mainWindow.cpp:655
+#, kde-format
+msgid "Moves the current tab to the left."
+msgstr "Fila curentă se mută la stânga."
+
+#: src/mainWindow.cpp:660
+#, kde-format
+msgid "Move Tab &Right"
+msgstr "Mută fila la d&reapta"
+
+#: src/mainWindow.cpp:662
+#, kde-format
+msgid "Move the current tab to the right"
+msgstr "Mută fila curentă la dreapta"
+
+#: src/mainWindow.cpp:663
+#, kde-format
+msgid "Moves the current tab to the right."
+msgstr "Fila curentă se mută la dreapta."
+
+#: src/mainWindow.cpp:668
+#, kde-format
+msgid "&Reload"
+msgstr "&Reîncarcă"
+
+#: src/mainWindow.cpp:670
+#, kde-format
+msgid "Reload the current log"
+msgstr "Reîncarcă jurnalul curent"
+
+#: src/mainWindow.cpp:671
+#, kde-format
+msgid ""
+"Reloads the current log, if you want to be sure that the view is correctly "
+"updated."
+msgstr ""
+"Jurnalul curent se reîncarcă, dacă doriți să fiți sigur că imaginea a fost "
+"actualizată corect."
+
+#: src/mainWindow.cpp:681
+#, kde-format
+msgid "&Details"
+msgstr "&Detalii"
+
+#: src/mainWindow.cpp:683
+#, kde-format
+msgid "Display details on the selected line"
+msgstr "Afișează detaliile liniei alese"
+
+#: src/mainWindow.cpp:685
+#, kde-format
+msgid ""
+"Displays a dialog box which contains details on the selected line. You are "
+"able to navigate through the logs from this dialog box with the <b>Previous</"
+"b> and <b>Next</b> buttons."
+msgstr ""
+"Se afișează o fereastră de dialog care conține detalii despre linia "
+"selectată. Puteți să navigați printre jurnalele din fereastra de dialog cu "
+"butoanele <b>Înapoi</b> și <b>înainte</b>"
+
+#: src/mainWindow.cpp:691
+#, kde-format
+msgid "&Enable Detailed Tooltips"
+msgstr "Activ&ează indicațiile detaliate"
+
+#: src/mainWindow.cpp:692
+#, kde-format
+msgid "Disable/Enable the tooltip on the current view"
+msgstr "Dezactivează/Activează indicația pentru poza curentă. "
+
+#: src/mainWindow.cpp:693
+#, kde-format
+msgid ""
+"Disables/Enables the tooltip displayed when the cursor hovers a log line."
+msgstr ""
+"Dezactivează/Activează indicația afișată când cursorul trece peste o linie "
+"de jurnal."
+
+#: src/mainWindow.cpp:699
+#, kde-format
+msgid "&Scroll to New Lines"
+msgstr "Derulea&ză la liniile noi"
+
+#: src/mainWindow.cpp:700
+#, kde-format
+msgid "Scrolls or not to the new lines when the log changes"
+msgstr "Derulează sau nu către liniile noi atunci când jurnalul se schimbă. "
+
+#: src/mainWindow.cpp:702
+#, kde-format
+msgid ""
+"Scrolls or not to the new lines when the log changes. Check this option if "
+"you do not want the application to scroll automatically at the bottom of the "
+"log each time it is refreshed."
+msgstr ""
+"Derulează sau nu către liniile noi atunci când jurnalul se schimbă. Bifați "
+"această opțiune dacă nu doriți ca aplicația să se deruleze automat către "
+"baza jurnalului de fiecare dată când este actualizat."
+
+#: src/mainWindow.cpp:762
+#, kde-format
+msgid "Services"
+msgstr "Servicii"
+
+#: src/mainWindow.cpp:763
+#, kde-format
+msgid "Others"
+msgstr "Altele"
+
+#: src/modes/acpid/acpidAnalyzer.cpp:18 src/modes/xorg/xorgAnalyzer.cpp:26
+#, kde-format
+msgid "Type"
+msgstr "Tip"
+
+#: src/modes/acpid/acpidConfigurationWidget.cpp:11
+#, kde-format
+msgid "Acpid Log"
+msgstr "Jurnalul acpid"
+
+#: src/modes/acpid/acpidConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalul acpid</b>.</p>"
+
+#: src/modes/acpid/acpidItemBuilder.cpp:19
+#: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
+#, kde-format
+msgid "Type:"
+msgstr "Tip:"
+
+#: src/modes/acpid/acpidLogMode.cpp:19
+#, kde-format
+msgid "ACPI Log"
+msgstr "Jurnalul ACPI"
+
+#: src/modes/acpid/acpidLogMode.cpp:28
+#, kde-format
+msgid "Display the ACPI log."
+msgstr "Afișează jurnalul ACPI."
+
+#: src/modes/acpid/acpidLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the ACPI log in the current tab. ACPI is used to manage the "
+"hardware components of your computer, like notebook batteries, reset "
+"buttons..."
+msgstr ""
+"Afișează jurnalul ACPI în fila curentă. ACPI este folosit pentru a "
+"administra componentele fizice ale calculatorului, precum bateriile "
+"calculatoarelor portabile , butoanele de reset ..."
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:19
+#, kde-format
+msgid "Host Name"
+msgstr "Nume gazdă"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:20
+#, kde-format
+msgid "Id."
+msgstr "Id."
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:22
+#, kde-format
+msgid "Response"
+msgstr "Răspuns"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:23
+#, kde-format
+msgid "Bytes Sent"
+msgstr "Octeți trimiși"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:24
+#, kde-format
+msgid "Agent Identity"
+msgstr "Identitate agent"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:25
+#: src/modes/cups/cupsAccessAnalyzer.cpp:23
+#, kde-format
+msgid "HTTP Request"
+msgstr "Cerere HTTP"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:26
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:19
+#, kde-format
+msgid "Host Name:"
+msgstr "Nume gazdă:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:20
+#: src/modes/cups/cupsAccessItemBuilder.cpp:20
+#, kde-format
+msgid "Identification:"
+msgstr "Identificare:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:21
+#: src/modes/cups/cupsAccessItemBuilder.cpp:21
+#: src/modes/cups/cupsPageItemBuilder.cpp:20
+#, kde-format
+msgid "Username:"
+msgstr "Utilizator:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:22
+#: src/modes/cups/cupsAccessItemBuilder.cpp:22
+#, kde-format
+msgid "HTTP Response:"
+msgstr "Răspuns HTTP:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:23
+#: src/modes/cups/cupsAccessItemBuilder.cpp:23
+#, kde-format
+msgid "Bytes Sent:"
+msgstr "Octeți trimiși:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:24
+#, kde-format
+msgid "Agent Identity:"
+msgstr "Identitate agent:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:25
+#, kde-format
+msgid "HTTP Request:"
+msgstr "Cerere HTTP:"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:21
+#, kde-format
+msgid "Apache Access Log"
+msgstr "Jurnal de acces Apache"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:30
+#, kde-format
+msgid "Display the Apache Access log."
+msgstr "Afișează jurnalul de acces Apache."
+
+#: src/modes/apache/apacheAccessLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the Apache Access log in the current tab. Apache is the main used "
+"Web server in the world. This log saves all requests performed by the Apache "
+"web server."
+msgstr ""
+"Afișează jurnalul de acces Apache în fila curentă. Apache este cel mai "
+"folosit web server din lume. Acest jurnal salvează toate cererile executate "
+"de către Apache web server."
+
+#: src/modes/apache/apacheAnalyzer.cpp:19
+#, kde-format
+msgid "Client"
+msgstr "Client"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:11
+#: src/modes/apache/apacheLogMode.cpp:21
+#, kde-format
+msgid "Apache Log"
+msgstr "Jurnalul Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Apache log</b> and the "
+"<b>Apache Access log</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalul Apache</b>și "
+"<b>jurnalul de acces Apache</b>.</p>"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:19
+#, kde-format
+msgid "Apache Log Files"
+msgstr "Fișiere de jurnal Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Apache File..."
+msgstr "Adăugare fișier Apache..."
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:20
+#, kde-format
+msgid "Apache Access Log Files"
+msgstr "Fișiere de jurnal de acces Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Apache Access File..."
+msgstr "Adaugă fișier de acces Apache..."
+
+#: src/modes/apache/apacheFactory.cpp:48
+#, kde-format
+msgid "Apache"
+msgstr "Apache"
+
+#: src/modes/apache/apacheItemBuilder.cpp:19
+#, kde-format
+msgid "Client:"
+msgstr "Client:"
+
+#: src/modes/apache/apacheLogMode.cpp:30
+#, kde-format
+msgid "Display the Apache log."
+msgstr "Afișează jurnalul Apache."
+
+#: src/modes/apache/apacheLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the Apache log in the current tab. Apache is the main used Web "
+"server in the world."
+msgstr ""
+"Afișează jurnalul Apache în fila curentă. Apache este cel mai folosit server "
+"web din lume."
+
+#: src/modes/audit/auditConfigurationWidget.cpp:14
+#: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
+#, fuzzy, kde-format
+#| msgid "Acpid Log"
+msgid "Audit Log"
+msgstr "Jurnalul acpid"
+
+#: src/modes/audit/auditConfigurationWidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalul acpid</b>.</p>"
+
+#: src/modes/audit/auditLogMode.cpp:26
+#, fuzzy, kde-format
+#| msgid "Display the Cups log."
+msgid "Display the audit log."
+msgstr "Afișează jurnalul Cups."
+
+#: src/modes/audit/auditLogMode.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Displays the system log in the current tab. This log is generally used by "
+#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgid ""
+"Displays the audit log in the current tab. This log is generally used by non-"
+"specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgstr ""
+"Afișează jurnalul de sistem în fila curentă. Acest jurnal este folosit in "
+"general de către procesele nespecializate (precum comenzile „sudo” sau "
+"„fsck” )"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:11
+#: src/modes/authentication/authenticationLogMode.cpp:19
+#, kde-format
+msgid "Authentication Log"
+msgstr "Jurnal autentificare"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:18
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:18
+#, kde-format
+msgid "Log file does not exist. Mode will be unavailable."
+msgstr ""
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:23
+#, kde-format
+msgid "Authentication Log File"
+msgstr "Fișierul de jurnal al autentificării"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:33
+#, kde-format
+msgid "Authentication log file:"
+msgstr "Fișierul de jurnal al autentificării:"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:38
+#, kde-format
+msgid ""
+"You can type or choose the authentication log file (example: <i>/var/log/"
+"auth.log</i>)."
+msgstr ""
+"Puteți scrie sau alege fișierul de jurnal al autentificării (exemplu: <i>/"
+"var/log/auth.log</i>)."
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:40
+#, kde-format
+msgid ""
+"You can type or choose here the authentication log file. This file will be "
+"analyzed when you select the <b>Authentication log</b> menu. Generally, its "
+"name is <i>/var/log/auth.log</i>"
+msgstr ""
+"Aici puteți scrie sau alege fișierul de jurnal al autentificării . Acest "
+"fișier va fi analizat când veți selecta meniul <b>Jurnal de autentificare</"
+"b> . În general , numele este <i>/var/log/auth.log</i> "
+
+#: src/modes/authentication/authenticationLogMode.cpp:28
+#, kde-format
+msgid "Display the authentication log."
+msgstr "Afișează jurnalul autentificărilor."
+
+#: src/modes/authentication/authenticationLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the authentication log in the current tab. This log displays all "
+"logins made by each user of the system, and can help you to know if someone "
+"tried to crack your system."
+msgstr ""
+"Afișează jurnalul de autentificare în fila curentă. Acest jurnal afișează "
+"toate autentificările făcute de fiecare utilizator al sistemului , și vă "
+"poate ajuta să știți dacă cineva încearcă să pătrundă în sistem. "
+
+#: src/modes/base/fileList.cpp:33
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"If all log files are missing, this mode will be unavailable."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, description)
+#: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
+#, kde-format
+msgid "File List Description"
+msgstr "Descrierea listei de fișiere"
+
+#. i18n: ectx: property (title), widget (QGroupBox, filesBox)
+#: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
+#, kde-format
+msgid "Log Files"
+msgstr "Fișiere de jurnal"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:55
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Alegeți un fișier nou</p></"
+"body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:61
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
+"choose a new file to be added to the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se deschide o fereastră de "
+"dialog pentru a alege un nou fișier care să fie adăugat în listă.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:64
+#, kde-format
+msgid "&Add File..."
+msgstr "&Adăugare fișier..."
+
+#. i18n: ectx: property (text), widget (QPushButton, modify)
+#: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
+#, kde-format
+msgid "&Modify File..."
+msgstr "&Modificare fișier..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Șterge fișierele curente</"
+"p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:87
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
+"on the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se șterg fișierele alese "
+"de pelistă.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
+#, kde-format
+msgid "&Remove"
+msgstr "&Elimină"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:100 src/modes/base/multipleFileListBase.ui:99
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Elimină toate fișierele</"
+"p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:106
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
+"the list, even if they are not selected.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Elimină toate fișierele de "
+"pe lista, chiar dacă nu sunt selectate.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:109
+#: src/modes/base/multipleFileListBase.ui:108
+#, kde-format
+msgid "Rem&ove All"
+msgstr "Elimină t&oate"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:122
+#: src/modes/base/multipleFileListBase.ui:121
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mută în sus fișierul "
+"curent</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:128
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"up in the list. This option allows the files to be read <span style=\" font-"
+"weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se mută fișierele "
+"selectate mai sus în listă. Această opțiune permite fișierelor să fie "
+"citite<span style=\" font-weight:600;\">în primul rând</span> de KSystemLog."
+"</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:131
+#: src/modes/base/multipleFileListBase.ui:130
+#, kde-format
+msgid "Move &Up"
+msgstr "Mută mai s&us"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:141
+#: src/modes/base/multipleFileListBase.ui:140
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mută mai jos fișierul "
+"curent</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:147
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"down in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se mută mai jos în listă "
+"fișierele selectate. Această opțiune permite fișierelor să fie citite<span "
+"style=\" font-weight:600;\"> în ultimul rând</span> de KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:150
+#: src/modes/base/multipleFileListBase.ui:149
+#, kde-format
+msgid "Move &Down"
+msgstr "Mută mai &jos"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/fileListBase.ui:175
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
+"files when adding files.</li></ul>"
+msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Fișierele sunt citite utilizând ordinea acestei "
+"liste <i>(*.log, *.gz, *.bz2,...)</i>.</li><li>Folosiți <b>'*'</"
+"b>metacaracterul pentru a selecta multiple fișiere de jurnal când adăugați "
+"fișiere. </li></ul>"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:191
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
+"log type.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Lista fișierelor folosite "
+"de acest tip de jurnal.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:197
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Here is a list of every "
+"file that will be read by KSystemLog to display the current log lines.</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Aici este o listă a "
+"fiecărui fișier care va fi citit de către KSystemLog pentru a afișa liniile "
+"de jurnal curente.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:210
+#, kde-format
+msgid "add"
+msgstr "adaugă"
+
+#: src/modes/base/fileListHelper.cpp:99
+#, kde-format
+msgid "'%1' is not a local file."
+msgstr "„%1” nu este un fișier local."
+
+#: src/modes/base/fileListHelper.cpp:100
+#, kde-format
+msgid "File selection failed"
+msgstr "Alegerea fișierului a eșuat"
+
+#: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
+#, kde-format
+msgid "All Files (*)"
+msgstr "Toate fișierele (*)"
+
+#: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
+#, kde-format
+msgid "Log Files (*.log)"
+msgstr "Fișiere de jurnal (*.log)"
+
+#: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
+#, kde-format
+msgid "Choose Log File"
+msgstr "Alegeți fișierul de jurnal"
+
+#: src/modes/base/genericConfiguration.cpp:58
+#, kde-format
+msgid "The two arrays size are different, skipping the reading of log files."
+msgstr ""
+"Dimensiunea celor două matrici este diferită, citirea fișierelor de jurnal "
+"este omisă. "
+
+#: src/modes/base/logLevelFileList.cpp:35
+#, kde-format
+msgid "&Change Status..."
+msgstr "S&chimbă stare..."
+
+#: src/modes/base/logLevelFileList.cpp:36
+#, kde-format
+msgid "Change the level of the current file(s)"
+msgstr "Schimbă nivelul fișierului/fișierelor  curent/curente"
+
+#: src/modes/base/logLevelFileList.cpp:38
+#, kde-format
+msgid ""
+"Changes the level of the current file(s). See KSystemLog documentation for "
+"more information about each log level."
+msgstr ""
+"Schimbă nivelul fișierului/fișierelor curent/curente. Consultați "
+"documentația KSystemLog pentru mai multe informații despre fiecare nivel al "
+"jurnalului."
+
+#: src/modes/base/logLevelFileList.cpp:150
+#, kde-format
+msgid ""
+"The two arrays size are different, skipping the reading of generic paths."
+msgstr ""
+"Dimensiunea celor două matrici diferă , citirea căii generice este omisă. "
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
+#: src/modes/base/logLevelSelectionDialogBase.ui:14
+#, kde-format
+msgid "Selecting File Type"
+msgstr "Alegerea tipului fișierului"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/base/logLevelSelectionDialogBase.ui:23
+#, kde-format
+msgid "Please select the type of this file:"
+msgstr "Alegeți tipul acestui fișier:"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:36
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
+"levels</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Lista nivelelor de jurnal "
+"existente</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:43
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is the list of all "
+"existing log levels. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
+"to be used for the files selected on the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Aceasta este lista tuturor "
+"nivelelor de jurnal existente. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Selectați una din ele "
+"pentru a fi folosită pentru fișierele selectate în listă.</p></body></html>"
+
+#: src/modes/base/multipleFileList.cpp:34
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"Modes with missing log files will be unavailable."
+msgstr ""
+
+#: src/modes/base/multipleFileList.cpp:410
+#, kde-format
+msgid "No log file..."
+msgstr "Niciun fișier de jurnal..."
+
+#. i18n: ectx: property (text), widget (QTreeWidget, fileList)
+#: src/modes/base/multipleFileListBase.ui:60
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/multipleFileListBase.ui:86
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
+"of the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se șterg fișierele alese "
+"din listă.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/multipleFileListBase.ui:105
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
+"list, even if they are not selected.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Înlătură toate fișierele "
+"listei, chiar dacă nu sunt selectate.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/multipleFileListBase.ui:127
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves up the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se mută mai sus în listă "
+"fișierele selectate. Această opțiune permite fișierelor să fie citite <span "
+"style=\" font-weight:600;\">în primul rând</span> de KSystemLog.</p></body></"
+"html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/multipleFileListBase.ui:146
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves down the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Se mută mai jos în listă "
+"fișierele selectate. Această opțiune permite fișierelor să fie citite <span "
+"style=\" font-weight:600;\">în ultimul rând</span> de KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/multipleFileListBase.ui:174
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
+"when adding files.</li></ul>"
+msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notițe:</b></p><ul "
+"style='margin-top:0px'><li>Fișierele sunt citite folosind ordinea listei.</"
+"li><li>Fișierele text comprimate și simple sunt acceptate <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Folosiți <b>„*”</b>jokerul pentru a selecta multiple "
+"fișiere de jurnal când adăugați fișiere.</li></ul>"
+
+#: src/modes/base/parsingHelper.cpp:156
+#, kde-format
+msgctxt "HttpResponseNumber HttpResponseDescription"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: src/modes/base/syslogAnalyzer.cpp:42 src/modes/cron/cronAnalyzer.cpp:13
+#: src/modes/cups/cupsAccessAnalyzer.cpp:20
+#, kde-format
+msgid "Host"
+msgstr "Gazdă"
+
+#: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
+#, kde-format
+msgid "Process"
+msgstr "Proces"
+
+#: src/modes/cron/cronAnalyzer.cpp:16
+#, kde-format
+msgid "Command"
+msgstr "Comandă"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:10
+#: src/modes/cron/cronLogMode.cpp:19
+#, kde-format
+msgid "Cron Log"
+msgstr "Jurnal cron"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:15
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
+"tasks logs). <a href='man:/cron'>More information...</a></p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalele Cron</b> (e."
+"x. jurnal de sarcini planificate). <a href='man:/cron'>Mai multe "
+"informații...</a></p>"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:24
+#, kde-format
+msgid "Enable Process Filtering"
+msgstr "Activează filtrarea proceselor"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:36
+#, kde-format
+msgid "Only keeps lines which matches this process :"
+msgstr "Păstrează numai liniile ce se potrivesc cu acest proces:"
+
+#: src/modes/cron/cronItemBuilder.cpp:20
+#, kde-format
+msgid "User:"
+msgstr "Utilizator:"
+
+#: src/modes/cron/cronLogMode.cpp:28
+#, kde-format
+msgid "Display the planned tasks log (Cron log)."
+msgstr "Afișează jurnalul de sarcini stabilit ( jurnalul Cron)."
+
+#: src/modes/cron/cronLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the planned tasks log in the current tab. Cron process is a program "
+"in charge of launching planned tasks on your system, like security checks, "
+"or auto-restarting of some services. Use this menu to see the recently "
+"launched processes."
+msgstr ""
+"Afișează jurnalul de sarcini planificat în fila curentă. Procesul Cron este "
+"un program responsabil de lansarea sarcinilor planificate în sistem , precum "
+"verificări de securitate , sau auto-repornirea unor servicii. Folosiți acest "
+"meniu pentru a vedea procesele lansate recent. "
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:21
+#, kde-format
+msgid "Group"
+msgstr "Grup"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:24
+#, kde-format
+msgid "Status"
+msgstr "Stare"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:25
+#, kde-format
+msgid "Bytes"
+msgstr "Octeți"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:26
+#, kde-format
+msgid "IPP Operation"
+msgstr "Operație IPP"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:27
+#, kde-format
+msgid "IPP Status"
+msgstr "Stare IPP"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:21
+#, kde-format
+msgid "Cups Web Log"
+msgstr "Jurnal web cups"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS Web Server Access log."
+msgstr "Afișează jurnalul de acces al serverului web CUPS."
+
+#: src/modes/cups/cupsAccessLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS Web Server Access log in the current tab. CUPS is the "
+"program which manages printing on your computer. This log saves all requests "
+"performed to the CUPS embedded web server (default: <i>http://localhost:631</"
+"i>)."
+msgstr ""
+"Afișează jurnalul de acces al serverului web CUPS în fila curentă. CUPS este "
+"programul care administrează tipărirea la calculator. Acest jurnal salvează "
+"toate cererile încorporate în server-ul web și executate de CUPS (implicit: "
+"<i>http://localhost:631</i>)."
+
+#: src/modes/cups/cupsAnalyzer.cpp:56
+#, kde-format
+msgid "debug 2"
+msgstr "depanare 2"
+
+#: src/modes/cups/cupsAnalyzer.cpp:76
+#, kde-format
+msgid ""
+"New Log Level detected: Please send this log file to the KSystemLog "
+"developer to add it."
+msgstr ""
+"Nivel nou de jurnal detectat: Vă rugăm trimiteți acest fișier de jurnal "
+"către dezvoltatorul KSystemLog pentru a-l adăuga. "
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:11
+#: src/modes/cups/cupsLogMode.cpp:21
+#, kde-format
+msgid "Cups Log"
+msgstr "Jurnal Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:11
+#, kde-format
+msgid "Cups &amp; Cups Web Server Log"
+msgstr "Jurnalul serverului web Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
+"Web Access log</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalul Cups</b> și "
+"<b>jurnalul de acces web Cups</b>.</p>"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:19
+#, kde-format
+msgid "Cups Log Files"
+msgstr "Fișiere de jurnal Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Cups File..."
+msgstr "Adăugă fișier Cups..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:20
+#, kde-format
+msgid "Cups Access Log Files"
+msgstr "Fișiere de jurnal de acces Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Cups Access File..."
+msgstr "Adăugă fișier de acces Cups..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:21
+#, kde-format
+msgid "Cups Page Log Files"
+msgstr "Fișiere de jurnal de tip pagină Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:21
+#, kde-format
+msgid "Add Cups Page File..."
+msgstr "Adaugă fișier-jurnal de tip pagină Cups..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:22
+#, kde-format
+msgid "Cups PDF Log Files"
+msgstr "Fișiere de jurnal Cups PDF"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:22
+#, kde-format
+msgid "Add Cups PDF File..."
+msgstr "Adaugă fișiere Cups PDF... "
+
+#: src/modes/cups/cupsFactory.cpp:55
+#, kde-format
+msgid "Cups"
+msgstr "Cups"
+
+#: src/modes/cups/cupsLogMode.cpp:30
+#, kde-format
+msgid "Display the Cups log."
+msgstr "Afișează jurnalul Cups."
+
+#: src/modes/cups/cupsLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS log in the current tab. CUPS is the program which manages "
+"printing on your computer."
+msgstr ""
+"Afișeaza jurnalul CUPS în fila curentă. CUPS este programul care "
+"administrează tipărirea în calculator ."
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:20
+#, kde-format
+msgid "Printer"
+msgstr "Imprimantă"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:22
+#, kde-format
+msgid "Job Id"
+msgstr "ID sarcină"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:23
+#, kde-format
+msgid "Page Number"
+msgstr "Număr pagină"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:24
+#, kde-format
+msgid "Num Copies"
+msgstr "Nr. copii"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:25
+#, kde-format
+msgid "Job Billing"
+msgstr "Sarcină de facturare"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:19
+#, kde-format
+msgid "Printer:"
+msgstr "Imprimantă:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:21
+#, kde-format
+msgid "Job Id:"
+msgstr "ID sarcină:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:22
+#, kde-format
+msgid "Page Number:"
+msgstr "Număr pagină:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:23
+#, kde-format
+msgid "Num Copies:"
+msgstr "Nr. copii:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:24
+#, kde-format
+msgid "Job Billing:"
+msgstr "Muncă de facturare: "
+
+#: src/modes/cups/cupsPageLogMode.cpp:21
+#, kde-format
+msgid "Cups Page Log"
+msgstr "Jurnal de tip pagină cups"
+
+#: src/modes/cups/cupsPageLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS Page log."
+msgstr "Afișează jurnalul de pagină CUPS."
+
+#: src/modes/cups/cupsPageLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS Page log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Afișează jurnalul de tip pagină CUPS în fila curentă. CUPS este programul "
+"care administrează tipărirea în calculator. Acest jurnal salvează toate "
+"cererile executate de CUPS înglobate în serverul web (implicit <i>http://"
+"localhost:631</i>)."
+
+#: src/modes/cups/cupsPdfItemBuilder.cpp:19
+#, kde-format
+msgid "Message:"
+msgstr "Mesaj:"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:21
+#, kde-format
+msgid "Cups PDF Log"
+msgstr "Jurnal PDF Cups"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS PDF log."
+msgstr "Afișează jurnalul CUPS PDF."
+
+#: src/modes/cups/cupsPdfLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS PDF log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Afișează jurnalul CUPS PDF în fila curentă. CUPS este programul care "
+"administrează tipărirea în calculator. Acest jurnal salvează toate cererile "
+"executate de CUPS înglobate în serverul web (implicit  <i>http://"
+"localhost:631</i>)."
+
+#: src/modes/daemon/daemonConfigurationWidget.cpp:11
+#: src/modes/daemon/daemonLogMode.cpp:12
+#, kde-format
+msgid "Daemons' Logs"
+msgstr "Jurnalele serviciilor"
+
+#: src/modes/daemon/daemonConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalele serviciilor</"
+"b>.</p>"
+
+#: src/modes/daemon/daemonLogMode.cpp:21
+#, kde-format
+msgid "Display the daemons' logs."
+msgstr "Afișează jurnalele serviciilor."
+
+#: src/modes/daemon/daemonLogMode.cpp:23
+#, kde-format
+msgid ""
+"Displays the daemons' logs in the current tab. The daemons are all processes "
+"launched in the background of the system. See this log if you want to know "
+"what occurs in the background of your system."
+msgstr ""
+"Afișează jurnalele serviciilor în fila curentă. Serviciile sunt procese "
+"lansate în planul secund al sistemului. Vizualizați acest jurnal dacă doriți "
+"să știți ce se întâmplă în planul secund al sistemului."
+
+#. i18n: ectx: property (text), widget (QLabel, addressLabel)
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#: src/modes/journald/journaldAddressDialog.ui:19
+#: src/modes/journald/journaldConfigurationWidget.ui:71
+#, kde-format
+msgid "Address"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, portLabel)
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#: src/modes/journald/journaldAddressDialog.ui:39
+#: src/modes/journald/journaldConfigurationWidget.ui:76
+#, kde-format
+msgid "Port"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
+#: src/modes/journald/journaldAddressDialog.ui:66
+#, kde-format
+msgid "Enable"
+msgstr ""
+
+#: src/modes/journald/journaldAnalyzer.cpp:22
+#, kde-format
+msgid "Unit"
+msgstr ""
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:18
+#: src/modes/journald/journaldLogMode.cpp:22
+#, fuzzy, kde-format
+#| msgid "Kernel Log"
+msgid "Journald Log"
+msgstr "Jurnalul nucleului"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:78
+#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#, kde-format
+msgid "Enabled"
+msgstr ""
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#, kde-format
+msgid "Add remote journal"
+msgstr ""
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#, kde-format
+msgid "Modify remote journal"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
+#: src/modes/journald/journaldConfigurationWidget.ui:17
+#, kde-format
+msgid "Journald options"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
+#: src/modes/journald/journaldConfigurationWidget.ui:23
+#, kde-format
+msgid "Display log entries from current boot only"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:31
+#, kde-format
+msgid "Display all log entries"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:36
+#, kde-format
+msgid "Display log entries of processes of the current user"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:41
+#, kde-format
+msgid "Display log entries of system services and the kernel"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
+#: src/modes/journald/journaldConfigurationWidget.ui:52
+#, kde-format
+msgid "Remote journals"
+msgstr "Jurnale distante"
+
+#. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:104
+#, kde-format
+msgid "Add address"
+msgstr "Adaugă adresă"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:114
+#, kde-format
+msgid "Remove address"
+msgstr "Elimină adresa"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:124
+#, kde-format
+msgid "Modify address"
+msgstr "Modifică adresa"
+
+#: src/modes/journald/journaldFactory.cpp:27
+#, kde-format
+msgid "Journald"
+msgstr "Journald"
+
+#: src/modes/journald/journaldFactory.cpp:43
+#, kde-format
+msgid "Local journal"
+msgstr "Jurnal local"
+
+#: src/modes/journald/journaldFactory.cpp:46
+#, kde-format
+msgid "All messages"
+msgstr "Toate mesajele"
+
+#: src/modes/journald/journaldFactory.cpp:57
+#: src/modes/journald/journaldFactory.cpp:117
+#, kde-format
+msgid "Filter by systemd unit"
+msgstr ""
+
+#: src/modes/journald/journaldFactory.cpp:72
+#: src/modes/journald/journaldFactory.cpp:134
+#, kde-format
+msgid "Filter by syslog identifier"
+msgstr ""
+
+#: src/modes/journald/journaldFactory.cpp:102
+#, kde-format
+msgid "Connect"
+msgstr "Conectează"
+
+#: src/modes/journald/journaldItemBuilder.cpp:23
+#, kde-format
+msgid "Priority:"
+msgstr "Prioritate:"
+
+#: src/modes/journald/journaldItemBuilder.cpp:24
+#, kde-format
+msgid "Unit:"
+msgstr "Unitate:"
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:214
+#, kde-format
+msgid "Reading journald entries..."
+msgstr "Se citesc înregistrările Journald..."
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:225
+#, fuzzy, kde-format
+#| msgid "Log file '%1' loaded successfully."
+msgid "Journald entries loaded successfully."
+msgstr "Fișierul de jurnal „%1” a fost încărcat cu succes."
+
+#: src/modes/journald/journaldLogMode.cpp:35
+#, kde-format
+msgid "Display the Journald log."
+msgstr "Afișează jurnalul Journald."
+
+#: src/modes/journald/journaldLogMode.cpp:36
+#, kde-format
+msgid "Displays the journald log in the current tab."
+msgstr "Arată jurnalul Journald în fila actuală."
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:91
+#, kde-format
+msgid "Connected"
+msgstr "Conectat"
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:145
+#, kde-format
+msgid "Connection error"
+msgstr "Eroare la conectare"
+
+#: src/modes/kernel/kernelAnalyzer.cpp:21
+#, kde-format
+msgid "Component"
+msgstr "Componentă"
+
+#: src/modes/kernel/kernelItemBuilder.cpp:19
+#, kde-format
+msgid "Component:"
+msgstr "Componentă:"
+
+#: src/modes/kernel/kernelLogMode.cpp:19
+#, kde-format
+msgid "Kernel Log"
+msgstr "Jurnalul nucleului"
+
+#: src/modes/kernel/kernelLogMode.cpp:26
+#, kde-format
+msgid "Display the kernel log."
+msgstr "Afișează jurnalul nucleului."
+
+#: src/modes/kernel/kernelLogMode.cpp:28
+#, kde-format
+msgid ""
+"Displays the kernel log in the current tab. This log is only useful for "
+"users who want to know why the Kernel does not detect their hardware or what "
+"is the cause of the last <i>kernel panic/oops</i>."
+msgstr ""
+"Afișează jurnalul nucleului în fila curentă. Acest jurnal este folositor "
+"pentru utilizatorii care doresc să știe de ce nucleul nu detectează "
+"componentele fizice sau care este cauza ultimei  <i>erori la nucleu</i>."
+
+#: src/modes/open/openLogMode.cpp:22
+#, kde-format
+msgid "Log File"
+msgstr "Fișier de jurnal"
+
+#: src/modes/open/openLogMode.cpp:45
+#, kde-format
+msgid "Open Location"
+msgstr "Deschide amplasarea"
+
+#: src/modes/open/openLogMode.cpp:59
+#, kde-format
+msgid "Malformed URL. Unable to open this file."
+msgstr ""
+"Resursă de localizare universală deteliorată. Acest fișier nu poate fi "
+"deschis."
+
+#: src/modes/open/openLogMode.cpp:60
+#, kde-format
+msgid "Unable to open this file."
+msgstr "Acest fișier nu poate fi deschis."
+
+#: src/modes/postfix/postfixConfigurationWidget.cpp:10
+#: src/modes/postfix/postfixLogMode.cpp:20
+#, kde-format
+msgid "Postfix Log"
+msgstr "Jurnalul Postfix"
+
+#: src/modes/postfix/postfixConfigurationWidget.cpp:14
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalele Postfix</b>.</"
+"p>"
+
+#: src/modes/postfix/postfixLogMode.cpp:29
+#, kde-format
+msgid "Display the Postfix log."
+msgstr "Afișează jurnalul Postfix."
+
+#: src/modes/postfix/postfixLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the Postfix log in the current tab. Postfix is the most known and "
+"used mail server in the Linux world."
+msgstr ""
+"Afișează jurnalul Postfix în fila curentă. Postfix este cel mai cunoscut și "
+"folosit server de e-mail în lumea Linux."
+
+#: src/modes/samba/netbiosLogMode.cpp:23
+#, kde-format
+msgid "Netbios Log"
+msgstr "Jurnalul Netbios"
+
+#: src/modes/samba/netbiosLogMode.cpp:31
+#, kde-format
+msgid "Display the Netbios log."
+msgstr "Afișează jurnalul Netbios."
+
+#: src/modes/samba/netbiosLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Netbios log in the current tab. Netbios is the file sharing "
+"protocol developed by Microsoft."
+msgstr ""
+"Afișează jurnalul Netbios în fila curentă.Netbios este protocolul de "
+"distribuire a fișierelor dezvoltat de Microsoft."
+
+#: src/modes/samba/sambaAccessLogMode.cpp:23
+#, kde-format
+msgid "Samba Access Log"
+msgstr "Jurnal de acces Samba"
+
+#: src/modes/samba/sambaAccessLogMode.cpp:31
+#, kde-format
+msgid "Display the Samba Access log."
+msgstr "Afișează jurnalul de acces Samba."
+
+#: src/modes/samba/sambaAccessLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Samba Access log in the current tab. This log mode allows you "
+"to see connections between your shares and remote hosts."
+msgstr ""
+"Afișează jurnalul de acces Samba în fila curentă. Acest mod al jurnalului vă "
+"permite sa vedeți conexiunile dintre fișierele distribuite de dumneavoastră "
+"și gazda la distanță."
+
+#: src/modes/samba/sambaAnalyzer.cpp:20
+#, kde-format
+msgid "Source File"
+msgstr "Fișier-sursă"
+
+#: src/modes/samba/sambaAnalyzer.cpp:21
+#, kde-format
+msgid "Function"
+msgstr "Funcție"
+
+#: src/modes/samba/sambaAnalyzer.cpp:22 src/modes/xorg/xorgAnalyzer.cpp:25
+#: src/modes/xsession/xsessionAnalyzer.cpp:19
+#, kde-format
+msgid "Line"
+msgstr "Linie"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:11
+#: src/modes/samba/sambaLogMode.cpp:23
+#, kde-format
+msgid "Samba Log"
+msgstr "Jurnalul Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
+"log</b> and <b>Netbios log</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta<b>jurnalul Samba</b>, "
+"<b>jurnalul de acces Samba</b> și <b>jurnalul Netbios</b>.</p>"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:19
+#, kde-format
+msgid "Samba Log Files"
+msgstr "Fișiere de jurnal Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Samba File..."
+msgstr "Adăugare fișier Samba..."
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:20
+#, kde-format
+msgid "Samba Access Log Files"
+msgstr "Fișiere de jurnal de acces Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Samba Access File..."
+msgstr "Adaugă fișiere de acces Samba..."
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:21
+#, kde-format
+msgid "Netbios Log Files"
+msgstr "Fișiere de jurnal Netbios"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:21
+#, kde-format
+msgid "Add Netbios File..."
+msgstr "Adăugare fișier Netbios..."
+
+#: src/modes/samba/sambaFactory.cpp:52
+#, kde-format
+msgid "Samba"
+msgstr "Samba"
+
+#: src/modes/samba/sambaItemBuilder.cpp:19
+#, kde-format
+msgid "Source File:"
+msgstr "Fișier sursă:"
+
+#: src/modes/samba/sambaItemBuilder.cpp:20
+#, kde-format
+msgid "Function:"
+msgstr "Funcție:"
+
+#: src/modes/samba/sambaItemBuilder.cpp:21
+#, kde-format
+msgid "Line:"
+msgstr "Linie:"
+
+#: src/modes/samba/sambaLogMode.cpp:31
+#, kde-format
+msgid "Display the Samba log."
+msgstr "Afișează jurnalul Samba."
+
+#: src/modes/samba/sambaLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Samba log in the current tab. Samba is the file sharing server "
+"which interacts with Microsoft Windows network."
+msgstr ""
+"Afișează jurnalul Samba în fila curentă. Samba este serverul de distribuire "
+"al fișierelor care interacționeaza cu rețeaua Microsoft Windows."
+
+#: src/modes/system/systemConfigurationWidget.cpp:10
+#: src/modes/system/systemLogMode.cpp:20
+#, kde-format
+msgid "System Log"
+msgstr "Jurnalul de sistem"
+
+#: src/modes/system/systemConfigurationWidget.cpp:14
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalele de sistem</b>."
+"</p>"
+
+#: src/modes/system/systemLogMode.cpp:29
+#, kde-format
+msgid "Display the system log."
+msgstr "Afișează jurnalul de sistem."
+
+#: src/modes/system/systemLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the system log in the current tab. This log is generally used by "
+"non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgstr ""
+"Afișează jurnalul de sistem în fila curentă. Acest jurnal este folosit in "
+"general de către procesele nespecializate (precum comenzile „sudo” sau "
+"„fsck” )"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:69
+#, kde-format
+msgid "Probed"
+msgstr "Sondat"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:71
+#, kde-format
+msgid "From config file"
+msgstr "Din fișierul de configurare"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:74
+#, kde-format
+msgid "Default setting"
+msgstr "Configurare implicită"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:77
+#, kde-format
+msgid "From command Line"
+msgstr "Din linia de comandă"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:85
+#, kde-format
+msgid "Not implemented"
+msgstr "Neimplementat"
+
+#: src/modes/xorg/xorgConfigurationWidget.cpp:11
+#: src/modes/xorg/xorgLogMode.cpp:19
+#, kde-format
+msgid "X.org Log"
+msgstr "Jurnalul X.org"
+
+#: src/modes/xorg/xorgConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
+msgstr ""
+"<p>Aceste fișiere vor fi analizate pentru a arăta <b>jurnalul x.org</b>.</p>"
+
+#: src/modes/xorg/xorgItemBuilder.cpp:35
+#: src/modes/xsession/xsessionItemBuilder.cpp:35
+#, kde-format
+msgid "none"
+msgstr "niciunul"
+
+#: src/modes/xorg/xorgLogMode.cpp:28
+#, kde-format
+msgid "Display the X.org log."
+msgstr "Afișează jurnalul x.org ."
+
+#: src/modes/xorg/xorgLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the X.org log in the current tab. X.org is the service which "
+"displays on screen your desktop and manage your graphical hardware. See this "
+"log if you want to know why you do not have 3D accelerations or why your "
+"input device is not recognized."
+msgstr ""
+"Afișează jurnalul x.org în fila curentă. X.org este serviciul care afișează "
+"pe ecran fundalul si administrează echipamentul grafic. Vedeți acest jurnal "
+"dacă doriți să știți de ce nu aveți accelerație 3D sau de ce dispozitivul de "
+"intrare nu este recunoscut. "
+
+#: src/modes/xsession/xsessionAnalyzer.cpp:20
+#, kde-format
+msgid "Program"
+msgstr "Program"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:11
+#: src/modes/xsession/xsessionLogMode.cpp:19
+#, kde-format
+msgid "X Session Log"
+msgstr "Jurnalul sesiunii X"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:24
+#, kde-format
+msgid ""
+"You can type or choose the X Session log file (example: <i>~/.xsession-"
+"errors</i>)."
+msgstr ""
+"Puteți scrie sau alege fișierul de jurnal al sesiunii X (exemplu: <i>~/."
+"xsession-errors</i>)."
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:26
+#, kde-format
+msgid ""
+"You can type or choose here the X Session log file. This file will be "
+"analyzed when you select the <b>X Session log</b> menu. Generally, its name "
+"is <i>~/.xsession-errors</i>"
+msgstr ""
+"Puteți scrie sau alege fișierul de jurnal al sesiunii X. Acest fișier va fi "
+"analizat când veți selecta meniul <b>Jurnalului sesiunii x </b>. În general "
+"numele lui este <i>~/.xsession-errors</i>"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#, kde-format
+msgid "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: ...</li>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
+#, kde-format
+msgid "X Session Log File"
+msgstr "Fișier de jurnal de sesiune X"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
+#, kde-format
+msgid "&Log file:"
+msgstr "Fișier de jurna&l:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:50
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
+#, kde-format
+msgid "Check this option to remove Xorg errors"
+msgstr "Verificați această opțiune pentru a înlătura erorile Xorg"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
+#, kde-format
+msgid "Ignore Xorg errors"
+msgstr "Ignoră erorile Xorg"
+
+#. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
+#, kde-format
+msgid ""
+"<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
+"\"margin-bottom:0px\">The following lines will be ignored:</p>"
+msgstr ""
+"<p><b>Note:</b> Bifați această opțiune pentru a înlătura erorile X.org.</"
+"p><p style=\"margin-bottom:0px\">Următoarele linii vor fi ignorate:</p>"
+
+#: src/modes/xsession/xsessionItemBuilder.cpp:35
+#: src/modes/xsession/xsessionItemBuilder.cpp:37
+#, kde-format
+msgid "Program:"
+msgstr "Program:"
+
+#: src/modes/xsession/xsessionLogMode.cpp:28
+#, kde-format
+msgid "Display the X Session log."
+msgstr "Afișează jurnalul sesiunii X."
+
+#: src/modes/xsession/xsessionLogMode.cpp:30
+#, fuzzy, kde-format
+#| msgid ""
+#| "Displays the X Session log in the current tab. X Session log is the place "
+#| "where graphical programs write their output. See this log if you want to "
+#| "know why a program has crashed, or why your display manager (KDE, "
+#| "Gnome,...) has not started."
+msgid ""
+"Displays the X Session log in the current tab. X Session log is the place "
+"where graphical programs write their output. See this log if you want to "
+"know why a program has crashed, or why your desktop environment (Plasma, "
+"Gnome, Unity, Xfce, LXQt, ...) has not started."
+msgstr ""
+"Afișează jurnalul sesiunii X în fila curentă. Jurnalul sesiunii x este locul "
+"unde programele grafice își scriu ieșirea. Vedeți acest jurnal dacă doriți "
+"să știți de ce un program a încetat să mai funcționeze, sau de ce "
+"adiminstratorul de ecran (KDE, Gnome...) nu a pornit."
+
+#. i18n("Last updated: %1.",
+#. KLocale::global()->formatTime(lastModification, true, false) ));
+#: src/statusBar.cpp:54
+#, kde-format
+msgid "Last updated: %1."
+msgstr "Ultima actualizare: %1."
+
+#. i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
+#. false), message));
+#: src/statusBar.cpp:62
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/tabLogManager.cpp:49
+#, kde-format
+msgctxt "Log mode name (added lines count)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/tabLogViewsWidget.cpp:74
+#, kde-format
+msgid "No Log"
+msgstr "Niciun jurnal"
+
+#~ msgid "&Fancy short date format"
+#~ msgstr "&Format dată scurt modern"
+
+#~ msgid "Fanc&y long date format"
+#~ msgstr "Format dată lung moder&n"
+
+#~ msgctxt "Size format"
+#~ msgid "%1 B"
+#~ msgstr "%1 O"
+
+#~ msgctxt "Size format"
+#~ msgid "%1 KB"
+#~ msgstr "%1 KO"
+
+#~ msgctxt "Size format"
+#~ msgid "%1 MB"
+#~ msgstr "%1 MO"
+
+#~ msgid "The file does not exist"
+#~ msgstr "Fișierul nu există"

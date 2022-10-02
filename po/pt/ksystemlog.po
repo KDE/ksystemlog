@@ -1,0 +1,3361 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ksystemlog\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"PO-Revision-Date: 2021-02-10 10:29+0000\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: pt <kde-i18n-doc@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-SpellExtra: Cron UUCP log KSystemlog Postfix Konsole sudo\n"
+"X-POFile-SpellExtra: KSystemLog LPR fsck cron Syslog warning oops org\n"
+"X-POFile-SpellExtra: logger panic ACPI Logger Gnome ACPId boot auth var\n"
+"X-POFile-SpellExtra: Cups Id Decker Djurkovic Bojan Ternisien acpid Acpid\n"
+"X-POFile-IgnoreConsistency: Source File\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-IgnoreConsistency: debug\n"
+"X-POFile-IgnoreConsistency: Resu&me\n"
+"X-POFile-SpellExtra: CRON Netbios pre space gz wrap white ACPID errors\n"
+"X-POFile-SpellExtra: xsession PDFs Vyacheslav syslog systemd Journald\n"
+"X-POFile-IgnoreConsistency: Status\n"
+"X-POFile-SpellExtra: Matyushin Unity Xfce LXQt Laurent Montel\n"
+"X-POFile-IgnoreConsistency: Type\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com"
+
+#. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:13
+#, kde-format
+msgid "Load this log mode at startup."
+msgstr "Carregar este modo de registo no arranque."
+
+#. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:18
+#, kde-format
+msgid "The log view line count limit."
+msgstr "O número máximo de linhas da janela de registo."
+
+#. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:23
+#, kde-format
+msgid "Option is true if the user wants to delete repeated log lines."
+msgstr ""
+"A opção é verdadeira quando o utilizador desejar apagar as linhas de registo "
+"repetidas."
+
+#. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:28
+#, kde-format
+msgid ""
+"Option is true if the PID in the process column of the SystemLog is to be "
+"omitted."
+msgstr ""
+"A opção é verdadeira se desejar omitir o PID na coluna do processo no "
+"KSystemLog."
+
+#. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:33
+#, kde-format
+msgid ""
+"Option is true if the log lines are to be colored depending on their log "
+"level."
+msgstr ""
+"A opção é verdadeira se desejar colorir as linhas do registo de acordo com o "
+"seu nível de registo."
+
+#. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:39
+#, kde-format
+msgid "Whether the tooltips are enabled."
+msgstr "Se as dicas estão activas ou não."
+
+#. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:44
+#, kde-format
+msgid "Whether new lines are displayed."
+msgstr "Se são apresentadas as linhas novas ou não."
+
+#. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:49
+#, kde-format
+msgid "Whether the filter bar is shown."
+msgstr "Se a barra de filtragem é apresentada."
+
+#. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:54
+#, kde-format
+msgid "The date format of log lines."
+msgstr "O formato das datas nas linhas de registo."
+
+#. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:71
+#, kde-format
+msgid "The Samba log file paths."
+msgstr "Os locais dos ficheiros de registo do Samba."
+
+#: src/configurationDialog.cpp:26
+#, kde-format
+msgid "Settings"
+msgstr "Configuração"
+
+#: src/configurationDialog.cpp:80
+#, kde-format
+msgid "General"
+msgstr "Geral"
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialog.cpp:27 src/lib/logViewSearchWidgetBase.ui:68
+#, kde-format
+msgid "&Previous"
+msgstr "An&terior"
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialog.cpp:31 src/lib/logViewSearchWidgetBase.ui:58
+#, kde-format
+msgid "&Next"
+msgstr "Segui&nte"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:14
+#, kde-format
+msgid "Log Line Details"
+msgstr "Detalhes da Linha do Registo"
+
+#. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:17
+#, kde-format
+msgid ""
+"This dialog displays detailed information about the currently selected log "
+"line."
+msgstr ""
+"Esta janela mostra informações detalhadas sobre a linha seleccionada de "
+"momento no registo."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#. i18n: ectx: property (text), widget (KTextEdit, message)
+#: src/detailDialogBase.ui:41 src/lib/logViewWidget.cpp:34
+#: src/loggerDialogBase.ui:33 src/modes/acpid/acpidAnalyzer.cpp:19
+#: src/modes/apache/apacheAnalyzer.cpp:20 src/modes/audit/auditAnalyzer.cpp:23
+#: src/modes/base/syslogAnalyzer.cpp:44 src/modes/cups/cupsAnalyzer.cpp:24
+#: src/modes/cups/cupsPdfAnalyzer.cpp:20
+#: src/modes/journald/journaldAnalyzer.cpp:23
+#: src/modes/kernel/kernelAnalyzer.cpp:22 src/modes/samba/sambaAnalyzer.cpp:23
+#: src/modes/xorg/xorgAnalyzer.cpp:27
+#: src/modes/xsession/xsessionAnalyzer.cpp:21
+#, kde-format
+msgid "Message"
+msgstr "Mensagem"
+
+#. i18n: ectx: property (text), widget (QLabel, icon)
+#: src/detailDialogBase.ui:54
+#, kde-format
+msgid "Icon"
+msgstr "Ícone"
+
+#. i18n: ectx: property (text), widget (QLabel, header)
+#: src/detailDialogBase.ui:70
+#, kde-format
+msgid "Main information"
+msgstr "Informação principal"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:100
+#, kde-format
+msgid "Move to the previous line"
+msgstr "Mover para a linha anterior"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:103
+#, kde-format
+msgid ""
+"Moves to the previous line. This button is deactivated if there is no "
+"previous log line."
+msgstr ""
+"Vai para a linha anterior. Este botão é desactivado se não existir qualquer "
+"linha anterior."
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:106
+#, kde-format
+msgid "&Back"
+msgstr "&Recuar"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, next)
+#: src/detailDialogBase.ui:122
+#, kde-format
+msgid "Move to the next line"
+msgstr "Mover para a linha seguinte"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, next)
+#: src/detailDialogBase.ui:125
+#, kde-format
+msgid ""
+"Moves to the next line. This button is deactivated if there is no next log "
+"line."
+msgstr ""
+"Vai para a linha seguinte. Este botão é desactivado se não existir qualquer "
+"linha a seguir."
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialogBase.ui:128
+#, kde-format
+msgid "&Forward"
+msgstr "A&vançar"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:160
+#, kde-format
+msgid "Close the Detail dialog."
+msgstr "Fechar a janela de Detalhes."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:163
+#, kde-format
+msgid "Closes this Detail dialog."
+msgstr "Fecha esta janela de detalhes."
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:166
+#, kde-format
+msgid "&Close"
+msgstr "Fe&char"
+
+#: src/generalConfigurationWidget.cpp:30
+#, kde-format
+msgid "This mode is unavailable because its log files do not exist."
+msgstr ""
+"Este modo está indisponível, porque os seus ficheiros de registo não existem."
+
+#: src/generalConfigurationWidget.cpp:35
+#, kde-format
+msgid "No Log Mode"
+msgstr "Sem Modo de Registo"
+
+#: src/generalConfigurationWidget.cpp:74
+#, kde-format
+msgctxt "Date format option (date example)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
+#: src/generalConfigurationWidgetBase.ui:18
+#, kde-format
+msgid "Startup"
+msgstr "Arranque"
+
+#. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
+#: src/generalConfigurationWidgetBase.ui:26
+#, kde-format
+msgid "Load &this log mode at startup:"
+msgstr "Carregar este modo de regis&to no arranque:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:36
+#, kde-format
+msgid "The log mode which is loaded by default at startup"
+msgstr "O modo de registo que é carregado por omissão no arranque"
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:39
+#, kde-format
+msgid ""
+"The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
+"not want this to happen."
+msgstr ""
+"O modo de registo que é carregado por omissão no arranque. Escolha 'Sem Modo "
+"de Registo' se não quiser carregar um modo de registo."
+
+#. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
+#: src/generalConfigurationWidgetBase.ui:51
+#, kde-format
+msgid "Log Lines List"
+msgstr "Lista de Linhas do Registo"
+
+#. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
+#: src/generalConfigurationWidgetBase.ui:59
+#, kde-format
+msgid "&Maximum lines displayed:"
+msgstr "&Máximo de linhas visíveis:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:75
+#, kde-format
+msgid "Choose here the maximum number of log lines displayed in the main view."
+msgstr ""
+"Escolha aqui o número máximo de linhas do registo que são apresentadas na "
+"janela principal."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:78
+#, kde-format
+msgid ""
+"You can choose here the maximum number of log lines displayed in the main "
+"view."
+msgstr ""
+"Pode escolher aqui o número máximo de linhas do registo que são apresentadas "
+"na janela principal."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:96
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines <b>(may be "
+"slow)</b>."
+msgstr ""
+"Seleccione esta opção se quiser remover as linhas duplicadas no registo "
+"<b>(poderá ser lento a fazê-lo)</b>."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:99
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines. <b>This option "
+"can slow log reading</b>."
+msgstr ""
+"Poderá seleccionar esta opção se quiser remover as linhas duplicadas no "
+"registo. <b>Esta opção poderá tornar mais lenta a leitura</b>."
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:102
+#, kde-format
+msgid "Remove &duplicate log lines (may be slower)"
+msgstr "Apagar as linhas de registo &duplicadas (pode ser lento)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
+#: src/generalConfigurationWidgetBase.ui:112 src/loggerDialogBase.ui:206
+#, kde-format
+msgid "Options"
+msgstr "Opções"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:118
+#, kde-format
+msgid "Remove process identifier from process name."
+msgstr "Remover o identificador do nome do processo."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:121
+#, kde-format
+msgid ""
+"Select this option if you want to remove the process identifier from the "
+"process name. For example, the <b>Process</b> column may contain entries "
+"such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
+"will be removed."
+msgstr ""
+"Poderá seleccionar esta opção se quiser remover o identificador do processo "
+"do nome do mesmo. Por exemplo, poderá ver algumas vezes na coluna "
+"<b>Processo</b>, algo do género <i>cron<b>[3433]</b></i>. Se esta opção "
+"estiver activada, a parte incómoda a negrito será removida."
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:124
+#, kde-format
+msgid "Remove &identifier from process name"
+msgstr "Remover o &identificador do nome do processo"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:131
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level."
+msgstr ""
+"Esta opção permite colorir as linhas do registo, dependendo do seu nível de "
+"registo."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:134
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level. For "
+"example, errors will be shown in red, warnings in orange, and so on. This "
+"will help you to see problems more easily."
+msgstr ""
+"Esta opção permite colorir as linhas do registo, dependendo do nível a que "
+"estas pertencem. Por exemplo, um erro irá aparecer a vermelho, um aviso a "
+"laranja... Isto ajudá-lo-á a descobrir melhor os problemas."
+
+#. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:137
+#, kde-format
+msgid "&Colored log lines"
+msgstr "Linhas do registo &coloridas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
+#: src/generalConfigurationWidgetBase.ui:147
+#, kde-format
+msgid "Date Format"
+msgstr "Formato da Data"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
+#: src/generalConfigurationWidgetBase.ui:156
+#, kde-format
+msgid "&Short date format"
+msgstr "Formato de data &curto"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
+#: src/generalConfigurationWidgetBase.ui:163
+#, kde-format
+msgid "&Long date format"
+msgstr "Formato de data &longo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
+#: src/generalConfigurationWidgetBase.ui:170
+#, kde-format
+msgid "&Precise date format"
+msgstr "Formato de data &preciso"
+
+#. i18n: ectx: Menu (edit)
+#: src/ksystemlogui.rc:13
+#, kde-format
+msgid "&Edit"
+msgstr "&Editar"
+
+#. i18n: ectx: Menu (logs)
+#: src/ksystemlogui.rc:31
+#, kde-format
+msgid "Logs"
+msgstr "Registos"
+
+#. i18n: ectx: Menu (window)
+#: src/ksystemlogui.rc:36
+#, kde-format
+msgid "&Window"
+msgstr "&Janela"
+
+#. i18n: ectx: ToolBar (logToolBar)
+#: src/ksystemlogui.rc:53
+#, kde-format
+msgid "Logs Toolbar"
+msgstr "Barra dos Registos"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/ksystemlogui.rc:64
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barra Principal"
+
+#: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
+#, kde-format
+msgid "Opening '%1'..."
+msgstr "A aceder ao '%1'..."
+
+#: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
+#, kde-format
+msgid "Log file '%1' loaded successfully."
+msgstr "O ficheiro de registo '%1' foi carregado com sucesso."
+
+#: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
+#, kde-format
+msgid "Log file '%1' has changed."
+msgstr "O ficheiro de registo '%1' foi alterado."
+
+#: src/lib/globals.cpp:110
+#, kde-format
+msgid "None"
+msgstr "Nenhum"
+
+#: src/lib/globals.cpp:113
+#, kde-format
+msgid "Debug"
+msgstr "Depurar"
+
+#: src/lib/globals.cpp:117
+#, kde-format
+msgid "Information"
+msgstr "Informação"
+
+#: src/lib/globals.cpp:122
+#, kde-format
+msgid "Notice"
+msgstr "Aviso"
+
+#: src/lib/globals.cpp:126
+#, kde-format
+msgid "Warning"
+msgstr "Aviso"
+
+#: src/lib/globals.cpp:129
+#, kde-format
+msgid "Error"
+msgstr "Erro"
+
+#: src/lib/globals.cpp:132
+#, kde-format
+msgid "Critical"
+msgstr "Crítico"
+
+#: src/lib/globals.cpp:135
+#, kde-format
+msgid "Alert"
+msgstr "Alerta"
+
+#: src/lib/globals.cpp:138
+#, kde-format
+msgid "Emergency"
+msgstr "Emergência"
+
+#: src/lib/levelPrintPage.cpp:25
+#, kde-format
+msgid "Log Level Printing"
+msgstr "Impressão do Nível de Depuração"
+
+#: src/lib/levelPrintPage.cpp:32
+#, kde-format
+msgid "Choose which log levels you wish to print in color."
+msgstr "Escolha os níveis de registo que deseja imprimir a cores."
+
+#: src/lib/loadingBar.cpp:29
+#, kde-format
+msgid "Loading Progress..."
+msgstr "Evolução do Carregamento..."
+
+#: src/lib/loadingBar.cpp:57
+#, kde-format
+msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] "A carregar o <b>%2</b>...<br /><i>%3</i> (<b>%4</b>)"
+msgstr[1] "A carregar o <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
+
+#: src/lib/loadingBar.cpp:64
+#, kde-format
+msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] ""
+"A carregar de novo o <b>%2</b>...<br /><i>%3</i> - (<b>%4</b> ficheiro)"
+msgstr[1] ""
+"A carregar de novo o <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
+
+#: src/lib/loadingBar.cpp:75
+#, kde-format
+msgid "Loading <b>%1</b>...<br /><i>%2</i>"
+msgstr "A carregar o <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/loadingBar.cpp:77
+#, kde-format
+msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
+msgstr "A carregar de novo o <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
+#, kde-format
+msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
+msgstr ""
+"Este ficheiro não é válido. Ajuste-o por favor na configuração do KSystemLog."
+
+#: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
+#: src/lib/processOutputLogFileReader.cpp:92
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "O Ficheiro Não Existe"
+
+#: src/lib/localLogFileReader.cpp:113
+#, kde-format
+msgid "The file '%1' does not exist."
+msgstr "O ficheiro '%1' não existe."
+
+#: src/lib/localLogFileReader.cpp:134
+#, kde-format
+msgid "Unable to uncompress the '%2' format of '%1'."
+msgstr "Não é possível descomprimir o formato '%2' de '%1'."
+
+#: src/lib/localLogFileReader.cpp:135
+#, kde-format
+msgid "Unable to Uncompress File"
+msgstr "Não é Possível Descomprimir o Ficheiro"
+
+#: src/lib/localLogFileReader.cpp:142
+#, kde-format
+msgid "You do not have sufficient permissions to read '%1'."
+msgstr "Você não tem permissões suficientes para ler o '%1'."
+
+#: src/lib/localLogFileReader.cpp:143
+#, kde-format
+msgid "Insufficient Permissions"
+msgstr "Permissões Insuficientes"
+
+#: src/lib/logManager.cpp:68
+#, kde-format
+msgid "Loading log..."
+msgstr "A carregar o registo..."
+
+#: src/lib/logManager.cpp:92
+#, kde-format
+msgid "Log successfully loaded."
+msgstr "O registo foi carregado com sucesso."
+
+#: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
+#: src/modes/base/genericConfiguration.cpp:75
+#, kde-format
+msgid "URL '%1' is not valid, skipping this URL."
+msgstr "O URL '%1' não é válido, como tal será ignorado."
+
+#: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
+#: src/modes/acpid/acpidItemBuilder.cpp:17
+#: src/modes/apache/apacheAccessItemBuilder.cpp:17
+#: src/modes/apache/apacheItemBuilder.cpp:17
+#: src/modes/audit/auditItemBuilder.cpp:14
+#: src/modes/cron/cronItemBuilder.cpp:17
+#: src/modes/cups/cupsAccessItemBuilder.cpp:17
+#: src/modes/cups/cupsItemBuilder.cpp:15
+#: src/modes/cups/cupsPageItemBuilder.cpp:17
+#: src/modes/cups/cupsPdfItemBuilder.cpp:17
+#: src/modes/journald/journaldItemBuilder.cpp:22
+#: src/modes/kernel/kernelItemBuilder.cpp:17
+#: src/modes/samba/sambaItemBuilder.cpp:17
+#, kde-format
+msgid "Date:"
+msgstr "Data:"
+
+#: src/lib/logModeItemBuilder.cpp:58 src/modes/cron/cronItemBuilder.cpp:18
+#: src/modes/cups/cupsAccessItemBuilder.cpp:19
+#, kde-format
+msgid "Hostname:"
+msgstr "Máquina:"
+
+#: src/lib/logModeItemBuilder.cpp:59 src/modes/cron/cronItemBuilder.cpp:19
+#, kde-format
+msgid "Process:"
+msgstr "Processo:"
+
+#: src/lib/logModeItemBuilder.cpp:60 src/lib/logModeItemBuilder.cpp:75
+#: src/modes/acpid/acpidItemBuilder.cpp:18
+#: src/modes/apache/apacheAccessItemBuilder.cpp:18
+#: src/modes/apache/apacheItemBuilder.cpp:18
+#: src/modes/audit/auditItemBuilder.cpp:15
+#: src/modes/cron/cronItemBuilder.cpp:21
+#: src/modes/cups/cupsAccessItemBuilder.cpp:18
+#: src/modes/cups/cupsItemBuilder.cpp:16
+#: src/modes/cups/cupsPageItemBuilder.cpp:18
+#: src/modes/cups/cupsPdfItemBuilder.cpp:18
+#: src/modes/kernel/kernelItemBuilder.cpp:18
+#: src/modes/samba/sambaItemBuilder.cpp:18
+#, kde-format
+msgid "Level:"
+msgstr "Nível:"
+
+#: src/lib/logModeItemBuilder.cpp:61 src/lib/logModeItemBuilder.cpp:76
+#: src/modes/cron/cronItemBuilder.cpp:22 src/modes/xorg/xorgItemBuilder.cpp:40
+#: src/modes/xsession/xsessionItemBuilder.cpp:40
+#, kde-format
+msgid "Original file:"
+msgstr "Ficheiro original:"
+
+#: src/lib/logViewExport.cpp:43
+#, kde-format
+msgid "Here are my logs:\n"
+msgstr "Aqui estão os meus registos:\n"
+
+#: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
+#, kde-format
+msgid "---------------------------------------\n"
+msgstr "---------------------------------------\n"
+
+#: src/lib/logViewExport.cpp:63
+#, kde-format
+msgid ""
+"You have selected too many lines. Please only select important log lines."
+msgstr ""
+"Seleccionou demasiadas linhas. Seleccione apenas as linhas de registo "
+"importantes."
+
+#: src/lib/logViewExport.cpp:63
+#, kde-format
+msgid "Too Many Lines Selected"
+msgstr "Demasiadas Linhas Seleccionadas"
+
+#: src/lib/logViewExport.cpp:67
+#, kde-format
+msgid "Log Lines of my problem"
+msgstr "Linhas do Registo do meu problema"
+
+#: src/lib/logViewExport.cpp:191
+#, kde-format
+msgid "No items selected. Nothing copied to clipboard."
+msgstr ""
+"Não foram seleccionados itens. Não há nada para copiar para a área de "
+"transferência."
+
+#: src/lib/logViewExport.cpp:197
+#, kde-format
+msgid "1 log line copied to clipboard."
+msgid_plural "%1 log lines copied to clipboard."
+msgstr[0] "Foi copiada uma linha do registo para a área de transferência."
+msgstr[1] "Foram copiadas %1 linhas do registo para a área de transferência."
+
+#: src/lib/logViewExport.cpp:211
+#, kde-format
+msgid "No items selected. Please select items to be able to save them."
+msgstr ""
+"Não foram seleccionados itens. Por favor, seleccione os itens para os poder "
+"gravar."
+
+#: src/lib/logViewExport.cpp:215
+#, kde-format
+msgid "Save selected log entries to..."
+msgstr "Gravar os itens de registo seleccionados em..."
+
+#: src/lib/logViewExport.cpp:242
+#, kde-format
+msgid "1 log line saved to '%2'."
+msgid_plural "%1 log lines saved to '%2'."
+msgstr[0] "Foi gravada uma linha do registo em '%2'."
+msgstr[1] "Foram gravadas %1 linhas do registo em '%2'."
+
+#: src/lib/logViewExport.cpp:244
+#, kde-format
+msgid "Unable to save file '%1': Permission Denied."
+msgstr "Não foi possível gravar o ficheiro '%1': Não Tem Permissões."
+
+#: src/lib/logViewExport.cpp:245
+#, kde-format
+msgid "Unable to save file."
+msgstr "Não é possível gravar o ficheiro."
+
+#: src/lib/logViewFilterWidget.cpp:94
+#, kde-format
+msgid "Type your filter here"
+msgstr "Escreva aqui o seu filtro"
+
+#: src/lib/logViewFilterWidget.cpp:95
+#, kde-format
+msgid "Allows you to only list items that match the content of this text."
+msgstr ""
+"Permite-lhe seleccionar apenas os itens da lista que correspondam ao "
+"conteúdo deste texto."
+
+#: src/lib/logViewFilterWidget.cpp:96
+#, kde-format
+msgid "Enter your search here..."
+msgstr "Indique aqui a sua pesquisa..."
+
+#: src/lib/logViewFilterWidget.cpp:103
+#, kde-format
+msgid "Filter:"
+msgstr "Filtro:"
+
+#: src/lib/logViewFilterWidget.cpp:123
+#, kde-format
+msgid "Select priorities"
+msgstr "Seleccionar as prioridades"
+
+#: src/lib/logViewFilterWidget.cpp:151
+#, kde-format
+msgid "Choose the filtered column here"
+msgstr "Escolha aqui a coluna filtrada"
+
+#: src/lib/logViewFilterWidget.cpp:153
+#, kde-format
+msgid ""
+"Allows you to apply the item filter only on the specified column here. "
+"\"<i>All</i>\" column means no specific filter."
+msgstr ""
+"Permite-lhe aplicar o filtro de itens apenas na coluna aqui seleccionada. A "
+"coluna \"<i>Tudo</i>\" significa que não há qualquer filtro específico."
+
+#: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
+#, kde-format
+msgid "All"
+msgstr "Tudo"
+
+#: src/lib/logViewSearchWidget.cpp:158
+#, kde-format
+msgid "Reached end of list."
+msgstr "Foi atingido o fim da lista."
+
+#: src/lib/logViewSearchWidget.cpp:241
+#, kde-format
+msgid "Phrase not found."
+msgstr "A frase não foi encontrada."
+
+#. i18n: ectx: property (text), widget (QLabel, searchLabel)
+#: src/lib/logViewSearchWidgetBase.ui:41
+#, kde-format
+msgid "Find:"
+msgstr "Procurar:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, caseSensitive)
+#: src/lib/logViewSearchWidgetBase.ui:78
+#, kde-format
+msgid "Match &case"
+msgstr "&Corresponder à capitalização"
+
+#. i18n: ectx: property (text), widget (QCheckBox, highlightAllButton)
+#: src/lib/logViewSearchWidgetBase.ui:85
+#, kde-format
+msgid "&Highlight all"
+msgstr "&Realçar tudo"
+
+#. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
+#. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
+#. lines in <b>bold</b> are the last added to the list.</p>"));
+#: src/lib/logViewWidget.cpp:34 src/modes/acpid/acpidAnalyzer.cpp:17
+#: src/modes/apache/apacheAccessAnalyzer.cpp:18
+#: src/modes/apache/apacheAnalyzer.cpp:18 src/modes/audit/auditAnalyzer.cpp:22
+#: src/modes/base/syslogAnalyzer.cpp:41 src/modes/cron/cronAnalyzer.cpp:12
+#: src/modes/cups/cupsAccessAnalyzer.cpp:19 src/modes/cups/cupsAnalyzer.cpp:23
+#: src/modes/cups/cupsPageAnalyzer.cpp:19 src/modes/cups/cupsPdfAnalyzer.cpp:19
+#: src/modes/journald/journaldAnalyzer.cpp:21
+#: src/modes/kernel/kernelAnalyzer.cpp:20 src/modes/samba/sambaAnalyzer.cpp:19
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/lib/logViewWidget.cpp:103
+#, kde-format
+msgid "Display/Hide the '%1' column"
+msgstr "Mostrar/Esconder a coluna '%1'"
+
+#: src/lib/processOutputLogFileReader.cpp:140
+#, kde-format
+msgid "The process '%1' crashed."
+msgstr "O processo '%1' estoirou."
+
+#: src/lib/processOutputLogFileReader.cpp:141
+#, kde-format
+msgid "Process Crashed"
+msgstr "O Processo Estoirou"
+
+#: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
+#: src/modes/apache/apacheAccessAnalyzer.cpp:21
+#: src/modes/cron/cronAnalyzer.cpp:15 src/modes/cups/cupsAccessAnalyzer.cpp:22
+#: src/modes/cups/cupsPageAnalyzer.cpp:21
+#, kde-format
+msgid "User"
+msgstr "Utilizador"
+
+#: src/loggerDialog.cpp:93
+#, kde-format
+msgid "Authentication"
+msgstr "Autenticação"
+
+#: src/loggerDialog.cpp:94
+#, kde-format
+msgid "Private Authentication"
+msgstr "Autenticação Privada"
+
+#: src/loggerDialog.cpp:95
+#, kde-format
+msgid "Cron"
+msgstr "Cron"
+
+#: src/loggerDialog.cpp:96
+#, kde-format
+msgid "Daemon"
+msgstr "Servidor"
+
+#: src/loggerDialog.cpp:97
+#, kde-format
+msgid "FTP"
+msgstr "FTP"
+
+#: src/loggerDialog.cpp:98
+#, kde-format
+msgid "Kernel"
+msgstr "'Kernel'"
+
+#: src/loggerDialog.cpp:99
+#, kde-format
+msgid "LPR"
+msgstr "LPR"
+
+#: src/loggerDialog.cpp:100
+#, kde-format
+msgid "Mail"
+msgstr "E-mail"
+
+#: src/loggerDialog.cpp:101
+#, kde-format
+msgid "News"
+msgstr "Notícias"
+
+#: src/loggerDialog.cpp:102
+#, kde-format
+msgid "Syslog"
+msgstr "'Syslog'"
+
+#: src/loggerDialog.cpp:104
+#, kde-format
+msgid "UUCP"
+msgstr "UUCP"
+
+#: src/loggerDialog.cpp:106
+#, kde-format
+msgid "Local 0"
+msgstr "Local 0"
+
+#: src/loggerDialog.cpp:107
+#, kde-format
+msgid "Local 1"
+msgstr "Local 1"
+
+#: src/loggerDialog.cpp:108
+#, kde-format
+msgid "Local 2"
+msgstr "Local 2"
+
+#: src/loggerDialog.cpp:109
+#, kde-format
+msgid "Local 3"
+msgstr "Local 3"
+
+#: src/loggerDialog.cpp:110
+#, kde-format
+msgid "Local 4"
+msgstr "Local 4"
+
+#: src/loggerDialog.cpp:111
+#, kde-format
+msgid "Local 5"
+msgstr "Local 5"
+
+#: src/loggerDialog.cpp:112
+#, kde-format
+msgid "Local 6"
+msgstr "Local 6"
+
+#: src/loggerDialog.cpp:113
+#, kde-format
+msgid "Local 7"
+msgstr "Local 7"
+
+#: src/loggerDialog.cpp:223
+#, kde-format
+msgid ""
+"Unable to find the 'logger' command on your system. Please type 'logger' in "
+"a Konsole to determine whether this command is installed."
+msgstr ""
+"Não foi possível encontrar o comando 'logger' no seu sistema. Por favor, "
+"escreva 'logger' no Konsole para ter a certeza que este comando não existe."
+
+#: src/loggerDialog.cpp:225
+#, kde-format
+msgid "Command not found"
+msgstr "Comando não encontrado"
+
+#: src/loggerDialog.cpp:230
+#, kde-format
+msgid "The 'logger' command has not been properly exited."
+msgstr "O comando 'logger' não saiu de forma normal."
+
+#: src/loggerDialog.cpp:230
+#, kde-format
+msgid "Execution problem"
+msgstr "Problema de execução"
+
+#: src/loggerDialog.cpp:236
+#, kde-format
+msgid "This file does not exist, please choose another."
+msgstr "Este ficheiro não existe. Escolha por favor outro."
+
+#: src/loggerDialog.cpp:236
+#, kde-format
+msgid "File not valid"
+msgstr "Ficheiro inválido"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
+#: src/loggerDialogBase.ui:24
+#, kde-format
+msgid "Log Message"
+msgstr "Mensagem de Registo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
+#: src/loggerDialogBase.ui:39
+#, kde-format
+msgid "&Message:"
+msgstr "&Mensagem:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, fileActivation)
+#: src/loggerDialogBase.ui:52
+#, kde-format
+msgid "&File content:"
+msgstr "Conteúdo do &ficheiro:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/loggerDialogBase.ui:75
+#, kde-format
+msgid "Properties"
+msgstr "Propriedades"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: src/loggerDialogBase.ui:101
+#, kde-format
+msgid "&Priority:"
+msgstr "&Prioridade:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: src/loggerDialogBase.ui:162
+#, kde-format
+msgid "&Facility:"
+msgstr "&Facilidade:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
+#: src/loggerDialogBase.ui:229
+#, kde-format
+msgid "&Tag:"
+msgstr "&Marca:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
+#: src/loggerDialogBase.ui:241
+#, kde-format
+msgid "Log process &identifier"
+msgstr "&Identificador do processo de registo"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:290
+#, kde-format
+msgid "Open the 'logger' command manual."
+msgstr "Abre o manual do comando 'logger'."
+
+#. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:293
+#, kde-format
+msgid "This link opens the 'logger' command manual."
+msgstr "Esta ligação abre o manual do comando 'logger'."
+
+#. i18n: ectx: property (text), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:296
+#, kde-format
+msgid "<a href=\"man:/logger\">Logger Manual</a>"
+msgstr "<a href=\"man:/logger\">Manual do 'Logger'</a>"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonOK)
+#: src/loggerDialogBase.ui:322
+#, kde-format
+msgid "&OK"
+msgstr "&OK"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
+#: src/loggerDialogBase.ui:338
+#, kde-format
+msgid "&Cancel"
+msgstr "&Cancelar"
+
+#: src/main.cpp:29
+#, kde-format
+msgid "KSystemlog"
+msgstr "KSystemlog"
+
+#: src/main.cpp:31
+#, kde-format
+msgid "System Logs Viewer by KDE"
+msgstr "Visualizador de Registos do Sistema do KDE"
+
+#: src/main.cpp:33
+#, kde-format
+msgid "(C) 2007-2015, Nicolas Ternisien"
+msgstr "(C) 2007-2015, Nicolas Ternisien"
+
+#: src/main.cpp:34
+#, kde-format
+msgid ""
+"Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+msgstr ""
+"Não hesite em comunicar os erros e problemas a Nicolas Ternisien <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+
+#: src/main.cpp:39
+#, kde-format
+msgid "Nicolas Ternisien"
+msgstr "Nicolas Ternisien"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "Main developer"
+msgstr "Desenvolvimento principal"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Vyacheslav Matyushin"
+msgstr "Vyacheslav Matyushin"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Journald mode, bugfixes"
+msgstr "Modo de Journald, correcções de erros"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Bojan Djurkovic"
+msgstr "Bojan Djurkovic"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Log Printing"
+msgstr "Impressão do Registo"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "Bug Fixing"
+msgstr "Correcção de Erros"
+
+#: src/main.cpp:58
+#, kde-format
+msgid "Document to open."
+msgstr "O documento a abrir."
+
+#: src/mainWindow.cpp:308
+#, kde-format
+msgctxt "Total displayed lines"
+msgid "1 line."
+msgid_plural "%1 lines."
+msgstr[0] "1 linha."
+msgstr[1] "%1 linhas."
+
+#: src/mainWindow.cpp:311
+#, kde-format
+msgctxt "Line not hidden by search / Total displayed lines"
+msgid "1 line / %2 total."
+msgid_plural "%1 lines / %2 total."
+msgstr[0] "1 linha / %2 totais."
+msgstr[1] "%1 linhas / %2 totais."
+
+#: src/mainWindow.cpp:332
+#, kde-format
+msgid "Resu&me"
+msgstr "Co&ntinuar"
+
+#: src/mainWindow.cpp:334
+#, kde-format
+msgid "Resume the watching of the current log"
+msgstr "Continuar o acompanhamento do registo actual"
+
+#: src/mainWindow.cpp:336
+#, kde-format
+msgid ""
+"Resumes the watching of the current log. This action is only available when "
+"the user has already paused the reading."
+msgstr ""
+"Continua o acompanhamento do registo actual. Esta acção só fica disponível "
+"quando o utilizador já tiver colocado a leitura em pausa."
+
+#: src/mainWindow.cpp:341
+#, kde-format
+msgid "S&top"
+msgstr "&Parar"
+
+#: src/mainWindow.cpp:343
+#, kde-format
+msgid "Pause the watching of the current log"
+msgstr "Interromper o acompanhamento do registo actual"
+
+#: src/mainWindow.cpp:345
+#, kde-format
+msgid ""
+"Pauses the watching of the current log. This action is particularly useful "
+"when the system is writing too many lines to log files, causing KSystemLog "
+"to reload too frequently."
+msgstr ""
+"Interrompe o acompanhamento do registo actual. Esta acção é particularmente "
+"útil quando o sistema vai escrevendo demasiadas linhas nos ficheiros de "
+"registo, fazendo com que o KSystemLog carregue com demasiada frequência."
+
+#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#, kde-format
+msgctxt "Newly created tab"
+msgid "Empty Log"
+msgstr "Registo Vazio"
+
+#: src/mainWindow.cpp:529
+#, kde-format
+msgid "Open a file in KSystemLog"
+msgstr "Abrir um ficheiro no KSystemLog"
+
+#: src/mainWindow.cpp:530
+#, kde-format
+msgid "Opens a file in KSystemLog and displays its content in the current tab."
+msgstr ""
+"Abre um ficheiro no KSystemLog e mostra o seu conteúdo na página actual."
+
+#: src/mainWindow.cpp:533
+#, kde-format
+msgid "&Print Selection..."
+msgstr "Im&primir a Selecção..."
+
+#: src/mainWindow.cpp:534
+#, kde-format
+msgid "Print the selection"
+msgstr "Imprime os dados seleccionados"
+
+#: src/mainWindow.cpp:536
+#, kde-format
+msgid ""
+"Prints the selection. Simply select the important lines and click on this "
+"menu entry to print the selection."
+msgstr ""
+"Imprime os dados seleccionados. Basta seleccionar as linhas importantes e "
+"carregar neste item do menu para enviar a selecção para a impressora."
+
+#: src/mainWindow.cpp:541
+#, kde-format
+msgid "&Print Preview Selection..."
+msgstr "Antevisão da Im&pressão da Selecção..."
+
+#: src/mainWindow.cpp:542
+#, kde-format
+msgid "Print preview the selection"
+msgstr "Cria uma antevisão de impressão da selecção"
+
+#: src/mainWindow.cpp:544
+#, kde-format
+msgid ""
+"Prints preview the selection. Simply select the important lines and click on "
+"this menu entry to print the selection."
+msgstr ""
+"Cria uma antevisão para impressão da selecção. Basta seleccionar as linhas "
+"importantes e carregar neste item do menu para enviar a selecção para a "
+"impressora."
+
+#: src/mainWindow.cpp:550
+#, kde-format
+msgid "Save the selection to a file"
+msgstr "Gravar a selecção num ficheiro"
+
+#: src/mainWindow.cpp:552
+#, kde-format
+msgid ""
+"Saves the selection to a file. This action is useful if you want to create "
+"an attachment or a backup of a particular log."
+msgstr ""
+"Grava a selecção num ficheiro. Esta acção é útil se você quiser criar um "
+"anexo ou uma cópia de segurança de um registo em particular."
+
+#: src/mainWindow.cpp:558
+#, kde-format
+msgid "Quit KSystemLog"
+msgstr "Sair do KSystemLog"
+
+#: src/mainWindow.cpp:559
+#, kde-format
+msgid "Quits KSystemLog."
+msgstr "Sai do KSystemLog."
+
+#: src/mainWindow.cpp:562
+#, kde-format
+msgid "Copy the selection to the clipboard"
+msgstr "Copiar a selecção para a área de transferência"
+
+#: src/mainWindow.cpp:564
+#, kde-format
+msgid ""
+"Copies the selection to the clipboard. This action is useful if you want to "
+"paste the selection in a chat or an email."
+msgstr ""
+"Copia a selecção para a área de transferência. Esta acção é útil se você "
+"quiser colar a selecção numa conversa ou numa mensagem de e-mail."
+
+#: src/mainWindow.cpp:569
+#, kde-format
+msgid "Ex&pand All"
+msgstr "Ex&pandir Tudo"
+
+#: src/mainWindow.cpp:570
+#, kde-format
+msgid "Expand all categories"
+msgstr "Expandir todas as categorias"
+
+#: src/mainWindow.cpp:572
+#, kde-format
+msgid ""
+"This action opens all main categories. This is enabled only if an option has "
+"been selected in the <b>Group By</b> menu."
+msgstr ""
+"Esta acção abre todas as categorias principais. Isto só é activado se tiver "
+"seleccionado uma opção no menu <b>Agrupar Por</b>."
+
+#: src/mainWindow.cpp:578
+#, kde-format
+msgid "Col&lapse All"
+msgstr "Reco&lher Tudo"
+
+#: src/mainWindow.cpp:579
+#, kde-format
+msgid "Collapse all categories"
+msgstr "Fecha (recolhe) todas as categorias"
+
+#: src/mainWindow.cpp:581
+#, kde-format
+msgid ""
+"This action closes all main categories. This is enabled only if an option "
+"has been selected in the <b>Group By</b> menu."
+msgstr ""
+"Esta acção fecha todas as categorias principais. Isto só é activado se tiver "
+"seleccionado uma opção no menu <b>Agrupar Por</b>."
+
+#: src/mainWindow.cpp:587
+#, kde-format
+msgid "&Email Selection..."
+msgstr "Enviar a Selecção por &E-Mail..."
+
+#: src/mainWindow.cpp:589
+#, kde-format
+msgid "Send the selection by mail"
+msgstr "Enviar a selecção via correio electrónico"
+
+#: src/mainWindow.cpp:591
+#, kde-format
+msgid ""
+"Sends the selection by mail. Simply select the important lines and click on "
+"this menu entry to send the selection to a friend or a mailing list."
+msgstr ""
+"Enviar a selecção via correio electrónico. Basta seleccionar as linhas "
+"importantes e carregar neste item do menu para enviar a selecção para um "
+"amigo ou uma lista de correio."
+
+#: src/mainWindow.cpp:597
+#, kde-format
+msgid "&Add Log Entry..."
+msgstr "&Adicionar um Item ao Registo..."
+
+#: src/mainWindow.cpp:600
+#, kde-format
+msgid "Add a log entry to the log system"
+msgstr "Adiciona um item de registo ao sistema de registo"
+
+#: src/mainWindow.cpp:601
+#, kde-format
+msgid ""
+"This action will open a dialog which lets you send a message to the log "
+"system."
+msgstr ""
+"Esta acção irá abrir uma janela que lhe permite enviar uma mensagem para o "
+"sistema de registo."
+
+#: src/mainWindow.cpp:605
+#, kde-format
+msgid "Select all lines of the current log"
+msgstr "Seleccionar todas as linhas do registo actual"
+
+#: src/mainWindow.cpp:607
+#, kde-format
+msgid ""
+"Selects all lines of the current log. This action is useful if you want, for "
+"example, to save all the content of the current log in a file."
+msgstr ""
+"Selecciona todas as linhas do registo actual. Esta acção é útil se você "
+"quiser, por exemplo, gravar todo o conteúdo do registo actual num ficheiro."
+
+#: src/mainWindow.cpp:618
+#, kde-format
+msgid "Show &Filter Bar"
+msgstr "Mostrar a Barra do &Filtro"
+
+#: src/mainWindow.cpp:624
+#, kde-format
+msgid "&New Tab"
+msgstr "&Nova Página"
+
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#, kde-format
+msgid "Create a new tab"
+msgstr "Criar uma nova página"
+
+#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#, kde-format
+msgid "Creates a new tab which can display another log."
+msgstr "Cria uma nova página separada que poderá mostrar outro registo."
+
+#: src/mainWindow.cpp:632
+#, kde-format
+msgid "&Close Tab"
+msgstr "Fe&char a Página"
+
+#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#, kde-format
+msgid "Close the current tab"
+msgstr "Fechar a página actual"
+
+#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#, kde-format
+msgid "Closes the current tab."
+msgstr "Fecha a página actual."
+
+#: src/mainWindow.cpp:640
+#, kde-format
+msgid "&Duplicate Tab"
+msgstr "&Duplicar a Página"
+
+#: src/mainWindow.cpp:642
+#, kde-format
+msgid "Duplicate the current tab"
+msgstr "Duplicar a página actual"
+
+#: src/mainWindow.cpp:643
+#, kde-format
+msgid "Duplicates the current tab."
+msgstr "Duplica a página actual."
+
+#: src/mainWindow.cpp:652
+#, kde-format
+msgid "Move Tab &Left"
+msgstr "Mover a Página para a Es&querda"
+
+#: src/mainWindow.cpp:654
+#, kde-format
+msgid "Move the current tab to the left"
+msgstr "Deslocar a página actual para a esquerda"
+
+#: src/mainWindow.cpp:655
+#, kde-format
+msgid "Moves the current tab to the left."
+msgstr "Desloca a página actual para a esquerda."
+
+#: src/mainWindow.cpp:660
+#, kde-format
+msgid "Move Tab &Right"
+msgstr "Mover a Página para a Di&reita"
+
+#: src/mainWindow.cpp:662
+#, kde-format
+msgid "Move the current tab to the right"
+msgstr "Mover a página para a direita"
+
+#: src/mainWindow.cpp:663
+#, kde-format
+msgid "Moves the current tab to the right."
+msgstr "Move a página para a direita."
+
+#: src/mainWindow.cpp:668
+#, kde-format
+msgid "&Reload"
+msgstr "&Recarregar"
+
+#: src/mainWindow.cpp:670
+#, kde-format
+msgid "Reload the current log"
+msgstr "Reler o registo actual"
+
+#: src/mainWindow.cpp:671
+#, kde-format
+msgid ""
+"Reloads the current log, if you want to be sure that the view is correctly "
+"updated."
+msgstr ""
+"Carrega de novo o registo actual, se você quiser ter a certeza que a janela "
+"fica realmente actualizada."
+
+#: src/mainWindow.cpp:681
+#, kde-format
+msgid "&Details"
+msgstr "&Detalhes"
+
+#: src/mainWindow.cpp:683
+#, kde-format
+msgid "Display details on the selected line"
+msgstr "Mostrar os detalhes sobre a linha seleccionada"
+
+#: src/mainWindow.cpp:685
+#, kde-format
+msgid ""
+"Displays a dialog box which contains details on the selected line. You are "
+"able to navigate through the logs from this dialog box with the <b>Previous</"
+"b> and <b>Next</b> buttons."
+msgstr ""
+"Mostra uma janela que contém os detalhes sobre a linha seleccionada de "
+"momento. Poderá navegar pelos registos desta janela com os botões "
+"<b>Anterior</b> / <b>Seguinte</b>."
+
+#: src/mainWindow.cpp:691
+#, kde-format
+msgid "&Enable Detailed Tooltips"
+msgstr "Activar as Dicas D&etalhadas"
+
+#: src/mainWindow.cpp:692
+#, kde-format
+msgid "Disable/Enable the tooltip on the current view"
+msgstr "Desactivar/activar a dica na janela actual"
+
+#: src/mainWindow.cpp:693
+#, kde-format
+msgid ""
+"Disables/Enables the tooltip displayed when the cursor hovers a log line."
+msgstr ""
+"Desactiva/activa a dica que aparece quando o cursor passa por cima de uma "
+"linha do registo."
+
+#: src/mainWindow.cpp:699
+#, kde-format
+msgid "&Scroll to New Lines"
+msgstr "De&slocar para as Linhas Novas"
+
+#: src/mainWindow.cpp:700
+#, kde-format
+msgid "Scrolls or not to the new lines when the log changes"
+msgstr "Deslocar ou não para as linhas novas se o ficheiro for alterado"
+
+#: src/mainWindow.cpp:702
+#, kde-format
+msgid ""
+"Scrolls or not to the new lines when the log changes. Check this option if "
+"you do not want the application to scroll automatically at the bottom of the "
+"log each time it is refreshed."
+msgstr ""
+"Desloca-se ou não para as linhas novas quando o registo muda. Assinale esta "
+"opção se não quiser que esta opção faça deslocar automaticamente para o fim "
+"do registo, de cada vez que este é actualizado."
+
+#: src/mainWindow.cpp:762
+#, kde-format
+msgid "Services"
+msgstr "Serviços"
+
+#: src/mainWindow.cpp:763
+#, kde-format
+msgid "Others"
+msgstr "Outros"
+
+#: src/modes/acpid/acpidAnalyzer.cpp:18 src/modes/xorg/xorgAnalyzer.cpp:26
+#, kde-format
+msgid "Type"
+msgstr "Tipo"
+
+#: src/modes/acpid/acpidConfigurationWidget.cpp:11
+#, kde-format
+msgid "Acpid Log"
+msgstr "Registo do ACPID"
+
+#: src/modes/acpid/acpidConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo do Acpid</b>.</"
+"p>"
+
+#: src/modes/acpid/acpidItemBuilder.cpp:19
+#: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
+#, kde-format
+msgid "Type:"
+msgstr "Tipo:"
+
+#: src/modes/acpid/acpidLogMode.cpp:19
+#, kde-format
+msgid "ACPI Log"
+msgstr "Registo do ACPI"
+
+#: src/modes/acpid/acpidLogMode.cpp:28
+#, kde-format
+msgid "Display the ACPI log."
+msgstr "Mostrar o registo do ACPI."
+
+#: src/modes/acpid/acpidLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the ACPI log in the current tab. ACPI is used to manage the "
+"hardware components of your computer, like notebook batteries, reset "
+"buttons..."
+msgstr ""
+"Mostra o registo do ACPI na página actual. O ACPI é usado para gerir os "
+"componentes de 'hardware' do seu computador, como as baterias dos portáteis, "
+"botões de arranque..."
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:19
+#, kde-format
+msgid "Host Name"
+msgstr "Nome da Máquina"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:20
+#, kde-format
+msgid "Id."
+msgstr "Id."
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:22
+#, kde-format
+msgid "Response"
+msgstr "Resposta"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:23
+#, kde-format
+msgid "Bytes Sent"
+msgstr "'Bytes' Enviados"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:24
+#, kde-format
+msgid "Agent Identity"
+msgstr "Identidade do Agente"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:25
+#: src/modes/cups/cupsAccessAnalyzer.cpp:23
+#, kde-format
+msgid "HTTP Request"
+msgstr "Pedido de HTTP"
+
+#: src/modes/apache/apacheAccessAnalyzer.cpp:26
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:19
+#, kde-format
+msgid "Host Name:"
+msgstr "Máquina:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:20
+#: src/modes/cups/cupsAccessItemBuilder.cpp:20
+#, kde-format
+msgid "Identification:"
+msgstr "Identificação:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:21
+#: src/modes/cups/cupsAccessItemBuilder.cpp:21
+#: src/modes/cups/cupsPageItemBuilder.cpp:20
+#, kde-format
+msgid "Username:"
+msgstr "Utilizador:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:22
+#: src/modes/cups/cupsAccessItemBuilder.cpp:22
+#, kde-format
+msgid "HTTP Response:"
+msgstr "Resposta de HTTP:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:23
+#: src/modes/cups/cupsAccessItemBuilder.cpp:23
+#, kde-format
+msgid "Bytes Sent:"
+msgstr "'Bytes' Enviados:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:24
+#, kde-format
+msgid "Agent Identity:"
+msgstr "Identidade do Agente:"
+
+#: src/modes/apache/apacheAccessItemBuilder.cpp:25
+#, kde-format
+msgid "HTTP Request:"
+msgstr "Pedido de HTTP:"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:21
+#, kde-format
+msgid "Apache Access Log"
+msgstr "Registo de Acessos do Apache"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:30
+#, kde-format
+msgid "Display the Apache Access log."
+msgstr "Mostrar o registo de acessos do Apache."
+
+#: src/modes/apache/apacheAccessLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the Apache Access log in the current tab. Apache is the main used "
+"Web server in the world. This log saves all requests performed by the Apache "
+"web server."
+msgstr ""
+"Mostra o registo de acessos do Apache na página actual. O Apache é o "
+"servidor Web mais usado em todo o mundo. Este registo guarda todos os "
+"pedidos efectuados ao servidor Web Apache."
+
+#: src/modes/apache/apacheAnalyzer.cpp:19
+#, kde-format
+msgid "Client"
+msgstr "Cliente"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:11
+#: src/modes/apache/apacheLogMode.cpp:21
+#, kde-format
+msgid "Apache Log"
+msgstr "Registo do Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Apache log</b> and the "
+"<b>Apache Access log</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo do Apache</b> "
+"e o <b>registo de acessos do Apache</b>.</p>"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:19
+#, kde-format
+msgid "Apache Log Files"
+msgstr "Ficheiros de Registo do Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Apache File..."
+msgstr "Adicionar um Registo do Apache..."
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:20
+#, kde-format
+msgid "Apache Access Log Files"
+msgstr "Ficheiros de Registo de Acessos do Apache"
+
+#: src/modes/apache/apacheConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Apache Access File..."
+msgstr "Adicionar um Registo de Acessos do Apache..."
+
+#: src/modes/apache/apacheFactory.cpp:48
+#, kde-format
+msgid "Apache"
+msgstr "Apache"
+
+#: src/modes/apache/apacheItemBuilder.cpp:19
+#, kde-format
+msgid "Client:"
+msgstr "Cliente:"
+
+#: src/modes/apache/apacheLogMode.cpp:30
+#, kde-format
+msgid "Display the Apache log."
+msgstr "Mostrar o registo do Apache."
+
+#: src/modes/apache/apacheLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the Apache log in the current tab. Apache is the main used Web "
+"server in the world."
+msgstr ""
+"Mostra o registo do Apache na página actual. O Apache é o servidor Web mais "
+"usado em todo o mundo."
+
+#: src/modes/audit/auditConfigurationWidget.cpp:14
+#: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
+#, kde-format
+msgid "Audit Log"
+msgstr "Registo de Auditoria"
+
+#: src/modes/audit/auditConfigurationWidget.cpp:18
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo de Auditoria</"
+"b>.</p>"
+
+#: src/modes/audit/auditLogMode.cpp:26
+#, kde-format
+msgid "Display the audit log."
+msgstr "Mostrar o registo de auditoria."
+
+#: src/modes/audit/auditLogMode.cpp:28
+#, kde-format
+msgid ""
+"Displays the audit log in the current tab. This log is generally used by non-"
+"specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgstr ""
+"Mostra o registo de auditoria na página actual. Este registo é usado "
+"normalmente pelos processos não-especializados (como os comandos \"sudo\" ou "
+"\"fsck\")"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:11
+#: src/modes/authentication/authenticationLogMode.cpp:19
+#, kde-format
+msgid "Authentication Log"
+msgstr "Registo da Autenticação"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:18
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:18
+#, kde-format
+msgid "Log file does not exist. Mode will be unavailable."
+msgstr "O ficheiro de registo não existe. O modo ficará indisponível."
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:23
+#, kde-format
+msgid "Authentication Log File"
+msgstr "Ficheiro de Registo de Autenticações"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:33
+#, kde-format
+msgid "Authentication log file:"
+msgstr "Ficheiro de registo de autenticações:"
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:38
+#, kde-format
+msgid ""
+"You can type or choose the authentication log file (example: <i>/var/log/"
+"auth.log</i>)."
+msgstr ""
+"Poderá escrever ou seleccionar o registo de autenticações (por exemplo: <i>/"
+"var/log/auth.log</i>)."
+
+#: src/modes/authentication/authenticationConfigurationWidget.cpp:40
+#, kde-format
+msgid ""
+"You can type or choose here the authentication log file. This file will be "
+"analyzed when you select the <b>Authentication log</b> menu. Generally, its "
+"name is <i>/var/log/auth.log</i>"
+msgstr ""
+"Poderá escrever ou seleccionar aqui o ficheiro do registo de autenticações. "
+"Este ficheiro será analisado quando seleccionar o menu do <b>Registo de "
+"autenticações</b>. De um modo geral, o seu nome é <i>/var/log/auth.log</i>"
+
+#: src/modes/authentication/authenticationLogMode.cpp:28
+#, kde-format
+msgid "Display the authentication log."
+msgstr "Mostrar o registo de autenticação."
+
+#: src/modes/authentication/authenticationLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the authentication log in the current tab. This log displays all "
+"logins made by each user of the system, and can help you to know if someone "
+"tried to crack your system."
+msgstr ""
+"Mostra o registo de autenticação na página actual. Este registo mostra todas "
+"as autenticações feitas por cada utilizador do sistema, podendo-o ajudar a "
+"descobrir se alguém tentou \"furar\" o seu sistema."
+
+#: src/modes/base/fileList.cpp:33
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"If all log files are missing, this mode will be unavailable."
+msgstr ""
+"Alguns ficheiros de registo não existem.\n"
+"Se todos os ficheiros de registo estiverem em falta, este modo ficará "
+"indisponível."
+
+#. i18n: ectx: property (text), widget (QLabel, description)
+#: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
+#, kde-format
+msgid "File List Description"
+msgstr "Descrição da Lista de Ficheiros"
+
+#. i18n: ectx: property (title), widget (QGroupBox, filesBox)
+#: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
+#, kde-format
+msgid "Log Files"
+msgstr "Ficheiros de Registo"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:55
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Escolha um ficheiro novo</"
+"p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:61
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
+"choose a new file to be added to the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Abre uma janela onde "
+"poderá escolher um novo ficheiro para adicionar à lista.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:64
+#, kde-format
+msgid "&Add File..."
+msgstr "&Adicionar um Ficheiro..."
+
+#. i18n: ectx: property (text), widget (QPushButton, modify)
+#: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
+#, kde-format
+msgid "&Modify File..."
+msgstr "&Modificar o Ficheiro..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Apaga os ficheiros "
+"seleccionados.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:87
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
+"on the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Apaga os ficheiros "
+"seleccionados da lista.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
+#, kde-format
+msgid "&Remove"
+msgstr "&Remover"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:100 src/modes/base/multipleFileListBase.ui:99
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Apaga todos os ficheiros</"
+"p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:106
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
+"the list, even if they are not selected.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove todos os ficheiros "
+"da lista, mesmo que não estejam seleccionados.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:109
+#: src/modes/base/multipleFileListBase.ui:108
+#, kde-format
+msgid "Rem&ove All"
+msgstr "Rem&over Tudo"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:122
+#: src/modes/base/multipleFileListBase.ui:121
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Subir os ficheiros "
+"actuais</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:128
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"up in the list. This option allows the files to be read <span style=\" font-"
+"weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Sobe os ficheiros "
+"seleccionados na lista. Esta opção permite aos ficheiros serem lidos <span "
+"style=\" font-weight:600;\">em primeiro lugar</span> pelo KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:131
+#: src/modes/base/multipleFileListBase.ui:130
+#, kde-format
+msgid "Move &Up"
+msgstr "S&ubir"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:141
+#: src/modes/base/multipleFileListBase.ui:140
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
+"file(s)</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Descer os ficheiros "
+"seleccionados</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:147
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"down in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Desce os ficheiros "
+"seleccionados na lista. Esta opção permite aos ficheiros serem lidos <span "
+"style=\" font-weight:600;\">em último lugar</span> pelo KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:150
+#: src/modes/base/multipleFileListBase.ui:149
+#, kde-format
+msgid "Move &Down"
+msgstr "&Descer"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/fileListBase.ui:175
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
+"files when adding files.</li></ul>"
+msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notas:</b></p><ul "
+"style='margin-top:0px'><li>Os ficheiros são lidos pela ordem indicada nesta "
+"lista.</li><li>São aceites os ficheiros comprimidos e de texto simples <i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>Use o símbolo <b>'*'</b> para seleccionar "
+"vários ficheiros de registo, quando adicionar ficheiros.</li></ul>"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:191
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
+"log type.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">A lista de ficheiros "
+"usados por este tipo de registo.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:197
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Here is a list of every "
+"file that will be read by KSystemLog to display the current log lines.</p></"
+"body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Aqui está uma lista com "
+"todos os ficheiros que serão lidos pelo KSystemLog, para apresentar as "
+"linhas actuais do registo.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:210
+#, kde-format
+msgid "add"
+msgstr "adicionar"
+
+#: src/modes/base/fileListHelper.cpp:99
+#, kde-format
+msgid "'%1' is not a local file."
+msgstr "O '%1' não é um ficheiro local."
+
+#: src/modes/base/fileListHelper.cpp:100
+#, kde-format
+msgid "File selection failed"
+msgstr "A selecção do ficheiro foi mal-sucedida"
+
+#: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
+#, kde-format
+msgid "All Files (*)"
+msgstr "Todos os Ficheiros (*)"
+
+#: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
+#, kde-format
+msgid "Log Files (*.log)"
+msgstr "Ficheiros de Registo (*.log)"
+
+#: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
+#, kde-format
+msgid "Choose Log File"
+msgstr "Escolha um Ficheiro de Registo"
+
+#: src/modes/base/genericConfiguration.cpp:58
+#, kde-format
+msgid "The two arrays size are different, skipping the reading of log files."
+msgstr ""
+"O tamanho das duas listas é diferente, como tal a leitura dos registos será "
+"ignorada."
+
+#: src/modes/base/logLevelFileList.cpp:35
+#, kde-format
+msgid "&Change Status..."
+msgstr "Modifi&car o Estado..."
+
+#: src/modes/base/logLevelFileList.cpp:36
+#, kde-format
+msgid "Change the level of the current file(s)"
+msgstr "Muda o nível dos ficheiros actuais"
+
+#: src/modes/base/logLevelFileList.cpp:38
+#, kde-format
+msgid ""
+"Changes the level of the current file(s). See KSystemLog documentation for "
+"more information about each log level."
+msgstr ""
+"Muda o nível dos ficheiros actuais. Veja a documentação do KSystemLog para "
+"obter mais informações sobre cada nível de depuração."
+
+#: src/modes/base/logLevelFileList.cpp:150
+#, kde-format
+msgid ""
+"The two arrays size are different, skipping the reading of generic paths."
+msgstr ""
+"Os tamanhos das duas listas são diferentes, a ignorar a leitura de locais "
+"genéricos."
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
+#: src/modes/base/logLevelSelectionDialogBase.ui:14
+#, kde-format
+msgid "Selecting File Type"
+msgstr "Seleccionar o Tipo de Ficheiro"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/base/logLevelSelectionDialogBase.ui:23
+#, kde-format
+msgid "Please select the type of this file:"
+msgstr "Seleccione por favor o tipo deste ficheiro:"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:36
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
+"levels</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">A lista de níveis de "
+"registo existentes</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:43
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is the list of all "
+"existing log levels. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
+"to be used for the files selected on the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Esta é a lista com todos "
+"os níveis de registo existentes.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Seleccione por favor um "
+"deles para o usar nos ficheiros seleccionados da lista.</p></body></html>"
+
+#: src/modes/base/multipleFileList.cpp:34
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"Modes with missing log files will be unavailable."
+msgstr ""
+"Alguns ficheiros de registo não existem.\n"
+"Os modos com ficheiros de registo em falta ficarão indisponíveis."
+
+#: src/modes/base/multipleFileList.cpp:410
+#, kde-format
+msgid "No log file..."
+msgstr "Sem ficheiro de registo..."
+
+#. i18n: ectx: property (text), widget (QTreeWidget, fileList)
+#: src/modes/base/multipleFileListBase.ui:60
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/multipleFileListBase.ui:86
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
+"of the list.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Apaga os ficheiros "
+"seleccionados da lista.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/multipleFileListBase.ui:105
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
+"list, even if they are not selected.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove todos os ficheiros "
+"da lista, mesmo que não estejam seleccionados.</p></body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/multipleFileListBase.ui:127
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves up the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Sobe os ficheiros "
+"seleccionados na lista. Esta opção permite aos ficheiros serem lidos <span "
+"style=\" font-weight:600;\">em primeiro lugar</span> pelo KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/multipleFileListBase.ui:146
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves down the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Desce os ficheiros "
+"seleccionados na lista. Esta opção permite aos ficheiros serem lidos <span "
+"style=\" font-weight:600;\">em último lugar</span> pelo KSystemLog.</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/multipleFileListBase.ui:174
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
+"when adding files.</li></ul>"
+msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notas:</b></p><ul "
+"style='margin-top:0px'><li>Os ficheiros são lidos pela ordem indicada nesta "
+"lista.</li><li>São aceites os ficheiros comprimidos e de texto simples <i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>Use o símbolo <b>'*'</b> para seleccionar "
+"vários ficheiros de registo, quando adicionar ficheiros.</li></ul>"
+
+#: src/modes/base/parsingHelper.cpp:156
+#, kde-format
+msgctxt "HttpResponseNumber HttpResponseDescription"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: src/modes/base/syslogAnalyzer.cpp:42 src/modes/cron/cronAnalyzer.cpp:13
+#: src/modes/cups/cupsAccessAnalyzer.cpp:20
+#, kde-format
+msgid "Host"
+msgstr "Máquina"
+
+#: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
+#, kde-format
+msgid "Process"
+msgstr "Processo"
+
+#: src/modes/cron/cronAnalyzer.cpp:16
+#, kde-format
+msgid "Command"
+msgstr "Comando"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:10
+#: src/modes/cron/cronLogMode.cpp:19
+#, kde-format
+msgid "Cron Log"
+msgstr "Registo do CRON"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:15
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
+"tasks logs). <a href='man:/cron'>More information...</a></p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar os <b>Registos do Cron</b> "
+"(i.e., sobre as tarefas planeadas). <a href='man:/cron'>Mais informações...</"
+"a></p>"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:24
+#, kde-format
+msgid "Enable Process Filtering"
+msgstr "Activar a Filtragem de Processos"
+
+#: src/modes/cron/cronConfigurationWidget.cpp:36
+#, kde-format
+msgid "Only keeps lines which matches this process :"
+msgstr "Mantém apenas as linhas correspondentes a este processo :"
+
+#: src/modes/cron/cronItemBuilder.cpp:20
+#, kde-format
+msgid "User:"
+msgstr "Utilizador:"
+
+#: src/modes/cron/cronLogMode.cpp:28
+#, kde-format
+msgid "Display the planned tasks log (Cron log)."
+msgstr "Mostrar o registo de tarefas planeadas (registo do CRON)."
+
+#: src/modes/cron/cronLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the planned tasks log in the current tab. Cron process is a program "
+"in charge of launching planned tasks on your system, like security checks, "
+"or auto-restarting of some services. Use this menu to see the recently "
+"launched processes."
+msgstr ""
+"Mostra o registo de tarefas planeadas na página actual. O processo do CRON é "
+"um programa responsável por lançar as tarefas planeadas para o seu sistema, "
+"como as verificações de segurança ou o reinício de alguns serviços. Use este "
+"menu para ver os últimos processos lançados."
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:21
+#, kde-format
+msgid "Group"
+msgstr "Grupo"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:24
+#, kde-format
+msgid "Status"
+msgstr "Estado"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:25
+#, kde-format
+msgid "Bytes"
+msgstr "Bytes"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:26
+#, kde-format
+msgid "IPP Operation"
+msgstr "Operação IPP"
+
+#: src/modes/cups/cupsAccessAnalyzer.cpp:27
+#, kde-format
+msgid "IPP Status"
+msgstr "Estado do IPP"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:21
+#, kde-format
+msgid "Cups Web Log"
+msgstr "Registo Web do Cups"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS Web Server Access log."
+msgstr "Mostrar o registo de acessos ao Servidor Web do CUPS."
+
+#: src/modes/cups/cupsAccessLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS Web Server Access log in the current tab. CUPS is the "
+"program which manages printing on your computer. This log saves all requests "
+"performed to the CUPS embedded web server (default: <i>http://localhost:631</"
+"i>)."
+msgstr ""
+"Mostra o registo de acessos ao Servidor Web do CUPS na página actual. O CUPS "
+"é o programa que gere as impressões no seu computador. Este registo guarda "
+"todos os pedidos efectuados ao servidor Web incorporado no CUPS (por "
+"omissão: <i>http://localhost:631</i>)."
+
+#: src/modes/cups/cupsAnalyzer.cpp:56
+#, kde-format
+msgid "debug 2"
+msgstr "depuração 2"
+
+#: src/modes/cups/cupsAnalyzer.cpp:76
+#, kde-format
+msgid ""
+"New Log Level detected: Please send this log file to the KSystemLog "
+"developer to add it."
+msgstr ""
+"Foi detectado um novo nível de registo: Envie por favor este ficheiro de "
+"registo para a equipa do KSystemLog o adicionar."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:11
+#: src/modes/cups/cupsLogMode.cpp:21
+#, kde-format
+msgid "Cups Log"
+msgstr "Registo do CUPS"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:11
+#, kde-format
+msgid "Cups &amp; Cups Web Server Log"
+msgstr "Registo do Servidor do Cups &amp; Servidor Web do Cups"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
+"Web Access log</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo do Cups</b> e "
+"o <b>registo de Acessos Web do Cups</b>.</p>"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:19
+#, kde-format
+msgid "Cups Log Files"
+msgstr "Ficheiros de Registo do CUPS"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Cups File..."
+msgstr "Adicionar um Ficheiro do CUPS..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:20
+#, kde-format
+msgid "Cups Access Log Files"
+msgstr "Ficheiros de Registo de Acessos do CUPS"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Cups Access File..."
+msgstr "Adicionar um Registo de Acessos do CUPS..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:21
+#, kde-format
+msgid "Cups Page Log Files"
+msgstr "Ficheiros de Registo de Páginas do CUPS"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:21
+#, kde-format
+msgid "Add Cups Page File..."
+msgstr "Adicionar um Ficheiro de Páginas do CUPS..."
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:22
+#, kde-format
+msgid "Cups PDF Log Files"
+msgstr "Ficheiros de Registo de PDF do CUPS"
+
+#: src/modes/cups/cupsConfigurationWidget.cpp:22
+#, kde-format
+msgid "Add Cups PDF File..."
+msgstr "Adicionar um Registo de PDFs do CUPS..."
+
+#: src/modes/cups/cupsFactory.cpp:55
+#, kde-format
+msgid "Cups"
+msgstr "Cups"
+
+#: src/modes/cups/cupsLogMode.cpp:30
+#, kde-format
+msgid "Display the Cups log."
+msgstr "Mostrar o registo do CUPS."
+
+#: src/modes/cups/cupsLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS log in the current tab. CUPS is the program which manages "
+"printing on your computer."
+msgstr ""
+"Mostra o registo do CUPS na página actual. O CUPS é o programa que gere as "
+"impressões no seu computador."
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:20
+#, kde-format
+msgid "Printer"
+msgstr "Impressora"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:22
+#, kde-format
+msgid "Job Id"
+msgstr "ID da Tarefa"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:23
+#, kde-format
+msgid "Page Number"
+msgstr "Número da Página"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:24
+#, kde-format
+msgid "Num Copies"
+msgstr "Número de Cópias"
+
+#: src/modes/cups/cupsPageAnalyzer.cpp:25
+#, kde-format
+msgid "Job Billing"
+msgstr "Contabilidade de Tarefas"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:19
+#, kde-format
+msgid "Printer:"
+msgstr "Impressora:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:21
+#, kde-format
+msgid "Job Id:"
+msgstr "ID da Tarefa:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:22
+#, kde-format
+msgid "Page Number:"
+msgstr "Número da Página:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:23
+#, kde-format
+msgid "Num Copies:"
+msgstr "Número de Cópias:"
+
+#: src/modes/cups/cupsPageItemBuilder.cpp:24
+#, kde-format
+msgid "Job Billing:"
+msgstr "Contabilidade de Tarefas:"
+
+#: src/modes/cups/cupsPageLogMode.cpp:21
+#, kde-format
+msgid "Cups Page Log"
+msgstr "Registo de Páginas do CUPS"
+
+#: src/modes/cups/cupsPageLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS Page log."
+msgstr "Mostrar o registo de páginas do CUPS."
+
+#: src/modes/cups/cupsPageLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS Page log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Mostra o registo de páginas do CUPS na página actual. O CUPS é o programa "
+"que gere as impressões no seu computador. Este registo guarda todos os "
+"pedidos efectuados ao servidor Web incorporado no CUPS (por omissão: "
+"<i>http://localhost:631</i>)."
+
+#: src/modes/cups/cupsPdfItemBuilder.cpp:19
+#, kde-format
+msgid "Message:"
+msgstr "Mensagem:"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:21
+#, kde-format
+msgid "Cups PDF Log"
+msgstr "Registo de PDF do CUPS"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:30
+#, kde-format
+msgid "Display the CUPS PDF log."
+msgstr "Mostrar o registo de PDF do CUPS."
+
+#: src/modes/cups/cupsPdfLogMode.cpp:32
+#, kde-format
+msgid ""
+"Displays the CUPS PDF log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Mostra o registo de ficheiros PDF do CUPS na página actual. O CUPS é o "
+"programa que gere as impressões no seu computador. Este registo guarda todos "
+"os pedidos efectuados ao servidor Web incorporado do CUPS (por omissão: "
+"<i>http://localhost:631</i>)."
+
+#: src/modes/daemon/daemonConfigurationWidget.cpp:11
+#: src/modes/daemon/daemonLogMode.cpp:12
+#, kde-format
+msgid "Daemons' Logs"
+msgstr "Registos dos Servidores"
+
+#: src/modes/daemon/daemonConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar os <b>Registos dos "
+"Servidores</b>.</p>"
+
+#: src/modes/daemon/daemonLogMode.cpp:21
+#, kde-format
+msgid "Display the daemons' logs."
+msgstr "Mostrar os registos dos servidores."
+
+#: src/modes/daemon/daemonLogMode.cpp:23
+#, kde-format
+msgid ""
+"Displays the daemons' logs in the current tab. The daemons are all processes "
+"launched in the background of the system. See this log if you want to know "
+"what occurs in the background of your system."
+msgstr ""
+"Mostra os registos dos servidores na página actual. Os servidores são todos "
+"os processos lançados em segundo plano do sistema. Veja este registo se "
+"quiser saber o que se passa em segundo plano no seu sistema."
+
+#. i18n: ectx: property (text), widget (QLabel, addressLabel)
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#: src/modes/journald/journaldAddressDialog.ui:19
+#: src/modes/journald/journaldConfigurationWidget.ui:71
+#, kde-format
+msgid "Address"
+msgstr "Endereço"
+
+#. i18n: ectx: property (text), widget (QLabel, portLabel)
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#: src/modes/journald/journaldAddressDialog.ui:39
+#: src/modes/journald/journaldConfigurationWidget.ui:76
+#, kde-format
+msgid "Port"
+msgstr "Porto"
+
+#. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
+#: src/modes/journald/journaldAddressDialog.ui:66
+#, kde-format
+msgid "Enable"
+msgstr "Activar"
+
+#: src/modes/journald/journaldAnalyzer.cpp:22
+#, kde-format
+msgid "Unit"
+msgstr "Unidade"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:18
+#: src/modes/journald/journaldLogMode.cpp:22
+#, kde-format
+msgid "Journald Log"
+msgstr "Registo do Journald"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:78
+#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#, kde-format
+msgid "Enabled"
+msgstr "Activo"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#, kde-format
+msgid "Add remote journal"
+msgstr "Adicionar um registo de transacções remoto"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#, kde-format
+msgid "Modify remote journal"
+msgstr "Modificar o registo de transacções remoto"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
+#: src/modes/journald/journaldConfigurationWidget.ui:17
+#, kde-format
+msgid "Journald options"
+msgstr "Opções do Journald"
+
+#. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
+#: src/modes/journald/journaldConfigurationWidget.ui:23
+#, kde-format
+msgid "Display log entries from current boot only"
+msgstr "Mostrar os itens de registo apenas do arranque do sistema actual"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:31
+#, kde-format
+msgid "Display all log entries"
+msgstr "Mostrar todos os itens do registo"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:36
+#, kde-format
+msgid "Display log entries of processes of the current user"
+msgstr "Mostrar os itens de registo dos processos do utilizador actual"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:41
+#, kde-format
+msgid "Display log entries of system services and the kernel"
+msgstr "Mostrar os itens de registo dos serviços do sistema e do 'kernel'"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
+#: src/modes/journald/journaldConfigurationWidget.ui:52
+#, kde-format
+msgid "Remote journals"
+msgstr "Registos de transacções remotos"
+
+#. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:104
+#, kde-format
+msgid "Add address"
+msgstr "Adicionar um endereço"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:114
+#, kde-format
+msgid "Remove address"
+msgstr "Remover o endereço"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:124
+#, kde-format
+msgid "Modify address"
+msgstr "Modificar o endereço"
+
+#: src/modes/journald/journaldFactory.cpp:27
+#, kde-format
+msgid "Journald"
+msgstr "Journald"
+
+#: src/modes/journald/journaldFactory.cpp:43
+#, kde-format
+msgid "Local journal"
+msgstr "Registo de transacções local"
+
+#: src/modes/journald/journaldFactory.cpp:46
+#, kde-format
+msgid "All messages"
+msgstr "Todas as mensagens"
+
+#: src/modes/journald/journaldFactory.cpp:57
+#: src/modes/journald/journaldFactory.cpp:117
+#, kde-format
+msgid "Filter by systemd unit"
+msgstr "Filtrar por unidade do 'systemd'"
+
+#: src/modes/journald/journaldFactory.cpp:72
+#: src/modes/journald/journaldFactory.cpp:134
+#, kde-format
+msgid "Filter by syslog identifier"
+msgstr "Filtrar por identificador do 'syslog'"
+
+#: src/modes/journald/journaldFactory.cpp:102
+#, kde-format
+msgid "Connect"
+msgstr "Ligar"
+
+#: src/modes/journald/journaldItemBuilder.cpp:23
+#, kde-format
+msgid "Priority:"
+msgstr "Prioridade:"
+
+#: src/modes/journald/journaldItemBuilder.cpp:24
+#, kde-format
+msgid "Unit:"
+msgstr "Unidade:"
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:214
+#, kde-format
+msgid "Reading journald entries..."
+msgstr "A ler os itens do Journald..."
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:225
+#, kde-format
+msgid "Journald entries loaded successfully."
+msgstr "Os itens do Journald foram carregados com sucesso."
+
+#: src/modes/journald/journaldLogMode.cpp:35
+#, kde-format
+msgid "Display the Journald log."
+msgstr "Mostrar o registo do Journald."
+
+#: src/modes/journald/journaldLogMode.cpp:36
+#, kde-format
+msgid "Displays the journald log in the current tab."
+msgstr "Mostra o registo do Journald na página actual."
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:91
+#, kde-format
+msgid "Connected"
+msgstr "Ligado"
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:145
+#, kde-format
+msgid "Connection error"
+msgstr "Erro de ligação"
+
+#: src/modes/kernel/kernelAnalyzer.cpp:21
+#, kde-format
+msgid "Component"
+msgstr "Componente"
+
+#: src/modes/kernel/kernelItemBuilder.cpp:19
+#, kde-format
+msgid "Component:"
+msgstr "Componente:"
+
+#: src/modes/kernel/kernelLogMode.cpp:19
+#, kde-format
+msgid "Kernel Log"
+msgstr "Registo do 'Kernel'"
+
+#: src/modes/kernel/kernelLogMode.cpp:26
+#, kde-format
+msgid "Display the kernel log."
+msgstr "Mostrar o registo do 'kernel'."
+
+#: src/modes/kernel/kernelLogMode.cpp:28
+#, kde-format
+msgid ""
+"Displays the kernel log in the current tab. This log is only useful for "
+"users who want to know why the Kernel does not detect their hardware or what "
+"is the cause of the last <i>kernel panic/oops</i>."
+msgstr ""
+"Mostra o registo do 'kernel' na página actual. Este registo só é útil para "
+"os utilizadores que desejem saber porque é que o 'kernel' não detecta o seu "
+"'hardware' ou para descobrir a causa do último <i>estoiro/oops do 'kernel'</"
+"i>."
+
+#: src/modes/open/openLogMode.cpp:22
+#, kde-format
+msgid "Log File"
+msgstr "Ficheiro de Registo"
+
+#: src/modes/open/openLogMode.cpp:45
+#, kde-format
+msgid "Open Location"
+msgstr "Abrir a Localização"
+
+#: src/modes/open/openLogMode.cpp:59
+#, kde-format
+msgid "Malformed URL. Unable to open this file."
+msgstr "O URL é inválido. Não é possível abrir este ficheiro."
+
+#: src/modes/open/openLogMode.cpp:60
+#, kde-format
+msgid "Unable to open this file."
+msgstr "Não é possível abrir este ficheiro."
+
+#: src/modes/postfix/postfixConfigurationWidget.cpp:10
+#: src/modes/postfix/postfixLogMode.cpp:20
+#, kde-format
+msgid "Postfix Log"
+msgstr "Registo do Postfix"
+
+#: src/modes/postfix/postfixConfigurationWidget.cpp:14
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar os <b>Registos do Postfix</"
+"b>.</p>"
+
+#: src/modes/postfix/postfixLogMode.cpp:29
+#, kde-format
+msgid "Display the Postfix log."
+msgstr "Mostrar o registo do Postfix."
+
+#: src/modes/postfix/postfixLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the Postfix log in the current tab. Postfix is the most known and "
+"used mail server in the Linux world."
+msgstr ""
+"Mostra o registo do Postfix na página actual. O Postfix é o servidor de e-"
+"mail mais conhecido e usado em todo o mundo do Linux."
+
+#: src/modes/samba/netbiosLogMode.cpp:23
+#, kde-format
+msgid "Netbios Log"
+msgstr "Registo do Netbios"
+
+#: src/modes/samba/netbiosLogMode.cpp:31
+#, kde-format
+msgid "Display the Netbios log."
+msgstr "Mostrar o registo do Netbios."
+
+#: src/modes/samba/netbiosLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Netbios log in the current tab. Netbios is the file sharing "
+"protocol developed by Microsoft."
+msgstr ""
+"Mostra o registo do Netbios na página actual. O Netbios é o protocolo de "
+"partilha de ficheiros desenvolvido pela Microsoft."
+
+#: src/modes/samba/sambaAccessLogMode.cpp:23
+#, kde-format
+msgid "Samba Access Log"
+msgstr "Registo de Acessos do Samba"
+
+#: src/modes/samba/sambaAccessLogMode.cpp:31
+#, kde-format
+msgid "Display the Samba Access log."
+msgstr "Mostrar o registo de acessos do Samba."
+
+#: src/modes/samba/sambaAccessLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Samba Access log in the current tab. This log mode allows you "
+"to see connections between your shares and remote hosts."
+msgstr ""
+"Mostra o registo de acessos do Samba na página actual. Este modo de registo "
+"permite-lhe ver as ligações entre as suas partilhas e as máquinas remotas."
+
+#: src/modes/samba/sambaAnalyzer.cpp:20
+#, kde-format
+msgid "Source File"
+msgstr "Ficheiro de Código"
+
+#: src/modes/samba/sambaAnalyzer.cpp:21
+#, kde-format
+msgid "Function"
+msgstr "Função"
+
+#: src/modes/samba/sambaAnalyzer.cpp:22 src/modes/xorg/xorgAnalyzer.cpp:25
+#: src/modes/xsession/xsessionAnalyzer.cpp:19
+#, kde-format
+msgid "Line"
+msgstr "Linha"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:11
+#: src/modes/samba/sambaLogMode.cpp:23
+#, kde-format
+msgid "Samba Log"
+msgstr "Registo do Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:16
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
+"log</b> and <b>Netbios log</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo do Samba</b>, "
+"o <b>registo de Acessos do Samba</b> e o <b>registo do Netbios</b>.</p>"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:19
+#, kde-format
+msgid "Samba Log Files"
+msgstr "Ficheiros de Registo do Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:19
+#, kde-format
+msgid "Add Samba File..."
+msgstr "Adicionar um Ficheiro do Samba..."
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:20
+#, kde-format
+msgid "Samba Access Log Files"
+msgstr "Ficheiros de Registo de Acessos do Samba"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:20
+#, kde-format
+msgid "Add Samba Access File..."
+msgstr "Adicionar um Registo de Acessos do Samba..."
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:21
+#, kde-format
+msgid "Netbios Log Files"
+msgstr "Ficheiros de Registo do Netbios"
+
+#: src/modes/samba/sambaConfigurationWidget.cpp:21
+#, kde-format
+msgid "Add Netbios File..."
+msgstr "Adicionar um Registo do Netbios..."
+
+#: src/modes/samba/sambaFactory.cpp:52
+#, kde-format
+msgid "Samba"
+msgstr "Samba"
+
+#: src/modes/samba/sambaItemBuilder.cpp:19
+#, kde-format
+msgid "Source File:"
+msgstr "Ficheiro de Código:"
+
+#: src/modes/samba/sambaItemBuilder.cpp:20
+#, kde-format
+msgid "Function:"
+msgstr "Função:"
+
+#: src/modes/samba/sambaItemBuilder.cpp:21
+#, kde-format
+msgid "Line:"
+msgstr "Linha:"
+
+#: src/modes/samba/sambaLogMode.cpp:31
+#, kde-format
+msgid "Display the Samba log."
+msgstr "Mostrar o registo do Samba."
+
+#: src/modes/samba/sambaLogMode.cpp:33
+#, kde-format
+msgid ""
+"Displays the Samba log in the current tab. Samba is the file sharing server "
+"which interacts with Microsoft Windows network."
+msgstr ""
+"Mostra o registo do Samba na página actual. O Samba é o servidor de partilha "
+"de ficheiros que interage com as redes de Microsoft Windows."
+
+#: src/modes/system/systemConfigurationWidget.cpp:10
+#: src/modes/system/systemLogMode.cpp:20
+#, kde-format
+msgid "System Log"
+msgstr "Registo do Sistema"
+
+#: src/modes/system/systemConfigurationWidget.cpp:14
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar os <b>registos do Sistema</"
+"b>.</p>"
+
+#: src/modes/system/systemLogMode.cpp:29
+#, kde-format
+msgid "Display the system log."
+msgstr "Mostrar o registo do sistema."
+
+#: src/modes/system/systemLogMode.cpp:31
+#, kde-format
+msgid ""
+"Displays the system log in the current tab. This log is generally used by "
+"non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgstr ""
+"Mostra o registo do sistema na página actual. Este registo é usado "
+"normalmente pelos processos não-especializados (como os comandos \"sudo\" ou "
+"\"fsck\")"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:69
+#, kde-format
+msgid "Probed"
+msgstr "Detectado"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:71
+#, kde-format
+msgid "From config file"
+msgstr "A partir do ficheiro de configuração"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:74
+#, kde-format
+msgid "Default setting"
+msgstr "Configuração predefinida"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:77
+#, kde-format
+msgid "From command Line"
+msgstr "A partir da linha de comandos"
+
+#: src/modes/xorg/xorgAnalyzer.cpp:85
+#, kde-format
+msgid "Not implemented"
+msgstr "Não implementado"
+
+#: src/modes/xorg/xorgConfigurationWidget.cpp:11
+#: src/modes/xorg/xorgLogMode.cpp:19
+#, kde-format
+msgid "X.org Log"
+msgstr "Registo do X.org"
+
+#: src/modes/xorg/xorgConfigurationWidget.cpp:15
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
+msgstr ""
+"<p>Estes ficheiros serão analisados para mostrar o <b>registo do X.org</b>.</"
+"p>"
+
+#: src/modes/xorg/xorgItemBuilder.cpp:35
+#: src/modes/xsession/xsessionItemBuilder.cpp:35
+#, kde-format
+msgid "none"
+msgstr "nenhum"
+
+#: src/modes/xorg/xorgLogMode.cpp:28
+#, kde-format
+msgid "Display the X.org log."
+msgstr "Mostrar o registo do X.org."
+
+#: src/modes/xorg/xorgLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the X.org log in the current tab. X.org is the service which "
+"displays on screen your desktop and manage your graphical hardware. See this "
+"log if you want to know why you do not have 3D accelerations or why your "
+"input device is not recognized."
+msgstr ""
+"Mostra o registo do X.org na página actual. O X.org é o serviço que "
+"apresenta o seu ambiente de trabalho no ecrã e faz a gestão do seu "
+"'hardware' gráfico. Veja este registo se quiser saber porque não tem "
+"aceleração 3D ou porque o seu dispositivo de entrada não foi reconhecido."
+
+#: src/modes/xsession/xsessionAnalyzer.cpp:20
+#, kde-format
+msgid "Program"
+msgstr "Programa"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:11
+#: src/modes/xsession/xsessionLogMode.cpp:19
+#, kde-format
+msgid "X Session Log"
+msgstr "Registo de Sessões do X"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:24
+#, kde-format
+msgid ""
+"You can type or choose the X Session log file (example: <i>~/.xsession-"
+"errors</i>)."
+msgstr ""
+"Poderá escrever ou seleccionar o ficheiro de registo de Sessões do X (por "
+"exemplo: <i>~/.xsession-errors</i>)."
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:26
+#, kde-format
+msgid ""
+"You can type or choose here the X Session log file. This file will be "
+"analyzed when you select the <b>X Session log</b> menu. Generally, its name "
+"is <i>~/.xsession-errors</i>"
+msgstr ""
+"Poderá escrever ou seleccionar aqui o ficheiro do registo de Sessões do X. "
+"Este ficheiro será analisado quando seleccionar o menu de <b>registo de "
+"sessões do X</b>. De um modo geral, o seu nome é <i>~/.xsession-errors</i>"
+
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#, kde-format
+msgid "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: ...</li>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
+#, kde-format
+msgid "X Session Log File"
+msgstr "Registo de Sessões do X"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
+#, kde-format
+msgid "&Log file:"
+msgstr "Ficheiro de &registo:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:50
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
+#, kde-format
+msgid "Check this option to remove Xorg errors"
+msgstr "Assinale esta opção para remover os erros do X.org"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
+#, kde-format
+msgid "Ignore Xorg errors"
+msgstr "Ignorar os erros do X.org"
+
+#. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
+#, kde-format
+msgid ""
+"<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
+"\"margin-bottom:0px\">The following lines will be ignored:</p>"
+msgstr ""
+"<p><b>Nota:</b> Assinale esta opção para remover os erros do X.org.</p><p "
+"style=\"margin-bottom:0px\">Serão ignoradas as seguintes linhas:</p>"
+
+#: src/modes/xsession/xsessionItemBuilder.cpp:35
+#: src/modes/xsession/xsessionItemBuilder.cpp:37
+#, kde-format
+msgid "Program:"
+msgstr "Programa:"
+
+#: src/modes/xsession/xsessionLogMode.cpp:28
+#, kde-format
+msgid "Display the X Session log."
+msgstr "Mostrar o registo de Sessões do X."
+
+#: src/modes/xsession/xsessionLogMode.cpp:30
+#, kde-format
+msgid ""
+"Displays the X Session log in the current tab. X Session log is the place "
+"where graphical programs write their output. See this log if you want to "
+"know why a program has crashed, or why your desktop environment (Plasma, "
+"Gnome, Unity, Xfce, LXQt, ...) has not started."
+msgstr ""
+"Mostra o registo de Sessões do X na página actual. O registo de Sessões do X "
+"é o local onde os programas gráficos escrevem os seus dados de resultado. "
+"Veja este registo se quiser saber porque um programa estoirou ou porque o "
+"seu gestor de autenticação (do Plasma, Gnome, Unity, Xfce, LXQt, etc...) não "
+"se iniciou."
+
+#. i18n("Last updated: %1.",
+#. KLocale::global()->formatTime(lastModification, true, false) ));
+#: src/statusBar.cpp:54
+#, kde-format
+msgid "Last updated: %1."
+msgstr "Última actualização: %1."
+
+#. i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
+#. false), message));
+#: src/statusBar.cpp:62
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/tabLogManager.cpp:49
+#, kde-format
+msgctxt "Log mode name (added lines count)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/tabLogViewsWidget.cpp:74
+#, kde-format
+msgid "No Log"
+msgstr "Sem Registo"

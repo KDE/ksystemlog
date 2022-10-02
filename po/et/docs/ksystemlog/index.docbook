@@ -1,0 +1,447 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY ksystemlog "<application
+>KSystemLog</application
+>">
+<!ENTITY kappname "&ksystemlog;"
+><!-- replace kapp here -->
+<!ENTITY package "kdeadmin">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Estonian  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>&ksystemlog;i käsiraamat</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2013-06-08</date>
+<releaseinfo
+>0.4 (&kde; 4.11)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; on &kde; süsteemi logide näitaja. See programm on loodud algajaid silmas pidades, kes ei tea, kust leida teavet oma süsteemi kohta ja kus paiknevad nende arvutis logifailid. Aga see on mõeldud ka kogenumatele kasutajatele, kes soovivad kiiresti tuvastada oma serveris esinevaid probleeme. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>logid</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>turvalisus</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>algkäivitus</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="using_ksystemlog">
+	<title
+>&ksystemlog;i kasutamine</title>
+
+	<sect1 id="introduction">
+		<title
+>Sissejuhatus</title>
+
+		<sect2>
+			<title
+>Mis on &ksystemlog;</title>
+			<para
+>&ksystemlog; on süsteemi logide näitaja.</para>
+
+			<para
+>&ksystemlog; aitab kasutajatele mõista, mida teeb nende masin taustal. &ksystemlog;i eesmärk on lihtsustada süsteemi logifailide lugemist. See rakendus on loodud eelkõige algajatele kasutajatele, kes ei tea, kust leida teavet oma süsteemi kohta või kus asuvad nende arvutis logifailid. </para>
+
+			<para
+>Aga see on mõeldud ka kogenumatele kasutajatele, kes soovivad kiiresti teada saada, mis toimub nende serveris. &ksystemlog; püüab pakkuda mõningaid kogenumatele kasutajatele mõeldud võimalusi konkreetsete programmide logide sorteerimiseks ja lugemiseks. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog;i peaaken</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog;i peaaken</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Võimalused</title>
+
+			<para
+>&ksystemlog;i praegune versioon 0.4 pakub mitmeid kasulikke omadusi, näiteks: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Paljude erinevat tüüpi logifailide toetus, samuti Syslogi serveri vorminduse toetus ja Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Kaartidega vaade, et näha korraga mitut logi</simpara
+></listitem>
+				<listitem
+><simpara
+>Ühe logirežiimi lugemine mitmest allikast</simpara
+></listitem>
+				<listitem
+><simpara
+>Uute logiridade automaatne kuvamine rasvases kirjas</simpara
+></listitem>
+				<listitem
+><simpara
+>Rühmitamine erinevate kriteeriumide järgi (logitase, logifail, protsess, kellaaeg...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Üksikasjalik teave iga logirea kohta</simpara
+></listitem>
+				<listitem
+><simpara
+>Logikirje lisamine käsitsi</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Toetatud on järgmised süsteemi logifailid: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslogi logid (süsteemi teated)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org-i logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Kerneli logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Autentimislogid</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID logid</simpara
+></listitem>
+				<listitem
+><simpara
+>CUPS-i logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfixi logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Deemonite logid</simpara
+></listitem>
+				<listitem
+><simpara
+>Croni logid</simpara
+></listitem>
+				<listitem
+><simpara
+>XSessionsi logid</simpara
+></listitem>
+
+			</itemizedlist>
+
+			<para
+>Omadusi on mõistagi arvukalt rohkem ning neist tehakse edaspidi käsiraamatus sobivates kohtades pikemalt juttu. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Logide lugemine &ksystemlog;iga</title>
+
+		<para
+>Nagu järgnevatel piltidel näha, pakub &ksystemlog; võimalusi logiridade hõlpsaks sorteerimiseks ja filtreerimiseks. Neid võimalusi kirjeldatakse järgmistes osades. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Alustamine</title>
+
+			<para
+>&ksystemlog;i kävitamisel püüab rakendus vaikimisi avada kõige tulusama logi, milleks on <guilabel
+>Süsteemi logi</guilabel
+>. Kui ei ilmu mitte see, vaid teatekast, siis ei ole sa arvatatavasti käivitanud &ksystemlog;i administraatori õigustes (see on tavaliselt juurkasutaja ehk root). Logifailid paiknevad enamasti kataloogis /var/log, millele tavakasutajal üldjuhul ligipääs puudub. Seadistusdialoogis saab valida mõne muu logi, mis käivitamisel avatakse. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog;i esmakäivitamine</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog;i esmakäivitamine</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Logifailide hõlpus lugemine</title>
+
+			<sect3 id="sorting">
+				<title
+>Logiridade sorteerimine</title>
+				<para
+>Kõiki logiridasid näidatakse nimekirjana, mida saab sortida klõpsuga vajalikule veerule. Teine klõps sorteerib sama veeru vastupidises järjekorras. Kui soovid sortida nimekirja sellisena, nagu see oli esimesel laadimisel, võid kasutada menüükäsku <menuchoice
+><guimenu
+>Redigeerimine</guimenu
+><guimenuitem
+>Laadi uuesti</guimenuitem
+></menuchoice
+> või lihtsalt klõpsata nimekirja esimesele veerule, mis enamasti kannab nimetust <guilabel
+> Kuupäev</guilabel
+> - sel juhul sorteeritakse nimekiri alanevas järjekorras. Isegi kui logirežiim ei !kasuta iga logirea kirjeldamiseks aega, näiteks <guilabel
+>X.org-i logi</guilabel
+> puhul, sorteeritakse nimekiri korrektselt, sest &ksystemlog; peab sel ise silma peal. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Logiridade filtreerimine</title>
+
+				<screenshot>
+					<screeninfo
+>Konkreetse protsessi filtreerimine</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Konkreetse protsessi filtreerimine</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Valitud kriteeriumi ja kirjutatud stringi järgi filtreerimiseks saab kasutada ka filtririba. Kirjuta lihtsalt midagi filtrisse ning nimekirja muudetakse otsekohe, et näidata ainult filtrisse kirjutatud stringile vastavaid ridu. Vaikimisi seisab filtri kõrval asuvas liitkastis <guilabel
+>Kõik</guilabel
+>, mis tähendab, et rida näidatakse ainult siis, kui üks selle veergudest sisaldab filtris leiduvat stringi. </para>
+
+				<para
+>Ainult nimekirja kindla veeru filtreerimiseks võib valida teise välja. Kui näiteks <guilabel
+>Süsteemi logi</guilabel
+> puhul valida veerg <guilabel
+>Protsess</guilabel
+> ja kirjutada protsessi nimi filtriribale, näitab &ksystemlog; kõiki logiridu, mida antud protsess on logisse saatnud. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Muud võimalused</title>
+
+			<sect3 id="colorizing">
+				<title
+>Logiridade värvimine</title>
+
+				<para
+>See on vaikimisi sisse lülitatud ja autab näha, millised logiread on teistest kõrgema tasemega. Nii on näiteks taseme <guilabel
+>Viga</guilabel
+> korral esiletõstmine eredam kui taseme <guilabel
+>Märguanne</guilabel
+> korral. Selle võimaluse saab seadistustedialoogis välja lülitada. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Protsessi ID peitmine</title>
+
+				<para
+>Kui sind huvitab ainult konkreetse protsessi nägemine (näitekss <guilabel
+>Süsteemi logi</guilabel
+> või <guilabel
+>Croni logi</guilabel
+>), võid lasta peita selle PID veerus <guilabel
+>Protsess</guilabel
+>. See võib olla tulus, kui püüad analüüsida mõne konkreetse käsu väljundit, näiteks Samba serveri puhul. Sel juhul kasuta parem <link linkend="filtering"
+>filtririba</link
+>. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Jälgimise haldamine</title>
+
+		<para
+>&ksystemlog; võimaldab väga lihtsalt kontrollida logifailide lugemist ja jälgimist. Võib juhtuda, et soovid ainult analüüsida olemasolevaid logiridu. Sel juhul on uute logiridade ilmumine mõistagi tülikas. Seepärast saab logifailide jälgimist välja lülitada klõpsuga nupule <guibutton
+>Peata</guibutton
+>, mis takistab kõigi avatud logifailide uuendamist, lastes samal ajal uueneda teistel protsessidel. Loomulikult saab olukorra taastada, kui klõpsata nupule <guibutton
+>Jätka</guibutton
+>, mille puhul loetakse sisse uued, vahepeal tekkinud logiread. </para>
+
+		<para
+>Lisaks võid juhul, kui soovid lasta uusi logiridasid näidata, ka lihtsalt lülitada <guimenuitem
+>uute logiridade näitamise</guimenuitem
+> valikut. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Mitme avatud kaardi haldamine</title>
+
+		<para
+>&ksystemlog; võimaldab avada mitu logirežiimi, kasutades mitut avatud kaarti. Uute kaartide avamiseks ja haldamiseks kasuta lihtsalt menüüd <guimenu
+>Aken</guimenu
+>. Kui oled valinud vajaliku kaardi, vali konkreetses menüüs soovitud logirežiim. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Autorid ja litsents</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;i autoriõigus 2008: Nicolas Ternisien </para>
+
+	<para
+>Kaasautorid:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: ideed, kood, parandused.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan, SSH logirežiim, trükkimine.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Eriline tänu kõigile &ksystemlog;i tõlkijatele.</emphasis>
+	</para>
+
+	<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@starman.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+	<title
+>&ksystemlog;i hankimine ja paigaldamine</title>
+
+	<para
+>&ksystemlog;il on oma kodulehekülg: <ulink url="http://ksystemlog.forum-software.org"
+>http://ksystemlog.forum-software.org</ulink
+>. Sealt leiab täpsemaid juhiseid, sest just seal on kõige värskem teave selle kohta, kuidas hankida &ksystemlog;. </para>
+
+	<para
+>&ksystemlog;i leiab ka järgmises &kde; Giti hoidla kataloogis: <ulink url="https://projects.kde.org/projects/kde/kdeadmin/ksystemlog"
+>&ksystemlog; &kde; hoidlas</ulink
+> </para>
+
+</appendix>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

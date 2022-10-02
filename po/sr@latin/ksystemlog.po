@@ -1,0 +1,3225 @@
+# Translation of ksystemlog.po into Serbian.
+# Slobodan Simic <slsimic@gmail.com>, 2005, 2007.
+# Mladen Pejakovic <pejakm@gmail.com>, 2011.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2015, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: ksystemlog\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:17+0200\n"
+"PO-Revision-Date: 2017-09-28 17:59+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Slobodan Simić,Mladen Pejaković"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "slsimic@gmail.com,pejakm@gmail.com"
+
+#. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:13
+#, kde-format
+msgid "Load this log mode at startup."
+msgstr "Učitaj ovaj dnevnik nakon pokretanja."
+
+#. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:18
+#, kde-format
+msgid "The log view line count limit."
+msgstr "Ograničenje broja redova u prikazu dnevnika."
+
+#. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:23
+#, kde-format
+msgid "Option is true if the user wants to delete repeated log lines."
+msgstr "Uključite ako želite da se ponovljeni redovi u dnevniku brišu."
+
+#. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:28
+#, kde-format
+msgid ""
+"Option is true if the PID in the process column of the SystemLog is to be "
+"omitted."
+msgstr "Uključite da bi se izostavio PID u koloni procesa sistemskog dnevnika."
+
+#. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:33
+#, kde-format
+msgid ""
+"Option is true if the log lines are to be colored depending on their log "
+"level."
+msgstr ""
+"Uključite da bi se redovi dnevnika bojili na osnovu svog nivoa beleženja."
+
+#. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:39
+#, kde-format
+msgid "Whether the tooltips are enabled."
+msgstr "Da li su oblačići uključeni."
+
+#. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:44
+#, kde-format
+msgid "Whether new lines are displayed."
+msgstr "Da li se novi redovi prikazuju."
+
+#. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:49
+#, kde-format
+msgid "Whether the filter bar is shown."
+msgstr "Da li je traka filtera prikazana."
+
+#. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:54
+#, kde-format
+msgid "The date format of log lines."
+msgstr "Format datuma u redovima dnevnika."
+
+#. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:71
+#, kde-format
+msgid "The Samba log file paths."
+msgstr "Putanje fajla dnevnika Sambe."
+
+#: src/configurationDialog.cpp:52
+#, kde-format
+msgid "Settings"
+msgstr "Postavke"
+
+#: src/configurationDialog.cpp:108
+#, kde-format
+msgid "General"
+msgstr "Opšte"
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialog.cpp:43 src/lib/logViewSearchWidgetBase.ui:68
+#, kde-format
+msgid "&Previous"
+msgstr "&Prethodno"
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialog.cpp:47 src/lib/logViewSearchWidgetBase.ui:58
+#, kde-format
+msgid "&Next"
+msgstr "&Sledeće"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:13
+#, kde-format
+msgid "Log Line Details"
+msgstr "Detalji reda dnevnika"
+
+#. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
+#: src/detailDialogBase.ui:16
+#, kde-format
+msgid ""
+"This dialog displays detailed information about the currently selected log "
+"line."
+msgstr ""
+"Ovaj dijalog prikazuje detaljne informacije o trenutno izabranom redu "
+"dnevnika."
+
+#. i18n: ectx: property (text), widget (KTextEdit, message)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: src/detailDialogBase.ui:28 src/loggerDialogBase.ui:33
+#: src/modes/acpid/acpidAnalyzer.h:50 src/modes/apache/apacheAnalyzer.h:53
+#: src/modes/base/syslogAnalyzer.cpp:59 src/modes/cups/cupsAnalyzer.cpp:38
+#: src/modes/cups/cupsPdfAnalyzer.h:55
+#: src/modes/journald/journaldAnalyzer.cpp:39
+#: src/modes/kernel/kernelAnalyzer.h:58 src/modes/samba/sambaAnalyzer.h:56
+#: src/modes/xorg/xorgAnalyzer.cpp:41 src/modes/xsession/xsessionAnalyzer.h:54
+#, kde-format
+msgid "Message"
+msgstr "Poruka"
+
+#. i18n: ectx: property (text), widget (QLabel, icon)
+#: src/detailDialogBase.ui:44
+#, kde-format
+msgid "Icon"
+msgstr "Ikonica"
+
+#. i18n: ectx: property (text), widget (QLabel, header)
+#: src/detailDialogBase.ui:60
+#, kde-format
+msgid "Main information"
+msgstr "Glavna informacija"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:90
+#, kde-format
+msgid "Move to the previous line"
+msgstr "Pomeri na prethodni red"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:93
+#, kde-format
+msgid ""
+"Moves to the previous line. This button is deactivated if there is no "
+"previous log line."
+msgstr ""
+"Pomera na prethodni red. Ovo dugme nije aktivno ako nema prethodnog reda u "
+"dnevniku."
+
+#. i18n: ectx: property (text), widget (QPushButton, previous)
+#: src/detailDialogBase.ui:96
+#, kde-format
+msgid "&Back"
+msgstr "&Nazad"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, next)
+#: src/detailDialogBase.ui:112
+#, kde-format
+msgid "Move to the next line"
+msgstr "Pomeri na sledeći red"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, next)
+#: src/detailDialogBase.ui:115
+#, kde-format
+msgid ""
+"Moves to the next line. This button is deactivated if there is no next log "
+"line."
+msgstr ""
+"Pomera na sledeći red. Ovo dugme nije aktivno ako nema idućeg reda u "
+"dnevniku."
+
+#. i18n: ectx: property (text), widget (QPushButton, next)
+#: src/detailDialogBase.ui:118
+#, kde-format
+msgid "&Forward"
+msgstr "&Napred"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:150
+#, kde-format
+msgid "Close the Detail dialog."
+msgstr "Zatvori dijalog detalja"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:153
+#, kde-format
+msgid "Closes this Detail dialog."
+msgstr "Zatvara ovaj dijalog detalja."
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: src/detailDialogBase.ui:156
+#, kde-format
+msgid "&Close"
+msgstr "&Zatvori"
+
+#: src/generalConfigurationWidget.cpp:53
+#, kde-format
+msgid "This mode is unavailable because its log files do not exist."
+msgstr "Ovaj režim nije dostupan zato što nema njegovih fajlova dnevnika."
+
+#: src/generalConfigurationWidget.cpp:58
+#, kde-format
+msgid "No Log Mode"
+msgstr "Bez dnevnika"
+
+#: src/generalConfigurationWidget.cpp:98
+#, kde-format
+msgctxt "Date format option (date example)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
+#: src/generalConfigurationWidgetBase.ui:18
+#, kde-format
+msgid "Startup"
+msgstr "Pokretanje"
+
+#. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
+#: src/generalConfigurationWidgetBase.ui:26
+#, kde-format
+msgid "Load &this log mode at startup:"
+msgstr "&Učitaj ovaj dnevnik nakon pokretanja:"
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:36
+#, kde-format
+msgid "The log mode which is loaded by default at startup"
+msgstr "Dnevnik koji će biti podrazumevano učitan po pokretanju."
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
+#: src/generalConfigurationWidgetBase.ui:39
+#, kde-format
+msgid ""
+"The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
+"not want this to happen."
+msgstr ""
+"Dnevnik koji se podrazumevano učitava po pokretanju. Izaberite „Bez "
+"dnevnika“ ako ne želite ovo."
+
+#. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
+#: src/generalConfigurationWidgetBase.ui:51
+#, kde-format
+msgid "Log Lines List"
+msgstr "Spisak redova dnevnika"
+
+#. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
+#: src/generalConfigurationWidgetBase.ui:59
+#, kde-format
+msgid "&Maximum lines displayed:"
+msgstr "&Najviše prikazanih redova:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:75
+#, kde-format
+msgid "Choose here the maximum number of log lines displayed in the main view."
+msgstr "Ovde izaberite najveći broj redova dnevnika u glavnom prikazu."
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
+#: src/generalConfigurationWidgetBase.ui:78
+#, kde-format
+msgid ""
+"You can choose here the maximum number of log lines displayed in the main "
+"view."
+msgstr ""
+"Ovde možete odrediti najveći broj redova dnevnika koji se vide u glavnom "
+"prikazu."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:96
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines <b>(may be "
+"slow)</b>."
+msgstr ""
+"Izaberite ovu opciju ako želite da obrišete duplirane redove dnevnika "
+"<b>(može biti sporo)</b>."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:99
+#, kde-format
+msgid ""
+"Select this option if you want to delete duplicate log lines. <b>This option "
+"can slow log reading</b>."
+msgstr ""
+"Izaberite ovu opciju ako želite da obrišete duplirane redovi dnevnika. "
+"<b>Ova opcija može usporiti čitanje dnevnika.</b>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
+#: src/generalConfigurationWidgetBase.ui:102
+#, kde-format
+msgid "Remove &duplicate log lines (may be slower)"
+msgstr "Ukloni &duplirane redove dnevnika (može biti sporo)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
+#: src/generalConfigurationWidgetBase.ui:112 src/loggerDialogBase.ui:206
+#, kde-format
+msgid "Options"
+msgstr "Opcije"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:118
+#, kde-format
+msgid "Remove process identifier from process name."
+msgstr "Ukloni identifikator procesa iz imena procesa"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:121
+#, kde-format
+msgid ""
+"Select this option if you want to remove the process identifier from the "
+"process name. For example, the <b>Process</b> column may contain entries "
+"such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
+"will be removed."
+msgstr ""
+"Izaberite ovu opciju ako želite da uklonite identifikator procesa iz imena "
+"procesa. Na primer, kolona <i>proces</i> može sadržati unose kao što je "
+"<tt>cron<b>[3433]</b></tt>. Ako je ova opcija aktivirana, podebljani deo će "
+"biti uklonjen."
+
+#. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
+#: src/generalConfigurationWidgetBase.ui:124
+#, kde-format
+msgid "Remove &identifier from process name"
+msgstr "Ukloni &identifikator iz imena procesa"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:131
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level."
+msgstr ""
+"Ova opcija omogućava bojenje redova u zavisnosti od njihovog nivoa beleženja."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:134
+#, kde-format
+msgid ""
+"This option allows log lines to be colored depending on their log level. For "
+"example, errors will be shown in red, warnings in orange, and so on. This "
+"will help you to see problems more easily."
+msgstr ""
+"Ova opcija omogućava bojenje redova u zavisnosti od njihovog nivoa "
+"beleženja. Na primer, greške će biti crvene, upozorenja narandžasta, i tako "
+"dalje. Ovo će vam pomoći da lakše uočite probleme."
+
+#. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
+#: src/generalConfigurationWidgetBase.ui:137
+#, kde-format
+msgid "&Colored log lines"
+msgstr "&Obojeni redovi dnevnika"
+
+#. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
+#: src/generalConfigurationWidgetBase.ui:147
+#, kde-format
+msgid "Date Format"
+msgstr "Format datuma"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
+#: src/generalConfigurationWidgetBase.ui:156
+#, kde-format
+msgid "&Short date format"
+msgstr "&Kratki format datuma"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
+#: src/generalConfigurationWidgetBase.ui:163
+#, kde-format
+msgid "&Long date format"
+msgstr "&Dugački format datuma"
+
+#. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
+#: src/generalConfigurationWidgetBase.ui:170
+#, kde-format
+msgid "&Precise date format"
+msgstr "Pre&cizni format datuma"
+
+#. i18n: ectx: Menu (edit)
+#: src/ksystemlogui.rc:13
+#, kde-format
+msgid "&Edit"
+msgstr "&Uređivanje"
+
+#. i18n: ectx: Menu (logs)
+#: src/ksystemlogui.rc:31
+#, kde-format
+msgid "Logs"
+msgstr "Dnevnici"
+
+#. i18n: ectx: Menu (window)
+#: src/ksystemlogui.rc:36
+#, kde-format
+msgid "&Window"
+msgstr "&Prozor"
+
+#. i18n: ectx: ToolBar (logToolBar)
+#: src/ksystemlogui.rc:53
+#, kde-format
+msgid "Logs Toolbar"
+msgstr "Traka dnevnika"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/ksystemlogui.rc:63
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna traka"
+
+#: src/lib/fileAnalyzer.cpp:121
+#, kde-format
+msgid "Opening '%1'..."
+msgstr "Otvaram „%1“..."
+
+#: src/lib/fileAnalyzer.cpp:130
+#, kde-format
+msgid "Log file '%1' loaded successfully."
+msgstr "Fajl dnevnika „%1“ uspešno je učitan."
+
+#: src/lib/fileAnalyzer.cpp:142
+#, kde-format
+msgid "Log file '%1' has changed."
+msgstr "Fajl dnevnika „%1“ je izmenjen."
+
+#: src/lib/globals.cpp:133
+#, kde-format
+msgid "None"
+msgstr "ništa"
+
+#: src/lib/globals.cpp:138
+#, kde-format
+msgid "Debug"
+msgstr "ispravljanje"
+
+#: src/lib/globals.cpp:142
+#, kde-format
+msgid "Information"
+msgstr "informacija"
+
+#: src/lib/globals.cpp:147
+#, kde-format
+msgid "Notice"
+msgstr "napomena"
+
+#: src/lib/globals.cpp:150
+#, kde-format
+msgid "Warning"
+msgstr "upozorenje"
+
+#: src/lib/globals.cpp:155
+#, kde-format
+msgid "Error"
+msgstr "greška"
+
+#: src/lib/globals.cpp:159
+#, kde-format
+msgid "Critical"
+msgstr "kritično"
+
+#: src/lib/globals.cpp:163
+#, kde-format
+msgid "Alert"
+msgstr "alarm"
+
+#: src/lib/globals.cpp:166
+#, kde-format
+msgid "Emergency"
+msgstr "opasnost"
+
+#: src/lib/levelPrintPage.cpp:40
+#, kde-format
+msgid "Log Level Printing"
+msgstr "Štampanje nivoa beleženja"
+
+#: src/lib/levelPrintPage.cpp:48
+#, kde-format
+msgid "Choose which log levels you wish to print in color."
+msgstr "Izaberite nivoe beleženja koje želite da budu u boji."
+
+#: src/lib/loadingBar.cpp:63
+#, kde-format
+msgid "Loading Progress..."
+msgstr "Napredak učitavanja..."
+
+#: src/lib/loadingBar.cpp:92
+#, kde-format
+msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] "Učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajla)"
+msgstr[1] "Učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajla)"
+msgstr[2] "Učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajlova)"
+msgstr[3] "Učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>)"
+
+#: src/lib/loadingBar.cpp:96
+#, kde-format
+msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
+msgstr[0] "Ponovo učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajla"
+msgstr[1] "Ponovo učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajla)"
+msgstr[2] "Ponovo učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>/%1 fajlova)"
+msgstr[3] "Ponovo učitavam <b>%2</b>...<br /><i>%3</i> (<b>%4</b>)"
+
+#: src/lib/loadingBar.cpp:104
+#, kde-format
+msgid "Loading <b>%1</b>...<br /><i>%2</i>"
+msgstr "Učitavam <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/loadingBar.cpp:107
+#, kde-format
+msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
+msgstr "Ponovo učitavam <b>%1</b>...<br /><i>%2</i>"
+
+#: src/lib/localLogFileReader.cpp:113
+#: src/lib/processOutputLogFileReader.cpp:109
+#, kde-format
+msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
+msgstr ""
+"Ovaj fajl nije ispravan. Podesite ga u postavkama K‑sistemskog-dnevnika."
+
+#: src/lib/localLogFileReader.cpp:114 src/lib/localLogFileReader.cpp:129
+#: src/lib/processOutputLogFileReader.cpp:110
+#, kde-format
+msgid "File Does Not Exist"
+msgstr "Fajl ne postoji"
+
+#: src/lib/localLogFileReader.cpp:128
+#, kde-format
+msgid "The file '%1' does not exist."
+msgstr "Fajl „%1“ ne postoji."
+
+# rewrite-msgid: /of/of file/
+#: src/lib/localLogFileReader.cpp:149
+#, kde-format
+msgid "Unable to uncompress the '%2' format of '%1'."
+msgstr "Ne mogu da raspakujem format „%2“ fajla „%1“."
+
+#: src/lib/localLogFileReader.cpp:150
+#, kde-format
+msgid "Unable to Uncompress File"
+msgstr "Ne mogu da raspakujem fajl."
+
+#: src/lib/localLogFileReader.cpp:157
+#, kde-format
+msgid "You do not have sufficient permissions to read '%1'."
+msgstr "Nemate potrebne dozvole za čitanje „%1“."
+
+#: src/lib/localLogFileReader.cpp:158
+#, kde-format
+msgid "Insufficient Permissions"
+msgstr "Nemate potrebne dozvole"
+
+#: src/lib/logManager.cpp:85
+#, kde-format
+msgid "Loading log..."
+msgstr "Učitavam dnevnik..."
+
+#: src/lib/logManager.cpp:109
+#, kde-format
+msgid "Log successfully loaded."
+msgstr "Dnevnik uspešno učitan."
+
+#: src/lib/logModeConfiguration.cpp:217 src/lib/logModeConfiguration.cpp:245
+#: src/modes/base/genericConfiguration.cpp:106
+#, kde-format
+msgid "URL '%1' is not valid, skipping this URL."
+msgstr "URL „%1“ nije ispravan, preskačem ga."
+
+#: src/lib/logModeItemBuilder.cpp:71 src/lib/logModeItemBuilder.cpp:88
+#: src/modes/acpid/acpidItemBuilder.h:54
+#: src/modes/apache/apacheAccessItemBuilder.h:52
+#: src/modes/apache/apacheItemBuilder.h:52 src/modes/cron/cronItemBuilder.h:52
+#: src/modes/cups/cupsAccessItemBuilder.h:52
+#: src/modes/cups/cupsItemBuilder.h:50 src/modes/cups/cupsPageItemBuilder.h:52
+#: src/modes/cups/cupsPdfItemBuilder.h:52
+#: src/modes/journald/journaldItemBuilder.cpp:37
+#: src/modes/kernel/kernelItemBuilder.h:54
+#: src/modes/samba/sambaItemBuilder.h:52
+#, kde-format
+msgid "Date:"
+msgstr "Datum:"
+
+#: src/lib/logModeItemBuilder.cpp:72 src/modes/cron/cronItemBuilder.h:53
+#: src/modes/cups/cupsAccessItemBuilder.h:54
+#, kde-format
+msgid "Hostname:"
+msgstr "Domaćin:"
+
+#: src/lib/logModeItemBuilder.cpp:73 src/modes/cron/cronItemBuilder.h:54
+#, kde-format
+msgid "Process:"
+msgstr "Proces:"
+
+#: src/lib/logModeItemBuilder.cpp:74 src/lib/logModeItemBuilder.cpp:89
+#: src/modes/acpid/acpidItemBuilder.h:55
+#: src/modes/apache/apacheAccessItemBuilder.h:53
+#: src/modes/apache/apacheItemBuilder.h:53 src/modes/cron/cronItemBuilder.h:56
+#: src/modes/cups/cupsAccessItemBuilder.h:53
+#: src/modes/cups/cupsItemBuilder.h:51 src/modes/cups/cupsPageItemBuilder.h:53
+#: src/modes/cups/cupsPdfItemBuilder.h:53
+#: src/modes/kernel/kernelItemBuilder.h:55
+#: src/modes/samba/sambaItemBuilder.h:53
+#, kde-format
+msgid "Level:"
+msgstr "Nivo:"
+
+#: src/lib/logModeItemBuilder.cpp:75 src/lib/logModeItemBuilder.cpp:90
+#: src/modes/cron/cronItemBuilder.h:57 src/modes/xorg/xorgItemBuilder.h:75
+#: src/modes/xsession/xsessionItemBuilder.h:75
+#, kde-format
+msgid "Original file:"
+msgstr "Izvorni fajl:"
+
+#: src/lib/logViewExport.cpp:58
+#, kde-format
+msgid "Here are my logs:\n"
+msgstr "Evo mojih dnevnika:\n"
+
+#: src/lib/logViewExport.cpp:60 src/lib/logViewExport.cpp:74
+#, kde-format
+msgid "---------------------------------------\n"
+msgstr "---------------------------------------\n"
+
+#: src/lib/logViewExport.cpp:79
+#, kde-format
+msgid ""
+"You have selected too many lines. Please only select important log lines."
+msgstr "Izabrali ste previše redova. Izaberite samo važne redove dnevnika."
+
+#: src/lib/logViewExport.cpp:80
+#, kde-format
+msgid "Too Many Lines Selected"
+msgstr "Izabrano previše redova"
+
+#: src/lib/logViewExport.cpp:96
+#, kde-format
+msgid "Log Lines of my problem"
+msgstr "Redovi dnevnika mog problema"
+
+#: src/lib/logViewExport.cpp:199
+#, kde-format
+msgid "No items selected. Nothing copied to clipboard."
+msgstr "Nema izabranih stavki. Ništa nije kopirano u klipbord."
+
+#: src/lib/logViewExport.cpp:206
+#, kde-format
+msgid "1 log line copied to clipboard."
+msgid_plural "%1 log lines copied to clipboard."
+msgstr[0] "%1 red dnevnika kopiran u klipbord."
+msgstr[1] "%1 reda dnevnika kopirana u klipbord."
+msgstr[2] "%1 redova dnevnika kopirano u klipbord."
+msgstr[3] "1 red dnevnika kopiran u klipbord."
+
+#: src/lib/logViewExport.cpp:220
+#, kde-format
+msgid "No items selected. Please select items to be able to save them."
+msgstr ""
+"Nijedna stavka nije izabrana. Izaberite stavke koje želite da sačuvate."
+
+#: src/lib/logViewExport.cpp:225
+#, kde-format
+msgid "Save selected log entries to..."
+msgstr "Sačuvaj izabrane stavke dnevnika u..."
+
+#: src/lib/logViewExport.cpp:253
+#, kde-format
+msgid "1 log line saved to '%2'."
+msgid_plural "%1 log lines saved to '%2'."
+msgstr[0] "%1 red dnevnika sačuvan u „%2“."
+msgstr[1] "%1 reda dnevnika sačuvana u „%2“."
+msgstr[2] "%1 redova dnevnika sačuvano u „%2“."
+msgstr[3] "1 red dnevnika sačuvan u „%2“."
+
+#: src/lib/logViewExport.cpp:255
+#, kde-format
+msgid "Unable to save file '%1': Permission Denied."
+msgstr "Ne mogu da sačuvam fajl „%1“, nemate dozvolu."
+
+#: src/lib/logViewExport.cpp:256
+#, kde-format
+msgid "Unable to save file."
+msgstr "Ne mogu da sačuvam fajl."
+
+#: src/lib/logViewFilterWidget.cpp:131
+#, kde-format
+msgid "Type your filter here"
+msgstr "Ukucajte filter ovde"
+
+#: src/lib/logViewFilterWidget.cpp:132
+#, kde-format
+msgid "Allows you to only list items that match the content of this text."
+msgstr ""
+"Omogućava vam da prikažete samo one stavke koje se poklapaju sa sadržajem "
+"ovog teksta."
+
+#: src/lib/logViewFilterWidget.cpp:133
+#, kde-format
+msgid "Enter your search here..."
+msgstr "Unesite tekst za pretragu..."
+
+#: src/lib/logViewFilterWidget.cpp:140
+#, kde-format
+msgid "Filter:"
+msgstr "Filter:"
+
+#: src/lib/logViewFilterWidget.cpp:160
+#, kde-format
+msgid "Select priorities"
+msgstr "Izbor prioriteta"
+
+#: src/lib/logViewFilterWidget.cpp:189
+#, kde-format
+msgid "Choose the filtered column here"
+msgstr "Ovde izaberite filtriranu kolonu"
+
+#: src/lib/logViewFilterWidget.cpp:191
+#, kde-format
+msgid ""
+"Allows you to apply the item filter only on the specified column here. "
+"\"<i>All</i>\" column means no specific filter."
+msgstr ""
+"Omogućava vam da primenite filtriranje stavki samo u naznačenoj koloni. "
+"Kolona <i>sve</i> znači bez određenog filtera."
+
+#: src/lib/logViewFilterWidget.cpp:194 src/lib/logViewFilterWidget.cpp:211
+#, kde-format
+msgid "All"
+msgstr "sve"
+
+#: src/lib/logViewSearchWidget.cpp:187
+#, kde-format
+msgid "Reached end of list."
+msgstr "Dosegnut kraj spiska."
+
+#: src/lib/logViewSearchWidget.cpp:269
+#, kde-format
+msgid "Phrase not found."
+msgstr "Izraz nije nađen."
+
+#. i18n: ectx: property (text), widget (QLabel, searchLabel)
+#: src/lib/logViewSearchWidgetBase.ui:41
+#, kde-format
+msgid "Find:"
+msgstr "Nađi:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, caseSensitive)
+#: src/lib/logViewSearchWidgetBase.ui:78
+#, kde-format
+msgid "Match &case"
+msgstr "Poklopi &veličinu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, highlightAllButton)
+#: src/lib/logViewSearchWidgetBase.ui:85
+#, kde-format
+msgid "&Highlight all"
+msgstr "&Istakni sve"
+
+#: src/lib/logViewWidget.cpp:130
+#, kde-format
+msgid "Display/Hide the '%1' column"
+msgstr "Prikaži/sakrij kolonu „%1“"
+
+#: src/lib/processOutputLogFileReader.cpp:160
+#, kde-format
+msgid "The process '%1' crashed."
+msgstr "Proces „%1“ se srušio."
+
+#: src/lib/processOutputLogFileReader.cpp:161
+#, kde-format
+msgid "Process Crashed"
+msgstr "Proces se srušio"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:89 src/loggerDialog.cpp:123
+#: src/modes/apache/apacheAccessAnalyzer.h:55 src/modes/cron/cronAnalyzer.h:52
+#: src/modes/cups/cupsAccessAnalyzer.h:56 src/modes/cups/cupsPageAnalyzer.h:54
+#, kde-format
+msgid "User"
+msgstr "korisnik"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:113
+#, kde-format
+msgid "Authentication"
+msgstr "autentifikacija"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:114
+#, kde-format
+msgid "Private Authentication"
+msgstr "privatna autentifikacija"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:115
+#, kde-format
+msgid "Cron"
+msgstr "cron"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:116
+#, kde-format
+msgid "Daemon"
+msgstr "demon"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:117
+#, kde-format
+msgid "FTP"
+msgstr "FTP"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:118
+#, kde-format
+msgid "Kernel"
+msgstr "jezgro"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:119
+#, kde-format
+msgid "LPR"
+msgstr "LPR"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:120
+#, kde-format
+msgid "Mail"
+msgstr "e‑pošta"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:121
+#, kde-format
+msgid "News"
+msgstr "vesti"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:122
+#, kde-format
+msgid "Syslog"
+msgstr "sistemski dnevnik"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:124
+#, kde-format
+msgid "UUCP"
+msgstr "UUCP"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:126
+#, kde-format
+msgid "Local 0"
+msgstr "lokalni 0"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:127
+#, kde-format
+msgid "Local 1"
+msgstr "lokalni 1"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:128
+#, kde-format
+msgid "Local 2"
+msgstr "lokalni 2"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:129
+#, kde-format
+msgid "Local 3"
+msgstr "lokalni 3"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:130
+#, kde-format
+msgid "Local 4"
+msgstr "lokalni 4"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:131
+#, kde-format
+msgid "Local 5"
+msgstr "lokalni 5"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:132
+#, kde-format
+msgid "Local 6"
+msgstr "lokalni 6"
+
+# >> @item logging facility
+#: src/loggerDialog.cpp:133
+#, kde-format
+msgid "Local 7"
+msgstr "lokalni 7"
+
+# rewrite-msgid: /Konsole/terminal/
+#: src/loggerDialog.cpp:251
+#, kde-format
+msgid ""
+"Unable to find the 'logger' command on your system. Please type 'logger' in "
+"a Konsole to determine whether this command is installed."
+msgstr ""
+"Ne mogu da nađem naredbu logger na sistemu. Pokušajte da izvršite logger u "
+"terminalu da biste utvrdili da li je instalirana."
+
+#: src/loggerDialog.cpp:253
+#, kde-format
+msgid "Command not found"
+msgstr "Naredba nije nađena"
+
+#: src/loggerDialog.cpp:258
+#, kde-format
+msgid "The 'logger' command has not been properly exited."
+msgstr "Naredba logger nije propisno završila."
+
+#: src/loggerDialog.cpp:259
+#, kde-format
+msgid "Execution problem"
+msgstr "Problem u izvršavanju"
+
+#: src/loggerDialog.cpp:265
+#, kde-format
+msgid "This file does not exist, please choose another."
+msgstr "Ovaj fajl ne postoji, izaberite drugi."
+
+#: src/loggerDialog.cpp:266
+#, kde-format
+msgid "File not valid"
+msgstr "Fajl nije dobar"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
+#: src/loggerDialogBase.ui:24
+#, kde-format
+msgid "Log Message"
+msgstr "Poruka dnevnika"
+
+#. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
+#: src/loggerDialogBase.ui:39
+#, kde-format
+msgid "&Message:"
+msgstr "&Poruka:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, fileActivation)
+#: src/loggerDialogBase.ui:52
+#, kde-format
+msgid "&File content:"
+msgstr "&Sadržaj fajla:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/loggerDialogBase.ui:75
+#, kde-format
+msgid "Properties"
+msgstr "Osobine"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: src/loggerDialogBase.ui:101
+#, kde-format
+msgid "&Priority:"
+msgstr "P&rioritet:"
+
+# ? Нешто боље? Бележник?
+# >> A logging facility. Can be one of: Authentication, User, Daemon... (as messages elsewhere).
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: src/loggerDialogBase.ui:162
+#, kde-format
+msgid "&Facility:"
+msgstr "P&ostrojenje:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
+#: src/loggerDialogBase.ui:229
+#, kde-format
+msgid "&Tag:"
+msgstr "&Oznaka:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
+#: src/loggerDialogBase.ui:241
+#, kde-format
+msgid "Log process &identifier"
+msgstr "Beleži &identifikator procesa"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:290
+#, kde-format
+msgid "Open the 'logger' command manual."
+msgstr "Otvori priručnik naredbe logger"
+
+#. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:293
+#, kde-format
+msgid "This link opens the 'logger' command manual."
+msgstr "Otvara priručnik za naredbu logger."
+
+#. i18n: ectx: property (text), widget (QLabel, loggerManual)
+#: src/loggerDialogBase.ui:296
+#, kde-format
+msgid "<a href=\"man:/logger\">Logger Manual</a>"
+msgstr "<a href=\"man:/logger\">priručnik za <tt>logger</tt></a>"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonOK)
+#: src/loggerDialogBase.ui:322
+#, kde-format
+msgid "&OK"
+msgstr "&U redu"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
+#: src/loggerDialogBase.ui:338
+#, kde-format
+msgid "&Cancel"
+msgstr "&Odustani"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "KSystemlog"
+msgstr "K‑sistemski-dnevnik"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "System Logs Viewer by KDE"
+msgstr "Prikazivač sistemskih dnevnika iz KDE‑a"
+
+#: src/main.cpp:45
+#, kde-format
+msgid "(C) 2007-2015, Nicolas Ternisien"
+msgstr "© 2007–2015, Nikola Ternizjen"
+
+#: src/main.cpp:46
+#, kde-format
+msgid ""
+"Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+msgstr ""
+"Ne oklevajte da prijavite greške i probleme Nikoli Ternizjenu <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+
+#: src/main.cpp:52
+#, kde-format
+msgid "Nicolas Ternisien"
+msgstr "Nikola Ternizjen"
+
+#: src/main.cpp:52
+#, kde-format
+msgid "Main developer"
+msgstr "Glavni programer"
+
+#: src/main.cpp:55
+#, kde-format
+msgid "Vyacheslav Matyushin"
+msgstr "Vjačeslav Matjušin"
+
+#: src/main.cpp:55
+#, kde-format
+msgid "Journald mode, bugfixes"
+msgstr "Režim journald‑a, ispravke grešaka"
+
+#: src/main.cpp:57
+#, kde-format
+msgid "Bojan Djurkovic"
+msgstr "Bojan Đurković"
+
+#: src/main.cpp:57
+#, kde-format
+msgid "Log Printing"
+msgstr "Štampanje dnevnika"
+
+#: src/main.cpp:73
+#, kde-format
+msgid "Document to open."
+msgstr "Dokument za otvaranje."
+
+#: src/mainWindow.cpp:407
+#, kde-format
+msgctxt "Total displayed lines"
+msgid "1 line."
+msgid_plural "%1 lines."
+msgstr[0] "%1 red."
+msgstr[1] "%1 reda."
+msgstr[2] "%1 redova."
+msgstr[3] "1 red."
+
+#: src/mainWindow.cpp:411
+#, kde-format
+msgctxt "Line not hidden by search / Total displayed lines"
+msgid "1 line / %2 total."
+msgid_plural "%1 lines / %2 total."
+msgstr[0] "%1 red / %2 ukupno."
+msgstr[1] "%1 reda / %2 ukupno."
+msgstr[2] "%1 redova / %2 ukupno."
+msgstr[3] "1 red / %2 ukupno."
+
+#: src/mainWindow.cpp:433
+#, kde-format
+msgid "Resu&me"
+msgstr "Nast&avi"
+
+#: src/mainWindow.cpp:435
+#, kde-format
+msgid "Resume the watching of the current log"
+msgstr "Nastavi nadgledanje tekućeg dnevnika"
+
+#: src/mainWindow.cpp:437
+#, kde-format
+msgid ""
+"Resumes the watching of the current log. This action is only available when "
+"the user has already paused the reading."
+msgstr ""
+"Nastavlja nadgledanje tekućeg dnevnika. Ova radnja je dostupna samo kada je "
+"korisnik pauzirao čitanje."
+
+#: src/mainWindow.cpp:442
+#, kde-format
+msgid "S&top"
+msgstr "&Zaustavi"
+
+#: src/mainWindow.cpp:444
+#, kde-format
+msgid "Pause the watching of the current log"
+msgstr "Pauziraj nadgledanje tekućeg dnevnika"
+
+#: src/mainWindow.cpp:446
+#, kde-format
+msgid ""
+"Pauses the watching of the current log. This action is particularly useful "
+"when the system is writing too many lines to log files, causing KSystemLog "
+"to reload too frequently."
+msgstr ""
+"Pauzira nadgledanje tekućeg dnevnika. Ova radnja je posebno korisna kad "
+"sistem upisuje mnogo redova u fajlove dnevnika, terajući K‑sistemski-dnevnik "
+"da prečesto učitava."
+
+#: src/mainWindow.cpp:519 src/tabLogManager.cpp:85
+#, kde-format
+msgctxt "Newly created tab"
+msgid "Empty Log"
+msgstr "Prazan dnevnik"
+
+#: src/mainWindow.cpp:615
+#, kde-format
+msgid "Open a file in KSystemLog"
+msgstr "Otvori fajl u K‑sistemskom-dnevniku"
+
+#: src/mainWindow.cpp:617
+#, kde-format
+msgid "Opens a file in KSystemLog and displays its content in the current tab."
+msgstr ""
+"Otvara fajl u K‑sistemskom-dnevniku i prikazuje njegov sadržaj pod tekućim "
+"jezičkom."
+
+#: src/mainWindow.cpp:620
+#, kde-format
+msgid "&Print Selection..."
+msgstr "Š&tampaj izbor..."
+
+#: src/mainWindow.cpp:621
+#, kde-format
+msgid "Print the selection"
+msgstr "Štampaj izbor"
+
+#: src/mainWindow.cpp:623
+#, kde-format
+msgid ""
+"Prints the selection. Simply select the important lines and click on this "
+"menu entry to print the selection."
+msgstr ""
+"Štampa izbor. Jednostavno izaberite važne redove pa kliknite na ovu stavku "
+"menija da ih odštampate."
+
+#: src/mainWindow.cpp:629
+#, kde-format
+msgid "Save the selection to a file"
+msgstr "Sačuvaj izbor u fajl"
+
+#: src/mainWindow.cpp:631
+#, kde-format
+msgid ""
+"Saves the selection to a file. This action is useful if you want to create "
+"an attachment or a backup of a particular log."
+msgstr ""
+"Upisuje izbor u fajl. Ova radnja je korisna kada želite da napravite prilog "
+"za e‑poruku ili rezervu određenog dnevnika."
+
+#: src/mainWindow.cpp:637
+#, kde-format
+msgid "Quit KSystemLog"
+msgstr "Napusti K‑sistemski-dnevnik"
+
+#: src/mainWindow.cpp:638
+#, kde-format
+msgid "Quits KSystemLog."
+msgstr "Napušta K‑sistemski-dnevnik."
+
+#: src/mainWindow.cpp:641
+#, kde-format
+msgid "Copy the selection to the clipboard"
+msgstr "Kopiraj izbor u klipbord"
+
+#: src/mainWindow.cpp:643
+#, kde-format
+msgid ""
+"Copies the selection to the clipboard. This action is useful if you want to "
+"paste the selection in a chat or an email."
+msgstr ""
+"Kopira izbor u klipbord. Ova radnja je korisna kada želite da nalepite izbor "
+"u ćaskanje ili e‑poštu."
+
+#: src/mainWindow.cpp:648
+#, kde-format
+msgid "Ex&pand All"
+msgstr "&Raširi sve"
+
+#: src/mainWindow.cpp:649
+#, kde-format
+msgid "Expand all categories"
+msgstr "Proširi sve kategorije"
+
+# ! ui: Group By --> ?
+#: src/mainWindow.cpp:651
+#, kde-format
+msgid ""
+"This action opens all main categories. This is enabled only if an option has "
+"been selected in the <b>Group By</b> menu."
+msgstr ""
+"Ova radnja otvara sve glavne kategorije. Dostupno samo ako je izabrana neka "
+"od opcija u meniju <i>Grupiši po</i>."
+
+#: src/mainWindow.cpp:657
+#, kde-format
+msgid "Col&lapse All"
+msgstr "&Sažmi sve"
+
+#: src/mainWindow.cpp:658
+#, kde-format
+msgid "Collapse all categories"
+msgstr "Sažmi sve kategorije"
+
+# ! ui: Group By --> ?
+#: src/mainWindow.cpp:660
+#, kde-format
+msgid ""
+"This action closes all main categories. This is enabled only if an option "
+"has been selected in the <b>Group By</b> menu."
+msgstr ""
+"Ova radnja zatvara sve glavne kategorije. Dostupno samo ako je izabrana neka "
+"od opcija u meniju <i>Grupiši po</i>."
+
+#: src/mainWindow.cpp:666
+#, kde-format
+msgid "&Email Selection..."
+msgstr "Pošalji &e‑poštom..."
+
+#: src/mainWindow.cpp:668
+#, kde-format
+msgid "Send the selection by mail"
+msgstr "Pošalji izbor putem e‑pošte"
+
+#: src/mainWindow.cpp:670
+#, kde-format
+msgid ""
+"Sends the selection by mail. Simply select the important lines and click on "
+"this menu entry to send the selection to a friend or a mailing list."
+msgstr ""
+"Šalje izbor e‑poštom. Jednostavno izaberite važne redove pa kliknite na ovu "
+"stavku menija da pošaljete izbor nekome privatno ili na poštansku listu."
+
+#: src/mainWindow.cpp:677
+#, kde-format
+msgid "&Add Log Entry..."
+msgstr "Dod&aj unos dnevnika..."
+
+#: src/mainWindow.cpp:680
+#, kde-format
+msgid "Add a log entry to the log system"
+msgstr "Dodaj unos dnevnika u sistem dnevnika"
+
+#: src/mainWindow.cpp:682
+#, kde-format
+msgid ""
+"This action will open a dialog which lets you send a message to the log "
+"system."
+msgstr ""
+"Ova radnja otvara dijalog koji vam omogućava da pošaljete poruku sistemu "
+"dnevnika."
+
+#: src/mainWindow.cpp:686
+#, kde-format
+msgid "Select all lines of the current log"
+msgstr "Izaberi sve redove tekućeg dnevnika"
+
+# skip-rule: t-login
+#: src/mainWindow.cpp:688
+#, kde-format
+msgid ""
+"Selects all lines of the current log. This action is useful if you want, for "
+"example, to save all the content of the current log in a file."
+msgstr ""
+"Označava sve redove tekućeg dnevnika. Ova radnja je korisna kada želite, na "
+"primer, da sačuvate čitav sadržaj tekućeg dnevnika u fajl."
+
+#: src/mainWindow.cpp:701
+#, kde-format
+msgid "Show &Filter Bar"
+msgstr "Prikaži traku &filtera"
+
+#: src/mainWindow.cpp:708
+#, kde-format
+msgid "&New Tab"
+msgstr "&Novi jezičak"
+
+#: src/mainWindow.cpp:710 src/tabLogViewsWidget.cpp:60
+#, kde-format
+msgid "Create a new tab"
+msgstr "Napravi novi jezičak"
+
+#: src/mainWindow.cpp:711 src/tabLogViewsWidget.cpp:61
+#, kde-format
+msgid "Creates a new tab which can display another log."
+msgstr "Pravi novi jezičak koji može da prikazuje drugi dnevnik."
+
+#: src/mainWindow.cpp:717
+#, kde-format
+msgid "&Close Tab"
+msgstr "&Zatvori jezičak"
+
+#: src/mainWindow.cpp:719 src/tabLogViewsWidget.cpp:67
+#, kde-format
+msgid "Close the current tab"
+msgstr "Zatvori tekući jezičak"
+
+#: src/mainWindow.cpp:720 src/tabLogViewsWidget.cpp:68
+#, kde-format
+msgid "Closes the current tab."
+msgstr "Zatvara tekući jezičak."
+
+#: src/mainWindow.cpp:726
+#, kde-format
+msgid "&Duplicate Tab"
+msgstr "&Dupliraj jezičak"
+
+#: src/mainWindow.cpp:728
+#, kde-format
+msgid "Duplicate the current tab"
+msgstr "Dupliraj tekući jezičak"
+
+#: src/mainWindow.cpp:729
+#, kde-format
+msgid "Duplicates the current tab."
+msgstr "Duplira tekući jezičak."
+
+#: src/mainWindow.cpp:739
+#, kde-format
+msgid "Move Tab &Left"
+msgstr "Pomeri jezičak u&levo"
+
+#: src/mainWindow.cpp:741
+#, kde-format
+msgid "Move the current tab to the left"
+msgstr "Pomeri tekući jezičak ulevo"
+
+#: src/mainWindow.cpp:742
+#, kde-format
+msgid "Moves the current tab to the left."
+msgstr "Pomera tekući jezičak ulevo."
+
+#: src/mainWindow.cpp:748
+#, kde-format
+msgid "Move Tab &Right"
+msgstr "Pomeri jezičak u&desno"
+
+#: src/mainWindow.cpp:750
+#, kde-format
+msgid "Move the current tab to the right"
+msgstr "Pomeri tekući jezičak udesno"
+
+#: src/mainWindow.cpp:751
+#, kde-format
+msgid "Moves the current tab to the right."
+msgstr "Pomera tekući jezičak udesno."
+
+#: src/mainWindow.cpp:756
+#, kde-format
+msgid "&Reload"
+msgstr "&Učitaj ponovo"
+
+#: src/mainWindow.cpp:758
+#, kde-format
+msgid "Reload the current log"
+msgstr "Ponovo učitaj tekući dnevnik"
+
+#: src/mainWindow.cpp:760
+#, kde-format
+msgid ""
+"Reloads the current log, if you want to be sure that the view is correctly "
+"updated."
+msgstr ""
+"Ponovo učitava tekući dnevnik, kada hoćete da budete sigurni da je prikaz "
+"ispravno ažuriran."
+
+#: src/mainWindow.cpp:771
+#, kde-format
+msgid "&Details"
+msgstr "&Detalji"
+
+#: src/mainWindow.cpp:773
+#, kde-format
+msgid "Display details on the selected line"
+msgstr "Prikaži detalje za izabrani red"
+
+#: src/mainWindow.cpp:775
+#, kde-format
+msgid ""
+"Displays a dialog box which contains details on the selected line. You are "
+"able to navigate through the logs from this dialog box with the <b>Previous</"
+"b> and <b>Next</b> buttons."
+msgstr ""
+"Poziva dijalog koji sadrži detalje za izabrani red. Iz ovog dijaloga možete "
+"da se krećete kroz dnevnike pomoću dugmadi <i>Prethodno</i> i <i>Sledeće</i>."
+
+#: src/mainWindow.cpp:781
+#, kde-format
+msgid "&Enable Detailed Tooltips"
+msgstr "&Detaljni oblačići"
+
+#: src/mainWindow.cpp:782
+#, kde-format
+msgid "Disable/Enable the tooltip on the current view"
+msgstr "Isključi/uključi oblačić u trenutnom prikazu"
+
+# skip-rule: t-cursor
+#: src/mainWindow.cpp:784
+#, kde-format
+msgid ""
+"Disables/Enables the tooltip displayed when the cursor hovers a log line."
+msgstr ""
+"Isključuje/uključuje oblačić koji iskače kad zastanete pokazivačem nad redom "
+"dnevnika."
+
+#: src/mainWindow.cpp:790
+#, kde-format
+msgid "&Scroll to New Lines"
+msgstr "&Klizaj do novih redova"
+
+#: src/mainWindow.cpp:791
+#, kde-format
+msgid "Scrolls or not to the new lines when the log changes"
+msgstr "Klizaj do novih redova kad se dnevnik promeni"
+
+#: src/mainWindow.cpp:793
+#, kde-format
+msgid ""
+"Scrolls or not to the new lines when the log changes. Check this option if "
+"you do not want the application to scroll automatically at the bottom of the "
+"log each time it is refreshed."
+msgstr ""
+"Kliza do novih redova kad se dnevnik promeni. Uključite ovu opciju ako ne "
+"želite da program automatski otkliza na dno dnevnika pri svakom ažuriranju."
+
+#: src/mainWindow.cpp:852
+#, kde-format
+msgid "Services"
+msgstr "Servisi"
+
+#: src/mainWindow.cpp:854
+#, kde-format
+msgid "Others"
+msgstr "Ostalo"
+
+# >> @title:column
+#: src/modes/acpid/acpidAnalyzer.h:48
+#: src/modes/apache/apacheAccessAnalyzer.h:51
+#: src/modes/apache/apacheAnalyzer.h:51 src/modes/base/syslogAnalyzer.cpp:56
+#: src/modes/cron/cronAnalyzer.h:49 src/modes/cups/cupsAccessAnalyzer.h:53
+#: src/modes/cups/cupsAnalyzer.cpp:37 src/modes/cups/cupsPageAnalyzer.h:52
+#: src/modes/cups/cupsPdfAnalyzer.h:54
+#: src/modes/journald/journaldAnalyzer.cpp:37
+#: src/modes/kernel/kernelAnalyzer.h:56 src/modes/samba/sambaAnalyzer.h:52
+#, kde-format
+msgid "Date"
+msgstr "datum"
+
+# >> @title:column
+#: src/modes/acpid/acpidAnalyzer.h:49 src/modes/xorg/xorgAnalyzer.cpp:40
+#, kde-format
+msgid "Type"
+msgstr "vrsta"
+
+#: src/modes/acpid/acpidConfigurationWidget.h:46
+#, kde-format
+msgid "Acpid Log"
+msgstr "Dnevnik za acpid"
+
+#: src/modes/acpid/acpidConfigurationWidget.h:51
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza dnevnika za <tt>acpid</tt>.</"
+"p>"
+
+#: src/modes/acpid/acpidItemBuilder.h:56 src/modes/xorg/xorgItemBuilder.h:71
+#: src/modes/xorg/xorgItemBuilder.h:73
+#, kde-format
+msgid "Type:"
+msgstr "Vrsta:"
+
+#: src/modes/acpid/acpidLogMode.cpp:37
+#, kde-format
+msgid "ACPI Log"
+msgstr "Dnevnik ACPI‑ja"
+
+#: src/modes/acpid/acpidLogMode.cpp:46
+#, kde-format
+msgid "Display the ACPI log."
+msgstr "Prikaži dnevnik ACPI‑ja"
+
+# skip-rule: t-login
+#: src/modes/acpid/acpidLogMode.cpp:48
+#, kde-format
+msgid ""
+"Displays the ACPI log in the current tab. ACPI is used to manage the "
+"hardware components of your computer, like notebook batteries, reset "
+"buttons..."
+msgstr ""
+"Prikazuje dnevnik ACPI‑ja pod tekućim jezičkom. ACPI služi za upravljanje "
+"hardverskim komponentama računara, na primer baterijom laptopa, dugmetom za "
+"resetovanje, itd."
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:52
+#, kde-format
+msgid "Host Name"
+msgstr "domaćin"
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:54
+#, kde-format
+msgid "Id."
+msgstr "id."
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:56
+#, kde-format
+msgid "Response"
+msgstr "odgovor"
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:57
+#, kde-format
+msgid "Bytes Sent"
+msgstr "bajtova poslato"
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:58
+#, kde-format
+msgid "Agent Identity"
+msgstr "identitet agenta"
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:59
+#: src/modes/cups/cupsAccessAnalyzer.h:57
+#, kde-format
+msgid "HTTP Request"
+msgstr "HTTP zahtev"
+
+# >> @title:column
+#: src/modes/apache/apacheAccessAnalyzer.h:60
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:54
+#, kde-format
+msgid "Host Name:"
+msgstr "Domaćin:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:55
+#: src/modes/cups/cupsAccessItemBuilder.h:55
+#, kde-format
+msgid "Identification:"
+msgstr "Identifikacija:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:56
+#: src/modes/cups/cupsAccessItemBuilder.h:56
+#: src/modes/cups/cupsPageItemBuilder.h:55
+#, kde-format
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:57
+#: src/modes/cups/cupsAccessItemBuilder.h:57
+#, kde-format
+msgid "HTTP Response:"
+msgstr "HTTP odgovor:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:58
+#: src/modes/cups/cupsAccessItemBuilder.h:58
+#, kde-format
+msgid "Bytes Sent:"
+msgstr "Bajtova poslato:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:59
+#, kde-format
+msgid "Agent Identity:"
+msgstr "Identitet agenta:"
+
+#: src/modes/apache/apacheAccessItemBuilder.h:60
+#, kde-format
+msgid "HTTP Request:"
+msgstr "HTTP zahtev:"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:39
+#, kde-format
+msgid "Apache Access Log"
+msgstr "Apachejev dnevnik pristupa"
+
+#: src/modes/apache/apacheAccessLogMode.cpp:49
+#, kde-format
+msgid "Display the Apache Access log."
+msgstr "Prikaži Apachejev dnevnik pristupa"
+
+# skip-rule: t-login
+#: src/modes/apache/apacheAccessLogMode.cpp:51
+#, kde-format
+msgid ""
+"Displays the Apache Access log in the current tab. Apache is the main used "
+"Web server in the world. This log saves all requests performed by the Apache "
+"web server."
+msgstr ""
+"Prikazuje Apachejev dnevnik pristupa pod tekućim jezičkom. Apache je "
+"najkorišćeniji veb server na svetu. U ovaj dnevnik upisuju se svi zahtevi "
+"koje Apache izvršava."
+
+# >> @title:column
+#: src/modes/apache/apacheAnalyzer.h:52
+#, kde-format
+msgid "Client"
+msgstr "klijent"
+
+#: src/modes/apache/apacheConfigurationWidget.h:44
+#: src/modes/apache/apacheLogMode.cpp:39
+#, kde-format
+msgid "Apache Log"
+msgstr "Apachejev dnevnik"
+
+#: src/modes/apache/apacheConfigurationWidget.h:50
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Apache log</b> and the "
+"<b>Apache Access log</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza Apachejevog dnevnika i "
+"Apachejev dnevnika pristupa.</p>"
+
+#: src/modes/apache/apacheConfigurationWidget.h:53
+#, kde-format
+msgid "Apache Log Files"
+msgstr "Apachejevi fajlovi dnevnika"
+
+#: src/modes/apache/apacheConfigurationWidget.h:53
+#, kde-format
+msgid "Add Apache File..."
+msgstr "Dodaj Apachejev fajl..."
+
+#: src/modes/apache/apacheConfigurationWidget.h:55
+#, kde-format
+msgid "Apache Access Log Files"
+msgstr "Apachejevi fajlovi dnevnika pristupa"
+
+#: src/modes/apache/apacheConfigurationWidget.h:55
+#, kde-format
+msgid "Add Apache Access File..."
+msgstr "Dodaj Apachejev fajl pristupa..."
+
+#: src/modes/apache/apacheFactory.cpp:62
+#, kde-format
+msgid "Apache"
+msgstr "Apache"
+
+#: src/modes/apache/apacheItemBuilder.h:54
+#, kde-format
+msgid "Client:"
+msgstr "Klijent:"
+
+#: src/modes/apache/apacheLogMode.cpp:48
+#, kde-format
+msgid "Display the Apache log."
+msgstr "Prikaži Apachejev dnevnik"
+
+# skip-rule: t-login
+#: src/modes/apache/apacheLogMode.cpp:50
+#, kde-format
+msgid ""
+"Displays the Apache log in the current tab. Apache is the main used Web "
+"server in the world."
+msgstr ""
+"Prikazuje Apachejev dnevnik pod tekućim jezičkom. Apache je najkorišćeniji "
+"veb server na svetu."
+
+#: src/modes/authentication/authenticationConfigurationWidget.h:48
+#: src/modes/authentication/authenticationConfigurationWidget.h:49
+#: src/modes/authentication/authenticationLogMode.cpp:37
+#, kde-format
+msgid "Authentication Log"
+msgstr "Dnevnik autentifikacije"
+
+#: src/modes/authentication/authenticationConfigurationWidget.h:56
+#: src/modes/xsession/xsessionConfigurationWidget.h:59
+#, kde-format
+msgid "Log file does not exist. Mode will be unavailable."
+msgstr "Fajl dnevnika ne postoji. Režim neće biti dostupan."
+
+#: src/modes/authentication/authenticationConfigurationWidget.h:61
+#, kde-format
+msgid "Authentication Log File"
+msgstr "Fajl dnevnika autentifikacije"
+
+#: src/modes/authentication/authenticationConfigurationWidget.h:71
+#, kde-format
+msgid "Authentication log file:"
+msgstr "Fajl dnevnika autentifikacije:"
+
+#: src/modes/authentication/authenticationConfigurationWidget.h:77
+#, kde-format
+msgid ""
+"You can type or choose the authentication log file (example: <i>/var/log/"
+"auth.log</i>)."
+msgstr ""
+"Možete uneti ili izabrati fajl dnevnika autentifikacije (primer: <tt>/var/"
+"log/auth.log</tt>)."
+
+# skip-rule: t-login
+#: src/modes/authentication/authenticationConfigurationWidget.h:79
+#, kde-format
+msgid ""
+"You can type or choose here the authentication log file. This file will be "
+"analyzed when you select the <b>Authentication log</b> menu. Generally, its "
+"name is <i>/var/log/auth.log</i>"
+msgstr ""
+"Ovde možete uneti ili izabrati fajl dnevnika autentifikacije. K‑sistemski-"
+"dnevnik će automatski analizirati ovaj fajl kada izaberete stavku menija "
+"<i>Dnevnik autentifikacije</i>. Obično se nalazi kao <tt>/var/log/auth.log</"
+"tt>."
+
+#: src/modes/authentication/authenticationLogMode.cpp:47
+#, kde-format
+msgid "Display the authentication log."
+msgstr "Prikaži dnevnik autentifikacije"
+
+#: src/modes/authentication/authenticationLogMode.cpp:49
+#, kde-format
+msgid ""
+"Displays the authentication log in the current tab. This log displays all "
+"logins made by each user of the system, and can help you to know if someone "
+"tried to crack your system."
+msgstr ""
+"Prikazuje dnevnik autentifikacije pod tekućim jezičkom. Ovaj dnevnik "
+"prikazuje sva prijavljivanja svakog korisnika na sistemu, te vam može pomoći "
+"da otkrijete da li neko pokušava da provali u sistem."
+
+#: src/modes/base/fileList.cpp:50
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"If all log files are missing, this mode will be unavailable."
+msgstr ""
+"Neki fajlovi dnevnika ne postoje.\n"
+"Ako nema nijednog fajla dnevnika, ovaj režim neće biti dostupan."
+
+#. i18n: ectx: property (text), widget (QLabel, description)
+#: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
+#, kde-format
+msgid "File List Description"
+msgstr "Opis spiska fajlova"
+
+#. i18n: ectx: property (title), widget (QGroupBox, filesBox)
+#: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
+#, kde-format
+msgid "Log Files"
+msgstr "Fajlovi dnevnika"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:55
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
+"body></html>"
+msgstr "<p>Izaberite novi fajl</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:61
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
+"choose a new file to be added to the list.</p></body></html>"
+msgstr "<p>Otvara dijalog za izbor novog fajla za dodavanje na spisak.</p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, add)
+#: src/modes/base/fileListBase.ui:64
+#, kde-format
+msgid "&Add File..."
+msgstr "&Dodaj fajl..."
+
+#. i18n: ectx: property (text), widget (QPushButton, modify)
+#: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
+#, kde-format
+msgid "&Modify File..."
+msgstr "&Izmeni fajl..."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
+"file(s)</p></body></html>"
+msgstr "<p>Obriši trenutne fajlove</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:87
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
+"on the list.</p></body></html>"
+msgstr "<p>Briše fajlove izabrane sa spiska.</p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, remove)
+#: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
+#, kde-format
+msgid "&Remove"
+msgstr "&Ukloni"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:100 src/modes/base/multipleFileListBase.ui:99
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
+"body></html>"
+msgstr "<p>Ukloni sve fajlove</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:106
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
+"the list, even if they are not selected.</p></body></html>"
+msgstr "<p>Uklanja sve fajlove sa spiska, čak i one koji nisu izabrani.</p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAll)
+#: src/modes/base/fileListBase.ui:109
+#: src/modes/base/multipleFileListBase.ui:108
+#, kde-format
+msgid "Rem&ove All"
+msgstr "Ukloni &sve"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:122
+#: src/modes/base/multipleFileListBase.ui:121
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
+"file(s)</p></body></html>"
+msgstr "<p>Pomeri nagore trenutne fajlove</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:128
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"up in the list. This option allows the files to be read <span style=\" font-"
+"weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<p>Pomera izabrane fajlove naviše u spisku, tako da ih K‑sistemski-dnevnik "
+"<b>prve</b> učitava.</p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, up)
+#: src/modes/base/fileListBase.ui:131
+#: src/modes/base/multipleFileListBase.ui:130
+#, kde-format
+msgid "Move &Up"
+msgstr "Pomeri na&gore"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:141
+#: src/modes/base/multipleFileListBase.ui:140
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
+"file(s)</p></body></html>"
+msgstr "<p>Pomeri nadole trenutne fajlove</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:147
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves the selected files "
+"down in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<p>Pomera izabrane fajlove naniže u spisku, tako da ih K‑sistemski-dnevnik  "
+"<b>poslednje</b> učitava.</p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, down)
+#: src/modes/base/fileListBase.ui:150
+#: src/modes/base/multipleFileListBase.ui:149
+#, kde-format
+msgid "Move &Down"
+msgstr "Pomeri na&dole"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/fileListBase.ui:175
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
+"files when adding files.</li></ul>"
+msgstr ""
+"<p><b>Napomene:</b></p><ul><li>Fajlovi se čitaju redom po ovom spisku.</"
+"li><li>Podržani su kompresovani i obični tekstualni fajlovi (<tt>*.log</tt>, "
+"<tt>*.gz</tt>, <tt>*.bz2</tt>, ...).</li><li>Pri dodavanju fajlova koristite "
+"džoker <b>*</b> da biste izabrali više fajlova dnevnika.</li></ul>"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:191
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
+"log type.</p></body></html>"
+msgstr "<p>Spisak fajlova koje koristi ova vrsta dnevnika.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:197
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Here is a list of every "
+"file that will be read by KSystemLog to display the current log lines.</p></"
+"body></html>"
+msgstr ""
+"<p>Spisak svih fajlova koje će K‑sistemski-dnevnik učitati radi prikaza "
+"redova tekućeg dnevnika.</p>"
+
+#. i18n: ectx: property (text), widget (QListWidget, fileList)
+#: src/modes/base/fileListBase.ui:210
+#, kde-format
+msgid "add"
+msgstr "dodaj"
+
+#: src/modes/base/fileListHelper.cpp:116
+#, kde-format
+msgid "'%1' is not a local file."
+msgstr "„%1“ nije lokalni fajl."
+
+#: src/modes/base/fileListHelper.cpp:117
+#, kde-format
+msgid "File selection failed"
+msgstr "Izbor fajla nije uspeo"
+
+# >> @item:intext
+#: src/modes/base/fileListHelper.cpp:131 src/modes/base/fileListHelper.cpp:143
+#, kde-format
+msgid "All Files (*)"
+msgstr "svi fajlovi (*)"
+
+# >> @item:intext
+#: src/modes/base/fileListHelper.cpp:133 src/modes/base/fileListHelper.cpp:145
+#, kde-format
+msgid "Log Files (*.log)"
+msgstr "fajlovi dnevnika (*.log)"
+
+# >> @title:window
+#: src/modes/base/fileListHelper.cpp:134 src/modes/base/fileListHelper.cpp:146
+#, kde-format
+msgid "Choose Log File"
+msgstr "Izbor fajla dnevnika"
+
+#: src/modes/base/genericConfiguration.cpp:86
+#, kde-format
+msgid "The two arrays size are different, skipping the reading of log files."
+msgstr "Veličina dva niza se razlikuje, preskačem čitanje fajlova dnevnika."
+
+#: src/modes/base/logLevelFileList.cpp:52
+#, kde-format
+msgid "&Change Status..."
+msgstr "&Izmeni stanje..."
+
+#: src/modes/base/logLevelFileList.cpp:53
+#, kde-format
+msgid "Change the level of the current file(s)"
+msgstr "Izmeni nivo tekućih fajlova"
+
+#: src/modes/base/logLevelFileList.cpp:55
+#, kde-format
+msgid ""
+"Changes the level of the current file(s). See KSystemLog documentation for "
+"more information about each log level."
+msgstr ""
+"Menja nivo tekućih fajlova. Pogledajte dokumentaciju K‑sistemskog-dnevnika "
+"za više informacija o svakom nivou beleženja."
+
+#: src/modes/base/logLevelFileList.cpp:167
+#, kde-format
+msgid ""
+"The two arrays size are different, skipping the reading of generic paths."
+msgstr "Veličina dva niza se razlikuje, preskačem čitanje generičkih putanja."
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
+#: src/modes/base/logLevelSelectionDialogBase.ui:13
+#, kde-format
+msgid "Selecting File Type"
+msgstr "Izbor vrste fajla"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/base/logLevelSelectionDialogBase.ui:22
+#, kde-format
+msgid "Please select the type of this file:"
+msgstr "Izaberite vrstu ovog fajla:"
+
+#. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:35
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
+"levels</p></body></html>"
+msgstr "<p>Spisak postojećih nivoa beleženja.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
+#: src/modes/base/logLevelSelectionDialogBase.ui:42
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is the list of all "
+"existing log levels. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
+"to be used for the files selected on the list.</p></body></html>"
+msgstr ""
+"<p>Ovo je spisak svih postojećih nivoa beleženja.</p><p>Izaberite onaj koji "
+"želite da se koristi za fajlove izabrane na spisku.</p>"
+
+#: src/modes/base/multipleFileList.cpp:52
+#, kde-format
+msgid ""
+"Some log files do not exist.\n"
+"Modes with missing log files will be unavailable."
+msgstr ""
+"Neki fajlovi dnevnika ne postoje.\n"
+"Režimi sa nedostajućim fajlovima dnevnika neće biti dostupni."
+
+#: src/modes/base/multipleFileList.cpp:429
+#, kde-format
+msgid "No log file..."
+msgstr "Nema fajla dnevnika..."
+
+#. i18n: ectx: property (text), widget (QTreeWidget, fileList)
+#: src/modes/base/multipleFileListBase.ui:60
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
+#: src/modes/base/multipleFileListBase.ui:86
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
+"of the list.</p></body></html>"
+msgstr "<p>Briše izabrane fajlove sa spiska.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
+#: src/modes/base/multipleFileListBase.ui:105
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
+"list, even if they are not selected.</p></body></html>"
+msgstr ""
+"<p>Uklanja sve fajlove sa spiska, uključujući i one koji nisu izabrani.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, up)
+#: src/modes/base/multipleFileListBase.ui:127
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves up the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<p>Pomera izabrane fajlove naviše u spisku, tako da ih K‑sistemski-dnevnik "
+"<b>prve</b> učitava.</p>"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, down)
+#: src/modes/base/multipleFileListBase.ui:146
+#, kde-format
+msgid ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Moves down the selected "
+"files in the list. This option allows the files to be read <span style=\" "
+"font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
+msgstr ""
+"<p>Pomera izabrane fajlove naniže u spisku, tako da ih K‑sistemski-dnevnik  "
+"<b>poslednje</b> učitava.</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, notes)
+#: src/modes/base/multipleFileListBase.ui:174
+#, kde-format
+msgid ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
+"style='margin-top:0px'><li>Files are read using the order of this list.</"
+"li><li>Compressed and plain text files are accepted <i>(*.log, *.gz, *."
+"bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
+"when adding files.</li></ul>"
+msgstr ""
+"<p><b>Napomene:</b></p><ul><li>Fajlovi se čitaju redom po ovom spisku.</"
+"li><li>Podržani su kompresovani i obični tekstualni fajlovi (<tt>*.log</tt>, "
+"<tt>*.gz</tt>, <tt>*.bz2</tt>, ...).</li><li>Pri dodavanju fajlova koristite "
+"džoker <b>*</b> da biste izabrali više fajlova dnevnika.</li></ul>"
+
+#: src/modes/base/parsingHelper.cpp:171
+#, kde-format
+msgctxt "HttpResponseNumber HttpResponseDescription"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+# >> @item
+#: src/modes/base/syslogAnalyzer.cpp:57 src/modes/cron/cronAnalyzer.h:50
+#: src/modes/cups/cupsAccessAnalyzer.h:54
+#, kde-format
+msgid "Host"
+msgstr "domaćin"
+
+# >> @item
+#: src/modes/base/syslogAnalyzer.cpp:58 src/modes/cron/cronAnalyzer.h:51
+#, kde-format
+msgid "Process"
+msgstr "proces"
+
+# >> @item
+#: src/modes/cron/cronAnalyzer.h:53
+#, kde-format
+msgid "Command"
+msgstr "naredba"
+
+#: src/modes/cron/cronConfigurationWidget.h:49
+#: src/modes/cron/cronLogMode.cpp:37
+#, kde-format
+msgid "Cron Log"
+msgstr "Dnevnik crona"
+
+#: src/modes/cron/cronConfigurationWidget.h:54
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
+"tasks logs). <a href='man:/cron'>More information...</a></p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika crona</b> (tj. "
+"dnevnika zakazanih zadataka). <a href='man:/cron'>Više informacija...</a></p>"
+
+# >> @option:check
+#: src/modes/cron/cronConfigurationWidget.h:63
+#, kde-format
+msgid "Enable Process Filtering"
+msgstr "Filtriranje procesa"
+
+#: src/modes/cron/cronConfigurationWidget.h:75
+#, kde-format
+msgid "Only keeps lines which matches this process :"
+msgstr "Zadrži samo redove koji poklapaju ovaj proces:"
+
+#: src/modes/cron/cronItemBuilder.h:55
+#, kde-format
+msgid "User:"
+msgstr "Korisnik:"
+
+#: src/modes/cron/cronLogMode.cpp:46
+#, kde-format
+msgid "Display the planned tasks log (Cron log)."
+msgstr "Prikaži dnevnik zakazanih zadataka (dnevnik crona)"
+
+# skip-rule: t-login
+#: src/modes/cron/cronLogMode.cpp:48
+#, kde-format
+msgid ""
+"Displays the planned tasks log in the current tab. Cron process is a program "
+"in charge of launching planned tasks on your system, like security checks, "
+"or auto-restarting of some services. Use this menu to see the recently "
+"launched processes."
+msgstr ""
+"Prikazuje dnevnik zakazanih zadataka pod tekućim jezičkom. Cron je program "
+"zadužen da pokreće zakazane zadatke na sistemu, kao što su bezbednosne "
+"provere ili automatsko upravljanje servisima. Kroz ovaj meni možete videti "
+"nedavno pokrenute procese."
+
+# >> @item
+#: src/modes/cups/cupsAccessAnalyzer.h:55
+#, kde-format
+msgid "Group"
+msgstr "grupa"
+
+# >> @item
+#: src/modes/cups/cupsAccessAnalyzer.h:58
+#, kde-format
+msgid "Status"
+msgstr "stanje"
+
+# >> @item
+#: src/modes/cups/cupsAccessAnalyzer.h:59
+#, kde-format
+msgid "Bytes"
+msgstr "bajtova"
+
+# >> @item
+#: src/modes/cups/cupsAccessAnalyzer.h:60
+#, kde-format
+msgid "IPP Operation"
+msgstr "IPP postupak"
+
+# >> @item
+#: src/modes/cups/cupsAccessAnalyzer.h:61
+#, kde-format
+msgid "IPP Status"
+msgstr "IPP stanje"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:39
+#, kde-format
+msgid "Cups Web Log"
+msgstr "Veb dnevnik CUPS‑a"
+
+#: src/modes/cups/cupsAccessLogMode.cpp:49
+#, kde-format
+msgid "Display the CUPS Web Server Access log."
+msgstr "Prikazuje dnevnik pristupa CUPS‑ovom veb serveru."
+
+# skip-rule: t-login
+# rewrite-msgid: /saves/logs/
+#: src/modes/cups/cupsAccessLogMode.cpp:51
+#, kde-format
+msgid ""
+"Displays the CUPS Web Server Access log in the current tab. CUPS is the "
+"program which manages printing on your computer. This log saves all requests "
+"performed to the CUPS embedded web server (default: <i>http://localhost:631</"
+"i>)."
+msgstr ""
+"Prikazuje dnevnik pristupa CUPS‑ovom veb serveru pod tekućim jezičkom. CUPS "
+"je program koji upravlja štampanjem na računaru. Ovaj dnevnik beleži sve "
+"zahteve upućene ugnežđenom CUPS‑ovom veb serveru (podrazumevano: <i>http://"
+"localhost:631</i>)."
+
+# >> @item
+#: src/modes/cups/cupsAnalyzer.cpp:72
+#, kde-format
+msgid "debug 2"
+msgstr "ispravljanje 2"
+
+#: src/modes/cups/cupsAnalyzer.cpp:94
+#, kde-format
+msgid ""
+"New Log Level detected: Please send this log file to the KSystemLog "
+"developer to add it."
+msgstr ""
+"Susretnut je nov nivo beleženja: pošaljite ovaj fajl dnevnika programerima "
+"K‑sistemskog-dnevnika da bi dodali ovaj nivo."
+
+#: src/modes/cups/cupsConfigurationWidget.h:44
+#: src/modes/cups/cupsLogMode.cpp:39
+#, kde-format
+msgid "Cups Log"
+msgstr "Dnevnik CUPS‑a"
+
+#: src/modes/cups/cupsConfigurationWidget.h:45
+#, kde-format
+msgid "Cups &amp; Cups Web Server Log"
+msgstr "Dnevnik CUPS‑a i CUPS‑ovog veb servera"
+
+#: src/modes/cups/cupsConfigurationWidget.h:50
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
+"Web Access log</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika CUPS‑a</b> i "
+"<b>dnevnika pristupa CUPS‑ovom veb serveru</b>.</p>"
+
+#: src/modes/cups/cupsConfigurationWidget.h:53
+#, kde-format
+msgid "Cups Log Files"
+msgstr "Fajl dnevnika CUPS‑a"
+
+#: src/modes/cups/cupsConfigurationWidget.h:53
+#, kde-format
+msgid "Add Cups File..."
+msgstr "Dodaj fajl CUPS‑a..."
+
+#: src/modes/cups/cupsConfigurationWidget.h:55
+#, kde-format
+msgid "Cups Access Log Files"
+msgstr "Fajlovi dnevnika pristupa CUPS‑a"
+
+#: src/modes/cups/cupsConfigurationWidget.h:55
+#, kde-format
+msgid "Add Cups Access File..."
+msgstr "Dodaj fajl pristupa CUPS‑a..."
+
+#: src/modes/cups/cupsConfigurationWidget.h:57
+#, kde-format
+msgid "Cups Page Log Files"
+msgstr "Fajlovi dnevnika stranica CUPS‑a"
+
+#: src/modes/cups/cupsConfigurationWidget.h:57
+#, kde-format
+msgid "Add Cups Page File..."
+msgstr "Dodaj fajl stranica CUPS‑a..."
+
+#: src/modes/cups/cupsConfigurationWidget.h:58
+#, kde-format
+msgid "Cups PDF Log Files"
+msgstr "Fajlovi PDF dnevnika CUPS‑a"
+
+#: src/modes/cups/cupsConfigurationWidget.h:58
+#, kde-format
+msgid "Add Cups PDF File..."
+msgstr "Dodaj PDF fajl CUPS‑a..."
+
+#: src/modes/cups/cupsFactory.cpp:69
+#, kde-format
+msgid "Cups"
+msgstr "CUPS"
+
+#: src/modes/cups/cupsLogMode.cpp:48
+#, kde-format
+msgid "Display the Cups log."
+msgstr "Prikaži dnevnik CUPS‑a"
+
+# skip-rule: t-login
+#: src/modes/cups/cupsLogMode.cpp:50
+#, kde-format
+msgid ""
+"Displays the CUPS log in the current tab. CUPS is the program which manages "
+"printing on your computer."
+msgstr ""
+"Prikazuje dnevnik CUPS‑a pod tekućim jezičkom. CUPS je program koji upravlja "
+"štampanjem na računaru."
+
+# >> @item
+#: src/modes/cups/cupsPageAnalyzer.h:53
+#, kde-format
+msgid "Printer"
+msgstr "štampač"
+
+# >> @item
+#: src/modes/cups/cupsPageAnalyzer.h:55
+#, kde-format
+msgid "Job Id"
+msgstr "ID zadatka"
+
+# >> @item
+#: src/modes/cups/cupsPageAnalyzer.h:56
+#, kde-format
+msgid "Page Number"
+msgstr "broj stranica"
+
+# >> @item
+#: src/modes/cups/cupsPageAnalyzer.h:57
+#, kde-format
+msgid "Num Copies"
+msgstr "broj kopija"
+
+# >> @item
+#: src/modes/cups/cupsPageAnalyzer.h:58
+#, kde-format
+msgid "Job Billing"
+msgstr "obračun poslova"
+
+#: src/modes/cups/cupsPageItemBuilder.h:54
+#, kde-format
+msgid "Printer:"
+msgstr "Štampač:"
+
+#: src/modes/cups/cupsPageItemBuilder.h:56
+#, kde-format
+msgid "Job Id:"
+msgstr "ID zadatka:"
+
+#: src/modes/cups/cupsPageItemBuilder.h:57
+#, kde-format
+msgid "Page Number:"
+msgstr "Broj stranica:"
+
+#: src/modes/cups/cupsPageItemBuilder.h:58
+#, kde-format
+msgid "Num Copies:"
+msgstr "Broj kopija:"
+
+#: src/modes/cups/cupsPageItemBuilder.h:59
+#, kde-format
+msgid "Job Billing:"
+msgstr "Obračun poslova:"
+
+#: src/modes/cups/cupsPageLogMode.cpp:39
+#, kde-format
+msgid "Cups Page Log"
+msgstr "Dnevnik stranica CUPS‑a"
+
+#: src/modes/cups/cupsPageLogMode.cpp:48
+#, kde-format
+msgid "Display the CUPS Page log."
+msgstr "Prikazuje dnevnik stranica CUPS‑a."
+
+# skip-rule: t-login
+# rewrite-msgid: /saves/logs/
+#: src/modes/cups/cupsPageLogMode.cpp:50
+#, kde-format
+msgid ""
+"Displays the CUPS Page log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Prikazuje dnevnik stranica CUPS‑a pod tekućim jezičkom. CUPS je program koji "
+"upravlja štampanjem na računaru. Ovaj dnevnik beleži sve zahteve upućene "
+"ugnežđenom CUPS‑ovom veb serveru (podrazumevano: <i>http://localhost:631</"
+"i>)."
+
+#: src/modes/cups/cupsPdfItemBuilder.h:54
+#, kde-format
+msgid "Message:"
+msgstr "Poruka:"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:39
+#, kde-format
+msgid "Cups PDF Log"
+msgstr "PDF dnevnik CUPS‑a"
+
+#: src/modes/cups/cupsPdfLogMode.cpp:48
+#, kde-format
+msgid "Display the CUPS PDF log."
+msgstr "Prikazuje PDF dnevnik CUPS‑a."
+
+# skip-rule: t-login
+# rewrite-msgid: /saves/logs/
+#: src/modes/cups/cupsPdfLogMode.cpp:50
+#, kde-format
+msgid ""
+"Displays the CUPS PDF log in the current tab. CUPS is the program which "
+"manages printing on your computer. This log saves all requests performed to "
+"the CUPS embedded web server (default: <i>http://localhost:631</i>)."
+msgstr ""
+"Prikazuje PDF dnevnik CUPS‑a pod tekućim jezičkom. CUPS je program koji "
+"upravlja štampanjem na računaru. Ovaj dnevnik beleži sve zahteve upućene "
+"ugnežđenom CUPS‑ovom veb serveru (podrazumevano: <i>http://localhost:631</"
+"i>)."
+
+#: src/modes/daemon/daemonConfigurationWidget.h:46
+#: src/modes/daemon/daemonConfigurationWidget.h:47
+#: src/modes/daemon/daemonLogMode.cpp:38
+#, kde-format
+msgid "Daemons' Logs"
+msgstr "Dnevnik demona"
+
+#: src/modes/daemon/daemonConfigurationWidget.h:52
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika demona</b>.</p>"
+
+#: src/modes/daemon/daemonLogMode.cpp:47
+#, kde-format
+msgid "Display the daemons' logs."
+msgstr "Prikaži dnevnik demona"
+
+# skip-rule: t-login
+#: src/modes/daemon/daemonLogMode.cpp:49
+#, kde-format
+msgid ""
+"Displays the daemons' logs in the current tab. The daemons are all processes "
+"launched in the background of the system. See this log if you want to know "
+"what occurs in the background of your system."
+msgstr ""
+"Prikazuje dnevnik demona pod tekućim jezičkom. Demoni su svi procesi koji se "
+"pokreću u pozadini sistema. Pogledajte ovaj dnevnik ako želite da vidite šta "
+"se dešava u pozadini."
+
+# >> @title:column
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#. i18n: ectx: property (text), widget (QLabel, addressLabel)
+#: src/modes/journald/journaldAddressDialog.ui:19
+#: src/modes/journald/journaldConfigurationWidget.ui:71
+#, kde-format
+msgid "Address"
+msgstr "adrese"
+
+# >> @title:column
+#. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
+#. i18n: ectx: property (text), widget (QLabel, portLabel)
+#: src/modes/journald/journaldAddressDialog.ui:39
+#: src/modes/journald/journaldConfigurationWidget.ui:76
+#, kde-format
+msgid "Port"
+msgstr "port"
+
+# >> @item:intext ... [ ] Enable
+#. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
+#: src/modes/journald/journaldAddressDialog.ui:66
+#, kde-format
+msgid "Enable"
+msgstr "uključeno"
+
+# >> @title:column
+#: src/modes/journald/journaldAnalyzer.cpp:38
+#, kde-format
+msgid "Unit"
+msgstr "jedinica"
+
+#: src/modes/journald/journaldConfigurationWidget.cpp:33
+#: src/modes/journald/journaldConfigurationWidget.cpp:34
+#: src/modes/journald/journaldLogMode.cpp:38
+#, kde-format
+msgid "Journald Log"
+msgstr "Dnevnik journald‑a"
+
+# >> @item:intext ... [ ] Enable
+#: src/modes/journald/journaldConfigurationWidget.cpp:103
+#: src/modes/journald/journaldConfigurationWidget.cpp:137
+#, kde-format
+msgid "Enabled"
+msgstr "uključeno"
+
+# >> @title:window
+#: src/modes/journald/journaldConfigurationWidget.cpp:125
+#, kde-format
+msgid "Add remote journal"
+msgstr "Dodavanje udaljenog dnevnika"
+
+# >> @title:window
+#: src/modes/journald/journaldConfigurationWidget.cpp:161
+#, kde-format
+msgid "Modify remote journal"
+msgstr "Izmena udaljenog dnevnika"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
+#: src/modes/journald/journaldConfigurationWidget.ui:17
+#, kde-format
+msgid "Journald options"
+msgstr "Opcije journald‑a"
+
+#. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
+#: src/modes/journald/journaldConfigurationWidget.ui:23
+#, kde-format
+msgid "Display log entries from current boot only"
+msgstr "Prikaži unose dnevnika samo iz tekućeg podizanja"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:31
+#, kde-format
+msgid "Display all log entries"
+msgstr "Prikaži sve unose dnevnika"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:36
+#, kde-format
+msgid "Display log entries of processes of the current user"
+msgstr "Prikaži unose dnevnika iz procesa tekućeg korisnika"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
+#: src/modes/journald/journaldConfigurationWidget.ui:41
+#, kde-format
+msgid "Display log entries of system services and the kernel"
+msgstr "Prikaži unose dnevnika sistemskih servisa i jezgra"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
+#: src/modes/journald/journaldConfigurationWidget.ui:52
+#, kde-format
+msgid "Remote journals"
+msgstr "Udaljeni dnevnici"
+
+#. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:104
+#, kde-format
+msgid "Add address"
+msgstr "Dodaj adresu"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:114
+#, kde-format
+msgid "Remove address"
+msgstr "Ukloni adresu"
+
+#. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
+#: src/modes/journald/journaldConfigurationWidget.ui:124
+#, kde-format
+msgid "Modify address"
+msgstr "Izmeni adresu"
+
+#: src/modes/journald/journaldFactory.cpp:45
+#, kde-format
+msgid "Journald"
+msgstr "journald"
+
+#: src/modes/journald/journaldFactory.cpp:62
+#, kde-format
+msgid "Local journal"
+msgstr "Lokalni dnevnik"
+
+#: src/modes/journald/journaldFactory.cpp:65
+#, kde-format
+msgid "All messages"
+msgstr "Sve poruke"
+
+#: src/modes/journald/journaldFactory.cpp:76
+#: src/modes/journald/journaldFactory.cpp:137
+#, kde-format
+msgid "Filter by systemd unit"
+msgstr "Filter po jedinici systemd-a"
+
+#: src/modes/journald/journaldFactory.cpp:91
+#: src/modes/journald/journaldFactory.cpp:155
+#, kde-format
+msgid "Filter by syslog identifier"
+msgstr "Filter po identifikatoru syslog‑a"
+
+#: src/modes/journald/journaldFactory.cpp:121
+#, kde-format
+msgid "Connect"
+msgstr "Poveži"
+
+#: src/modes/journald/journaldItemBuilder.cpp:38
+#, kde-format
+msgid "Priority:"
+msgstr "Prioritet:"
+
+#: src/modes/journald/journaldItemBuilder.cpp:39
+#, kde-format
+msgid "Unit:"
+msgstr "Jedinica:"
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:166
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:226
+#, kde-format
+msgid "Reading journald entries..."
+msgstr "Čitam unose journald‑a..."
+
+#: src/modes/journald/journaldLocalAnalyzer.cpp:177
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:237
+#, kde-format
+msgid "Journald entries loaded successfully."
+msgstr "Unosi journald‑a uspešno učitani."
+
+#: src/modes/journald/journaldLogMode.cpp:49
+#, kde-format
+msgid "Display the Journald log."
+msgstr "Prikaži dnevnik journald‑a"
+
+# skip-rule: t-login
+#: src/modes/journald/journaldLogMode.cpp:50
+#, kde-format
+msgid "Displays the journald log in the current tab."
+msgstr "Prikazuje dnevnik journald‑a u tekućem jezičku."
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:109
+#, kde-format
+msgid "Connected"
+msgstr "Povezan"
+
+#: src/modes/journald/journaldNetworkAnalyzer.cpp:161
+#, kde-format
+msgid "Connection error"
+msgstr "Greška u povezivanju"
+
+# >> @item
+#: src/modes/kernel/kernelAnalyzer.h:57
+#, kde-format
+msgid "Component"
+msgstr "komponenta"
+
+#: src/modes/kernel/kernelItemBuilder.h:56
+#, kde-format
+msgid "Component:"
+msgstr "Komponenta:"
+
+#: src/modes/kernel/kernelLogMode.cpp:36
+#, kde-format
+msgid "Kernel Log"
+msgstr "Dnevnik jezgra"
+
+#: src/modes/kernel/kernelLogMode.cpp:43
+#, kde-format
+msgid "Display the kernel log."
+msgstr "Prikaži dnevnik jezgra"
+
+# skip-rule: t-login
+#: src/modes/kernel/kernelLogMode.cpp:45
+#, kde-format
+msgid ""
+"Displays the kernel log in the current tab. This log is only useful for "
+"users who want to know why the Kernel does not detect their hardware or what "
+"is the cause of the last <i>kernel panic/oops</i>."
+msgstr ""
+"Prikazuje dnevnik jezgra pod tekućim jezičkom. Ovaj dnevnik je od pomoći "
+"kada želite da saznate zašto jezgro ne vidi neki komad hardvera, ili šta je "
+"bio uzrok poslednjoj <i>panici jezgra</i>."
+
+#: src/modes/open/openLogMode.cpp:40
+#, kde-format
+msgid "Log File"
+msgstr "Fajl dnevnika"
+
+# >> @title:window
+#: src/modes/open/openLogMode.cpp:63
+#, kde-format
+msgid "Open Location"
+msgstr "Otvaranje lokacije"
+
+#: src/modes/open/openLogMode.cpp:78
+#, kde-format
+msgid "Malformed URL. Unable to open this file."
+msgstr "Nepravilan URL. Ne mogu da otvorim ovaj fajl."
+
+#: src/modes/open/openLogMode.cpp:79
+#, kde-format
+msgid "Unable to open this file."
+msgstr "Ne mogu da otvorim ovaj fajl."
+
+#: src/modes/postfix/postfixConfigurationWidget.h:48
+#: src/modes/postfix/postfixConfigurationWidget.h:49
+#: src/modes/postfix/postfixLogMode.cpp:38
+#, kde-format
+msgid "Postfix Log"
+msgstr "Dnevnik Postfixa"
+
+#: src/modes/postfix/postfixConfigurationWidget.h:53
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika Postfixa</b>.</p>"
+
+#: src/modes/postfix/postfixLogMode.cpp:47
+#, kde-format
+msgid "Display the Postfix log."
+msgstr "Prikaži dnevnik Postfixa"
+
+# skip-rule: t-login
+#: src/modes/postfix/postfixLogMode.cpp:49
+#, kde-format
+msgid ""
+"Displays the Postfix log in the current tab. Postfix is the most known and "
+"used mail server in the Linux world."
+msgstr ""
+"Prikazuje dnevnik Postfixa pod tekućim jezičkom. Postfix je najpoznatiji i "
+"najkorišćeniji server e‑pošte u svetu Linuxa."
+
+#: src/modes/samba/netbiosLogMode.cpp:40
+#, kde-format
+msgid "Netbios Log"
+msgstr "Dnevnik NetBIOSa"
+
+#: src/modes/samba/netbiosLogMode.cpp:48
+#, kde-format
+msgid "Display the Netbios log."
+msgstr "Prikaži dnevnik NetBIOSa"
+
+# skip-rule: t-login
+#: src/modes/samba/netbiosLogMode.cpp:50
+#, kde-format
+msgid ""
+"Displays the Netbios log in the current tab. Netbios is the file sharing "
+"protocol developed by Microsoft."
+msgstr ""
+"Prikazuje dnevnik NetBIOSa pod tekućim jezičkom. NetBIOS je protokol za "
+"deljenje fajlova koji je razvio Microsoft."
+
+#: src/modes/samba/sambaAccessLogMode.cpp:40
+#, kde-format
+msgid "Samba Access Log"
+msgstr "Dnevnik pristupa Sambe"
+
+#: src/modes/samba/sambaAccessLogMode.cpp:49
+#, kde-format
+msgid "Display the Samba Access log."
+msgstr "Prikaži dnevnik pristupa Sambe"
+
+# skip-rule: t-login
+#: src/modes/samba/sambaAccessLogMode.cpp:51
+#, kde-format
+msgid ""
+"Displays the Samba Access log in the current tab. This log mode allows you "
+"to see connections between your shares and remote hosts."
+msgstr ""
+"Prikazuje dnevnik pristupa Sambe pod tekućim jezičkom. U ovom dnevniku "
+"možete da vidite veze između svojih deljenja i udaljenih domaćina."
+
+# >> @item
+#: src/modes/samba/sambaAnalyzer.h:53
+#, kde-format
+msgid "Source File"
+msgstr "izvorni fajl"
+
+# >> @item
+#: src/modes/samba/sambaAnalyzer.h:54
+#, kde-format
+msgid "Function"
+msgstr "funkcija"
+
+# >> @item
+#: src/modes/samba/sambaAnalyzer.h:55 src/modes/xorg/xorgAnalyzer.cpp:39
+#: src/modes/xsession/xsessionAnalyzer.h:52
+#, kde-format
+msgid "Line"
+msgstr "red"
+
+#: src/modes/samba/sambaConfigurationWidget.h:44
+#: src/modes/samba/sambaLogMode.cpp:39
+#, kde-format
+msgid "Samba Log"
+msgstr "Dnevnik Sambe"
+
+#: src/modes/samba/sambaConfigurationWidget.h:50
+#, kde-format
+msgid ""
+"<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
+"log</b> and <b>Netbios log</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika Sambe</b>, "
+"<b>dnevnika pristupa Sambe</b> i <b>dnevnika NetBIOSa</b>.</p>"
+
+#: src/modes/samba/sambaConfigurationWidget.h:53
+#, kde-format
+msgid "Samba Log Files"
+msgstr "Fajlovi dnevnika Sambe"
+
+#: src/modes/samba/sambaConfigurationWidget.h:53
+#, kde-format
+msgid "Add Samba File..."
+msgstr "Dodaj fajl Sambe..."
+
+#: src/modes/samba/sambaConfigurationWidget.h:55
+#, kde-format
+msgid "Samba Access Log Files"
+msgstr "Fajlovi dnevnika pristupa Sambe"
+
+#: src/modes/samba/sambaConfigurationWidget.h:55
+#, kde-format
+msgid "Add Samba Access File..."
+msgstr "Dodaj fajl pristupa Sambe..."
+
+#: src/modes/samba/sambaConfigurationWidget.h:56
+#, kde-format
+msgid "Netbios Log Files"
+msgstr "Fajlovi dnevnika NetBIOSa"
+
+#: src/modes/samba/sambaConfigurationWidget.h:56
+#, kde-format
+msgid "Add Netbios File..."
+msgstr "Dodaj fajl NetBIOSa..."
+
+#: src/modes/samba/sambaFactory.cpp:67
+#, kde-format
+msgid "Samba"
+msgstr "Samba"
+
+#: src/modes/samba/sambaItemBuilder.h:54
+#, kde-format
+msgid "Source File:"
+msgstr "Izvorni fajl:"
+
+#: src/modes/samba/sambaItemBuilder.h:55
+#, kde-format
+msgid "Function:"
+msgstr "Funkcija:"
+
+#: src/modes/samba/sambaItemBuilder.h:56
+#, kde-format
+msgid "Line:"
+msgstr "Red:"
+
+#: src/modes/samba/sambaLogMode.cpp:47
+#, kde-format
+msgid "Display the Samba log."
+msgstr "Prikaži dnevnik Sambe"
+
+# skip-rule: t-login
+#: src/modes/samba/sambaLogMode.cpp:49
+#, kde-format
+msgid ""
+"Displays the Samba log in the current tab. Samba is the file sharing server "
+"which interacts with Microsoft Windows network."
+msgstr ""
+"Prikazuje dnevnik Sambe pod tekućim jezičkom. Samba je server za deljenje "
+"fajlova koji sarađuje sa windows mrežom."
+
+#: src/modes/system/systemConfigurationWidget.h:48
+#: src/modes/system/systemLogMode.cpp:38
+#, kde-format
+msgid "System Log"
+msgstr "Sistemski dnevnik"
+
+#: src/modes/system/systemConfigurationWidget.h:52
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>sistemskog dnevnika</b>.</"
+"p>"
+
+#: src/modes/system/systemLogMode.cpp:47
+#, kde-format
+msgid "Display the system log."
+msgstr "Prikaži sistemski dnevnik"
+
+# skip-rule: t-login
+#: src/modes/system/systemLogMode.cpp:49
+#, kde-format
+msgid ""
+"Displays the system log in the current tab. This log is generally used by "
+"non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+msgstr ""
+"Prikazuje sistemski dnevnik pod tekućim jezičkom. Ovaj dnevnik uglavnom "
+"koriste nespecijalizovani procesi, poput naredbi sudo ili fsck."
+
+# >> @item
+#: src/modes/xorg/xorgAnalyzer.cpp:87
+#, kde-format
+msgid "Probed"
+msgstr "ispitano"
+
+# >> @item
+#: src/modes/xorg/xorgAnalyzer.cpp:90
+#, kde-format
+msgid "From config file"
+msgstr "iz postavnog fajla"
+
+# >> @item
+#: src/modes/xorg/xorgAnalyzer.cpp:94
+#, kde-format
+msgid "Default setting"
+msgstr "podrazumevana postavka"
+
+# >> @item
+#: src/modes/xorg/xorgAnalyzer.cpp:98
+#, kde-format
+msgid "From command Line"
+msgstr "iz komandne linije"
+
+# >> @item
+#: src/modes/xorg/xorgAnalyzer.cpp:107
+#, kde-format
+msgid "Not implemented"
+msgstr "nije izvedeno"
+
+#: src/modes/xorg/xorgConfigurationWidget.h:45
+#: src/modes/xorg/xorgLogMode.cpp:37
+#, kde-format
+msgid "X.org Log"
+msgstr "Dnevnik XOrga"
+
+#: src/modes/xorg/xorgConfigurationWidget.h:50
+#, kde-format
+msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
+msgstr ""
+"<p>Ovi fajlovi će biti analizirani radi prikaza <b>dnevnika XOrga</b>.</p>"
+
+# >> @item
+#: src/modes/xorg/xorgItemBuilder.h:71
+#: src/modes/xsession/xsessionItemBuilder.h:71
+#, kde-format
+msgid "none"
+msgstr "ništa"
+
+#: src/modes/xorg/xorgLogMode.cpp:46
+#, kde-format
+msgid "Display the X.org log."
+msgstr "Prikaži dnevnik XOrga"
+
+# skip-rule: t-login
+#: src/modes/xorg/xorgLogMode.cpp:48
+#, kde-format
+msgid ""
+"Displays the X.org log in the current tab. X.org is the service which "
+"displays on screen your desktop and manage your graphical hardware. See this "
+"log if you want to know why you do not have 3D accelerations or why your "
+"input device is not recognized."
+msgstr ""
+"Prikazuje dnevnik XOrga pod tekućim jezičkom. XOrg je servis koji iscrtava "
+"površ na ekranu i upravlja grafičkim hardverom. Pogledajte ovaj dnevnik kada "
+"želite da saznate zašto nedostaje 3D ubrzanje, ili zašto neki ulazni uređaj "
+"nije prepoznat."
+
+# >> @item
+#: src/modes/xsession/xsessionAnalyzer.h:53
+#, kde-format
+msgid "Program"
+msgstr "program"
+
+#: src/modes/xsession/xsessionConfigurationWidget.h:51
+#: src/modes/xsession/xsessionConfigurationWidget.h:52
+#: src/modes/xsession/xsessionLogMode.cpp:37
+#, kde-format
+msgid "X Session Log"
+msgstr "Dnevnik X sesije"
+
+#: src/modes/xsession/xsessionConfigurationWidget.h:66
+#, kde-format
+msgid ""
+"You can type or choose the X Session log file (example: <i>~/.xsession-"
+"errors</i>)."
+msgstr ""
+"Možete uneti ili izabrati fajl dnevnika X sesije (primer: <tt>~/.xsession-"
+"errors</tt>)."
+
+#: src/modes/xsession/xsessionConfigurationWidget.h:68
+#, kde-format
+msgid ""
+"You can type or choose here the X Session log file. This file will be "
+"analyzed when you select the <b>X Session log</b> menu. Generally, its name "
+"is <i>~/.xsession-errors</i>"
+msgstr ""
+"Ovde možete uneti ili izabrati fajl dnevnika X sesije. K‑sistemski-dnevnik "
+"će analizirati ovaj fajl kada izaberete stavku menija <i>Dnevnik X sesije</"
+"i>. Najčešće, njegovo ime je <tt>~/.xsession-errors</tt>."
+
+#: src/modes/xsession/xsessionConfigurationWidget.h:141
+#, kde-format
+msgid "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: ...</li>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
+#, kde-format
+msgid "X Session Log File"
+msgstr "Fajl dnevnika X sesije"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
+#, kde-format
+msgid "&Log file:"
+msgstr "&Fajl dnevnika:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:50
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
+#, kde-format
+msgid "Check this option to remove Xorg errors"
+msgstr "Uključite ovu opciju da biste uklonili greške iz XOrga"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
+#, kde-format
+msgid "Ignore Xorg errors"
+msgstr "Zanemari greške XOrga"
+
+#. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
+#: src/modes/xsession/xsessionConfigurationWidgetBase.ui:63
+#, kde-format
+msgid ""
+"<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
+"\"margin-bottom:0px\">The following lines will be ignored:</p>"
+msgstr ""
+"<p><b>Napomena:</b> Uključite ovu opciju da biste uklonili greške iz XOrga.</"
+"p><p>Biće zanemareni sledeći redovi:</p>"
+
+#: src/modes/xsession/xsessionItemBuilder.h:71
+#: src/modes/xsession/xsessionItemBuilder.h:73
+#, kde-format
+msgid "Program:"
+msgstr "Program:"
+
+#: src/modes/xsession/xsessionLogMode.cpp:46
+#, kde-format
+msgid "Display the X Session log."
+msgstr "Prikaži dnevnik X sesije"
+
+# skip-rule: t-login
+#: src/modes/xsession/xsessionLogMode.cpp:48
+#, kde-format
+msgid ""
+"Displays the X Session log in the current tab. X Session log is the place "
+"where graphical programs write their output. See this log if you want to "
+"know why a program has crashed, or why your desktop environment (Plasma, "
+"Gnome, Unity, Xfce, LXQt, ...) has not started."
+msgstr ""
+"Prikazuje dnevnik X sesije pod tekućim jezičkom. Dnevnik X sesije je mesto "
+"gde grafički programi šalju svoj izlaz. Pogledajte ovaj dnevnik kada želite "
+"da saznate zašto se neki program srušio, ili zašto se okruženje površi "
+"(Plasma, Gnome, Unity, XFce, LXQt...) nije pokrenulo."
+
+#: src/statusBar.cpp:118
+#, kde-format
+msgid "Last updated: %1."
+msgstr "Poslednje ažuriranje: %1."
+
+#: src/statusBar.cpp:127
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/tabLogManager.cpp:78
+#, kde-format
+msgctxt "Log mode name (added lines count)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/tabLogViewsWidget.cpp:105
+#, kde-format
+msgid "No Log"
+msgstr "Nema dnevnika"

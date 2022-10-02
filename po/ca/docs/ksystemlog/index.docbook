@@ -1,0 +1,435 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Catalan  "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+&traductor.Antoni.Bella; 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>17 d'abril de 2016</date>
+<releaseinfo
+>0.4 (Aplicacions 16.04)</releaseinfo>
+
+<abstract>
+<para
+>El &ksystemlog; és una eina de visualització de registres del sistema pel &kde;. Aquest programa es desenvolupa per als usuaris principiants que no saben com trobar informació sobre els seus sistemes o sobre a on es troben els fitxers de registre. També està dissenyat per a usuaris avançats que volen veure ràpidament els problemes que ocorren al seu servidor. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>registres</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>seguretat</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>arrencada</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Ús del &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Introducció</title>
+
+		<sect2>
+			<title
+>Què és el &ksystemlog;?</title>
+			<para
+>El &ksystemlog; és un visualitzador dels registres del sistema.</para>
+
+			<para
+>El &ksystemlog; ajuda als usuaris a comprendre el que fa la seva màquina en segon pla. El &ksystemlog; té per objecte simplificar la lectura dels fitxers de registre del sistema. Aquest programa es desenvolupa per a usuaris principiants que no saben com trobar informació sobre els seus sistemes o sobre a on es troben els fitxers de registre al seu ordinador. </para>
+
+			<para
+>Però també està dissenyat per a usuaris avançats que volen veure ràpidament els problemes que ocorren en el seu servidor. El &ksystemlog; tracta de proporcionar algunes característiques avançades per a permetre la classificació i lectura de registres de programes específics. </para>
+
+			<screenshot>
+				<screeninfo
+>Pantalla principal del &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Pantalla principal del &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Característiques</title>
+
+			<para
+>En la seva versió actual, el &ksystemlog; 0.4 té un bon nombre de característiques útils, com ara: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Suport per a molts tipus de fitxers de registre diferents, amb el suport de format servidor Syslog, Samba.</simpara
+></listitem>
+				<listitem
+><simpara
+>Vista amb pestanyes per a mostrar diversos registres a la vegada.</simpara
+></listitem>
+				<listitem
+><simpara
+>Lectura d'un registre des de múltiples fonts.</simpara
+></listitem>
+				<listitem
+><simpara
+>Presentació automàtica de les línies noves en negreta.</simpara
+></listitem>
+				<listitem
+><simpara
+>Grups per diferents criteris (nivell de registre, fitxer de registre, procés, hora...).</simpara
+></listitem>
+				<listitem
+><simpara
+>Informació detallada per a cada línia de registre.</simpara
+></listitem>
+				<listitem
+><simpara
+>Afegir una entrada de registre de forma manual.</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtrar per la prioritat.</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>És compatible amb els següents fitxers de registre del sistema: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Registres del sistema</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del nucli</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres d'autenticació</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres de l'ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del Cups</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del Postfix</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres de l'Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres dels dimonis</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres del cron</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres de la sessió X</simpara
+></listitem>
+				<listitem
+><simpara
+>Registres Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>S'inclouen moltes altres característiques que es tractaran en els capítols apropiats d'aquest manual. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Llegir els registres amb el &ksystemlog;</title>
+
+		<para
+>Com podeu veure en les següents captures de pantalla, el &ksystemlog; proporciona funcions per ordenar i filtrar fàcilment línies de registre. A continuació ho descriurem en les següents parts d'aquesta documentació. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Com començar</title>
+
+			<para
+>En iniciar el &ksystemlog;, per omissió intenta obrir el registre més útil, el <guilabel
+>Registre del sistema</guilabel
+>. Si no el mostra a la pantalla i apareix un quadre de missatge, probablement us heu oblidat de llançar el &ksystemlog; com a usuari administrador (normalment anomenat root). Els fitxers de registre solen estar disponibles a la carpeta /var/log, sovint protegits contra els usuaris normals. En el diàleg de configuració podreu seleccionar un altre registre per obrir durant l'inici. </para>
+
+			<screenshot>
+				<screeninfo
+>Primer llançament del &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Primer llançament del &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Llegir els fitxers de registre amb facilitat</title>
+
+			<sect3 id="sorting">
+				<title
+>Classificar les línies de registre</title>
+				<para
+>Cada línia de registre es mostra en una vista de llista, que es pot ordenar fent clic a la columna desitjada. Un altre clic ordenarà en l'altre ordre. Per ordenar la llista com estava en la primera càrrega, podeu utilitzar l'element <menuchoice
+><guimenu
+>Edita</guimenu
+><guimenuitem
+>Actualitza</guimenuitem
+></menuchoice
+> del menú, o simplement feu clic a la primera columna de la llista, en general anomenada <guilabel
+>Data</guilabel
+>, per ordenar la llista en ordre ascendent. Fins i tot si el mode de registre no utilitza dates per a descriure cadascuna de les línies de registre, per exemple el <guilabel
+>Registre del X.org</guilabel
+>, la llista estarà correctament ordenada, perquè el &ksystemlog; manté un ordre intern de la llista. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtrar les línies del registre</title>
+
+				<screenshot>
+					<screeninfo
+>Filtrant sobre un procés específic</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtrant sobre un procés específic</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>També podeu utilitzar la barra de filtre per a filtrar d'acord amb els criteris seleccionats i la cadena escrita. Simplement escriviu-hi quelcom, i la llista es modificarà automàticament per a només mostrar les línies que coincideixen amb la cadena de filtre. Per omissió, el quadre combinat al costat del filtre té seleccionada l'opció <guilabel
+>Totes</guilabel
+>, el que significa que una línia només es mostrarà si una de les seves columnes conté la cadena de filtre. </para>
+
+				<para
+>Podeu seleccionar un altre camp per a només filtrar aquesta columna de la llista. Per exemple, en el <guilabel
+>Registre del sistema</guilabel
+>, mitjançant la selecció de la columna <guilabel
+>Procés</guilabel
+>, i escriure un nom de procés a la barra de filtre, el &ksystemlog; mostrarà totes les línies de registre enviades per aquest procés. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Altres característiques</title>
+
+			<sect3 id="colorizing">
+				<title
+>Acolorir les línies del registre</title>
+
+				<para
+>Aquesta opció està marcada per omissió i ajuda a veure que les línies que tenen un nivell més alt que les altres. Per exemple, el nivell <guilabel
+>Error</guilabel
+> serà ressaltat amb un color diferent que per a <guilabel
+>Informació</guilabel
+>. Aquesta característica es pot desactivar en el diàleg de configuració. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Amagar l'identificador del procés</title>
+
+				<para
+>Si només esteu interessat en un procés específic (per exemple, en el <guilabel
+>Registre del sistema</guilabel
+> o el <guilabel
+>Registre del Cron</guilabel
+>), podeu ocultar el seu PID a la columna <guilabel
+>Procés</guilabel
+>. Això pot ser-vos útil si esteu mirant d'analitzar la sortida d'una ordre específica, com un servidor Samba. En aquest cas, feu servir la <link linkend="filtering"
+>barra de filtre</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Enviar el registre del dimoni per correu electrònic.</title>
+				<para
+>El menú contextual conté l'acció <guilabel
+>Envia la selecció per correu</guilabel
+>. Seleccioneu les línies rellevants al registre i utilitzeu aquesta acció per obrir la finestra de l'editor del vostre client de correu electrònic predeterminat ple amb la selecció. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Gestionar la vigilància</title>
+
+		<para
+>El &ksystemlog; proporciona una manera fàcil de controlar la lectura i el seguiment dels fitxers de registre. De fet, de vegades només cal analitzar algunes línies del registre. En aquest cas, no tolerareu l'aparició d'una línia nova. Podeu desactivar el control dels fitxers del registre fent clic al botó <guibutton
+>Atura</guibutton
+>. Aquest aturarà els fitxers de registre oberts evitant que s'actualitzin, alhora que no deixa que s'omplin amb altres processos. Per descomptat, podeu tornar a activar el control fent clic a <guibutton
+>Continua</guibutton
+>, el qual mostrarà les línies de registre afegides des de l'última pausa. </para>
+
+		<para
+>D'altra banda, per a centrar-se en les línies de registre noves que apareguin, podeu canviar el desplaçament a <guimenuitem
+>Desplaça a les línies noves</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Gestionar les diverses pestanyes obertes</title>
+
+		<para
+>El &ksystemlog; permet obrir diversos modes de registre obrint múltiples pestanyes. Per a fer-ho, només cal utilitzar el menú <guimenu
+>Finestra</guimenu
+> per a gestionar i obrir pestanyes noves. Un cop seleccionada la pestanya dreta, només heu de triar el mode de registre desitjat utilitzant el menú dedicat. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Crèdits i llicència</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 per en Nicolas Ternisien </para>
+
+	<para
+>Col·laboradors:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: Idees, millores de codi.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: Manera del registre de SSH, impressió.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Un agraïment especial a tots els traductors del &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Traductor/Revisor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

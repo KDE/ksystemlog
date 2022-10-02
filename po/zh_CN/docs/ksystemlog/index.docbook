@@ -1,0 +1,441 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Continental-Chinese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>&ksystemlog; 手册</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<author
+><firstname
+>Yunhe</firstname
+> <surname
+>Guo</surname
+></author
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (应用程序版本16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; 是 &kde; 的一个系统日志阅读工具。本程序为初学者用户开发，这些用户可能不知道该如何获取他们系统的信息，或者日志文件的位置。它也为高级用户服务，用于迅速了解服务器出现的问题。 </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>日志</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>证券</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>启动</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>使用 &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>介绍</title>
+
+		<sect2>
+			<title
+>什么是 &ksystemlog;？</title>
+			<para
+>&ksystemlog; 是一个系统日志查看工具。</para>
+
+			<para
+>&ksystemlog; 帮助用户了解计算机在背后都在干些什么。&ksystemlog; 旨在简化阅读系统日志文件。该程序为初学者用户设计，这些用户可能不知道如何查找关于系统的信息，或者不知道日志文件都位于计算机的什么地方。 </para>
+
+			<para
+>但它也为高级用户设计，如果这些用户想要迅速发现服务器出现的问题。&ksystemlog; 尝试提供了一些高级功能，可用于排序以及阅读特定程序的日志。 </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; 主屏幕</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; 主屏幕</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>功能</title>
+
+			<para
+>在当前版本中，&ksystemlog; 0.4 有许多有用的功能，例如： </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>支持许多不同日志文件类型，还支持 Syslog 服务器格式，以及 Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>多页视图，可同时显示多个日志</simpara
+></listitem>
+				<listitem
+><simpara
+>从多个来源中阅读一个综合日志的模式</simpara
+></listitem>
+				<listitem
+><simpara
+>自动用粗体显示新日志行</simpara
+></listitem>
+				<listitem
+><simpara
+>根据不同标准分组 (例如日志级别，日志文件，进程，小时，...)</simpara
+></listitem>
+				<listitem
+><simpara
+>每个日志行的详细信息</simpara
+></listitem>
+				<listitem
+><simpara
+>手动添加日志记录</simpara
+></listitem>
+				<listitem
+><simpara
+>按优先级过滤</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>它支持您系统中的以下日志文件： </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog 日志 (系统消息)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>内核日志</simpara
+></listitem>
+				<listitem
+><simpara
+>认证日志</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Cups 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>守护进程日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron 日志</simpara
+></listitem>
+				<listitem
+><simpara
+>X 会话日志</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd / Journald 日志</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>还有许多功能，会在本指南的适当章节进行讨论。 </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>使用 &ksystemlog; 阅读日志</title>
+
+		<para
+>在下列截图中您可以看到，&ksystemlog; 提供了可轻松排序及过滤日志行的功能。接下来本文档将会描述它们。 </para>
+
+		<sect2 id="getting_started">
+			<title
+>新手入门</title>
+
+			<para
+>当您启动 &ksystemlog; 时，默认它会尝试打开最有用的那些日志，<guilabel
+>系统日志</guilabel
+>。如果它没有显示这些并且弹出了一个消息框，那您可能没有用管理员用户 (一般称为 root) 启动 &ksystemlog;。日志文件一般存在于 /var/log 目录中，它一般被隔离于一般用户之外。在设置对话框中，您可以选择在启动时打开另一个日志。 </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; 初次启动</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; 初次启动</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>轻松阅读日志文件</title>
+
+			<sect3 id="sorting">
+				<title
+>排序日志行</title>
+				<para
+>每个日志行都在一个列表视图中显示，可以通过点击想要排序的列来为它们排序。再点击一次会按照相反方向排序。如果您想按照第一次载入的时候那样排序，您可以通过 <menuchoice
+><guimenu
+>编辑</guimenu
+><guimenuitem
+>重新加载</guimenuitem
+></menuchoice
+> 菜单项来完成，或者轻松点击列表的第一列来按照升序排序，该列一般写有 <guilabel
+>日期</guilabel
+>。即使您的日志模式并不使用时间来描述每个日志行，例如 <guilabel
+>X.org 日志</guilabel
+>，列表也会被正确排序，因为 &ksystemlog; 有一个对列表的内部排序。 </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>过滤日志行</title>
+
+				<screenshot>
+					<screeninfo
+>按某个进程过滤</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>按某个进程过滤</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>您也可以使用过滤栏来按照选择的标准和输入的字符串来排序。只要简单地向过滤器中输入一些内容，列表会自动地变为只显示符合您输入的过滤字符串的行。默认情况下，过滤器旁的组合框会选中 <guilabel
+>全部</guilabel
+>，这表明当一行的任意一列符合您输入的过滤字符串时，它才会被显示。 </para>
+
+				<para
+>您可以选择另一列来仅根据该列来过滤列表。比如，在 <guilabel
+>系统日志</guilabel
+>中，如选择 <guilabel
+>进程</guilabel
+> 列，并且在过滤栏中输入进程名，&ksystemlog; 会显示该进程输出的所有日志行。 </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>其他功能</title>
+
+			<sect3 id="colorizing">
+				<title
+>给日志行着色</title>
+
+				<para
+>该选项默认被激活，它帮助您看出哪些行比其他行有更高的级别。例如，<guilabel
+>错误</guilabel
+> 行会用和 <guilabel
+>提示</guilabel
+> 行不同的颜色显示。这个功能可在配置对话框中关闭。 </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>隐藏进程标识符</title>
+
+				<para
+>如果您对某个特定进程感兴趣 (例如在 <guilabel
+>系统日志</guilabel
+> 中或者 <guilabel
+>Cron 日志</guilabel
+> 中)，您可以在 <guilabel
+>进程</guilabel
+> 列中隐藏它的 PID。这在您试图分析某个特定命令的输出时很有用，例如 Samba 服务。对这种情况，请使用 <link linkend="filtering"
+>过滤栏</link
+>。 </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>通过电子邮件发送日志</title>
+				<para
+>右键菜单中包含了操作 <guilabel
+>邮寄所选区域</guilabel
+>。在日志中选择相关行，再使用此操作可用您默认邮件客户端打开一个编写窗口，其中预先填写好了选中的内容。 </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>监控管理</title>
+
+		<para
+>&ksystemlog; 提供了一个简单的方法来阅读与监控日志文件。的确，一般来说您只需要分析一些现存的日志文件。对这种情况来说，您并不能接受新行的出现。您可以通过点击 <guibutton
+>停止</guibutton
+> 按钮来禁用对日志文件的监控。这会使打开的日志文件停止更新，另一方面它们依旧可以被其他进程所写入。当然，您可以通过点击 <guibutton
+>恢复</guibutton
+> 来再次激活监控，这会显示自从上次暂停以来添加的日志行。 </para>
+
+		<para
+>另外，如果要关注于新出现的日志行，您可以切换 <guimenuitem
+>滚动至新行</guimenuitem
+> 选项。 </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>管理多个打开的标签</title>
+
+		<para
+>&ksystemlog; 允许您通过打开多个标签来启动多个日志模式。如需这么干，您可以通过 <guimenu
+>窗口</guimenu
+>菜单来管理以及打开新标签。当您选择了所需的标签之后，只要用对应的菜单选择需要的日志模式即可。 </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>致谢和授权</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, 版权 2008 Nicolas Ternisien </para>
+
+	<para
+>贡献者：</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker ：创意，代码改进。</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan ：SSH 日志模式，打印功能。</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>特别感谢所有 &ksystemlog; 的翻译者。</emphasis>
+	</para>
+
+	<para
+>本文档由 Guo Yunhe 同学翻译。</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

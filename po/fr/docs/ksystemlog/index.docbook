@@ -1,0 +1,435 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Manuel de &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+&traducteurPierreBuard; 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>17-04-2016</date>
+<releaseinfo
+>0.4 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; est un afficheur de journaux système pour &kde;. Ce programme est destiné aux utilisateurs débutants ne sachant pas comment trouver des informations sur leur système ou localiser l'emplacement des fichiers journaux. Il est également conçu pour les utilisateurs avancés souhaitant voir rapidement les problèmes survenant sur leur serveur. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>journaux</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>sécurité</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>démarrage</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Utilisation de &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Introduction</title>
+
+		<sect2>
+			<title
+>Qu'est-ce que &ksystemlog; ?</title>
+			<para
+>&ksystemlog; est un afficheur de journaux système.</para>
+
+			<para
+>&ksystemlog; aide les utilisateurs à comprendre ce que leur machine fait en arrière plan. Le but de &ksystemlog; est de simplifier la lecture des fichiers journaux du système. Ce programme est destiné aux utilisateurs débutants ne sachant pas comment trouver des informations sur leur système ou localiser l'emplacement des fichiers journaux. </para>
+
+			<para
+>Il est également conçu pour les utilisateurs avancés souhaitant voir rapidement les problèmes survenant sur leur serveur. &ksystemlog; s'efforce de fournir des fonctionnalités avancées permettant le trie et la lecture de journaux provenant de programmes spécifiques. </para>
+
+			<screenshot>
+				<screeninfo
+>La fenêtre principale de &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>La fenêtre principale de &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Fonctionnalités</title>
+
+			<para
+>Dans sa version actuelle, &ksystemlog; 0.4 offre un certain nombre de fonctionnalités utiles, telles que : </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>la gestion de différents types de fichiers journaux, incluant les formatages des serveurs Syslog et Samba, </simpara
+></listitem>
+				<listitem
+><simpara
+>des onglets pour afficher plusieurs journaux en même temps, </simpara
+></listitem>
+				<listitem
+><simpara
+>la lecture de journaux à partir de plusieurs sources, </simpara
+></listitem>
+				<listitem
+><simpara
+>l'affichage automatique et en gras des nouvelles lignes, </simpara
+></listitem>
+				<listitem
+><simpara
+>le groupement par critères (niveau du journal, fichier journal, processus, heure...), </simpara
+></listitem>
+				<listitem
+><simpara
+>des informations détaillées pour chaque ligne du journal, </simpara
+></listitem>
+				<listitem
+><simpara
+>l'ajout manuel d'entrées.</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtrage par priorité</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Il gère ces fichiers journaux de votre système : </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>journaux Syslog (messages du système), </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux de X.org, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux du noyau, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux d'authentification, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux ACPID, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux Cups, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux Postfix, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux d'Apache, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux de Samba, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux des démons, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux Cron, </simpara
+></listitem>
+				<listitem
+><simpara
+>journaux de sessions X.</simpara
+></listitem>
+				<listitem
+><simpara
+>Journaux de « systemd » et « journald »</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Beaucoup d'autre fonctionnalités sont disponibles et seront développées dans les chapitres appropriés de ce manuel. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Lire des journaux avec &ksystemlog;</title>
+
+		<para
+>Comme vous pouvez le voir sur la copie d'écran suivante, &ksystemlog; est capable de trier et de filtrer facilement les lignes des journaux. Nous allons maintenant les décrire dans cette partie de la documentation. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Premiers pas</title>
+
+			<para
+>Lorsque vous démarre &ksystemlog;, il essaye par défaut d'ouvrir le journal le plus utile, le <guilabel
+>journal système</guilabel
+>. S'il ne l'affiche pas et qu'un message apparaît, vous avez sûrement oubliez de lancer &ksystemlog; en tant qu'administrateur (généralement appelé superutilisateur). Les fichiers journaux sont habituellement disponible dans le dossier /var/log dont l'accès est souvent interdits aux simples utilisateurs. La boîte de dialogue de configuration vous permettra d'ajouter d'autres journaux à ouvrir au démarrage. </para>
+
+			<screenshot>
+				<screeninfo
+>Premier lancement de &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Premier lancement de &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Lire facilement les fichiers journaux</title>
+
+			<sect3 id="sorting">
+				<title
+>Trier les lignes du journal</title>
+				<para
+>Chaque entrée du journal est affichée dans une liste pouvant être ordonnée en cliquant sur la colonne voulue ; un deuxième clic inversera l'ordre de tri. Si vous souhaitez retrouver l'ordonnancement initial, utilisez l'entrée du menu <menuchoice
+><guimenu
+>Édition</guimenu
+><guimenuitem
+>Recharger</guimenuitem
+></menuchoice
+> ou cliquez sur la première colonne de la liste, généralement appelée <guilabel
+>Date</guilabel
+>, pour la trier dans l'ordre ascendant. Même si votre journal n'utilise pas l'heure pour décrire chaque entrée, par exemple le <guilabel
+>journal de X.org</guilabel
+>, la liste sera triée correctement car &ksystemlog; applique automatique l'ordonnancement adapté. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtrer les entrées du journal</title>
+
+				<screenshot>
+					<screeninfo
+>Filtrer un processus spécifique</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtrer un processus spécifique</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Vous pouvez aussi utiliser la barre de filtre pour trier en fonction du critère choisi et des caractères saisis. Écrivez simplement dans le filtre et la liste sera modifiée automatiquement pour n'afficher que les lignes correspondant à votre saisie. Par défaut, la liste déroulante située à côté du filtre est positionnée sur <guilabel
+>Tout</guilabel
+>, ce qui signifie qu'une entrée ne sera affichée que si une de ses colonnes contient la valeur filtrée. </para>
+
+				<para
+>Vous pouvez sélectionner un autre champ pour filtrer en fonction d'une colonne précise. Par exemple, dans le <guilabel
+>journal système</guilabel
+>, en sélectionnant la colonne <guilabel
+>Processus</guilabel
+> et en écrivant le nom d'un processus dans la barre de filtre, &ksystemlog; affichera toutes les lignes envoyées par celui-ci. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Autres fonctionnalités</title>
+
+			<sect3 id="colorizing">
+				<title
+>Colorer les lignes du journal</title>
+
+				<para
+>Cette option est activée par défaut et vous aide à distinguer les entrées ayant un niveau plus élevé que les autres. Par exemple, le niveau <guilabel
+>Erreur</guilabel
+> sera indiqué en utilisant une autre couleur que celui correspondant à une simple <guilabel
+>Information</guilabel
+>. Cette caractéristique peut être désactivée dans la boîte de dialogue de configuration. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Cacher l'identifiant du processus</title>
+
+				<para
+>Si seul un processus spécifique vous intéresse (par exemple dans le <guilabel
+>journal système</guilabel
+> ou le <guilabel
+>journal Cron</guilabel
+>), vous pouvez masquer son PID de la colonne <guilabel
+>Processus</guilabel
+>. Ceci peut être utile si vous essayez d'analyser la sortie d'une commande spécifique, comme celle d'un serveur Samba. Dans ce cas, utilisez la <link linkend="filtering"
+>Barre de filtre</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Envoyer le journal « logd » par courriel</title>
+				<para
+>Le menu contextuel propose une action <guilabel
+>Sélection de courriel</guilabel
+>. Sélectionner les lignes pertinentes dans le journal et lancer cette action pour ouvrir la fenêtre du composition de votre client par défaut de messagerie, prérempli avec la sélection. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Gestion de la surveillance</title>
+
+		<para
+>&ksystemlog; possède une méthode simple pour contrôler la lecture et la surveillance des fichiers journaux. En effet, il est parfois nécessaire d'analyser uniquement les entrées passées d'un journal. Dans ce cas, vous ne pouvez tolérer l'apparition de nouvelles lignes. Désactivez la surveillance des journaux en cliquant sur le bouton <guibutton
+>Arrêter</guibutton
+>, cela stoppera la réactualisassions des fichiers journaux ouverts tout en leurs permettant de continuer à être remplis par les autres processus. Bien entendu, la réactivation de la surveillance peut se faire d'un simple clic sur <guibutton
+>Reprendre</guibutton
+>, qui affichera les entrées ajoutées depuis la dernière pause. </para>
+
+		<para
+>En outre, pour vous concentrer sur les lignes nouvellement apparues, vous pouvez utiliser l'option <guimenuitem
+>Aller aux nouvelles lignes</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Gestion de plusieurs onglets ouverts</title>
+
+		<para
+>&ksystemlog; vous permet d'ouvrir plusieurs journaux dans différents onglets. Pour cela, utilisez le menu <guimenu
+>Fenêtre</guimenu
+> pour gérer et ouvrir de nouveaux onglets. Une fois sélectionné l'onglet désiré, choisissez un journal en utilisant le menu dédié. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Remerciements et licence</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog; Copyright 2008 par Nicolas Ternisien </para>
+
+	<para
+>Contributeurs :</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker : idées, améliorations du code.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : journal SSH, impression.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Remerciements particuliers à tous les traducteurs de &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Traduction française par &PierreBuard;.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

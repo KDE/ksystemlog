@@ -1,0 +1,433 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Dutch "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Het handbook van &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+&Freek.de.Kruijf; 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; is een programma door &kde; voor het bekijken van logbestanden van het systeem. Dit programma is ontwikkeld voor beginnende gebruikers die niet weten hoe informatie over hun systeem te vinden of waar de logbestanden zijn te vinden. Het is ook ontworpen voor geavanceerde gebruikers die snel problemen willen zien op het moment dat ze zich voordoen op hun server. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>logs</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>beveiliging</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>boot</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>&ksystemlog; gebruiken</title>
+
+	<sect1 id="introduction">
+		<title
+>Inleiding</title>
+
+		<sect2>
+			<title
+>Wat is &ksystemlog;</title>
+			<para
+>&ksystemlog; is een hulpmiddel om logbestanden te bekijken.</para>
+
+			<para
+>&ksystemlog; helpt gebruikers om te begrijpen wat hun systeem in de achtergrond aan het doen is. &ksystemlog; heeft als doel het lezen van de systeemlogbestanden te vereenvoudigen. Dit programma is ontwikkeld voor beginnende gebruikers die niet weten hoe informatie over hun sysyteem te vinden of waar de logbestanden zich bevinden op hun computer. </para>
+
+			<para
+>Maar het is ook ontworpen voor geavanceerde gebruikers die snel problemen willen zien op het moment dat ze zich voordoen op hun server. &ksystemlog; probeert enige geavanceerde functies te bieden om te sorteren en logs te lezen van specifieke programma's. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; hoofdscherm</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; hoofdscherm</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Mogelijkheden</title>
+
+			<para
+>In zijn huidige versie heeft &ksystemlog; 0.4 heel wat handige eigenschappen, zoals: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Ondersteuning voor vele verschillende type logbestanden, met de ondersteuning van de indeling van de syslog-server, Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>In tabbladen tonen om verschillende logs tegelijk te tonen</simpara
+></listitem>
+				<listitem
+><simpara
+>Lezen met een logmodus uit verschillende bronnen</simpara
+></listitem>
+				<listitem
+><simpara
+>Automatische vet weergeven van nieuw gelogde regels</simpara
+></listitem>
+				<listitem
+><simpara
+>Met verschillende criteria groeperen (logniveau, logbestand, proces, uur,...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Gedetailleerde informatie voor elke logregel</simpara
+></listitem>
+				<listitem
+><simpara
+>Een logregel handmatig toevoegen</simpara
+></listitem>
+				<listitem
+><simpara
+>Filteren op prioriteit</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Het ondersteunt de volgende logbestanden van uw systeem : </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog-logs (systeemberichten)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Kernel-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Authenticatie-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Cups-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Logs van daemons</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>XSessies-logs</simpara
+></listitem>
+				<listitem
+><simpara
+>Logs uit Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Vele andere eigenschappen zitten in het programma en zullen worden behandeld in de betreffende hoofdstukken van dit handboek. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Logs lezen met &ksystemlog;</title>
+
+		<para
+>Zoals u zult zien in de volgende schermafdrukken, levert &ksystemlog; funkties voor het gemakkelijk sorteren en filteren van logregels. In het volgende gedeelte van deze documentatie gaan we deze beschrijven. </para>
+
+		<sect2 id="getting_started">
+			<title
+>De eerste stapjes</title>
+
+			<para
+>Wanneer u &ksystemlog; start, dan probeert deze standaard het meest nuttige logbestand te openen, de <guilabel
+>Systeemlog</guilabel
+>. Als het deze niet toont en er verschijnt een berichtvak, dan bent u waarschijnlijk vergeten om &ksystemlog; als een beheerder (gewoonlijk root genaamd) te starten. De logbestanden zijn gebruikelijk beschikbaar in de map /var/log, die vaak beschermd is tegen normale gebruikers. In de dialoog Instellingen kunt u een ander logbestand selecteren om te openen bij opstarten. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; eerste start</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; eerste start</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Gemakkelijk logbestanden lezen</title>
+
+			<sect3 id="sorting">
+				<title
+>Logregels sorteren</title>
+				<para
+>Elke logregel wordt getoond in een lijst, die kan worden gesorteerd door op de gewenste kolom te klikken. nog een klik sorteert het in de omgekeerde volgorde. Als u de lijst gesorteerd wilt hebben zoals deze was bij de eerste keer laden, dan kunt u het menuitem <menuchoice
+><guimenu
+>Bewerken</guimenu
+><guimenuitem
+>Herladen</guimenuitem
+></menuchoice
+> gebruiken of klik eenvoudig op de eerste kolom van de lijst, in het algemeen <guilabel
+>Datum</guilabel
+> genoemd, om de lijst in oplopende volgorde te sorteren. Zelfs als uw logmodus geen tijd gebruikt om elke logregel te beschrijven, bijvoorbeeld de <guilabel
+>X.org Log</guilabel
+>, zal de lijst juist worden gesorteerd, omdat &ksystemlog; een interne volgorde van de lijst bijhoudt. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Logregels filteren</title>
+
+				<screenshot>
+					<screeninfo
+>Filteren op een specifiek proces</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filteren op een specifiek proces</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>U kunt ook de filterbalk gebruiken om te filteren volgens de geselecteerde criteria en de ingetypte tekenreeks. Typ gewoon wat in het filter en de lijst zal automatisch worden gewijzigd om alleen de regels te tonen die met uw filtertekst overeenkomen . Standaard selecteert het afrolvak naast het filter <guilabel
+>Alles</guilabel
+>, wat betekent dat een regel alleen getoond wordt als een van zijn kolommen de filtertekst bevat. </para>
+
+				<para
+>U kunt alleen een ander te filteren veld selecteren als dat een kolom is uit de lijst. Bijvoorbeeld, door in de <guilabel
+>Systeemlog</guilabel
+>, de <guilabel
+>Proces</guilabel
+>-kolom te selecteren en een procesnaam in de filterbalk in te voeren, zal &ksystemlog; elke logregel tonen die door dat proces is verzonden. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Overige mogelijkheden</title>
+
+			<sect3 id="colorizing">
+				<title
+>Logregels kleuren</title>
+
+				<para
+>Deze optie is standaard geactiveerd en helpt bij het zien welke regels belangrijker zijn dan de anderen. Bijvoorbeeld, het niveau <guilabel
+>Fout</guilabel
+> zal worden geaccentueerd in een verschillende kleur dan de die met een <guilabel
+>Melding</guilabel
+>. Deze mogelijkheid kan uitgeschakeld worden in de configuratiedialoog. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>De proces-identifier verbergen</title>
+
+				<para
+>Als u alleen geïnteresseerd bent in een specifiek proces (bijvoorbeeld in de <guilabel
+>Systeemlog</guilabel
+> of de <guilabel
+>Cron-log</guilabel
+>), dan kunt u zijn PID in de <guilabel
+>Proces</guilabel
+>-kolom verbergen. Dit kan nuttig zijn als u de uitvoer van een specifiek commando analyseert, zoals een Samba-server. In dat geval kunt u de <link linkend="filtering"
+>Filterbalk</link
+> gebruiken. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>logd via e-mail verzenden</title>
+				<para
+>Het context-menu heeft een actie <guilabel
+>Selectie e-mailen</guilabel
+>. Selecteer de relevante regels in de log en gebruik deze actie om het opstellervenster van uw standaard e-mailclient te openen gevuld met de selectie. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Beheer van het monitoren</title>
+
+		<para
+>&ksystemlog; levert een gemakkelijke manier om het lezen en monitoren van logbestanden te besturen. Soms hebt u alleen enkele bestaande logregels nodig. In dat geval is het verschijnen van een nieuwe regel vervelend. U kunt het monitoren van logbestanden uitschakelen door te klikken op de knop <guibutton
+>Stop</guibutton
+>. Dit stopt het bijwerken van geopende logbestanden terwijl ze nog steeds worden gevuld door andere processen. Natuurlijk kunt u het monitoren weer inschakelen door op <guibutton
+>Hervatten</guibutton
+> te klikken, die de logregels laat zien die sinds de laatste pauze zijn toegevoegd. </para>
+
+		<para
+>Verder kunt u de optie <guimenuitem
+>Naar nieuwe regels gaan</guimenuitem
+> aan- of uitzetten om u al of niet alleen te richten op de nieuw verschenen logregels. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Beheer van verschillende geopende tabbladen</title>
+
+		<para
+>&ksystemlog; stelt u in staat om verschillende  logmodi te openen door meerdere tabbladen te openen. Hiervoor gebruikt u eenvoudig het menu <guimenu
+>Venster</guimenu
+> om tabbladen te beheren en te openen. Wanneer u het juiste tabblad hebt geselecteerd, kiest u eenvoudig de gewenste logmodus met behulp van het daarvoor benodigde menu. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Dankbetuigingen en licentie</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 door Nicolas Ternisien </para>
+
+	<para
+>Met dank aan:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker : Ideeën, Code verbeteringen.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : SSH-logmodus, afdrukken.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Speciale dank aan alle vertalers van &ksystemlog;.</emphasis>
+	</para>
+
+	&meld.fouten;&vertaling.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

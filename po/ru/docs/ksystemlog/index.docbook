@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>gammaray@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Приложения KDE 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; — системная утилита для просмотра файлов журналов, разработанная &kde;. Эта программа разработана для начинающих пользователей, которые не знают, как найти сведения о системе и где расположены файлы журналов. Она также подойдёт и для опытных пользователей, которым требуется быстро просмотреть сообщения об ошибках на сервере. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>журналы</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>безопасность</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>загрузка</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Использование &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Введение</title>
+
+		<sect2>
+			<title
+>Что такое &ksystemlog;?</title>
+			<para
+>&ksystemlog; — системная утилита для просмотра файлов журналов.</para>
+
+			<para
+>Программа &ksystemlog; помогает пользователям понять, какие действия их компьютер выполняет в фоновом режиме. Она упрощает доступ к файлам системных журналов. Эта программа разработана для начинающих пользователей, которые не знают, как найти сведения о системе и где расположены файлы журналов. </para>
+
+			<para
+>Но программа также подойдёт и для опытных пользователей, которым требуется быстро просмотреть обнаруженные на сервере проблемы. &ksystemlog; предоставляет расширенные возможности сортировки и чтения журналов из специальных программ. </para>
+
+			<screenshot>
+				<screeninfo
+>Главное окно &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Главное окно &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Возможности</title>
+
+			<para
+>Текущая версия &ksystemlog; (0.4) предоставляет много полезных функций, среди которых: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Поддержка различных типов файлов журналов, включая поддержку форматирования сервера системных журналов, Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Режим вкладок для одновременного просмотра нескольких журналов</simpara
+></listitem>
+				<listitem
+><simpara
+>Чтение одного журнала из нескольких источников</simpara
+></listitem>
+				<listitem
+><simpara
+>Автоматический показ новых строк журнала полужирным шрифтом</simpara
+></listitem>
+				<listitem
+><simpara
+>Группировка по различным критериям (уровень журнала, файл журнала, процесс, час...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Подробные сведения о каждой строке журнала</simpara
+></listitem>
+				<listitem
+><simpara
+>Добавление записи журнала вручную</simpara
+></listitem>
+				<listitem
+><simpara
+>Фильтрация по приоритету</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Программа поддерживает следующие файлы журналов: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Системные журналы</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы ядра</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы авторизации</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Cups</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Postfix</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы служб</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Cron</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы сеансов X</simpara
+></listitem>
+				<listitem
+><simpara
+>Журналы Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Другие возможности программы освещаются в соответствующих главах этого руководства. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Чтение журналов с помощью &ksystemlog;</title>
+
+		<para
+>Как показано на приведённых далее снимках экранах, &ksystemlog; позволяет сортировать и фильтровать строки журнала. Описание этих возможностей приводится в следующих частях настоящего руководства. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Начало работы</title>
+
+			<para
+>После запуска &ksystemlog; по умолчанию открывает журнал с наиболее полезной информацией —  <guilabel
+>Системный журнал</guilabel
+>. Если вместо этого журнала появляется окно сообщения, программа &ksystemlog; не была запущена от имени администратора (то есть пользователя root). Файлы журналов обычно расположены в папке «/var/log», которая чаще всего недоступна обычным пользователям. В диалоге параметров настройки возможно выбрать другой журнал для открытия после запуска программы. </para>
+
+			<screenshot>
+				<screeninfo
+>Первый запуск &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Первый запуск &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Простое чтение файлов журналов</title>
+
+			<sect3 id="sorting">
+				<title
+>Сортировка строк журнала</title>
+				<para
+>Все строки журнала показаны в представлении списка. Чтобы отсортировать список, щёлкните по нужному столбцу. Повторный щелчок отсортирует строки в обратном порядке. Если требуется вернуться к виду списка при первой загрузке, выберите пункт меню <menuchoice
+><guimenu
+>Правка</guimenu
+><guimenuitem
+>Перезагрузить</guimenuitem
+></menuchoice
+> или просто щёлкните по первому столбцу списка (обычно это <guilabel
+>Дата</guilabel
+>) для сортировки списка по возрастанию. Даже если в выбранном журнале для описания строк не используется время (например, как в случае <guilabel
+>Журнала X.org</guilabel
+>), список будет отсортирован правильно, так как &ksystemlog; сохраняет внутренний порядок списка. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Фильтрация строк журнала</title>
+
+				<screenshot>
+					<screeninfo
+>Фильтрация по определённому процессу</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Фильтрация по определённому процессу</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Также возможно воспользоваться панелью фильтра, чтобы выполнить сортировку списка по введённым критериям. Просто введите в фильтре какой-либо текст, и в списке автоматически будут показаны только те строки, которые соответствуют этому тексту. По умолчанию в поле со списком, расположенном рядом с фильтром, выбрано значение <guilabel
+>Все</guilabel
+> — это означает, что строка будет показана только в том случае, если один из составляющих её столбцов содержит указанный в фильтре текст. </para>
+
+				<para
+>Возможно выбрать другое поле, чтобы применить фильтр только к соответствующему столбцу списка. Например, если выбрать в <guilabel
+>Системном журнале</guilabel
+> столбец <guilabel
+>Процесс</guilabel
+> и ввести в фильтре имя процесса, &ksystemlog; покажет все строки журнала, отправленные этим процессом. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Другие возможности</title>
+
+			<sect3 id="colorizing">
+				<title
+>Выделение строк журнала цветом</title>
+
+				<para
+>Этот включённый по умолчанию параметр помогает визуально оценить важность строк. Например, цвет строки из категории <guilabel
+>Ошибка</guilabel
+> будет отличаться от цвета, которым выделяется <guilabel
+>Замечание</guilabel
+>. Этот параметр возможно отключить с помощью диалога настройки. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Скрытие идентификатора процесса</title>
+
+				<para
+>Если интерес представляет только определённый процесс (например, в <guilabel
+>Системном журнале</guilabel
+> или <guilabel
+>Журнале Cron</guilabel
+>), возможно скрыть его идентификатор в столбце <guilabel
+>Процесс</guilabel
+>. Это может быть полезно, когда требуется проанализировать вывод определённой команды, например сервера Samba. В таком случае следует воспользоваться <link linkend="filtering"
+>Панелью фильтра</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Отправка журналов по электронной почте</title>
+				<para
+>Выберите нужные строки журнала и затем выберите в контекстном меню пункт <guilabel
+>Отправить выбранное</guilabel
+> — откроется окно создания сообщения почтового клиента по умолчанию, которое уже будет содержать указанные строки. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Управление отслеживанием</title>
+
+		<para
+>&ksystemlog; позволяет легко управлять чтением и отслеживанием файлов журналов. Иногда требуется ознакомиться только с несколькими существующими строками журнала. В этом случае появление новых строк доставляет неудобства. Чтобы отключить отслеживание файлов журналов, нажмите кнопку <guibutton
+>Остановить</guibutton
+>. После этого открытые файлы журналов не будут обновляться, но в них продолжат поступать данные от других процессов. Чтобы снова включить отслеживание, нажмите кнопку <guibutton
+>Продолжить</guibutton
+> — будут показаны строки, добавленные с момента последней приостановки. </para>
+
+		<para
+>Кроме того, возможно перевести фокус на эти новые строки с помощью параметра <guimenuitem
+>Прокручивать к новым строкам</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Управление несколькими открытыми вкладками</title>
+
+		<para
+>&ksystemlog; позволяет использовать сразу несколько режимов журнала путём открытия соответствующего количества вкладок. С помощью меню <guimenu
+>Окно</guimenu
+> возможно управлять существующими вкладками и открывать новые. Перейдите на нужную вкладку и затем выберите режим журнала с помощью предназначенного для этого меню. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Авторские права и лицензия</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, © Nicolas Ternisien, 2008 </para>
+
+	<para
+>Участники:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: идеи, улучшение кода.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: режим журнала SSH, печать.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Особая благодарность всем переводчикам &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Олеся Герасименко<email
+>gammaray@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

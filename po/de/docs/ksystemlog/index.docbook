@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Das Handbuch zu &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Michael</firstname
+><surname
+>Mielewczik</surname
+><affiliation
+><address
+><email
+>Michael.MIelewczik@linux-technical.info</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Anwendungen 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; ist ein Betrachter für Systemprotokolle. Das Programm ist für unerfahrene Benutzer geeignet die nicht wissen, wo Sie Informationen über Ihr System erhalten können oder wo das System die verschiedenen Protokolldateien hinterlegt. Darüber hinaus ermöglicht &ksystemlog; erfahrenen Benutzern den schnellen Zugriff zum Beispiel auf Informationen über Probleme, die auf ihrem Server auftreten. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>Protokolldateien</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>Sicherheit</keyword>
+	<keyword
+>Cron</keyword>
+	<keyword
+>Boot</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>Postfix</keyword>
+	<keyword
+>Apache</keyword>
+	<keyword
+>Samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>&ksystemlog; verwenden</title>
+
+	<sect1 id="introduction">
+		<title
+>Einführung</title>
+
+		<sect2>
+			<title
+>Was ist &ksystemlog;?</title>
+			<para
+>&ksystemlog; ist ein Betrachter für Systemprotokolle.</para>
+
+			<para
+>&ksystemlog; hilft Benutzern zu verstehen, was Ihr Rechner im Hintergrund macht. Die Aufgabe von &ksystemlog; ist eine vereinfachte Darstellung der Protokolldateien des eigenen Systems. Das Programm ist für unerfahrene Benutzer geeignet, die nicht wissen, wo Sie Informationen über Ihr System erhalten können oder wo das System die verschiedenen Protokolldateien hinterlegt. </para>
+
+			<para
+>Darüber hinaus ermöglicht &ksystemlog; erfahrenen Benutzern den schnellen Zugriff zum Beispiel auf Informationen über Probleme, die auf ihrem Server auftreten. &ksystemlog; versucht daher einige erweiterte Funktionen bereitzustellen, mit deren Hilfe die Protokolldateien bestimmter Programme gefiltert und ausgewertet werden können. </para>
+
+			<screenshot>
+				<screeninfo
+>Hauptfenster von &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Hauptfenster von &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Funktionen</title>
+
+			<para
+>In der aktuellen Version 0.4 besitzt &ksystemlog; eine Reihe von nützlichen Funktionen. Dazu gehören unter anderem: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Unterstützung für viele verschiedene Arten von Protokolldateien, für das Format des Syslog-Servers und für Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Anzeige verschiedener Protokolldateien in einzelnen Unterfenstern.</simpara
+></listitem>
+				<listitem
+><simpara
+>Lesen einer Protokolldatei aus mehreren Quellen</simpara
+></listitem>
+				<listitem
+><simpara
+>Neue Zeilen im Protokoll werden automatisch fettgedruckt angezeigt</simpara
+></listitem>
+				<listitem
+><simpara
+>Gruppierung nach verschiedenen Kriterien (Protokollstufe, Protokolldatei, Prozess, Zeit, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Ausführliche Informationen zu jeder Protokoll-Zeile</simpara
+></listitem>
+				<listitem
+><simpara
+>Manuelles Hinzufügen von Protokoll-Einträgen</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtern nach Priorität</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>&ksystemlog; kann folgende Protokolldateien auf Ihrem System überwachen: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog-Protokolle (Systemmeldungen)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Kernel-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Authentifizierungs-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>CUPS-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Dienste-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>XSession-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd- / Journald-Protokolldateien</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Viele andere Funktionen sind darüber hinaus ebenfalls enthalten und werden in den weiteren Kapiteln dieses Handbuchs erläutert. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Protokolldateien mit &ksystemlog; lesen</title>
+
+		<para
+>Wie Sie in den folgenden Bildschirmfoto sehen, stellt &ksystemlog; Funktionen zur Verfügung, mit deren Hilfe sich die einzelnen Protokoll-Zeilen einer Protokolldatei leicht filtern und sortieren lassen. Die einzelnen Möglichkeiten zum Sortieren und Filtern werden im nächsten Kapitel dieses Handbuchs gezeigt. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Erste Schritte</title>
+
+			<para
+>Nach dem Start versucht &ksystemlog; in der Voreinstellung zunächst die wichtigste Protokolldatei des Systems - das <guilabel
+>Systemprotokoll</guilabel
+> - zu öffnen. Wird Ihnen diese nicht angezeigt, und es öffnet sich stattdessen ein kleines Nachrichtenfenster, so haben Sie &ksystemlog; sehr wahrscheinlich nicht mit Systemverwalterrechten gestartet. Die Protokolldateien finden sich unter Linux normalerweise im Ordner /var/log, für den normale Benutzer üblicherweise keine Berechtigung zum Lesen besitzen. Im Einrichtungsdialog können Sie eine andere Protokolldatei einstellen, die beim Programmstart geöffnet werden soll. </para>
+
+			<screenshot>
+				<screeninfo
+>Erster Start von &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Erster Start von &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Einfaches Lesen von Protokolldateien</title>
+
+			<sect3 id="sorting">
+				<title
+>Sortierung von Protokollzeilen</title>
+				<para
+>Jede Zeile einer Protokolldatei wird in einer Listenansicht dargestellt. Die Einträge können durch Klicken auf den Titel der Spalte sortiert werden  Durch einen erneuten Klick auf den Titel der Spalte kann zwischen absteigender und aufsteigender Sortierung gewechselt werden. Möchten Sie zur ursprünglichen Sortierung zurückkehren, welche beim Öffnen der Protokoll-Datei genutzt wurde, wählen Sie im Menü <menuchoice
+><guimenu
+>Bearbeiten</guimenu
+><guimenuitem
+>Erneut laden</guimenuitem
+></menuchoice
+>. Alternativ dazu können Sie auch auf den Titel der ersten Spalte in der Liste klicken, der normalerweise mit <guilabel
+>Datum</guilabel
+> beschriftet ist. Die Sortierung erfolgt dann in aufsteigender Reihenfolge. Auch wenn Ihr Protokollierungs-Modus keine Zeitangaben für jede Protokoll-Zeile verwendet, wie beispielsweise beim <guilabel
+>X.org-Protokoll</guilabel
+>, erfolgt die Sortierung in korrekter Form, da &ksystemlog; die interne Reihenfolge beibehält. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtern von Protokollzeilen</title>
+
+				<screenshot>
+					<screeninfo
+>Filtern eines ausgewählten Prozesses</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtern eines ausgewählten Prozesses</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Sie können auch die Filterleiste verwenden, um nach einem ausgewähltem Kriterium oder nach eingegebenen Zeichenfolgen zu filtern. Geben Sie dazu eine Zeichenfolge in die Filterleiste ein. Die Liste der Protokollzeilen wird nun automatisch verändert, sodass nur noch Protokollzeilen angezeigt werden, die zum ausgewählten Filter passen. In der Standardeinstellung enthält das Auswahlfeld neben dem Filter den Eintrag <guilabel
+>Alle</guilabel
+>. Dann wird eine Protokoll-Zeile nur angezeigt wird, wenn in einer der Spalten die Zeichenfolge des Filter-Suchbegriffs enthalten ist. </para>
+
+				<para
+>Sie können an dieser Stelle natürlich auch einen anderen Eintrag auswählen. Die Zeichenfolge des Filter-Suchbegriffs wird dann nur mit den Einträgen in der entsprechend ausgewählten Spalte abgeglichen. Wählen Sie zum Beispiel in der Protokolldatei <guilabel
+>Systemprotokoll</guilabel
+> die Spalte <guilabel
+>Prozess</guilabel
+> aus, und tragen Sie darüber hinaus in der Filterleiste den Namen eines Prozesses ein, so zeigt Ihnen &ksystemlog; alle Protokoll-Zeilen an, welche von diesem Prozess gesendet bzw. erstellt wurden. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Andere Funktionen</title>
+
+			<sect3 id="colorizing">
+				<title
+>Farbige Darstellung von Protokollzeilen</title>
+
+				<para
+>Diese Option ist in der Standardeinstellung aktiviert und hilft Ihnen, die wichtigen Protokoll-Zeilen zu erkennen.  Protokoll-Zeilen der Stufe <guilabel
+>Fehler</guilabel
+> werden mit einer auffälligeren Farbe als Protokoll-Zeilen der Stufe <guilabel
+>Hinweis</guilabel
+> angezeigt. Die farbige Darstellung von Protokoll-Zeilen kann Einrichtungsdialog abgeschaltet werden. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Prozessidentifizierung ausblenden</title>
+
+				<para
+>Möchten Sie nur bestimmte Prozess anzeigen (beispielsweise im <guilabel
+>Systemprotokoll</guilabel
+> oder im <guilabel
+>Cron-Protokoll</guilabel
+>), so können Sie die Prozess-Identifikation (PID) in der Spalte <guilabel
+>Prozess</guilabel
+> ausblenden. Das kann zum Beispiel dann nützlich sein, wenn Sie die Ausgabe eines bestimmten Befehls wie zum Beispiel zum Start des Samba-Servers untersuchen möchten. In diesem Fall benutzen Sie <link linkend="filtering"
+>Filterleiste</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Protokolldaten als E-Mail senden</title>
+				<para
+>Im Kontextmenü gibt es eine Aktion <guilabel
+>Auswahl per E-Mail versenden</guilabel
+>. Wählen Sie wichtige Zeilen im Protokoll und verwenden Sie diese Aktion, um den E-Mail-Editor Ihres E-Mail-Programms mit der Auswahl dieser Zeilen zu öffnen. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Überwachung verwalten</title>
+
+		<para
+>&ksystemlog; stellt Ihnen eine einfache Möglichkeit zum Lesen und Überwachen Ihrer Protokolldateien zur Verfügung. Natürlich ist es in einigen Fällen lediglich nötig, bereits vorhandene Zeilen vorhandener Protokolldateien zu analysieren. In diesem Fall nützt es Ihnen nichts, wenn neu hinzukommende Zeilen in den Protokolldateien ebenfalls angezeigt werden. &ksystemlog; gibt Ihnen daher die Möglichkeit, die Überwachung von Protokolldateien zu deaktivieren. Klicken Sie dazu auf den Knopf <guibutton
+>Anhalten</guibutton
+> in der Werkzeugleiste. Durch diese Einstellung werden alle geöffneten Protokolldateien geschlossen, die Protokolldateien selbst jedoch werden weiter von anderen Prozessen gefüllt, ohne dass Sie diese Änderungen jedoch auslesen. Natürlich können Sie die Überwachung auch wieder aktivieren. Klicken Sie dazu auf den Knopf <guibutton
+>Erneut laden</guibutton
+>, so werden Ihnen auch neue Protokoll-Zeilen angezeigt. </para>
+
+		<para
+>Darüber hinaus können Sie die Option <guimenuitem
+>Zu neuen Zeilen springen</guimenuitem
+> im Kontextmenü des Hauptfensters aktivieren, um sich alle neuen hinzukommenden Protokoll-Zeilen anzeigen zu lassen. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Verwaltung mehrerer geöffneter Unterfenster</title>
+
+		<para
+>&ksystemlog; ermöglicht die Anzeige mehrerer Protokolldateien in getrennten Unterfenstern. Um diese Funktion zu nutzen, verwenden Sie die Einträge im Menü <guimenu
+>Fenster</guimenu
+> um zusätzliche Unterfenster zu öffnen und zu verwalten. Sobald Sie ein Unterfenster ausgewählt haben, wählen Sie im Menü ein Protokoll zur Anzeige aus. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Danksagungen und Lizenz</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 Nicolas Ternisien </para>
+
+	<para
+>Mitwirkende:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker : Ideen und Programmcode-Verbesserungen.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : SSH-Protokollmodus, Drucken.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Besonderer Dank an alle Übersetzer von &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Übersetzung Michael Mielewczik <email
+>Michael.MIelewczik@linux-technical.info</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

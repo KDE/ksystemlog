@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Korean "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>&ksystemlog; 도움말</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Lee</firstname
+><surname
+>JungHee</surname
+><affiliation
+><address
+><email
+>daemul72@gmail.com</email
+></address
+></affiliation
+><contrib
+>문서 번역</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4(프로그램 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog;는 &kde;의 시스템 로그 뷰어 도구입니다. 이 프로그램은 시스템에 대한 정보를 찾는 방법이나 로그 파일의 위치를 ​​모르는 초보자를 위해 개발되었습니다. 또한 서버에서 발생하는 문제를 빠르게 보고자 하는 고급 사용자를 위해 설계되었습니다. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>로그</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>보안</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>부트</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>아파치</keyword>
+	<keyword
+>삼바</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>&ksystemlog; 사용</title>
+
+	<sect1 id="introduction">
+		<title
+>소개</title>
+
+		<sect2>
+			<title
+>&ksystemlog;는 무엇인가요?</title>
+			<para
+>&ksystemlog;는 시스템 로그 뷰어 도구입니다.</para>
+
+			<para
+>&ksystemlog;는 사용자가 컴퓨터가 백그라운드에서 수행하는 작업을 이해하도록 도와줍니다. &ksystemlog;는 시스템 로그 파일 읽기를 단순화하는 것을 목표로 합니다. 이 프로그램은 시스템에 대한 정보를 찾는 방법이나 컴퓨터에서 로그 파일의 위치를 ​​모르는 초보자를 위해 개발되었습니다. </para>
+
+			<para
+>또한 서버에서 발생하는 문제를 빠르게 보고자 하는 고급 사용자를 위해서도  설계되었습니다. &ksystemlog;는 특정 프로그램에서 로그를 정렬하고 읽을 수 있는 몇 가지 고급 기능을 제공하려고 합니다. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; 주 화면</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; 주 화면</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>기능</title>
+
+			<para
+>현재 버전에서 &ksystemlog; 0.4에는 다음과 같은 많은 유용한 기능이 있습니다: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog 서버 형식화, Samba 등 다양한 로그 파일 형식 지원</simpara
+></listitem>
+				<listitem
+><simpara
+>여러 개의 로그를 동시에 표시하는 탭 보기</simpara
+></listitem>
+				<listitem
+><simpara
+>여러 소스에서 하나의 로그 모드 읽기</simpara
+></listitem>
+				<listitem
+><simpara
+>새로 기록된 줄을 자동으로 굵게 표시</simpara
+></listitem>
+				<listitem
+><simpara
+>서로 다른 기준(로그 수준, 로그 파일, 프로세스, 시간 등)별로 그룹화</simpara
+></listitem>
+				<listitem
+><simpara
+>각 로그 줄에 대한 자세한 정보</simpara
+></listitem>
+				<listitem
+><simpara
+>수동으로 로그 항목 추가</simpara
+></listitem>
+				<listitem
+><simpara
+>우선 순위별 필터링</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>시스템에 있는 다음 로그 파일을 지원합니다: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog 로그(시스템 메시지)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>커널 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>인증 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>Cups 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>아파치 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>삼바 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>데몬 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>XSessions 로그</simpara
+></listitem>
+				<listitem
+><simpara
+>systemd/journald 로그</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>다른 많은 기능들이 포함되어 있으며 이 매뉴얼의 해당 장에서 논의될 것입니다. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>&ksystemlog;로 로그 읽기</title>
+
+		<para
+>다음 스크린 샷에서 볼 수 있듯이 &ksystemlog;에서는 로그 라인을 쉽게 정렬하고 필터링하는 기능을 제공합니다. 우리는 이제 이 문서의 다음 부분에서 설명할 것입니다. </para>
+
+		<sect2 id="getting_started">
+			<title
+>시작하기</title>
+
+			<para
+>&ksystemlog;를 시작하면 기본적으로 가장 유용한 로그인 <guilabel
+>시스템 로그</guilabel
+>를 열려고 시도합니다. 표시되지 않고 메시지 상자가 나타나면 &ksystemlog;를 관리자 사용자(일반적으로 루트)로 시작하지 않았을 수도 있습니다. 로그 파일은 일반적으로 /var/log 폴더에 있으며 보통 일반 사용자로부터 보호됩니다. 설정 대화 상자에서 시작시 열 다른 로그를 선택할 수 있습니다. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; 첫 번째 시작</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; 첫 번째 시작</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>쉽게 로그 파일 읽기</title>
+
+			<sect3 id="sorting">
+				<title
+>로그 줄 정렬</title>
+				<para
+>모든 로그 줄이 목록 보기에 표시되며 원하는 열을 클릭하여 정렬할 수 있습니다. 다시 클릭하면 다른 순서로 정렬됩니다. 처음 불러올 때와 같이 목록을 정렬하려면 <menuchoice
+><guimenu
+>편집</guimenu
+><guimenuitem
+>다시 불러오기</guimenuitem
+></menuchoice
+>메뉴 항목을 사용하거나 목록의 첫 번째 열(일반적으로 <guilabel
+>날짜</guilabel
+>)을 클릭하여 목록을 오름차순으로 정렬합니다. <guilabel
+>X.org 로그</guilabel
+>처럼 로그 모드에서 각 로그 줄을 나타내는 데 시간을 사용하지 않더라도 &ksystemlog;는 목록의 내부 순서를 유지합니다. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>로그 줄 필터</title>
+
+				<screenshot>
+					<screeninfo
+>특정 프로세스로 필터</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>특정 프로세스로 필터</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>필터 표시줄을 사용하여 선택한 기준과 입력한 문자열에 따라 필터링할 수도 있습니다. 필터에 무언가를 입력하면 목록이 필터 문자열과 일치하는 행만 표시하도록 자동으로 수정됩니다. 기본적으로 필터 옆의 콤보 상자는 <guilabel
+>모두</guilabel
+>를 선택합니다. 즉, 열 중 하나에 필터 문자열이 포함 된 경우에만 행이 표시됩니다. </para>
+
+				<para
+>다른 필드를 선택하여 목록의 이 열만 필터링할 수 있습니다. 예를 들어 <guilabel
+>시스템 로그</guilabel
+>에서 <guilabel
+>프로세스</guilabel
+>열을 선택하고 필터 표시줄에 프로세스 이름을 입력하면 &ksystemlog;는 이 프로세스에서 보낸 모든 로그 줄을 표시합니다. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>다른 기능들</title>
+
+			<sect3 id="colorizing">
+				<title
+>로그 줄 색상 지정</title>
+
+				<para
+>이 옵션은 기본적으로 활성화되어 있으며 어떤 줄이 다른 줄보다 높은 레벨인지 확인할 수 있습니다. 예를 들어 <guilabel
+>오류</guilabel
+>수준은 <guilabel
+>공지</guilabel
+>수준과 다른 색으로 강조 표시됩니다. 이 기능은 구성 대화 상자에서 비활성화할 수 있습니다. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>프로세스 식별자 숨기기</title>
+
+				<para
+>특정 프로세스에만 관심이 있는 경우(예: <guilabel
+>시스템 로그</guilabel
+>또는 <guilabel
+>Cron 로그</guilabel
+>) <guilabel
+>프로세스</guilabel
+> 열에서 PID를 숨길 수 있습니다. 이는 삼바 서버와 같은 특정 명령의 출력을 분석하려는 경우 유용할 수 있습니다. 이 경우 <link linkend="filtering"
+>필터 표시줄</link
+>을 사용하십시오. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>이메일을 통해 logd 보내기</title>
+				<para
+>콘텍스트 메뉴에는 <guilabel
+>이메일 선택</guilabel
+>작업이 있습니다. 로그에서 관련 행을 선택하고 이 작업을 사용하여 선택 항목이 미리 채워진 기본 이메일 클라이언트의 작성자 창을 여십시오. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>모니터링 관리</title>
+
+		<para
+>&ksystemlog;에서는 로그 파일의 읽기 및 모니터링을 쉽게 제어할 수 있습니다. 실제로 때로는 기존의 일부 로그 줄만 분석하면 됩니다. 이 경우 새 줄이 계속 표시되는 것이 방해가 될 수도 있습니다. <guibutton
+>중지</guibutton
+> 단추를 클릭하여 로그 파일 모니터링을 비활성화할 수 있습니다. 이렇게 하면 다른 프로세스에서 계속 로그 파일에 기록한다고 해도 열린 로그 파일이 업데이트되지 않습니다. 물론 <guibutton
+>다시 시작</guibutton
+> 단추를 클릭하여 모니터링을 다시 활성화할 수 있으며, 마지막 일시 중지 이후 추가 된 로그 줄이 표시됩니다. </para>
+
+		<para
+>또한 새로 나타난 로그 줄에 초점을 맞추기 위해 <guimenuitem
+>새 줄로 스크롤</guimenuitem
+>옵션을 토글할 수 있습니다. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>여러 개의 열린 탭 관리</title>
+
+		<para
+>&ksystemlog;에서는 여러 탭을 열어 여러 로그 모드를 열 수 있습니다. 이를 위해 <guimenu
+>창</guimenu
+> 메뉴를 사용하여 새 탭을 관리하고 열 수 있습니다. 오른쪽 탭을 선택한 후에는 전용 메뉴를 사용하여 원하는 로그 모드를 선택하십시오. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>작성자 및 라이선스</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 by Nicolas Ternisien </para>
+
+	<para
+>기여자:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: 아이디어, 코드 개선.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: SSH 로그 모드, 인쇄.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>&ksystemlog;의 모든 번역가들에게 특별히 감사드립니다.</emphasis>
+	</para>
+
+	<para
+>이정희 (JungHee Lee) <email
+>daemul72@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

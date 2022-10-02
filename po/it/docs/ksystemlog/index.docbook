@@ -1,0 +1,469 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Italian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Nicola</firstname
+><surname
+>Ruggero</surname
+><affiliation
+><address
+><email
+>nicola@nxnt.org</email
+></address
+></affiliation
+><contrib
+>Traduzione dell'interfaccia</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Zenith</surname
+><affiliation
+><address
+><email
+>federico.zenith@member.fsf.org</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>17/04/2016</date>
+<releaseinfo
+>0.4 (Applications 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; è un visore dei registri di sistema della comunità &kde;. Questo programma è fatto per gli utenti alle prime armi che non sanno come trovare le informazioni sul loro sistema o dove sono i registri. È fatto anche per gli utenti avanzati che vogliono vedere alla svelta quali problemi si verificano sui loro server. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>log</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>sicurezza</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>avvio</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Usare &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Introduzione</title>
+
+		<sect2>
+			<title
+>Cos'è &ksystemlog;?</title>
+			<para
+>&ksystemlog; è uno strumento per visualizzare i registri di sistema.</para>
+
+			<para
+>&ksystemlog; aiuta gli utenti a capire cosa sta facendo la loro macchina, e ha l'obiettivo di semplificare la lettura dei registri. Questo programma è sviluppato per utenti alle prime armi, che non sanno dove  trovare le informazioni sul sistema o dove sono localizzati i registri nel computer. </para>
+
+			<para
+>È però sviluppato anche per gli utenti avanzati, che necessitano di vedere rapidamente dove si verificano i problemi sul loro server. &ksystemlog; cerca di fornire alcune funzionalità avanzate che permettono l'ordinamento e la lettura dei registri di alcuni programmi particolari. </para>
+
+			<screenshot>
+				<screeninfo
+>La schermata principale di &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>La schermata principale di &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Funzionalità</title>
+
+			<para
+>Nella versione attuale &ksystemlog; 0.4 ha un buon numero di funzionalità utili, quali: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Il supporto a molti tipi di registri diversi, incluso quello al formato del server Syslog e di Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Una vista a schede, per visualizzare più registri contemporaneamente</simpara
+></listitem>
+				<listitem
+><simpara
+>La lettura di un registro da fonti multiple</simpara
+></listitem>
+				<listitem
+><simpara
+>La visualizzazione automatica in grassetto delle ultime righe del registro</simpara
+></listitem>
+				<listitem
+><simpara
+>Il raggruppamento in base a diversi criteri (livello di registro, file, processo, ora, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Delle informazioni dettagliate per ogni riga del registro;</simpara
+></listitem>
+				<listitem
+><simpara
+>L'aggiunta manuale di voci di registro</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtrare in base alla priorità</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Supporta i registri di sistema seguenti: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Registri Syslog (messaggi di sistema)</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri del kernel</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di autenticazione</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di CUPS</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di Postfix</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri dei demoni</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri di Cron</simpara
+></listitem>
+				<listitem
+><simpara
+>Registri delle sessioni X</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd / log di Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Sono incluse molte altre funzionalità, che verranno discusse negli appositi capitoli di questo manuale. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Leggere i registri con &ksystemlog;</title>
+
+		<para
+>Come vedrai nelle schermate seguenti, &ksystemlog; fornisce delle funzionalità per ordinare e filtrare facilmente le righe dei registri. Passeremo ora a descriverle nel seguito di questa documentazione. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Primi passi</title>
+
+			<para
+>Quando lo avvii, normalmente &ksystemlog; cercherà di aprire il registro più utile, il <guilabel
+>Registro di sistema</guilabel
+>. Se non lo visualizza e appare un messaggio in un riquadro, probabilmente hai dimenticato di avviare &ksystemlog; come amministratore (detto anche root). I file di registro di solito sono disponibili nella cartella /var/log, che spesso non è accessibile agli utenti normali. Nella finestra delle impostazioni puoi selezionare un altro registro da aprire all'avvio. </para>
+
+			<screenshot>
+				<screeninfo
+>Il primo avvio di &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Il primo avvio di &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Leggere facilmente i registri</title>
+
+			<sect3 id="sorting">
+				<title
+>Ordinare le righe del registro</title>
+				<para
+>Tutte le righe del registro sono visualizzate in una vista a elenco, che può essere riordinata facendo clic sulla colonna desiderata, mentre un altro clic la riordinerà al contrario. Se vuoi ordinare l'elenco così com'era al primo avvio, puoi usare l'elemento del menu <menuchoice
+><guimenu
+>Modifica</guimenu
+><guimenuitem
+>Ricarica</guimenuitem
+></menuchoice
+>, oppure ti basta fare clic sulla prima colonna dell'elenco, che di solito è indicata con <guilabel
+>Data</guilabel
+>, per ordinare l'elenco in ordine ascendente. Anche se la modalità di registro non usa l'ora per descrivere ogni riga di registro, come per esempio fa il <guilabel
+>Registro di X.org</guilabel
+>, l'elenco sarà ordinato correttamente, perché &ksystemlog; ne mantiene un ordinamento interno. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtrare le righe del registro</title>
+
+				<screenshot>
+					<screeninfo
+>Filtraggio di un processo particolare</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtraggio di un processo particolare</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Puoi anche usare la barra apposita per filtrare in base ai criteri selezionati e alla stringa immessa. Ti basta digitare qualcosa nel filtro, e l'elenco sarà automaticamente modificato per visualizzare solo le righe che corrispondono alla stringa di filtraggio. L'impostazione predefinita della casella combinata di fianco al filtro è <guilabel
+>Tutte</guilabel
+>, che vuol dire che una riga sarà visualizzata solo se una delle sue colonne contiene la stringa di filtraggio. </para>
+
+				<para
+>Puoi selezionare un altro campo per filtrare solo questa colonna dell'elenco. Per esempio, se nel <guilabel
+>Registro di sistema</guilabel
+> selezioni la colonna <guilabel
+>Processo</guilabel
+> e scrivi un nome nella barra di filtraggio, &ksystemlog; visualizzerà tutte le righe del registro inviate da questo processo. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Altre funzionalità</title>
+
+			<sect3 id="colorizing">
+				<title
+>Colorare le righe del registro</title>
+
+				<para
+>Questa opzione è attiva come impostazione predefinita, e ti aiuta a vedere quali righe hanno un livello maggiore di altre: per esempio, il livello <guilabel
+>Errore</guilabel
+> sarà evidenziato con un colore diverso dal livello <guilabel
+>Notifica</guilabel
+>. Questa funzionalità può essere disattivata nella finestra di configurazione. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Nascondere l'identificativo dei processi</title>
+
+				<para
+>Se ti interessa solo un processo particolare (per esempio nel <guilabel
+>Registro di sistema</guilabel
+> o nel <guilabel
+>Registro di Cron</guilabel
+>), puoi nasconderne l'identificativo nella colonna <guilabel
+>Processo</guilabel
+>. Può essere utile se stai cercando di analizzare il risultato di un certo comando, come un server Samba. In questo caso usa la <link linkend="filtering"
+>barra di filtraggio</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Inviare logd tramite posta elettronica</title>
+				<para
+>Nel menu contestuale trovi l'azione <guilabel
+>Spedisci selezione</guilabel
+>: seleziona le righe rilevanti nel log e usa questa azione per aprire la finestra di composizione del tuo client di posta elettronica, che contiene già la selezione. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Gestione della sorveglianza</title>
+
+		<para
+>&ksystemlog; permette di controllare facilmente la lettura e la sorveglianza dei registri. Infatti, a volte devi solo analizzare alcune righe dei registri, e la comparsa di nuove righe dà solo fastidio. Puoi disattivare la sorveglianza dei registri facendo clic sul pulsante <guibutton
+>Interrompi</guibutton
+>: ciò impedisce l'aggiornamento dei registri aperti, anche se altri processi li stanno ancora riempiendo. Ovviamente puoi riattivare la sorveglianza facendo clic su <guibutton
+>Ripristina</guibutton
+>, che mostrerà le righe del registro aggiunte dall'ultima pausa. </para>
+
+		<para
+>Inoltre, per concentrarti sulle ultime righe del registro comparse, puoi attivare l'opzione <guimenuitem
+>Scorri alle righe nuove</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Gestire le diverse schede aperte</title>
+
+		<para
+>&ksystemlog; ti permette di aprire diverse modalità di registro aprendo più schede: per farlo ti basta usare il menu <guimenu
+>Finestra</guimenu
+> per gestire e aprire nuove schede. Una volta che hai selezionato la scheda giusta basta scegliere la modalità di registro desiderata con l'apposito menu. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Riconoscimenti e licenza</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, copyright 2008 di Nicolas Ternisien </para>
+
+	<para
+>Hanno contribuito:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: idee, miglioramenti al codice.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: modalità di registro SSH, stampa.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Ringraziamenti in particolare a tutti i traduttori di &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Traduttore dell'interfaccia: Nicola Ruggero<email
+>nicola@nxnt.org</email
+></para
+><para
+>Traduttore della documentazione: Federico Zenith<email
+>federico.zenith@member.fsf.org</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

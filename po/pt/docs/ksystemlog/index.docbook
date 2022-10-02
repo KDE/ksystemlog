@@ -1,0 +1,452 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Portuguese "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>O Manual do &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Aplicações 16.04)</releaseinfo>
+
+<abstract>
+<para
+>O &ksystemlog; é uma ferramenta de visualização dos registos do sistema do &kde;. Este programa é desenvolvido para ser usado pelos utilizadores principiantes que não sabem como encontrar informações sobre o seu sistema e a forma como os ficheiros de registo existem no seu computador. Mas também é desenhado para os utilizadores avançados que querem ver rapidamente os problemas que estão a ocorrer no seu servidor. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>registos</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>segurança</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>arranque</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Usar o &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Introdução</title>
+
+		<sect2>
+			<title
+>O que é o &ksystemlog; ?</title>
+			<para
+>O &ksystemlog; é uma ferramenta de visualização de registos do sistema.</para>
+
+			<para
+>O &ksystemlog; ajuda os utilizadores a compreender o que a sua máquina faz em segundo plano. O objectivo do &ksystemlog; é simplificar a leitura dos ficheiros de registo do sistema. Este programa é desenvolvido para ser usado pelos utilizadores principiantes, que não sabem como descobrir as informações sobre o seu sistema e como é que se encontram os ficheiros de registo no seu computador. </para>
+
+			<para
+>Mas também é desenhado para os utilizadores avançados, que querem ver rapidamente os problemas que ocorrem no seu servidor. O &ksystemlog; tenta oferecer algumas funcionalidades avançadas para ordenar e ler os registos dos programas específicos. </para>
+
+			<screenshot>
+				<screeninfo
+>O ecrã principal do &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>O ecrã principal do &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Características</title>
+
+			<para
+>Na sua versão actual, o &ksystemlog; 0.4 tem um conjunto de funcionalidades úteis, como: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Suporte para vários tipos de ficheiros de registo, com o suporte da formatação do servidor Syslog, Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Um visual em páginas que permite ver vários registos ao mesmo tempo</simpara
+></listitem>
+				<listitem
+><simpara
+>O modo de leitura de um registo de várias fontes</simpara
+></listitem>
+				<listitem
+><simpara
+>Mostrar automaticamente as linhas novas a negrito</simpara
+></listitem>
+				<listitem
+><simpara
+>Agrupar por vários critérios (nível do registo, ficheiro de registo, processo, hora, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Informação detalhada para cada linha do registo</simpara
+></listitem>
+				<listitem
+><simpara
+>Adicionar manualmente um item de registo</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtragem por prioridade</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Ele suporta os seguintes ficheiros de registo do seu sistema : </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Registos do Syslog (mensagens do sistema)</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do 'kernel'</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos de autenticação</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do CUPS</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do Postfix</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos dos servidores</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do CRON</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos das Sessões de X</simpara
+></listitem>
+				<listitem
+><simpara
+>Registos do Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Estão incluídas muitas outras funcionalidades e serão discutidas nos capítulos apropriados deste manual. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Ler os registos com o &ksystemlog;</title>
+
+		<para
+>Como pode ver nas imagens seguintes, o &ksystemlog; oferece funcionalidades para ordenar e filtrar as linhas dos registos. Serão descritas agora nas próximas partes desta documentação. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Introdução</title>
+
+			<para
+>Quando iniciar o &ksystemlog;, ele tenta abrir o registo principal, o <guilabel
+>Registo do Sistema</guilabel
+>. Se não o mostrar e aparecer uma mensagem, provavelmente esqueceu-se de lançar o &ksystemlog; com um utilizador de administração (normalmente com o 'root'). Os ficheiros de registo estão normalmente disponíveis na pasta '/var/log', a qual está normalmente protegida dos utilizadores normais. </para>
+
+			<screenshot>
+				<screeninfo
+>Primeira abertura do &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Primeira abertura do &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Ler facilmente os ficheiros de registo</title>
+
+			<sect3 id="sorting">
+				<title
+>Ordenar as linhas de registo</title>
+				<para
+>Todas as linhas do registo são apresentadas numa lista, as quais poderão ser ordenadas se carregar na coluna desejada. Se carregar outra vez, irá ordenar de forma inversa. Se quiser ordenar a lista como se fosse o primeiro carregamento, poderá usar a opção <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Actualizar</guimenuitem
+></menuchoice
+> ou carregar simplesmente na primeira coluna da lista, que se chama normalmente <guilabel
+>Data</guilabel
+>, para ordenar a lista de forma ascendente. Mesmo que o seu modo de registo não use a hora para descrever as linhas de cada registo, como por exemplo o <guilabel
+>Registo do X.org</guilabel
+>, a lista será ordenada correctamente, dado que o &ksystemlog; mantém uma ordem interna da lista. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtrar as linhas de registo</title>
+
+				<screenshot>
+					<screeninfo
+>Filtrar por um processo específico</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtrar por um processo específico</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Poderá também usar a barra do filtro para filtrar pelo critério seleccionado e pelo texto escrito. Basta escrever algo no filtro, para que a lista seja modificada automaticamente para mostrar apenas as linhas que correspondam ao texto do seu filtro. Por omissão, a lista ao lado do filtro selecciona <guilabel
+>Tudo</guilabel
+>, o que significa que uma linha será mostrada apenas se uma das suas colunas contiver o texto do filtro. </para>
+
+				<para
+>Poderá seleccionar outro campo para filtrar apenas pela coluna da lista. Por exemplo, no <guilabel
+>Registo do Sistema</guilabel
+>, se seleccionar a coluna <guilabel
+>Processo</guilabel
+> e escrever o seu nome na barra de filtragem, o &ksystemlog; irá mostrar todas as linhas do registo enviadas por este processo. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Outras funcionalidades</title>
+
+			<sect3 id="colorizing">
+				<title
+>Colorir as linhas do registo</title>
+
+				<para
+>Esta opção está activada por omissão e ajuda-o a ver as linhas que têm um nível maior que as outras. Por exemplo, o nível de <guilabel
+>Erro</guilabel
+> irá ter uma cor mais realçada que o <guilabel
+>Aviso</guilabel
+>. Esta funcionalidade poderá ser desactivada na janela de configuração. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Esconder o identificador do processo</title>
+
+				<para
+>Se só estiver interessado em ver um tipo de processo (por exemplo, no <guilabel
+>Registo do Sistema</guilabel
+> ou no <guilabel
+>Registo do CRON</guilabel
+>), poderá esconder o seu PID na coluna <guilabel
+>Processo</guilabel
+>. Contudo, isto poderá ser útil se estiver a tentar analisar o resultado de um comando específico, como um servidor de Samba ou algo do género. Neste caso, deverá usar a <link linkend="filtering"
+>Barra do Filtro</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Enviar o registo por e-mail</title>
+				<para
+>O menu de contexto tem uma acção <guilabel
+>Enviar um E-mail da Selecção</guilabel
+>. Seleccione as linhas relevantes no registo e use esta acção para abrir a janela de composição do seu cliente de e-mail favorito, pré-preenchida com o texto seleccionado. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Gestão da Monitorização</title>
+
+		<para
+>O &ksystemlog; oferece uma forma simples de controlar a leitura e a monitorização de ficheiros de registo. De facto, algumas vezes, só necessita de analisar algumas linhas de registo existentes. Neste caso, não se irá interessar nas linhas novas que vão aparecendo. Poderá então desactivar a monitorização dos ficheiros de registo se carregar no botão <guibutton
+>Parar</guibutton
+>, que irá então fechar todos os ficheiros de registo abertos, deixando que estes sejam preenchidos por outros processos sem tentar lê-los. Claro que poderá reactivar a monitorização se carregar em <guibutton
+>Continuar</guibutton
+>, que irá então ler as novas linhas de registo desde a última pausa. </para>
+
+		<para
+>Para além disso, se quiser continuar ligado às linhas de registo que vão aparecendo, poderá simplesmente activar ou desactivar as opções para <guimenuitem
+>Posicionar nas Linhas Novas</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Gestão de várias páginas abertas</title>
+
+		<para
+>O &ksystemlog; permite-lhe abrir vários modos de registo com recurso a diversas páginas. Para tal, basta usar o menu <guimenu
+>Janela</guimenu
+> para gerir e abrir páginas novas. Logo que tenha seleccionado a página correcta, basta seleccionar o modo de registo desejado com o menu associado a tal. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Créditos e Licença</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, com 'copyright' 2008 de Nicolas Ternisien </para>
+
+	<para
+>Contribuições:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker : Ideias, Melhorias de Código.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : Modo do Registo de SSH, Impressão.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Muito obrigado a todos os tradutores do &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

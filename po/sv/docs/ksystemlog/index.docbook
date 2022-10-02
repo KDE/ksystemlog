@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &ksystemlog;</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Program 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; är ett visningsverktyg av systemloggar av &kde;. Programmet är utvecklat för nya användare, som inte vet hur man hittar information om systemet, och var datorns loggfiler finns. Det är också konstruerat för avancerade användare som snabbt vill se problem som inträffar på en server. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>loggar</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>säkerhet</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>start</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Använda &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Inledning</title>
+
+		<sect2>
+			<title
+>Vad är &ksystemlog;?</title>
+			<para
+>&ksystemlog; är ett verktyg för visning av systemloggar</para>
+
+			<para
+>&ksystemlog; hjälper användare att förstå vad datorn gör i bakgrunden. Syftet med &ksystemlog; är att förenkla läsning av systemets loggfiler. Programmet är utvecklat för nya användare, som inte vet hur man hittar information om systemet, och var datorns loggfiler finns. </para>
+
+			<para
+>Med det är också konstruerat för avancerade användare som snabbt vill se problem som inträffar på en server. &ksystemlog; försöker tillhandahålla några avancerade funktioner för att göra det möjligt att sortera och läsa loggar från specifika program. </para>
+
+			<screenshot>
+				<screeninfo
+>Huvudfönstret i &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Huvudfönstret i &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Funktioner</title>
+
+			<para
+>I sin nuvarande version har &ksystemlog; 0.4 ett stort antal användbara funktioner, som: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Stöd för många olika typer av loggfiler, med stöd för Syslog-serverformatering, Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Flikvy för att tillåta att flera loggar visas samtidigt</simpara
+></listitem>
+				<listitem
+><simpara
+>Läsning av en loggtyp från flera källor</simpara
+></listitem>
+				<listitem
+><simpara
+>Automatisk visning av nya rader i loggen med fetstil</simpara
+></listitem>
+				<listitem
+><simpara
+>Gruppering enligt olika kriterier (loggnivå, loggfil, process, tid, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Detaljerad information för varje loggrad</simpara
+></listitem>
+				<listitem
+><simpara
+>Tillägg av en post i en logg för hand</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtrering enligt prioritet</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Det stöder följande loggfiler i systemet: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog-loggar (systemmeddelanden)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Kärnloggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Behörighetsloggar</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>CUPS-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Demonloggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron-loggar</simpara
+></listitem>
+				<listitem
+><simpara
+>X-sessionsloggar</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd- eller Journald-loggar</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Många andra funktioner ingår, och de beskrivs i lämpliga kapitel i den här handboken. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Läsa loggar med &ksystemlog;</title>
+
+		<para
+>Som du kommer att se på följande skärmbilder, tillhandahåller &ksystemlog; funktioner för att enkelt sortera och filtrera loggrader. Vi kommer nu att beskriva dem i dokumentationens nästa del. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Att komma igång</title>
+
+			<para
+>När &ksystemlog; startas försöker det normalt öppna den mest användbara loggen, <guilabel
+>systemloggen</guilabel
+>. Om den inte visas och en meddelanderuta dyker upp, glömde du troligen att starta &ksystemlog; som administratör (oftast kallad root). Loggfilerna är i allmänhet tillgängliga i katalogen /var/log, som ofta är skyddad från vanliga användare. En annan logg att öppna vid start kan väljas i inställningsdialogrutan. </para>
+
+			<screenshot>
+				<screeninfo
+>Första start av &ksystemlog;</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>Första start av &ksystemlog;</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Enkel inläsning av loggfiler</title>
+
+			<sect3 id="sorting">
+				<title
+>Sortering av loggrader</title>
+				<para
+>Varje loggrad visas i en listvy som kan sorteras genom att klicka på önskad kolumn. Ytterligare ett klick sorterar i omvänd ordning. Om du vill sortera listan som den var när den först laddades kan du använda menyalternativet <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Uppdatera</guimenuitem
+></menuchoice
+>, eller helt enkelt klicka på listans första kolumn, oftast kallad <guilabel
+>Datum</guilabel
+>, för att sortera listan i stigande ordning. Även om loggtypen inte använder tid för att beskriva varje loggrad, till exempel <guilabel
+>X.org-loggen</guilabel
+>, sorteras listan riktigt eftersom &ksystemlog; har en intern ordning av listan. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtrera loggrader</title>
+
+				<screenshot>
+					<screeninfo
+>Filtrera för en specifik process</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtrera för en specifik process</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Du kan också använda filterraden för att filtrera enligt valda kriterier och inskriven sträng. Skriv helt enkelt någonting i filtret, så ändras listan automatiskt så att bara rader som motsvarar filtersträngen visas. Normalt väljer kombinationsrutan intill filtret <guilabel
+>Alla</guilabel
+>, vilket betyder att en rad bara visas om någon av dess kolumner innehåller filtersträngen. </para>
+
+				<para
+>Du kan välja ett annat fält för att bara filtrera den kolumnen i listan. Genom att till exempel välja kolumnen <guilabel
+>Process</guilabel
+> i <guilabel
+>systemloggen</guilabel
+>, och skriva in ett processnamn på filterraden, visar &ksystemlog; varje loggrad som processen skrev. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Andra funktioner</title>
+
+			<sect3 id="colorizing">
+				<title
+>Färgläggning av loggrader</title>
+
+				<para
+>Alternativet är normalt aktiverat, och hjälper dig se vilka rader som har en högre nivå än andra. Nivån <guilabel
+>Fel</guilabel
+> har till exempel en mer markerad färg än <guilabel
+>Anmärkning</guilabel
+>. Funktionen kan stängas av i inställningsdialogrutan. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Dölja processidentifieraren</title>
+
+				<para
+>Om du bara är intresserad av att se en viss process (till exempel i <guilabel
+>systemloggen</guilabel
+> eller <guilabel
+>Cron-loggen</guilabel
+>), kan du dölja dess processidentifierare i kolumnen <guilabel
+>Process</guilabel
+>. Det kan dock vara användbart om du försöker analysera utmatning från ett specifikt kommando, som en Samba-server, eller liknande. I detta fall kan<link linkend="filtering"
+>filterraden</link
+> användas. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Skicka logg via e-post</title>
+				<para
+>Den sammanhangsberoende menyn har alternativet <guilabel
+>E-posta markering</guilabel
+>. Markera relevanta rader i loggen och använd alternativet för att visa brevfönstret i standardprogrammet för e-post ifyllt med markeringen. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Övervakningshantering</title>
+
+		<para
+>&ksystemlog; tillhandahåller ett enkelt sätt att hantera läsning och övervakning av loggfiler. Ibland behöver du helt enkelt bara analysera några befintliga loggrader. I detta fall står du inte ut med nya rader som dyker upp. Då har du möjlighet att inaktivera övervakning av loggfiler genom att klicka på knappen <guibutton
+>Stoppa</guibutton
+>. Det stoppar uppdatering av alla öppna loggfiler, medan de fortfarande kan fyllas av andra processer. Du kan förstås aktivera övervakningen igen genom att klicka på <guibutton
+>Återuppta</guibutton
+>, vilket visar loggrader som lagts till sedan den senaste pausen. </para>
+
+		<para
+>Dessutom, om du vill fokusera på nya loggrader som visas, kan du aktivera alternativet <guimenuitem
+>Visa nya rader</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Hantering av flera öppna flikar</title>
+
+		<para
+>&ksystemlog; låter dig öppna flera loggtyper genom att öppna flera flikar. Använd helt enkelt menyn <guimenu
+>Fönster</guimenu
+> för att hantera och öppna nya flikar. När du väl har valt rätt flik, välj helt enkelt önskad loggtyp med den specifika menyn. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Tack till och licens</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 av Nicolas Ternisien </para>
+
+	<para
+>Bidragsgivare:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: Idéer, kodförbättringar.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: SSH-loggtyp, utskrift.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Särskilt tack till översättarna av &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
