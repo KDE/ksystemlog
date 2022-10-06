@@ -974,7 +974,7 @@ msgstr "&Missatge:"
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr "Contingut de &fitxer:"
+msgstr "Contingut de fi&txer:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
@@ -1034,7 +1034,7 @@ msgstr "D'ac&ord"
 #: src/loggerDialogBase.ui:338
 #, kde-format
 msgid "&Cancel"
-msgstr "&Cancel·la"
+msgstr "C&ancel·la"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1315,7 +1315,7 @@ msgstr ""
 #: src/mainWindow.cpp:597
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "&Afig una entrada de registre..."
+msgstr "Afi&g una entrada de registre..."
 
 #: src/mainWindow.cpp:600
 #, kde-format
@@ -1875,7 +1875,7 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "&Afig un fitxer..."
+msgstr "Afi&g un fitxer..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
