@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-01 00:52+0000\n"
 "PO-Revision-Date: 2021-02-11 21:14+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1692,7 +1692,7 @@ msgstr ""
 "i verda."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
-#: src/modes/audit/auditLogMode.cpp:14 src/modes/audit/auditLogMode.cpp:23
+#: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
 #, kde-format
 msgid "Audit Log"
 msgstr "Revisjonslogg"
@@ -1702,12 +1702,12 @@ msgstr "Revisjonslogg"
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr "<p>Desse filene vert analyserte for å visa <b>revisjonsloggen</b>.</p>"
 
-#: src/modes/audit/auditLogMode.cpp:24
+#: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
 msgstr "Vis revisjonsloggen."
 
-#: src/modes/audit/auditLogMode.cpp:26
+#: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
