@@ -284,7 +284,7 @@ msgstr "Llista de línies de registre"
 #: src/generalConfigurationWidgetBase.ui:59
 #, kde-format
 msgid "&Maximum lines displayed:"
-msgstr "&Màxim de línies que es mostraran:"
+msgstr "&Màxim de línies que s'han de mostrar:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
@@ -507,7 +507,7 @@ msgstr "Emergència"
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr "Nivell de registre a imprimir"
+msgstr "Nivell de registre que s'ha d'imprimir"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
@@ -692,8 +692,8 @@ msgstr[1] "S'han copiat %1 línies del registre al porta-retalls."
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
 msgstr ""
-"No s'ha seleccionat cap element. Seleccioneu els elements candidats a "
-"guardar-los."
+"No s'ha seleccionat cap element. Seleccioneu els elements candidats que "
+"s'hagen de guardar."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
@@ -1103,7 +1103,7 @@ msgstr "Correcció d'errors"
 #: src/main.cpp:58
 #, kde-format
 msgid "Document to open."
-msgstr "Document que cal obrir."
+msgstr "Document que s'obrirà."
 
 #: src/mainWindow.cpp:308
 #, kde-format
@@ -2202,7 +2202,7 @@ msgstr "&Canvia l'estat..."
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr "Canvia el nivell del fitxer(s) actual"
+msgstr "Canvia el nivell actual dels fitxers"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -2210,7 +2210,7 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
-"Canvia el nivell del fitxer(s) actual. Consulteu la documentació de "
+"Canvia el nivell actual dels fitxers. Consulteu la documentació de "
 "KSystemLog per a més informació sobre cada nivell de registre."
 
 #: src/modes/base/logLevelFileList.cpp:150
