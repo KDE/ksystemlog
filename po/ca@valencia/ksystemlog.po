@@ -41,7 +41,7 @@ msgstr "Carrega este mode de registre a l'inici."
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr "El límit de línies a visualitzar del registre."
+msgstr "El límit de línies que es visualitzaran del registre."
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
