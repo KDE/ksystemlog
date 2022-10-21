@@ -2083,9 +2083,8 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Mou avall els fitxers "
-"seleccionats en la llista. Esta opció permet que els fitxers es lligguen "
-"<span style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></"
-"html>"
+"seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
+"style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -2368,9 +2367,8 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Mou amunt els fitxers "
-"seleccionats en la llista. Esta opció permet que els fitxers es lligguen "
-"<span style=\" font-weight:600;\">primer</span> en KSystemLog.</p></body></"
-"html>"
+"seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
+"style=\" font-weight:600;\">primer</span> en KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2393,9 +2391,8 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Mou avall els fitxers "
-"seleccionats en la llista. Esta opció permet que els fitxers es lligguen "
-"<span style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></"
-"html>"
+"seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
+"style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
