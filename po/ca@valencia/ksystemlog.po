@@ -1404,12 +1404,12 @@ msgstr "Mou la pestanya a l'&esquerra"
 #: src/mainWindow.cpp:654
 #, kde-format
 msgid "Move the current tab to the left"
-msgstr "Mou la pestanya actual a l'esquerra"
+msgstr "Mou la pestanya actual cap a l'esquerra"
 
 #: src/mainWindow.cpp:655
 #, kde-format
 msgid "Moves the current tab to the left."
-msgstr "Mou la pestanya actual a l'esquerra."
+msgstr "Mou la pestanya actual cap a l'esquerra."
 
 #: src/mainWindow.cpp:660
 #, kde-format
@@ -1419,12 +1419,12 @@ msgstr "Mou la pestanya a la &dreta"
 #: src/mainWindow.cpp:662
 #, kde-format
 msgid "Move the current tab to the right"
-msgstr "Mou la pestanya actual a la dreta"
+msgstr "Mou la pestanya actual cap a la dreta"
 
 #: src/mainWindow.cpp:663
 #, kde-format
 msgid "Moves the current tab to the right."
-msgstr "Mou la pestanya actual a la dreta."
+msgstr "Mou la pestanya actual cap a la dreta."
 
 #: src/mainWindow.cpp:668
 #, kde-format
