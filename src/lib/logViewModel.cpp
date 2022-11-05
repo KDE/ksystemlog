@@ -117,12 +117,9 @@ bool LogViewModel::lockMultipleInsertions()
 {
     if (mConcurrentMultipleInsertions == 0) {
         return true;
-    }
-
-    // Debug messages
-    if (mConcurrentMultipleInsertions > 0) {
+    } else if (mConcurrentMultipleInsertions > 0) {
         qCDebug(KSYSTEMLOG) << "Existing multiple insertions request is still active";
-    } else if (mConcurrentMultipleInsertions < 0) {
+    } else {
         qCCritical(KSYSTEMLOG) << "Existing multiple insertions forgot to call this method";
     }
 
