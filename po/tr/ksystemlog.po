@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2022-10-20 12:21+0300\n"
+"PO-Revision-Date: 2022-11-14 13:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1473,12 +1473,12 @@ msgstr ""
 #: src/mainWindow.cpp:699
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr "&Yeni Satırlara Geç"
+msgstr "&Yeni Satırlara Sar"
 
 #: src/mainWindow.cpp:700
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr "Günlük kaydı değiştiğinde yeni satıra kaydır veya kaydırma"
+msgstr "Günlük kaydı değiştiğinde yeni satıra sarılıp sarılmayacağı"
 
 #: src/mainWindow.cpp:702
 #, kde-format
@@ -1487,9 +1487,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"Günlük kaydı değiştiğinde yeni satıra kaydır veya kaydırma. Eğer uygulamanın "
-"günlük kaydının her güncellemesinde otomatik olarak en sona gitmesini "
-"istemiyorsanız seçin."
+"Günlük kaydı değiştiğinde yeni satıra sarılıp sarılmayacağı. Eğer "
+"uygulamanın günlük kaydının her güncellemesinde otomatik olarak en sona "
+"gitmesini istemiyorsanız seçin."
 
 #: src/mainWindow.cpp:762
 #, kde-format
