@@ -548,7 +548,7 @@ msgstr "S'està actualitzant <b>%1</b>...<br /><i>%2</i>"
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr "Este fitxer no és vàlid. Ajusteu-lo a la configuració de KSystemLog."
+msgstr "Este fitxer no és vàlid. Ajusteu-lo en la configuració de KSystemLog."
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
@@ -755,7 +755,7 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"Us permet aplicar l'element de filtre només a la columna especificada ací. "
+"Us permet aplicar l'element de filtre només en la columna especificada ací. "
 "«<i>Totes</i>» les columnes vol dir que no s'ha especificat cap filtre."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
