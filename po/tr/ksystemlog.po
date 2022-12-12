@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2022-11-22 17:25+0300\n"
+"PO-Revision-Date: 2022-12-11 20:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1112,12 +1112,12 @@ msgstr[1] "%1 satır / %2 toplam."
 #: src/mainWindow.cpp:332
 #, kde-format
 msgid "Resu&me"
-msgstr "Deva&m Et"
+msgstr "&Sürdür"
 
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr "Güncel günlük kaydını izlemeyi devam ettirin"
+msgstr "Güncel günlük kaydını izlemeyi sürdür"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1125,8 +1125,8 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
-"Güncel günlük kaydını izlemeyi devam ettirin. Bu işlem sadece kullanıcı "
-"izlemeyi duraklattığında mümkün olabilir."
+"Güncel günlük kaydını izlemeyi sürdürün. Bu işlem sadece kullanıcı izlemeyi "
+"duraklattığında olanaklı olabilir."
 
 #: src/mainWindow.cpp:341
 #, kde-format
