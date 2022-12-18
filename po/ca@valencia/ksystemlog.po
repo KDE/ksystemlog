@@ -4,14 +4,14 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2016, 2017, 2020, 2021.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2016, 2017, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2022-09-07 18:51+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2022-12-17 03:50+0100\n"
+"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Kate 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2289,7 +2289,7 @@ msgid ""
 "Modes with missing log files will be unavailable."
 msgstr ""
 "Alguns fitxers de registre no existixen.\n"
-"Els modes que falten els fitxers de registre no seran disponibles."
+"Els modes en els que falten els fitxers de registre no estaran disponibles."
 
 #: src/modes/base/multipleFileList.cpp:410
 #, kde-format
