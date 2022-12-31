@@ -8,20 +8,21 @@
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009.
 # Frank Weng (a.k.a. Franklin) <franklin@goodhorse.idv.tw>, 2009.
 # Jeff Huang <s8321414@gmail.com>, 2016, 2017.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2017-03-23 20:44+0800\n"
-"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2022-12-30 18:48+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1054,12 +1055,12 @@ msgstr "紀錄列印"
 #: src/main.cpp:45
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "錯誤修正"
 
 #: src/main.cpp:58
 #, kde-format
@@ -1151,26 +1152,21 @@ msgid ""
 msgstr "列印選取區。只要選擇重要的內容，並點選此項目就可以列印這些內容。"
 
 #: src/mainWindow.cpp:541
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "列印選取區(&P)..."
+msgstr "預覽列印選取區(&P)…"
 
 #: src/mainWindow.cpp:542
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "列印選取區"
+msgstr "預覽列印選取區"
 
 #: src/mainWindow.cpp:544
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
-msgstr "列印選取區。只要選擇重要的內容，並點選此項目就可以列印這些內容。"
+msgstr "預覽列印選取區。只要選擇重要的內容，並點選此項目就可以列印這些內容。"
 
 #: src/mainWindow.cpp:550
 #, kde-format
@@ -1656,34 +1652,28 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Acpi 伺服程式紀錄"
+msgstr "稽核紀錄"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
-msgstr "<p>這些檔案會用於分析顯示 <b>Acpi 伺服程式的紀錄</b>。</p>"
+msgstr "<p>這些檔案會被分析後用於顯示<b>稽核紀錄</b>。</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "顯示列印系統紀錄。"
+msgstr "顯示稽核紀錄。"
 
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"在目前的分頁裡顯示系統紀錄。此紀錄通常是一些未特別指定紀錄檔的程式（如 sudo "
-"或 fsck 等）的紀錄。"
+"在目前的分頁裡顯示稽核紀錄。此紀錄通常是一些未特別指定紀錄檔的程式（如 sudo "
+"或 fsck 等命令）的紀錄。"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
