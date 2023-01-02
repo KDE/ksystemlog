@@ -1487,12 +1487,12 @@ msgstr ""
 #: src/mainWindow.cpp:699
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr "&Desplaça a les línies noves"
+msgstr "&Desplaça fins a les línies noves"
 
 #: src/mainWindow.cpp:700
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr "Desplaça o no a les línies noves quan canvia el registre"
+msgstr "Desplaça o no fins a les línies noves quan canvia el registre"
 
 #: src/mainWindow.cpp:702
 #, kde-format
@@ -1501,9 +1501,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"Desplaça o no a les línies noves quan canvia el registre. Marqueu esta opció "
-"si no voleu que l'aplicació es desplace automàticament a la part inferior "
-"del registre cada vegada que es refresque."
+"Desplaça o no fins a les línies noves quan canvia el registre. Marqueu esta "
+"opció si no voleu que l'aplicació es desplace automàticament a la part "
+"inferior del registre cada vegada que es refresque."
 
 #: src/mainWindow.cpp:762
 #, kde-format
