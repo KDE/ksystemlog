@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-02 09:18+0100\n"
+"PO-Revision-Date: 2023-01-03 09:14+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -774,7 +774,7 @@ msgstr ""
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
 msgid "Process Crashed"
-msgstr ""
+msgstr "პროცესი ავარიულად დასრულდა"
 
 #: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
 #: src/modes/apache/apacheAccessAnalyzer.cpp:21
@@ -921,13 +921,13 @@ msgstr "ჟურნალის ჩანაწერი"
 #: src/loggerDialogBase.ui:39
 #, kde-format
 msgid "&Message:"
-msgstr ""
+msgstr "&შეტყობინება:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, fileActivation)
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr ""
+msgstr "&ფაილის შემცველობა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
@@ -1002,7 +1002,7 @@ msgstr ""
 #: src/main.cpp:33
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr ""
+msgstr "(C) 2007-2015, Nicolas Ternisien"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1039,7 +1039,7 @@ msgstr "Bojan Djurkovic"
 #: src/main.cpp:44
 #, kde-format
 msgid "Log Printing"
-msgstr ""
+msgstr "ჟურნალის დაბეჭდვა"
 
 #: src/main.cpp:45
 #, kde-format
@@ -1049,7 +1049,7 @@ msgstr "Laurent Montel"
 #: src/main.cpp:45
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "შეცდომების გამართვა"
 
 #: src/main.cpp:58
 #, kde-format
@@ -1061,16 +1061,16 @@ msgstr "გასახსნელი დოკუმენტი."
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ხაზი."
+msgstr[1] "%1 ხაზი."
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ხაზი / სულ %2."
+msgstr[1] "%1 ხაზი / სულ %2."
 
 #: src/mainWindow.cpp:332
 #, kde-format
@@ -1126,12 +1126,12 @@ msgstr ""
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "&Print Selection..."
-msgstr ""
+msgstr "მონიშნულის &დაბეჭდვა..."
 
 #: src/mainWindow.cpp:534
 #, kde-format
 msgid "Print the selection"
-msgstr ""
+msgstr "მონიშნულის დაბეჭდვა"
 
 #: src/mainWindow.cpp:536
 #, kde-format
@@ -1172,12 +1172,12 @@ msgstr ""
 #: src/mainWindow.cpp:558
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr ""
+msgstr "KSystemLog-დან გასვლა"
 
 #: src/mainWindow.cpp:559
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr ""
+msgstr "KSystemLog-დან გასვლა."
 
 #: src/mainWindow.cpp:562
 #, kde-format
