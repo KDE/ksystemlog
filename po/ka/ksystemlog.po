@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-03 09:14+0100\n"
+"PO-Revision-Date: 2023-01-04 07:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -744,7 +744,7 @@ msgstr ""
 #: src/lib/logViewSearchWidgetBase.ui:85
 #, kde-format
 msgid "&Highlight all"
-msgstr ""
+msgstr "&ყველას გამოკვეთა"
 
 #. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
 #. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
@@ -899,7 +899,7 @@ msgstr ""
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "Execution problem"
-msgstr ""
+msgstr "გაშვების პრობლემა"
 
 #: src/loggerDialog.cpp:236
 #, kde-format
@@ -909,7 +909,7 @@ msgstr ""
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr ""
+msgstr "ფაილი არასწორია"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
@@ -1116,7 +1116,7 @@ msgstr "ჟურნალის გასუფთავება"
 #: src/mainWindow.cpp:529
 #, kde-format
 msgid "Open a file in KSystemLog"
-msgstr ""
+msgstr "ფაილის Ksystemlog-ში გახსნა"
 
 #: src/mainWindow.cpp:530
 #, kde-format
@@ -1194,12 +1194,12 @@ msgstr ""
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Ex&pand All"
-msgstr ""
+msgstr "&ყველას გაშლა"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Expand all categories"
-msgstr ""
+msgstr "ყველა კატეგორიის გაშლა"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1211,12 +1211,12 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "Col&lapse All"
-msgstr ""
+msgstr "&ყველას ჩაკეცვა"
 
 #: src/mainWindow.cpp:579
 #, kde-format
 msgid "Collapse all categories"
-msgstr ""
+msgstr "ყველა კატეგორიის ჩაკეცვა"
 
 #: src/mainWindow.cpp:581
 #, kde-format
@@ -1228,12 +1228,12 @@ msgstr ""
 #: src/mainWindow.cpp:587
 #, kde-format
 msgid "&Email Selection..."
-msgstr ""
+msgstr "&მონიშნულის ელფოსტით გაგზავნა..."
 
 #: src/mainWindow.cpp:589
 #, kde-format
 msgid "Send the selection by mail"
-msgstr ""
+msgstr "მონიშნულის ელფოსტით გაგზავნა"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1245,7 +1245,7 @@ msgstr ""
 #: src/mainWindow.cpp:597
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr ""
+msgstr "ჟურნალის ჩანაწერის &დამატება..."
 
 #: src/mainWindow.cpp:600
 #, kde-format
@@ -1262,7 +1262,7 @@ msgstr ""
 #: src/mainWindow.cpp:605
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის ყველა ხაზის მონიშვნა"
 
 #: src/mainWindow.cpp:607
 #, kde-format
@@ -1274,7 +1274,7 @@ msgstr ""
 #: src/mainWindow.cpp:618
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr ""
+msgstr "ფილტრის &ზოლის ჩვენება"
 
 #: src/mainWindow.cpp:624
 #, kde-format
@@ -1329,12 +1329,12 @@ msgstr "ჩანართის &მარცხნივ გადატან
 #: src/mainWindow.cpp:654
 #, kde-format
 msgid "Move the current tab to the left"
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარცხნივ გაწევა"
 
 #: src/mainWindow.cpp:655
 #, kde-format
 msgid "Moves the current tab to the left."
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარცხნივ გაწევა."
 
 #: src/mainWindow.cpp:660
 #, kde-format
@@ -1344,12 +1344,12 @@ msgstr "ჩანართის მა&რჯვნივ გადატან
 #: src/mainWindow.cpp:662
 #, kde-format
 msgid "Move the current tab to the right"
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარჯვნივ გაწევა"
 
 #: src/mainWindow.cpp:663
 #, kde-format
 msgid "Moves the current tab to the right."
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარჯვნივ გაწევა."
 
 #: src/mainWindow.cpp:668
 #, kde-format
@@ -1359,7 +1359,7 @@ msgstr "თავიდან ჩატვირთვა"
 #: src/mainWindow.cpp:670
 #, kde-format
 msgid "Reload the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის თავიდან ჩატვირთვა"
 
 #: src/mainWindow.cpp:671
 #, kde-format
@@ -1405,7 +1405,7 @@ msgstr ""
 #: src/mainWindow.cpp:699
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&ახალ ხაზებზე გადართვა"
 
 #: src/mainWindow.cpp:700
 #, kde-format
@@ -1728,6 +1728,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">აირჩიეთ ახალი ფაილი</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -1742,6 +1750,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">გახსნის ახალ ფანჯარას, "
+"სადაც სიაში ჩასამატებლად ახალი ფაილის არჩევა შეგიძლიათ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
@@ -1768,6 +1784,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების წაშლა</"
+"p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1782,6 +1806,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
 "on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">სიაში არჩეული ფაილების "
+"წაშლა.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
@@ -1802,6 +1834,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ყველა ფაილის წაშლა</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:106
@@ -1838,6 +1878,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების მაღლა "
+"აწევა</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -1875,6 +1923,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების დაბლა "
+"ჩამოწევა</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -2007,7 +2063,7 @@ msgstr "აირჩეთ ფაილის ტიპი"
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr ""
+msgstr "აირჩიეთ ამ ფაილის ტიპი:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2022,6 +2078,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">არსებული დონეების სია</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:43
@@ -2219,7 +2283,7 @@ msgstr "IPP სტატუსი"
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr ""
+msgstr "Cups -ს ვების ჟურნალი"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
