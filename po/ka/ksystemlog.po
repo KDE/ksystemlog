@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-04 07:42+0100\n"
+"PO-Revision-Date: 2023-01-05 05:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -314,7 +314,7 @@ msgstr "პარამეტრები"
 #: src/generalConfigurationWidgetBase.ui:118
 #, kde-format
 msgid "Remove process identifier from process name."
-msgstr ""
+msgstr "პროცესის სახელიდან იდენტიფიკატორის მოცილება."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:121
@@ -330,7 +330,7 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:124
 #, kde-format
 msgid "Remove &identifier from process name"
-msgstr ""
+msgstr "პროცესის სახელიდან &იდენტიფიკატორის მოცილება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
@@ -416,12 +416,12 @@ msgstr "'%1'-ის გახსნა..."
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr ""
+msgstr "ჟურნალის ფაილი '%1' წარმატებით ჩაიტვრთა."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr ""
+msgstr "ჟურნალის ფაილი '%1' შეიცვალა."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -471,7 +471,7 @@ msgstr "სასწრაფო"
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr ""
+msgstr "ჟურნალის დონის გამოტანა"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
@@ -558,7 +558,7 @@ msgstr "ჟურნალი წარმატებით ჩაიტვი�
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr ""
+msgstr "ბმული '%1' არასწორია. გამოტოვება."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -635,7 +635,7 @@ msgstr "მონიშნულია მეტისმეტად ბევ�
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
-msgstr ""
+msgstr "ჩემი პრობლემის ჟურნალის ხაზები"
 
 #: src/lib/logViewExport.cpp:191
 #, kde-format
