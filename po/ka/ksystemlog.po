@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2022-08-18 05:28+0200\n"
+"PO-Revision-Date: 2023-01-05 07:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,13 +32,13 @@ msgstr "Temuri.doghonadze@gmail.com"
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr ""
+msgstr "გაშვებისას ჟურნალის ამ რეჟიმში ჩატვირთვა."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr ""
+msgstr "ჟურნალის ხედის ხაზების ლიმიტი."
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
@@ -72,25 +72,25 @@ msgstr ""
 #: src/config/ksystemlog.kcfg:44
 #, kde-format
 msgid "Whether new lines are displayed."
-msgstr ""
+msgstr "ნაჩვენებია ახალი ხაზები, თუ არა."
 
 #. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:49
 #, kde-format
 msgid "Whether the filter bar is shown."
-msgstr ""
+msgstr "ნაჩვენები იქნება ფილტრის პანელი, თუ არა."
 
 #. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:54
 #, kde-format
 msgid "The date format of log lines."
-msgstr ""
+msgstr "ჟურნალის ხაზების თარიღის ფორმატი."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:71
 #, kde-format
 msgid "The Samba log file paths."
-msgstr ""
+msgstr "Samba-ის ჟურნალის ფაილის ბილიკები."
 
 #: src/configurationDialog.cpp:26
 #, kde-format
@@ -118,7 +118,7 @@ msgstr "&შემდეგი"
 #: src/detailDialogBase.ui:14
 #, kde-format
 msgid "Log Line Details"
-msgstr ""
+msgstr "ჟურნალის ჩანაწერის დეტალები"
 
 #. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:17
@@ -153,13 +153,13 @@ msgstr "_ხატულა"
 #: src/detailDialogBase.ui:70
 #, kde-format
 msgid "Main information"
-msgstr ""
+msgstr "მთავარი ინფორმაცია"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:100
 #, kde-format
 msgid "Move to the previous line"
-msgstr ""
+msgstr "წინა ხაზზე გადასვლა"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:103
@@ -179,7 +179,7 @@ msgstr "&უკან"
 #: src/detailDialogBase.ui:122
 #, kde-format
 msgid "Move to the next line"
-msgstr ""
+msgstr "შემდეგ ხაზზე გადასვლა"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, next)
 #: src/detailDialogBase.ui:125
@@ -199,13 +199,13 @@ msgstr "&წინ"
 #: src/detailDialogBase.ui:160
 #, kde-format
 msgid "Close the Detail dialog."
-msgstr ""
+msgstr "დეტალების ფანჯრის დახურვა."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:163
 #, kde-format
 msgid "Closes this Detail dialog."
-msgstr ""
+msgstr "დეტალების ფანჯრის დახურვა."
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:166
@@ -221,7 +221,7 @@ msgstr ""
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
 msgid "No Log Mode"
-msgstr ""
+msgstr "რეჟიმი ჟურნალის გარეშე"
 
 #: src/generalConfigurationWidget.cpp:74
 #, kde-format
@@ -239,7 +239,7 @@ msgstr "გაშვება"
 #: src/generalConfigurationWidgetBase.ui:26
 #, kde-format
 msgid "Load &this log mode at startup:"
-msgstr ""
+msgstr "გაშვებისას ჟურნალის ამ რეჟიმში ჩატვირთვა:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
@@ -259,13 +259,13 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:51
 #, kde-format
 msgid "Log Lines List"
-msgstr ""
+msgstr "ჟურნალის ხაზების სია"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
 #, kde-format
 msgid "&Maximum lines displayed:"
-msgstr ""
+msgstr "ნაჩვენები &ხაზების მაქსიმალური რაოდენობა:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
@@ -308,13 +308,13 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:112 src/loggerDialogBase.ui:206
 #, kde-format
 msgid "Options"
-msgstr ""
+msgstr "მორგება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:118
 #, kde-format
 msgid "Remove process identifier from process name."
-msgstr ""
+msgstr "პროცესის სახელიდან იდენტიფიკატორის მოცილება."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:121
@@ -330,7 +330,7 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:124
 #, kde-format
 msgid "Remove &identifier from process name"
-msgstr ""
+msgstr "პროცესის სახელიდან &იდენტიფიკატორის მოცილება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
@@ -352,31 +352,31 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:137
 #, kde-format
 msgid "&Colored log lines"
-msgstr ""
+msgstr "&გაფერადებული ჟურნალის ხაზები"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
 #: src/generalConfigurationWidgetBase.ui:147
 #, kde-format
 msgid "Date Format"
-msgstr ""
+msgstr "თარიღის ფორმატი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
 #: src/generalConfigurationWidgetBase.ui:156
 #, kde-format
 msgid "&Short date format"
-msgstr ""
+msgstr "&მოკლე თარიღის ფორმატი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
 #: src/generalConfigurationWidgetBase.ui:163
 #, kde-format
 msgid "&Long date format"
-msgstr ""
+msgstr "&გრძელი თარიღის ფორმატი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
 #, kde-format
 msgid "&Precise date format"
-msgstr ""
+msgstr "&ზუსტი თარიღის ფორმატი"
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -400,7 +400,7 @@ msgstr "&ფანჯარა"
 #: src/ksystemlogui.rc:53
 #, kde-format
 msgid "Logs Toolbar"
-msgstr ""
+msgstr "ჟურნალის პანელი"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
@@ -411,17 +411,17 @@ msgstr "ხელსაწყოთა მთავარი ზოლი"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr ""
+msgstr "'%1'-ის გახსნა..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr ""
+msgstr "ჟურნალის ფაილი '%1' წარმატებით ჩაიტვრთა."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr ""
+msgstr "ჟურნალის ფაილი '%1' შეიცვალა."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -471,7 +471,7 @@ msgstr "სასწრაფო"
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr ""
+msgstr "ჟურნალის დონის გამოტანა"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
@@ -481,45 +481,48 @@ msgstr ""
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr ""
+msgstr "ჩატვირთვის მიმდინარეობა..."
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
+msgstr[0] "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "იტვირთება <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ფაილი)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
+msgstr[0] "თავიდან იტვირთება <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] ""
+"თავიდან იტვირთება <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ფაილი)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "იტვირთება <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "თავიდან იტვირთება <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr ""
+msgstr "ფაილი არასწორია. მოირგეთ ის KSystemLog-ის პარამეტრებში."
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
 #, kde-format
 msgid "File Does Not Exist"
-msgstr ""
+msgstr "ფაილი არ არსებობს"
 
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr ""
+msgstr "ფაილი '%1' არ არსებობს."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
@@ -529,7 +532,7 @@ msgstr ""
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr ""
+msgstr "ფაილის გაშლის შეცდომა"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
@@ -539,23 +542,23 @@ msgstr ""
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
 msgid "Insufficient Permissions"
-msgstr ""
+msgstr "არასაკმარისი წვდომები"
 
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr ""
+msgstr "ჟურნაის ჩატვირთვა..."
 
 #: src/lib/logManager.cpp:92
 #, kde-format
 msgid "Log successfully loaded."
-msgstr ""
+msgstr "ჟურნალი წარმატებით ჩაიტვირთა."
 
 #: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr ""
+msgstr "ბმული '%1' არასწორია. გამოტოვება."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -606,12 +609,12 @@ msgstr "დონე:"
 #: src/modes/xsession/xsessionItemBuilder.cpp:40
 #, kde-format
 msgid "Original file:"
-msgstr ""
+msgstr "საწყისი ფაილი:"
 
 #: src/lib/logViewExport.cpp:43
 #, kde-format
 msgid "Here are my logs:\n"
-msgstr ""
+msgstr "ჩემი ჟურნალები:\n"
 
 #: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
 #, kde-format
@@ -627,12 +630,12 @@ msgstr ""
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid "Too Many Lines Selected"
-msgstr ""
+msgstr "მონიშნულია მეტისმეტად ბევრი ხაზი"
 
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
-msgstr ""
+msgstr "ჩემი პრობლემის ჟურნალის ხაზები"
 
 #: src/lib/logViewExport.cpp:191
 #, kde-format
@@ -644,6 +647,7 @@ msgstr ""
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
@@ -660,6 +664,7 @@ msgstr ""
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
@@ -669,7 +674,7 @@ msgstr ""
 #: src/lib/logViewExport.cpp:245
 #, kde-format
 msgid "Unable to save file."
-msgstr ""
+msgstr "ფაილის შენახვის შეცდომა."
 
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
@@ -694,7 +699,7 @@ msgstr "ფილტრი:"
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr ""
+msgstr "აირჩიეთ პრიორიტეტები"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
@@ -716,12 +721,12 @@ msgstr "ყველა"
 #: src/lib/logViewSearchWidget.cpp:158
 #, kde-format
 msgid "Reached end of list."
-msgstr ""
+msgstr "სიის დასასრული."
 
 #: src/lib/logViewSearchWidget.cpp:241
 #, kde-format
 msgid "Phrase not found."
-msgstr ""
+msgstr "ფრაზა ვერ ვიპოვე."
 
 #. i18n: ectx: property (text), widget (QLabel, searchLabel)
 #: src/lib/logViewSearchWidgetBase.ui:41
@@ -739,7 +744,7 @@ msgstr ""
 #: src/lib/logViewSearchWidgetBase.ui:85
 #, kde-format
 msgid "&Highlight all"
-msgstr ""
+msgstr "&ყველას გამოკვეთა"
 
 #. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
 #. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
@@ -769,7 +774,7 @@ msgstr ""
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
 msgid "Process Crashed"
-msgstr ""
+msgstr "პროცესი ავარიულად დასრულდა"
 
 #: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
 #: src/modes/apache/apacheAccessAnalyzer.cpp:21
@@ -894,7 +899,7 @@ msgstr ""
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "Execution problem"
-msgstr ""
+msgstr "გაშვების პრობლემა"
 
 #: src/loggerDialog.cpp:236
 #, kde-format
@@ -904,25 +909,25 @@ msgstr ""
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr ""
+msgstr "ფაილი არასწორია"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
 #, kde-format
 msgid "Log Message"
-msgstr ""
+msgstr "ჟურნალის ჩანაწერი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
 #: src/loggerDialogBase.ui:39
 #, kde-format
 msgid "&Message:"
-msgstr ""
+msgstr "&შეტყობინება:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, fileActivation)
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr ""
+msgstr "&ფაილის შემცველობა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
@@ -934,25 +939,25 @@ msgstr "თვისებები"
 #: src/loggerDialogBase.ui:101
 #, kde-format
 msgid "&Priority:"
-msgstr ""
+msgstr "&პრიორიტეტი:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: src/loggerDialogBase.ui:162
 #, kde-format
 msgid "&Facility:"
-msgstr ""
+msgstr "&დაწესებულება:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
 #, kde-format
 msgid "&Tag:"
-msgstr ""
+msgstr "&ჭდე:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr ""
+msgstr "&ჟურნალის პროცესის იდენტიფიკატორი"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
@@ -997,7 +1002,7 @@ msgstr ""
 #: src/main.cpp:33
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr ""
+msgstr "(C) 2007-2015, Nicolas Ternisien"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1034,7 +1039,7 @@ msgstr "Bojan Djurkovic"
 #: src/main.cpp:44
 #, kde-format
 msgid "Log Printing"
-msgstr ""
+msgstr "ჟურნალის დაბეჭდვა"
 
 #: src/main.cpp:45
 #, kde-format
@@ -1044,31 +1049,33 @@ msgstr "Laurent Montel"
 #: src/main.cpp:45
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "შეცდომების გამართვა"
 
 #: src/main.cpp:58
 #, kde-format
 msgid "Document to open."
-msgstr ""
+msgstr "გასახსნელი დოკუმენტი."
 
 #: src/mainWindow.cpp:308
 #, kde-format
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] ""
+msgstr[0] "1 ხაზი."
+msgstr[1] "%1 ხაზი."
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] ""
+msgstr[0] "1 ხაზი / სულ %2."
+msgstr[1] "%1 ხაზი / სულ %2."
 
 #: src/mainWindow.cpp:332
 #, kde-format
 msgid "Resu&me"
-msgstr ""
+msgstr "&გაგრძელება"
 
 #: src/mainWindow.cpp:334
 #, kde-format
@@ -1104,12 +1111,12 @@ msgstr ""
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
-msgstr ""
+msgstr "ჟურნალის გასუფთავება"
 
 #: src/mainWindow.cpp:529
 #, kde-format
 msgid "Open a file in KSystemLog"
-msgstr ""
+msgstr "ფაილის Ksystemlog-ში გახსნა"
 
 #: src/mainWindow.cpp:530
 #, kde-format
@@ -1119,12 +1126,12 @@ msgstr ""
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "&Print Selection..."
-msgstr ""
+msgstr "მონიშნულის &დაბეჭდვა..."
 
 #: src/mainWindow.cpp:534
 #, kde-format
 msgid "Print the selection"
-msgstr ""
+msgstr "მონიშნულის დაბეჭდვა"
 
 #: src/mainWindow.cpp:536
 #, kde-format
@@ -1165,12 +1172,12 @@ msgstr ""
 #: src/mainWindow.cpp:558
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr ""
+msgstr "KSystemLog-დან გასვლა"
 
 #: src/mainWindow.cpp:559
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr ""
+msgstr "KSystemLog-დან გასვლა."
 
 #: src/mainWindow.cpp:562
 #, kde-format
@@ -1187,12 +1194,12 @@ msgstr ""
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Ex&pand All"
-msgstr ""
+msgstr "&ყველას გაშლა"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Expand all categories"
-msgstr ""
+msgstr "ყველა კატეგორიის გაშლა"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1204,12 +1211,12 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "Col&lapse All"
-msgstr ""
+msgstr "&ყველას ჩაკეცვა"
 
 #: src/mainWindow.cpp:579
 #, kde-format
 msgid "Collapse all categories"
-msgstr ""
+msgstr "ყველა კატეგორიის ჩაკეცვა"
 
 #: src/mainWindow.cpp:581
 #, kde-format
@@ -1221,12 +1228,12 @@ msgstr ""
 #: src/mainWindow.cpp:587
 #, kde-format
 msgid "&Email Selection..."
-msgstr ""
+msgstr "&მონიშნულის ელფოსტით გაგზავნა..."
 
 #: src/mainWindow.cpp:589
 #, kde-format
 msgid "Send the selection by mail"
-msgstr ""
+msgstr "მონიშნულის ელფოსტით გაგზავნა"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1238,7 +1245,7 @@ msgstr ""
 #: src/mainWindow.cpp:597
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr ""
+msgstr "ჟურნალის ჩანაწერის &დამატება..."
 
 #: src/mainWindow.cpp:600
 #, kde-format
@@ -1255,7 +1262,7 @@ msgstr ""
 #: src/mainWindow.cpp:605
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის ყველა ხაზის მონიშვნა"
 
 #: src/mainWindow.cpp:607
 #, kde-format
@@ -1267,17 +1274,17 @@ msgstr ""
 #: src/mainWindow.cpp:618
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr ""
+msgstr "ფილტრის &ზოლის ჩვენება"
 
 #: src/mainWindow.cpp:624
 #, kde-format
 msgid "&New Tab"
-msgstr ""
+msgstr "&ახალი ჩანართი"
 
 #: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
-msgstr ""
+msgstr "ახალი ჩანართის შექმნა"
 
 #: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
 #, kde-format
@@ -1287,17 +1294,17 @@ msgstr ""
 #: src/mainWindow.cpp:632
 #, kde-format
 msgid "&Close Tab"
-msgstr ""
+msgstr "&ჩანართის დახურვა"
 
 #: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
-msgstr ""
+msgstr "მიმდინარე ჩანართის დახურვა"
 
 #: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
-msgstr ""
+msgstr "მიმდინარე ჩანართის დახურვა."
 
 #: src/mainWindow.cpp:640
 #, kde-format
@@ -1307,42 +1314,42 @@ msgstr "ჩანართის &დუბლირება"
 #: src/mainWindow.cpp:642
 #, kde-format
 msgid "Duplicate the current tab"
-msgstr ""
+msgstr "მიმდინარე ჩანართის დუბლირება"
 
 #: src/mainWindow.cpp:643
 #, kde-format
 msgid "Duplicates the current tab."
-msgstr ""
+msgstr "მიმდინარე ჩანართის დუბლირება."
 
 #: src/mainWindow.cpp:652
 #, kde-format
 msgid "Move Tab &Left"
-msgstr ""
+msgstr "ჩანართის &მარცხნივ გადატანა"
 
 #: src/mainWindow.cpp:654
 #, kde-format
 msgid "Move the current tab to the left"
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარცხნივ გაწევა"
 
 #: src/mainWindow.cpp:655
 #, kde-format
 msgid "Moves the current tab to the left."
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარცხნივ გაწევა."
 
 #: src/mainWindow.cpp:660
 #, kde-format
 msgid "Move Tab &Right"
-msgstr ""
+msgstr "ჩანართის მა&რჯვნივ გადატანა"
 
 #: src/mainWindow.cpp:662
 #, kde-format
 msgid "Move the current tab to the right"
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარჯვნივ გაწევა"
 
 #: src/mainWindow.cpp:663
 #, kde-format
 msgid "Moves the current tab to the right."
-msgstr ""
+msgstr "მიმდინარე ჩანართის მარჯვნივ გაწევა."
 
 #: src/mainWindow.cpp:668
 #, kde-format
@@ -1352,7 +1359,7 @@ msgstr "თავიდან ჩატვირთვა"
 #: src/mainWindow.cpp:670
 #, kde-format
 msgid "Reload the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის თავიდან ჩატვირთვა"
 
 #: src/mainWindow.cpp:671
 #, kde-format
@@ -1398,7 +1405,7 @@ msgstr ""
 #: src/mainWindow.cpp:699
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&ახალ ხაზებზე გადართვა"
 
 #: src/mainWindow.cpp:700
 #, kde-format
@@ -1431,7 +1438,7 @@ msgstr "ტიპი"
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
 msgid "Acpid Log"
-msgstr ""
+msgstr "Acpid -ის ჟურნალი"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
@@ -1447,12 +1454,12 @@ msgstr "ტიპი:"
 #: src/modes/acpid/acpidLogMode.cpp:19
 #, kde-format
 msgid "ACPI Log"
-msgstr ""
+msgstr "ACPI -ის ჟურნალი"
 
 #: src/modes/acpid/acpidLogMode.cpp:28
 #, kde-format
 msgid "Display the ACPI log."
-msgstr ""
+msgstr "ACPI-ის ჟურნალის ჩვენება."
 
 #: src/modes/acpid/acpidLogMode.cpp:30
 #, kde-format
@@ -1470,7 +1477,7 @@ msgstr "ჰოსტი"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Id."
-msgstr ""
+msgstr "Id."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:22
 #, kde-format
@@ -1480,12 +1487,12 @@ msgstr "პასუხი"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:23
 #, kde-format
 msgid "Bytes Sent"
-msgstr ""
+msgstr "გაგზავნილი ბაიტები"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:24
 #, kde-format
 msgid "Agent Identity"
-msgstr ""
+msgstr "აგენტის იდენტიფიკატორი"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:25
 #: src/modes/cups/cupsAccessAnalyzer.cpp:23
@@ -1520,7 +1527,7 @@ msgstr "მომხმარებელი:"
 #: src/modes/cups/cupsAccessItemBuilder.cpp:22
 #, kde-format
 msgid "HTTP Response:"
-msgstr ""
+msgstr "HTTP პასუხი:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:23
 #: src/modes/cups/cupsAccessItemBuilder.cpp:23
@@ -1531,7 +1538,7 @@ msgstr "გაგზავნილი ბაიტი:"
 #: src/modes/apache/apacheAccessItemBuilder.cpp:24
 #, kde-format
 msgid "Agent Identity:"
-msgstr ""
+msgstr "აგენტის იდენტიფიკატორი:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:25
 #, kde-format
@@ -1541,12 +1548,12 @@ msgstr "HTTP მოთხოვნა:"
 #: src/modes/apache/apacheAccessLogMode.cpp:21
 #, kde-format
 msgid "Apache Access Log"
-msgstr ""
+msgstr "Apache -ის წვდომის ჟრნალი"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
-msgstr ""
+msgstr "Apache-ის წვდომის ჟურნალის ჩვენება."
 
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
@@ -1565,7 +1572,7 @@ msgstr "კლიენტი"
 #: src/modes/apache/apacheLogMode.cpp:21
 #, kde-format
 msgid "Apache Log"
-msgstr ""
+msgstr "Apache -ის ჟურნალი"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:16
 #, kde-format
@@ -1577,22 +1584,22 @@ msgstr ""
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Apache Log Files"
-msgstr ""
+msgstr "Apache -ის ჟურნალის ფაილები"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr ""
+msgstr "Apache-ის ფაილის დამატება..."
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Apache Access Log Files"
-msgstr ""
+msgstr "Apache-ის წვდომის ჟურნალის ფაილი"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr ""
+msgstr "Apache-ის წვდომის ჟურნალის ფაილის დამატება..."
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1607,7 +1614,7 @@ msgstr "კლიენტი:"
 #: src/modes/apache/apacheLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache log."
-msgstr ""
+msgstr "Apache-ს ჟურნალის ჩვენება."
 
 #: src/modes/apache/apacheLogMode.cpp:31
 #, kde-format
@@ -1620,7 +1627,7 @@ msgstr ""
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
 #, kde-format
 msgid "Audit Log"
-msgstr ""
+msgstr "აუდიტის ჟურნალი"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, kde-format
@@ -1630,7 +1637,7 @@ msgstr ""
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
-msgstr ""
+msgstr "აუდიტის ჟურნალის ჩვენება."
 
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
@@ -1643,7 +1650,7 @@ msgstr ""
 #: src/modes/authentication/authenticationLogMode.cpp:19
 #, kde-format
 msgid "Authentication Log"
-msgstr ""
+msgstr "ავთენტიკაციის ჟურნალი"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:18
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
@@ -1654,12 +1661,12 @@ msgstr ""
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
 msgid "Authentication Log File"
-msgstr ""
+msgstr "ავთენტიკაციის ჟურნალის ფაილი"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:33
 #, kde-format
 msgid "Authentication log file:"
-msgstr ""
+msgstr "ავთენტიკაციის ჟურნალის ფაილი:"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:38
 #, kde-format
@@ -1721,6 +1728,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">აირჩიეთ ახალი ფაილი</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -1735,6 +1750,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">გახსნის ახალ ფანჯარას, "
+"სადაც სიაში ჩასამატებლად ახალი ფაილის არჩევა შეგიძლიათ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
@@ -1746,7 +1769,7 @@ msgstr "ფაილის &დამატება..."
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr ""
+msgstr "&ფაილის შეცვლა..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1761,6 +1784,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების წაშლა</"
+"p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1775,6 +1806,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
 "on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">სიაში არჩეული ფაილების "
+"წაშლა.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
@@ -1795,6 +1834,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ყველა ფაილის წაშლა</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:106
@@ -1815,7 +1862,7 @@ msgstr ""
 #: src/modes/base/multipleFileListBase.ui:108
 #, kde-format
 msgid "Rem&ove All"
-msgstr ""
+msgstr "&ყველას წაშლა"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:122
@@ -1831,6 +1878,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების მაღლა "
+"აწევა</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -1868,6 +1923,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ფაილების დაბლა "
+"ჩამოწევა</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -1940,12 +2003,12 @@ msgstr "დამატება"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr ""
+msgstr "'%1' ლოკალური ფაილი არაა."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
 msgid "File selection failed"
-msgstr ""
+msgstr "ფაილის არჩევის შეცდომა"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
@@ -1960,7 +2023,7 @@ msgstr "ჟურნალის ფაილები (*.log)"
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
 msgid "Choose Log File"
-msgstr ""
+msgstr "აირჩიეთ ჟურნალის ფაილი"
 
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
@@ -1970,7 +2033,7 @@ msgstr ""
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr ""
+msgstr "&სტატუსის შეცვლა..."
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -1994,13 +2057,13 @@ msgstr ""
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr ""
+msgstr "აირჩეთ ფაილის ტიპი"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr ""
+msgstr "აირჩიეთ ამ ფაილის ტიპი:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2015,6 +2078,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">არსებული დონეების სია</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:43
@@ -2043,7 +2114,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:410
 #, kde-format
 msgid "No log file..."
-msgstr ""
+msgstr "ჟურნალის ფაილის გარეშე..."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2146,7 +2217,7 @@ msgstr "ბრძანება"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr ""
+msgstr "Cron -ის ჟურნალი"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2158,7 +2229,7 @@ msgstr ""
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr ""
+msgstr "პროცესის გაფილტვრის ჩართვა"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
@@ -2168,7 +2239,7 @@ msgstr ""
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
 msgid "User:"
-msgstr ""
+msgstr "მომხმარებელი:"
 
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
@@ -2187,7 +2258,7 @@ msgstr ""
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
 msgid "Group"
-msgstr ""
+msgstr "ჯგუფი"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:24
 #, kde-format
@@ -2202,17 +2273,17 @@ msgstr "ბაიტი"
 #: src/modes/cups/cupsAccessAnalyzer.cpp:26
 #, kde-format
 msgid "IPP Operation"
-msgstr ""
+msgstr "IPP ოპერაცია"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:27
 #, kde-format
 msgid "IPP Status"
-msgstr ""
+msgstr "IPP სტატუსი"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr ""
+msgstr "Cups -ს ვების ჟურნალი"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
@@ -2244,7 +2315,7 @@ msgstr ""
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr ""
+msgstr "Cups -ის ჟურნალი"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
@@ -2261,7 +2332,7 @@ msgstr ""
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr ""
+msgstr "Cups -ის ჟურნალის ფაილები"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
@@ -2301,7 +2372,7 @@ msgstr ""
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
 msgid "Cups"
-msgstr ""
+msgstr "Cups"
 
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
@@ -2323,7 +2394,7 @@ msgstr "პრინტერი"
 #: src/modes/cups/cupsPageAnalyzer.cpp:22
 #, kde-format
 msgid "Job Id"
-msgstr ""
+msgstr "დავალების ID"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:23
 #, kde-format
@@ -2513,7 +2584,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "დაშორებული ჟურნალები"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
@@ -2541,7 +2612,7 @@ msgstr "Journald"
 #: src/modes/journald/journaldFactory.cpp:43
 #, kde-format
 msgid "Local journal"
-msgstr ""
+msgstr "ლოკალური ჟურნალი"
 
 #: src/modes/journald/journaldFactory.cpp:46
 #, kde-format
@@ -2615,17 +2686,17 @@ msgstr "კომპონენტი"
 #: src/modes/kernel/kernelItemBuilder.cpp:19
 #, kde-format
 msgid "Component:"
-msgstr ""
+msgstr "კომპონენტი:"
 
 #: src/modes/kernel/kernelLogMode.cpp:19
 #, kde-format
 msgid "Kernel Log"
-msgstr ""
+msgstr "ბირთვის ჟურნალი"
 
 #: src/modes/kernel/kernelLogMode.cpp:26
 #, kde-format
 msgid "Display the kernel log."
-msgstr ""
+msgstr "ბირთვის ჟურნალის ჩვენება."
 
 #: src/modes/kernel/kernelLogMode.cpp:28
 #, kde-format
@@ -2698,7 +2769,7 @@ msgstr ""
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
 msgid "Samba Access Log"
-msgstr ""
+msgstr "Samba -ის წვდომის ჟურნალი"
 
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
@@ -2732,7 +2803,7 @@ msgstr "ხაზი"
 #: src/modes/samba/sambaLogMode.cpp:23
 #, kde-format
 msgid "Samba Log"
-msgstr ""
+msgstr "Samba -ის ჟურნალი"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:16
 #, kde-format
@@ -2744,7 +2815,7 @@ msgstr ""
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Samba Log Files"
-msgstr ""
+msgstr "Samba -ის ჟურნალის ფაილები"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
@@ -2891,7 +2962,7 @@ msgstr "პროგრამა"
 #: src/modes/xsession/xsessionLogMode.cpp:19
 #, kde-format
 msgid "X Session Log"
-msgstr ""
+msgstr "X სესიის ჟურნალი"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:24
 #, kde-format
@@ -2917,13 +2988,13 @@ msgstr "<li><b>%1</b>: ...</li>"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
 #, kde-format
 msgid "X Session Log File"
-msgstr ""
+msgstr "X სესიის ჟურნალის ფაილი"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
 #, kde-format
 msgid "&Log file:"
-msgstr ""
+msgstr "&ჟურნალის ფაილი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -2972,7 +3043,7 @@ msgstr ""
 #: src/statusBar.cpp:54
 #, kde-format
 msgid "Last updated: %1."
-msgstr ""
+msgstr "ბოლო განახლება: %1."
 
 #. i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
 #. false), message));
@@ -2990,4 +3061,4 @@ msgstr "%1 (%2)"
 #: src/tabLogViewsWidget.cpp:74
 #, kde-format
 msgid "No Log"
-msgstr ""
+msgstr "ჟურნალის გარეშე"
