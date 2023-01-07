@@ -1,54 +1,89 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE"><!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+><!-- change language only here -->
 ]>
 
 <book id="ksystemlog" lang="&language;">
 
 <bookinfo>
-<title>The &ksystemlog; Handbook</title>
+<title
+>Das Handbuch zu &ksystemlog;</title>
 
 <authorgroup>
-	<author>
-		<firstname>Nicolas</firstname><surname>Ternisien</surname>
-		<affiliation>
-			<address><email>nicolas.ternisien@gmail.com</email></address>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
 		</affiliation>
 	</author>
 </authorgroup>
 
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Michael</firstname
+><surname
+>Mielewczik</surname
+><affiliation
+><address
+><email
+>Michael.MIelewczik@linux-technical.info</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
 
 <copyright>
-	<year>2008</year>
-	<holder>Nicolas Ternisien</holder>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
 </copyright>
 
-<legalnotice>&FDLNotice;</legalnotice>
+<legalnotice
+>&FDLNotice;</legalnotice>
 
-<date>2016-04-17</date>
-<releaseinfo>0.4 (Applications 16.04)</releaseinfo>
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Anwendungen 16.04)</releaseinfo>
 
 <abstract>
-<para>&ksystemlog; is a system log viewer tool by &kde;. This program is developed for beginner users
-who don't know how to find information about their system or where the log files are located.
-It is also designed for advanced users who want to quickly see problems occuring on their server.
-</para>
+<para
+>&ksystemlog; ist ein Betrachter für Systemprotokolle. Das Programm ist für unerfahrene Benutzer geeignet die nicht wissen, wo Sie Informationen über Ihr System erhalten können oder wo das System die verschiedenen Protokolldateien hinterlegt. Darüber hinaus ermöglicht &ksystemlog; erfahrenen Benutzern den schnellen Zugriff zum Beispiel auf Informationen über Probleme, die auf ihrem Server auftreten. </para>
 
 </abstract>
 
 <keywordset>
-	<keyword>KDE</keyword>
-	<keyword>logs</keyword>
-	<keyword>ksystemlog</keyword>
-	<keyword>security</keyword>
-	<keyword>cron</keyword>
-	<keyword>boot</keyword>
-	<keyword>ssh</keyword>
-	<keyword>postfix</keyword>
-	<keyword>apache</keyword>
-	<keyword>samba</keyword>
+	<keyword
+>KDE</keyword>
+	<keyword
+>Protokolldateien</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>Sicherheit</keyword>
+	<keyword
+>Cron</keyword>
+	<keyword
+>Boot</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>Postfix</keyword>
+	<keyword
+>Apache</keyword>
+	<keyword
+>Samba</keyword>
 </keywordset>
 
 </bookinfo>
@@ -65,32 +100,35 @@ Hide category submenus if they are empty
 Hide menu entries and actions for modes with missing log files
 -->
 <chapter id="using_ksystemlog">
-	<title>Using &ksystemlog;</title>
+	<title
+>&ksystemlog; verwenden</title>
 
 	<sect1 id="introduction">
-		<title>Introduction</title>
+		<title
+>Einführung</title>
 
 		<sect2>
-			<title>What is &ksystemlog; ?</title>
-			<para>&ksystemlog; is a system log viewer tool.</para>
+			<title
+>Was ist &ksystemlog;?</title>
+			<para
+>&ksystemlog; ist ein Betrachter für Systemprotokolle.</para>
 
-			<para>&ksystemlog; helps users understand what their machine does in the background. &ksystemlog; aims to simplify the reading of system log files. This program is developed for beginner users
-			who don't know how to find information about their system or where the log files are located in their computer.
-			</para>
+			<para
+>&ksystemlog; hilft Benutzern zu verstehen, was Ihr Rechner im Hintergrund macht. Die Aufgabe von &ksystemlog; ist eine vereinfachte Darstellung der Protokolldateien des eigenen Systems. Das Programm ist für unerfahrene Benutzer geeignet, die nicht wissen, wo Sie Informationen über Ihr System erhalten können oder wo das System die verschiedenen Protokolldateien hinterlegt. </para>
 
-			<para>
-			But it is also designed for advanced users who want to quickly see problems occuring on their server.
-			&ksystemlog; tries to provide some advanced features to allow sorting and reading logs from specifical programs.
-			</para>
+			<para
+>Darüber hinaus ermöglicht &ksystemlog; erfahrenen Benutzern den schnellen Zugriff zum Beispiel auf Informationen über Probleme, die auf ihrem Server auftreten. &ksystemlog; versucht daher einige erweiterte Funktionen bereitzustellen, mit deren Hilfe die Protokolldateien bestimmter Programme gefiltert und ausgewertet werden können. </para>
 
 			<screenshot>
-				<screeninfo>&ksystemlog; main screen</screeninfo>
+				<screeninfo
+>Hauptfenster von &ksystemlog;</screeninfo>
 				<mediaobject>
 					<imageobject>
 					<imagedata fileref="main-screen.png" format="PNG"/>
 					</imageobject>
 					<textobject>
-					<phrase>&ksystemlog; main screen</phrase>
+					<phrase
+>Hauptfenster von &ksystemlog;</phrase>
 					</textobject>
 				</mediaobject>
 			</screenshot>
@@ -98,47 +136,107 @@ Hide menu entries and actions for modes with missing log files
 		</sect2>
 
 		<sect2>
-			<title>Features</title>
+			<title
+>Funktionen</title>
 
-			<para>
-			In its current version, &ksystemlog; 0.4 has quite a number of helpful
-			features, such as:
-			</para>
-
-			<itemizedlist>
-				<listitem><simpara>Support for many different log files type, with the support of Syslog server formating, Samba</simpara></listitem>
-				<listitem><simpara>Tabbed view to display several logs at the same time</simpara></listitem>
-				<listitem><simpara>Reading one log mode from multiple sources</simpara></listitem>
-				<listitem><simpara>Auto-display of newly logged lines in bold</simpara></listitem>
-				<listitem><simpara>Group by different criteria (log level, log file, process, hour, ...)</simpara></listitem>
-				<listitem><simpara>Detailed information for each log lines</simpara></listitem>
-				<listitem><simpara>Adding a log entry manually</simpara></listitem>
-				<listitem><simpara>Filtering by priority</simpara></listitem>
-			</itemizedlist>
-
-			<para>
-				It supports the following log files from your system :
-			</para>
+			<para
+>In der aktuellen Version 0.4 besitzt &ksystemlog; eine Reihe von nützlichen Funktionen. Dazu gehören unter anderem: </para>
 
 			<itemizedlist>
-				<listitem><simpara>Syslog logs (system messages)</simpara></listitem>
-				<listitem><simpara>X.org logs</simpara></listitem>
-				<listitem><simpara>Kernel logs</simpara></listitem>
-				<listitem><simpara>Authentication logs</simpara></listitem>
-				<listitem><simpara>ACPID logs</simpara></listitem>
-				<listitem><simpara>Cups logs</simpara></listitem>
-				<listitem><simpara>Postfix logs</simpara></listitem>
-				<listitem><simpara>Apache logs</simpara></listitem>
-				<listitem><simpara>Samba logs</simpara></listitem>
-				<listitem><simpara>Daemons logs</simpara></listitem>
-				<listitem><simpara>Cron logs</simpara></listitem>
-				<listitem><simpara>XSessions logs</simpara></listitem>
-				<listitem><simpara>Systemd / Journald logs</simpara></listitem>
+				<listitem
+><simpara
+>Unterstützung für viele verschiedene Arten von Protokolldateien, für das Format des Syslog-Servers und für Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Anzeige verschiedener Protokolldateien in einzelnen Unterfenstern.</simpara
+></listitem>
+				<listitem
+><simpara
+>Lesen einer Protokolldatei aus mehreren Quellen</simpara
+></listitem>
+				<listitem
+><simpara
+>Neue Zeilen im Protokoll werden automatisch fettgedruckt angezeigt</simpara
+></listitem>
+				<listitem
+><simpara
+>Gruppierung nach verschiedenen Kriterien (Protokollstufe, Protokolldatei, Prozess, Zeit, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Ausführliche Informationen zu jeder Protokoll-Zeile</simpara
+></listitem>
+				<listitem
+><simpara
+>Manuelles Hinzufügen von Protokoll-Einträgen</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtern nach Priorität</simpara
+></listitem>
 			</itemizedlist>
 
-			<para>
-			Many other features are included and will be discussed in the appropriate chapters of this manual.
-			</para>
+			<para
+>&ksystemlog; kann folgende Protokolldateien auf Ihrem System überwachen: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog-Protokolle (Systemmeldungen)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Kernel-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Authentifizierungs-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>CUPS-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Dienste-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>XSession-Protokolle</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd- / Journald-Protokolldateien</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Viele andere Funktionen sind darüber hinaus ebenfalls enthalten und werden in den weiteren Kapiteln dieses Handbuchs erläutert. </para>
 
 		</sect2>
 
@@ -146,131 +244,158 @@ Hide menu entries and actions for modes with missing log files
 
 
 	<sect1 id="reading">
-		<title>Reading logs with &ksystemlog;</title>
+		<title
+>Protokolldateien mit &ksystemlog; lesen</title>
 
-		<para>
-		As you will see in the following screenshots, &ksystemlog; provides features to easily sort and filter log lines.
-		We are now going to describe them in the next parts of this documentation.
-		</para>
+		<para
+>Wie Sie in den folgenden Bildschirmfoto sehen, stellt &ksystemlog; Funktionen zur Verfügung, mit deren Hilfe sich die einzelnen Protokoll-Zeilen einer Protokolldatei leicht filtern und sortieren lassen. Die einzelnen Möglichkeiten zum Sortieren und Filtern werden im nächsten Kapitel dieses Handbuchs gezeigt. </para>
 
 		<sect2 id="getting_started">
-			<title>Getting started</title>
+			<title
+>Erste Schritte</title>
 
-			<para>
-			When you start &ksystemlog;, by default it tries to open the most useful log, the <guilabel>System Log</guilabel>.
-			If it does not display it and pops up a message box, you probably forgot to launch &ksystemlog; as an administrator user (commonly named root).
-			The log files are usually available in the /var/log folder, which is often protected against normal users.
-			In the settings dialog you can select another log to open at startup.
-			</para>
+			<para
+>Nach dem Start versucht &ksystemlog; in der Voreinstellung zunächst die wichtigste Protokolldatei des Systems - das <guilabel
+>Systemprotokoll</guilabel
+> - zu öffnen. Wird Ihnen diese nicht angezeigt, und es öffnet sich stattdessen ein kleines Nachrichtenfenster, so haben Sie &ksystemlog; sehr wahrscheinlich nicht mit Systemverwalterrechten gestartet. Die Protokolldateien finden sich unter Linux normalerweise im Ordner /var/log, für den normale Benutzer üblicherweise keine Berechtigung zum Lesen besitzen. Im Einrichtungsdialog können Sie eine andere Protokolldatei einstellen, die beim Programmstart geöffnet werden soll. </para>
 
 			<screenshot>
-				<screeninfo>&ksystemlog; first launch</screeninfo>
+				<screeninfo
+>Erster Start von &ksystemlog;</screeninfo>
 				<mediaobject>
 					<imageobject>
 					<imagedata fileref="first-opening.png" format="PNG"/>
 					</imageobject>
 					<textobject>
-					<phrase>&ksystemlog; first launch</phrase>
+					<phrase
+>Erster Start von &ksystemlog;</phrase>
 					</textobject>
 				</mediaobject>
 			</screenshot>
 		</sect2>
 
 		<sect2 id="easy_reading">
-			<title>Reading log files easily</title>
+			<title
+>Einfaches Lesen von Protokolldateien</title>
 
 			<sect3 id="sorting">
-				<title>Sorting log lines</title>
-				<para>
-				Every log lines are displayed in a list view, which can be sorted by clicking on the wanted column. Another click will sort it in the other order.
-				If you want to sort the list as it was on the first loading, you can use the <menuchoice><guimenu>Edit</guimenu><guimenuitem>Reload</guimenuitem></menuchoice> menu item, or simply
-				click on the first column of the list, generally named <guilabel>Date</guilabel>, to sort the list in the ascending order. Even if your log mode
-				does not use time to describe each log lines, for example the <guilabel>X.org Log</guilabel>, the list will be correctly sorted,
-				because &ksystemlog; keeps an internal order of the list.
-				</para>
+				<title
+>Sortierung von Protokollzeilen</title>
+				<para
+>Jede Zeile einer Protokolldatei wird in einer Listenansicht dargestellt. Die Einträge können durch Klicken auf den Titel der Spalte sortiert werden  Durch einen erneuten Klick auf den Titel der Spalte kann zwischen absteigender und aufsteigender Sortierung gewechselt werden. Möchten Sie zur ursprünglichen Sortierung zurückkehren, welche beim Öffnen der Protokoll-Datei genutzt wurde, wählen Sie im Menü <menuchoice
+><guimenu
+>Bearbeiten</guimenu
+><guimenuitem
+>Erneut laden</guimenuitem
+></menuchoice
+>. Alternativ dazu können Sie auch auf den Titel der ersten Spalte in der Liste klicken, der normalerweise mit <guilabel
+>Datum</guilabel
+> beschriftet ist. Die Sortierung erfolgt dann in aufsteigender Reihenfolge. Auch wenn Ihr Protokollierungs-Modus keine Zeitangaben für jede Protokoll-Zeile verwendet, wie beispielsweise beim <guilabel
+>X.org-Protokoll</guilabel
+>, erfolgt die Sortierung in korrekter Form, da &ksystemlog; die interne Reihenfolge beibehält. </para>
 			</sect3>
 
 			<sect3 id="filtering">
-				<title>Filtering log lines</title>
+				<title
+>Filtern von Protokollzeilen</title>
 
 				<screenshot>
-					<screeninfo>Filtering on a specific process</screeninfo>
+					<screeninfo
+>Filtern eines ausgewählten Prozesses</screeninfo>
 					<mediaobject>
 						<imageobject>
 						<imagedata fileref="filter-process.png" format="PNG"/>
 						</imageobject>
 						<textobject>
-						<phrase>Filtering on a specific process</phrase>
+						<phrase
+>Filtern eines ausgewählten Prozesses</phrase>
 						</textobject>
 					</mediaobject>
 				</screenshot>
 
-				<para>
-				You can also use the filter bar to filter according to the selected criteria and the typed string. Simply type something in the filter, and the list will automatically
-				be modified to only display lines which match your filter string. By default, the combo box next to the filter selects <guilabel>All</guilabel>, which means that
-				a line will be displayed only if one of its columns contains the filter string.
-				</para>
+				<para
+>Sie können auch die Filterleiste verwenden, um nach einem ausgewähltem Kriterium oder nach eingegebenen Zeichenfolgen zu filtern. Geben Sie dazu eine Zeichenfolge in die Filterleiste ein. Die Liste der Protokollzeilen wird nun automatisch verändert, sodass nur noch Protokollzeilen angezeigt werden, die zum ausgewählten Filter passen. In der Standardeinstellung enthält das Auswahlfeld neben dem Filter den Eintrag <guilabel
+>Alle</guilabel
+>. Dann wird eine Protokoll-Zeile nur angezeigt wird, wenn in einer der Spalten die Zeichenfolge des Filter-Suchbegriffs enthalten ist. </para>
 
-				<para>
-				You can select another field to filter only this column of the list. For example, in the <guilabel>System Log</guilabel>, by selecting
-				the <guilabel>Process</guilabel> column, and writing a process name in the filter bar, &ksystemlog; will display every log lines sent by this process.
-				</para>
+				<para
+>Sie können an dieser Stelle natürlich auch einen anderen Eintrag auswählen. Die Zeichenfolge des Filter-Suchbegriffs wird dann nur mit den Einträgen in der entsprechend ausgewählten Spalte abgeglichen. Wählen Sie zum Beispiel in der Protokolldatei <guilabel
+>Systemprotokoll</guilabel
+> die Spalte <guilabel
+>Prozess</guilabel
+> aus, und tragen Sie darüber hinaus in der Filterleiste den Namen eines Prozesses ein, so zeigt Ihnen &ksystemlog; alle Protokoll-Zeilen an, welche von diesem Prozess gesendet bzw. erstellt wurden. </para>
 			</sect3>
 
 		</sect2>
 
 		<sect2 id="other_features">
-			<title>Other features</title>
+			<title
+>Andere Funktionen</title>
 
 			<sect3 id="colorizing">
-				<title>Colorizing log lines</title>
+				<title
+>Farbige Darstellung von Protokollzeilen</title>
 
-				<para>
-				This option is activated by default and helps you see which lines have a higher level than the others. For example, <guilabel>Error</guilabel> level will be highlighted in a different color than the <guilabel>Notice</guilabel> one. This feature can be disabled in the configuration dialog.
-				</para>
+				<para
+>Diese Option ist in der Standardeinstellung aktiviert und hilft Ihnen, die wichtigen Protokoll-Zeilen zu erkennen.  Protokoll-Zeilen der Stufe <guilabel
+>Fehler</guilabel
+> werden mit einer auffälligeren Farbe als Protokoll-Zeilen der Stufe <guilabel
+>Hinweis</guilabel
+> angezeigt. Die farbige Darstellung von Protokoll-Zeilen kann Einrichtungsdialog abgeschaltet werden. </para>
 
 			</sect3>
 
 			<sect3 id="hiding_pid">
-				<title>Hiding the process identifier</title>
+				<title
+>Prozessidentifizierung ausblenden</title>
 
-				<para>
-				If you are only interested in a specific process (for example in the <guilabel>System Log</guilabel> or the <guilabel>Cron Log</guilabel>), you can hide its PID
-				in the <guilabel>Process</guilabel> column. This can be useful if you are trying to analyze the output of a specific command, like a Samba server. In this case, please use the <link linkend="filtering">Filter Bar</link>.
-				</para>
+				<para
+>Möchten Sie nur bestimmte Prozess anzeigen (beispielsweise im <guilabel
+>Systemprotokoll</guilabel
+> oder im <guilabel
+>Cron-Protokoll</guilabel
+>), so können Sie die Prozess-Identifikation (PID) in der Spalte <guilabel
+>Prozess</guilabel
+> ausblenden. Das kann zum Beispiel dann nützlich sein, wenn Sie die Ausgabe eines bestimmten Befehls wie zum Beispiel zum Start des Samba-Servers untersuchen möchten. In diesem Fall benutzen Sie <link linkend="filtering"
+>Filterleiste</link
+>. </para>
 
 			</sect3>
 			<sect3 id="send_email">
-				<title>Send logd via email</title>
-				<para>
-				The context menu has an action <guilabel>Email Selection</guilabel>. Select relevant lines in the log and use this action to open the composer window of your default email client prefilled with the selection.
-				</para>
+				<title
+>Protokolldaten als E-Mail senden</title>
+				<para
+>Im Kontextmenü gibt es eine Aktion <guilabel
+>Auswahl per E-Mail versenden</guilabel
+>. Wählen Sie wichtige Zeilen im Protokoll und verwenden Sie diese Aktion, um den E-Mail-Editor Ihres E-Mail-Programms mit der Auswahl dieser Zeilen zu öffnen. </para>
 
 			</sect3>
 		</sect2>
 	<sect2 id="monitoring_management">
-		<title>Monitoring Management</title>
+		<title
+>Überwachung verwalten</title>
 
-		<para>
-		&ksystemlog; provides an easy way to control the reading and the monitoring of log files. Indeed, sometimes you only need to analyze some existing log lines. In this case,
-		you cannot tolerate the appearance of a new line. You can deactivate the monitoring of log files by clicking on the <guibutton>Stop</guibutton>
-		button. This stops the opened log files from being updated while still letting them get filled by other processes. Of course, you can reactivate the monitoring by
-		clicking on <guibutton>Resume</guibutton>, which will display the log lines added since the last pause.
-		</para>
+		<para
+>&ksystemlog; stellt Ihnen eine einfache Möglichkeit zum Lesen und Überwachen Ihrer Protokolldateien zur Verfügung. Natürlich ist es in einigen Fällen lediglich nötig, bereits vorhandene Zeilen vorhandener Protokolldateien zu analysieren. In diesem Fall nützt es Ihnen nichts, wenn neu hinzukommende Zeilen in den Protokolldateien ebenfalls angezeigt werden. &ksystemlog; gibt Ihnen daher die Möglichkeit, die Überwachung von Protokolldateien zu deaktivieren. Klicken Sie dazu auf den Knopf <guibutton
+>Anhalten</guibutton
+> in der Werkzeugleiste. Durch diese Einstellung werden alle geöffneten Protokolldateien geschlossen, die Protokolldateien selbst jedoch werden weiter von anderen Prozessen gefüllt, ohne dass Sie diese Änderungen jedoch auslesen. Natürlich können Sie die Überwachung auch wieder aktivieren. Klicken Sie dazu auf den Knopf <guibutton
+>Erneut laden</guibutton
+>, so werden Ihnen auch neue Protokoll-Zeilen angezeigt. </para>
 
-		<para>
-		Furthermore, to focus on the newly appeared log lines, you can toggle the <guimenuitem>Scroll to New Lines</guimenuitem> option.
-		</para>
+		<para
+>Darüber hinaus können Sie die Option <guimenuitem
+>Zu neuen Zeilen springen</guimenuitem
+> im Kontextmenü des Hauptfensters aktivieren, um sich alle neuen hinzukommenden Protokoll-Zeilen anzeigen zu lassen. </para>
 	</sect2>
 
 	<sect2 id="multiple_logs">
-		<title>Management of several opened tabs</title>
+		<title
+>Verwaltung mehrerer geöffneter Unterfenster</title>
 
-		<para>
-		&ksystemlog; allows you to open several log modes by opening multiple tabs. For this, simply use the <guimenu>Window</guimenu> menu to manage and open
-		new tabs. Once you have selected the right tab, simply choose the desired log mode using the dedicated menu.
-
-		</para>
+		<para
+>&ksystemlog; ermöglicht die Anzeige mehrerer Protokolldateien in getrennten Unterfenstern. Um diese Funktion zu nutzen, verwenden Sie die Einträge im Menü <guimenu
+>Fenster</guimenu
+> um zusätzliche Unterfenster zu öffnen und zu verwalten. Sobald Sie ein Unterfenster ausgewählt haben, wählen Sie im Menü ein Protokoll zur Anzeige aus. </para>
 	</sect2>
 	</sect1>
 
@@ -278,29 +403,37 @@ Hide menu entries and actions for modes with missing log files
 
 <chapter id="credits">
 
-	<title>Credits and License</title>
+	<title
+>Danksagungen und Lizenz</title>
 
-	<para>&ksystemlog;</para>
-	<para>
-	&ksystemlog;, Copyright 2008 by Nicolas Ternisien
-	</para>
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 Nicolas Ternisien </para>
 
-	<para>Contributors:</para>
+	<para
+>Mitwirkende:</para>
 	<itemizedlist>
-		<listitem><simpara>Patrick Dreker : Ideas, Code Improvements.</simpara></listitem>
-		<listitem><simpara>Bojan : SSH Log mode, Printing.</simpara></listitem>
+		<listitem
+><simpara
+>Patrick Dreker : Ideen und Programmcode-Verbesserungen.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : SSH-Protokollmodus, Drucken.</simpara
+></listitem>
 	</itemizedlist>
 
 	<para>
-		<emphasis>Special thanks to all translators of &ksystemlog;.</emphasis>
+		<emphasis
+>Besonderer Dank an alle Übersetzer von &ksystemlog;.</emphasis>
 	</para>
 
-	<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
-	&underFDL;           <!-- FDL: do not remove -->
-	&underGPL;        	 <!-- GPL License -->
-
-</chapter>
+	<para
+>Übersetzung Michael Mielewczik <email
+>Michael.MIelewczik@linux-technical.info</email
+></para
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
