@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-06 06:29+0100\n"
+"PO-Revision-Date: 2023-01-07 07:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1033,7 +1033,7 @@ msgstr "Vyacheslav Matyushin"
 #: src/main.cpp:43
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr ""
+msgstr "Journald -ის რეჟიმი, შეცდომების გასწორება"
 
 #: src/main.cpp:44
 #, kde-format
@@ -1084,7 +1084,7 @@ msgstr "&გაგრძელება"
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის ყურების გაგრძელება"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1101,7 +1101,7 @@ msgstr "&გაჩერება"
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
-msgstr ""
+msgstr "მიმდინარე ჟურნალის ყურების შეჩერება"
 
 #: src/mainWindow.cpp:345
 #, kde-format
@@ -1254,7 +1254,7 @@ msgstr "ჟურნალის ჩანაწერის &დამატე
 #: src/mainWindow.cpp:600
 #, kde-format
 msgid "Add a log entry to the log system"
-msgstr ""
+msgstr "ჟურნალის სისტემაში ჩანაწერის დამატება"
 
 #: src/mainWindow.cpp:601
 #, kde-format
@@ -1711,7 +1711,7 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
 #, kde-format
 msgid "File List Description"
-msgstr ""
+msgstr "ფაილების სიის აღწერა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
@@ -2306,7 +2306,7 @@ msgstr ""
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
 msgid "debug 2"
-msgstr ""
+msgstr "გამართვა 2"
 
 #: src/modes/cups/cupsAnalyzer.cpp:76
 #, kde-format
@@ -2341,37 +2341,37 @@ msgstr "Cups -ის ჟურნალის ფაილები"
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr ""
+msgstr "Cups-ის ფაილის დამატება..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr ""
+msgstr "Cups-ის წვდომის ჟურნალის ფაილი"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr ""
+msgstr "Cups-ის წვდომის ფაილის დამატება..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr ""
+msgstr "Cups-ის გვერდის ჟურნალის ფაილები"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr ""
+msgstr "Cups-ის გვერდის ფაილის დამატება..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr ""
+msgstr "Cups-ის PDF ჟურნალის ფაილები"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr ""
+msgstr "Cups-ის PDF ფაილის დამატება..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2381,7 +2381,7 @@ msgstr "Cups"
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
-msgstr ""
+msgstr "Cups-ის ჟურნალის ჩვენება."
 
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
@@ -2408,7 +2408,7 @@ msgstr "გვერდის ნომერი"
 #: src/modes/cups/cupsPageAnalyzer.cpp:24
 #, kde-format
 msgid "Num Copies"
-msgstr ""
+msgstr "ასლების რაოდენობა"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:25
 #, kde-format
@@ -2423,17 +2423,17 @@ msgstr "პრინტერი:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:21
 #, kde-format
 msgid "Job Id:"
-msgstr ""
+msgstr "დავალები Id:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:22
 #, kde-format
 msgid "Page Number:"
-msgstr ""
+msgstr "გვერდის ნომერი:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:23
 #, kde-format
 msgid "Num Copies:"
-msgstr ""
+msgstr "ასლების რაოდენობა:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:24
 #, kde-format
@@ -2443,7 +2443,7 @@ msgstr ""
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr ""
+msgstr "Cups-ის გვერდის ჟურნალი"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
@@ -2466,7 +2466,7 @@ msgstr "შეტყობინება:"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr ""
+msgstr "Cups-ის PDF ჟურნალი"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
@@ -2485,7 +2485,7 @@ msgstr ""
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
-msgstr ""
+msgstr "დემონის ჟურნალები"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
@@ -2536,7 +2536,7 @@ msgstr "ერთეული"
 #: src/modes/journald/journaldLogMode.cpp:22
 #, kde-format
 msgid "Journald Log"
-msgstr ""
+msgstr "Journald -ის ჟურნალი"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:78
 #: src/modes/journald/journaldConfigurationWidget.cpp:110
@@ -2547,18 +2547,18 @@ msgstr "ჩაირთო"
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "დაშორებული ჟურნალის დამატება"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "დაშორებული ჟურნალის მორგება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "Journald -ის მორგება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
@@ -2734,7 +2734,7 @@ msgstr ""
 #: src/modes/postfix/postfixLogMode.cpp:20
 #, kde-format
 msgid "Postfix Log"
-msgstr ""
+msgstr "Postfix -ის ჟურნალი"
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:14
 #, kde-format
@@ -2744,7 +2744,7 @@ msgstr ""
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
 msgid "Display the Postfix log."
-msgstr ""
+msgstr "Postfix -ის ჟურნალის ჩვენება."
 
 #: src/modes/postfix/postfixLogMode.cpp:31
 #, kde-format
@@ -2756,12 +2756,12 @@ msgstr ""
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr ""
+msgstr "Netbios -ის ჟურნალი"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr ""
+msgstr "Netbios -ის ჟურნალის ჩვენება."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -2824,7 +2824,7 @@ msgstr "Samba -ის ჟურნალის ფაილები"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr ""
+msgstr "Samba-ის ფაილის დამატება..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
