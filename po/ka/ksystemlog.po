@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-07 07:38+0100\n"
+"PO-Revision-Date: 2023-01-13 09:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -480,7 +480,7 @@ msgstr "ჟურნალის დონის გამოტანა"
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr ""
+msgstr "აირჩიეთ, ჟურნალის რომელი დონე იქნება გამოტანილი ფერადად."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
@@ -541,7 +541,7 @@ msgstr "ფაილის გაშლის შეცდომა"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr ""
+msgstr "'%1'-ის წასაკითხად საკმარისი წვდომის უფლებები არ გაგაჩნიათ."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -650,8 +650,8 @@ msgstr ""
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ჟურნალის 1 ხაზი დაკოპირდა ბუფერში."
+msgstr[1] "ჟურნალის %1 ხაზი დაკოპირდა ბუფერში."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
@@ -661,19 +661,19 @@ msgstr ""
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr ""
+msgstr "ჟურნალის მონიშნული ჩანაწერების გატანა..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 ჟურნალის ხაზი შენახულია, როგორც '%2'."
+msgstr[1] "%1 ჟურნალის ხაზი შენახულია, როგორც '%2'."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr ""
+msgstr "ფაილის '%1' შენახვის შეცდომა: წვდომა აკრძალულია."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
@@ -683,7 +683,7 @@ msgstr "ფაილის შენახვის შეცდომა."
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
 msgid "Type your filter here"
-msgstr ""
+msgstr "თქვენი ფილტრი აქ აკრიფეთ"
 
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
@@ -796,7 +796,7 @@ msgstr "ავთენტიკაცია"
 #: src/loggerDialog.cpp:94
 #, kde-format
 msgid "Private Authentication"
-msgstr ""
+msgstr "პირადი ავთენტიკაცია"
 
 #: src/loggerDialog.cpp:95
 #, kde-format
@@ -908,7 +908,7 @@ msgstr "გაშვების პრობლემა"
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "This file does not exist, please choose another."
-msgstr ""
+msgstr "ეს ფაილი არ არსებობს. სხვა აირჩიეთ."
 
 #: src/loggerDialog.cpp:236
 #, kde-format
@@ -979,7 +979,7 @@ msgstr ""
 #: src/loggerDialogBase.ui:296
 #, kde-format
 msgid "<a href=\"man:/logger\">Logger Manual</a>"
-msgstr ""
+msgstr "<a href=\"man:/logger\">ჟურნალის სახელმძღვანელო</a>"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonOK)
 #: src/loggerDialogBase.ui:322
@@ -1001,7 +1001,7 @@ msgstr "KSystemlog"
 #: src/main.cpp:31
 #, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr ""
+msgstr "სისტემის ჟურნალის დამთვალიერებელი KDE-სგან"
 
 #: src/main.cpp:33
 #, kde-format
@@ -1660,7 +1660,7 @@ msgstr "ავთენტიკაციის ჟურნალი"
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr ""
+msgstr "ჟურნალის ფაილი არ არსებობს. რეჟმი მიუწვდომელია."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
@@ -1690,7 +1690,7 @@ msgstr ""
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
-msgstr ""
+msgstr "ავთენტიკაციის ჟურნალის ჩვენება."
 
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
@@ -2042,7 +2042,7 @@ msgstr "&სტატუსის შეცვლა..."
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr ""
+msgstr "მიმდინარე ფაილების დონის შეცვლა"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -2139,6 +2139,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
 "of the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">სიის მონიშნული ფაილების "
+"წაშლა.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
@@ -2153,6 +2161,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
 "list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">სიიდან ყველა ფაილის წაშლა "
+"მაშინაც კი, როცა ისინი მონიშნული არაა.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/multipleFileListBase.ui:127
@@ -2168,6 +2184,14 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მონიშნული ფაილების <span "
+"style=\" font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2570,7 +2594,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "ჟურნალის ყველა ფაილის ჩვენება"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
@@ -2728,7 +2752,7 @@ msgstr ""
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
 msgid "Unable to open this file."
-msgstr ""
+msgstr "ამ ფაილის გახსნის შეცდომა."
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:10
 #: src/modes/postfix/postfixLogMode.cpp:20
@@ -2778,7 +2802,7 @@ msgstr "Samba -ის წვდომის ჟურნალი"
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr ""
+msgstr "Samba-ის წვდომის ჟურნალის ჩვენება."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
@@ -2829,22 +2853,22 @@ msgstr "Samba-ის ფაილის დამატება..."
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Samba Access Log Files"
-msgstr ""
+msgstr "Samba -ის წვდომის ჟურნალის ფაილები"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr ""
+msgstr "Samba-ის წვდომის ფაილის დამატება..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr ""
+msgstr "Netbios -ის ჟურნალის ფაილები"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr ""
+msgstr "Netbios -ის ფაილის დამატება..."
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -2869,7 +2893,7 @@ msgstr "ხაზი:"
 #: src/modes/samba/sambaLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba log."
-msgstr ""
+msgstr "Samba-ის ჟურნალის ჩვენება."
 
 #: src/modes/samba/sambaLogMode.cpp:33
 #, kde-format
@@ -2892,7 +2916,7 @@ msgstr ""
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
 msgid "Display the system log."
-msgstr ""
+msgstr "სისტემის ჟურნალის ჩვენება."
 
 #: src/modes/system/systemLogMode.cpp:31
 #, kde-format
@@ -2909,17 +2933,17 @@ msgstr ""
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
 msgid "From config file"
-msgstr ""
+msgstr "კონფიგურაციის ფაილიდან"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr ""
+msgstr "ნაგულისხმები პარამეტრი"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
 msgid "From command Line"
-msgstr ""
+msgstr "ბრძანებების სტრიქონიდან"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:85
 #, kde-format
@@ -2930,7 +2954,7 @@ msgstr "განხორციელებული არაა"
 #: src/modes/xorg/xorgLogMode.cpp:19
 #, kde-format
 msgid "X.org Log"
-msgstr ""
+msgstr "X.org -ის ჟურნალი"
 
 #: src/modes/xorg/xorgConfigurationWidget.cpp:15
 #, kde-format
@@ -2941,12 +2965,12 @@ msgstr ""
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #, kde-format
 msgid "none"
-msgstr ""
+msgstr "არცერთი"
 
 #: src/modes/xorg/xorgLogMode.cpp:28
 #, kde-format
 msgid "Display the X.org log."
-msgstr ""
+msgstr "X.org -ის ჟურნალის ჩვენება."
 
 #: src/modes/xorg/xorgLogMode.cpp:30
 #, kde-format
@@ -3006,13 +3030,13 @@ msgstr "&ჟურნალის ფაილი:"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr ""
+msgstr "ჩართეთ Xorg-ის შეცდომების პარამეტრების დასამალად"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr ""
+msgstr "Xorg -ის შეცდომების გამოტოვება"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
@@ -3031,7 +3055,7 @@ msgstr "პროგრამა:"
 #: src/modes/xsession/xsessionLogMode.cpp:28
 #, kde-format
 msgid "Display the X Session log."
-msgstr ""
+msgstr "X -ის სესიის ჟურნალის ჩვენება."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
 #, kde-format
