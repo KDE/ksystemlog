@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2008-2010.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2022-12-11 20:18+0300\n"
+"PO-Revision-Date: 2023-01-18 22:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -715,7 +715,7 @@ msgstr "Süzgecinizi buraya yazın"
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
 msgid "Allows you to only list items that match the content of this text."
-msgstr "Sadece metin içeriği ile eşleşenlerin listelenmesine izin verir."
+msgstr "Yalnızca metin içeriği ile eşleşenlerin listelenmesine izin verir."
 
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
@@ -743,8 +743,8 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"Sadece belirli sütunlara filtrenin uygulanmasına izin verir. \"<i>Tamamı</i>"
-"\" Süzgeç olmayan sütun anlamına gelir."
+"Yalnızca belirli sütunlara filtrenin uygulanmasına izin verir. \"<i>Tamamı</"
+"i>\" Süzgeç olmayan sütun anlamına gelir."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -1125,8 +1125,8 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
-"Güncel günlük kaydını izlemeyi sürdürün. Bu işlem sadece kullanıcı izlemeyi "
-"duraklattığında olanaklı olabilir."
+"Güncel günlük kaydını izlemeyi sürdürün. Bu işlem yalnızca kullanıcı "
+"izlemeyi duraklattığında olanaklı olabilir."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1257,7 +1257,7 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
-"Bu işlem bütün temel kategorileri açar. Bu seçenek sadece menüden <b>Group "
+"Bu işlem bütün temel kategorileri açar. Bu seçenek yalnızca menüden <b>Group "
 "By</b> seçildiğinde kullanılabilir."
 
 #: src/mainWindow.cpp:578
@@ -1276,7 +1276,7 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
-"Bu işlem bütün temel kategorileri kapatır. Bu seçenek sadece menüden "
+"Bu işlem bütün temel kategorileri kapatır. Bu seçenek yalnızca menüden "
 "<b>Group By</b> seçildiğinde kullanılabilir."
 
 #: src/mainWindow.cpp:587
@@ -2436,7 +2436,7 @@ msgstr "Süreç Süzmeyi Etkinleştir"
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr "Sadece bu süreç ile eşleşen satırları sakla :"
+msgstr "Yalnızca bu süreç ile eşleşen satırları sakla :"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
@@ -2790,7 +2790,7 @@ msgstr "Journald seçenekleri"
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr "Sadece bu ön yüklemedeki günlük girdilerini göster"
+msgstr "Yalnızca bu ön yüklemedeki günlük girdilerini göster"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
