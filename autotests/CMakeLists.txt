@@ -12,7 +12,7 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/modes/kernel
 )
 
-add_library(testCore STATIC testUtil.cpp testResources.qrc )
+add_library(testCore STATIC testUtil.cpp testUtil.h testResources.qrc )
 target_link_libraries(testCore PUBLIC
     Qt${QT_MAJOR_VERSION}::Test
     ksystemlog_lib
