@@ -3,36 +3,37 @@
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
 # Yasen Pramatarov <yasen@lindeas.com>, 2011.
+# Mincho Kondarev <mkondarev@yahoo.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2011-07-20 15:59+0300\n"
-"Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
-"Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
+"PO-Revision-Date: 2023-01-18 14:18+0100\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
+"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Минчо Кондарев"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mkondarev@yahoo.de"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr ""
+msgstr "Зареждане на този журнален режим при стартиране."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
@@ -228,7 +229,7 @@ msgid "No Log Mode"
 msgstr "Няма лог"
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -395,9 +396,9 @@ msgstr "&Дълъг формат на датата"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Precise date format"
-msgstr "&Кратък формат на датата"
+msgstr "&Прецизен формат на датата"
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -425,9 +426,9 @@ msgstr "Лента с инструменти за главните логове"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
-msgstr "Лента с инструменти за главните логове"
+msgstr "Главна лента с инструменти"
 
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
@@ -1024,9 +1025,9 @@ msgid "System Logs Viewer by KDE"
 msgstr "Инструмент за преглед на системните логове в KDE"
 
 #: src/main.cpp:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(C) 2007, Nicolas Ternisien"
+msgstr "(C) 2007-2015, Nicolas Ternisien"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1068,7 +1069,7 @@ msgstr "Отпечатване ниво на лог"
 #: src/main.cpp:45
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:45
 #, kde-format
@@ -1173,9 +1174,9 @@ msgstr ""
 "да отпечатате."
 
 #: src/mainWindow.cpp:541
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Печат на избраното..."
+msgstr "&Предварителен преглед на избраното..."
 
 #: src/mainWindow.cpp:542
 #, fuzzy, kde-format
@@ -2448,12 +2449,12 @@ msgstr "Отваряне на местоположение"
 #: src/modes/cups/cupsAccessAnalyzer.cpp:27
 #, kde-format
 msgid "IPP Status"
-msgstr ""
+msgstr "Състояние на IPP"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cups Web Log"
-msgstr "&CUPS уеб лог"
+msgstr "CUPS уеб лог"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
@@ -2697,7 +2698,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:71
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 #. i18n: ectx: property (text), widget (QLabel, portLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2705,18 +2706,18 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Включване"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
@@ -2728,7 +2729,7 @@ msgstr "Лог на ядрото"
 #: src/modes/journald/journaldConfigurationWidget.cpp:110
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Вкл."
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
@@ -2805,9 +2806,9 @@ msgid "Local journal"
 msgstr "Локално 0"
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "All messages"
-msgstr "Съобщение"
+msgstr "Всички съобщения"
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
@@ -2824,17 +2825,17 @@ msgstr ""
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
 msgid "Connect"
-msgstr ""
+msgstr "Свързване"
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Priority:"
-msgstr "&Приоритет:"
+msgstr "Приоритет:"
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
 msgid "Unit:"
-msgstr ""
+msgstr "Единица:"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:154
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
@@ -2861,12 +2862,12 @@ msgstr "Дублира текущия подпрозорец."
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "Свързан"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:145
 #, kde-format
 msgid "Connection error"
-msgstr ""
+msgstr "Грешка при свързване"
 
 #: src/modes/kernel/kernelAnalyzer.cpp:21
 #, kde-format
@@ -3220,7 +3221,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr ""
+msgstr "Игнориране на грешките в Xorg"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66

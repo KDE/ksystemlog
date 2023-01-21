@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-13 09:17+0100\n"
+"PO-Revision-Date: 2023-01-20 08:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -220,7 +220,7 @@ msgstr "დაკე&ტვა"
 #: src/generalConfigurationWidget.cpp:30
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
-msgstr ""
+msgstr "ეს რეჟიმი ხელმიუწვდომელია, რადგან მისი ჟურნალის ფაილები არ არსებობს."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
@@ -249,7 +249,7 @@ msgstr "გაშვებისას ჟურნალის ამ რეჟ
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr ""
+msgstr "ჟურნალის რეჟიმი, რომელიც გაშვებისას ავტომატურად იტვირთება"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -644,7 +644,7 @@ msgstr "ჩემი პრობლემის ჟურნალის ხა
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr ""
+msgstr "ჩანაწერები მონიშნული არაა. ბუფერში არაფერი დაკოპირებულა."
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
@@ -656,7 +656,7 @@ msgstr[1] "ჟურნალის %1 ხაზი დაკოპირდა 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
-msgstr ""
+msgstr "ჩანაწერები მონიშნული არაა. აირჩიეთ შესანახ ჩანაწერები."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
@@ -689,6 +689,8 @@ msgstr "თქვენი ფილტრი აქ აკრიფეთ"
 #, kde-format
 msgid "Allows you to only list items that match the content of this text."
 msgstr ""
+"საშუალებას გაძლევთ, ნახოთ მხოლოდ ჩანაწერები, რომლებიც ამ ტექსტის შემცველობას "
+"ემთხვევა."
 
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
@@ -898,7 +900,7 @@ msgstr "ბრძანება ნაპოვნი არაა"
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr ""
+msgstr "ბრძანებამ 'logger' მუშაობა ავარიულად დაასრულა."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
@@ -967,13 +969,13 @@ msgstr "&ჟურნალის პროცესის იდენტიფ
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr ""
+msgstr "'logger' ბრძანების სახელმძღვანელოს გახსნა."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr ""
+msgstr "'logger' ბრძანების სახელმძღვანელოს გახსნა."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
@@ -1147,12 +1149,12 @@ msgstr ""
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr ""
+msgstr "&დაბეჭდვის გადახედვის არჩევანი..."
 
 #: src/mainWindow.cpp:542
 #, kde-format
 msgid "Print preview the selection"
-msgstr ""
+msgstr "დაბეჭდვის გადახედვის არჩევანი"
 
 #: src/mainWindow.cpp:544
 #, kde-format
@@ -1164,7 +1166,7 @@ msgstr ""
 #: src/mainWindow.cpp:550
 #, kde-format
 msgid "Save the selection to a file"
-msgstr ""
+msgstr "მონიშნულის ფაილში შენახვა"
 
 #: src/mainWindow.cpp:552
 #, kde-format
@@ -1186,7 +1188,7 @@ msgstr "KSystemLog-დან გასვლა."
 #: src/mainWindow.cpp:562
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr ""
+msgstr "მონიშნულის ბუფერში კოპირება"
 
 #: src/mainWindow.cpp:564
 #, kde-format
@@ -2262,7 +2264,7 @@ msgstr "პროცესის გაფილტვრის ჩართვ�
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr ""
+msgstr "მხოლოდ ხაზები, რომლები ემთხვევა ამ პროცესს :"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
@@ -2272,7 +2274,7 @@ msgstr "მომხმარებელი:"
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr ""
+msgstr "დაგეგმილი ამოცანების ჟურნალის (Cron-ის ჟურნალის) ჩვენება."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2316,7 +2318,7 @@ msgstr "Cups -ს ვების ჟურნალი"
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
-msgstr ""
+msgstr "Cups-ის ვებსერვერის წვდომის ჟურნალის ჩვენება."
 
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
@@ -2348,7 +2350,7 @@ msgstr "Cups -ის ჟურნალი"
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr ""
+msgstr "Cups-ის &amp; Cups-ის ვებსერვერის ჟურნალი"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2472,7 +2474,7 @@ msgstr "Cups-ის გვერდის ჟურნალი"
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Page log."
-msgstr ""
+msgstr "Cups-ის გვერდის ჟურნალის ფაილის ჩვენება."
 
 #: src/modes/cups/cupsPageLogMode.cpp:32
 #, kde-format
@@ -2495,7 +2497,7 @@ msgstr "Cups-ის PDF ჟურნალი"
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS PDF log."
-msgstr ""
+msgstr "Cups-ის PDF-ის ჟურნალის ფაილის ჩვენება."
 
 #: src/modes/cups/cupsPdfLogMode.cpp:32
 #, kde-format
@@ -2519,7 +2521,7 @@ msgstr ""
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
-msgstr ""
+msgstr "დემონის ჟურნალების ჩვენება."
 
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
@@ -2588,7 +2590,7 @@ msgstr "Journald -ის მორგება"
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "მხოლოდ მიმდინარე ჩატვირთვის ჟურნალის ჩანაწერების ჩვენება"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
@@ -2600,13 +2602,13 @@ msgstr "ჟურნალის ყველა ფაილის ჩვენ
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "მიმდინარე მომხმარებლის პროცესების ჟურნალის ჩანაწერების ჩვენება"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "ბირთვისა და სისტემური სერვისების ჟურნალის ჩანაწერები ჩვენება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
@@ -2651,13 +2653,13 @@ msgstr "ყველა შეტყობინება"
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr ""
+msgstr "Systemd-ის სერვისის ფაილით გაფილტვრა"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr ""
+msgstr "სისტემური ჟურნალის იდენტიფიკატორით გაფილტვრა"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
@@ -2678,23 +2680,23 @@ msgstr "ერთეული:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr ""
+msgstr "Journald-ის ჩანაწერების წაკითხვა..."
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:165
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."
-msgstr ""
+msgstr "Journald-ის ჩანაწერების ჩატვირთვა წარმატებულია."
 
 #: src/modes/journald/journaldLogMode.cpp:35
 #, kde-format
 msgid "Display the Journald log."
-msgstr ""
+msgstr "Journald -ის ჟურნალის ჩვენება."
 
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr ""
+msgstr "Journald-ის ჟურნალის ჩვენება მიმდინარე ჩანართში."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
@@ -2747,7 +2749,7 @@ msgstr "მდებარეობის გახსნა"
 #: src/modes/open/openLogMode.cpp:59
 #, kde-format
 msgid "Malformed URL. Unable to open this file."
-msgstr ""
+msgstr "არასწორი ბმული. ფაილის გახსნა შეუძლებელია."
 
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
