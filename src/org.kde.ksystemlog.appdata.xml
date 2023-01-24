@@ -6,6 +6,7 @@
   <name>KSystemLog</name>
   <name xml:lang="ar">سجلّات نظامك</name>
   <name xml:lang="az">KSystemLog</name>
+  <name xml:lang="bg">KSystemLog</name>
   <name xml:lang="ca">KSystemLog</name>
   <name xml:lang="ca-valencia">KSystemLog</name>
   <name xml:lang="cs">KSystemLog</name>
@@ -43,6 +44,7 @@
   <summary>system log viewer</summary>
   <summary xml:lang="ar">عارض سجلّات النّظام</summary>
   <summary xml:lang="az">sistem jurnalı göstəricisi</summary>
+  <summary xml:lang="bg">Преглед на системните дневници</summary>
   <summary xml:lang="ca">Visualitzador dels registres del sistema</summary>
   <summary xml:lang="ca-valencia">Visor dels registres del sistema</summary>
   <summary xml:lang="cs">Prohlížeč záznamů systému</summary>
@@ -82,6 +84,7 @@
     etc, ...). It includes many features to read nicely your log files:</p>
     <p xml:lang="ar">يعرض سجلات نظامك جميع سجلات المتعلقة بالحاسوب ، مجمعة بشكل عام (سجل النظام الافتراضي، المصادقة، النواة، أكس.أورغ ...) والخدمات الاختيارية (Apache ،Cups، إلخ ...). يتضمن العديد من الميزات لقراءة ملفات السجل الخاصة بك بشكل جيد:</p>
     <p xml:lang="az">KsystemLog, sisteminizin bütün jurnalını ümumi qruplaşdırılmış (Standart sistem jurnalı, Kimlik doğrulaması, Nüvə bidirişləri jurnalı, X.org jurnalı...) və əlavə xidmətlər (Apache, Cups və s...) şəklində baxmağa imkan verir. Bu tətbiq, jurnal faylları ilə sadə şəkildə işləmək aşağıdakı funksiyaları təqdim edir:</p>
+    <p xml:lang="bg">KSystemLog показва всички дневници на вашата система, групирани по Общи (стандартни системни дневници, дневници на удостоверявания, ядрото, X.org..) и допълнителни услуги (Apache, Cups, и т.н., ...). Той включва много функции за удобно четене на вашите лог файлове:</p>
     <p xml:lang="ca">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS...). Inclou moltes funcionalitats per a llegir de manera agradable els fitxers de registre:</p>
     <p xml:lang="ca-valencia">KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS...). Inclou moltes característiques per a llegir de manera agradable els fitxers de registre:</p>
     <p xml:lang="de">KSystemLog zeigt alle Protokolle Ihres Systems in verschiedenen Gruppen wie Allgemein (Standard-Systemprotokoll, Authentifizierung, Kernel, X.org....) und optionale Dienste (Apache, Cups ...), usw.). Es enthält viele Funktionen, um Ihre Protokolldateien gut zu lesen:</p>
@@ -116,6 +119,7 @@
       <li>Colorize log lines depending on their severities</li>
       <li xml:lang="ar">تلوين خطوط السجل حسب خطورتها</li>
       <li xml:lang="az">Üstünlüyündən asılı olaraq jurnal sətirlərinin rənglənməsi</li>
+      <li xml:lang="bg">Оцветяване на редовете на дневника в зависимост от тяхната важност</li>
       <li xml:lang="ca">Acoloreix les línies de registre en funció de la seva severitat</li>
       <li xml:lang="ca-valencia">Acolorix les línies de registre en funció de la seua gravetat</li>
       <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
@@ -151,6 +155,7 @@
       <li>Tabbed view to allow displaying several logs at the same time</li>
       <li xml:lang="ar">عرض مبوب للسماح بعرض عدة سجلات في نفس الوقت</li>
       <li xml:lang="az">Bir neçə jurnalın eyni vaxtda vərəqlər şəkildində göstərilməsi</li>
+      <li xml:lang="bg">Изглед с раздели, който позволява едновременното показване на няколко дневника</li>
       <li xml:lang="ca">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
       <li xml:lang="ca-valencia">Vista amb pestanyes que permet mostrar diversos registres a la vegada</li>
       <li xml:lang="de">Anzeige verschiedener Protokolldateien in einzelnen Unterfenstern.</li>
@@ -166,6 +171,7 @@
       <li xml:lang="ia">Vista a schedas que permitte monstrar plure registros al mesme tempore</li>
       <li xml:lang="id">Tampilan bertab untuk memungkinkan penayangan log di waktu yang sama</li>
       <li xml:lang="it">Vista a schede, che permette la visualizzazione di più registri nello stesso tempo</li>
+      <li xml:lang="ka">ჩანართებიანი ხედი რამდენიმე ჟურნალის ერთდროულად სანახავად</li>
       <li xml:lang="ko">여러 로그를 탭을 통해서 동시에 표시</li>
       <li xml:lang="nl">In tabbladen tonen om verschillende logs tegelijk te tonen</li>
       <li xml:lang="nn">Fanebasert vising av fleire loggar samtidig</li>
@@ -184,6 +190,7 @@
       <li>Auto display new lines logged</li>
       <li xml:lang="ar">عرض آلي للسطور المضافة في السجل</li>
       <li xml:lang="az">Yeni jurnal sətirlərinin avtomatik göstərilməsi</li>
+      <li xml:lang="bg">Автоматично показване на нови регистрирани редове</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="ca-valencia">Presentació automàtica de les línies noves del registre</li>
       <li xml:lang="de">Automatische Anzeiger neuer Protokollzeilen</li>
@@ -219,6 +226,7 @@
       <li>Detailed information for each log lines</li>
       <li xml:lang="ar">معلومات مفصلة عن كل سطر من الأسطر</li>
       <li xml:lang="az">Hər jurnal sətri haqqında ətraflı məlumat</li>
+      <li xml:lang="bg">Подробна информация за всеки ред на дневника</li>
       <li xml:lang="ca">Informació detallada per a cada línia de registre</li>
       <li xml:lang="ca-valencia">Informació detallada per a cada línia de registre</li>
       <li xml:lang="de">Ausführliche Informationen zu jeder Protokoll-Zeile</li>
