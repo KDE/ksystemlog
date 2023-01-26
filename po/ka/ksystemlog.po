@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-01-23 08:36+0100\n"
+"PO-Revision-Date: 2023-01-25 07:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1382,7 +1382,7 @@ msgstr "&დეტალები"
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Display details on the selected line"
-msgstr ""
+msgstr "მონიშნული ხაზების დეტალების ჩვენება"
 
 #: src/mainWindow.cpp:685
 #, kde-format
