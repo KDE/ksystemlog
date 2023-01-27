@@ -23,6 +23,13 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
@@ -46,7 +53,7 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     find_package(Qt6Core5Compat)
 endif()
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
     CoreAddons
     WidgetsAddons
@@ -58,8 +65,8 @@ find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Completion
     TextWidgets
 )
-find_package(KF5DocTools ${KF_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -115,7 +122,7 @@ add_subdirectory(src)
 
 add_subdirectory(autotests)
 
-find_package(KF5I18n CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}I18n CONFIG REQUIRED)
 if (KF5DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)

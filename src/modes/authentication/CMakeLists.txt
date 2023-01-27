@@ -28,5 +28,5 @@ target_link_libraries(
 	ksystemlog_base_mode 
 	ksystemlog_config
 
-        KF5::KIOWidgets
+        KF${KF_MAJOR_VERSION}::KIOWidgets
 )

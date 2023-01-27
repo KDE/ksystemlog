@@ -83,11 +83,11 @@ target_link_libraries(ksystemlog_lib
     ksystemlog_config
     Qt${QT_MAJOR_VERSION}::Widgets
     Qt${QT_MAJOR_VERSION}::PrintSupport
-    KF5::I18n
-    KF5::Archive
-    KF5::WidgetsAddons
-    KF5::ItemViews
-    KF5::KIOCore
-    KF5::Completion
-    KF5::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::Archive
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::ItemViews
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::Completion
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
 )
