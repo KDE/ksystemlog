@@ -39,3 +39,7 @@ target_link_libraries(
 
         KF${KF_MAJOR_VERSION}::XmlGui
 )
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+	target_link_libraries(ksystemlog_base_mode Qt::Core5Compat)
+endif()
