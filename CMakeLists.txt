@@ -123,7 +123,7 @@ add_subdirectory(src)
 add_subdirectory(autotests)
 
 find_package(KF${KF_MAJOR_VERSION}I18n CONFIG REQUIRED)
-if (KF5DocTools_FOUND)
+if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
