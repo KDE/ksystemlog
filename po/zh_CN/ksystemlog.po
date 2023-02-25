@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-02-15 11:08\n"
+"PO-Revision-Date: 2023-02-24 12:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -533,12 +533,12 @@ msgstr "文件“%1”不存在。"
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "无法解压缩“%2”格式的“%1”。"
+msgstr "无法解压“%2”格式的“%1”。"
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr "无法解压缩文件"
+msgstr "无法解压文件"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format

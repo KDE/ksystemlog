@@ -1,11 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY ksystemlog "<application
->KSystemLog</application
->">
-<!ENTITY kappname "&ksystemlog;"
-><!-- replace kapp here -->
-<!ENTITY package "kdeadmin">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % Brazilian-Portuguese "INCLUDE"
 ><!-- change language only here -->
@@ -59,13 +53,13 @@
 >&FDLNotice;</legalnotice>
 
 <date
->08/06/2013</date>
+>17/04/2016</date>
 <releaseinfo
->0.4 (&kde; 4.11)</releaseinfo>
+>0.4 (Applications 16.04)</releaseinfo>
 
 <abstract>
 <para
->O &ksystemlog; é uma ferramenta de visualização dos registros do sistema para o &kde;. Este programa é desenvolvido para ser usado pelos usuários principiantes que não sabem como encontrar informações sobre o seu sistema e a forma como os arquivos de registro existem no seu computador. Mas também é desenhado para os usuários avançados que querem ver rapidamente os problemas que estão ocorrendo no seu servidor. </para>
+>O &ksystemlog; é uma ferramenta de visualização dos registros do sistema do &kde;. Este programa é desenvolvido para ser usado pelos usuários principiantes que não sabem como encontrar informações sobre o seu sistema e a forma como os arquivos de registro existem no seu computador. Mas também é desenhado para os usuários avançados que querem ver rapidamente os problemas que estão ocorrendo no seu servidor. </para>
 
 </abstract>
 
@@ -93,7 +87,18 @@
 </keywordset>
 
 </bookinfo>
-
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
 <chapter id="using_ksystemlog">
 	<title
 >Usando o &ksystemlog;</title>
@@ -166,6 +171,10 @@
 ><simpara
 >Adicionar manualmente um item de registro</simpara
 ></listitem>
+				<listitem
+><simpara
+>Filtrando por prioridade</simpara
+></listitem>
 			</itemizedlist>
 
 			<para
@@ -220,7 +229,10 @@
 ><simpara
 >Registros das Sessões de X</simpara
 ></listitem>
-
+				<listitem
+><simpara
+>Logs do systemd / journald</simpara
+></listitem>
 			</itemizedlist>
 
 			<para
@@ -349,6 +361,15 @@
 >. </para>
 
 			</sect3>
+			<sect3 id="send_email">
+				<title
+>Enviar logd por e-mail</title>
+				<para
+>O menu de contexto tem uma ação <guilabel
+>Seleção por e-mail</guilabel
+>. Selecione as linhas relevantes no log e use esta ação para abrir a janela de composiçãode seu cliente de e-mail padrão preenchido com esta seleção. </para>
+
+			</sect3>
 		</sect2>
 	<sect2 id="monitoring_management">
 		<title
@@ -412,24 +433,7 @@
 >Tradução de Marcus Gama <email
 >marcus.gama@gmail.com</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
-
-<appendix id="installation">
-	<title
->Como obter e instalar o &ksystemlog;</title>
-
-	<para
->O &ksystemlog; tem a sua própria página pessoal em <ulink url="http://ksystemlog.forum-software.org"
->http://ksystemlog.forum-software.org</ulink
->. Baseie-se por favor nas instruções da página pessoal, uma vez que elas irão conter informações atualizadas sobre a obtenção do &ksystemlog;. </para>
-
-	<para
->O &ksystemlog; também pode ser encontrado na seguinte pasta do Repositório Git do &kde; : <ulink url="https://quickgit.kde.org/?p=ksystemlog.git"
->&ksystemlog; no repositório do &kde;</ulink
-> </para>
-
-</appendix>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
