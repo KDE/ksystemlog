@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-02-08 20:23+0300\n"
+"PO-Revision-Date: 2023-03-07 20:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -589,7 +589,7 @@ msgstr "Günlük kaydı başarılı şekilde yüklendi."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "'%1' adresi geçerli değil, atlanıyor."
+msgstr "'%1' URL'si geçerli değil, atlanıyor."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -1578,7 +1578,7 @@ msgstr "HTTP İsteği"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:26
 #, kde-format
 msgid "URL"
-msgstr "Adres"
+msgstr "URL"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:19
 #, kde-format
@@ -2952,7 +2952,7 @@ msgstr "Konum Aç"
 #: src/modes/open/openLogMode.cpp:59
 #, kde-format
 msgid "Malformed URL. Unable to open this file."
-msgstr "Bozulmuş adres. Bu dosya açılamadı."
+msgstr "Hatalı oluşturulmuş URL. Bu dosya açılamadı."
 
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
