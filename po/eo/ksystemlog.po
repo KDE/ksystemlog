@@ -1,4 +1,5 @@
 # Translation of ksystemlog into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-22 19:14+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -149,10 +150,9 @@ msgstr "Piktograma"
 
 #. i18n: ectx: property (text), widget (QLabel, header)
 #: src/detailDialogBase.ui:70
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Main information"
-msgstr "Informo"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:100
@@ -196,10 +196,9 @@ msgstr "&Plusendi"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:160
-#, fuzzy, kde-format
-#| msgid "Close the current tab"
+#, kde-format
 msgid "Close the Detail dialog."
-msgstr "Fermi la nunan folion"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:163
@@ -224,9 +223,7 @@ msgid "No Log Mode"
 msgstr ""
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "Date format Option (Date example)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -364,24 +361,21 @@ msgstr "Datoformato"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
 #: src/generalConfigurationWidgetBase.ui:156
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "&Short date format"
-msgstr "Datoformato"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
 #: src/generalConfigurationWidgetBase.ui:163
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "&Long date format"
-msgstr "Datoformato"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
-#| msgid "Date Format"
+#, kde-format
 msgid "&Precise date format"
-msgstr "Datoformato"
+msgstr ""
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -403,10 +397,9 @@ msgstr "Fe&nestro"
 
 #. i18n: ectx: ToolBar (logToolBar)
 #: src/ksystemlogui.rc:53
-#, fuzzy, kde-format
-#| msgid "Main Toolbar"
+#, kde-format
 msgid "Logs Toolbar"
-msgstr "Ĉefa ilobreto"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
@@ -918,10 +911,9 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Log Message"
-msgstr "Mesaĝo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
 #: src/loggerDialogBase.ui:39
@@ -1006,10 +998,9 @@ msgid "System Logs Viewer by KDE"
 msgstr ""
 
 #: src/main.cpp:33
-#, fuzzy, kde-format
-#| msgid "Nicolas Ternisien"
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "Nicolas Ternisien"
+msgstr ""
 
 #: src/main.cpp:34
 #, kde-format
@@ -1059,10 +1050,9 @@ msgid "Bug Fixing"
 msgstr ""
 
 #: src/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Document to open"
+#, kde-format
 msgid "Document to open."
-msgstr "La dosiero malfermiĝi"
+msgstr "Dosiero malfermenda."
 
 #: src/mainWindow.cpp:308
 #, kde-format
@@ -1719,10 +1709,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
-#, fuzzy, kde-format
-#| msgid "Log File"
+#, kde-format
 msgid "Log Files"
-msgstr "Protokolodosiero"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:55
@@ -1760,10 +1749,9 @@ msgstr "&Aldonu dosieron..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
-#, fuzzy, kde-format
-#| msgid "&Add File..."
+#, kde-format
 msgid "&Modify File..."
-msgstr "&Aldonu dosieron..."
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1950,9 +1938,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
-#, fuzzy, kde-format
+#, kde-format
 msgid "add"
-msgstr "Aldonu %1..."
+msgstr ""
 
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
@@ -2561,10 +2549,9 @@ msgid "Local journal"
 msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "All messages"
-msgstr "Mesaĝo"
+msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
@@ -2611,10 +2598,9 @@ msgid "Display the Journald log."
 msgstr ""
 
 #: src/modes/journald/journaldLogMode.cpp:36
-#, fuzzy, kde-format
-#| msgid "Duplicates the current tab."
+#, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "Duobligas la nunan langeton."
+msgstr ""
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
@@ -2801,10 +2787,9 @@ msgid "Source File:"
 msgstr ""
 
 #: src/modes/samba/sambaItemBuilder.cpp:20
-#, fuzzy, kde-format
-#| msgid "Actions"
+#, kde-format
 msgid "Function:"
-msgstr "Agoj"
+msgstr ""
 
 #: src/modes/samba/sambaItemBuilder.cpp:21
 #, kde-format
@@ -2935,17 +2920,15 @@ msgstr "<li><b>%1</b>: ...</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
-#, fuzzy, kde-format
-#| msgid "Log File"
+#, kde-format
 msgid "X Session Log File"
-msgstr "Protokolodosiero"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
-#, fuzzy, kde-format
-#| msgid "Log File"
+#, kde-format
 msgid "&Log file:"
-msgstr "Protokolodosiero"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -3012,4 +2995,4 @@ msgstr "%1 (%2)"
 #: src/tabLogViewsWidget.cpp:74
 #, kde-format
 msgid "No Log"
-msgstr ""
+msgstr "Sen Protokolo"
