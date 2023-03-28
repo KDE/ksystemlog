@@ -60,7 +60,7 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
     connect(fileList, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(modifyItem(QTreeWidgetItem *)));
     connect(this, &MultipleFileList::fileListChanged, this, &MultipleFileList::updateButtons);
 
-    connect(&mAddButtons, SIGNAL(buttonClicked(int)), this, SLOT(addItem(int)));
+    connect(&mAddButtons, &QButtonGroup::buttonClicked, this, &MultipleFileList::addItem);
 
     updateButtons();
 
@@ -194,8 +194,9 @@ int MultipleFileList::addCategory(const QString &itemName, const QString &button
     return index;
 }
 
-void MultipleFileList::addItem(int category)
+void MultipleFileList::addItem(QAbstractButton *button)
 {
+    const int category = mAddButtons.id(button);
     qCDebug(KSYSTEMLOG) << "Adding item" << category;
 
     // Open a standard Filedialog

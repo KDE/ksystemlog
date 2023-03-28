@@ -46,7 +46,7 @@ private Q_SLOTS:
     void moveDownItem();
 
 protected Q_SLOTS:
-    virtual void addItem(int category);
+    void addItem(QAbstractButton *button);
 
     void modifyItem();
     void modifyItem(QTreeWidgetItem *item);
