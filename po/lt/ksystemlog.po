@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2016-01-09 20:42+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -2289,7 +2289,7 @@ msgid ""
 "Modes with missing log files will be unavailable."
 msgstr ""
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
 msgstr "Žurnalo failo nėra..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2017-02-19 15:27-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2170,7 +2170,7 @@ msgstr ""
 "存在しないログファイルがあります。\n"
 "存在しないログファイルのモードは利用できなくなります。"
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
 msgstr "ログファイルがありません..."

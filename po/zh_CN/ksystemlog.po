@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2023-03-27 11:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2205,7 +2205,7 @@ msgstr ""
 "一些日志文件不存在。\n"
 "缺失的日志文件的模式将不可用。"
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
 msgstr "没有日志文件..."

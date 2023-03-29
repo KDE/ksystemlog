@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2021-07-03 09:33+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2306,7 +2306,7 @@ msgstr ""
 "Μερικά αρχεία καταγραφής δεν υπάρχουν.\n"
 "Λειτουργίες με αρχεία καταγραφής να λείπουν, δεν θα είναι διαθέσιμες."
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
 msgstr "Κανένα αρχείο καταγραφής..."

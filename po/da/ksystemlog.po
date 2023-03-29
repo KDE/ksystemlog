@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2017-11-06 21:41+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish\n"
@@ -2275,7 +2275,7 @@ msgstr ""
 "Nogle logfiler findes ikke.\n"
 "Tilstande med manglende logfiler vil være utilgængelige."
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
 msgstr "Ingen logfil..."

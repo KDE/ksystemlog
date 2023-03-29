@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: all2.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-01 00:52+0000\n"
+"POT-Creation-Date: 2023-03-29 00:50+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -2094,7 +2094,7 @@ msgid ""
 "Modes with missing log files will be unavailable."
 msgstr ""
 
-#: src/modes/base/multipleFileList.cpp:410
+#: src/modes/base/multipleFileList.cpp:411
 #, fuzzy, kde-format
 #| msgid "from config file"
 msgid "No log file..."
