@@ -1194,12 +1194,12 @@ msgstr ""
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Im&prime selection de vista preliminari..."
+msgstr "Im&prime selection de vista preliminar..."
 
 #: src/mainWindow.cpp:542
 #, kde-format
 msgid "Print preview the selection"
-msgstr "Imprime le selection de vista preliminari"
+msgstr "Imprime le selection de vista preliminar"
 
 #: src/mainWindow.cpp:544
 #, kde-format
@@ -1207,7 +1207,7 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Il imprime le selection de vista preliminari. Simplemente selige le lineas "
+"Il imprime le selection de vista preliminar. Simplemente selige le lineas "
 "importante e pulsa sur iste entrata de menu pro imprimer le selection."
 
 #: src/mainWindow.cpp:550
