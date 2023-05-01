@@ -4,14 +4,14 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2008, 2009.
 # Marce Villarino <mvillarino@gmail.com>, 2009, 2013, 2014.
 # Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail.com>, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2020-01-11 11:28+0100\n"
+"PO-Revision-Date: 2023-04-30 11:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -75,7 +75,7 @@ msgstr ""
 #: src/config/ksystemlog.kcfg:39
 #, kde-format
 msgid "Whether the tooltips are enabled."
-msgstr "Indica se as axudiñas están activadas."
+msgstr "Indica se os consellos están activados."
 
 #. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:44
@@ -1074,7 +1074,7 @@ msgstr "Vyacheslav Matyushin"
 #: src/main.cpp:43
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr "Modo de journald, corección de erros."
+msgstr "Modo de journald, corrección de erros."
 
 #: src/main.cpp:44
 #, kde-format
@@ -1089,12 +1089,12 @@ msgstr "Impresión do rexistro"
 #: src/main.cpp:45
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Corrección de fallos"
 
 #: src/main.cpp:58
 #, kde-format
@@ -1194,28 +1194,24 @@ msgstr ""
 "este elemento do menú para enviar a selección á impresora."
 
 #: src/mainWindow.cpp:541
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Im&primir a selección…"
+msgstr "Vista para im&primir da selección…"
 
 #: src/mainWindow.cpp:542
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "Imprime os datos escollidos"
+msgstr "Mostra a vista para imprimir da selección"
 
 #: src/mainWindow.cpp:544
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Imprime os datos escollidos. Basta escoller as liñas importantes e premer "
-"este elemento do menú para enviar a selección á impresora."
+"Mostra a vista para imprimir da selección. Basta escoller as liñas "
+"importantes e premer este elemento do menú para enviar a selección á "
+"impresora."
 
 #: src/mainWindow.cpp:550
 #, kde-format
@@ -1720,34 +1716,28 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Rexistro de Acpid"
+msgstr "Rexistro de Audit"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Acpid</b>.</p>"
+"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Audit</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "Mostra o rexistro de CUPS."
+msgstr "Mostra o rexistro de audit."
 
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"Mostra o rexistro do sistema no separador actual. Este rexistro é xeralmente "
+"Mostra o rexistro de audit no separador actual. Este rexistro é xeralmente "
 "usado polos procesos non especializados (como as ordes «sudo» ou «fsck»)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
@@ -1806,7 +1796,7 @@ msgid ""
 msgstr ""
 "Mostra o rexistro de autenticación no separador actual. Este rexistro mostra "
 "todo acceso feito por cada usuario do sistema, e pode axudalo a saber se "
-"alguén intentou craquear o seu sistema."
+"alguén intentou violar o seu sistema."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -2450,7 +2440,7 @@ msgstr ""
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr "Activar a filtraxe de procesos"
+msgstr "Activar o filtrado de procesos"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
@@ -2465,7 +2455,7 @@ msgstr "Usuario:"
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr "Mostra o rexistro das tarefas planificadas (rexitro de Cron)."
+msgstr "Mostra o rexistro das tarefas planificadas (rexistro de Cron)."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
