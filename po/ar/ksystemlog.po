@@ -2,7 +2,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Safa Alfulaij <safa1996alfulaij@gmail.com>, ٢٠١٦.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
@@ -867,42 +867,42 @@ msgstr ""
 #: src/loggerDialog.cpp:106
 #, kde-format
 msgid "Local 0"
-msgstr "محليّ ٠"
+msgstr "محليّ 0"
 
 #: src/loggerDialog.cpp:107
 #, kde-format
 msgid "Local 1"
-msgstr "محليّ ١"
+msgstr "محليّ 1"
 
 #: src/loggerDialog.cpp:108
 #, kde-format
 msgid "Local 2"
-msgstr "محليّ ٢"
+msgstr "محليّ 2"
 
 #: src/loggerDialog.cpp:109
 #, kde-format
 msgid "Local 3"
-msgstr "محليّ ٣"
+msgstr "محليّ 3"
 
 #: src/loggerDialog.cpp:110
 #, kde-format
 msgid "Local 4"
-msgstr "محليّ ٤"
+msgstr "محليّ 4"
 
 #: src/loggerDialog.cpp:111
 #, kde-format
 msgid "Local 5"
-msgstr "محليّ ٥"
+msgstr "محليّ 5"
 
 #: src/loggerDialog.cpp:112
 #, kde-format
 msgid "Local 6"
-msgstr "محليّ ٦"
+msgstr "محليّ 6"
 
 #: src/loggerDialog.cpp:113
 #, kde-format
 msgid "Local 7"
-msgstr "محليّ ٧"
+msgstr "محليّ 7"
 
 #: src/loggerDialog.cpp:223
 #, kde-format
