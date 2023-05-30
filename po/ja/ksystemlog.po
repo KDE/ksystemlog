@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -510,16 +510,14 @@ msgstr "読み込みの進捗..."
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "<i></i>%2を読み込んでいます...<br />%3 - (%4)"
-msgstr[1] "<i></i>%2を読み込んでいます...<br />%3 - (%4/%1 ファイル)"
+msgstr[0] "<i></i>%2を読み込んでいます...<br />%3 - (%4/%1 ファイル)"
 
 # dummy markup
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "<i></i>%2を再読み込みしています...<br />%3 - (%4)"
-msgstr[1] "<i></i>%2を再読み込みしています...<br />%3 - (%4/%1 ファイル)"
+msgstr[0] "<i></i>%2を再読み込みしています...<br />%3 - (%4/%1 ファイル)"
 
 # dummy markup
 #: src/lib/loadingBar.cpp:75
@@ -674,8 +672,7 @@ msgstr ""
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] "1 行のログをクリップボードにコピーしました。"
-msgstr[1] "%1 行のログをクリップボードにコピーしました。"
+msgstr[0] "%1 行のログをクリップボードにコピーしました。"
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
@@ -691,8 +688,7 @@ msgstr "選択したログ項目の保存先..."
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "1 行のログを ‘%2’ に保存しました。"
-msgstr[1] "%1 行のログを ‘%2’ に保存しました。"
+msgstr[0] "%1 行のログを ‘%2’ に保存しました。"
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
@@ -1101,16 +1097,14 @@ msgstr "開くドキュメント。"
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] "1 行"
-msgstr[1] "%1 行"
+msgstr[0] "%1 行"
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] "1 行 / 合計 %2 行"
-msgstr[1] "%1 行 / 合計 %2 行"
+msgstr[0] "%1 行 / 合計 %2 行"
 
 #: src/mainWindow.cpp:332
 #, kde-format
