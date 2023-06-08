@@ -2004,7 +2004,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou amunt els fitxers "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou cap amunt els fitxers "
 "actuals</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
@@ -2037,7 +2037,7 @@ msgstr ""
 #: src/modes/base/multipleFileListBase.ui:130
 #, kde-format
 msgid "Move &Up"
-msgstr "Mou am&unt"
+msgstr "Mou cap am&unt"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:141
@@ -2059,7 +2059,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou avall els fitxers "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou cap avall els fitxers "
 "actuals</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
@@ -2082,7 +2082,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou avall els fitxers "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou cap avall els fitxers "
 "seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
 "style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></html>"
 
@@ -2091,7 +2091,7 @@ msgstr ""
 #: src/modes/base/multipleFileListBase.ui:149
 #, kde-format
 msgid "Move &Down"
-msgstr "Mou a&vall"
+msgstr "Mou cap a&vall"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/fileListBase.ui:175
@@ -2366,7 +2366,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou amunt els fitxers "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou cap amunt els fitxers "
 "seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
 "style=\" font-weight:600;\">primer</span> en KSystemLog.</p></body></html>"
 
@@ -2390,7 +2390,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou avall els fitxers "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Mou cap avall els fitxers "
 "seleccionats en la llista. Esta opció permet que els fitxers es lligen <span "
 "style=\" font-weight:600;\">al final</span> en KSystemLog.</p></body></html>"
 
