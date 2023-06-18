@@ -14,6 +14,7 @@
   <name xml:lang="de">KSystemLog</name>
   <name xml:lang="el">KSystemLog</name>
   <name xml:lang="en-GB">KSystemLog</name>
+  <name xml:lang="eo">KSystemLog</name>
   <name xml:lang="es">KSystemLog</name>
   <name xml:lang="et">KSystemLog</name>
   <name xml:lang="eu">kSystemLog</name>
@@ -51,6 +52,7 @@
   <summary xml:lang="de">Systemprotokoll-Betrachter</summary>
   <summary xml:lang="el">προβολέας καταγραφών συστήματος</summary>
   <summary xml:lang="en-GB">system log viewer</summary>
+  <summary xml:lang="eo">sistemprotokola rigardilo</summary>
   <summary xml:lang="es">Visor del registro del sistema</summary>
   <summary xml:lang="et">Süsteemi loginäitaja</summary>
   <summary xml:lang="eu">Sistemaren egunkari erakuslea</summary>
@@ -125,6 +127,7 @@
       <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
       <li xml:lang="el">Ο χρωματισμός γραμμών καταγραφών εξαρτάται από τη σπουδαιότητά τους</li>
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
+      <li xml:lang="eo">Kolorigu protokolliniojn depende de iliaj severecoj</li>
       <li xml:lang="es">Líneas de registro coloreadas según su severidad</li>
       <li xml:lang="et">Logiridade eristamine värviga vastavalt raskusastmele</li>
       <li xml:lang="eu">Koloreztatu egunkari lerroak bere larritasunaren arabera</li>
@@ -161,6 +164,7 @@
       <li xml:lang="de">Anzeige verschiedener Protokolldateien in einzelnen Unterfenstern.</li>
       <li xml:lang="el">Προβολή σε καρτέλες που επιτρέπει την εμφάνιση πολλών καταγραφών ταυτόχρονα</li>
       <li xml:lang="en-GB">Tabbed view to allow displaying several logs at the same time</li>
+      <li xml:lang="eo">Langetperspektivo permesas bildigi plurajn protokolojn samtempe</li>
       <li xml:lang="es">Vista en pestañas para poder mostrar varios registros a la vez</li>
       <li xml:lang="et">Kaartidega vaade, mis lubab näha korraga mitut logi</li>
       <li xml:lang="eu">Fitxadun ikuspegia aldi berean hainbat egunkari bistaratzeko</li>
@@ -196,6 +200,7 @@
       <li xml:lang="de">Automatische Anzeiger neuer Protokollzeilen</li>
       <li xml:lang="el">Αυτόματη εμφάνιση νέων γραμμών καταγραφής.</li>
       <li xml:lang="en-GB">Auto display new lines logged</li>
+      <li xml:lang="eo">Aŭtomate montri novajn liniojn protokolitajn</li>
       <li xml:lang="es">Muestra de forma automática las nuevas líneas registradas</li>
       <li xml:lang="et">Lisanduvate logikirjete automaatne näitamine</li>
       <li xml:lang="eu">Automatikoki bistaratu egunkarira gehitutako lerro berriak</li>
@@ -232,6 +237,7 @@
       <li xml:lang="de">Ausführliche Informationen zu jeder Protokoll-Zeile</li>
       <li xml:lang="el">Λεπτομερής πληροφόρηση για κάθε γραμμή καταγραφής</li>
       <li xml:lang="en-GB">Detailed information for each log lines</li>
+      <li xml:lang="eo">Detalaj informoj por ĉiu protokollinio</li>
       <li xml:lang="es">Información detallada para las líneas de cada registro</li>
       <li xml:lang="et">Üksikasjalik teave iga logirea kohta</li>
       <li xml:lang="eu">Informazio xehatua egunkari lerro bakoitzeko</li>
