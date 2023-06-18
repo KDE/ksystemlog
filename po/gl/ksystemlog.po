@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-04-30 11:27+0200\n"
+"PO-Revision-Date: 2023-06-17 09:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -136,7 +136,7 @@ msgid ""
 "This dialog displays detailed information about the currently selected log "
 "line."
 msgstr ""
-"Esta xanela mostra información detallada sobre a liña escollida no rexistro."
+"Este diálogo mostra información detallada sobre a liña escollida no rexistro."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (text), widget (KTextEdit, message)
@@ -288,7 +288,7 @@ msgstr "&Máximo de liñas visíbeis:"
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
 msgstr ""
-"Escolla aquí o número máximo de liñas do rexistro que se presentan na xanela "
+"Escolla aquí o número máximo de liñas do rexistro que se presentan na vista "
 "principal."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
@@ -299,7 +299,7 @@ msgid ""
 "view."
 msgstr ""
 "Pode escoller aquí o número máximo de liñas do rexistro que se presentan na "
-"xanela principal."
+"vista principal."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:96
@@ -1325,8 +1325,8 @@ msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
 msgstr ""
-"Esta acción abrirá unha xanela que lle permite enviar unha mensaxe ao "
-"sistema de rexistro."
+"Esta acción abrirá un diálogo que lle permite enviar unha mensaxe ao sistema "
+"de rexistro."
 
 #: src/mainWindow.cpp:605
 #, kde-format
