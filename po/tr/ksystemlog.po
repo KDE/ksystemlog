@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-01 00:52+0000\n"
-"PO-Revision-Date: 2023-05-24 01:42+0300\n"
+"PO-Revision-Date: 2023-06-17 21:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2174,7 +2174,7 @@ msgstr "Bir Günlük Kaydı Dosyası Seç"
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
 msgstr ""
-"Dizilerin boyutları farklı olduğundan günlük kayıt dosyaları atlanıyor."
+"Dizilişlerin boyutları farklı olduğundan günlük kayıt dosyaları atlanıyor."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
@@ -2199,7 +2199,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
-msgstr "Dizilerin boyutları farklı olduğundan okunmadan atlanıyor."
+msgstr "Dizilişlerin boyutları farklı olduğundan okunmadan atlanıyor."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
