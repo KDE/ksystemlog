@@ -81,7 +81,7 @@ msgstr "Indica se os consellos están activados."
 #: src/config/ksystemlog.kcfg:44
 #, kde-format
 msgid "Whether new lines are displayed."
-msgstr "Indica se se mostran as novas liñas."
+msgstr "Indica se se amosan as novas liñas."
 
 #. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:49
@@ -805,7 +805,7 @@ msgstr "Data"
 #: src/lib/logViewWidget.cpp:103
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Mostrar/Agochar a columna «%1»"
+msgstr "Amosar/Agochar a columna «%1»"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
@@ -1345,7 +1345,7 @@ msgstr ""
 #: src/mainWindow.cpp:618
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr "Mostrar a barra do &filtro"
+msgstr "Amosar a barra do &filtro"
 
 #: src/mainWindow.cpp:624
 #, kde-format
@@ -1360,7 +1360,7 @@ msgstr "Crear un novo separador"
 #: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
-msgstr "Crea un novo separador que poderá mostrar outro rexistro."
+msgstr "Crea un novo separador que poderá amosar outro rexistro."
 
 #: src/mainWindow.cpp:632
 #, kde-format
@@ -1449,7 +1449,7 @@ msgstr "&Detalles"
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Display details on the selected line"
-msgstr "Mostrar os detalles da liña escollida"
+msgstr "Amosar os detalles da liña escollida"
 
 #: src/mainWindow.cpp:685
 #, kde-format
@@ -1476,7 +1476,7 @@ msgstr "Desactivar/activar as axudas na vista actual"
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
-"Desactiva/activa as axudas mostradas cando o cursor pasa por riba dunha liña "
+"Desactiva/activa as axudas amosadas cando o cursor pasa por riba dunha liña "
 "do rexistro."
 
 #: src/mainWindow.cpp:699
@@ -1524,7 +1524,7 @@ msgstr "Rexistro de Acpid"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Acpid</b>.</p>"
+"<p>Analizaranse estes ficheiros para amosar o <b>rexistro de Acpid</b>.</p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
@@ -1667,7 +1667,7 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Apache</b> e o "
+"<p>Analizaranse estes ficheiros para amosar o <b>rexistro de Apache</b> e o "
 "<b>rexistro de accesos de Apache</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
@@ -1724,7 +1724,7 @@ msgstr "Rexistro de Audit"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Audit</b>.</p>"
+"<p>Analizaranse estes ficheiros para amosar o <b>rexistro de Audit</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
@@ -2097,9 +2097,9 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notas:</b></p><ul "
 "style='margin-top:0px'><li>Os ficheiros lense na orde na que aparezan nesta "
 "lista.</li><li>Acéptanse ficheiros comprimidos e ficheiros de texto "
-"simples<i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Empregue o carácter de "
-"substitución <b>'*'</b> para escoller varios ficheiros de rexistro cando "
-"engada ficheiros.</li></ul>"
+"simples<i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Use o carácter de substitución "
+"<b>'*'</b> para escoller varios ficheiros de rexistro cando engada ficheiros."
+"</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2144,7 +2144,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Esta é unha lista de todos "
-"os ficheiros que KSystemLog lerá para mostrar as liñas do rexistro actuais.</"
+"os ficheiros que KSystemLog lerá para amosar as liñas do rexistro actuais.</"
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
@@ -2395,9 +2395,9 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notas:</b></p><ul "
 "style='margin-top:0px'><li>Os ficheiros lense na orde na que aparezan nesta "
 "lista.</li><li>Acéptanse ficheiros comprimidos e ficheiros de texto "
-"simple<i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Empregue o carácter de "
-"substitución <b>'*'</b> para escoller varios ficheiros de rexistro cando "
-"engada ficheiros.</li></ul>"
+"simple<i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Use o carácter de substitución "
+"<b>'*'</b> para escoller varios ficheiros de rexistro cando engada ficheiros."
+"</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2433,7 +2433,7 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar os <b>Rexistros de Cron</b> (i."
+"<p>Analizaranse estes ficheiros para amosar os <b>Rexistros de Cron</b> (i."
 "e. os rexistros das tarefas planificadas). <a href='man:/cron'>Máis "
 "información…</a></p>"
 
@@ -2503,7 +2503,7 @@ msgstr "Rexistro da web de CUPS"
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
-msgstr "Mostrar o rexistro de accesos ao servidor web de CUPS."
+msgstr "Amosar o rexistro de accesos ao servidor web de CUPS."
 
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
@@ -2549,7 +2549,7 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
-"<p>Estes ficheiros analizaranse para mostrar o <b>rexistro de Cups</b> e do "
+"<p>Estes ficheiros analizaranse para amosar o <b>rexistro de Cups</b> e do "
 "<b>acceso web a Cups</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
@@ -2720,8 +2720,8 @@ msgstr "Rexistros dos servizos"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar os <b>rexistros dos servizos</"
-"b>.</p>"
+"<p>Analizaranse estes ficheiros para amosar os <b>rexistros dos servizos</b>."
+"</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
@@ -2798,25 +2798,25 @@ msgstr "Opcións de journald"
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr "Mostrar entradas de rexistro só do arranque actual"
+msgstr "Amosar entradas de rexistro só do arranque actual"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr "Mostrar todas as entradas do rexistro."
+msgstr "Amosar todas as entradas do rexistro."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr "Mostrar entradas de rexistro de procesos do usuario actual."
+msgstr "Amosar entradas de rexistro de procesos do usuario actual."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr "Mostrar entradas de rexistro de servizos do sistema e do núcleo."
+msgstr "Amosar entradas de rexistro de servizos do sistema e do núcleo."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
@@ -2978,8 +2978,8 @@ msgstr "Rexistro de Postfix"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar os <b>rexistros de Postfix</b>."
-"</p>"
+"<p>Analizaranse estes ficheiros para amosar os <b>rexistros de Postfix</b>.</"
+"p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
@@ -3062,7 +3062,7 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de Samba</b>, o "
+"<p>Analizaranse estes ficheiros para amosar o <b>rexistro de Samba</b>, o "
 "<b>rexistro de accesos a Samba</b> e o <b>rexistro de Netbios</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
@@ -3139,13 +3139,13 @@ msgstr "Rexistro do sistema"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar os <b>rexistros do sistema</b>."
-"</p>"
+"<p>Analizaranse estes ficheiros para amosar os <b>rexistros do sistema</b>.</"
+"p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
 msgid "Display the system log."
-msgstr "Mostrar o rexistro do sistema."
+msgstr "Amosar o rexistro do sistema."
 
 #: src/modes/system/systemLogMode.cpp:31
 #, kde-format
@@ -3191,7 +3191,7 @@ msgstr "Rexistro de X.org"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
 msgstr ""
-"<p>Analizaranse estes ficheiros para mostrar o <b>rexistro de X.org</b>.</p>"
+"<p>Analizaranse estes ficheiros para amosar o <b>rexistro de X.org</b>.</p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
