@@ -102,6 +102,7 @@
     <p xml:lang="ia">KSystemLog monstra omne registros de tu systema, gruppate per Registro General  (registro de systema redefinite, Authentication, Kernel, X.org...) e Servitios optional  (Apache, Cups, etc, ...). Illo  include multe characteristicas per leger agradibilemente tu files de registro:</p>
     <p xml:lang="id">KSystemLog menampilkan semua catatan log sistemmu, dikelompokkan berdasarkan General (Catatan log sistem baku, Autentikasi, Kernel, X.org...), dan Layanan (Apache, Cups, dll, ...) opsional. Serta banyak fitur-fitur pembacaan secara baik file-file catatan log-mu:</p>
     <p xml:lang="it">KSystemLog mostra tutti i registri di sistema, raggruppati per Generale (registro predefinito di sistema, autenticazione, Kernel, X.org...) e Servizi opzionali (Apache, Cups, ecc, ...). Include molte funzionalità per leggere bene i file di registro:</p>
+    <p xml:lang="ka">KSystemLog აჩვენებს თქვენი სისტემის ყველა ჟურნალს, დაჯგუფებულად (ნაგულისხმები ჟურნალი, ავთენტიკაცია, ბირთვი, გრაფიკა და ა.შ&gt;) და არასავალდებულო სერვისებს (Apache, CUPS, ა.შ.). მას ჟურნალის ლამაზად საჩვენებლად ბევრი ფუნქცია გააჩნია:</p>
     <p xml:lang="ko">KSystemLog는 시스템의 모든 로그를 볼 수 있는 도구입니다. 일반(기본 시스템 로그, 인증, 커널, X.org, ...) 및 추가 서비스(Apache, CUPS, ...) 로그로 분류합니다. 로그 파일을 읽기 편하게 하는 도구를 제공합니다.</p>
     <p xml:lang="nl">KSystemLog toont alle logs op uw systeem, gegroepeerd op Algemeen (Standaard systeemlog, Authenticatie, Kernel, X.org...) en optionele services (Apache, Cups, etc, ...). Het bevat vele mogelijkheden om uw logbestanden netjes te lezen:</p>
     <p xml:lang="nn">KSystemLog viser alle loggane på systemet, gruppert etter generelle loggar (standard systemloggar, autentisering, kjernen, X.org, …) og tenesteloggar (Apache, Cups, …). Programmet har mange funksjonar for lettare lesing av loggfilene:</p>
@@ -170,7 +171,7 @@
       <li xml:lang="eu">Fitxadun ikuspegia aldi berean hainbat egunkari bistaratzeko</li>
       <li xml:lang="fi">välilehtinäkymä useiden lokien samanaikaiseen tarkasteluun</li>
       <li xml:lang="fr">La vue en onglets permet d'afficher plusieurs journaux en même temps</li>
-      <li xml:lang="gl">Vista con lapelas que permite mostrar varios rexistros simultaneamente</li>
+      <li xml:lang="gl">Vista con lapelas que permite amosar varios rexistros simultaneamente</li>
       <li xml:lang="hu">Lapokra osztott nézet több naplófájl egyszerre történő megjelenítéséhez</li>
       <li xml:lang="ia">Vista a schedas que permitte monstrar plure registros al mesme tempore</li>
       <li xml:lang="id">Tampilan bertab untuk memungkinkan penayangan log di waktu yang sama</li>
@@ -206,7 +207,7 @@
       <li xml:lang="eu">Automatikoki bistaratu egunkarira gehitutako lerro berriak</li>
       <li xml:lang="fi">uusien lokirivien näyttäminen automaattisesti</li>
       <li xml:lang="fr">Affichage automatique des nouvelles lignes des journaux</li>
-      <li xml:lang="gl">Mostrar automaticamente as novas liñas rexistradas</li>
+      <li xml:lang="gl">Amosar automaticamente as novas liñas rexistradas</li>
       <li xml:lang="hu">Új bejegyzések automatikus megjelenítése</li>
       <li xml:lang="ia">Monstra automaticamente nove lineas registrate</li>
       <li xml:lang="id">Auto tayang baris baru yang di-log</li>
