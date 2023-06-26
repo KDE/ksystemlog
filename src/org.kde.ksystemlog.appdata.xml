@@ -92,6 +92,7 @@
     <p xml:lang="de">KSystemLog zeigt alle Protokolle Ihres Systems in verschiedenen Gruppen wie Allgemein (Standard-Systemprotokoll, Authentifizierung, Kernel, X.org....) und optionale Dienste (Apache, Cups ...), usw.). Es enthält viele Funktionen, um Ihre Protokolldateien gut zu lesen:</p>
     <p xml:lang="el">Το KSystemLog εμφανίζει όλες τις καταγραφές του συστήματός σας, ομαδοποιημένες με βάση Γενικές (Προκαθορισμένες καταγραφές συστήματος, ταυτοποίηση, πυρήνας, X.org...) και προαιρετικές υπηρεσίες (Apache, Cups, κλπ, ...). Περιλαμβάνει πολλές λειτουργίες για να διαβάζετε με την ησυχία σας τα αρχεία καταγραφών σας:</p>
     <p xml:lang="en-GB">KSystemLog show all logs of your system, grouped by General (Default system log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups, etc, ...). It includes many features to read nicely your log files:</p>
+    <p xml:lang="eo">KSystemLog montras ĉiujn protokolojn de via sistemo, grupigitaj laŭ Ĝenerala (Defaŭlta sistemprotokolo, Aŭtentigo, Kerno, X.org...), kaj laŭvolaj Servoj (Apache, Cups, ktp, ...). Ĝi inkluzivas multajn funkciojn por legi komforte viajn protokoldosierojn:</p>
     <p xml:lang="es">KSystemLog muestra todos los registros del sistema, agrupados por servicios generales (registro predeterminado del sistema, autenticación, kernel, X.org...) y opcionales (Apache, Cups...). Incluye diversas funcionalidades para leer los archivos de registro de forma agradable:</p>
     <p xml:lang="et">KSystemLog näitab kõiki süsteemi logisid rühmitatuna üld- (vaikimisi süsteemilogi, autentimise, kerneli, X.org'i jne logid) ja lisateenuste (Apache, Cups jne) kaupa. Rakendus pakub mitmeid võimalusi logifaile kenasti ja arusaadavalt esitada:</p>
     <p xml:lang="eu">KSystemLog-ek zure sistemako egunkari guztiak erakusten ditu, zerbitzu orokor (sistemaren egunkari lehenetsia, autentifikazioa, nukleoa, X-org, ...) eta aukerakoetan (Apache, Cups, etab., ...) taldekatuak. Eginbide ugari ditu zure egunkari fitxategiak irakurtzea behar bezala egiteko:</p>
@@ -128,7 +129,7 @@
       <li xml:lang="de">Farbige Anzeige der Protokollzeilen abhängig von der Protokollstufe</li>
       <li xml:lang="el">Ο χρωματισμός γραμμών καταγραφών εξαρτάται από τη σπουδαιότητά τους</li>
       <li xml:lang="en-GB">Colourise log lines depending on their severities</li>
-      <li xml:lang="eo">Kolorigu protokolliniojn depende de iliaj severecoj</li>
+      <li xml:lang="eo">Kolorigi protokolliniojn depende de iliaj severecoj</li>
       <li xml:lang="es">Líneas de registro coloreadas según su severidad</li>
       <li xml:lang="et">Logiridade eristamine värviga vastavalt raskusastmele</li>
       <li xml:lang="eu">Koloreztatu egunkari lerroak bere larritasunaren arabera</li>
