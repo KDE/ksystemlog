@@ -27,3 +27,5 @@ void XorgConfiguration::setXorgPaths(const QStringList &xorgPaths)
 {
     mXorgPaths = xorgPaths;
 }
+
+#include "moc_xorgConfiguration.cpp"

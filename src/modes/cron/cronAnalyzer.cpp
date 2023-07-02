@@ -66,3 +66,5 @@ CronAnalyzer::CronAnalyzer(LogMode *logMode)
     : SyslogAnalyzer(logMode)
 {
 }
+
+#include "moc_cronAnalyzer.cpp"

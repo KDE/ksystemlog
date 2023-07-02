@@ -120,3 +120,5 @@ void TestUtil::addLogLines(const QString &fileName, const QStringList &addedLine
     // Wait 3 secs to be sure the log file changed have been processed
     QTest::qWait(1000);
 }
+
+#include "moc_testUtil.cpp"

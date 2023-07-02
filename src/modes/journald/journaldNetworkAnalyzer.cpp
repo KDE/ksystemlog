@@ -286,3 +286,5 @@ void JournaldNetworkAnalyzer::updateStatus(const QString &status)
     }
     Q_EMIT statusChanged(newStatus);
 }
+
+#include "moc_journaldNetworkAnalyzer.cpp"

@@ -240,3 +240,5 @@ void LoggerDialog::sendMessage()
     // Hide the Logger Dialog
     hide();
 }
+
+#include "moc_loggerDialog.cpp"

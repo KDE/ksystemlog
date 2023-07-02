@@ -24,3 +24,5 @@ LogModeAction::Category LogModeAction::category() const
 {
     return mCategory;
 }
+
+#include "moc_logModeAction.cpp"

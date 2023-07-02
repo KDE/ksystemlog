@@ -43,3 +43,5 @@ QVector<LogFile> DaemonLogMode::createLogFiles()
     auto *configuration = logModeConfiguration<DaemonConfiguration *>();
     return configuration->findGenericLogFiles(configuration->daemonPaths());
 }
+
+#include "moc_daemonLogMode.cpp"

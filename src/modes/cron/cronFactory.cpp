@@ -31,3 +31,5 @@ LogModeAction *CronLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_cronFactory.cpp"

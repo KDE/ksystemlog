@@ -276,3 +276,5 @@ LogLine *AuditAnalyzer::parseEvent(const QStringList &event, const LogFile &orig
 
     return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalFile.url().path(), originalFile.defaultLogLevel(), mLogMode);
 }
+
+#include "moc_auditAnalyzer.cpp"

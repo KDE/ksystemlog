@@ -41,3 +41,5 @@ QAction *SimpleAction::actionMenu()
 {
     return mAction;
 }
+
+#include "moc_simpleAction.cpp"

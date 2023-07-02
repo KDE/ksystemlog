@@ -98,3 +98,5 @@ LogLevel *XorgAnalyzer::findTypeName(const QString &type)
         return nullptr;
     }
 }
+
+#include "moc_xorgAnalyzer.cpp"

@@ -62,3 +62,5 @@ bool SambaConfigurationWidget::isValid() const
     qCDebug(KSYSTEMLOG) << "Samba configuration valid";
     return true;
 }
+
+#include "moc_sambaConfigurationWidget.cpp"

@@ -10,3 +10,5 @@ SystemAnalyzer::SystemAnalyzer(LogMode *logMode)
     : SyslogAnalyzer(logMode)
 {
 }
+
+#include "moc_systemAnalyzer.cpp"

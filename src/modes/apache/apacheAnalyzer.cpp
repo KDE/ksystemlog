@@ -114,3 +114,5 @@ LogLevel *ApacheAnalyzer::findLogLevel(const QString &type)
         return Globals::instance().noLogLevel();
     }
 }
+
+#include "moc_apacheAnalyzer.cpp"

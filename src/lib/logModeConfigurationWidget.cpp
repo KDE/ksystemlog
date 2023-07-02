@@ -40,3 +40,5 @@ bool LogModeConfigurationWidget::isValid() const
 {
     return true;
 }
+
+#include "moc_logModeConfigurationWidget.cpp"

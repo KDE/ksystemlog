@@ -86,3 +86,5 @@ LogLine *AcpidAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
                        Globals::instance().informationLogLevel(),
                        mLogMode);
 }
+
+#include "moc_acpidAnalyzer.cpp"

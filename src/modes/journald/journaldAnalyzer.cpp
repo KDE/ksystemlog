@@ -47,3 +47,5 @@ int JournaldAnalyzer::updateModel(QList<JournalEntry> &entries, ReadingMode read
     }
     return entriesNum;
 }
+
+#include "moc_journaldAnalyzer.cpp"

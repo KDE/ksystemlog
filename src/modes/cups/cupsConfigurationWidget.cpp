@@ -65,3 +65,5 @@ bool CupsConfigurationWidget::isValid() const
     qCDebug(KSYSTEMLOG) << "Cups configuration valid";
     return true;
 }
+
+#include "moc_cupsConfigurationWidget.cpp"

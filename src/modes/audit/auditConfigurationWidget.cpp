@@ -55,3 +55,5 @@ void AuditConfigurationWidget::defaultConfig()
 {
     readConfig();
 }
+
+#include "moc_auditConfigurationWidget.cpp"

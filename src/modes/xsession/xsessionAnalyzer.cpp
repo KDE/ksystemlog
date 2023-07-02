@@ -113,3 +113,5 @@ bool XSessionAnalyzer::hasKeywords(const QString &message, const QStringList &ke
 
     return false;
 }
+
+#include "moc_xsessionAnalyzer.cpp"

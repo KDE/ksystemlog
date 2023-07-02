@@ -48,3 +48,5 @@ QVector<LogFile> ApacheLogMode::createLogFiles()
     auto *apacheConfiguration = logModeConfiguration<ApacheConfiguration *>();
     return apacheConfiguration->findNoModeLogFiles(apacheConfiguration->apachePaths());
 }
+
+#include "moc_apacheLogMode.cpp"

@@ -264,3 +264,5 @@ QList<LogModeAction *> Globals::logModeActions() const
 {
     return d->mLogModeActions;
 }
+
+#include "moc_globals.cpp"

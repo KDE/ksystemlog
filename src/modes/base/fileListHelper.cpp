@@ -164,3 +164,5 @@ void FileListHelper::setEnabledAction(QPushButton *button, bool enabled)
         action->setEnabled(enabled);
     }
 }
+
+#include "moc_fileListHelper.cpp"

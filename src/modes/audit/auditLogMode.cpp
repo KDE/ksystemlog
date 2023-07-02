@@ -41,3 +41,5 @@ QVector<LogFile> AuditLogMode::createLogFiles()
 {
     return logModeConfiguration<AuditConfiguration *>()->findGenericLogFiles();
 }
+
+#include "moc_auditLogMode.cpp"

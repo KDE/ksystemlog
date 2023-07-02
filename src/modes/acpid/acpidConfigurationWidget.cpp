@@ -47,3 +47,5 @@ bool AcpidConfigurationWidget::isValid() const
 
     return false;
 }
+
+#include "moc_acpidConfigurationWidget.cpp"

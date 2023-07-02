@@ -30,3 +30,5 @@ LogModeAction *AuthenticationLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_authenticationFactory.cpp"

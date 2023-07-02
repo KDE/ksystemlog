@@ -34,3 +34,5 @@ LogModeAction *OpenLogModeFactory::createLogModeAction() const
 {
     return nullptr;
 }
+
+#include "moc_openFactory.cpp"

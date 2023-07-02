@@ -93,3 +93,5 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
 
     return line;
 }
+
+#include "moc_kernelAnalyzer.cpp"

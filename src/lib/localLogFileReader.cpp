@@ -219,3 +219,5 @@ void LocalLogFileReader::logFileModified()
     qCDebug(KSYSTEMLOG) << "Unlocking log file modification...";
     d->mInsertionLocking.unlock();
 }
+
+#include "moc_localLogFileReader.cpp"

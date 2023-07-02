@@ -69,3 +69,5 @@ void CupsConfiguration::setCupsPdfPaths(const QStringList &cupsPdfPaths)
 {
     mCupsPdfPaths = cupsPdfPaths;
 }
+
+#include "moc_cupsConfiguration.cpp"

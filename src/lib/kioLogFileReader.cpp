@@ -127,3 +127,5 @@ void KioLogFileReader::watchFile(const QString &path)
 {
     qCDebug(KSYSTEMLOG) << "Watch file : size : " << path;
 }
+
+#include "moc_kioLogFileReader.cpp"

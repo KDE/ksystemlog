@@ -32,3 +32,5 @@ LogModeAction *XorgLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_xorgFactory.cpp"

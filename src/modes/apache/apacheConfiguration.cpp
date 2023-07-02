@@ -43,3 +43,5 @@ void ApacheConfiguration::setApacheAccessPaths(const QStringList &apacheAccessPa
 {
     mApacheAccessPaths = apacheAccessPaths;
 }
+
+#include "moc_apacheConfiguration.cpp"

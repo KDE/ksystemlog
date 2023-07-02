@@ -50,3 +50,5 @@ QVector<LogFile> CupsLogMode::createLogFiles()
     auto *cupsConfiguration = logModeConfiguration<CupsConfiguration *>();
     return cupsConfiguration->findNoModeLogFiles(cupsConfiguration->cupsPaths());
 }
+
+#include "moc_cupsLogMode.cpp"

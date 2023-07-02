@@ -40,3 +40,5 @@ void CronConfiguration::setCronPaths(const QStringList &cronPaths)
 {
     mCronPaths = cronPaths;
 }
+
+#include "moc_cronConfiguration.cpp"

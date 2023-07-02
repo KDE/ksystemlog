@@ -58,3 +58,5 @@ QString TabLogManager::logModeName() const
         return mLogManager->title();
     }
 }
+
+#include "moc_tabLogManager.cpp"

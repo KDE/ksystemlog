@@ -54,3 +54,5 @@ void PostfixConfigurationWidget::defaultConfig()
     // TODO Find a way to read the configuration per default
     readConfig();
 }
+
+#include "moc_postfixConfigurationWidget.cpp"

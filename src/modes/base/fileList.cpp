@@ -247,3 +247,5 @@ QStringList FileList::paths() const
 
     return paths;
 }
+
+#include "moc_fileList.cpp"

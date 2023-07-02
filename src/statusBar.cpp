@@ -77,3 +77,5 @@ void StatusBar::toggleHistory()
     qCDebug(KSYSTEMLOG) << "Toggling History...";
     mMessageList->showPopup();
 }
+
+#include "moc_statusBar.cpp"

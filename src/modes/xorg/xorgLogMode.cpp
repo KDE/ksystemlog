@@ -50,3 +50,5 @@ QVector<LogFile> XorgLogMode::createLogFiles()
     auto *configuration = logModeConfiguration<XorgConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->xorgPaths());
 }
+
+#include "moc_xorgLogMode.cpp"

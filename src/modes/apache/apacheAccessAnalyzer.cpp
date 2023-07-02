@@ -101,3 +101,5 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
 
     return new LogLine(mLogLineInternalIdGenerator++, dateTime, list, originalLogFile.url().toLocalFile(), Globals::instance().informationLogLevel(), mLogMode);
 }
+
+#include "moc_apacheAccessAnalyzer.cpp"

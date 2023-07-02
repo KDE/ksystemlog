@@ -10,3 +10,5 @@ PostfixAnalyzer::PostfixAnalyzer(LogMode *logMode)
     : SyslogAnalyzer(logMode)
 {
 }
+
+#include "moc_postfixAnalyzer.cpp"

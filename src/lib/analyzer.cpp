@@ -65,3 +65,5 @@ void Analyzer::informOpeningProgress(int currentPosition, int total)
         Q_EMIT openingProgressed();
     }
 }
+
+#include "moc_analyzer.cpp"

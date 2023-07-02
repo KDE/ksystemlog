@@ -51,3 +51,5 @@ QVector<LogFile> SambaAccessLogMode::createLogFiles()
     auto *sambaConfiguration = logModeConfiguration<SambaConfiguration *>();
     return sambaConfiguration->findNoModeLogFiles(sambaConfiguration->sambaAccessPaths());
 }
+
+#include "moc_sambaAccessLogMode.cpp"

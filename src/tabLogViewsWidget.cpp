@@ -420,3 +420,5 @@ void TabLogViewsWidget::showContextMenu(QWidget *tab, const QPoint &cursorPositi
 
     mContextMenu->popup(cursorPosition);
 }
+
+#include "moc_tabLogViewsWidget.cpp"

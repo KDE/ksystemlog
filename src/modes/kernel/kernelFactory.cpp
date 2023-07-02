@@ -30,3 +30,5 @@ LogModeAction *KernelLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_kernelFactory.cpp"

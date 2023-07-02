@@ -49,3 +49,5 @@ QVector<LogFile> AcpidLogMode::createLogFiles()
     auto *configuration = logModeConfiguration<AcpidConfiguration *>();
     return configuration->findNoModeLogFiles(configuration->acpidPaths());
 }
+
+#include "moc_acpidLogMode.cpp"

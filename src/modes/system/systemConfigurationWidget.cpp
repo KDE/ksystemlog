@@ -54,3 +54,5 @@ void SystemConfigurationWidget::defaultConfig()
     // TODO Find a way to read the configuration per default
     readConfig();
 }
+
+#include "moc_systemConfigurationWidget.cpp"

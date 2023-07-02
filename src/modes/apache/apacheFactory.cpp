@@ -58,3 +58,5 @@ LogModeAction *ApacheLogModeFactory::createLogModeAction() const
 
     return multipleActions;
 }
+
+#include "moc_apacheFactory.cpp"

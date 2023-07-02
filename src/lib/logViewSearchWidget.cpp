@@ -307,3 +307,5 @@ void LogViewSearchWidget::unlightAll()
         ++it;
     }
 }
+
+#include "moc_logViewSearchWidget.cpp"

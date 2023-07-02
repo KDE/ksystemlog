@@ -124,3 +124,5 @@ void DetailDialog::nextItem()
 {
     moveToItem(1);
 }
+
+#include "moc_detailDialog.cpp"

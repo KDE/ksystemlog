@@ -94,3 +94,5 @@ void LogModePluginsLoader::loadPlugins()
     Globals::instance().registerLogModeFactory(new JournaldModeFactory());
 #endif
 }
+
+#include "moc_logModePluginsLoader.cpp"

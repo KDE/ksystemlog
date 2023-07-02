@@ -66,3 +66,5 @@ QStringList XSessionConfiguration::errorKeywords() const
 {
     return mErrorKeywords;
 }
+
+#include "moc_xsessionConfiguration.cpp"

@@ -90,3 +90,5 @@ void LogMode::checkLogFilesPresence(const QStringList &paths)
         }
     }
 }
+
+#include "moc_logMode.cpp"

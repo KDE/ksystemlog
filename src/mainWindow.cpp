@@ -805,3 +805,5 @@ void MainWindow::setupLogActions()
     }
 }
 }
+
+#include "moc_mainWindow.cpp"

@@ -59,3 +59,5 @@ LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &o
                        Globals::instance().informationLogLevel(),
                        mLogMode);
 }
+
+#include "moc_cupsPageAnalyzer.cpp"

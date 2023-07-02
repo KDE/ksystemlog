@@ -27,3 +27,5 @@ void DaemonConfiguration::setDaemonPaths(const QStringList &daemonPaths)
 {
     mDaemonPaths = daemonPaths;
 }
+
+#include "moc_daemonConfiguration.cpp"

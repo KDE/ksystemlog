@@ -59,3 +59,5 @@ bool ApacheConfigurationWidget::isValid() const
     qCDebug(KSYSTEMLOG) << "Apache configuration valid";
     return true;
 }
+
+#include "moc_apacheConfigurationWidget.cpp"

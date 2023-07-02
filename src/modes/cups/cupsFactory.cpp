@@ -74,3 +74,5 @@ LogModeAction *CupsLogModeFactory::createLogModeAction() const
 
     return multipleActions;
 }
+
+#include "moc_cupsFactory.cpp"

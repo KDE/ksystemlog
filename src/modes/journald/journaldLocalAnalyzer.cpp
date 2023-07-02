@@ -386,3 +386,5 @@ QStringList JournaldLocalAnalyzer::getUniqueFieldValues(const QString &id, int f
     }
     return units;
 }
+
+#include "moc_journaldLocalAnalyzer.cpp"

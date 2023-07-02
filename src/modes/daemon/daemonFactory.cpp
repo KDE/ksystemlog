@@ -30,3 +30,5 @@ LogModeAction *DaemonLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_daemonFactory.cpp"

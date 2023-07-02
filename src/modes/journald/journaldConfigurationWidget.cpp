@@ -157,3 +157,5 @@ bool JournaldConfigurationWidget::haveJournalAddress(const QString &address, con
     }
     return false;
 }
+
+#include "moc_journaldConfigurationWidget.cpp"

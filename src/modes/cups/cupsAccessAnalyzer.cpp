@@ -61,3 +61,5 @@ LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile 
 
     return new LogLine(mLogLineInternalIdGenerator++, dateTime, capturedTexts, originalLogFile.url().toLocalFile(), logLevel, mLogMode);
 }
+
+#include "moc_cupsAccessAnalyzer.cpp"

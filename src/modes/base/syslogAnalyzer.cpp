@@ -193,3 +193,5 @@ inline QString SyslogAnalyzer::undefinedProcess()
     // i18nc("Undefined process", "undefined");
     return QLatin1String("");
 }
+
+#include "moc_syslogAnalyzer.cpp"

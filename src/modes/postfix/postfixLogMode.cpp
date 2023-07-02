@@ -48,3 +48,5 @@ QVector<LogFile> PostfixLogMode::createLogFiles()
 {
     return logModeConfiguration<PostfixConfiguration *>()->findGenericLogFiles();
 }
+
+#include "moc_postfixLogMode.cpp"

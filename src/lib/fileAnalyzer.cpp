@@ -193,3 +193,5 @@ bool FileAnalyzer::insertLine(const QString &buffer, const LogFile &originalFile
 
     return mLogViewModel->insertNewLogLine(line);
 }
+
+#include "moc_fileAnalyzer.cpp"

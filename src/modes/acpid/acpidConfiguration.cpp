@@ -27,3 +27,5 @@ void AcpidConfiguration::setAcpidPaths(const QStringList &acpidPaths)
 {
     mAcpidPaths = acpidPaths;
 }
+
+#include "moc_acpidConfiguration.cpp"

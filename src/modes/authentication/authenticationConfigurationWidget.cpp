@@ -80,3 +80,5 @@ bool AuthenticationConfigurationWidget::isValid() const
 
     return false;
 }
+
+#include "moc_authenticationConfigurationWidget.cpp"

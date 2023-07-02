@@ -32,3 +32,5 @@ LogModeAction *XSessionLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_xsessionFactory.cpp"

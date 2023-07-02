@@ -245,3 +245,5 @@ void LogViewExport::fileSave()
         KMessageBox::error(mParent, message, i18n("Unable to save file."));
     }
 }
+
+#include "moc_logViewExport.cpp"

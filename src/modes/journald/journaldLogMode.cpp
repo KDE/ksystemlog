@@ -64,3 +64,5 @@ JournalFilters JournaldLogMode::filters(const JournalAddress &address) const
 {
     return mRemoteJournalFilters[address];
 }
+
+#include "moc_journaldLogMode.cpp"

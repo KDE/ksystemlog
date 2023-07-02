@@ -51,3 +51,5 @@ QVector<LogFile> AuthenticationLogMode::createLogFiles()
     const QVector<LogFile> logFiles{configuration->findGenericLogFile(configuration->authenticationPath())};
     return logFiles;
 }
+
+#include "moc_authenticationLogMode.cpp"

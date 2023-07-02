@@ -61,3 +61,5 @@ QVector<LogFile> OpenLogMode::createLogFiles()
 
     return QVector<LogFile>();
 }
+
+#include "moc_openLogMode.cpp"

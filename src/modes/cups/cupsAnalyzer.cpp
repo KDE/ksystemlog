@@ -77,3 +77,5 @@ LogLevel *CupsAnalyzer::findLogLevel(QChar type)
         return Globals::instance().noLogLevel();
     }
 }
+
+#include "moc_cupsAnalyzer.cpp"

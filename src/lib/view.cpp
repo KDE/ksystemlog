@@ -182,3 +182,5 @@ void View::dragEnterEvent(QDragEnterEvent *event)
     // Accept those urls
     event->acceptProposedAction();
 }
+
+#include "moc_view.cpp"

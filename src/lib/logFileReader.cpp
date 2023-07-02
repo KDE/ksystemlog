@@ -35,3 +35,5 @@ LogFile LogFileReader::logFile() const
     Q_D(const LogFileReader);
     return d->logFile;
 }
+
+#include "moc_logFileReader.cpp"

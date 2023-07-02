@@ -231,3 +231,5 @@ bool LogViewModel::insertNewLogLine(LogLine *line)
 
     return false;
 }
+
+#include "moc_logViewModel.cpp"

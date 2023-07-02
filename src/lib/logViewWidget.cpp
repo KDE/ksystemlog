@@ -295,3 +295,5 @@ void LogViewWidget::toggleHeader(QAction *action)
         header()->setSectionHidden(columnIndex, true);
     }
 }
+
+#include "moc_logViewWidget.cpp"

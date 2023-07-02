@@ -45,3 +45,5 @@ QVector<LogFile> KernelLogMode::createLogFiles()
     const QVector<LogFile> logFiles{LogFile(QUrl::fromLocalFile(QStringLiteral("/bin/dmesg")), Globals::instance().informationLogLevel())};
     return logFiles;
 }
+
+#include "moc_kernelLogMode.cpp"

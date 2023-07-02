@@ -58,3 +58,5 @@ void SambaConfiguration::setSambaAccessPaths(const QStringList &sambaAccessPaths
 {
     mSambaAccessPaths = sambaAccessPaths;
 }
+
+#include "moc_sambaConfiguration.cpp"

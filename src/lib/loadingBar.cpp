@@ -96,3 +96,5 @@ void LoadingBar::progressLoading()
     // kapp->processEvents();
     qApp->processEvents();
 }
+
+#include "moc_loadingBar.cpp"

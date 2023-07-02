@@ -48,3 +48,5 @@ bool AuthenticationAnalyzer::hasKeywords(const QString &message, const QStringLi
 
     return false;
 }
+
+#include "moc_authenticationAnalyzer.cpp"

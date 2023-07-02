@@ -10,3 +10,5 @@ AuditConfiguration::AuditConfiguration()
                                   {Globals::LogLevelIds::INFORMATION_LOG_LEVEL_ID})
 {
 }
+
+#include "moc_auditConfiguration.cpp"

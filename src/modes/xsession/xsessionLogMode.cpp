@@ -52,3 +52,5 @@ QVector<LogFile> XSessionLogMode::createLogFiles()
     const QVector<LogFile> logFiles{configuration->findGenericLogFile(configuration->xsessionPath())};
     return logFiles;
 }
+
+#include "moc_xsessionLogMode.cpp"

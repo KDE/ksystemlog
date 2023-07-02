@@ -24,3 +24,5 @@ LogModeAction *AuditLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_auditFactory.cpp"

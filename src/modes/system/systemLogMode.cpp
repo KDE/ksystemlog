@@ -48,3 +48,5 @@ QVector<LogFile> SystemLogMode::createLogFiles()
 {
     return logModeConfiguration<SystemConfiguration *>()->findGenericLogFiles();
 }
+
+#include "moc_systemLogMode.cpp"

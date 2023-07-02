@@ -47,3 +47,5 @@ void JournaldAddressDialog::accept()
     }
     QDialog::accept();
 }
+
+#include "moc_journaldAddressDialog.cpp"

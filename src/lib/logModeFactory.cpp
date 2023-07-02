@@ -15,3 +15,5 @@ LogModeFactory::LogModeFactory()
 LogModeFactory::~LogModeFactory()
 {
 }
+
+#include "moc_logModeFactory.cpp"

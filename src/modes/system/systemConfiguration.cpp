@@ -16,3 +16,5 @@ SystemConfiguration::SystemConfiguration()
         <default>2,2,1</default>
         */
 }
+
+#include "moc_systemConfiguration.cpp"

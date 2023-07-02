@@ -175,3 +175,5 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
 
     Q_EMIT fileListChanged();
 }
+
+#include "moc_logLevelFileList.cpp"

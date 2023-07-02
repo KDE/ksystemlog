@@ -47,3 +47,5 @@ bool DaemonConfigurationWidget::isValid() const
 
     return false;
 }
+
+#include "moc_daemonConfigurationWidget.cpp"

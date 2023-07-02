@@ -146,3 +146,5 @@ bool GeneralConfigurationWidget::isValid() const
     qCDebug(KSYSTEMLOG) << "General configuration is not valid";
     return false;
 }
+
+#include "moc_generalConfigurationWidget.cpp"

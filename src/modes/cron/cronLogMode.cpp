@@ -50,3 +50,5 @@ QVector<LogFile> CronLogMode::createLogFiles()
     auto *cronConfiguration = logModeConfiguration<CronConfiguration *>();
     return cronConfiguration->findNoModeLogFiles(cronConfiguration->cronPaths());
 }
+
+#include "moc_cronLogMode.cpp"

@@ -236,3 +236,5 @@ QVector<LogFile> LogModeConfiguration::findNoModeLogFiles(const QStringList &str
 
     return logFiles;
 }
+
+#include "moc_logModeConfiguration.cpp"

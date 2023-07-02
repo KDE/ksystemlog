@@ -31,3 +31,5 @@ LogModeAction *AcpidLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_acpidFactory.cpp"

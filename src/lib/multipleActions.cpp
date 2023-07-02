@@ -40,3 +40,5 @@ void MultipleActions::addInnerAction(QAction *innerAction, bool addToMenu, bool 
         mActions.append(innerAction);
     }
 }
+
+#include "moc_multipleActions.cpp"

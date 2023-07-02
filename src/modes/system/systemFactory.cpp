@@ -30,3 +30,5 @@ LogModeAction *SystemLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_systemFactory.cpp"

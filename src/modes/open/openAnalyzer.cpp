@@ -10,3 +10,5 @@ OpenAnalyzer::OpenAnalyzer(LogMode *logMode)
     : SyslogAnalyzer(logMode)
 {
 }
+
+#include "moc_openAnalyzer.cpp"

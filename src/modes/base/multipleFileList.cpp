@@ -449,3 +449,5 @@ QStringList MultipleFileList::paths(int category)
 
     return paths;
 }
+
+#include "moc_multipleFileList.cpp"

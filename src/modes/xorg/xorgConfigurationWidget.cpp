@@ -47,3 +47,5 @@ bool XorgConfigurationWidget::isValid() const
 
     return false;
 }
+
+#include "moc_xorgConfigurationWidget.cpp"

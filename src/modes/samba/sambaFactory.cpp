@@ -67,3 +67,5 @@ LogModeAction *SambaLogModeFactory::createLogModeAction() const
 
     return multipleActions;
 }
+
+#include "moc_sambaFactory.cpp"

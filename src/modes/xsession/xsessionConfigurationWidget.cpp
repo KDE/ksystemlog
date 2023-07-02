@@ -92,3 +92,5 @@ void XSessionConfigurationWidget::prepareXorgErrorsDescription()
         mXorgErrorsDescriptionDefined = true;
     }
 }
+
+#include "moc_xsessionConfigurationWidget.cpp"

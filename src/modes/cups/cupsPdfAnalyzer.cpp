@@ -58,3 +58,5 @@ LogLevel *CupsPdfAnalyzer::findLogLevel(const QString &level)
     // level == "STATUS"
     return Globals::instance().informationLogLevel();
 }
+
+#include "moc_cupsPdfAnalyzer.cpp"

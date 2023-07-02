@@ -155,3 +155,5 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     return multipleActions;
 }
+
+#include "moc_journaldFactory.cpp"

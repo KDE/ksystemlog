@@ -100,3 +100,5 @@ void CronConfigurationWidget::toggleProcessFilterEnabling(bool enabled)
     mProcessFilter->setEnabled(enabled);
     mProcessFilterLabel->setEnabled(enabled);
 }
+
+#include "moc_cronConfigurationWidget.cpp"

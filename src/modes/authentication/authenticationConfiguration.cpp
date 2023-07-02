@@ -43,3 +43,5 @@ QStringList AuthenticationConfiguration::errorKeywords() const
 {
     return mErrorKeywords;
 }
+
+#include "moc_authenticationConfiguration.cpp"

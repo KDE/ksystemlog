@@ -116,3 +116,5 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 
     return nullptr;
 }
+
+#include "moc_sambaAnalyzer.cpp"

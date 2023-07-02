@@ -221,3 +221,5 @@ LogViewWidgetSearchLine *LogViewFilterWidget::filterLine() const
 {
     return mFilterLine;
 }
+
+#include "moc_logViewFilterWidget.cpp"

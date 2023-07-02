@@ -62,3 +62,5 @@ void JournaldConfiguration::setRemoteJournals(const QVector<JournalAddress> &rem
         mRemoteJournals.append(QStringLiteral("%1|%2|%3").arg(addressInfo.address).arg(addressInfo.port).arg(addressInfo.https ? 1 : 0));
     }
 }
+
+#include "moc_journaldConfiguration.cpp"

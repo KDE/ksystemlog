@@ -81,3 +81,5 @@ QVector<LogFile> GenericLogModeConfiguration::findGenericLogFiles() const
 
     return logFiles;
 }
+
+#include "moc_genericConfiguration.cpp"

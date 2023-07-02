@@ -217,3 +217,5 @@ void ProcessOutputLogFileReader::emptyBuffer()
         d->mBuffer.clear();
     }
 }
+
+#include "moc_processOutputLogFileReader.cpp"

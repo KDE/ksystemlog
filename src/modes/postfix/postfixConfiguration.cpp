@@ -14,3 +14,5 @@ PostfixConfiguration::PostfixConfiguration()
                                                << Globals::ERROR_LOG_LEVEL_ID)
 {
 }
+
+#include "moc_postfixConfiguration.cpp"

@@ -32,3 +32,5 @@ LogModeAction *PostfixLogModeFactory::createLogModeAction() const
 
     return logModeAction;
 }
+
+#include "moc_postfixFactory.cpp"
