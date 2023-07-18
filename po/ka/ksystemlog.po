@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-06-19 06:13+0200\n"
+"PO-Revision-Date: 2023-07-17 07:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1264,6 +1264,8 @@ msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
 msgstr ""
+"ეს ქმედება გახსნის ფანჯარას, რომელიც ჟურნალის სისტემისთვის შეტყობინების "
+"გაგზავნის საშუალებას გაძლევთ."
 
 #: src/mainWindow.cpp:605
 #, kde-format
@@ -1295,7 +1297,7 @@ msgstr "ახალი ჩანართის შექმნა"
 #: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
-msgstr ""
+msgstr "ქმნის ახალ ჩანართს, რომელსაც სხვა ჟურნალის ჩვენება შეუძლია."
 
 #: src/mainWindow.cpp:632
 #, kde-format
@@ -1373,6 +1375,8 @@ msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
 msgstr ""
+"მიმდინარე ჟურნალის თავიდან ჩატვირთვა. იმ შემთხვევსთვის, თუ გნებავთ, "
+"დარწმუნდეთ, ხედი სიახლეებს ასახავს, თუ არა."
 
 #: src/mainWindow.cpp:681
 #, kde-format
@@ -1992,6 +1996,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
 "log type.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ამ ჟურნალის ტიპის მიერ "
+"გამოყენებული ფაილების ჩამონათვალი..</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:197
@@ -2007,6 +2019,15 @@ msgid ""
 "file that will be read by KSystemLog to display the current log lines.</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მიმდინარე ჟურნალის "
+"საჩვენებლად KSystemLog-ის მიერ წაკითხული ყველა ფაილის ჩამონათვალი.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
@@ -2954,7 +2975,7 @@ msgstr ""
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
 msgid "Probed"
-msgstr ""
+msgstr "ზონდირებულია"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
