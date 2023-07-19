@@ -3352,21 +3352,3 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "No Log"
 msgstr "Sense registre"
-
-#~ msgid "&Fancy short date format"
-#~ msgstr "Format de data curt &imaginatiu"
-
-#~ msgid "Fanc&y long date format"
-#~ msgstr "Format de data llarg &imaginatiu"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 B"
-#~ msgstr "%1 B"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 KB"
-#~ msgstr "%1 KB"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
