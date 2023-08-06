@@ -1249,7 +1249,7 @@ msgid ""
 "paste the selection in a chat or an email."
 msgstr ""
 "Copia a selección para o portapapeis. Esta acción é útil se quere pegar a "
-"selección nunha conversa ou nunha mensaxe de correo."
+"selección nunha charla ou nunha mensaxe de correo."
 
 #: src/mainWindow.cpp:569
 #, kde-format
