@@ -100,11 +100,11 @@ QString Globals::formatDate(Globals::DateFormat format, const QDateTime &dateTim
 
 void Globals::setupLogLevels()
 {
-    KColorScheme scheme(QPalette::Active, KColorScheme::View);
+    KColorScheme const scheme(QPalette::Active, KColorScheme::View);
 
-    QColor redColor = scheme.foreground(KColorScheme::NegativeText).color();
-    QColor inactiveText = scheme.foreground(KColorScheme::InactiveText).color();
-    int index = metaObject()->indexOfEnumerator("LogLevelIds");
+    QColor const redColor = scheme.foreground(KColorScheme::NegativeText).color();
+    QColor const inactiveText = scheme.foreground(KColorScheme::InactiveText).color();
+    int const index = metaObject()->indexOfEnumerator("LogLevelIds");
     d->mLogLevelsMetaEnum = metaObject()->enumerator(index);
 
     d->mNoLogLevel = new LogLevel(NONE_LOG_LEVEL_ID, i18n("None"), QStringLiteral("edit-none"), inactiveText.darker(120));

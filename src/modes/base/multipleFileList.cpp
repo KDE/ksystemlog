@@ -175,7 +175,7 @@ int MultipleFileList::addCategory(const QString &itemName, const QString &button
     font.setBold(true);
     item->setFont(0, font);
 
-    int index = fileList->indexOfTopLevelItem(item);
+    int const index = fileList->indexOfTopLevelItem(item);
 
     auto addButton = new QPushButton(buttonName, this);
     QAction *action = mFileListHelper.prepareButtonAndAction(addButton, QIcon::fromTheme(QStringLiteral("document-new")));
@@ -219,7 +219,7 @@ void MultipleFileList::addItemInternal(QTreeWidgetItem *categoryItem, const QStr
     qCDebug(KSYSTEMLOG) << "Adding" << path << "to" << categoryItem->text(0);
     auto item = new QTreeWidgetItem(QStringList(path));
 
-    QFileInfo checkFile(path);
+    QFileInfo const checkFile(path);
     if (!checkFile.exists()) {
         mMissingFiles = true;
         item->setForeground(0, Qt::red);
@@ -295,12 +295,12 @@ void MultipleFileList::removeSelectedItem()
 
 void MultipleFileList::moveItem(int direction)
 {
-    QList<QTreeWidgetItem *> selectedItems = fileList->selectedItems();
+    QList<QTreeWidgetItem *> const selectedItems = fileList->selectedItems();
 
     QTreeWidgetItem *item = selectedItems.at(0);
 
     QTreeWidgetItem *categoryItem = findCategoryOfChild(item);
-    int itemIndex = categoryItem->indexOfChild(item);
+    int const itemIndex = categoryItem->indexOfChild(item);
 
     categoryItem->takeChild(itemIndex);
 

@@ -97,8 +97,8 @@ void JournaldNetworkAnalyzer::httpFinished()
                                      "Journal updates will be unavailable.";
         }
     } else {
-        QString identifiersString = QString::fromUtf8(data);
-        QStringList identifiersList = identifiersString.split(QChar::fromLatin1('\n'), Qt::SkipEmptyParts);
+        QString const identifiersString = QString::fromUtf8(data);
+        QStringList const identifiersList = identifiersString.split(QChar::fromLatin1('\n'), Qt::SkipEmptyParts);
         switch (mCurrentRequest) {
         case RequestType::SyslogIds:
             mSyslogIdentifiers = identifiersList;
@@ -168,7 +168,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         }
         item.prepend('{');
         QJsonParseError jsonError{};
-        QJsonDocument doc = QJsonDocument::fromJson(item, &jsonError);
+        QJsonDocument const doc = QJsonDocument::fromJson(item, &jsonError);
         if (jsonError.error != 0) {
             continue;
         }
@@ -217,7 +217,7 @@ void JournaldNetworkAnalyzer::parseEntries(QByteArray &data, Analyzer::ReadingMo
         }
 
         // Add journald entries to the model.
-        int entriesInserted = updateModel(entries, readingMode);
+        int const entriesInserted = updateModel(entries, readingMode);
 
         mLogViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
@@ -255,7 +255,7 @@ void JournaldNetworkAnalyzer::sendRequest(RequestType requestType)
         break;
     case RequestType::EntriesFull: {
         url = mEntriesUrlFull;
-        int entries = KSystemLogConfig::maxLines();
+        int const entries = KSystemLogConfig::maxLines();
         request.setRawHeader("Accept", "application/json");
         request.setRawHeader("Range", QStringLiteral("entries=:-%1:%2").arg(entries - 1).arg(entries).toUtf8());
     } break;

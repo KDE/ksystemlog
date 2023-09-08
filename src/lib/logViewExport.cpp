@@ -80,10 +80,10 @@ void LogViewExport::print(QPrinter *printer)
     // start painting
     painter.begin(printer);
 
-    QPen originalPen(painter.pen());
+    QPen const originalPen(painter.pen());
 
     QPaintDevice *painterDevice = painter.device();
-    int dpiy = painterDevice->logicalDpiY();
+    int const dpiy = painterDevice->logicalDpiY();
     const int margin = (int)((2 / 2.54) * dpiy); // 2 cm margins
     QRect printView(margin, margin, painterDevice->width() - 2 * margin, painterDevice->height() - 2 * margin);
 

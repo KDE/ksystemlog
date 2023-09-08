@@ -78,7 +78,7 @@ QVector<LogFile> TestUtil::createLogFiles(const QString &resourceFileName) const
     LogLevel *informationLogLevel = Globals::instance().informationLogLevel();
 
     QVector<LogFile> logFiles;
-    LogFile logFile(QUrl::fromLocalFile(tempFile->fileName()), informationLogLevel);
+    LogFile const logFile(QUrl::fromLocalFile(tempFile->fileName()), informationLogLevel);
     delete tempFile;
     logFiles.append(logFile);
 
@@ -92,7 +92,7 @@ void TestUtil::testLine(LogLine *line, const QString &originalFileName, LogLevel
     QCOMPARE(line->logLevel()->id(), logLevel->id());
 
     // Test log line items
-    QStringList logItems = line->logItems();
+    QStringList const logItems = line->logItems();
     QCOMPARE(logItems.count(), items.count());
     QCOMPARE(logItems, items);
 }

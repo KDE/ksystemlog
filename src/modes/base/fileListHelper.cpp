@@ -66,7 +66,7 @@ QStringList FileListHelper::findPaths(const QList<QUrl> &urls)
     QStringList paths;
 
     for (QList<QUrl>::ConstIterator it = urls.constBegin(), total = urls.constEnd(); it != total; ++it) {
-        QUrl url(*it);
+        QUrl const url(*it);
 
         if (isValidFile(url)) {
             // If this Url uses a joker (i.e. : "/var/log/apache2/*")

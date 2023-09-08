@@ -51,8 +51,8 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
         level = QStringLiteral("notice");
     } else {
         // The Date
-        int dateBegin = line.indexOf(QLatin1String("["));
-        int dateEnd = line.indexOf(QLatin1String("]"));
+        int const dateBegin = line.indexOf(QLatin1String("["));
+        int const dateEnd = line.indexOf(QLatin1String("]"));
 
         const QString strDate = line.mid(dateBegin + 1, dateEnd - dateBegin - 1);
 
@@ -78,7 +78,7 @@ LogLine *ApacheAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     }
 
     // The client
-    int beginSquareBracket = line.indexOf(QLatin1String("[client"));
+    int const beginSquareBracket = line.indexOf(QLatin1String("[client"));
     squareBracket = line.indexOf(QLatin1String("]"));
     QString client;
     if (beginSquareBracket == -1 || squareBracket == -1) {

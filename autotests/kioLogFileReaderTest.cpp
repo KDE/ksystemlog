@@ -37,8 +37,8 @@ void KioLogFileReaderTest::initTestCase()
 
 void KioLogFileReaderTest::testKioLogFileReader()
 {
-    QString fixturePath = QFINDTESTDATA("testFiles/logFileReader/file.txt");
-    LogFile logFile(QUrl::fromLocalFile(fixturePath), Globals::instance().informationLogLevel());
+    QString const fixturePath = QFINDTESTDATA("testFiles/logFileReader/file.txt");
+    LogFile const logFile(QUrl::fromLocalFile(fixturePath), Globals::instance().informationLogLevel());
 
     auto logFileReader = new KioLogFileReader(logFile);
     logFileReader->open();

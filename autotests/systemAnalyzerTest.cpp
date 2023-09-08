@@ -61,7 +61,7 @@ void SystemAnalyzerTest::testOneLine()
     QVERIFY(systemAnalyzer);
     QVERIFY(model);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/one-line.log"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/one-line.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -70,10 +70,10 @@ void SystemAnalyzerTest::testOneLine()
     QCOMPARE(model->itemCount(), 1);
     QCOMPARE(model->isEmpty(), false);
 
-    QList<LogLine *> logLines = model->logLines();
+    QList<LogLine *> const logLines = model->logLines();
 
-    QStringList items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel")
-                                      << QStringLiteral("[11663.656000] eth1: no IPv6 routers present");
+    QStringList const items = QStringList() << QStringLiteral("localhost") << QStringLiteral("kernel")
+                                            << QStringLiteral("[11663.656000] eth1: no IPv6 routers present");
 
     const int year = QDate::currentDate().year();
     testUtil.testLine(logLines.at(0),
@@ -98,7 +98,7 @@ void SystemAnalyzerTest::testTwoLines()
     // Specifical configuration
     KSystemLogConfig::setMaxLines(1000);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/two-lines.log"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/default/two-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -121,8 +121,8 @@ void SystemAnalyzerTest::testMultipleLines()
     // Specifical configuration
     KSystemLogConfig::setMaxLines(1000);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/system.log"));
-    LogFile logFile = logFiles.at(0);
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/system.log"));
+    LogFile const logFile = logFiles.at(0);
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -180,7 +180,7 @@ void SystemAnalyzerTest::testStrangeLines()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteProcessIdentifier(false);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/strange-lines.log"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/strange-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -189,7 +189,7 @@ void SystemAnalyzerTest::testStrangeLines()
     QCOMPARE(model->itemCount(), 8);
 
     // i18n("undefined")
-    QString undefined = QLatin1String("");
+    QString const undefined = QLatin1String("");
 
     QStringList items;
 
@@ -271,7 +271,7 @@ void SystemAnalyzerTest::testDeleteProcessIdentifier()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteProcessIdentifier(true);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/delete-process-identifier.log"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/delete-process-identifier.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -303,8 +303,8 @@ void SystemAnalyzerTest::testMaxLines()
     // Specifical configuration
     KSystemLogConfig::setMaxLines(5);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/max-lines.log"));
-    LogFile logFile = logFiles.at(0);
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/max-lines.log"));
+    LogFile const logFile = logFiles.at(0);
 
     systemAnalyzer->setLogFiles(logFiles);
 
@@ -371,7 +371,7 @@ void SystemAnalyzerTest::testRemoveDuplicates()
     KSystemLogConfig::setMaxLines(1000);
     KSystemLogConfig::setDeleteDuplicatedLines(true);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/duplicate-lines.log"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/duplicate-lines.log"));
 
     systemAnalyzer->setLogFiles(logFiles);
 

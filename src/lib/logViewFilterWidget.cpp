@@ -115,7 +115,7 @@ LogViewFilterWidget::LogViewFilterWidget(QWidget *parent)
     mPrioritiesComboBox->setItemDelegate(delegate);
     filterBarLayout->addWidget(mPrioritiesComboBox);
 
-    QMetaEnum &metaEnum = Globals::instance().logLevelsMetaEnum();
+    QMetaEnum const &metaEnum = Globals::instance().logLevelsMetaEnum();
 
     mPrioritiesModel = new QStandardItemModel(mPrioritiesComboBox);
     mPrioritiesComboBox->setModel(mPrioritiesModel);

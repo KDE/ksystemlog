@@ -157,7 +157,7 @@ void JournaldLocalAnalyzer::readJournalFinished(ReadingMode readingMode)
         }
 
         // Add journald entries to the model.
-        int entriesInserted = updateModel(entries, readingMode);
+        int const entriesInserted = updateModel(entries, readingMode);
 
         mLogViewModel->endingMultipleInsertions(readingMode, entriesInserted);
 
@@ -209,7 +209,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
 
 QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(const QStringList &filters)
 {
-    QMutexLocker mutexLocker(&mWorkerMutex);
+    QMutexLocker const mutexLocker(&mWorkerMutex);
     QList<JournalEntry> entryList;
     sd_journal *journal;
 
@@ -272,7 +272,7 @@ bool JournaldLocalAnalyzer::prepareJournalReading(sd_journal *journal, const QSt
     }
 
     // Read number of entries allowed by KSystemLog configuration.
-    int maxEntriesNum = KSystemLogConfig::maxLines();
+    int const maxEntriesNum = KSystemLogConfig::maxLines();
 
     // Seek to cursor.
     if (mCursor) {

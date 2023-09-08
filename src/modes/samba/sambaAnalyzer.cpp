@@ -62,7 +62,7 @@ LogLine *SambaAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
         // The source file
         int doubleDot;
         doubleDot = line.indexOf(QLatin1Char(':'));
-        QString file = line.left(doubleDot);
+        QString const file = line.left(doubleDot);
         line.remove(0, doubleDot + 1);
 
         // The function

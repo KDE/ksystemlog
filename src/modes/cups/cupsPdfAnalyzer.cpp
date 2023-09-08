@@ -24,7 +24,7 @@ LogViewColumns CupsPdfAnalyzer::initColumns()
 
 LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int firstPosition = mCupsPdfRegex.indexIn(logLine);
+    int const firstPosition = mCupsPdfRegex.indexIn(logLine);
     if (firstPosition == -1) {
         qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;

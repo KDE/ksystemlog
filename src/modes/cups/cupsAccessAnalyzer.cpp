@@ -41,7 +41,7 @@ Analyzer::LogFileSortMode CupsAccessAnalyzer::logFileSortMode()
 
 LogLine *CupsAccessAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int firstPosition = mCupsAccessRegex.indexIn(logLine);
+    int const firstPosition = mCupsAccessRegex.indexIn(logLine);
     if (firstPosition == -1) {
         qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;

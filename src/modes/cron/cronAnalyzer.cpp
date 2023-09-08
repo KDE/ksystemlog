@@ -37,8 +37,8 @@ LogLine *CronAnalyzer::parseMessage(const QString &logLine, const LogFile &origi
     // Gets the message column (last item) and deletes it
     QString message = list.takeLast();
 
-    int leftBracket = message.indexOf(QLatin1Char('('));
-    int rightBracket = message.indexOf(QLatin1Char(')'));
+    int const leftBracket = message.indexOf(QLatin1Char('('));
+    int const rightBracket = message.indexOf(QLatin1Char(')'));
 
     const QString user = message.mid(leftBracket + 1, rightBracket - leftBracket - 1);
 

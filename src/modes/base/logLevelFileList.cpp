@@ -107,13 +107,13 @@ void LogLevelFileList::changeItemType()
         logLevels->addItem(new QListWidgetItem(level->icon(), level->name()));
     }
 
-    int choice = logLevelSelectionDialog.exec();
+    int const choice = logLevelSelectionDialog.exec();
 
     if (choice == QDialog::Accepted) {
         const QList<QListWidgetItem *> selectedLogLevels = logLevels->selectedItems();
         if (!selectedLogLevels.isEmpty()) {
             QListWidgetItem *logLevel = selectedLogLevels.at(0);
-            int selectedLogLevel = logLevels->row(logLevel);
+            int const selectedLogLevel = logLevels->row(logLevel);
 
             const QList<QListWidgetItem *> selectedItems = fileList->selectedItems();
             for (QListWidgetItem *item : selectedItems) {
@@ -157,11 +157,11 @@ void LogLevelFileList::addPaths(const QStringList &stringList, const QList<int> 
     bool missingFiles = false;
 
     while (itString.hasNext()) {
-        int valueInt = itInt.next();
+        int const valueInt = itInt.next();
         const QString valueString = itString.next();
         bool missingFile = false;
 
-        QFileInfo checkFile(valueString);
+        QFileInfo const checkFile(valueString);
         if (!checkFile.exists()) {
             missingFiles = true;
             missingFile = true;

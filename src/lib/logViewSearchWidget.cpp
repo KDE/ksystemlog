@@ -136,7 +136,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
     while (*it) {
         auto item = static_cast<LogViewWidgetItem *>(*it);
 
-        bool found = findItem(item);
+        bool const found = findItem(item);
         if (found) {
             return;
         }
@@ -153,7 +153,7 @@ void LogViewSearchWidget::internalFind(LogViewWidgetItem *fromItem, Direction di
         while (*it && item != fromItem) {
             item = static_cast<LogViewWidgetItem *>(*it);
 
-            bool found = findItem(item);
+            bool const found = findItem(item);
             if (found) {
                 showMessage(i18n("Reached end of list."), QStringLiteral("dialog-information"));
                 return;

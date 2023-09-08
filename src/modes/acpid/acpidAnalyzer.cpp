@@ -25,8 +25,8 @@ LogLine *AcpidAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 {
     QString line(logLine);
 
-    int dateBegin = line.indexOf(QLatin1String("["));
-    int dateEnd = line.indexOf(QLatin1String("]"));
+    int const dateBegin = line.indexOf(QLatin1String("["));
+    int const dateEnd = line.indexOf(QLatin1String("]"));
 
     QString type;
     QString message;
@@ -60,7 +60,7 @@ LogLine *AcpidAnalyzer::parseMessage(const QString &logLine, const LogFile &orig
 
         line.remove(0, dateEnd + 2);
 
-        int endType = line.indexOf(QLatin1String("\""));
+        int const endType = line.indexOf(QLatin1String("\""));
 
         // If the " character does not exist, it means that there is no Type category
         if (endType == -1) {

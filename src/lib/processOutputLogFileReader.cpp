@@ -137,7 +137,7 @@ void ProcessOutputLogFileReader::emitProcessOutput(int /*exitCode*/, QProcess::E
     qCDebug(KSYSTEMLOG) << "Process terminated" << d->mPreviousLinesCount << "previously /" << d->mAvailableStandardOutput.count() << "currently";
 
     if (exitStatus == QProcess::CrashExit) {
-        QString message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));
+        QString const message(i18n("The process '%1' crashed.", d->logFile.url().toLocalFile()));
         Q_EMIT errorOccured(i18n("Process Crashed"), message);
         Q_EMIT statusBarChanged(message);
     }
@@ -183,7 +183,7 @@ void ProcessOutputLogFileReader::logFileModified()
     qCDebug(KSYSTEMLOG) << "Content available on process output...";
 
     // New added lines
-    QByteArray bytesOutput = d->mProcess->readAllStandardOutput();
+    QByteArray const bytesOutput = d->mProcess->readAllStandardOutput();
     d->mBuffer.append(QLatin1String(bytesOutput));
 
     // Parse buffer

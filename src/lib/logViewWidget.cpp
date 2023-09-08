@@ -206,7 +206,7 @@ bool LogViewWidget::hasItemsSelected()
 
 LogViewWidgetItem *LogViewWidget::firstSelectedItem()
 {
-    QTreeWidgetItemIterator it(this, QTreeWidgetItemIterator::Selected);
+    QTreeWidgetItemIterator const it(this, QTreeWidgetItemIterator::Selected);
 
     // Returns the first selected item or NULL is there is no item selected
     return static_cast<LogViewWidgetItem *>(*it);
@@ -288,7 +288,7 @@ void LogViewWidget::toggleHeader(QAction *action)
 {
     qCDebug(KSYSTEMLOG) << "Toggling header";
 
-    int columnIndex = action->data().toInt();
+    int const columnIndex = action->data().toInt();
     if (header()->isSectionHidden(columnIndex)) {
         header()->setSectionHidden(columnIndex, false);
     } else {

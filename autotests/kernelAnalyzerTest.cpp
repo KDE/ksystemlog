@@ -90,7 +90,7 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/ubuntu.dmesg"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/ubuntu.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 
@@ -99,9 +99,9 @@ void KernelAnalyzerTest::testUbuntuDmesg()
     QCOMPARE(model->itemCount(), 25);
     QCOMPARE(model->isEmpty(), false);
 
-    QList<LogLine *> logLines = model->logLines();
+    QList<LogLine *> const logLines = model->logLines();
 
-    QStringList items = QStringList() << QStringLiteral("ADDRCONF(NETDEV_UP)") << QStringLiteral("eth0: link is not ready");
+    QStringList const items = QStringList() << QStringLiteral("ADDRCONF(NETDEV_UP)") << QStringLiteral("eth0: link is not ready");
     QDateTime assertedDateTime = kernelAnalyzer->findStartupTime();
     assertedDateTime = assertedDateTime.addSecs(22);
     assertedDateTime = assertedDateTime.addMSecs(232);
@@ -124,7 +124,7 @@ void KernelAnalyzerTest::testSuseDmesg()
     QVERIFY(kernelAnalyzer);
     QVERIFY(model);
 
-    QVector<LogFile> logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/suse.dmesg"));
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/kernel/suse.dmesg"));
 
     kernelAnalyzer->setLogFiles(logFiles);
 
@@ -133,9 +133,9 @@ void KernelAnalyzerTest::testSuseDmesg()
     QCOMPARE(model->itemCount(), 23);
     QCOMPARE(model->isEmpty(), false);
 
-    QList<LogLine *> logLines = model->logLines();
+    QList<LogLine *> const logLines = model->logLines();
 
-    QStringList items = QStringList() << QStringLiteral("r8169") << QStringLiteral("eth0: link down");
+    QStringList const items = QStringList() << QStringLiteral("r8169") << QStringLiteral("eth0: link down");
 
     testUtil.testLine(logLines.at(0), logFiles.at(0).url().toLocalFile(), Globals::instance().informationLogLevel(), kernelAnalyzer->findStartupTime(), items);
 

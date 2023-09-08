@@ -73,7 +73,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     const int year = QDate::currentDate().year();
 
     // Month number
-    QString month(logLine.left(3));
+    QString const month(logLine.left(3));
 
     QString line(logLine);
 
@@ -81,7 +81,7 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     const int monthNum = ParsingHelper::instance()->parseSyslogMonth(month);
 
     // Day number
-    QString day(line.left(2));
+    QString const day(line.left(2));
     const int dayNum = day.toInt();
 
     line.remove(0, 3);

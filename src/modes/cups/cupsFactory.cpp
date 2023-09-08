@@ -43,10 +43,10 @@ LogModeAction *CupsLogModeFactory::createLogModeAction() const
     LogMode *cupsPageLogMode = Globals::instance().findLogMode(QStringLiteral(CUPS_PAGE_LOG_MODE_ID));
     LogMode *cupsPdfLogMode = Globals::instance().findLogMode(QStringLiteral(CUPS_PDF_LOG_MODE_ID));
 
-    bool cupsLogsExist = cupsLogMode->filesExist();
-    bool cupsAccessLogsExist = cupsAccessLogMode->filesExist();
-    bool cupsPageLogsExist = cupsPageLogMode->filesExist();
-    bool cupsPdfLogsExist = cupsPdfLogMode->filesExist();
+    bool const cupsLogsExist = cupsLogMode->filesExist();
+    bool const cupsAccessLogsExist = cupsAccessLogMode->filesExist();
+    bool const cupsPageLogsExist = cupsPageLogMode->filesExist();
+    bool const cupsPdfLogsExist = cupsPdfLogMode->filesExist();
 
     if (!cupsLogsExist && !cupsAccessLogsExist && !cupsPageLogsExist && !cupsPdfLogsExist) {
         return nullptr;

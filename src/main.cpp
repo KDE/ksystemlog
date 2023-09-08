@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
 #endif
-    QApplication app(argc, argv);
+    QApplication const app(argc, argv);
 
     KLocalizedString::setApplicationDomain("ksystemlog");
 

@@ -46,7 +46,7 @@ void JournaldConfigurationWidget::saveConfig()
         JournalAddress addressInfo;
         addressInfo.address = addressItem->text();
         addressInfo.port = portItem->text().toUInt();
-        Qt::CheckState httpsCheckState = httpsItem->checkState();
+        Qt::CheckState const httpsCheckState = httpsItem->checkState();
         addressInfo.https = (httpsCheckState == Qt::Checked);
         remoteJournals.append(addressInfo);
     }
@@ -130,12 +130,12 @@ void JournaldConfigurationWidget::tableItemClicked(int row)
     QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
     QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
     QTableWidgetItem *httpsItem = remoteJournalsListWidget->item(row, 2);
-    bool httpsEnabled = (Qt::Checked == httpsItem->checkState());
+    bool const httpsEnabled = (Qt::Checked == httpsItem->checkState());
     JournaldAddressDialog dialog(this, i18n("Modify remote journal"), addressItem->text(), portItem->text(), httpsEnabled);
     if (dialog.exec() == QDialog::Accepted) {
-        QString address = dialog.address();
-        QString port = dialog.port();
-        bool newHttpsEnabled = dialog.httpsEnabled();
+        QString const address = dialog.address();
+        QString const port = dialog.port();
+        bool const newHttpsEnabled = dialog.httpsEnabled();
         if (!haveJournalAddress(address, port, newHttpsEnabled)) {
             addressItem->setText(address);
             portItem->setText(port);
@@ -150,7 +150,7 @@ bool JournaldConfigurationWidget::haveJournalAddress(const QString &address, con
         QTableWidgetItem *addressItem = remoteJournalsListWidget->item(row, 0);
         QTableWidgetItem *portItem = remoteJournalsListWidget->item(row, 1);
         QTableWidgetItem *httpsItem = remoteJournalsListWidget->item(row, 2);
-        bool https = (Qt::Checked == httpsItem->checkState());
+        bool const https = (Qt::Checked == httpsItem->checkState());
         if ((addressItem->text() == address) && (portItem->text() == port) && (https == httpsEnabled)) {
             return true;
         }

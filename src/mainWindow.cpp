@@ -215,7 +215,7 @@ void MainWindow::updateSelection()
 
     updateDetailDialog();
 
-    bool selection = currentLogManager->usedView()->logViewWidget()->hasItemsSelected();
+    bool const selection = currentLogManager->usedView()->logViewWidget()->hasItemsSelected();
 
     mCopyAction->setEnabled(selection);
     mSaveAction->setEnabled(selection);
@@ -301,8 +301,8 @@ void MainWindow::updateStatusBar()
 
     LogManager *currentManager = mTabs->activeLogManager();
 
-    int itemCount = currentManager->usedView()->logViewWidget()->itemCount();
-    int notHiddenItemCount = currentManager->usedView()->logViewWidget()->notHiddenItemCount();
+    int const itemCount = currentManager->usedView()->logViewWidget()->itemCount();
+    int const notHiddenItemCount = currentManager->usedView()->logViewWidget()->notHiddenItemCount();
 
     if (itemCount == notHiddenItemCount) {
         mStatusBar->changeLineCountMessage(i18ncp("Total displayed lines", "1 line.", "%1 lines.", currentManager->usedView()->logViewWidget()->itemCount()));
@@ -422,7 +422,7 @@ void MainWindow::changeCurrentTab()
     // Updating the current reloading status
     updateReloading();
 
-    bool enabledReloading = !currentManager->usedView()->logViewWidget()->model()->isProcessingMultipleInsertions();
+    bool const enabledReloading = !currentManager->usedView()->logViewWidget()->model()->isProcessingMultipleInsertions();
 
     bool enabledAction;
     // Change the title of the window
@@ -719,8 +719,8 @@ void MainWindow::setupActions()
 void MainWindow::selectLogModeAction(bool)
 {
     auto action = qobject_cast<QAction *>(sender());
-    ActionData actionData = action->data().value<ActionData>();
-    QString selectedModeId = actionData.id;
+    auto actionData = action->data().value<ActionData>();
+    QString const selectedModeId = actionData.id;
 
     qCDebug(KSYSTEMLOG) << "Selected action" << selectedModeId;
 
@@ -795,7 +795,7 @@ void MainWindow::setupLogActions()
     for (LogModeAction *logModeAction : logModeActions) {
         const auto innerActions{logModeAction->innerActions()};
         for (QAction *action : innerActions) {
-            ActionData actionData = action->data().value<ActionData>();
+            auto actionData = action->data().value<ActionData>();
             if (actionData.addToActionCollection) {
                 qCDebug(KSYSTEMLOG) << "Adding action" << actionData.id;
                 action = actionCollection()->addAction(actionData.id, action);

@@ -100,7 +100,7 @@ QIODevice *LocalLogFileReader::open()
         Q_EMIT statusBarChanged(message);
     }
 
-    QMimeDatabase db;
+    QMimeDatabase const db;
     const QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
     qCDebug(KSYSTEMLOG) << filePath << " : " << mimeType;

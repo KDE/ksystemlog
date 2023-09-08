@@ -26,8 +26,8 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     auto multipleActions = new MultipleActions(QIcon::fromTheme(QLatin1String(JOURNALD_MODE_ICON)), i18n("Journald"), logMode);
 
-    QIcon filterIcon = QIcon::fromTheme(QLatin1String("view-filter"));
-    QIcon remoteIcon = QIcon::fromTheme(QLatin1String("preferences-system-network-sharing"));
+    QIcon const filterIcon = QIcon::fromTheme(QLatin1String("view-filter"));
+    QIcon const remoteIcon = QIcon::fromTheme(QLatin1String("preferences-system-network-sharing"));
 
     // Do not add journald submenu actions into action collection.
     // There are too many of them and submenu contents sometimes gets changed.
@@ -70,7 +70,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
 
     // Add filtering by syslog identifier.
     filterActionMenu = new KActionMenu(filterIcon, i18n("Filter by syslog identifier"), actionMenu);
-    QStringList syslogIDs = JournaldLocalAnalyzer::syslogIdentifiersStatic();
+    QStringList const syslogIDs = JournaldLocalAnalyzer::syslogIdentifiersStatic();
     for (const QString &id : syslogIDs) {
         action = new QAction(id, filterActionMenu);
 
@@ -96,7 +96,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
     auto *configuration = logMode->logModeConfiguration<JournaldConfiguration *>();
     auto remoteJournals = configuration->remoteJournals();
     for (const auto &addressInfo : remoteJournals) {
-        QString menuText = QStringLiteral("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
+        QString const menuText = QStringLiteral("%1:%2").arg(addressInfo.address).arg(addressInfo.port);
         actionMenu = new KActionMenu(remoteIcon, menuText, multipleActions);
 
         action = new QAction(QIcon::fromTheme(QLatin1String("network-connect")), i18n("Connect"), actionMenu);
@@ -112,7 +112,7 @@ LogModeAction *JournaldModeFactory::createLogModeAction() const
         actionMenu->addAction(action);
 
         // Add filtering by systemd unit.
-        JournalFilters filters = logMode->filters(addressInfo);
+        JournalFilters const filters = logMode->filters(addressInfo);
         if (!filters.systemdUnits.isEmpty()) {
             auto filterActionSystemdMenu = new KActionMenu(filterIcon, i18n("Filter by systemd unit"), actionMenu);
 

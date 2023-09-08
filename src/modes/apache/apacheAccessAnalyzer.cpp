@@ -44,33 +44,33 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
 
     int spacePos = line.indexOf(QLatin1Char(' '));
 
-    QString hostName = line.left(spacePos);
+    QString const hostName = line.left(spacePos);
     line.remove(0, spacePos + 1);
 
     spacePos = line.indexOf(QLatin1Char(' '));
-    QString identd = line.left(spacePos);
+    QString const identd = line.left(spacePos);
     line.remove(0, spacePos + 1);
 
     spacePos = line.indexOf(QLatin1Char(' '));
-    QString userName = line.left(spacePos);
+    QString const userName = line.left(spacePos);
     line.remove(0, spacePos + 1);
 
-    int endDate = line.indexOf(QLatin1Char(']'));
-    QString strDateTime = line.left(endDate);
+    int const endDate = line.indexOf(QLatin1Char(']'));
+    QString const strDateTime = line.left(endDate);
     line.remove(0, endDate + 3);
 
-    QDateTime dateTime = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
+    QDateTime const dateTime = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
 
     int endQuote = line.indexOf(QLatin1Char('\"'));
-    QString message = line.left(endQuote);
+    QString const message = line.left(endQuote);
     line.remove(0, endQuote + 2);
 
     spacePos = line.indexOf(QLatin1Char(' '));
-    QString httpResponse = ParsingHelper::instance()->parseHttpResponse(line.left(spacePos));
+    QString const httpResponse = ParsingHelper::instance()->parseHttpResponse(line.left(spacePos));
     line.remove(0, spacePos + 1);
 
     spacePos = line.indexOf(QLatin1Char(' '));
-    QString bytesSent = ParsingHelper::instance()->parseSize(line.left(spacePos));
+    QString const bytesSent = ParsingHelper::instance()->parseSize(line.left(spacePos));
     line.remove(0, spacePos + 2);
 
     QString url;

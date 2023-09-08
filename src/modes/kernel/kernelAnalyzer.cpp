@@ -59,7 +59,7 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     QDateTime dateTime(mStartupDateTime);
     QStringList messages;
 
-    int timeExists = timeRegex.indexIn(logLine);
+    int const timeExists = timeRegex.indexIn(logLine);
 
     // If we have the date, we are able to update the start date
     if (timeExists != -1) {
