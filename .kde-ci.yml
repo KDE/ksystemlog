@@ -17,20 +17,5 @@ Dependencies:
     'frameworks/kcompletion': '@latest-kf6'
     'frameworks/ktextwidgets': '@latest-kf6'
 
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-    'frameworks/kitemviews': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/kconfig': '@stable'
-    'frameworks/karchive': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/kcompletion': '@stable'
-    'frameworks/ktextwidgets': '@stable'
-
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      

@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(KSystemlog VERSION ${RELEASE_SERVICE_VERSION})
 
-set (QT_MIN_VERSION "5.15.2")
-set (KF_MIN_VERSION "5.102.0")
+set (QT_MIN_VERSION "6.5.0")
+set (KF_MIN_VERSION "5.240.0")
 
 find_package (ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -23,13 +23,6 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.c)
@@ -41,7 +34,7 @@ kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KSYSTEMLOG
                   VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/src/ksystemlog_version.h")
 
-find_package (Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package (Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Concurrent
     Core
     Network
@@ -49,11 +42,9 @@ find_package (Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Test
     PrintSupport
 )
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6Core5Compat)
-endif()
+find_package(Qt6Core5Compat)
 
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
     CoreAddons
     WidgetsAddons
@@ -65,8 +56,8 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Completion
     TextWidgets
 )
-find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
-set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -122,8 +113,8 @@ add_subdirectory(src)
 
 add_subdirectory(autotests)
 
-find_package(KF${KF_MAJOR_VERSION}I18n CONFIG REQUIRED)
-if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
+find_package(KF6I18n CONFIG REQUIRED)
+if (KF6DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()

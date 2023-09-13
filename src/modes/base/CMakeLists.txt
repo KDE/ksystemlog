@@ -37,9 +37,7 @@ target_link_libraries(
 	ksystemlog_lib
 	ksystemlog_config
 
-        KF${KF_MAJOR_VERSION}::XmlGui
+        KF6::XmlGui
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-	target_link_libraries(ksystemlog_base_mode Qt::Core5Compat)
-endif()
+target_link_libraries(ksystemlog_base_mode Qt::Core5Compat)

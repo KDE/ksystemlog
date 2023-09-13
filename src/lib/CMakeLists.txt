@@ -81,13 +81,13 @@ add_dependencies(
 
 target_link_libraries(ksystemlog_lib
     ksystemlog_config
-    Qt${QT_MAJOR_VERSION}::Widgets
-    Qt${QT_MAJOR_VERSION}::PrintSupport
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::Archive
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::ItemViews
-    KF${KF_MAJOR_VERSION}::KIOCore
-    KF${KF_MAJOR_VERSION}::Completion
-    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    Qt6::Widgets
+    Qt6::PrintSupport
+    KF6::I18n
+    KF6::Archive
+    KF6::WidgetsAddons
+    KF6::ItemViews
+    KF6::KIOCore
+    KF6::Completion
+    KF6::ConfigWidgets
 )

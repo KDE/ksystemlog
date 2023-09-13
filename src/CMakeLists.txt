@@ -73,8 +73,8 @@ target_link_libraries(ksystemlog
     ksystemlog_cups
     ksystemlog_samba
 
-    KF${KF_MAJOR_VERSION}::Archive
-    KF${KF_MAJOR_VERSION}::TextWidgets
+    KF6::Archive
+    KF6::TextWidgets
 )
 
 if (${JOURNALD_FOUND})
