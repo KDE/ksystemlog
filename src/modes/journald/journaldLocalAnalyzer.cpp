@@ -84,11 +84,7 @@ void JournaldLocalAnalyzer::watchLogFiles(bool enabled)
         mJournalWatchers.append(watcher);
         mWorkerMutex.unlock();
         connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalInitialFinished);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, mFilters));
-#else
         watcher->setFuture(QtConcurrent::run(&JournaldLocalAnalyzer::readJournal, this, mFilters));
-#endif
     } else {
         for (JournalWatcher *watcher : mJournalWatchers) {
             watcher->waitForFinished();
@@ -200,11 +196,7 @@ void JournaldLocalAnalyzer::journalDescriptorUpdated(int fd)
     mJournalWatchers.append(watcher);
     mWorkerMutex.unlock();
     connect(watcher, &JournalWatcher::finished, this, &JournaldLocalAnalyzer::readJournalUpdateFinished);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    watcher->setFuture(QtConcurrent::run(this, &JournaldLocalAnalyzer::readJournal, mFilters));
-#else
     watcher->setFuture(QtConcurrent::run(&JournaldLocalAnalyzer::readJournal, this, mFilters));
-#endif
 }
 
 QList<JournaldLocalAnalyzer::JournalEntry> JournaldLocalAnalyzer::readJournal(const QStringList &filters)

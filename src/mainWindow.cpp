@@ -349,14 +349,6 @@ void MainWindow::changeResumePauseAction(bool paused)
     }
 
     // Be sure that the button will always have a good size
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const auto associatedWidgets{mResumePauseAction->associatedWidgets()};
-    for (QWidget *widget : associatedWidgets) {
-        if (widget->sizeHint().width() > widget->size().width()) {
-            widget->setMinimumSize(widget->sizeHint());
-        }
-    }
-#else
     const auto associatedWidgets{mResumePauseAction->associatedObjects()};
     for (QObject *obj : associatedWidgets) {
         QWidget *widget = qobject_cast<QWidget *>(obj);
@@ -365,7 +357,6 @@ void MainWindow::changeResumePauseAction(bool paused)
             widget->setMinimumSize(widget->sizeHint());
         }
     }
-#endif
 }
 
 void MainWindow::fileOpen()

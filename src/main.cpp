@@ -16,11 +16,6 @@
 
 int main(int argc, char **argv)
 {
-    // enable high dpi support
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-#endif
     QApplication const app(argc, argv);
 
     KLocalizedString::setApplicationDomain("ksystemlog");

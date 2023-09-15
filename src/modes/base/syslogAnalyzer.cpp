@@ -87,21 +87,12 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     line.remove(0, 3);
 
     // Time
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QString stringTime(line.left(8));
-    const int h = stringTime.leftRef(2).toInt();
-    stringTime.remove(0, 3);
-    const int m = stringTime.leftRef(2).toInt();
-    stringTime.remove(0, 3);
-    const int s = stringTime.leftRef(2).toInt();
-#else
     QString stringTime(line.left(8));
     const int h = QStringView(stringTime).left(2).toInt();
     stringTime.remove(0, 3);
     const int m = QStringView(stringTime).left(2).toInt();
     stringTime.remove(0, 3);
     const int s = QStringView(stringTime).left(2).toInt();
-#endif
     const QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
     if (!dateTime.isValid()) {
         qCDebug(KSYSTEMLOG) << "Malformed date and time";
