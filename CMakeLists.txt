@@ -68,6 +68,9 @@ if(JOURNALD_FOUND)
 endif()
 
 find_package(Audit)
+if(AUDIT_FOUND)
+    add_definitions(-DHAVE_AUDIT)
+endif()
 
 include(CheckIncludeFile)
 include(CheckIncludeFiles)
@@ -99,10 +102,6 @@ add_custom_target(
 # cmake -D CMAKE_VERBOSE_MAKEFILE=true .
 ##
 
-
-if (${AUDIT_FOUND})
-    add_definitions(-DHAVE_AUDIT)
-endif (${AUDIT_FOUND})
 
 ########### Subfolders ##########
 ecm_set_disabled_deprecation_versions(QT 5.15.2
