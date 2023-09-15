@@ -37,7 +37,6 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION} VARIABLE_PREFIX KSYSTEMLOG
 find_package (Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Concurrent
     Core
-    Network
     Widgets
     Test
     PrintSupport
@@ -63,6 +62,11 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 )
 
 find_package(Journald)
+if(JOURNALD_FOUND)
+    find_package(Qt6Network ${QT_MIN_VERSION} CONFIG REQUIRED)
+    add_definitions(-DHAVE_JOURNALD)
+endif()
+
 find_package(Audit)
 
 include(CheckIncludeFile)
@@ -95,9 +99,6 @@ add_custom_target(
 # cmake -D CMAKE_VERBOSE_MAKEFILE=true .
 ##
 
-if (${JOURNALD_FOUND})
-    add_definitions(-DHAVE_JOURNALD)
-endif (${JOURNALD_FOUND})
 
 if (${AUDIT_FOUND})
     add_definitions(-DHAVE_AUDIT)
