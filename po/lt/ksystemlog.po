@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2016-01-09 20:42+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -1033,24 +1033,24 @@ msgstr "&Gerai"
 msgid "&Cancel"
 msgstr "&Atšaukti"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "KSystemlog"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, fuzzy, kde-format
 #| msgid "System Logs Viewer for KDE"
 msgid "System Logs Viewer by KDE"
 msgstr "KDE sistemos žurnalo žiūryklė"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "(C) 2007, Nicolas Ternisien"
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "(C) 2007, Nicolas Ternisien"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1059,47 +1059,47 @@ msgstr ""
 "Nedvejodami praneškite apie klaidas ir problemas Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "Pagrindinis programuotojas"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr "Bojan Djurkovic"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "Žurnalo spausdinimas"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr ""
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, fuzzy, kde-format
 #| msgid "Document to open"
 msgid "Document to open."
@@ -1165,33 +1165,33 @@ msgstr ""
 "sistema yra prirašiusi per daug eilučių į žurnalų failus, todėl KSystemLog "
 "per dažnai persikrauna."
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "Žurnalas tuščias"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "Atverti failą su KSystemLog"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr "Atvers failą su KSystemLog bei rodys jo turinį esamame skirtuke."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "Spausdinti atranką..."
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "Spausdinti atranką"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1200,19 +1200,19 @@ msgstr ""
 "Spausdinti atranką. Paprasčiausiai pažymėkite dominančias eilutes ir "
 "spauskite šiame meniu spausdinti atranką."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, fuzzy, kde-format
 #| msgid "&Print Selection..."
 msgid "&Print Preview Selection..."
 msgstr "Spausdinti atranką..."
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, fuzzy, kde-format
 #| msgid "Print the selection"
 msgid "Print preview the selection"
 msgstr "Spausdinti atranką"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, fuzzy, kde-format
 #| msgid ""
 #| "Prints the selection. Simply select the important lines and click on this "
@@ -1224,12 +1224,12 @@ msgstr ""
 "Spausdinti atranką. Paprasčiausiai pažymėkite dominančias eilutes ir "
 "spauskite šiame meniu spausdinti atranką."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "Įrašyti atranką į failą"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1238,22 +1238,22 @@ msgstr ""
 "Įrašys atranką į failą. Ši veiksmas yra naudingas, jei norite sukurti dalį "
 "ar tam tikro žurnalo kopiją."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "Baigti darbą su KSystemLog"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "KSystemLog baigia darbą"
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "Atranką kopijuoti į iškarpinę"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1262,17 +1262,17 @@ msgstr ""
 "Atranką kopijuos į iškarpinę. Ši veiksmas naudingas, jei norite įklijuoti "
 "atranką į pokalbį arba elektroninį laišką."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "išskleisti viską"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "išskleisti visas kategorijas"
 
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1281,17 +1281,17 @@ msgstr ""
 "Šis veiksmas atvers visas pagrindines kategorijas. Tai įmanoma tik jei buvo "
 "pasirinkta galimybė <b>Grupuoti pagal</b> meniu."
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "Susk&leisti viską"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "Suskleisti visas kategorijas"
 
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1300,17 +1300,17 @@ msgstr ""
 "Šis veiksmas uždarys visas pagrindines kategorijas. Tai įmanoma tik jei buvo "
 "pasirinkta galimybė <b>Grupuoti pagal</b> meniu."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "&El. pašto atranka..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "Siųsti atranką el. paštu"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1319,17 +1319,17 @@ msgstr ""
 "Siųs atranką el. paštu.  Paprasčiausiai pažymėkite dominančias eilutes ir "
 "spauskite šiame meniu siųsti atranką."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "Pridėti žurnalo įrašą..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "Pridėti įrašą į sistemos žurnalą"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
@@ -1338,12 +1338,12 @@ msgstr ""
 "Ši veiksmas atvers dialogą, kuris leidžia jums siųsti žinutę į sistemos "
 "žurnalą"
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "Pažymėti viską dabartiniame žurnale"
 
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1352,97 +1352,97 @@ msgstr ""
 "Pažymės viską dabartiniame žurnale. Šis veiksmas naudingas jei norite, pvz, "
 "įrašyti visą turinį dabartinio žurnalo į failą."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "Rodyti filtro juostą"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "&Nauja kortelė"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "Sukurti naują kortelę"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Sukurs naują kortelę kurioje galima rodyti kitą žurnalą."
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "&Užverti kortelę"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Užverti dabartinę kortelę"
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Užvers esamą kortelę."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&Dubliuoti kortelę"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "&Dubliuoti dabartinę kortelę"
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "&Dubliuos dabartinę kortelę"
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Perkelti kortelę kairėn"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Perkelti dabartinę kortelę kairėn"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Perkels dabartinę kortelę kairėn"
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Perkelti kortelę dešinėn"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Perkelti dabartinę kortelę dešinėn"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Perkels dabartinę kortelę dešinėn"
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "Įkel&ti iš naujo"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Įkelti dabartinį žurnalą iš naujo"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
@@ -1451,17 +1451,17 @@ msgstr ""
 "Įkels dabartinį žurnalą iš naujo, jei norite būt tikri kad rodinys tinkamai "
 "atnaujintas."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "&Išsamiau"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "išsamiai rodyti pažymėtą eilutę"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1472,33 +1472,33 @@ msgstr ""
 "galėsite naršyti žurnalus iš šio dialogo lango su <b>Ankstesnis</b> ir "
 "<b>Kitas</b> mygtukais."
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "Įjungti išsamius patarimus"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "Išjungti/Įjungti patarimus esamame rodinyje"
 
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr "Išjungti/Įjungti patarimų rodymą kai žymeklis liečia žurnalo eilutę."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr "&Slinkti į naują eilutę"
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr "Slinkti ar neslinkti į naują eilutę, kai žurnalas pakinta"
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1509,12 +1509,12 @@ msgstr ""
 "parinktį jei nenorite slinkti automatiškai į žurnalo apačią kiekvieną kartą "
 "jį atnaujinus."
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "Tarnybos"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "Kiti"
@@ -2895,13 +2895,13 @@ msgstr "P&rioritetas:"
 msgid "Unit:"
 msgstr ""
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr ""
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, fuzzy, kde-format
 #| msgid "Log file '%1' loaded successfully."

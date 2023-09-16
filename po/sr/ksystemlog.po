@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2017-09-28 17:59+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -1055,22 +1055,22 @@ msgstr "&У реду"
 msgid "&Cancel"
 msgstr "&Одустани"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "К‑системски-дневник"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
 msgstr "Приказивач системских дневника из КДЕ‑а"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "© 2007–2015, Никола Тернизјен"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1079,47 +1079,47 @@ msgstr ""
 "Не оклевајте да пријавите грешке и проблеме Николи Тернизјену <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Никола Тернизјен"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "Главни програмер"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr "Вјачеслав Матјушин"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr "Режим journald‑а, исправке грешака"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr "Бојан Ђурковић"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "Штампање дневника"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr ""
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, kde-format
 msgid "Document to open."
 msgstr "Документ за отварање."
@@ -1184,35 +1184,35 @@ msgstr ""
 "уписује много редова у фајлове дневника, терајући К‑системски-дневник да "
 "пречесто учитава."
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "Празан дневник"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "Отвори фајл у К‑системском-дневнику"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr ""
 "Отвара фајл у К‑системском-дневнику и приказује његов садржај под текућим "
 "језичком."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "Ш&тампај избор..."
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "Штампај избор"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1221,19 +1221,19 @@ msgstr ""
 "Штампа избор. Једноставно изаберите важне редове па кликните на ову ставку "
 "менија да их одштампате."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, fuzzy, kde-format
 #| msgid "&Print Selection..."
 msgid "&Print Preview Selection..."
 msgstr "Ш&тампај избор..."
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, fuzzy, kde-format
 #| msgid "Print the selection"
 msgid "Print preview the selection"
 msgstr "Штампај избор"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, fuzzy, kde-format
 #| msgid ""
 #| "Prints the selection. Simply select the important lines and click on this "
@@ -1245,12 +1245,12 @@ msgstr ""
 "Штампа избор. Једноставно изаберите важне редове па кликните на ову ставку "
 "менија да их одштампате."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "Сачувај избор у фајл"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1259,22 +1259,22 @@ msgstr ""
 "Уписује избор у фајл. Ова радња је корисна када желите да направите прилог "
 "за е‑поруку или резерву одређеног дневника."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "Напусти К‑системски-дневник"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "Напушта К‑системски-дневник."
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "Копирај избор у клипборд"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1283,18 +1283,18 @@ msgstr ""
 "Копира избор у клипборд. Ова радња је корисна када желите да налепите избор "
 "у ћаскање или е‑пошту."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "&Рашири све"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "Прошири све категорије"
 
 # ! ui: Group By --> ?
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1303,18 +1303,18 @@ msgstr ""
 "Ова радња отвара све главне категорије. Доступно само ако је изабрана нека "
 "од опција у менију <i>Групиши по</i>."
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "&Сажми све"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "Сажми све категорије"
 
 # ! ui: Group By --> ?
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1323,17 +1323,17 @@ msgstr ""
 "Ова радња затвара све главне категорије. Доступно само ако је изабрана нека "
 "од опција у менију <i>Групиши по</i>."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "Пошаљи &е‑поштом..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "Пошаљи избор путем е‑поште"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1342,17 +1342,17 @@ msgstr ""
 "Шаље избор е‑поштом. Једноставно изаберите важне редове па кликните на ову "
 "ставку менија да пошаљете избор некоме приватно или на поштанску листу."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "Дод&ај унос дневника..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "Додај унос дневника у систем дневника"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
@@ -1361,13 +1361,13 @@ msgstr ""
 "Ова радња отвара дијалог који вам омогућава да пошаљете поруку систему "
 "дневника."
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "Изабери све редове текућег дневника"
 
 # skip-rule: t-login
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1376,97 +1376,97 @@ msgstr ""
 "Означава све редове текућег дневника. Ова радња је корисна када желите, на "
 "пример, да сачувате читав садржај текућег дневника у фајл."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "Прикажи траку &филтера"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "&Нови језичак"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "Направи нови језичак"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Прави нови језичак који може да приказује други дневник."
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "&Затвори језичак"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Затвори текући језичак"
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Затвара текући језичак."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&Дуплирај језичак"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "Дуплирај текући језичак"
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "Дуплира текући језичак."
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Помери језичак у&лево"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Помери текући језичак улево"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Помера текући језичак улево."
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Помери језичак у&десно"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Помери текући језичак удесно"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Помера текући језичак удесно."
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "&Учитај поново"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Поново учитај текући дневник"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
@@ -1475,17 +1475,17 @@ msgstr ""
 "Поново учитава текући дневник, када хоћете да будете сигурни да је приказ "
 "исправно ажуриран."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "&Детаљи"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "Прикажи детаље за изабрани ред"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1495,18 +1495,18 @@ msgstr ""
 "Позива дијалог који садржи детаље за изабрани ред. Из овог дијалога можете "
 "да се крећете кроз дневнике помоћу дугмади <i>Претходно</i> и <i>Следеће</i>."
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "&Детаљни облачићи"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "Искључи/укључи облачић у тренутном приказу"
 
 # skip-rule: t-cursor
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
@@ -1514,17 +1514,17 @@ msgstr ""
 "Искључује/укључује облачић који искаче кад застанете показивачем над редом "
 "дневника."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr "&Клизај до нових редова"
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr "Клизај до нових редова кад се дневник промени"
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1534,12 +1534,12 @@ msgstr ""
 "Клиза до нових редова кад се дневник промени. Укључите ову опцију ако не "
 "желите да програм аутоматски отклиза на дно дневника при сваком ажурирању."
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "Сервиси"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "Остало"
@@ -2830,13 +2830,13 @@ msgstr "Приоритет:"
 msgid "Unit:"
 msgstr "Јединица:"
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr "Читам уносе journald‑а..."
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."

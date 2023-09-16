@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-02-06 20:20+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -1036,24 +1036,24 @@ msgstr "&OK"
 msgid "&Cancel"
 msgstr "&Renunță"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "KSystemlog"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, fuzzy, kde-format
 #| msgid "System Logs Viewer for KDE"
 msgid "System Logs Viewer by KDE"
 msgstr "Vizualizator jurnale de sistem pentru KDE"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "(C) 2007, Nicolas Ternisien"
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "(C) 2007, Nicolas Ternisien"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1062,47 +1062,47 @@ msgstr ""
 "Nu ezitați să raportați defecte și probleme către Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "Dezvoltator principal"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr "Bojan Djurkovic"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "Tipărirea jurnalului"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr "Corecții de defecte"
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, kde-format
 msgid "Document to open."
 msgstr "Document de deschis."
@@ -1165,34 +1165,34 @@ msgstr ""
 "mod special când sistemul scrie prea multe linii în fișierele de jurnal , "
 "cauzând KSystemLog să se reîncarce prea frecvent. "
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "Jurnal gol"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "Deschide un fișier în KSystemLog"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr ""
 "Deschide fișierul în KSystemLog și îi afișează conținutul în fila actuală."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "&Tipărește selecția…"
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "Tipărește selecția"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1201,19 +1201,19 @@ msgstr ""
 "Tipărește selecția. Alegeți liniile importante și apăsați pe această "
 "înregistrare a meniului pentru a tipării selecția."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, fuzzy, kde-format
 #| msgid "&Print Selection..."
 msgid "&Print Preview Selection..."
 msgstr "&Tipărește selecția..."
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, fuzzy, kde-format
 #| msgid "Print the selection"
 msgid "Print preview the selection"
 msgstr "Tipărește selecția"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, fuzzy, kde-format
 #| msgid ""
 #| "Prints the selection. Simply select the important lines and click on this "
@@ -1225,12 +1225,12 @@ msgstr ""
 "Se tiperăște selecția. Selectați liniile importante și apăsați pe această "
 "înregistrare a meniului pentru a tipării selecția."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "Salvează selecția în fișier"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1239,22 +1239,22 @@ msgstr ""
 "Se salvează selecția intr-un fișier. Această acțiune este folositoare dacă "
 "doriți să creați un atașament sau o rezervă a unui jurnal anume."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "Părăsește KSystemLog"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "Se părăsește KSystemLog."
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "Copiază selecția în clipboard"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1263,17 +1263,17 @@ msgstr ""
 "Se copiază selecția în clipboard.Această acțiune este folositoare dacă "
 "doriți să lipiți selecția intr-o conversație sau email."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "Des&fășoară toate"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "Desfășoară toate categoriile"
 
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1282,17 +1282,17 @@ msgstr ""
 "Această acțiune deschide toate categoriile principale. Aceasta se activează "
 "numai dacă o opțiune a fost selectată in meniul <b>Grupați după</b>"
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "Restrânge &toate"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "Restrânge toate categoriile"
 
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1301,17 +1301,17 @@ msgstr ""
 "Această acțiune închide toate categoriile principale. Aceasta este activată "
 "doar dacă o opțiune a fost selectată în meniul <b>Grupează după</b> ."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "&Expediază selecția..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "Exediază selecția prin poșta electronică"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1321,17 +1321,17 @@ msgstr ""
 "înregistrarea meniului pentru a trimite selecția sau lista de discuții unui "
 "prieten."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "&Adaugă înregistrare de jurnal..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "Adaugă o înregistrare de jurnal în sistemul de jurnale"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
@@ -1340,12 +1340,12 @@ msgstr ""
 "Această acțiune va deschide o fereastră de dialog care vă permite să "
 "trimiteți jurnalul către sistem."
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "Alege toate liniile jurnalului curent"
 
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1355,97 +1355,97 @@ msgstr ""
 "folositoare dacă doriți , de exemplu, pentru a salva tot conținutul "
 "jurnalului curent intr-un fișier."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "Arată bara de &filtrare"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "Filă &nouă"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "Creează o filă nouă"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Creează o filă nouă ce poate afișa alt jurnal."
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "În&chide fila"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Închide fila curentă"
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Fila curentă se închide."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&Duplică fila"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "Duplică fila curentă"
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "Fila curentă se duplică."
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Mută fila &la stânga"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Mută fila curentă la stânga"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Fila curentă se mută la stânga."
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Mută fila la d&reapta"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Mută fila curentă la dreapta"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Fila curentă se mută la dreapta."
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "&Reîncarcă"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Reîncarcă jurnalul curent"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
@@ -1454,17 +1454,17 @@ msgstr ""
 "Jurnalul curent se reîncarcă, dacă doriți să fiți sigur că imaginea a fost "
 "actualizată corect."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "&Detalii"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "Afișează detaliile liniei alese"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1475,17 +1475,17 @@ msgstr ""
 "selectată. Puteți să navigați printre jurnalele din fereastra de dialog cu "
 "butoanele <b>Înapoi</b> și <b>înainte</b>"
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "Activ&ează indicațiile detaliate"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "Dezactivează/Activează indicația pentru poza curentă. "
 
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
@@ -1493,17 +1493,17 @@ msgstr ""
 "Dezactivează/Activează indicația afișată când cursorul trece peste o linie "
 "de jurnal."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr "Derulea&ză la liniile noi"
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr "Derulează sau nu către liniile noi atunci când jurnalul se schimbă. "
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1514,12 +1514,12 @@ msgstr ""
 "această opțiune dacă nu doriți ca aplicația să se deruleze automat către "
 "baza jurnalului de fiecare dată când este actualizat."
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "Servicii"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "Altele"
@@ -2909,13 +2909,13 @@ msgstr "Prioritate:"
 msgid "Unit:"
 msgstr "Unitate:"
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr "Se citesc înregistrările Journald..."
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, fuzzy, kde-format
 #| msgid "Log file '%1' loaded successfully."

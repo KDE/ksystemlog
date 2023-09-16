@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2011-01-05 11:32+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -1026,24 +1026,24 @@ msgstr "&OK"
 msgid "&Cancel"
 msgstr "&Afbreken"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "KSystemlog"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, fuzzy, kde-format
 #| msgid "System Logs Viewer for KDE"
 msgid "System Logs Viewer by KDE"
 msgstr "Systeemlogbook-Kieker för KDE"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "(C) 2007, Nicolas Ternisien"
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "© 2007, Nicolas Ternisien"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1052,47 +1052,47 @@ msgstr ""
 "Töger bitte nich un stüer Problemen un Fehlers Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a> to."
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "Hööftschriever"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr ""
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr "Bojan Djurkovic"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "Logbook-Utgaav"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr ""
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr ""
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, fuzzy, kde-format
 #| msgid "Document to open"
 msgid "Document to open."
@@ -1154,35 +1154,35 @@ msgstr ""
 "Systeem to vele Regen na de Logböker schrifft un KSystemLog dorüm to faken "
 "nieg laadt warrt."
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "Leddig Logbook"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "En Datei binnen KSystemLog opmaken"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr ""
 "Maakt en Datei binnen KSystemLog op un wiest ehr Inholt binnen dat aktuelle "
 "Paneel."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "Köör &drucken..."
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "De Köör drucken"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1191,19 +1191,19 @@ msgstr ""
 "Druckt de Köör ut. Söök eenfach de wichtigen Regen ut un klick op dissen "
 "Menüindrag, wenn Du de Köör utdrucken wullt."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, fuzzy, kde-format
 #| msgid "&Print Selection..."
 msgid "&Print Preview Selection..."
 msgstr "Köör &drucken..."
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, fuzzy, kde-format
 #| msgid "Print the selection"
 msgid "Print preview the selection"
 msgstr "De Köör drucken"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, fuzzy, kde-format
 #| msgid ""
 #| "Prints the selection. Simply select the important lines and click on this "
@@ -1215,12 +1215,12 @@ msgstr ""
 "Druckt de Köör ut. Söök eenfach de wichtigen Regen ut un klick op dissen "
 "Menüindrag, wenn Du de Köör utdrucken wullt."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "De Köör as en Datei sekern"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1229,22 +1229,22 @@ msgstr ""
 "Sekert de Köör as en Datei. Dat is goot, wenn Du en Bilaag oder "
 "Sekerheitkopie ut en besünner Logbook opstellen wullt."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "KSystemLog utmaken"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "Maakt KSystemLog ut."
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "De Köör na de Twischenaflaag koperen"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1253,17 +1253,17 @@ msgstr ""
 "Kopeert de Köör na de Twischenaflaag. Dat is goot, wenn Du de Köör na en "
 "Klöönsnack oder Nettbreef infögen wullt."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "All &utfoolden"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "All Kategorien utfoolden"
 
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1272,17 +1272,17 @@ msgstr ""
 "Disse Akschoon maakt all Hööftkategorien op. Se is bloots verföögbor, wenn "
 "wat in't Menü <b>Tosamenstellen na</b> utsöcht is."
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "All &infoolden"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "All Kategorien infoolden"
 
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1291,17 +1291,17 @@ msgstr ""
 "Disse Akschoon maakt all Hööftkategorien to. Se is bloots verföögbor, wenn "
 "wat in't Menü <b>Tosamenstellen na</b> utsöcht is."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "Köör as &Nettbreef..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "De Köör mit Nettpost loosstüern"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1311,17 +1311,17 @@ msgstr ""
 "klick op dissen Menüindrag, wenn Du de Köör en Fründ oder Nettpostlist "
 "tostüern wullt."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "Logbookindrag &tofögen..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "En Indrag na't Log-Systeem tofögen"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
@@ -1330,12 +1330,12 @@ msgstr ""
 "Disse Akschoon maakt en Dialoog op, mit em kannst Du dat Log-Systeem en "
 "Mellen tostüern."
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "All Regen vun't aktuelle Logbook utsöken"
 
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1344,97 +1344,97 @@ msgstr ""
 "Söcht all Regen vun't aktuelle Logbook ut. Dat is goot, wenn Du a.B. dat "
 "hele aktuelle Logbook binnen en Datei sekern wullt."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "&Filterbalken wiesen"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "&Nieg Paneel"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "En nieg Paneel opstellen"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Maakt en Paneel bito op, dat en anner Logbook wiesen kann"
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "Paneel &tomaken"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Dat aktuelle Paneel tomaken"
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Maakt dat aktuelle Paneel to."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "Paneel ver&dubbeln"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "Dat aktuelle Paneel verdubbeln"
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "Verdubbelt dat aktuelle Paneel."
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Paneel na &links"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Dat aktuelle Paneel na links verschuven"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Verschufft dat aktuelle Paneel na links."
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Paneel na &rechts"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Dat aktuelle Paneel na rechts verschuven"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Verschufft dat aktuelle Paneel na rechts."
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "&Nieg laden"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Dat aktuelle Logbook nieg laden"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
@@ -1443,17 +1443,17 @@ msgstr ""
 "Laadt dat aktuelle Logbook nieg. Bruuk dit, wenn Du besekern wullt, dat "
 "aktuelle Paneel is propper opfrischt."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "&Enkelheiten"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "De Enkelheiten vun de utsöchte Reeg wiesen"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1463,17 +1463,17 @@ msgstr ""
 "Wiest en Dialoog mit de utsöchte Reeg ehr Enkelheiten. Du kannst dissen "
 "Dialoog mit de Knööp <b>Verleden</b> un <b>Nakamen</b> dör de Regen stüern."
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "&Enkelheiten binnen Kortinfos wiesen"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "De Kortinformatschonen för de aktuelle Ansicht an- oder utmaken"
 
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
@@ -1481,19 +1481,19 @@ msgstr ""
 "Maakt de Kortinfos an oder ut, de bi't Wiesen mit de Muus op en Reeg wiest "
 "warrt."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr "Na nieg Regen &rullen"
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr ""
 "Dat Rullen na nieg Regen, wenn dat Logbook wat toföögt warrt, an- oder "
 "utmaken"
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1504,12 +1504,12 @@ msgstr ""
 "ut. Maak dit an, wenn Du dat nich wullt, dat Programm rullt automaatsch bi't "
 "Opfrischen na't Enn vun't Logbook."
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "Deensten"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "Anner"
@@ -2900,13 +2900,13 @@ msgstr "&Prioriteet:"
 msgid "Unit:"
 msgstr ""
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr ""
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, fuzzy, kde-format
 #| msgid "Log file '%1' loaded successfully."

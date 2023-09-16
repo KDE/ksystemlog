@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2021-02-10 09:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1045,22 +1045,22 @@ msgstr "&Гаразд"
 msgid "&Cancel"
 msgstr "&Скасувати"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "KSystemlog"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
 msgstr "Переглядач системних журналів від KDE"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "© Nicolas Ternisien, 2007–2015"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1070,47 +1070,47 @@ msgstr ""
 "Ternisien <a href='mailto:nicolas.ternisien@gmail.com'>nicolas."
 "ternisien@gmail.com</a>"
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "Головний розробник"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr "Vyacheslav Matyushin"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr "Режим journald, виправлення вад"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr "Bojan Djurkovic"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "Друк журналу"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr "Виправлення вад"
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, kde-format
 msgid "Document to open."
 msgstr "Документ, який слід відкрити."
@@ -1175,33 +1175,33 @@ msgstr ""
 "забагато рядків до файлів журналу, змушуючи KSystemLog зачасто "
 "перезавантажуватися."
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "Порожній журнал"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "Відкрити файл у KSystemLog"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr "Відкриває файл у KSystemLog і показує його вміст у поточній вкладці."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "&Надрукувати обране..."
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "Надрукувати вибране"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1210,17 +1210,17 @@ msgstr ""
 "Друкує вибране. Просто виберіть важливі рядки і клацніть на цьому пункті "
 "меню, щоб надрукувати вибране."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
 msgstr "П&ереглянути друк вибраного…"
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
 msgstr "Переглянути друк вибраного"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
@@ -1229,12 +1229,12 @@ msgstr ""
 "Показує попередній перегляд друку вибраного. Просто виберіть важливі рядки і "
 "клацніть на цьому пункті меню, щоб надрукувати вибране."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "Зберегти вибране до файла"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1243,22 +1243,22 @@ msgstr ""
 "Зберігає вибране до файла. Ця дія корисна, якщо ви бажаєте створити додаток "
 "або резервну копію окремого журналу."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "Вийти з KSystemLog"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "Вихід з KSystemLog."
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "Копіювати вибране до буфера клавіатури"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1268,17 +1268,17 @@ msgstr ""
 "вставити вибране у повідомлення служби обміну повідомленнями або до листа "
 "електронної пошти."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "Роз&горнути все"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "Розгорнути всі категорії"
 
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1287,17 +1287,17 @@ msgstr ""
 "Ця дія відкриває всі головні категорії. Це дозволено, тільки якщо було "
 "обрано відповідний параметр у меню <b>Групувати за</b>."
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "Зго&рнути все"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "Згорнути всі категорії"
 
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1306,17 +1306,17 @@ msgstr ""
 "Ця дія закриває всі головні категорії. Це дозволено, тільки якщо було обрано "
 "відповідний параметр у меню <b>Групувати за</b>."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "Надіслати вибране &поштою..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "Надіслати вибране поштою"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1326,17 +1326,17 @@ msgstr ""
 "клацніть на цьому пункті меню, щоб надіслати вибране другові або до списку "
 "надсилання."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "&Додати елемент журналу..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "Додати елемент журналу до системи журналювання"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
@@ -1345,12 +1345,12 @@ msgstr ""
 "Ця дія відкриє діалогове вікно, за допомогою якого ви зможете надіслати "
 "повідомлення до системи журналювання."
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "Вибрати всі рядки поточного журналу"
 
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1359,97 +1359,97 @@ msgstr ""
 "Вибирає всі рядки поточного журналу. Ця дія корисна, якщо ви бажаєте, "
 "наприклад, зберегти весь вміст поточного журналу до файла."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "Показати смугу &фільтра"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "&Нова вкладка"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "Створити нову вкладку"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Створює нову вкладку, на якій можна показати інший журнал."
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "&Закрити вкладку"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Закрити поточну вкладку"
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Закриває поточну вкладку."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&Дублювати вкладку"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "Дублювати поточну вкладку"
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "Дублює поточну вкладку."
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Пересунути вкладку &ліворуч"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Пересунути поточну вкладку ліворуч"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Пересуває поточну вкладку ліворуч."
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Пересунути вкладку &праворуч"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Пересунути поточну вкладку праворуч"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Пересуває поточну вкладку праворуч."
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "&Перезавантажити"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Перезавантажити поточний журнал"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
@@ -1458,17 +1458,17 @@ msgstr ""
 "Перезавантажує поточний журнал, якщо ви бажаєте впевнитися, що його вміст "
 "коректно оновлюється."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "&Подробиці"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "Показати подробиці щодо вибраного рядка"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1479,17 +1479,17 @@ msgstr ""
 "можете пересуватися журналами з цього діалогового вікна за допомогою кнопок "
 "<b>Попередн.</b> і <b>Наступн.</b>."
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "&Увімкнути детальні підказки"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "Вимкнути/Увімкнути підказку для поточного перегляду"
 
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
@@ -1497,17 +1497,17 @@ msgstr ""
 "Забороняє/Дозволяє відображення підказок, коли курсор миші опиняється над "
 "рядком журналу."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr "&Прокручування до нових рядків"
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr "Прокручує або не робить цього до нових рядків під час зміни журналу"
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1518,12 +1518,12 @@ msgstr ""
 "Позначте цей параметр, якщо ви не бажаєте, щоб програма прокручувала журнал "
 "до кінця кожного разу, коли він оновлюється."
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "Служби"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "Інші"
@@ -2904,13 +2904,13 @@ msgstr "Пріоритет:"
 msgid "Unit:"
 msgstr "Модуль:"
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr "Читаємо записи journald…"
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:50+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-10-05 16:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1016,22 +1016,22 @@ msgstr "&حسنًا"
 msgid "&Cancel"
 msgstr "أل&غِ"
 
-#: src/main.cpp:29
+#: src/main.cpp:24
 #, kde-format
 msgid "KSystemlog"
 msgstr "سجلّات نظامك"
 
-#: src/main.cpp:31
+#: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
 msgstr "عارض كِيدِي لسجلّات النّظام"
 
-#: src/main.cpp:33
+#: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
 msgstr "الحقوق محفوظة © 2007-2015، Nicolas Ternisien"
 
-#: src/main.cpp:34
+#: src/main.cpp:29
 #, kde-format
 msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
@@ -1040,47 +1040,47 @@ msgstr ""
 "لا تتردّد في الإبلاغ عن العلل والمشاكل إلى Nicolas Ternisien <a href='mailto:"
 "nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
-#: src/main.cpp:39
+#: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
-#: src/main.cpp:40
+#: src/main.cpp:35
 #, kde-format
 msgid "Main developer"
 msgstr "المطوّر الرّئيسيّ"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
 msgstr "Vyacheslav Matyushin"
 
-#: src/main.cpp:43
+#: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
 msgstr "وضع Journald، إصلاحات للعلل"
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
 msgstr ""
 
-#: src/main.cpp:44
+#: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
 msgstr "طباعة السّجلّ"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: src/main.cpp:45
+#: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
 msgstr "إصلاح علل"
 
-#: src/main.cpp:58
+#: src/main.cpp:53
 #, kde-format
 msgid "Document to open."
 msgstr "المستند لفتحه."
@@ -1147,33 +1147,33 @@ msgstr ""
 "يلبث مراقبة السّجلّ الحاليّ. هذا الإجراء مفيد خاصّة إن كان النّظام يكتب العديد من "
 "الأسطر إلى ملفّات السّجلّ، ممّا يتسبّب ل‍«سجلّات نظامك» بإعادة التّحميل مرّات كثيرة."
 
-#: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
+#: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
 msgstr "سجلّ فارغ"
 
-#: src/mainWindow.cpp:529
+#: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
 msgstr "افتح ملفًّا في «سجلّات نظامك»"
 
-#: src/mainWindow.cpp:530
+#: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr "يفتح ملفًّا في «سجلّات نظامك» ويعرض محتواه في اللسان الحاليّ."
 
-#: src/mainWindow.cpp:533
+#: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
 msgstr "ا&طبع التّحديد..."
 
-#: src/mainWindow.cpp:534
+#: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
 msgstr "اطبع التّحديد"
 
-#: src/mainWindow.cpp:536
+#: src/mainWindow.cpp:527
 #, kde-format
 msgid ""
 "Prints the selection. Simply select the important lines and click on this "
@@ -1182,17 +1182,17 @@ msgstr ""
 "يطبع التّحديد. ببساطة حدّد الأسطر المهمّة وانقر مدخلة القائمة هذه لطباعة "
 "التّحديد."
 
-#: src/mainWindow.cpp:541
+#: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
 msgstr "&عاين المحدد للطباعة…"
 
-#: src/mainWindow.cpp:542
+#: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
 msgstr "عاين المحدد للطباعة"
 
-#: src/mainWindow.cpp:544
+#: src/mainWindow.cpp:535
 #, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
@@ -1201,12 +1201,12 @@ msgstr ""
 "يعاين المحدد للطباعة. ببساطة حدّد الأسطر المهمّة وانقر مدخلة القائمة هذه "
 "لطباعة التّحديد."
 
-#: src/mainWindow.cpp:550
+#: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "احفظ التّحديد إلى ملفّ"
 
-#: src/mainWindow.cpp:552
+#: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
@@ -1215,22 +1215,22 @@ msgstr ""
 "يحفظ التّحديد إلى ملف. هذا الإجراء مفيد إن أردت إنشاء مرفق أو نسخة احتياطيّة "
 "من سجلّ معيّن."
 
-#: src/mainWindow.cpp:558
+#: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
 msgstr "أنهِ «سجلّات نظامك»"
 
-#: src/mainWindow.cpp:559
+#: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
 msgstr "ينهِ «سجلّات نظامك»."
 
-#: src/mainWindow.cpp:562
+#: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
 msgstr "انسخ التّحديد إلى الحافظة"
 
-#: src/mainWindow.cpp:564
+#: src/mainWindow.cpp:555
 #, kde-format
 msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
@@ -1239,17 +1239,17 @@ msgstr ""
 "ينسخ التّحديد إلى الحافظة. هذا الإجراء مفيد إن أردت لصق التّحديد في محادثة أو "
 "بريد إلكترونيّ."
 
-#: src/mainWindow.cpp:569
+#: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
 msgstr "و&سّع الكلّ"
 
-#: src/mainWindow.cpp:570
+#: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
 msgstr "وسّع كلّ الفئات"
 
-#: src/mainWindow.cpp:572
+#: src/mainWindow.cpp:563
 #, kde-format
 msgid ""
 "This action opens all main categories. This is enabled only if an option has "
@@ -1258,17 +1258,17 @@ msgstr ""
 "يفتح هذا الإجراء كلّ الفئات الرئيسيّة. هذا مفعّل فقط إن كان محدّدًا في قائمة "
 "<b>جمّع حسب</b>."
 
-#: src/mainWindow.cpp:578
+#: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
 msgstr "ا&طوِ الكلّ"
 
-#: src/mainWindow.cpp:579
+#: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
 msgstr "اطوِ كلّ الفئات"
 
-#: src/mainWindow.cpp:581
+#: src/mainWindow.cpp:572
 #, kde-format
 msgid ""
 "This action closes all main categories. This is enabled only if an option "
@@ -1277,17 +1277,17 @@ msgstr ""
 "يغلق هذا الإجراء كلّ الفئات الرئيسيّة. هذا مفعّل فقط إن كان محدّدًا في قائمة "
 "<b>جمّع حسب</b>."
 
-#: src/mainWindow.cpp:587
+#: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
 msgstr "أرسل التّحديد &كبريد إلكترونيّ..."
 
-#: src/mainWindow.cpp:589
+#: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
 msgstr "أرسل التّحديد بالبريد"
 
-#: src/mainWindow.cpp:591
+#: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
@@ -1296,29 +1296,29 @@ msgstr ""
 "يرسل التّحديد بالبريد. ببساطة حدّد الأسطر المهمّة وانقر مدخلة القائمة هذه "
 "لإرسال التّحديد إلى صديق أو قائمة بريديّة."
 
-#: src/mainWindow.cpp:597
+#: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "أ&ضف مدخلة سجلّ..."
 
-#: src/mainWindow.cpp:600
+#: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "أضف مدخلة سجلّ إلى نظام السّجلّات"
 
-#: src/mainWindow.cpp:601
+#: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
 msgstr "سيفتح هذا الإجراء حواريّ يسمح لك بإرسال رسالة إلى نظام السّجلّ."
 
-#: src/mainWindow.cpp:605
+#: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "حدّد كلّ أسطر السّجلّ الحاليّ"
 
-#: src/mainWindow.cpp:607
+#: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
@@ -1327,114 +1327,114 @@ msgstr ""
 "يحدّد كلّ الأسطر في السّجلّ الحاليّ. هذا الإجراء مفيد إن أردت (مثلًا) حفظ كلّ محتوى "
 "السّجلّ الحاليّ إلى ملفّ."
 
-#: src/mainWindow.cpp:618
+#: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
 msgstr "أظهر &شريط المرشّح"
 
-#: src/mainWindow.cpp:624
+#: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "لسان &جديد"
 
-#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
+#: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "أنشئ لسانًا جديدًا"
 
-#: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
+#: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "ينشئ لسانًا جديدًا يمكنك عرض سجلّ آخر فيه."
 
-#: src/mainWindow.cpp:632
+#: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "أ&غلق اللسان"
 
-#: src/mainWindow.cpp:634 src/tabLogViewsWidget.cpp:38
+#: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "أغلق اللسان الحاليّ."
 
-#: src/mainWindow.cpp:635 src/tabLogViewsWidget.cpp:39
+#: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "يغلق اللسان الحاليّ."
 
-#: src/mainWindow.cpp:640
+#: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&كرّر اللسان"
 
-#: src/mainWindow.cpp:642
+#: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "كرّر اللسان الحاليّ."
 
-#: src/mainWindow.cpp:643
+#: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "يكرّر اللسان الحاليّ."
 
-#: src/mainWindow.cpp:652
+#: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "انقل اللسان ي&سارًا"
 
-#: src/mainWindow.cpp:654
+#: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "انقل اللسان الحاليّ إلى اليسار"
 
-#: src/mainWindow.cpp:655
+#: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "ينقل اللسان الحاليّ إلى اليسار."
 
-#: src/mainWindow.cpp:660
+#: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "انقل اللسان ي&مينًا"
 
-#: src/mainWindow.cpp:662
+#: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "انقل اللسان الحاليّ إلى اليمين"
 
-#: src/mainWindow.cpp:663
+#: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "ينقل اللسان الحاليّ إلى اليمين."
 
-#: src/mainWindow.cpp:668
+#: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "أ&عد التّحميل"
 
-#: src/mainWindow.cpp:670
+#: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "أعد تحميل السّجلّ الحاليّ"
 
-#: src/mainWindow.cpp:671
+#: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
 msgstr "يعيد تحميل السّجلّ الحاليّ، إن أردت التّأكّد بأن العرض محدّث كما يجب."
 
-#: src/mainWindow.cpp:681
+#: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
 msgstr "التّ&فاصيل"
 
-#: src/mainWindow.cpp:683
+#: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
 msgstr "يعرض تفاصيل السّطر المحدّد"
 
-#: src/mainWindow.cpp:685
+#: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
 "Displays a dialog box which contains details on the selected line. You are "
@@ -1442,33 +1442,33 @@ msgid ""
 "b> and <b>Next</b> buttons."
 msgstr ""
 
-#: src/mainWindow.cpp:691
+#: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
 msgstr "&فعّل التّلميحات المفصّلة"
 
-#: src/mainWindow.cpp:692
+#: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "فعّل/عطّل تلميحة العرض الحاليّ"
 
-#: src/mainWindow.cpp:693
+#: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr "يفعّل/يعطّل التّلميحة المعروضة عندما يكون المؤشّر على سطر سجلّ ما."
 
-#: src/mainWindow.cpp:699
+#: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
 msgstr ""
 
-#: src/mainWindow.cpp:700
+#: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr ""
 
-#: src/mainWindow.cpp:702
+#: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Scrolls or not to the new lines when the log changes. Check this option if "
@@ -1476,12 +1476,12 @@ msgid ""
 "log each time it is refreshed."
 msgstr ""
 
-#: src/mainWindow.cpp:762
+#: src/mainWindow.cpp:753
 #, kde-format
 msgid "Services"
 msgstr "الخدمات"
 
-#: src/mainWindow.cpp:763
+#: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
 msgstr "أخرى"
@@ -2714,13 +2714,13 @@ msgstr "الأولويّة:"
 msgid "Unit:"
 msgstr "الوحدة:"
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:154
+#: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
 msgstr "يقرأ مدخلات journald..."
 
-#: src/modes/journald/journaldLocalAnalyzer.cpp:165
+#: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."
