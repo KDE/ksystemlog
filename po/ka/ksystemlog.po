@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-07-17 07:32+0200\n"
+"PO-Revision-Date: 2023-09-16 23:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -63,6 +63,7 @@ msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
 msgstr ""
+"პარამეტრი ჭეშმარიტია, თუ ჟურნალის ხაზები, მათი დონის მიხედვით, გაფერადდება."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
@@ -171,7 +172,7 @@ msgstr "წინა ხაზზე გადასვლა"
 msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
-msgstr ""
+msgstr "წინა ხაზზე გადასვლა. ეს ღილაკი არააქტიურია, თუ წინა ხაზი არ არსებობს."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
@@ -192,6 +193,7 @@ msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
 msgstr ""
+"შემდეგ ხაზზე გადასვლა. ეს ღილაკი არააქტიურია, თუ შემდეგი ხაზი არ არსებობს."
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
@@ -258,6 +260,8 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
+"ჟურნალის რეჟიმი, რომელიც გაშვებისას ნაგულისხმევად ჩაიტვირთება. თუ არ "
+"გნებავთ, ეს მოხდეს, აირჩიეთ 'ჟურნალის რეჟიმის გარეშე'."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -284,6 +288,8 @@ msgid ""
 "You can choose here the maximum number of log lines displayed in the main "
 "view."
 msgstr ""
+"შეგიძლიათ აირჩიოთ მთავარ ხედში ნაჩვენები ჟურნალის ხაზების მაქსიმალური "
+"რაოდენობა."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:96
@@ -292,6 +298,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
+"აირჩიეთ, თუ გნებავთ, დუბლირებული ჟურნალის ხაზები წაიშალოს <b>(შეიძლება ნელი "
+"იყოს)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -300,6 +308,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
+"აირჩიეთ ეს პარამეტრი, თუ გნებავთ, დუბლირებული ჟურნალის ხაზები წაშალოთ. <b>ამ "
+"პარამეტრმა შეიძლება ჟურნალის წაკითხვა შეანლოს</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
@@ -329,6 +339,10 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, თუ პროცესის სახელიდან პროცესის იდენტიფიკატორი წაშალოთ. "
+"მაგალითად, <b>პროცესის</b> სვეტი, შეიძლება, შეიცავდეს ისეთ ჩანაწერებს, "
+"როგორიცაა <i>cron<b>[3433]</b></i>. თუ ეს პარამეტრი ჩართულია, სქელი ნაწილი "
+"ნაჩვენები არ იქნება."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -342,6 +356,7 @@ msgstr "პროცესის სახელიდან &იდენტი
 msgid ""
 "This option allows log lines to be colored depending on their log level."
 msgstr ""
+"პარამეტრი საშუალებას გაძლევთ ჟურნალის ხაზები მათი დონის მიხედვით გაფერადდეს."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -351,6 +366,9 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
+"პარამეტრი საშუალებას გაძლევთ ჟურნალის ხაზები მათი დონის მიხედვით გაფერადდეს. "
+"მაგალითად, შეცდომები წითელი იქნება, გაფრთხილებები ნარინჯისფერი და ა.შ. ეს "
+"პრობლემების სწრაფად პოვნაში დაგეხმარებათ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
@@ -629,7 +647,7 @@ msgstr "---------------------------------------\n"
 #, kde-format
 msgid ""
 "You have selected too many lines. Please only select important log lines."
-msgstr ""
+msgstr "მონიშნულია მეტისმეტად ბევრი ხაზი. აირჩიეთ მხოლოდ მნიშვნელოვანი ხაზები."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
@@ -718,6 +736,9 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
+"საშუალებას გაძლევთ, ჩანაწერის ფილტრი მხოლოდ აქ მითითებულ სვეტებზე "
+"გაააქტიუროთ. \"<i>ყველა</i>\" სვეტი ნიშნავს, რომ სვეტებით გაფილტვრა არ "
+"მოხდება."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -891,6 +912,8 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
+"თქვენს სისტემაში ბრძანება 'logger' აღმოჩენილი არა. იმისთვის, რომ დაადგინოთ, "
+"დაყენებულია თუ არა ის, Konsole-ში 'logger' აკრიფეთ."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
@@ -1016,6 +1039,9 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
+"ნუ დაიხევთ უკან, პრობლემების და შეცდომების შესახებ ნიკოლა ტერნიზინს <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a> "
+"მისწეროთ"
 
 #: src/main.cpp:39
 #, kde-format
@@ -1094,6 +1120,8 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
+"გააგრძელებს მიმდინარე ჟურნალისთვის თვალყურის დევნებას. ეს ქმედება მხოლოდ "
+"მაშინაა ხელმისაწვდომი, თუ მომხმარებელმა კითხვა უკვე შეაჩერა."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1112,6 +1140,9 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
+"მიმდინარე ჟურნალის კითხვის შეჩერება. ეს ფუნქცია განსაკუთრებით სასარგებლოა, "
+"როცა სისტემა ჟურნალში მეტისმეტად ბევრ ხაზს წერს, რითიც KSystemLog-ს "
+"მეტისმეტად ხშირად აიძულებს, ის მეტისმეტად ხშირად განაახლოს."
 
 #: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
 #, kde-format
@@ -1128,6 +1159,7 @@ msgstr "ფაილის Ksystemlog-ში გახსნა"
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr ""
+"ფაილის გახსნა KSystemLog-ში და მისი შემცველობის მიმდინარე ჩანართში ჩვენება."
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1145,6 +1177,8 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
+"დაბეჭდავს მონიშნულს. უბრალოდ მონიშნეთ მნიშვნელოვანი ხაზები. მათ დასაბეჭდად "
+"უბრალოდ ამ მენიუს პუნქტზე დააწკაპუნეთ."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1162,6 +1196,8 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
+"მონიშნულის დასაბეჭდი მინიატურის ჩვენება. უბრალოდ მონიშნეთ მნიშვნელოვანი "
+"ხაზები. მათ დასაბეჭდად უბრალოდ ამ მენიუს პუნქტზე დააწკაპუნეთ."
 
 #: src/mainWindow.cpp:550
 #, kde-format
@@ -1174,6 +1210,8 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
+"მონიშნულის ფაილში შენახვა. ეს ფუნქცია გამოსადეგია მაშინ, როცა კონკრეტული "
+"ჟურნალიდან მისამაგრებელი ფაილის ან მარქაფის შექმნა გსურთ."
 
 #: src/mainWindow.cpp:558
 #, kde-format
@@ -1196,6 +1234,8 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
+"მონიშნულის ბუფერში კოპირება. ეს ფუნქცია გამოგადგებათ, თუ გნებავთ, მონიშნული "
+"ჩატში ან ელფოსტაში ჩასვათ."
 
 #: src/mainWindow.cpp:569
 #, kde-format
@@ -1213,6 +1253,8 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
+"ეს ქმედება ყველა მთავარ კატეგორიას გახსნის. ეს ჩართული მხოლოდ მაშინაა, როცა "
+"<b>დაჯგუფების</b> მენიუში შესაბამის პარამეტრს აირჩევთ."
 
 #: src/mainWindow.cpp:578
 #, kde-format
@@ -1230,6 +1272,8 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
+"ეს ქმედება ყველა მთავარ კატეგორიას დახურავს. ეს ჩართული მხოლოდ მაშინაა, როცა "
+"<b>დაჯგუფების</b> მენიუში შესაბამის პარამეტრს აირჩევთ."
 
 #: src/mainWindow.cpp:587
 #, kde-format
@@ -1247,6 +1291,9 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
+"მონიშნულის გაგზავნა ელფოსტით. მონიშნულის მეგობრისთვის ან დაგზავნის სიისთვის "
+"გასაგზავნად უბრალოდ მონიშნეთ მნიშვნელოვანი ხაზები და დააწკაპუნეთ ამ მენიუს "
+"პუნქტზე."
 
 #: src/mainWindow.cpp:597
 #, kde-format
@@ -1278,6 +1325,8 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
+"მონიშნავს მიმდინარე ჟურნალის ყველა ხაზს. ეს ქმედება გამოსადეგია, როცა, "
+"მაგალითად, მიმდინარე ჟურნალის შემცველობის ფაილში შენახვა გნებავთ."
 
 #: src/mainWindow.cpp:618
 #, kde-format
@@ -1395,6 +1444,9 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"აჩვენებს დიალოგურ ფანჯარას, რომელიც მონიშნული ხაზის შესახებ დეტალებს "
+"შეიცავს. ამ დიალოგური ფანჯრიდან ჟურნალში ძებნა <b>წინა</b> და <b>შემდეგი</b> "
+"ღილაკებით შეგიძლიათ."
 
 #: src/mainWindow.cpp:691
 #, kde-format
@@ -1411,6 +1463,8 @@ msgstr "მიმდინარე ხედზე მინიშნებე�
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
+"ჟურნალის ხაზზე კურსორის დიდხანს გაჩერებისას ნაჩვენები მინიშნების ჩართვა/"
+"გამორთვა."
 
 #: src/mainWindow.cpp:699
 #, kde-format
@@ -1420,7 +1474,7 @@ msgstr "&ახალ ხაზებზე გადართვა"
 #: src/mainWindow.cpp:700
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "გადაახვევს თუ არა ახალ ხაზებზე, როცა ჟურნალი შეიცვლება"
 
 #: src/mainWindow.cpp:702
 #, kde-format
@@ -1429,6 +1483,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"გადაიხვევა თუ არა ახალ ხაზებზე, როცა ჟურნალი შეიცვლება. ჩართეთ ეს პარამეტრი, "
+"თუ არ გნებავთ, აპლიკაციამ ყოველ ჯერზე, რამდენჯერაც განახლდება, ბოლოში "
+"გადაახვიოს."
 
 #: src/mainWindow.cpp:762
 #, kde-format
@@ -1454,6 +1511,7 @@ msgstr "Acpid -ის ჟურნალი"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
 msgstr ""
+"<p><b>Acpid-ის ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
@@ -1478,6 +1536,9 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
+"მიმდინარე ჟურნალში ACPI-ის ჟურნალის ჩვენება. ACPI ისეთი აპარატურული "
+"კომპონენტების სამართავად გამოიყენება, როგორებიცაა ელემენტი, კვების ღილაკები "
+"და ა.შ...."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1572,6 +1633,9 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"მიმდინარე ჩანართში Apache-ის წვდომის ჟურნალის ჩვენება. Apache მსოფლიოში "
+"ყველაზე ხშირად გამოყენებული ვებსერვერია. ეს ჟურნალი ვებსერვერ Apache-ის მიერ "
+"მიღებულ ყველა მოთხოვნას გაჩვენებთ."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1590,6 +1654,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
+"<p><b>Apache-ის ჟურნალის</b> და <b>Apache-ის წვდომის ჟურნალის</b> "
+"საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
@@ -1632,6 +1698,9 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"მიმდინარე ჩანართში Apache-ის ჟურნალის ჩვენება. Apache მსოფლიოში ყველაზე "
+"ხშირად გამოყენებული ვებსერვერია. ეს ჟურნალი ვებსერვერ Apache-ის მიერ მიღებულ "
+"ყველა მოთხოვნას გაჩვენებთ."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1643,6 +1712,7 @@ msgstr "აუდიტის ჟურნალი"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
+"<p><b>Audit-ის ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
@@ -1655,6 +1725,8 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"მიმდინარე ჩანართში აუდიტის ჟურნალის ჩვენება. ეს ჟურნალი არასპეციალიზებული "
+"პროცესების (როგორებიცაა ბრძანებები \"sudo\" ან \"fsck\") მიერ გენერირდება"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1684,6 +1756,8 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
+"შეგიძლიათ აკრიფოთ ან აირჩიოთ ავთენტიკაციის ჟურნალის ფაილი (მაგ: <i>/var/log/"
+"auth.log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
@@ -1692,6 +1766,9 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"შეგიძლიათ აკრიფოთ ან აირჩიოთ ავთენტიკაციის ჟურნალის ფაილი. ამ ფაილის ანალიზი "
+"მოხდება, როცა მენიუში <b>ავთენტიკაციის ჟურნალს</b> აირჩევთ. ზოგადად, სახელია "
+"<i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -1705,6 +1782,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
+"მიმდინარე ჩანართში ავთენტიკაციის ჟურნალის ჩვენება. ეს ჟურნალი აჩვენებს ამ "
+"სისტემის ყველა მომხმარებლის ყველა შემოსვლას და შეუძლია, დაგეხმაროთ გაგებაში, "
+"თუ ვინმე თქვენი სისტემის გატეხვას ცდილობს."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1712,6 +1792,8 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"ზოგიერთ ჟურნალის ფაილი არ არსებობს.\n"
+"თუ არ არსებობს ყველა ჟურნალის ფაილი, ეს რეჟიმი ხელმიუწვდომელი იქნება."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
@@ -1919,6 +2001,15 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მონიშნული ფაილების სიაში "
+"ზემოთ ატანა. ეს პარამეტრი საშუალებას გაძლევთ, ფაილები<span style=\" font-"
+"weight:600;\">KSystemLog-მა</span> უფრო ადრე წაიკითხოს .</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -1964,6 +2055,15 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მონიშნული ფაილების სიაში "
+"ქვემოთ ჩამოტანა. ეს პარამეტრი საშუალებას გაძლევთ, ფაილები<span style=\" font-"
+"weight:600;\">KSystemLog-მა</span> უფრო გვიან წაიკითხოს .</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -1982,6 +2082,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>შენიშვნები:</b></p><ul "
+"style='margin-top:0px'><li>ფაილების წაიკითხვის თანმიმდევრობა ამ სიით "
+"განისაზღვრება.</li><li>მისაღებია უბრალო ტექსტური და შეკუმშული ფაილები<i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>ერთზე მეტი ჟურნალის ფაილის დამატებისას "
+"გამოიყენეთ ვაილდკარდი <b>'*'</b>.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2083,6 +2188,8 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
+"შეცვლის მიმდინარე ფაილ(ებ)-ის დონეს. თითოეული ჟურნალის დონის შესახებ მეტი "
+"ინფორმაციისთვის იხილეთ KSystemLog-ის დოკუმენტაცია."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
@@ -2254,6 +2361,16 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">მონიშნული ფაილების სიაში "
+"ქვემოთ ჩამოტანა ატანა. ეს პარამეტრი საშუალებას გაძლევთ, ფაილები<span style="
+"\" font-weight:600;\">KSystemLog-მა</span> უფრო გვიან წაიკითხოს .</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2265,6 +2382,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>შენიშვნები:</b></p><ul "
+"style='margin-top:0px'><li>ფაილების წაიკითხვის თანმიმდევრობა ამ სიით "
+"განისაზღვრება.</li><li>მისაღებია უბრალო ტექსტური და შეკუმშული ფაილები<i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>ერთზე მეტი ჟურნალის ფაილის დამატებისას "
+"გამოიყენეთ ვარსკვლავი <b>'*'</b>.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2300,6 +2422,9 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
+"<p><b>Cron-ის ჟურნალის</b> (ანუ, დაგეგმილი ამოცანების ჟურნალის) საჩვენებლად "
+"შემდეგი ფაილების ანალიზი მოხდება. <a href='man:/cron'>მეტი ინფორმაცია...</"
+"a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2329,6 +2454,11 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"მიმდინარე ჩანართში დაგეგმილი ამოცანების ჟურნალის ჩვენება. Cron-ის პროცესი "
+"პროგრამაა, რომელიც თქვენს სისტემაში დაგეგმილი ისეთი ამოცანების გაშვებაზე "
+"აგებს პასუხს, როგორიცაა უსაფრთხოების შემოწმებები, ზოგიერთი სერვისის "
+"ავტომატური გადატვრთვა და ა.შ. გამოიყენეთ ეს მენიუ ახლახან გაშვებული "
+"პროცესების სანახავად."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2373,6 +2503,10 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
+"აჩვენებს CUPS-ის ვებსერვერის წვდომის ჟურნალს მიმდინარე ჩანართში. CUPS "
+"პროგრამაა, რომელიც თქვენს კომპიუტერზე ბეჭდვას განაგებს. ეს ჟურნალი ინახავს "
+"ყველა მოთხოვნას, რომელიც CUPS-ის ჩაშენებულ ვებსერვერზე ხდება (ნაგულისხმევად: "
+"<i> http://localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2385,6 +2519,8 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
+"აღმოჩენილია ახალი ჟურნალის დონე. დასამატებლად, გთხოვთ, ეს ჟურნალის ფაილი "
+"KSystemLog-ის პროგრამისტებს გაუგზავნოთ."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
@@ -2403,6 +2539,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
+"<p><b>Cups-ის ჟურნალის</b> და <b>Cups-ის ვებზე წვდომის ჟურნალის</b> "
+"საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
@@ -2460,6 +2598,8 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
+"აჩვენებს CUPS-ის ჟურნალს მიმდინარე ჩანართში. CUPS პროგრამაა, რომელიც თქვენს "
+"კომპიუტერზე ბეჭდვას განაგებს."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2484,7 +2624,7 @@ msgstr "ასლების რაოდენობა"
 #: src/modes/cups/cupsPageAnalyzer.cpp:25
 #, kde-format
 msgid "Job Billing"
-msgstr ""
+msgstr "დავალების ფასი"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:19
 #, kde-format
@@ -2509,7 +2649,7 @@ msgstr "ასლების რაოდენობა:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:24
 #, kde-format
 msgid "Job Billing:"
-msgstr ""
+msgstr "დავალების ფასი:"
 
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
@@ -2528,6 +2668,10 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"აჩვენებს CUPS-ის ვებ-ჟურნალს მიმდინარე ჩანართში. CUPS პროგრამაა, რომელიც "
+"თქვენს კომპიუტერზე ბეჭდვას განაგებს. ეს ჟურნალი ინახავს ყველა მოთხოვნას, "
+"რომელიც CUPS-ის ჩაშენებულ ვებსერვერზე ხდება (ნაგულისხმევად: <i> http://"
+"localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2551,6 +2695,10 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"აჩვენებს CUPS PDF-ის ჟურნალს მიმდინარე ჩანართში. CUPS პროგრამაა, რომელიც "
+"თქვენს კომპიუტერზე ბეჭდვას განაგებს. ეს ჟურნალი ინახავს ყველა მოთხოვნას, "
+"რომელიც CUPS-ის ჩაშენებულ ვებსერვერზე ხდება (ნაგულისხმევად: <i> http://"
+"localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2562,6 +2710,8 @@ msgstr "დემონის ჟურნალები"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
+"<p><b>დემონების ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</"
+"p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
@@ -2575,6 +2725,9 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"მიმდინარე ჩანარტში დემონის ჟურნალის ჩვენება. დემონები პროცესებია, რომლებიც "
+"სისტემაში ფონურადაა გაშვებული. იხილეთ ეს ჟურნალი, თუ გნებავთ იცოდეთ, რა "
+"ხდება თქვენი სისტემის ფონში."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2780,6 +2933,10 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
+"ბირთვის ჟურნალის ჩვენება მიმდინარე ჩანართში. ეს ჟურნალი გამოსადეგია მხოლოდ "
+"იმ მომხმარებლებისთვის, რომლებსაც აინტერესებთ, ბირთვი მათ მოწყობილობებს რატომ "
+"ვერ პოულობს, ან რამ გამოიწვია ბოლო <i>ბირთვის პანიკაში/კრუნჩხვებში</i> "
+"ჩავარდნა."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2811,6 +2968,8 @@ msgstr "Postfix -ის ჟურნალი"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
 msgstr ""
+"<p><b>Postfix-ის ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</"
+"p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
@@ -2823,6 +2982,8 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
+"მიმდინარე ჩანართში Postfix-ის ჟურნალს გაჩვენებთ. Postfix - ყველაზე ცნობილი "
+"ელფოსტის სერვერია Linux-ის სამყაროში."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
@@ -2840,6 +3001,8 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
+"მიმდინარე ჩანართში Netbios-ის ჟურნალის ჩვენება. NetBIOS ფაილების გაზიარების "
+"პროტოკოლია, რომელიც Microsoft-მა შეიმუშავა."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
@@ -2857,6 +3020,9 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
+"Samba-ის წვდომის ჟურნალის ჩვენება მიმდინარე ჩანართში. ეს ჟურნალის რეჟიმი "
+"საშუალებას გაძლევთ, თქვენს ზიარებსა და დაშორებულ ჰოსტებს შორის მიერთებები "
+"იხილოთ."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -2886,6 +3052,8 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
+"<p><b>Samba-ის ჟურნალის</b>, <b>Samba-ის წვდომის ჟურნალის</b> და <b>Netbios-"
+"ის ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
@@ -2948,6 +3116,8 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"Samba-ის ჟურნალის ჩვენება მიმდინარე ჩანართში. Samba ფაილების გაზიარების "
+"სერვერია, რომლითაც Microsoft Windows-ის ქსელში მუშაობა შეგიძლიათ."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -2959,6 +3129,8 @@ msgstr "სისტემური ჟურნალი"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
 msgstr ""
+"<p><b>სისტემური ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</"
+"p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
@@ -2971,6 +3143,8 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"მიმდინარე ჩანართში სისტემის ჟურნალის ჩვენება. ეს ჟურნალი არასპეციალიზებული "
+"პროცესების (როგორებიცაა ბრძანებები \"sudo\" ან \"fsck\") მიერ გენერირდება"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3007,6 +3181,7 @@ msgstr "X.org -ის ჟურნალი"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
 msgstr ""
+"<p><b>X.org-ის ჟურნალის</b> საჩვენებლად მოხდება შემდეგი ფაილების ანალიზი.</p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
@@ -3027,6 +3202,10 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
+"X.org-ის ჟურნალის ჩვენება მიმდინარე ჩანართში. X.org სერვერია, რომელის თქვენი "
+"სამუშაო მაგიდის ჩვენების და გრაფიკული აპარატურის მართვაზეა პასუხისმგებელი. "
+"გადახედეთ ამ ჟურნალს, თუ გნებავთ, იცოდეთ, რატომ არ გაქვთ 3D აჩქარება ან "
+"რატომ არ მუშაობს თქვენი შეყვანის მოწყობილობა."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -3045,6 +3224,8 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
+"შეგიძლიათ შეიყვანოთ ან აირჩიოთ X სესიის ჟურნალის ფაილი (მაგ: <i>~/.xsession-"
+"errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
 #, kde-format
@@ -3053,6 +3234,9 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"შეგიძლიათ აკრიფოთ ან აირჩიოთ X სესიის ჟურნალის ფაილი. ეს ფაილი დამუშავდება, "
+"როცა მენიუში <b>X სესიის ჟურნალს</b> აირჩევთ. ჩვეულებრივ, ფაილის სახელია "
+"<i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
@@ -3092,6 +3276,8 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
+"<p><b>შენიშვნა:</b> ჩართეთ ეს პარამეტრები X.org-ის შეცდომების მოსაცილებლად.</"
+"p><p style=\"margin-bottom:0px\">გამოტოვებული იქნება შემდეგი ხაზები:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
