@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain(QByteArrayLiteral("ksystemlog"));
 
     KAboutData about(QStringLiteral("ksystemlog"),
-                     i18n("KSystemlog"),
+                     i18n("KSystemLog"),
                      QStringLiteral(KSYSTEMLOG_VERSION_STRING),
                      i18n("System Logs Viewer by KDE"),
                      KAboutLicense::GPL_V2,
