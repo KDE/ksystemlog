@@ -234,7 +234,7 @@ Hide menu entries and actions for modes with missing log files
 >Llegir els registres amb el &ksystemlog;</title>
 
 		<para
->Com podeu veure en les següents captures de pantalla, el &ksystemlog; proporciona funcions per ordenar i filtrar fàcilment línies de registre. A continuació ho descriurem en les següents parts d'aquesta documentació. </para>
+>Com podeu veure en les següents captures de pantalla, el &ksystemlog; proporciona funcions per a ordenar i filtrar fàcilment línies de registre. A continuació ho descriurem en les següents parts d'aquesta documentació. </para>
 
 		<sect2 id="getting_started">
 			<title
@@ -243,7 +243,7 @@ Hide menu entries and actions for modes with missing log files
 			<para
 >En iniciar el &ksystemlog;, per omissió intenta obrir el registre més útil, el <guilabel
 >Registre del sistema</guilabel
->. Si no el mostra a la pantalla i apareix un quadre de missatge, probablement us heu oblidat de llançar el &ksystemlog; com a usuari administrador (normalment anomenat root). Els fitxers de registre solen estar disponibles a la carpeta /var/log, sovint protegits contra els usuaris normals. En el diàleg de configuració podreu seleccionar un altre registre per obrir durant l'inici. </para>
+>. Si no el mostra a la pantalla i apareix un quadre de missatge, probablement us heu oblidat de llançar el &ksystemlog; com a usuari administrador (normalment anomenat root). Els fitxers de registre solen estar disponibles a la carpeta /var/log, sovint protegits contra els usuaris normals. En el diàleg de configuració podreu seleccionar un altre registre a obrir durant l'inici. </para>
 
 			<screenshot>
 				<screeninfo
@@ -268,7 +268,7 @@ Hide menu entries and actions for modes with missing log files
 				<title
 >Classificar les línies de registre</title>
 				<para
->Cada línia de registre es mostra en una vista de llista, que es pot ordenar fent clic a la columna desitjada. Un altre clic ordenarà en l'altre ordre. Per ordenar la llista com estava en la primera càrrega, podeu utilitzar l'element <menuchoice
+>Cada línia de registre es mostra en una vista de llista, que es pot ordenar fent clic a la columna desitjada. Un altre clic ordenarà en l'altre ordre. Per a ordenar la llista com estava en la primera càrrega, podeu utilitzar l'element <menuchoice
 ><guimenu
 >Edita</guimenu
 ><guimenuitem
@@ -353,7 +353,7 @@ Hide menu entries and actions for modes with missing log files
 				<para
 >El menú contextual conté l'acció <guilabel
 >Envia la selecció per correu</guilabel
->. Seleccioneu les línies rellevants al registre i utilitzeu aquesta acció per obrir la finestra de l'editor del vostre client de correu electrònic predeterminat ple amb la selecció. </para>
+>. Seleccioneu les línies rellevants al registre i utilitzeu aquesta acció per a obrir la finestra de l'editor del vostre client de correu electrònic predeterminat ple amb la selecció. </para>
 
 			</sect3>
 		</sect2>
