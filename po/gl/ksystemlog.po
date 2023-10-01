@@ -444,7 +444,7 @@ msgstr "Barra de ferramentas Principal"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Estase a abrir «%1»…"
+msgstr "Abrindo «%1»…"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
@@ -514,33 +514,32 @@ msgstr "Escolla os niveis de rexistro que desexa imprimir a cores."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Estase a cargar o progreso…"
+msgstr "Cargando o progreso…"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Estase a cargar <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] ""
-"Estase a cargar <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
+msgstr[0] "Cargando <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Cargando <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Estase a cargar de novo <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[0] "Cargando de novo <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
 msgstr[1] ""
-"Estase a cargar de novo <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
+"Cargando de novo <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 ficheiros)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Estase a cargar <b>%1</b>…<br /><i>%2</i>"
+msgstr "Cargando <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Estase a cargar de novo <b>%1</b>…<br /><i>%2</i>"
+msgstr "Cargando de novo <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -561,12 +560,12 @@ msgstr "O ficheiro «%1» non existe."
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "Non se pode descomprimir o formato «%2» de «%1»."
+msgstr "Non é posíbel descomprimir o formato «%2» de «%1»."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr "Non se pode descomprimir o ficheiro"
+msgstr "Non é posíbel descomprimir o ficheiro"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
@@ -581,7 +580,7 @@ msgstr "Permisos insuficientes"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Estase a cargar o rexistro…"
+msgstr "Cargando o rexistro…"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -706,12 +705,12 @@ msgstr[1] "Gardáronse %1 liñas de rexistro en «%2»."
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "Non se pode gardar o ficheiro «%1»: permiso denegado."
+msgstr "Non é posíbel gardar o ficheiro «%1»: permiso denegado."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
 msgid "Unable to save file."
-msgstr "Non se pode gardar o ficheiro."
+msgstr "Non é posíbel gardar o ficheiro."
 
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
@@ -926,7 +925,7 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
-"Non se pode atopar a orde «logger» no sistema. Por favor, escriba «logger» "
+"Non é posíbel atopar a orde «logger» no sistema. Por favor, escriba «logger» "
 "en Konsole para determinar se ter esta orde instalada."
 
 #: src/loggerDialog.cpp:225
@@ -1225,7 +1224,7 @@ msgid ""
 "an attachment or a backup of a particular log."
 msgstr ""
 "Garda a selección nun ficheiro. Esta acción é útil se quere crear un anexo "
-"ou unha copia de seguridade dun rexistro en particular."
+"ou unha salvagarda dun rexistro en particular."
 
 #: src/mainWindow.cpp:549
 #, kde-format
@@ -2214,7 +2213,7 @@ msgstr ""
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr "Estase a escoller o tipo do ficheiro"
+msgstr "Escollendo o tipo do ficheiro"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
@@ -2965,7 +2964,7 @@ msgstr "O URL é incorrecto. Non se pode abrir este ficheiro."
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
 msgid "Unable to open this file."
-msgstr "Non se pode abrir este ficheiro."
+msgstr "Non é posíbel abrir este ficheiro."
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:10
 #: src/modes/postfix/postfixLogMode.cpp:20
