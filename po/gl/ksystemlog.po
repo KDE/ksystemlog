@@ -1604,7 +1604,7 @@ msgstr "Identificación:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:20
 #, kde-format
 msgid "Username:"
-msgstr "Nome de usuario:"
+msgstr "Nome de usuaria:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:22
 #: src/modes/cups/cupsAccessItemBuilder.cpp:22
