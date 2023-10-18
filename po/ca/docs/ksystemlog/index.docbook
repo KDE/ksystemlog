@@ -100,7 +100,7 @@ Hide menu entries and actions for modes with missing log files
 >El &ksystemlog; és un visualitzador dels registres del sistema.</para>
 
 			<para
->El &ksystemlog; ajuda als usuaris a comprendre el que fa la seva màquina en segon pla. El &ksystemlog; té per objecte simplificar la lectura dels fitxers de registre del sistema. Aquest programa es desenvolupa per a usuaris principiants que no saben com trobar informació sobre els seus sistemes o sobre a on es troben els fitxers de registre al seu ordinador. </para>
+>El &ksystemlog; ajuda els usuaris a comprendre el que fa la seva màquina en segon pla. El &ksystemlog; té per objecte simplificar la lectura dels fitxers de registre del sistema. Aquest programa es desenvolupa per a usuaris principiants que no saben com trobar informació sobre els seus sistemes o sobre a on es troben els fitxers de registre al seu ordinador. </para>
 
 			<para
 >Però també està dissenyat per a usuaris avançats que volen veure ràpidament els problemes que ocorren en el seu servidor. El &ksystemlog; tracta de proporcionar algunes característiques avançades per a permetre la classificació i lectura de registres de programes específics. </para>
@@ -276,7 +276,7 @@ Hide menu entries and actions for modes with missing log files
 ></menuchoice
 > del menú, o simplement feu clic a la primera columna de la llista, en general anomenada <guilabel
 >Data</guilabel
->, per ordenar la llista en ordre ascendent. Fins i tot si el mode de registre no utilitza dates per a descriure cadascuna de les línies de registre, per exemple el <guilabel
+>, per a ordenar la llista en ordre ascendent. Fins i tot si el mode de registre no utilitza dates per a descriure cadascuna de les línies de registre, per exemple el <guilabel
 >Registre del X.org</guilabel
 >, la llista estarà correctament ordenada, perquè el &ksystemlog; manté un ordre intern de la llista. </para>
 			</sect3>
