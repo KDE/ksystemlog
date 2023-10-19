@@ -59,7 +59,7 @@ LogLine *ApacheAccessAnalyzer::parseMessage(const QString &logLine, const LogFil
     QString const strDateTime = line.left(endDate);
     line.remove(0, endDate + 3);
 
-    QDateTime const dateTime = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.count() - 2));
+    QDateTime const dateTime = ParsingHelper::instance()->parseHttpDateTime(strDateTime.mid(1, strDateTime.length() - 2));
 
     int endQuote = line.indexOf(QLatin1Char('\"'));
     QString const message = line.left(endQuote);

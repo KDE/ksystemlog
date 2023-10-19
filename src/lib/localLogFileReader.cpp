@@ -104,7 +104,7 @@ QIODevice *LocalLogFileReader::open()
     const QString mimeType = db.mimeTypeForFile(filePath, QMimeDatabase::MatchContent).name();
 
     qCDebug(KSYSTEMLOG) << filePath << " : " << mimeType;
-    QScopedPointer<QIODevice> inputDevice;
+    std::unique_ptr<QIODevice> inputDevice;
 
     // Try to see if this file exists
     const QFileInfo info(filePath);
@@ -145,7 +145,7 @@ QIODevice *LocalLogFileReader::open()
         return nullptr;
     }
 
-    return inputDevice.take();
+    return inputDevice.release();
 }
 
 void LocalLogFileReader::close(QIODevice *inputDevice)
