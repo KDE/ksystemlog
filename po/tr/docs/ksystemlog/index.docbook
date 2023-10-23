@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Turkish "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>&ksystemlog; El Kitabı</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (Uygulamalar 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog;, &kde;'nin sunduğu bir sistem günlüğü görüntüleme aracıdır. Bu program, sistemleri hakkında nasıl bilgi bulacağını veya günlük dosyalarının nerede bulunduğunu bilmeyen başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. Ayrıca sunucularında oluşan sorunları hızlı bir şekilde görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>günlükler</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>güvenlik</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>önyükleme</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>&ksystemlog; Kullanımı</title>
+
+	<sect1 id="introduction">
+		<title
+>Giriş</title>
+
+		<sect2>
+			<title
+>&ksystemlog; nedir?</title>
+			<para
+>&ksystemlog;, bir sistem günlüğü görüntüleme aracıdır.</para>
+
+			<para
+>&ksystemlog;, kullanıcıların makinelerinin arka planda ne yaptığını anlamalarına yardımcı olur. &ksystemlog; sistem günlük dosyalarının okunmasını basitleştirmeyi amaçlamaktadır. Bu program, sistemi hakkında nasıl bilgi bulacağını veya günlük dosyalarının bilgisayarında nerede bulunduğunu bilmeyen, başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. </para>
+
+			<para
+>Ancak aynı zamanda sunucularında meydana gelen sorunları hızlı bir şekilde görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. &ksystemlog;, belirli programlardan günlüklerin sıralanmasına ve okunmasına olanak tanıyan bazı gelişmiş özellikler sağlamaya çalışır. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; ana ekranı</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; ana ekranı</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Özellikler</title>
+
+			<para
+>Şu anki &ksystemlog; 0.4 sürümünde, pek çok yararlı özellik bulunmaktadır: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog sunucu biçimlendirmesi ve Samba desteğiyle birçok farklı günlük dosyası türü desteği</simpara
+></listitem>
+				<listitem
+><simpara
+>Aynı anda birden fazla günlüğü görüntülemek için sekmeli görünüm</simpara
+></listitem>
+				<listitem
+><simpara
+>Birden fazla kaynaktan bir günlük kipini okuma</simpara
+></listitem>
+				<listitem
+><simpara
+>Yeni kaydedilen satırların kendiliğinden kalın harflerle görüntülenmesi</simpara
+></listitem>
+				<listitem
+><simpara
+>Farklı kriterlere göre gruplandırma (günlük düzeyi, günlük dosyası, süreç, saat, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Her bir günlük satırı için ayrıntılı bilgi</simpara
+></listitem>
+				<listitem
+><simpara
+>Elle günlük girdisi ekleme</simpara
+></listitem>
+				<listitem
+><simpara
+>Önceliğe göre süzme</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Sisteminizdeki aşağıdaki günlük dosyası türlerini destekler: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Syslog günlükleri (sistem iletileri)</simpara
+></listitem>
+				<listitem
+><simpara
+>X.org günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Çekirdek günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Kimlik doğrulama günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>ACPID günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>CUPS günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Apache günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Ardalan süreci günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>XSessions günlükleri</simpara
+></listitem>
+				<listitem
+><simpara
+>Systemd/Journald günlükleri</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Diğer birçok özellik içerilir ve bu kılavuzun uygun bölümlerinde ele alınacaktır. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>&ksystemlog; ile günlükleri okumak</title>
+
+		<para
+>Aşağıdaki ekran görüntülerinde göreceğiniz gibi &ksystemlog;, günlük satırlarını kolayca sıralamak ve süzmek için özellikler sunmaktadır. Şimdi bunları bu belgelendirmenin sonraki bölümlerinde açıklayacağız. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Başlarken</title>
+
+			<para
+>&ksystemlog; uygulamasını başlattığınızda, öntanımlı olarak en yararlı günlük olduğunu düşündüğü <guilabel
+>Sistem Günlüğü</guilabel
+>'nü açmaya çalışır. Görüntüleyemezse &ksystemlog; uygulamasını yönetici olarak başlatmayı unuttuğunuzu size anımsatan bir iletişim kutusu görüntüler. Günlük dosyaları genellikle normal kullanıcılara karşı korunan /var/log klasöründe bulunur. Ayarlar iletişim kutusunda, başlangıçta açılacak başka bir günlük seçebilirsiniz. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; ilk başlangıç</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; ilk başlangıç</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Günlük dosyalarını kolaylıkla okumak</title>
+
+			<sect3 id="sorting">
+				<title
+>Günlük satırlarını sıralamak</title>
+				<para
+>Her günlük satırı, aranan sütuna tıklanarak sıralanabilen bir liste görünümünde görüntülenir. Başka bir tıklama onu diğer sıraya göre sıralayacaktır. Listeyi ilk yüklemedeki gibi sıralamak isterseniz <menuchoice
+><guimenu
+>Düzen</guimenu
+><guimenuitem
+>Yeniden Yükle</guimenuitem
+></menuchoice
+> menü ögesini kullanın veya listeyi artan sırada sıralamak için listenin ilk sütununa tıklayın, genelde <guilabel
+>Tarih</guilabel
+> başlıklıdır. Günlük kipiniz her günlük satırını tanımlamak için zaman kullanmasa bile, örneğin <guilabel
+>X.org Günlüğü</guilabel
+>, liste doğru şekilde sıralanacaktır çünkü &ksystemlog; listenin iç sırasını tutar. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Günlük satırlarını süzmek</title>
+
+				<screenshot>
+					<screeninfo
+>Belirli bir süreçte süzmek</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Belirli bir süreçte süzmek</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Seçils kriterlere ve yazılan diziye göre süzmek için süzgeç çubuğunu da kullanabilirsiniz. Süzgece bir şey yazmanız yeterlidir; liste, yalnızca süzgeç dizinizle eşleşen satırları görüntüleyecek biçimde kendiliğinden değiştirilecektir. Öntanımlı olarak, süzgecin yanındaki birleşik giriş kutusu <guilabel
+>Tümü</guilabel
+> seçeneğini seçer; bu, bir satırın yalnızca sütunlarından biri süzgeç dizisini içeriyorsa görüntüleneceği anlamına gelir. </para>
+
+				<para
+>Listenin yalnızca bu sütununu süzmek için başka bir alan seçebilirsiniz. Örneğin, <guilabel
+>Sistem Günlüğü</guilabel
+> alanında, <guilabel
+>Süreç</guilabel
+> sütununu seçip süzgeç çubuğuna bir işlem adı yazdığınızda, &ksystemlog; bu süreç tarafından gönderilen her günlük satırını görüntüleyecektir. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Diğer özellikler</title>
+
+			<sect3 id="colorizing">
+				<title
+>Renkli günlük satırları</title>
+
+				<para
+>Bu seçenek öntanımlı olarak etkindir ve hangi satırların diğerlerinden daha yüksek düzeye sahip olduğunu görmenize yardımcı olur. Örneğin, <guilabel
+>Hata</guilabel
+> düzeyi, <guilabel
+>Bildirim</guilabel
+>'den farklı bir renkle vurgulanacaktır. Bu özellik yapılandırma iletişim kutusundan devre dışı bırakılabilir. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Süreç tanımlayıcısını gizlemek</title>
+
+				<para
+>Yalnızca belirli bir süreçle ilgileniyorsanız (örneğin <guilabel
+>Sistem Günlüğü</guilabel
+> veya <guilabel
+>Cron Günlüğü</guilabel
+>), PID'sini <guilabel
+>Süreç</guilabel
+> sütunundan gizleyebilirsiniz. Samba sunucusu gibi belirli bir komutun çıktısını çözümlemeye çalışıyorsanız bu yararlı olabilir. Bu durumda lütfen <link linkend="filtering"
+>Süzgeç Çubuğu</link
+>'nu kullanın. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>E-posta ile logd gönder</title>
+				<para
+>Bağlam menüsünde <guilabel
+>Seçimi E-posta ile Gönder</guilabel
+> eylemi bulunur. Günlükteki ilgili satırları seçin ve bu eylemi, öntanımlı e-posta istemcinizin seçimle önceden doldurulmuş oluşturucu penceresini açmak için kullanın. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>İzleme Yönetimi</title>
+
+		<para
+>&ksystemlog;, günlük dosyalarının okunmasını ve izlenmesini denetlemenin kolay bir yolunu sağlar. Aslında bazen yalnızca var olan bazı günlük satırlarını çözümlemeniz gerekir. Bu durumda yeni bir satırın ortaya çıkmasına tahammül edemezsiniz. <guibutton
+>Durdur</guibutton
+> düğmesine tıklayarak günlük dosyalarının izlenmesini devre dışı bırakabilirsiniz. Bu, açılan günlük dosyalarının güncellenmesini durdururken diğer işlemler tarafından doldurulmasına izin verir. Elbette, son duraklatmadan bu yana eklenen günlük satırlarını görüntüleyecek olan <guibutton
+>Sürdür</guibutton
+>'e tıklayarak izlemeyi yeniden etkinleştirebilirsiniz. </para>
+
+		<para
+>Ayrıca, yeni görünen günlük satırlarına odaklanmak için <guimenuitem
+>Yeni Satırlara Sar</guimenuitem
+> seçeneğini açabilirsiniz. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Birden çok açık sekmenin yönetimi</title>
+
+		<para
+>&ksystemlog; birden çok sekme açarak birden çok günlük kipini açmanıza olanak tanır. Bunun için yeni sekmeleri yönetmek ve açmak için <guimenu
+>Pencere</guimenu
+> menüsünü kullanmanız yeterlidir. Doğru sekmeyi seçtikten sonra özel menüyü kullanarak istediğiniz günlük kipini seçebilirsiniz. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Emeği Geçenler ve Lisans</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Telif hakkı 2008 Nicolas Ternisien </para>
+
+	<para
+>Katkıcılar:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker: Fikirler, kod iyileştirmeleri</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan: SSH günlük kipi, yazdırma</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Tüm &ksystemlog; çevirmenlerine özel teşekkürlerimle.</emphasis>
+	</para>
+
+	<para
+>Çeviri: Emir SARI<email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
