@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 {
     QApplication const app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("ksystemlog");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("ksystemlog"));
 
     KAboutData about(QStringLiteral("ksystemlog"),
                      i18n("KSystemlog"),
