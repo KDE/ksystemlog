@@ -41,6 +41,7 @@ Keywords[zh_TW]=log;logfile;system messages;system log;kernel log;authentication
 
 Name=KSystemLog
 Name[ar]=سجلّات نظامك
+Name[ast]=KSystemLog
 Name[az]=KSystemLog
 Name[bg]=KSystemLog
 Name[bs]=KSystemLog
