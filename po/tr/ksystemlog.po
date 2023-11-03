@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2023-10-16 22:10+0300\n"
+"PO-Revision-Date: 2023-11-02 13:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1065,7 +1065,7 @@ msgstr "Viyaçeslav Matyuşin"
 #: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr "Joudnald kipi, hata düzeltmeler"
+msgstr "Journald kipi, hata düzeltmeleri"
 
 #: src/main.cpp:39
 #, kde-format
@@ -2773,12 +2773,12 @@ msgstr "Etkin"
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr "Uzak günlük ekle"
+msgstr "Uzak günce ekle"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr "Uzak günlüğü düzenle"
+msgstr "Uzak günceyi düzenle"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
@@ -2814,7 +2814,7 @@ msgstr "Sistem ve çekirdeğin günlük girdilerini göster"
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr "Uzak günlükler"
+msgstr "Uzak günceler"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
@@ -2842,7 +2842,7 @@ msgstr "Journald"
 #: src/modes/journald/journaldFactory.cpp:43
 #, kde-format
 msgid "Local journal"
-msgstr "Yerel günlük"
+msgstr "Yerel günce"
 
 #: src/modes/journald/journaldFactory.cpp:46
 #, kde-format
