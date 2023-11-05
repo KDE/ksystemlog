@@ -47,6 +47,7 @@ target_sources(ksystemlog PRIVATE
     tabLogViewsWidget.h
     tabLogManager.h
     statusBar.h
+    ksystemlogui.qrc
 )
 
 ki18n_wrap_ui(ksystemlog
@@ -93,4 +94,3 @@ install(TARGETS ksystemlog ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.ksystemlog.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.ksystemlog.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES ksystemlogui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/ksystemlog)
