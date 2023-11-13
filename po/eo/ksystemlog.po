@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 01:56+0000\n"
-"PO-Revision-Date: 2023-09-24 20:54+0100\n"
+"PO-Revision-Date: 2023-11-12 16:39+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -932,7 +932,7 @@ msgstr "La komando 'logger' ne estis ĝuste forigita."
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "Execution problem"
-msgstr "Problemo de ekzekuto"
+msgstr "Problemo de plenumo"
 
 #: src/loggerDialog.cpp:236
 #, kde-format
@@ -3304,7 +3304,7 @@ msgid ""
 msgstr ""
 "Montras la protokolon de X-Seanco en la nuna langeto. X Session-protokolo "
 "estas la loko kie grafikaj programoj skribas sian eligon. Vidu ĉi tiun "
-"protokolon se vi volas scii kial programo kraŝis, aŭ kial via labortabla "
+"protokolon se vi volas scii kial programo paneis, aŭ kial via labortabla "
 "medio (Plasma, Gnome, Unity, Xfce, LXQt, ...) ne komenciĝis."
 
 #. i18n("Last updated: %1.",
