@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-sysadmin/ksystemlog.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-11-14 01:40+0000\n"
 "PO-Revision-Date: 2007-08-07 07:02-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -1047,8 +1047,9 @@ msgid "&Cancel"
 msgstr "&Cealaigh"
 
 #: src/main.cpp:24
-#, kde-format
-msgid "KSystemlog"
+#, fuzzy, kde-format
+#| msgid "KSystemlog"
+msgid "KSystemLog"
 msgstr "KSystemlog"
 
 #: src/main.cpp:26

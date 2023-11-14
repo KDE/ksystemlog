@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-11-14 01:40+0000\n"
 "PO-Revision-Date: 2021-08-06 22:58+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1031,8 +1031,9 @@ msgid "&Cancel"
 msgstr "&Cancella"
 
 #: src/main.cpp:24
-#, kde-format
-msgid "KSystemlog"
+#, fuzzy, kde-format
+#| msgid "KSystemlog"
+msgid "KSystemLog"
 msgstr "KSystemlog"
 
 #: src/main.cpp:26

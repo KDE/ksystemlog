@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-11-14 01:40+0000\n"
 "PO-Revision-Date: 2022-12-30 18:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -999,8 +999,9 @@ msgid "&Cancel"
 msgstr "取消(&C)"
 
 #: src/main.cpp:24
-#, kde-format
-msgid "KSystemlog"
+#, fuzzy, kde-format
+#| msgid "KSystemlog"
+msgid "KSystemLog"
 msgstr "KSystemlog"
 
 #: src/main.cpp:26
