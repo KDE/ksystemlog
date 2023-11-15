@@ -1,9 +1,9 @@
 # translation of ksystemlog.po to Italian
 #
+# SPDX-FileCopyrightText: 2017, 2021, 2023 Paolo Zamponi <feus73@gmail.com>
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2007, 2008, 2009.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2008.
-# Paolo Zamponi <feus73@gmail.com>, 2017, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
