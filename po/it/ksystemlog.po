@@ -1,15 +1,15 @@
 # translation of ksystemlog.po to Italian
 #
+# SPDX-FileCopyrightText: 2017, 2021, 2023 Paolo Zamponi <feus73@gmail.com>
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2007, 2008, 2009.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2008.
-# Paolo Zamponi <feus73@gmail.com>, 2017, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:40+0000\n"
-"PO-Revision-Date: 2021-02-27 14:06+0100\n"
+"PO-Revision-Date: 2023-11-14 15:26+0100\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1030,10 +1030,9 @@ msgid "&Cancel"
 msgstr "&Annulla"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
-msgstr "KSystemlog"
+msgstr "KSystemLog"
 
 #: src/main.cpp:26
 #, kde-format

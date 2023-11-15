@@ -3,15 +3,15 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
 # SPDX-FileCopyrightText: 2014, 2016, 2017, 2020, 2021, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:40+0000\n"
-"PO-Revision-Date: 2023-10-31 08:10+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2023-11-14 09:45+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -355,8 +355,8 @@ msgid ""
 msgstr ""
 "Podeu seleccionar esta opció si voleu eliminar l'identificador del procés "
 "del nom del procés. Per exemple, a vegades veureu en la columna <b>Procés</"
-"b> alguna cosa pareixent a <i>cron<b>[3433]</b></i>. Si esta opció està "
-"activada, se suprimirà la part en negreta."
+"b> alguna cosa pareixent a <i>cron<b>[3433]</b></i>. Si se selecciona esta "
+"opció, se suprimirà la part en negreta."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -619,7 +619,7 @@ msgstr "Data:"
 #: src/modes/cups/cupsAccessItemBuilder.cpp:19
 #, kde-format
 msgid "Hostname:"
-msgstr "Nom de la màquina:"
+msgstr "Nom de l'amfitrió:"
 
 #: src/lib/logModeItemBuilder.cpp:59 src/modes/cron/cronItemBuilder.cpp:19
 #, kde-format
@@ -810,7 +810,7 @@ msgstr "Data"
 #: src/lib/logViewWidget.cpp:103
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Mostra/oculta la columna «%1»"
+msgstr "Mostra o oculta la columna «%1»"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
@@ -1038,10 +1038,9 @@ msgid "&Cancel"
 msgstr "C&ancel·la"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
-msgstr "KSystemlog"
+msgstr "KSystemLog"
 
 #: src/main.cpp:26
 #, kde-format
@@ -1503,8 +1502,8 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"Desplaça o no fins a les línies noves quan canvia el registre. Marqueu esta "
-"opció si no voleu que l'aplicació es desplace automàticament a la part "
+"Desplaça o no fins a les línies noves quan canvia el registre. Seleccioneu "
+"esta opció si no voleu que l'aplicació es desplace automàticament a la part "
 "inferior del registre cada vegada que es refresque."
 
 #: src/mainWindow.cpp:753
@@ -1564,7 +1563,7 @@ msgstr ""
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
 msgid "Host Name"
-msgstr "Nom de la màquina"
+msgstr "Nom de l'amfitrió"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
@@ -1600,7 +1599,7 @@ msgstr "URL"
 #: src/modes/apache/apacheAccessItemBuilder.cpp:19
 #, kde-format
 msgid "Host Name:"
-msgstr "Nom de la màquina:"
+msgstr "Nom de l'amfitrió:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:20
 #: src/modes/cups/cupsAccessItemBuilder.cpp:20
@@ -2422,7 +2421,7 @@ msgstr "%1 %2"
 #: src/modes/cups/cupsAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Host"
-msgstr "Màquina"
+msgstr "Amfitrió"
 
 #: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
 #, kde-format
@@ -3044,8 +3043,8 @@ msgid ""
 "to see connections between your shares and remote hosts."
 msgstr ""
 "Mostra el registre d'accés a Samba a la pestanya actual. Este mode de "
-"registre permet veure les connexions entre els recursos compartits i les "
-"màquines remotes."
+"registre permet veure les connexions entre els recursos compartits i els "
+"amfitrions remots."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -3286,7 +3285,7 @@ msgstr "Fitxer de &registre:"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr "Marqueu esta opció per a eliminar els errors d'X.org"
+msgstr "Seleccioneu esta opció per a eliminar els errors d'X.org"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
@@ -3301,8 +3300,8 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
-"<p><b>Nota:</b> marqueu esta opció per a eliminar els errors d'X.org.</p><p "
-"style=\"margin-bottom:0px\">S'ignoraran les línies següents:</p>"
+"<p><b>Nota:</b> seleccioneu esta opció per a eliminar els errors d'X.org.</"
+"p><p style=\"margin-bottom:0px\">S'ignoraran les línies següents:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
