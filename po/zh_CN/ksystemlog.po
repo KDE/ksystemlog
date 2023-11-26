@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-11-19 03:44\n"
+"PO-Revision-Date: 2023-11-25 02:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "kde-china@kde.org, hanyiny@gmail.com, i@guoyunhe.com, wenxt@gmail.com, "
-"tysontan@tysontan.com"
+"tds00@qq.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -79,7 +79,7 @@ msgstr "是否显示新行。"
 #: src/config/ksystemlog.kcfg:49
 #, kde-format
 msgid "Whether the filter bar is shown."
-msgstr "是否显示筛选栏。"
+msgstr "是否显示过滤栏。"
 
 #. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:54
@@ -683,7 +683,7 @@ msgstr "无法保存文件。"
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
 msgid "Type your filter here"
-msgstr "在此输入您的筛选条件"
+msgstr "在此输入您的过滤条件"
 
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
@@ -698,7 +698,7 @@ msgstr "在此输入您的搜索条件..."
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
 msgid "Filter:"
-msgstr "筛选条件："
+msgstr "过滤条件："
 
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
@@ -708,7 +708,7 @@ msgstr "选择优先级"
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr "在此选择要进行筛选的信息列"
+msgstr "在此选择要进行过滤的信息列"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -716,7 +716,7 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"您可以对某个指定的信息列进行筛选显示。“<b>全部</b>”代表对所有信息列进行筛选。"
+"您可以对某个指定的信息列进行过滤显示。“<b>全部</b>”代表对所有信息列进行过滤。"
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -1291,7 +1291,7 @@ msgstr "选择当前全部日志。此操作可用来保存当前全部日志到
 #: src/mainWindow.cpp:618
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr "显示筛选栏(&F)"
+msgstr "显示过滤栏(&F)"
 
 #: src/mainWindow.cpp:624
 #, kde-format
@@ -2363,7 +2363,7 @@ msgstr ""
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr "启用进程筛选"
+msgstr "启用进程过滤"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
@@ -2772,13 +2772,13 @@ msgstr "全部消息"
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr "按 systemd 单元筛选"
+msgstr "按 systemd 单元过滤"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr "按 syslog 标识符筛选"
+msgstr "按 syslog 标识符过滤"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
