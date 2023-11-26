@@ -36,7 +36,7 @@ Keywords[sv]=log;loggfil;system meddelanden;systemlogg;kärnlogg;behörighetslog
 Keywords[tr]=günlük;günlük dosyası;sistem iletileri;sistem günlüğü;çekirdek günlüğü;kimlik doğrulama günlüğü;x.org günlüğü;journald günlüğü;hizmetler günlüğü;servisler günlüğü;olay görüntüleyici;olay günlüğü;hizmetler günlüğü;günce;
 Keywords[uk]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;журнал;файл журналу;системні повідомлення;журнал системи;системний журнал;журнал ядра;журнал розпізнавання;журнал автентифікації;журнал X.Org;журнал journald;журнал служб;перегляд подій;переглядач подій;
 Keywords[x-test]=xxlogxx;xxlogfilexx;xxsystem messagesxx;xxsystem logxx;xxkernel logxx;xxauthentication logxx;xxX.org logxx;xxjournald logxx;xxservices logsxx;xxEvent Viewerxx;xxeventvwrxx;xxeventlogxx;
-Keywords[zh_CN]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;日志;日志文件;系统消息;系统日志;内核日志;身份验证日志;X.org 日志;journald 日志;事件查看器;事件日志;
+Keywords[zh_CN]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;日志;日志文件;系统消息;系统日志;内核日志;身份验证日志;X.org 日志;journald 日志;事件查看器;事件日志;rizhi;rizhiwenjian;xitongxiaoxi;xitongrizhi;neiherizhi;shenfenyanzhengrizhi;shijianchakanqi;shijianrizhi;
 Keywords[zh_TW]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;系統紀錄;紀錄檔;記錄;系統訊息;
 
 Name=KSystemLog
