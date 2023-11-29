@@ -1,49 +1,50 @@
 # Translation of ksystemlog into esperanto.
 # Copyright (C) 2009 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-03-22 19:14+0100\n"
+"PO-Revision-Date: 2023-11-14 06:59+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: pology\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr ""
+msgstr "Ŝargi ĉi tiun protokolreĝimon ĉe ekfunkciigo."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr ""
+msgstr "La protokolo-vido-linia nombrolimo."
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
-msgstr ""
+msgstr "Opcio estas vera se la uzanto volas forigi ripetajn protokolliniojn."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -52,6 +53,8 @@ msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
 msgstr ""
+"Opcio estas vera se la PID en la proceza kolumno de la SystemLog estas "
+"preterlasota."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -60,36 +63,37 @@ msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
 msgstr ""
+"Opcio estas vera se la loglinioj estas koloritaj depende de sia lognivelo."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
 #, kde-format
 msgid "Whether the tooltips are enabled."
-msgstr ""
+msgstr "Ĉu la konsiletoj estas ebligitaj."
 
 #. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:44
 #, kde-format
 msgid "Whether new lines are displayed."
-msgstr ""
+msgstr "Ĉu novaj linioj estas montrataj."
 
 #. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:49
 #, kde-format
 msgid "Whether the filter bar is shown."
-msgstr ""
+msgstr "Ĉu la filtrilo estas montrita."
 
 #. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:54
 #, kde-format
 msgid "The date format of log lines."
-msgstr ""
+msgstr "La data formato de protokolaj linioj."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:71
 #, kde-format
 msgid "The Samba log file paths."
-msgstr ""
+msgstr "La padoj de protokoloj de Samba."
 
 #: src/configurationDialog.cpp:26
 #, kde-format
@@ -117,7 +121,7 @@ msgstr "Sek&va"
 #: src/detailDialogBase.ui:14
 #, kde-format
 msgid "Log Line Details"
-msgstr ""
+msgstr "Log Line Detaloj"
 
 #. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:17
@@ -126,6 +130,8 @@ msgid ""
 "This dialog displays detailed information about the currently selected log "
 "line."
 msgstr ""
+"Ĉi tiu dialogo montras detalajn informojn pri la nuntempe elektita "
+"protokollinio."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (text), widget (KTextEdit, message)
@@ -152,13 +158,13 @@ msgstr "Piktograma"
 #: src/detailDialogBase.ui:70
 #, kde-format
 msgid "Main information"
-msgstr ""
+msgstr "Ĉefaj informoj"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:100
 #, kde-format
 msgid "Move to the previous line"
-msgstr ""
+msgstr "Movi al la antaŭa linio"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:103
@@ -167,6 +173,8 @@ msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
 msgstr ""
+"Movas al la antaŭa linio. Ĉi tiu butono estas malaktivigita se ne ekzistas "
+"antaŭa protokollinio."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
@@ -178,7 +186,7 @@ msgstr "&Malantaŭen"
 #: src/detailDialogBase.ui:122
 #, kde-format
 msgid "Move to the next line"
-msgstr ""
+msgstr "Movi al la sekva linio"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, next)
 #: src/detailDialogBase.ui:125
@@ -187,6 +195,8 @@ msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
 msgstr ""
+"Movas al la sekva linio. Ĉi tiu butono estas malaktivigita se ne ekzistas "
+"sekva protokollinio."
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
@@ -198,13 +208,13 @@ msgstr "&Plusendi"
 #: src/detailDialogBase.ui:160
 #, kde-format
 msgid "Close the Detail dialog."
-msgstr ""
+msgstr "Fermi la dialogon Detalo."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:163
 #, kde-format
 msgid "Closes this Detail dialog."
-msgstr ""
+msgstr "Fermas ĉi tiun dialogon pri Detalo."
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:166
@@ -216,11 +226,12 @@ msgstr "F&ermi"
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
 msgstr ""
+"Ĉi tiu reĝimo ne estas disponebla ĉar ĝiaj protokolaj dosieroj ne ekzistas."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
 msgid "No Log Mode"
-msgstr ""
+msgstr "Neniu Log Mode"
 
 #: src/generalConfigurationWidget.cpp:74
 #, kde-format
@@ -238,13 +249,13 @@ msgstr "Lanĉo"
 #: src/generalConfigurationWidgetBase.ui:26
 #, kde-format
 msgid "Load &this log mode at startup:"
-msgstr ""
+msgstr "Ŝargi ĉi &tiun protokolreĝimon ĉe ekfunkciiĝo:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr ""
+msgstr "La protokolreĝimo, kiu estas ŝargita defaŭlte ĉe ekfunkciiĝo"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -253,24 +264,28 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
+"La protokolo-reĝimo ŝargita defaŭlte ĉe ekfunkciigo. Elektu 'Neniu Log Mode' "
+"se vi ne volas, ke tio okazu."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
 #, kde-format
 msgid "Log Lines List"
-msgstr ""
+msgstr "Listo de Linioj"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
 #, kde-format
 msgid "&Maximum lines displayed:"
-msgstr ""
+msgstr "&Maksimumaj linioj montrataj:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
 msgstr ""
+"Elektu ĉi tie la maksimuman nombron da protokollinioj montrataj en la ĉefa "
+"vido."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:78
@@ -279,6 +294,8 @@ msgid ""
 "You can choose here the maximum number of log lines displayed in the main "
 "view."
 msgstr ""
+"Vi povas elekti ĉi tie la maksimuman nombron da protokolo-linioj montrataj "
+"en la ĉefa vido."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:96
@@ -287,6 +304,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas forigi duplikatajn protokolliniojn "
+"<b>(eble malrapidas)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -295,12 +314,14 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas forigi duplikatajn protokolliniojn. <b>Ĉi "
+"tiu opcio povas malrapidigi protokollegadon</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
 #, kde-format
 msgid "Remove &duplicate log lines (may be slower)"
-msgstr ""
+msgstr "Forigi &duplikatajn protokolliniojn (eble estas pli malrapida)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
@@ -313,7 +334,7 @@ msgstr "Opcioj"
 #: src/generalConfigurationWidgetBase.ui:118
 #, kde-format
 msgid "Remove process identifier from process name."
-msgstr ""
+msgstr "Forigi procezidentigilon de proceza nomo."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:121
@@ -324,19 +345,23 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"Elektu ĉi tiun opcion se vi volas forigi la procezidentigilon de la proceza "
+"nomo. Ekzemple, la kolumno <b>Procezo</b> povas enhavi enskribojn kiel "
+"<i>cron<b>[3433]</b></i>. Se ĉi tiu opcio estas aktivigita, la grasa parto "
+"estos forigita."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
 #, kde-format
 msgid "Remove &identifier from process name"
-msgstr ""
+msgstr "Forigi &identigilon de proceza nomo"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
 #, kde-format
 msgid ""
 "This option allows log lines to be colored depending on their log level."
-msgstr ""
+msgstr "Ĉi tiu opcio permesas kolorigi ŝtipliniojn depende de ilia lognivelo."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -346,12 +371,15 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
+"Ĉi tiu opcio permesas kolorigi ŝtipliniojn depende de ilia lognivelo. "
+"Ekzemple, eraroj estos montritaj ruĝe, avertoj en oranĝo, ktp. Ĉi tio helpos "
+"vin pli facile vidi problemojn."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
 #, kde-format
 msgid "&Colored log lines"
-msgstr ""
+msgstr "&Koloritaj protokolaj linioj"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
 #: src/generalConfigurationWidgetBase.ui:147
@@ -363,19 +391,19 @@ msgstr "Datoformato"
 #: src/generalConfigurationWidgetBase.ui:156
 #, kde-format
 msgid "&Short date format"
-msgstr ""
+msgstr "&Formato de mallonga dato"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
 #: src/generalConfigurationWidgetBase.ui:163
 #, kde-format
 msgid "&Long date format"
-msgstr ""
+msgstr "&Data formato"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
 #, kde-format
 msgid "&Precise date format"
-msgstr ""
+msgstr "&Preciza data formato"
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -399,7 +427,7 @@ msgstr "Fe&nestro"
 #: src/ksystemlogui.rc:53
 #, kde-format
 msgid "Logs Toolbar"
-msgstr ""
+msgstr "Protokol-Ilobreto"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
@@ -410,17 +438,17 @@ msgstr "Ĉefa ilobreto"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr ""
+msgstr "Malfermante '%1'..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr ""
+msgstr "Logdosiero '%1' ŝargita sukcese."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr ""
+msgstr "Logdosiero '%1' ŝanĝiĝis."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -465,77 +493,78 @@ msgstr "Averto"
 #: src/lib/globals.cpp:138
 #, kde-format
 msgid "Emergency"
-msgstr ""
+msgstr "Krizo"
 
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr ""
+msgstr "Preso de Protokolnivelo"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr ""
+msgstr "Elektu kiujn protokolo-nivelojn vi volas presi en koloro."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr ""
+msgstr "Ŝarga Progreso..."
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ŝargante <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Ŝargante <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 dosieroj)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Reŝargante <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Reŝargante <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 dosieroj)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "Ŝargante <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "Reŝargante <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
 msgstr ""
+"Ĉi tiu dosiero ne validas. Bonvolu ĝustigi ĝin en la agordoj de KSystemLog."
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
 #, kde-format
 msgid "File Does Not Exist"
-msgstr ""
+msgstr "Dosiero Ne Ekzistas"
 
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr ""
+msgstr "La dosiero '%1' ne ekzistas."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr ""
+msgstr "Ne eblas malkunpremi la formaton '%2' de '%1'."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr ""
+msgstr "Ne eblas malkunpremi dosieron"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr ""
+msgstr "Vi ne havas sufiĉajn permesojn por legi '%1'."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -545,18 +574,18 @@ msgstr "Mankas permesoj"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr ""
+msgstr "Ŝargante protokolon..."
 
 #: src/lib/logManager.cpp:92
 #, kde-format
 msgid "Log successfully loaded."
-msgstr ""
+msgstr "Protokolo sukcese ŝargita."
 
 #: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr ""
+msgstr "URL '%1' ne validas, preterlasante ĉi tiun URL."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -584,7 +613,7 @@ msgstr "Komputilo:"
 #: src/lib/logModeItemBuilder.cpp:59 src/modes/cron/cronItemBuilder.cpp:19
 #, kde-format
 msgid "Process:"
-msgstr ""
+msgstr "Procezo:"
 
 #: src/lib/logModeItemBuilder.cpp:60 src/lib/logModeItemBuilder.cpp:75
 #: src/modes/acpid/acpidItemBuilder.cpp:18
@@ -607,12 +636,12 @@ msgstr "Nivelo:"
 #: src/modes/xsession/xsessionItemBuilder.cpp:40
 #, kde-format
 msgid "Original file:"
-msgstr ""
+msgstr "Originala dosiero:"
 
 #: src/lib/logViewExport.cpp:43
 #, kde-format
 msgid "Here are my logs:\n"
-msgstr ""
+msgstr "Jen miaj protokoloj:\n"
 
 #: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
 #, kde-format
@@ -623,71 +652,73 @@ msgstr "---------------------------------------\n"
 #, kde-format
 msgid ""
 "You have selected too many lines. Please only select important log lines."
-msgstr ""
+msgstr "Vi elektis tro da linioj. Bonvolu elekti nur gravajn protokolliniojn."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid "Too Many Lines Selected"
-msgstr ""
+msgstr "Tro Multaj Linioj Elektitaj"
 
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
-msgstr ""
+msgstr "Log Lines de mia problemo"
 
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr ""
+msgstr "Neniuj eroj elektitaj. Nenio kopiita al tondujo."
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 protokollinio kopiita al tondujo."
+msgstr[1] "%1 protokollinioj kopiitaj al tondujo."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
-msgstr ""
+msgstr "Neniuj eroj elektitaj. Bonvolu elekti erojn por povi konservi ilin."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr ""
+msgstr "Konservi elektitajn protokolerojn al..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 protokollinio konservita al '%2'."
+msgstr[1] "%1 protokollinioj konservitaj al '%2'."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr ""
+msgstr "Ne eblas konservi dosieron '%1': Permeso Neita."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
 msgid "Unable to save file."
-msgstr ""
+msgstr "Ne eblas konservi dosieron."
 
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
 msgid "Type your filter here"
-msgstr ""
+msgstr "Tajpu vian filtrilon ĉi tie"
 
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
 msgid "Allows you to only list items that match the content of this text."
 msgstr ""
+"Permesas al vi nur listigi erojn kiuj kongruas kun la enhavo de ĉi tiu "
+"teksto."
 
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr ""
+msgstr "Enigu vian serĉon ĉi tie..."
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -697,12 +728,12 @@ msgstr "Filtrilo:"
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr ""
+msgstr "Elektu prioritatojn"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr ""
+msgstr "Elektu la filtritan kolumnon ĉi tie"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -710,6 +741,8 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
+"Permesas al vi apliki la filtrilon de objekto nur sur la specifita kolumno "
+"ĉi tie. Kolumno \"<i>Ĉiuj</i>\" signifas neniun specifan filtrilon."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -719,12 +752,12 @@ msgstr "Ĉiuj"
 #: src/lib/logViewSearchWidget.cpp:158
 #, kde-format
 msgid "Reached end of list."
-msgstr ""
+msgstr "Atingita fino de listo."
 
 #: src/lib/logViewSearchWidget.cpp:241
 #, kde-format
 msgid "Phrase not found."
-msgstr ""
+msgstr "Frazo ne trovita."
 
 #. i18n: ectx: property (text), widget (QLabel, searchLabel)
 #: src/lib/logViewSearchWidgetBase.ui:41
@@ -736,13 +769,13 @@ msgstr "Trovu:"
 #: src/lib/logViewSearchWidgetBase.ui:78
 #, kde-format
 msgid "Match &case"
-msgstr ""
+msgstr "Kongrui uskle&con"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightAllButton)
 #: src/lib/logViewSearchWidgetBase.ui:85
 #, kde-format
 msgid "&Highlight all"
-msgstr ""
+msgstr "&Elstarigi ĉiujn"
 
 #. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
 #. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
@@ -762,17 +795,17 @@ msgstr "Dato"
 #: src/lib/logViewWidget.cpp:103
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr ""
+msgstr "Montri/Kaŝi la kolumnon '%1'"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr ""
+msgstr "La proceso '%1' paneis."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
 msgid "Process Crashed"
-msgstr ""
+msgstr "Proceso Paneis"
 
 #: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
 #: src/modes/apache/apacheAccessAnalyzer.cpp:21
@@ -790,7 +823,7 @@ msgstr "Aŭtentigo"
 #: src/loggerDialog.cpp:94
 #, kde-format
 msgid "Private Authentication"
-msgstr ""
+msgstr "Privata Aŭtentigo"
 
 #: src/loggerDialog.cpp:95
 #, kde-format
@@ -840,42 +873,42 @@ msgstr "UUCP"
 #: src/loggerDialog.cpp:106
 #, kde-format
 msgid "Local 0"
-msgstr ""
+msgstr "Loka 0"
 
 #: src/loggerDialog.cpp:107
 #, kde-format
 msgid "Local 1"
-msgstr ""
+msgstr "Loka 1"
 
 #: src/loggerDialog.cpp:108
 #, kde-format
 msgid "Local 2"
-msgstr ""
+msgstr "Loka 2"
 
 #: src/loggerDialog.cpp:109
 #, kde-format
 msgid "Local 3"
-msgstr ""
+msgstr "Loka 3"
 
 #: src/loggerDialog.cpp:110
 #, kde-format
 msgid "Local 4"
-msgstr ""
+msgstr "Loka 4"
 
 #: src/loggerDialog.cpp:111
 #, kde-format
 msgid "Local 5"
-msgstr ""
+msgstr "Loka 5"
 
 #: src/loggerDialog.cpp:112
 #, kde-format
 msgid "Local 6"
-msgstr ""
+msgstr "Loka 6"
 
 #: src/loggerDialog.cpp:113
 #, kde-format
 msgid "Local 7"
-msgstr ""
+msgstr "Loka 7"
 
 #: src/loggerDialog.cpp:223
 #, kde-format
@@ -883,37 +916,39 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
+"Ne eblas trovi la komandon 'logger' en via sistemo. Bonvolu tajpi 'logger' "
+"en Konsole por determini ĉu ĉi tiu komando estas instalita."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
 msgid "Command not found"
-msgstr ""
+msgstr "Ordono ne trovita"
 
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr ""
+msgstr "La komando 'logger' ne estis ĝuste forigita."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "Execution problem"
-msgstr ""
+msgstr "Problemo de plenumo"
 
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "This file does not exist, please choose another."
-msgstr ""
+msgstr "Ĉi tiu dosiero ne ekzistas, bonvolu elekti alian."
 
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr ""
+msgstr "Dosiero ne valida"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
 #, kde-format
 msgid "Log Message"
-msgstr ""
+msgstr "Protokolmesaĝo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
 #: src/loggerDialogBase.ui:39
@@ -925,7 +960,7 @@ msgstr "&Mesaĝo:"
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr ""
+msgstr "&Dosiera enhavo:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
@@ -937,43 +972,43 @@ msgstr "Ecoj"
 #: src/loggerDialogBase.ui:101
 #, kde-format
 msgid "&Priority:"
-msgstr ""
+msgstr "&Prioritato:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: src/loggerDialogBase.ui:162
 #, kde-format
 msgid "&Facility:"
-msgstr ""
+msgstr "&Facility:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
 #, kde-format
 msgid "&Tag:"
-msgstr ""
+msgstr "E&tikedo:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr ""
+msgstr "Protokolprocesa &identigilo"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr ""
+msgstr "Malfermi la manlibron de komando \"logger\"."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr ""
+msgstr "Ĉi tiu ligilo malfermas la komandmanlibron 'logger'."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
 #, kde-format
 msgid "<a href=\"man:/logger\">Logger Manual</a>"
-msgstr ""
+msgstr "<a href=\"man:/logger\">Manlibro de Registrador</a>"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonOK)
 #: src/loggerDialogBase.ui:322
@@ -995,12 +1030,12 @@ msgstr ""
 #: src/main.cpp:31
 #, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr ""
+msgstr "Vidilo de Sistemprotokolo de KDE"
 
 #: src/main.cpp:33
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr ""
+msgstr "(C) 2007-2015, Nicolas Ternisien"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1008,6 +1043,8 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
+"Ne hezitu raporti cimojn kaj problemojn al Nicolas Ternisien <a href='mailto:"
+"nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
 #: src/main.cpp:39
 #, kde-format
@@ -1022,12 +1059,12 @@ msgstr "Precipa programisto"
 #: src/main.cpp:43
 #, kde-format
 msgid "Vyacheslav Matyushin"
-msgstr ""
+msgstr "Vjaĉeslav Matyuŝin"
 
 #: src/main.cpp:43
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr ""
+msgstr "Journald-reĝimo, korektoj"
 
 #: src/main.cpp:44
 #, kde-format
@@ -1037,17 +1074,17 @@ msgstr "Bojan Djurkovic"
 #: src/main.cpp:44
 #, kde-format
 msgid "Log Printing"
-msgstr ""
+msgstr "Registro Preso"
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:45
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Cimo Fixing"
 
 #: src/main.cpp:58
 #, kde-format
@@ -1059,26 +1096,26 @@ msgstr "Dosiero malfermenda."
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 linio."
+msgstr[1] "%1 linioj."
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 linio / %2 sume."
+msgstr[1] "%1 linioj / %2 sume."
 
 #: src/mainWindow.cpp:332
 #, kde-format
 msgid "Resu&me"
-msgstr ""
+msgstr "Daŭri&gi"
 
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr ""
+msgstr "Rekomenci la spektadon de la nuna protokolo"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1086,6 +1123,8 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
+"Rekomencas la spektadon de la nuna protokolo. Ĉi tiu ago disponeblas nur "
+"kiam la uzanto jam paŭzis la legadon."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1095,7 +1134,7 @@ msgstr "&Haltigo"
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
-msgstr ""
+msgstr "Paŭzi la spektadon de la nuna protokolo"
 
 #: src/mainWindow.cpp:345
 #, kde-format
@@ -1104,32 +1143,37 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
+"Paŭzas la spektadon de la nuna protokolo. Ĉi tiu ago estas precipe utila "
+"kiam la sistemo skribas tro da linioj por protokoli dosierojn, kaŭzante "
+"KSystemLog reŝargi tro ofte."
 
 #: src/mainWindow.cpp:430 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
-msgstr ""
+msgstr "Malplena Registro"
 
 #: src/mainWindow.cpp:529
 #, kde-format
 msgid "Open a file in KSystemLog"
-msgstr ""
+msgstr "Malfermi dosieron en KSystemLog"
 
 #: src/mainWindow.cpp:530
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
 msgstr ""
+"Malfermas dosieron en KSystemLog kaj montras ĝian enhavon en la aktuala "
+"langeto."
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "&Print Selection..."
-msgstr ""
+msgstr "&Presi elekton..."
 
 #: src/mainWindow.cpp:534
 #, kde-format
 msgid "Print the selection"
-msgstr ""
+msgstr "Presi la elekton"
 
 #: src/mainWindow.cpp:536
 #, kde-format
@@ -1137,16 +1181,18 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
+"Presas la elekton. Simple elektu la gravajn liniojn kaj klaku sur ĉi tiu "
+"menuo por presi la elekton."
 
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr ""
+msgstr "&Pres-Antaŭrigardi Elekton..."
 
 #: src/mainWindow.cpp:542
 #, kde-format
 msgid "Print preview the selection"
-msgstr ""
+msgstr "Pres-antaŭrigardi la elekton"
 
 #: src/mainWindow.cpp:544
 #, kde-format
@@ -1154,11 +1200,13 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
+"Presaĵoj antaŭrigardas la elekton. Simple elektu la gravajn liniojn kaj "
+"klaku sur ĉi tiu menuo por presi la elekton."
 
 #: src/mainWindow.cpp:550
 #, kde-format
 msgid "Save the selection to a file"
-msgstr ""
+msgstr "Konservi la elekton al dosiero"
 
 #: src/mainWindow.cpp:552
 #, kde-format
@@ -1166,21 +1214,23 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
+"Konservas la elekton al dosiero. Ĉi tiu ago estas utila se vi volas krei "
+"aldonaĵon aŭ kopion de aparta protokolo."
 
 #: src/mainWindow.cpp:558
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr ""
+msgstr "Forlasi KSystemLog"
 
 #: src/mainWindow.cpp:559
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr ""
+msgstr "Forlasas KSystemLog."
 
 #: src/mainWindow.cpp:562
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr ""
+msgstr "Kopii la elekton al la tondujo"
 
 #: src/mainWindow.cpp:564
 #, kde-format
@@ -1188,16 +1238,18 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
+"Kopias la elekton al la tondujo. Ĉi tiu ago estas utila se vi volas glui la "
+"elekton en babilejo aŭ retpoŝto."
 
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Ex&pand All"
-msgstr ""
+msgstr "Eks&pand Ĉion"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Expand all categories"
-msgstr ""
+msgstr "Pligrandigi ĉiujn kategoriojn"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1205,16 +1257,18 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
+"Ĉi tiu ago malfermas ĉiujn ĉefajn kategoriojn. Ĉi tio estas ebligita nur se "
+"opcio estis elektita en la menuo <b>Grupu Per</b>."
 
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "Col&lapse All"
-msgstr ""
+msgstr "Ko&lapsi Ĉion"
 
 #: src/mainWindow.cpp:579
 #, kde-format
 msgid "Collapse all categories"
-msgstr ""
+msgstr "Maletendi ĉiujn kategoriojn"
 
 #: src/mainWindow.cpp:581
 #, kde-format
@@ -1222,16 +1276,18 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
+"Ĉi tiu ago fermas ĉiujn ĉefajn kategoriojn. Ĉi tio estas ebligita nur se "
+"opcio estis elektita en la menuo <b>Grupu Per</b>."
 
 #: src/mainWindow.cpp:587
 #, kde-format
 msgid "&Email Selection..."
-msgstr ""
+msgstr "R&etpoŝta Elekto..."
 
 #: src/mainWindow.cpp:589
 #, kde-format
 msgid "Send the selection by mail"
-msgstr ""
+msgstr "Sendi la elekton per poŝto"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1239,16 +1295,18 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
+"Sendas la elekton per poŝto. Simple elektu la gravajn liniojn kaj klaku sur "
+"ĉi tiu menuo por sendi la elekton al amiko aŭ dissendolisto."
 
 #: src/mainWindow.cpp:597
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr ""
+msgstr "&Aldoni protokolan eniron..."
 
 #: src/mainWindow.cpp:600
 #, kde-format
 msgid "Add a log entry to the log system"
-msgstr ""
+msgstr "Aldoni protokolan eniron al la protokolo-sistemo"
 
 #: src/mainWindow.cpp:601
 #, kde-format
@@ -1256,11 +1314,13 @@ msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
 msgstr ""
+"Ĉi tiu ago malfermos dialogon, kiu ebligas al vi sendi mesaĝon al la "
+"protokolo-sistemo."
 
 #: src/mainWindow.cpp:605
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr ""
+msgstr "Elekti ĉiujn liniojn de la nuna protokolo"
 
 #: src/mainWindow.cpp:607
 #, kde-format
@@ -1268,11 +1328,13 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
+"Elektas ĉiujn liniojn de la nuna protokolo. Ĉi tiu ago estas utila se vi "
+"volas, ekzemple, konservi la tutan enhavon de la nuna protokolo en dosiero."
 
 #: src/mainWindow.cpp:618
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr ""
+msgstr "Montri &Filtrilbreton"
 
 #: src/mainWindow.cpp:624
 #, kde-format
@@ -1287,7 +1349,7 @@ msgstr "Krei novan langeton"
 #: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
-msgstr ""
+msgstr "Kreas novan langeton kiu povas montri alian protokolon."
 
 #: src/mainWindow.cpp:632
 #, kde-format
@@ -1357,7 +1419,7 @@ msgstr "&Reŝargi"
 #: src/mainWindow.cpp:670
 #, kde-format
 msgid "Reload the current log"
-msgstr ""
+msgstr "Reŝargi la nunan protokolon"
 
 #: src/mainWindow.cpp:671
 #, kde-format
@@ -1365,6 +1427,8 @@ msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
 msgstr ""
+"Reŝargas la nunan protokolon, se vi volas certigi, ke la vido estas ĝuste "
+"ĝisdatigita."
 
 #: src/mainWindow.cpp:681
 #, kde-format
@@ -1374,7 +1438,7 @@ msgstr "&Detaloj"
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Display details on the selected line"
-msgstr ""
+msgstr "Montri detalojn sur la elektita linio"
 
 #: src/mainWindow.cpp:685
 #, kde-format
@@ -1383,32 +1447,37 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"Montras dialogujon kiu enhavas detalojn sur la elektita linio. Vi povas "
+"navigi tra la protokoloj el ĉi tiu dialogujo per la butonoj <b>Antaŭa</b> "
+"kaj <b>Sekva</b>."
 
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr ""
+msgstr "&Ebligi Detalajn konsiletoj"
 
 #: src/mainWindow.cpp:692
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr ""
+msgstr "Malebligi/Ebligi la konsileton sur la nuna vido"
 
 #: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
+"Malebligas/Ebligas la konsileton montritan kiam la kursoro ŝvebas "
+"protokollinion."
 
 #: src/mainWindow.cpp:699
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&Rulumi al Novaj Linioj"
 
 #: src/mainWindow.cpp:700
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "Rulumas aŭ ne al la novaj linioj kiam la protokolo ŝanĝiĝas"
 
 #: src/mainWindow.cpp:702
 #, kde-format
@@ -1417,6 +1486,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"Rulumas aŭ ne al la novaj linioj kiam la protokolo ŝanĝiĝas. Marku ĉi tiun "
+"opcion se vi ne volas, ke la aplikaĵo rulumu aŭtomate ĉe la fundo de la "
+"protokolo ĉiufoje kiam ĝi estas refreŝigita."
 
 #: src/mainWindow.cpp:762
 #, kde-format
@@ -1436,12 +1508,14 @@ msgstr "Tipo"
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
 msgid "Acpid Log"
-msgstr ""
+msgstr "Acpid Log"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Acpid-protokolo</b>.</"
+"p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
@@ -1452,12 +1526,12 @@ msgstr "Tipo:"
 #: src/modes/acpid/acpidLogMode.cpp:19
 #, kde-format
 msgid "ACPI Log"
-msgstr ""
+msgstr "Registro de ACPI"
 
 #: src/modes/acpid/acpidLogMode.cpp:28
 #, kde-format
 msgid "Display the ACPI log."
-msgstr ""
+msgstr "Montru la ACPI-protokolo."
 
 #: src/modes/acpid/acpidLogMode.cpp:30
 #, kde-format
@@ -1466,6 +1540,9 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
+"Montras la ACPI-protokolo en la nuna langeto. ACPI estas uzata por "
+"administri la aparatajn komponantojn de via komputilo, kiel "
+"tekkomputilbaterioj, restarigi butonojn..."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1475,28 +1552,28 @@ msgstr "Gastigonomo"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Id."
-msgstr ""
+msgstr "Id."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:22
 #, kde-format
 msgid "Response"
-msgstr ""
+msgstr "Respondo"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:23
 #, kde-format
 msgid "Bytes Sent"
-msgstr ""
+msgstr "Bajtoj Senditaj"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:24
 #, kde-format
 msgid "Agent Identity"
-msgstr ""
+msgstr "Agenta Identeco"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:25
 #: src/modes/cups/cupsAccessAnalyzer.cpp:23
 #, kde-format
 msgid "HTTP Request"
-msgstr ""
+msgstr "HTTP-Peto"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:26
 #, kde-format
@@ -1506,13 +1583,13 @@ msgstr "Retadreso"
 #: src/modes/apache/apacheAccessItemBuilder.cpp:19
 #, kde-format
 msgid "Host Name:"
-msgstr ""
+msgstr "Gastiganta Nomo:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:20
 #: src/modes/cups/cupsAccessItemBuilder.cpp:20
 #, kde-format
 msgid "Identification:"
-msgstr ""
+msgstr "Identigo:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:21
 #: src/modes/cups/cupsAccessItemBuilder.cpp:21
@@ -1525,33 +1602,33 @@ msgstr "Uzantnomo:"
 #: src/modes/cups/cupsAccessItemBuilder.cpp:22
 #, kde-format
 msgid "HTTP Response:"
-msgstr ""
+msgstr "HTTP-Respondo:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:23
 #: src/modes/cups/cupsAccessItemBuilder.cpp:23
 #, kde-format
 msgid "Bytes Sent:"
-msgstr ""
+msgstr "Bajtoj Senditaj:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:24
 #, kde-format
 msgid "Agent Identity:"
-msgstr ""
+msgstr "Agenta Identeco:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:25
 #, kde-format
 msgid "HTTP Request:"
-msgstr ""
+msgstr "HTTP-Peto:"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:21
 #, kde-format
 msgid "Apache Access Log"
-msgstr ""
+msgstr "Apache Access Log"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
-msgstr ""
+msgstr "Montri la protokolon de Apache Access."
 
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
@@ -1560,6 +1637,9 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"Montras la protokolon de Apache Access en la nuna langeto. Apache estas la "
+"ĉefa uzata TTT-servilo en la mondo. Ĉi tiu protokolo konservas ĉiujn petojn "
+"faritajn de la Apache-retservilo."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1570,7 +1650,7 @@ msgstr "Kliento"
 #: src/modes/apache/apacheLogMode.cpp:21
 #, kde-format
 msgid "Apache Log"
-msgstr ""
+msgstr "Apache Log"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:16
 #, kde-format
@@ -1578,26 +1658,28 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Apache-protokolo</b> "
+"kaj la <b>Apache Access-protokolo</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Apache Log Files"
-msgstr ""
+msgstr "Apache Log-dosieroj"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr ""
+msgstr "Aldoni Apache-dosieron..."
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Apache Access Log Files"
-msgstr ""
+msgstr "Apache Access Log Files"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr ""
+msgstr "Aldoni Apache-Alirdosieron..."
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1607,12 +1689,12 @@ msgstr "Apache"
 #: src/modes/apache/apacheItemBuilder.cpp:19
 #, kde-format
 msgid "Client:"
-msgstr ""
+msgstr "Kliento:"
 
 #: src/modes/apache/apacheLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache log."
-msgstr ""
+msgstr "Montri la Apache-protokolo."
 
 #: src/modes/apache/apacheLogMode.cpp:31
 #, kde-format
@@ -1620,22 +1702,26 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"Montras la Apache-protokolo en la nuna langeto. Apache estas la ĉefa uzata "
+"TTT-servilo en la mondo."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
 #, kde-format
 msgid "Audit Log"
-msgstr ""
+msgstr "Kontrola Protokolo"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Reviziajn protokolojn</"
+"b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
-msgstr ""
+msgstr "Montri la revizian protokolon."
 
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
@@ -1643,28 +1729,30 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Montras la revizian protokolon en la nuna langeto. Ĉi tiu protokolo estas "
+"ĝenerale uzata de ne-specialaj procezoj (kiel komandoj \"sudo\" aŭ \"fsck\")"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
 #, kde-format
 msgid "Authentication Log"
-msgstr ""
+msgstr "Aŭtentikiga Protokolo"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:18
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr ""
+msgstr "Logdosiero ne ekzistas. Reĝimo ne estos disponebla."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
 msgid "Authentication Log File"
-msgstr ""
+msgstr "Aŭtentikiga Protokolo-Dosiero"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:33
 #, kde-format
 msgid "Authentication log file:"
-msgstr ""
+msgstr "Aŭtentikiga protokolo-dosiero:"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:38
 #, kde-format
@@ -1672,6 +1760,8 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
+"Vi povas tajpi aŭ elekti la aŭtentikan protokoldosieron (ekzemplo: <i>/var/"
+"log/auth.log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
@@ -1680,11 +1770,14 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"Vi povas tajpi aŭ elekti ĉi tie la aŭtentikigdosieron. Ĉi tiu dosiero estos "
+"analizita kiam vi elektos la menuon <b>Aŭtentikiga protokolo</b>. Ĝenerale, "
+"ĝia nomo estas <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
-msgstr ""
+msgstr "Montri la aŭtentikigprotokolon."
 
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
@@ -1693,6 +1786,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
+"Montras la aŭtentikigprotokolo en la nuna langeto. Ĉi tiu protokolo montras "
+"ĉiujn ensalutojn faritajn de ĉiu uzanto de la sistemo, kaj povas helpi vin "
+"scii ĉu iu provis rompi vian sistemon."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1700,18 +1796,20 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"Iuj protokolaj dosieroj ne ekzistas.\n"
+"Se ĉiuj protokolaj dosieroj mankas, ĉi tiu reĝimo estos nedisponebla."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
 #, kde-format
 msgid "File List Description"
-msgstr ""
+msgstr "Dosiera Listo Priskribo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
 #, kde-format
 msgid "Log Files"
-msgstr ""
+msgstr "Log Dosieroj"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:55
@@ -1726,6 +1824,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Elekti novan dosieron</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -1740,6 +1846,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Malfermas dialogskatolon "
+"por elekti novan dosieron aldonendan al la listo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
@@ -1751,7 +1865,7 @@ msgstr "&Aldonu dosieron..."
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr ""
+msgstr "&Modifi dosieron..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1766,6 +1880,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigi la nuna(j)n "
+"dosiero(j)n</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1780,6 +1902,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
 "on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigas la dosierojn "
+"elektitajn en la listo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
@@ -1800,6 +1930,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigi ĉiujn dosierojn</"
+"p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:106
@@ -1814,13 +1952,21 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
 "the list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigi ĉiujn dosierojn en "
+"la listo, eĉ se ili ne estas elektitaj.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:109
 #: src/modes/base/multipleFileListBase.ui:108
 #, kde-format
 msgid "Rem&ove All"
-msgstr ""
+msgstr "F&origi Ĉion"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:122
@@ -1836,6 +1982,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movi supren la aktuala(j)n "
+"dosiero(j)n</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -1851,6 +2005,15 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movas la elektitan "
+"dosierojn supre en la listo. Ĉi tiu opcio ebligas legi la dosierojn <span "
+"style=\" font-weight:600;\">unue</span> per KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -1873,6 +2036,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movi malsupren la "
+"aktuala(j)n dosiero(j)n</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -1888,6 +2059,15 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movas la elektitan "
+"dosierojn sube en la listo. Ĉi tiu opcio permesas legi la dosierojn <span "
+"style=\" font-weight:600;\">laste</span> per KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -1906,6 +2086,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notoj:</b></p><ul "
+"style='margin-top:0px'><li>Dosieroj estas legitaj uzante la sinsekvon de ĉi "
+"tiu listo.</li><li>Premitaj kaj simplaj tekstaj dosieroj estas akceptataj "
+"<i>(*.log, *.gz, *.bz2,...)</i>.</li> <li>Uzu la ĵokeron <b>'*'</b> por "
+"elekti plurajn protokolojn dum aldono de dosieroj.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -1920,6 +2105,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
 "log type.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Listo de dosieroj uzata de "
+"ĉi tiu tipo de protokolo.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:197
@@ -1935,52 +2128,63 @@ msgid ""
 "file that will be read by KSystemLog to display the current log lines.</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Jen estas listo de ĉiuj "
+"dosieroj, kiujn KSystemLog legos por montri la nunajn protokolliniojn.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
 #, kde-format
 msgid "add"
-msgstr ""
+msgstr "aldoni"
 
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr ""
+msgstr "'%1' ne estas loka dosiero."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
 msgid "File selection failed"
-msgstr ""
+msgstr "Dosierelekto malsukcesis"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Ĉiuj dosieroj (*)"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "Log Files (*.log)"
-msgstr ""
+msgstr "Protokoldosieroj (*.log)"
 
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
 msgid "Choose Log File"
-msgstr ""
+msgstr "Elekti Protokoldosieron"
 
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
 msgstr ""
+"La du tabeloj estas malsamaj, preterlasante la legadon de protokolaj "
+"dosieroj."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr ""
+msgstr "Ŝ&anĝi staton..."
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr ""
+msgstr "Ŝanĝi la nivelon de la nuna(j) dosiero(j)"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -1988,24 +2192,27 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
+"Ŝanĝas la nivelon de la nuna(j) dosiero(j). Vidu KSystemLog-dokumentadon por "
+"pliaj informoj pri ĉiu protokolo-nivelo."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
 msgstr ""
+"La du tabeloj estas malsamaj, preterlasante la legadon de senmarkaj vojoj."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr ""
+msgstr "Elektante Dosiertipo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr ""
+msgstr "Bonvolu elekti la tipon de ĉi tiu dosiero:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2020,6 +2227,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Listo de ekzistantaj "
+"protokolaj niveloj</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:43
@@ -2037,6 +2252,17 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
 "to be used for the files selected on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Ĉi tiu estas la listo de "
+"ĉiuj ekzistantaj logniveloj. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px ;\">Bonvolu elekti unu el ili "
+"por esti uzata por la dosieroj elektitaj en la listo.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
@@ -2044,11 +2270,13 @@ msgid ""
 "Some log files do not exist.\n"
 "Modes with missing log files will be unavailable."
 msgstr ""
+"Iuj protokolaj dosieroj ne ekzistas.\n"
+"Reĝimoj kun mankantaj protokolaj dosieroj estos nedisponeblaj."
 
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr ""
+msgstr "Neniu protokoldosiero..."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2069,6 +2297,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
 "of the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigas la elektitan "
+"dosieroj de la listo.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
@@ -2083,6 +2319,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
 "list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Forigi ĉiujn dosierojn de "
+"la listo, eĉ se ili ne estas elektitaj.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/multipleFileListBase.ui:127
@@ -2098,6 +2342,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movas supren la elektitaj "
+"dosieroj en la listo. Ĉi tiu opcio ebligas legi la dosierojn <span style=\" "
+"font-weight:600;\">unue</span> per KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2113,6 +2366,16 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Movas malsupren la "
+"elektitaj dosieroj en la listo. Ĉi tiu opcio permesas legi la dosierojn "
+"<span style=\" font-weight:600;\">fine</span> per KSystemLog.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2124,6 +2387,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Notoj:</b></p><ul "
+"style='margin-top:0px'><li>Dosieroj estas legitaj uzante la sinsekvon de ĉi "
+"tiu listo.</li><li>Premitaj kaj simplaj tekstaj dosieroj estas akceptataj "
+"<i>(*.log, *.gz, *.bz2,...)</i>.</li> <li>Uzu la ĵokeron <b>'*'</b> por "
+"elekti plurajn protokolojn dum aldono de dosieroj.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2140,7 +2408,7 @@ msgstr "Gastiganto"
 #: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
 #, kde-format
 msgid "Process"
-msgstr ""
+msgstr "Procezo"
 
 #: src/modes/cron/cronAnalyzer.cpp:16
 #, kde-format
@@ -2151,7 +2419,7 @@ msgstr "Komando"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr ""
+msgstr "Cron Log"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2159,16 +2427,19 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Cron-Protokolojn</b> "
+"(t.e. planitaj taskoj-protokoloj). <a href='man:/cron'>Pliaj informoj...</"
+"a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr ""
+msgstr "Ebligi Procesan Filtradon"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr ""
+msgstr "Nur konservas liniojn kiuj kongruas kun ĉi tiu procezo:"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
@@ -2178,7 +2449,7 @@ msgstr "Uzanto:"
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr ""
+msgstr "Montri la planitajn taskojn protokolo (Cron protokolo)."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2188,6 +2459,10 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"Montras la planitajn taskojn en la nuna langeto. Cron-procezo estas programo "
+"komisiita de lanĉo de planitaj taskoj en via sistemo, kiel sekurecaj "
+"kontroloj aŭ aŭtomate rekomenco de iuj servoj. Uzu ĉi tiun menuon por vidi "
+"la lastatempe lanĉitajn procezojn."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2207,22 +2482,22 @@ msgstr "Bajtoj"
 #: src/modes/cups/cupsAccessAnalyzer.cpp:26
 #, kde-format
 msgid "IPP Operation"
-msgstr ""
+msgstr "IPP-Operacio"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:27
 #, kde-format
 msgid "IPP Status"
-msgstr ""
+msgstr "IPP-statuso"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr ""
+msgstr "Cups Web Log"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
-msgstr ""
+msgstr "Montri la protokolon de CUPS Web Server Access."
 
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
@@ -2232,11 +2507,15 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
+"Montras la protokolon de CUPS Web Server Access en la nuna langeto. CUPS "
+"estas la programo kiu administras presadon en via komputilo. Ĉi tiu "
+"protokolo konservas ĉiujn petojn faritajn al la enigita retservilo de CUPS "
+"(defaŭlte: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
 msgid "debug 2"
-msgstr ""
+msgstr "sencimigi 2"
 
 #: src/modes/cups/cupsAnalyzer.cpp:76
 #, kde-format
@@ -2244,17 +2523,19 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
+"Nova Registro-Nivelo detektita: Bonvolu sendi ĉi tiun protokoldosieron al la "
+"programisto de KSystemLog por aldoni ĝin."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr ""
+msgstr "Cups Log"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr ""
+msgstr "Cups &amp; Cups Reteja Servilo Registro"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2262,56 +2543,58 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>protokolo de Cups</b> "
+"kaj la protokolo de <b>protokolo de Cups Web Access</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr ""
+msgstr "Cups Log Dosieroj"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr ""
+msgstr "Aldoni Cups-dosieron..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr ""
+msgstr "Cups Access Log Files"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr ""
+msgstr "Aldoni Cups Access File..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr ""
+msgstr "Cups Paĝaj Protokoloj"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr ""
+msgstr "Aldoni Cups Paĝdosiero..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr ""
+msgstr "Cups PDF-Programdosieroj"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr ""
+msgstr "Aldoni Cups PDF-dosieron..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
 msgid "Cups"
-msgstr ""
+msgstr "Cups"
 
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
-msgstr ""
+msgstr "Montri la protokolon de Cups."
 
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
@@ -2319,6 +2602,8 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
+"Montras la protokolon de CUPS en la nuna langeto. CUPS estas la programo kiu "
+"administras presadon en via komputilo."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2328,22 +2613,22 @@ msgstr "Presilo"
 #: src/modes/cups/cupsPageAnalyzer.cpp:22
 #, kde-format
 msgid "Job Id"
-msgstr ""
+msgstr "Job Id"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:23
 #, kde-format
 msgid "Page Number"
-msgstr ""
+msgstr "Paĝa Nombro"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:24
 #, kde-format
 msgid "Num Copies"
-msgstr ""
+msgstr "Nombraj Kopioj"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:25
 #, kde-format
 msgid "Job Billing"
-msgstr ""
+msgstr "Ijob Fakturado"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:19
 #, kde-format
@@ -2353,32 +2638,32 @@ msgstr "Presilo:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:21
 #, kde-format
 msgid "Job Id:"
-msgstr ""
+msgstr "Labora Idaro:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:22
 #, kde-format
 msgid "Page Number:"
-msgstr ""
+msgstr "Paĝa Nombro:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:23
 #, kde-format
 msgid "Num Copies:"
-msgstr ""
+msgstr "Nombraj Kopioj:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:24
 #, kde-format
 msgid "Job Billing:"
-msgstr ""
+msgstr "Fakturado de Labortasko:"
 
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr ""
+msgstr "Cups Paĝoprotokolo"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Page log."
-msgstr ""
+msgstr "Montri la protokolon de la Paĝo de CUPS."
 
 #: src/modes/cups/cupsPageLogMode.cpp:32
 #, kde-format
@@ -2387,6 +2672,10 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"Montras la protokolon de CUPS Paĝo en la nuna langeto. CUPS estas la "
+"programo kiu administras presadon en via komputilo. Ĉi tiu protokolo "
+"konservas ĉiujn petojn faritajn al la enigita retservilo de CUPS (defaŭlte: "
+"<i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2396,12 +2685,12 @@ msgstr "Mesaĝo:"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr ""
+msgstr "Cups PDF Protokolo"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS PDF log."
-msgstr ""
+msgstr "Montri la PDF-protokolon de CUPS."
 
 #: src/modes/cups/cupsPdfLogMode.cpp:32
 #, kde-format
@@ -2410,22 +2699,28 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"Montras la PDF-protokolo de CUPS en la nuna langeto. CUPS estas la programo "
+"kiu administras presadon en via komputilo. Ĉi tiu protokolo konservas ĉiujn "
+"petojn faritajn al la enigita retservilo de CUPS (defaŭlte: <i>http://"
+"localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
-msgstr ""
+msgstr "Protokoloj de Daemons"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Protokolojn de "
+"Daemons</b>.</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
-msgstr ""
+msgstr "Montri la protokolojn de la demonoj."
 
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
@@ -2434,6 +2729,9 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"Montras la protokolojn de la demonoj en la nuna langeto. La demonoj estas "
+"ĉiuj procezoj lanĉitaj en la fono de la sistemo. Vidu ĉi tiun protokolon se "
+"vi volas scii, kio okazas en la fono de via sistemo."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2441,7 +2739,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:71
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "Adreso"
 
 #. i18n: ectx: property (text), widget (QLabel, portLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2449,168 +2747,168 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Pordo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Ebligi"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
 msgid "Unit"
-msgstr ""
+msgstr "Unuo"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
 #, kde-format
 msgid "Journald Log"
-msgstr ""
+msgstr "Journald Log"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:78
 #: src/modes/journald/journaldConfigurationWidget.cpp:110
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Ebligita"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "Aldoni foran ĵurnalon"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "Modifi fora ĵurnalo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "Journald-opcioj"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "Montri protokolerojn nur de nuna lanĉo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "Montri ĉiujn protokolerojn"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "Montri protokolerojn de procezoj de la nuna uzanto"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "Montri protokolerojn de sistemaj servoj kaj la kerno"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "Foraj ĵurnaloj"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
 #, kde-format
 msgid "Add address"
-msgstr ""
+msgstr "Aldoni adreson"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:114
 #, kde-format
 msgid "Remove address"
-msgstr ""
+msgstr "Forigi adreson"
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:124
 #, kde-format
 msgid "Modify address"
-msgstr ""
+msgstr "Modifi adreson"
 
 #: src/modes/journald/journaldFactory.cpp:27
 #, kde-format
 msgid "Journald"
-msgstr ""
+msgstr "Journald"
 
 #: src/modes/journald/journaldFactory.cpp:43
 #, kde-format
 msgid "Local journal"
-msgstr ""
+msgstr "Loka revuo"
 
 #: src/modes/journald/journaldFactory.cpp:46
 #, kde-format
 msgid "All messages"
-msgstr ""
+msgstr "Ĉiuj mesaĝoj"
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr ""
+msgstr "Filtrilo laŭ sistem-unuo"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr ""
+msgstr "Filtrilo per syslog-identigilo"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
 msgid "Connect"
-msgstr ""
+msgstr "Konekti"
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
 #, kde-format
 msgid "Priority:"
-msgstr ""
+msgstr "Prioritato:"
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
 msgid "Unit:"
-msgstr ""
+msgstr "Unuo:"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:154
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr ""
+msgstr "Legante journald-enskribojn..."
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:165
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."
-msgstr ""
+msgstr "Journald-enskriboj ŝargiĝis sukcese."
 
 #: src/modes/journald/journaldLogMode.cpp:35
 #, kde-format
 msgid "Display the Journald log."
-msgstr ""
+msgstr "Montri la protokolon de Journald."
 
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr ""
+msgstr "Montras la journald-protokolon en la nuna langeto."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "Konektita"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:145
 #, kde-format
 msgid "Connection error"
-msgstr ""
+msgstr "Eraro de konekto"
 
 #: src/modes/kernel/kernelAnalyzer.cpp:21
 #, kde-format
@@ -2620,17 +2918,17 @@ msgstr "Komponanto"
 #: src/modes/kernel/kernelItemBuilder.cpp:19
 #, kde-format
 msgid "Component:"
-msgstr ""
+msgstr "Komponanto:"
 
 #: src/modes/kernel/kernelLogMode.cpp:19
 #, kde-format
 msgid "Kernel Log"
-msgstr ""
+msgstr "Kerna Protokolo"
 
 #: src/modes/kernel/kernelLogMode.cpp:26
 #, kde-format
 msgid "Display the kernel log."
-msgstr ""
+msgstr "Montri la protokolon de la kerno."
 
 #: src/modes/kernel/kernelLogMode.cpp:28
 #, kde-format
@@ -2639,6 +2937,9 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
+"Montras la kernan protokolon en la nuna langeto. Ĉi tiu protokolo estas "
+"utila nur por uzantoj, kiuj volas scii kial la Kerno ne detektas sian "
+"aparataron aŭ kio estas la kaŭzo de la lasta <i>kerna paniko/oops</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2658,23 +2959,25 @@ msgstr "Misformita retadreso. Unable to open this file."
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
 msgid "Unable to open this file."
-msgstr ""
+msgstr "Ne eblas malfermi ĉi tiun dosieron."
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:10
 #: src/modes/postfix/postfixLogMode.cpp:20
 #, kde-format
 msgid "Postfix Log"
-msgstr ""
+msgstr "Postfiksa Protokolo"
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Protokolojn de "
+"Postfikso</b>.</p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
 msgid "Display the Postfix log."
-msgstr ""
+msgstr "Montri la protokolon de Postfix."
 
 #: src/modes/postfix/postfixLogMode.cpp:31
 #, kde-format
@@ -2682,16 +2985,18 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
+"Montras la protokolon de Postfix en la nuna langeto. Postfix estas la plej "
+"konata kaj uzata poŝtservilo en la Linukso-mondo."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr ""
+msgstr "Netbios Log"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr ""
+msgstr "Montri la Netbios-protokolo."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -2699,16 +3004,18 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
+"Montras la Netbios protokolo en la nuna langeto. Netbios estas la protokolo "
+"de kundivido de dosieroj disvolvita de Microsoft."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
 msgid "Samba Access Log"
-msgstr ""
+msgstr "Samba Aliro-Protokolo"
 
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr ""
+msgstr "Montri la protokolon de Samba Access."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
@@ -2716,6 +3023,9 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
+"Montras la protokolon de Samba Access en la nuna langeto. Ĉi tiu "
+"protokolreĝimo permesas al vi vidi konektojn inter viaj kundividaĵoj kaj "
+"foraj gastigantoj."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -2737,7 +3047,7 @@ msgstr "Linio"
 #: src/modes/samba/sambaLogMode.cpp:23
 #, kde-format
 msgid "Samba Log"
-msgstr ""
+msgstr "Samba-Protokolo"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:16
 #, kde-format
@@ -2745,36 +3055,38 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri <b>Samba protokolo</b>, "
+"<b>Samba Access-protokolo</b> kaj <b>Netbios-protokolo</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Samba Log Files"
-msgstr ""
+msgstr "Samba Protokolo-Dosieroj"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr ""
+msgstr "Aldoni Samba-dosieron..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Samba Access Log Files"
-msgstr ""
+msgstr "Samba Access Log Files"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr ""
+msgstr "Aldoni Samba-Alirdosieron..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr ""
+msgstr "Netbios Protokolo-Dosieroj"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr ""
+msgstr "Aldoni Netbios-dosieron..."
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -2784,12 +3096,12 @@ msgstr "Samba"
 #: src/modes/samba/sambaItemBuilder.cpp:19
 #, kde-format
 msgid "Source File:"
-msgstr ""
+msgstr "Fonta Dosiero:"
 
 #: src/modes/samba/sambaItemBuilder.cpp:20
 #, kde-format
 msgid "Function:"
-msgstr ""
+msgstr "Funkcio:"
 
 #: src/modes/samba/sambaItemBuilder.cpp:21
 #, kde-format
@@ -2799,7 +3111,7 @@ msgstr "Linio:"
 #: src/modes/samba/sambaLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba log."
-msgstr ""
+msgstr "Montri la protokolon de Samba."
 
 #: src/modes/samba/sambaLogMode.cpp:33
 #, kde-format
@@ -2807,22 +3119,26 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"Montras la Samba protokolon en la nuna langeto. Samba estas la dosier-"
+"kundivida servilo, kiu interagas kun Microsoft Windows-reto."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
 #, kde-format
 msgid "System Log"
-msgstr ""
+msgstr "Sistema Registro"
 
 #: src/modes/system/systemConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>Sistemajn protokolojn</"
+"b>.</p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
 msgid "Display the system log."
-msgstr ""
+msgstr "Montri la sisteman protokolon."
 
 #: src/modes/system/systemLogMode.cpp:31
 #, kde-format
@@ -2830,26 +3146,28 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Montras la sisteman protokolon en la nuna langeto. Ĉi tiu protokolo estas "
+"ĝenerale uzata de ne-specialaj procezoj (kiel komandoj \"sudo\" aŭ \"fsck\")"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
 msgid "Probed"
-msgstr ""
+msgstr "Sondita"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
 msgid "From config file"
-msgstr ""
+msgstr "De agordosiero"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr ""
+msgstr "Defaŭlta agordo"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
 msgid "From command Line"
-msgstr ""
+msgstr "De komandlinio"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:85
 #, kde-format
@@ -2860,12 +3178,14 @@ msgstr "Ne realigita"
 #: src/modes/xorg/xorgLogMode.cpp:19
 #, kde-format
 msgid "X.org Log"
-msgstr ""
+msgstr "X.org Registro"
 
 #: src/modes/xorg/xorgConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
 msgstr ""
+"<p>Ĉi tiuj dosieroj estos analizitaj por montri la <b>X.org protokolon</b>.</"
+"p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
@@ -2876,7 +3196,7 @@ msgstr "nenio"
 #: src/modes/xorg/xorgLogMode.cpp:28
 #, kde-format
 msgid "Display the X.org log."
-msgstr ""
+msgstr "Montri la protokolon de X.org."
 
 #: src/modes/xorg/xorgLogMode.cpp:30
 #, kde-format
@@ -2886,6 +3206,10 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
+"Montras la protokolon de X.org en la nuna langeto. X.org estas la servo kiu "
+"montras sur ekrano vian labortablon kaj administras vian grafikan "
+"aparataron. Vidu ĉi tiun protokolon se vi volas scii kial vi ne havas 3D-"
+"akcelojn aŭ kial via eniga aparato ne estas rekonita."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -2896,7 +3220,7 @@ msgstr "Programo"
 #: src/modes/xsession/xsessionLogMode.cpp:19
 #, kde-format
 msgid "X Session Log"
-msgstr ""
+msgstr "X-Seanca Protokolo"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:24
 #, kde-format
@@ -2904,6 +3228,8 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
+"Vi povas tajpi aŭ elekti la protokoldosieron de X Session (ekzemplo: <i>~/."
+"xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
 #, kde-format
@@ -2912,6 +3238,9 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"Vi povas tajpi aŭ elekti ĉi tie la protokoldosieron de X Session. Ĉi tiu "
+"dosiero estos analizita kiam vi elektos la menuon <b>X Session-protokolo</"
+"b>. Ĝenerale, ĝia nomo estas <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
@@ -2922,13 +3251,13 @@ msgstr "<li><b>%1</b>: ...</li>"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
 #, kde-format
 msgid "X Session Log File"
-msgstr ""
+msgstr "X Sesian Log File"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
 #, kde-format
 msgid "&Log file:"
-msgstr ""
+msgstr "Protoko&ldosiero:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -2936,13 +3265,13 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr ""
+msgstr "Marku ĉi tiun opcion por forigi Xorg-erarojn"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr ""
+msgstr "Ignori Xorg-erarojn"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
@@ -2951,6 +3280,8 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
+"<p><b>Noto:</b> Marku ĉi tiun opcion por forigi X.org-erarojn.</p><p style="
+"\"margin-bottom:0px\">La sekvaj linioj estos ignoritaj:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
@@ -2961,7 +3292,7 @@ msgstr "Programo:"
 #: src/modes/xsession/xsessionLogMode.cpp:28
 #, kde-format
 msgid "Display the X Session log."
-msgstr ""
+msgstr "Montri la protokolon de X Session."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
 #, kde-format
@@ -2971,13 +3302,17 @@ msgid ""
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
+"Montras la protokolon de X-Seanco en la nuna langeto. X Session-protokolo "
+"estas la loko kie grafikaj programoj skribas sian eligon. Vidu ĉi tiun "
+"protokolon se vi volas scii kial programo paneis, aŭ kial via labortabla "
+"medio (Plasma, Gnome, Unity, Xfce, LXQt, ...) ne komenciĝis."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
 #: src/statusBar.cpp:54
 #, kde-format
 msgid "Last updated: %1."
-msgstr ""
+msgstr "Lasta ĝisdatigo: %1."
 
 #. i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
 #. false), message));
