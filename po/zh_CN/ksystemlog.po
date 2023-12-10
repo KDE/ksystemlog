@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-29 00:50+0000\n"
-"PO-Revision-Date: 2023-11-25 02:33\n"
+"PO-Revision-Date: 2023-12-09 09:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1301,7 +1301,7 @@ msgstr "新建标签页(&N)"
 #: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
-msgstr "创建一个新的标签页"
+msgstr "新建标签页"
 
 #: src/mainWindow.cpp:627 src/tabLogViewsWidget.cpp:33
 #, kde-format
@@ -2388,8 +2388,8 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
-"在当前标签上显示任务调度(Cron)日志。Cron 负责定期执行系统工作，比如安全检查，"
-"或者自动重启某些服务。使用此菜单可看到最近运行的进程。"
+"在当前标签页上显示任务调度(Cron)日志。Cron 负责定期执行系统工作，比如安全检"
+"查，或者自动重启某些服务。使用此菜单可看到最近运行的进程。"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2434,8 +2434,8 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
-"在当前标签显示拥有 UNIX 打印系统(CUPS)网络服务器访问日志。CUPS 是一个管理打印"
-"的程序。这个日志保存了所有对 CUPS 嵌入式网络服务器(默认：<i>http://"
+"在当前标签页显示拥有 UNIX 打印系统(CUPS)网络服务器访问日志。CUPS 是一个管理打"
+"印的程序。这个日志保存了所有对 CUPS 嵌入式网络服务器(默认：<i>http://"
 "localhost:631</i>)传送的请求。"
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
@@ -2525,7 +2525,7 @@ msgstr "显示打印系统(CUPS)日志。"
 msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
-msgstr "在当前标签显示打印系统(CUPS)日志。CUPS 是一个打印管理程序。"
+msgstr "在当前标签页显示打印系统(CUPS)日志。CUPS 是一个打印管理程序。"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2594,9 +2594,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"在当前标签显示打印系统(CUPS)页面日志。CUPS 是一个负责打印管理的程序。这个日志"
-"保存了所有向 CUPS 嵌入式网络服务器(默认：<i>http://localhost:631</i>)发送过的"
-"请求。"
+"在当前标签页显示打印系统(CUPS)页面日志。CUPS 是一个负责打印管理的程序。这个日"
+"志保存了所有向 CUPS 嵌入式网络服务器(默认：<i>http://localhost:631</i>)发送过"
+"的请求。"
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2620,9 +2620,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"在当前标签显示通用 UNIX 打印系统(CUPS) PDF 日志。CUPS 是一个管理打印的程序。"
-"这个日志保存了所有对 CUPS 嵌入式网络服务器(默认：<i>http://localhost:631</i>)"
-"传送过的请求。"
+"在当前标签页显示通用 UNIX 打印系统(CUPS) PDF 日志。CUPS 是一个管理打印的程"
+"序。这个日志保存了所有对 CUPS 嵌入式网络服务器(默认：<i>http://"
+"localhost:631</i>)传送过的请求。"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2815,7 +2815,7 @@ msgstr "显示 Journald 日志。"
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "在当前标签显示 journald 日志。"
+msgstr "在当前标签页显示 journald 日志。"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
