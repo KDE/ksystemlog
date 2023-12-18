@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:40+0000\n"
-"PO-Revision-Date: 2023-12-09 09:24\n"
+"PO-Revision-Date: 2023-12-17 11:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -303,7 +303,7 @@ msgstr ""
 #: src/generalConfigurationWidgetBase.ui:102
 #, kde-format
 msgid "Remove &duplicate log lines (may be slower)"
-msgstr "删除重复的日志行(可能较慢)(&D)"
+msgstr "删除重复的日志行 (可能较慢) (&D)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
