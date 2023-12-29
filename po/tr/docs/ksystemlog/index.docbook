@@ -59,7 +59,7 @@
 
 <abstract>
 <para
->&ksystemlog;, &kde;'nin sunduğu bir sistem günlüğü görüntüleme aracıdır. Bu program, sistemleri hakkında nasıl bilgi bulacağını veya günlük dosyalarının nerede bulunduğunu bilmeyen başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. Ayrıca sunucularında oluşan sorunları hızlı bir şekilde görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. </para>
+>&ksystemlog;, &kde;'nin sunduğu bir sistem günlüğü görüntüleme aracıdır. Bu program, sistemleri hakkında nasıl bilgi bulacağını veya günlük dosyalarının nerede bulunduğunu bilmeyen başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. Ayrıca sunucularında oluşan sorunları tez görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. </para>
 
 </abstract>
 
@@ -117,7 +117,7 @@ Hide menu entries and actions for modes with missing log files
 >&ksystemlog;, kullanıcıların makinelerinin arka planda ne yaptığını anlamalarına yardımcı olur. &ksystemlog; sistem günlük dosyalarının okunmasını basitleştirmeyi amaçlamaktadır. Bu program, sistemi hakkında nasıl bilgi bulacağını veya günlük dosyalarının bilgisayarında nerede bulunduğunu bilmeyen, başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. </para>
 
 			<para
->Ancak aynı zamanda sunucularında meydana gelen sorunları hızlı bir şekilde görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. &ksystemlog;, belirli programlardan günlüklerin sıralanmasına ve okunmasına olanak tanıyan bazı gelişmiş özellikler sağlamaya çalışır. </para>
+>Ancak aynı zamanda sunucularında meydana gelen sorunları tez görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. &ksystemlog;, belirli programlardan günlüklerin sıralanmasına ve okunmasına olanak tanıyan bazı gelişmiş özellikler sağlamaya çalışır. </para>
 
 			<screenshot>
 				<screeninfo
