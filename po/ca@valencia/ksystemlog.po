@@ -1244,7 +1244,7 @@ msgstr "Ix de KSystemLog."
 #: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr "Copia la selecció al porta-retalls"
+msgstr "Copia la selecció a dins del porta-retalls"
 
 #: src/mainWindow.cpp:555
 #, kde-format
@@ -1252,8 +1252,8 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
-"Copia la selecció al porta-retalls. Esta acció és útil si voleu apegar la "
-"selecció en un xat o en un correu."
+"Copia la selecció a dins del porta-retalls. Esta acció és útil si voleu "
+"apegar la selecció en un xat o en un correu."
 
 #: src/mainWindow.cpp:560
 #, kde-format
