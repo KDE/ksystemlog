@@ -680,14 +680,15 @@ msgstr "Línies de registre del problema"
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr "No s'ha seleccionat cap element. No s'ha copiat res al porta-retalls."
+msgstr ""
+"No s'ha seleccionat cap element. No s'ha copiat res a dins del porta-retalls."
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] "S'ha copiat 1 línia del registre al porta-retalls."
-msgstr[1] "S'han copiat %1 línies del registre al porta-retalls."
+msgstr[0] "S'ha copiat 1 línia del registre a dins del porta-retalls."
+msgstr[1] "S'han copiat %1 línies del registre a dins del porta-retalls."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
