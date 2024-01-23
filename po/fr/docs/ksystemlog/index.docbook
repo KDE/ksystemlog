@@ -65,7 +65,7 @@
 	<keyword
 >ssh</keyword>
 	<keyword
->postfix</keyword>
+>Postfix</keyword>
 	<keyword
 >apache</keyword>
 	<keyword
@@ -185,11 +185,11 @@ Hide menu entries and actions for modes with missing log files
 ></listitem>
 				<listitem
 ><simpara
->journaux ACPID, </simpara
+>journaux « Acpid »</simpara
 ></listitem>
 				<listitem
 ><simpara
->journaux Cups, </simpara
+>journaux CUPS </simpara
 ></listitem>
 				<listitem
 ><simpara
