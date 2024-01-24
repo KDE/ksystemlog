@@ -59,6 +59,7 @@ LogViewWidget::LogViewWidget(QWidget *parent)
     setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     setContextMenuPolicy(Qt::ActionsContextMenu);
+    setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
 }
 
 LogViewWidget::~LogViewWidget()
