@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:40+0000\n"
+"POT-Creation-Date: 2024-01-25 02:23+0000\n"
 "PO-Revision-Date: 2023-11-14 10:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -800,7 +800,7 @@ msgstr "Alles accent&ueren"
 msgid "Date"
 msgstr "Datum"
 
-#: src/lib/logViewWidget.cpp:103
+#: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
 msgstr "Kolom '%1' tonen/verbergen"

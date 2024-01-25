@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:40+0000\n"
+"POT-Creation-Date: 2024-01-25 02:23+0000\n"
 "PO-Revision-Date: 2023-11-25 11:48+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -801,7 +801,7 @@ msgstr "Guztia &nabarmendu"
 msgid "Date"
 msgstr "Data"
 
-#: src/lib/logViewWidget.cpp:103
+#: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
 msgstr "Erakutsi/ezkutatu '%1' zutabea"

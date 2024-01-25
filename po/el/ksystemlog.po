@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:40+0000\n"
+"POT-Creation-Date: 2024-01-25 02:23+0000\n"
 "PO-Revision-Date: 2021-07-03 09:33+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -811,7 +811,7 @@ msgstr "&Τονισμός όλων"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: src/lib/logViewWidget.cpp:103
+#: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
 msgstr "Εμφάνιση/απόκρυψη της στήλης '%1'"
