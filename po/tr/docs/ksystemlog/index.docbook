@@ -354,11 +354,11 @@ Hide menu entries and actions for modes with missing log files
 >Sistem Günlüğü</guilabel
 > veya <guilabel
 >Cron Günlüğü</guilabel
->), PID'sini <guilabel
+>), PID’sini <guilabel
 >Süreç</guilabel
 > sütunundan gizleyebilirsiniz. Samba sunucusu gibi belirli bir komutun çıktısını çözümlemeye çalışıyorsanız bu yararlı olabilir. Bu durumda lütfen <link linkend="filtering"
 >Süzgeç Çubuğu</link
->'nu kullanın. </para>
+>’nu kullanın. </para>
 
 			</sect3>
 			<sect3 id="send_email">
