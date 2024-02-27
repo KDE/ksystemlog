@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 02:23+0000\n"
-"PO-Revision-Date: 2024-02-07 23:48+0900\n"
+"PO-Revision-Date: 2024-02-27 06:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -520,7 +520,7 @@ msgstr "重新載入 <b>%1</b> 中...<br /><i>%2</i>"
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr "檔案不合法。請調整 KSystemLog 的設定。"
+msgstr "此檔案無效。請在 KSystemLog 的設定中調整它。"
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
@@ -567,7 +567,7 @@ msgstr "紀錄已載入。"
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "網址 %1 不合法，將跳過此網址。"
+msgstr "網址 %1 無效，將跳過此網址。"
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -918,7 +918,7 @@ msgstr "檔案不存在。請選擇其它的檔案。"
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr "檔案不合法"
+msgstr "檔案無效"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
