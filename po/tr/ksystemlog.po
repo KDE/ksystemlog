@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2024-02-24 22:20+0300\n"
+"PO-Revision-Date: 2024-02-29 17:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1265,12 +1265,12 @@ msgstr ""
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
-msgstr "Tümünü &Topla"
+msgstr "Tümünü &Daralt"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
-msgstr "Tüm kategorileri topla"
+msgstr "Tüm kategorileri daralt"
 
 #: src/mainWindow.cpp:572
 #, kde-format
