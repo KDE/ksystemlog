@@ -6,7 +6,7 @@
 
 #include "kernelAnalyzer.h"
 #include <QFile>
-#include <QRegExp>
+#include <QRegularExpression>
 
 KernelAnalyzer::KernelAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
@@ -51,7 +51,7 @@ void KernelAnalyzer::startupTime()
 
 LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    const QRegExp timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
+    const QRegularExpression timeRegex(QStringLiteral("\\[\\ *(\\d*)\\.(\\d*)\\]\\s+(.*)"));
 
     //			QRegExp componentRegexp(timeRegex + "([^\\s:]{,20})[:\\s\\t]+(.*)");
     //			QRegExp messageRegexp(timeRegex + "(.*)");
@@ -59,15 +59,15 @@ LogLine *KernelAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     QDateTime dateTime(mStartupDateTime);
     QStringList messages;
 
-    int const timeExists = timeRegex.indexIn(logLine);
+    auto const timeMatch = timeRegex.match(logLine);
 
     // If we have the date, we are able to update the start date
-    if (timeExists != -1) {
+    if (timeMatch.hasMatch()) {
         // qCDebug(KSYSTEMLOG) << componentRegexp.cap(1).toInt() << "and" << componentRegexp.cap(2).toInt();
-        dateTime = dateTime.addSecs(timeRegex.cap(1).toInt());
-        dateTime = dateTime.addMSecs(timeRegex.cap(2).toInt() / 1000);
+        dateTime = dateTime.addSecs(timeMatch.capturedView(1).toInt());
+        dateTime = dateTime.addMSecs(timeMatch.capturedView(2).toInt() / 1000);
 
-        parseComponentMessage(timeRegex.cap(3), messages);
+        parseComponentMessage(timeMatch.captured(3), messages);
     }
     // Else, the date will never change
     else {

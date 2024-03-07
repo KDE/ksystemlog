@@ -8,7 +8,7 @@
 
 #include <KFormat>
 #include <KLocalizedString>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include "ksystemlog_debug.h"
 
@@ -119,16 +119,16 @@ QDateTime ParsingHelper::parseHttpDateTime(const QString &logLine)
 QDateTime ParsingHelper::parseSyslogDateTime(const QString &dateTime)
 {
     // TODO Create this regexp in constructor
-    const static QRegExp regex(QLatin1String(R"((\S*)[ ]+(\d*) (\d*):(\d*):(\d*) (\d*))"));
+    const static QRegularExpression regex(QLatin1String(R"((\S*)[ ]+(\d*) (\d*):(\d*):(\d*) (\d*))"));
 
-    const int firstPosition = regex.indexIn(dateTime);
-    if (firstPosition == -1) {
+    const auto match = regex.match(dateTime);
+    if (!match.hasMatch()) {
         qCDebug(KSYSTEMLOG) << "Unable to parse date " << dateTime;
         return QDateTime::currentDateTime();
     }
 
-    return QDateTime(QDate(regex.cap(6).toInt(), parseSyslogMonth(regex.cap(1)), regex.cap(2).toInt()),
-                     QTime(regex.cap(3).toInt(), regex.cap(4).toInt(), regex.cap(5).toInt(), 0));
+    return QDateTime(QDate(match.capturedView(6).toInt(), parseSyslogMonth(match.captured(1)), match.capturedView(2).toInt()),
+                     QTime(match.capturedView(3).toInt(), match.capturedView(4).toInt(), match.capturedView(5).toInt(), 0));
 }
 
 QString ParsingHelper::syslogDateTimeRegexp() const

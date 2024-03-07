@@ -41,7 +41,6 @@ find_package (Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Test
     PrintSupport
 )
-find_package(Qt6Core5Compat)
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui

@@ -24,13 +24,13 @@ LogViewColumns CupsPdfAnalyzer::initColumns()
 
 LogLine *CupsPdfAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    int const firstPosition = mCupsPdfRegex.indexIn(logLine);
-    if (firstPosition == -1) {
+    auto const match = mCupsPdfRegex.match(logLine);
+    if (!match.hasMatch()) {
         qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;
     }
 
-    QStringList capturedTexts = mCupsPdfRegex.capturedTexts();
+    QStringList capturedTexts = match.capturedTexts();
 
     /*
   qCDebug(KSYSTEMLOG) << "------------------------------------------";

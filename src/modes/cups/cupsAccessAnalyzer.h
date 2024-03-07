@@ -15,7 +15,7 @@
 #include "parsingHelper.h"
 
 #include "cupsAccessLogMode.h"
-#include <QRegExp>
+#include <QRegularExpression>
 class CupsAccessAnalyzer : public FileAnalyzer
 {
     Q_OBJECT
@@ -30,7 +30,7 @@ public:
     LogViewColumns initColumns() override;
 
 protected:
-    const QRegExp mCupsAccessRegex;
+    const QRegularExpression mCupsAccessRegex;
 
     LogFileReader *createLogFileReader(const LogFile &logFile) override;
 

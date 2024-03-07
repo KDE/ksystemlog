@@ -39,5 +39,3 @@ target_link_libraries(
 
         KF6::XmlGui
 )
-
-target_link_libraries(ksystemlog_base_mode Qt::Core5Compat)

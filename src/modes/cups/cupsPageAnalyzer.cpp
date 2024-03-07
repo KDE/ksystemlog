@@ -39,13 +39,13 @@ Analyzer::LogFileSortMode CupsPageAnalyzer::logFileSortMode()
 
 LogLine *CupsPageAnalyzer::parseMessage(const QString &logLine, const LogFile &originalLogFile)
 {
-    const int firstPosition = mCupsPageRegex.indexIn(logLine);
-    if (firstPosition == -1) {
+    const auto match = mCupsPageRegex.match(logLine);
+    if (!match.hasMatch()) {
         qCDebug(KSYSTEMLOG) << "Unable to parse line " << logLine;
         return nullptr;
     }
 
-    QStringList capturedTexts = mCupsPageRegex.capturedTexts();
+    QStringList capturedTexts = match.capturedTexts();
 
     // Remove full line
     capturedTexts.removeAt(0);
