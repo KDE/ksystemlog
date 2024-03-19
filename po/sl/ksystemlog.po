@@ -3,13 +3,14 @@
 #
 # Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014, 2015, 2016, 2017.
 # Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+# SPDX-FileCopyrightText: 2024 Jure Repinc <jlp@holodeck1.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 02:23+0000\n"
-"PO-Revision-Date: 2023-11-14 07:12+0100\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"PO-Revision-Date: 2024-03-17 17:45+0100\n"
+"Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,17 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrej Žnidaršič,Miha Gašperšič,Andrej Mernik"
+msgstr "Jure Repinc,Andrej Žnidaršič,Miha Gašperšič,Andrej Mernik"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrej.znidarsic@gmail.com,mihec.gaspersic@gmail.com,andrejm@ubuntu.si"
+msgstr ""
+"jlp@holodeck1.com,andrej.znidarsic@gmail.com,mihec.gaspersic@gmail.com,"
+"andrejm@ubuntu.si"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -266,8 +269,8 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
-"Način dnevnika, ki je privzeto naložen ob zagonu. Izberite 'Način brez "
-"dnevnikov', če ne želite, da se to zgodi."
+"Način dnevnika, ki je privzeto naložen ob zagonu. Izberite »Način brez "
+"dnevnikov«, če ne želite, da se to zgodi."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -441,17 +444,17 @@ msgstr "Glavna orodna vrstica"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Odpiranje '%1'..."
+msgstr "Odpiranje »%1« …"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "Datoteka dnevnika '%1' je bila uspešno naložena."
+msgstr "Datoteka dnevnika »%1« je bila uspešno naložena."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "Datoteka dnevnika '%1' se je spremenila."
+msgstr "Datoteka dnevnika »%1« se je spremenila."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -511,39 +514,39 @@ msgstr "Izberite katero raven dnevnika želite natisniti v barvah."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Napredek nalaganja ..."
+msgstr "Napredek nalaganja …"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteka)"
-msgstr[1] "Nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteki)"
-msgstr[2] "Nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteke)"
-msgstr[3] "Nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
+msgstr[0] "Nalaganje <b>%2</b> …<br /><i>%3</i> – (<b>%4</b>/ %1 datotek)"
+msgstr[1] "Nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datoteke)"
+msgstr[2] "Nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
+msgstr[3] "Nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
 msgstr[0] ""
-"Ponovno nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteka)"
+"Ponovno nalaganje <b>%2</b> …<br /><i>%3</i> – (<b>%4</b>/ %1 datotek)"
 msgstr[1] ""
-"Ponovno nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteki)"
+"Ponovno nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datoteke)"
 msgstr[2] ""
-"Ponovno nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datoteke)"
+"Ponovno nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
 msgstr[3] ""
-"Ponovno nalaganje <b>%2</b> ...<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
+"Ponovno nalaganje <b>%2</b> …<br /><i>%3</i> - (<b>%4</b>/ %1 datotek)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Nalaganje<b>%1</b> ...<br /><i>%2</i>"
+msgstr "Nalaganje <b>%1</b> …<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Osveževanje <b>%1</b> ...<br /><i>%2</i>"
+msgstr "Osveževanje <b>%1</b> …<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -559,12 +562,12 @@ msgstr "Datoteka ne obstaja"
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr "Datoteka '%1' ne obstaja."
+msgstr "Datoteka »%1« ne obstaja."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "Ni mogoče razširiti oblike '%2' '%1'."
+msgstr "Ni mogoče razširiti oblike »%2« »%1«."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
@@ -574,7 +577,7 @@ msgstr "Ni mogoče razširiti datoteke"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "Nimate ustreznih dovoljenj za branje '%1'."
+msgstr "Nimate ustreznih dovoljenj za branje »%1«."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -584,7 +587,7 @@ msgstr "Nezadostna dovoljenja"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Nalaganje dnevnika ..."
+msgstr "Nalaganje dnevnika …"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -595,7 +598,7 @@ msgstr "Dnevnik je bil uspešno naložen."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "URL '%1' ni veljaven, ta URL bo preskočen."
+msgstr "URL »%1« ni veljaven, ta URL bo preskočen."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -683,10 +686,10 @@ msgstr "Ni izbranih predmetov. Ničesar ni bilo kopirano v odložišče."
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] "%1 vrstica dnevnika je bila kopirana v odložišče."
-msgstr[1] "%1 vrstici dnevnika sta bili kopirani v odložišče."
-msgstr[2] "%1 vrstice dnevnika so bile kopirane v odložišče."
-msgstr[3] "%1 vrstic dnevnika je bilo kopiranih v odložišče."
+msgstr[0] "%1 vrstic dnevnika je bilo skopiranih na odložišče."
+msgstr[1] "%1 vrstica dnevnika je bila skopirana na odložišče."
+msgstr[2] "%1 vrstici dnevnika sta bili skopirani na odložišče."
+msgstr[3] "%1 vrstice dnevnika so bile skopirane na odložišče."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
@@ -696,21 +699,21 @@ msgstr "Ni izbranih predmetov. Izberite predmete, katere je mogoče shraniti."
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "Shrani izbrane vnose dnevnika v ..."
+msgstr "Shrani izbrane vnose dnevnika v …"
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "%1 vrstica dnevnika je bila shranjena na '%2'."
-msgstr[1] "%1 vrstici dnevnika sta bili shranjeni na '%2'."
-msgstr[2] "%1 vrstice dnevnika so bile shranjene na '%2'."
-msgstr[3] "%1 vrstic dnevnika je bilo shranjenih na '%2'."
+msgstr[0] "%1 vrstic dnevnika je bilo shranjenih v »%2«."
+msgstr[1] "%1 vrstica dnevnika je bila shranjena v »%2«."
+msgstr[2] "%1 vrstici dnevnika sta bili shranjeni v »%2«."
+msgstr[3] "%1 vrstice dnevnika so bile shranjene v »%2«."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "Ni mogoče shraniti datoteke '%1': Dovoljenje je bilo zavrnjeno."
+msgstr "Ni mogoče shraniti datoteke »%1«: Dovoljenje je bilo zavrnjeno."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
@@ -730,7 +733,7 @@ msgstr "Omogoča vam izpis stvari, ki se ujemajo z vsebino tega besedila."
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Vnesite svoje iskanje tukaj ..."
+msgstr "Vnesite svoje iskanje sem …"
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -754,7 +757,7 @@ msgid ""
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
 "Omogoča vam, da uporabite filter samo nad določenim stolpcem. Stolpec "
-"\"<i>Vse</i>\"  nima določenega filtra."
+"»<i>Vse</i>«  nima določenega filtra."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -807,12 +810,12 @@ msgstr "Datum"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Prikaži/skrij stolpec '%1'"
+msgstr "Prikaži/skrij stolpec »%1«"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr "Opravilo '%1' se je sesulo."
+msgstr "Opravilo »%1« se je sesulo."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
@@ -928,7 +931,7 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
-"Na vašem sistemu ni mogoče najti ukaza 'logger' . Vpišite 'logger' v "
+"Na vašem sistemu ni mogoče najti ukaza »logger« . Vpišite »logger« v "
 "Konsole, da se prepričate ali je ukaz nameščen."
 
 #: src/loggerDialog.cpp:225
@@ -939,7 +942,7 @@ msgstr "Ukaza ni bilo mogoče najti"
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr "Ukaz 'logger' se ni pravilno končal."
+msgstr "Ukaz »logger« se ni pravilno končal."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
@@ -1008,13 +1011,13 @@ msgstr "Določilo opravila dnevnika"
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr "Odpri priročnik ukaza 'logger'."
+msgstr "Odpri priročnik ukaza »logger«."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr "Povezava odpre priročnik ukaza 'logger'."
+msgstr "Povezava odpre priročnik ukaza »logger«."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
@@ -1026,13 +1029,13 @@ msgstr "<a href=\"man:/logger\">Priročnik za logger</a>"
 #: src/loggerDialogBase.ui:322
 #, kde-format
 msgid "&OK"
-msgstr "V redu"
+msgstr "&V redu"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
 #: src/loggerDialogBase.ui:338
 #, kde-format
 msgid "&Cancel"
-msgstr "Prekliči"
+msgstr "&Prekliči"
 
 #: src/main.cpp:24
 #, kde-format
@@ -1042,12 +1045,12 @@ msgstr "KSystemLog"
 #: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr "Pregledovalnik sistemskega dnevnika s strani KDE"
+msgstr "KDE-jev pregledovalnik sistemskih dnevnikov"
 
 #: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(C) 2007-2015, Nicolas Ternisien"
+msgstr "© 2007–2015, Nicolas Ternisien"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1055,8 +1058,8 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
-"Ne odlašajte s poročanjem hroščev in težav Nicolas Ternisien-u <a "
-"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
+"Ne odlašajte s poročanjem napak in težav Nicolas Ternisien-u <a href='mailto:"
+"nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1108,20 +1111,20 @@ msgstr "Dokument za odprtje."
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] "%1 vrstica."
-msgstr[1] "%1 vrstici."
-msgstr[2] "%1 vrstice."
-msgstr[3] "%1 vrstic."
+msgstr[0] "%1 vrstic."
+msgstr[1] "%1 vrstica."
+msgstr[2] "%1 vrstici."
+msgstr[3] "%1 vrstice."
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] "%1 vrstica / %2 skupnih."
-msgstr[1] "%1 vrstici / %2 skupnih."
-msgstr[2] "%1 vrstice / %2 skupnih."
-msgstr[3] "%1 vrstic / %2 skupnih."
+msgstr[0] "%1 vrstic / %2 skupno."
+msgstr[1] "%1 vrstica / %2 skupno."
+msgstr[2] "%1 vrstici / %2 skupno."
+msgstr[3] "%1 vrstice / %2 skupno."
 
 #: src/mainWindow.cpp:332
 #, kde-format
@@ -1184,7 +1187,7 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "Natisni izbiro..."
+msgstr "&Natisni izbor …"
 
 #: src/mainWindow.cpp:525
 #, kde-format
@@ -1203,7 +1206,7 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Natisni izbiro predogleda..."
+msgstr "&Predogled tiskanja izbora …"
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1298,7 +1301,7 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "Pošlji izbiro po e-pošti..."
+msgstr "Pošlji izbor po &e-pošti …"
 
 #: src/mainWindow.cpp:580
 #, kde-format
@@ -1317,7 +1320,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "Dod&aj vnos v dnevnik..."
+msgstr "Dod&aj vnos v dnevnik …"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1553,8 +1556,8 @@ msgid ""
 "buttons..."
 msgstr ""
 "Pokaže dnevnik ACPI v trenutnem zavihku. ACPI se uporablja za upravljanje "
-"strojnih delov računalnika kot so akumulatorji prenosnih računalnikov, "
-"gumbov reset, itd. ..."
+"strojnih delov računalnika kot so baterije prenosnih računalnikov, gumbov "
+"reset, …"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1681,7 +1684,7 @@ msgstr "Dnevniške datoteke Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Dodaj datoteko Apache ..."
+msgstr "Dodaj datoteko Apache …"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
@@ -1691,7 +1694,7 @@ msgstr "Datoteke dnevnika dostopa Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Dodaj datoteko dnevnika dostopa Apache ..."
+msgstr "Dodaj datoteko dnevnika dostopa Apache …"
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1740,7 +1743,7 @@ msgid ""
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Pokaže dnevnik revizije v trenutnem zavihku. Dnevnik se običajno uporablja "
-"za nespecializirana opravila (kot sta ukaza \"sudo\" ali \"fsck\")"
+"za nespecializirana opravila (kot sta ukaza »sudo« ali »fsck«)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1869,13 +1872,13 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "Dod&aj datoteko..."
+msgstr "Dod&aj datoteko …"
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "Spremeni datoteko..."
+msgstr "Spre&meni datoteko …"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1998,8 +2001,8 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Premakne  trenutno(-e) "
-"datoteko(-e) navzgor</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Premakne  trenutne "
+"datoteke navzgor</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -2052,8 +2055,8 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Premakni navzdol trenutno(-"
-"e) datoteko(-e)</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Premakni navzdol trenutne "
+"datoteke</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -2099,7 +2102,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Opombe:</b></p><ul "
 "style='margin-top:0px'><li>Datoteke se berejo z uporabo vrstnega reda tega "
 "seznama.</li><li>Sprejete so stisnjene in običajne besedilne datoteke <i>(*."
-"log, *.gz, *.bz2,...)</i>.</li><li>Uporabite nadomestni znak <b>'*'</b> za "
+"log, *.gz, *.bz2, …)</i>.</li><li>Uporabite nadomestni znak <b>»*«</b> za "
 "izbiro več datotek dnevnikov.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
@@ -2157,7 +2160,7 @@ msgstr "dodaj"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr "'%1' ni krajevna datoteka."
+msgstr "»%1« ni krajevna datoteka."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
@@ -2187,7 +2190,7 @@ msgstr "Velikosti polj sta različni, branje dnevniških datotek bo preskočeno.
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr "Spremeni stanje..."
+msgstr "&Spremeni stanje …"
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -2283,7 +2286,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Ni datotek dnevnika ..."
+msgstr "Ni datotek dnevnika …"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2396,7 +2399,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Opombe:</b></p><ul "
 "style='margin-top:0px'><li>Datoteke se berejo z uporabo vrstnega reda tega "
 "seznama.</li><li>Sprejete so stisnjene in navadne besedilne datoteke <i>(*."
-"log, *.gz, *.bz2,...)</i>.</li><li>Uporabite nadomestni znak <b>'*'</b> za "
+"log, *.gz, *.bz2, …)</i>.</li><li>Uporabite nadomestni znak <b>»*«</b> za "
 "izbiro več datotek dnevnika.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
@@ -2434,7 +2437,7 @@ msgid ""
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
 "<p>Datoteke bodo preučene za prikaz <b>dnevnika Cron</b> (kot dnevnika "
-"načrtovanih nalog). <a href='man:/cron'>Več podrobnosti ...</a></p>"
+"načrtovanih nalog). <a href='man:/cron'>Več podrobnosti …</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2497,7 +2500,7 @@ msgstr "Stanje IPP"
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr "Spletni dnevnik Cups"
+msgstr "Spletni dnevnik CUPS"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
@@ -2534,12 +2537,12 @@ msgstr ""
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr "Dnevnik Cups"
+msgstr "Dnevnik CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr "Cups &amp; dnevnik spletnega strežnika Cups"
+msgstr "CUPS &amp; dnevnik spletnega strežnika CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2547,58 +2550,58 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
-"<p>Datoteke bodo preučene za prikaz <b>dnevnika Cups</b> in <b> dnevnika "
-"spletnega dostopa Cups</b>.</p>"
+"<p>Datoteke bodo preučene za prikaz <b>dnevnika CUPS</b> in <b> dnevnika "
+"spletnega dostopa CUPS</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr "Datoteke dnevnika Cups"
+msgstr "Datoteke dnevnika CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "Dodaj datoteko Cups ..."
+msgstr "Dodaj datoteko CUPS …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr "Datoteke dnevnika dostopa do Cups"
+msgstr "Datoteke dnevnika dostopa do CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "Dodaj dostopno datoteko Cups ..."
+msgstr "Dodaj datoteko dostopa CUPS …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr "Datoteke dnevnika strani Cups"
+msgstr "Datoteke dnevnika strani CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "Dodaj datoteko strani Cups ..."
+msgstr "Dodaj datoteko strani CUPS …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr "Dnevnik datotek Cups PDF"
+msgstr "Dnevnik datotek CUPS PDF"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "Dodaj datoteko Cups PDF ..."
+msgstr "Dodaj datoteko CUPS PDF …"
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
 msgid "Cups"
-msgstr "Cups"
+msgstr "CUPS"
 
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
-msgstr "Pokaže dnevnik Cups."
+msgstr "Pokaže dnevnik CUPS."
 
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
@@ -2662,7 +2665,7 @@ msgstr "Obračun naloge:"
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr "Dnevnik strani Cups"
+msgstr "Dnevnik strani CUPS"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
@@ -2688,7 +2691,7 @@ msgstr "Sporočilo:"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr "Cups PDF dnevnik"
+msgstr "CUPS PDF dnevnik"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
@@ -2883,7 +2886,7 @@ msgstr "Enota:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr "Branje vnosov Journald ..."
+msgstr "Branje vnosov Journald …"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
@@ -2990,12 +2993,12 @@ msgstr ""
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr "Dnevnik Netbios"
+msgstr "Dnevnik NetBIOS"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr "Pokaže dnevnik Netbios."
+msgstr "Pokaže dnevnik NetBIOS."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -3003,7 +3006,7 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
-"Pokaže dnevnik Netbios v trenutnem zavihku. Netbios je protokol za souporabo "
+"Pokaže dnevnik NetBIOS v trenutnem zavihku. NetBIOS je protokol za souporabo "
 "datotek, ki ga je razvil Microsoft."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
@@ -3054,7 +3057,7 @@ msgid ""
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
 "<p>Datoteke bodo preučene za prikaz <b>dnevnika Samba</b>, <b>dnevnika "
-"dostopa Samba</b> in <b>dnevnika Netbios</b>.</p>"
+"dostopa Samba</b> in <b>dnevnika NetBIOS</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
@@ -3064,7 +3067,7 @@ msgstr "Datoteke dnevnika Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Dodaj datoteko Samba ..."
+msgstr "Dodaj datoteko Samba …"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
@@ -3074,17 +3077,17 @@ msgstr "Datoteke dnevnika dostopa Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Dodaj datoteke dnevnika dostopa Samba ..."
+msgstr "Dodaj datoteko dostopa Samba …"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr "Dnevniške datoteke Netbios"
+msgstr "Dnevniške datoteke NetBIOS"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Dodaj datoteko Netbios ..."
+msgstr "Dodaj datoteko NetBIOS …"
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -3143,7 +3146,7 @@ msgid ""
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Pokaže sistemski dnevnik v trenutnem zavihku. Dnevnik se običajno uporablja "
-"za nespecializirana opravila (kot sta ukaza \"sudo\" ali \"fsck\")"
+"za nespecializirana opravila (kot sta ukaza »sudo« ali »fsck«)"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3239,7 +3242,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: …</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
@@ -3299,7 +3302,7 @@ msgstr ""
 "Pokaže dnevnik seje X v trenutnem zavihku. Dnevnik seje X je mesto, kamor "
 "grafični programi pišejo svoje izhode. Oglejte si ta dnevnik, če želite "
 "izvedeti, zakaj se je program sesul, ali zakaj se vaše namizno okolje "
-"(Plasma, Gnome, Unity, Xfce, LXQt, ...) ni zagnalo."
+"(Plasma, Gnome, Unity, Xfce, LXQt, …) ni zagnalo."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
