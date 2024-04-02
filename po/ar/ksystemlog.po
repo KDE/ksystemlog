@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 02:23+0000\n"
-"PO-Revision-Date: 2022-10-05 16:55+0400\n"
+"PO-Revision-Date: 2024-04-01 08:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-POOTLE-MTIME: 1381753946.0\n"
 
 #, kde-format
@@ -976,9 +976,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Tag:"
-msgstr "الوسم"
+msgstr "الو&سم:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
 #: src/loggerDialogBase.ui:241
@@ -1017,8 +1017,7 @@ msgid "&Cancel"
 msgstr "أل&غِ"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
 msgstr "سجلّات نظامك"
 
@@ -1684,10 +1683,9 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "سجلّ Acpid"
+msgstr "سجلّ التدقيق"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, fuzzy, kde-format
@@ -2325,7 +2323,7 @@ msgid ""
 msgstr ""
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Group"
 msgstr "المجموعة"
 
@@ -2369,9 +2367,9 @@ msgid ""
 msgstr ""
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
-#, fuzzy, kde-format
+#, kde-format
 msgid "debug 2"
-msgstr "التّنقيح"
+msgstr "التّنقيح 2"
 
 #: src/modes/cups/cupsAnalyzer.cpp:76
 #, kde-format
