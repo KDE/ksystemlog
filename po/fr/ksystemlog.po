@@ -8,7 +8,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2008.
-# Xavier Besnard <xavier.besnard@kde.org>, 2013.
+# SPDX-FileCopyrightText: 2013, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Simon Depiets <sdepiets@gmail.com>, 2017.
 # SPDX-FileCopyrightText: 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
 #
@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-15 12:45+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-05-02 12:35+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -3044,12 +3044,12 @@ msgstr ""
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr "Journal de Netbios"
+msgstr "Journal de NetBIOS"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr "Afficher le journal de Netbios."
+msgstr "Afficher le journal de NetBIOS."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -3057,7 +3057,7 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
-"Affiche le journal de Netbios dans l'onglet courant. Netbios est le "
+"Affiche le journal de NetBIOS dans l'onglet courant. NetBIOS est le "
 "protocole de partage de fichiers, développé par Microsoft."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
@@ -3109,7 +3109,7 @@ msgid ""
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
 "<p>Ces fichiers seront analysés pour afficher le <b>journal de Samba</b>, le "
-"<b>journal des accès Samba</b> et le <b>journal de Netbios</b>.</p>"
+"<b>journal des accès Samba</b> et le <b>journal de NetBIOS</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
@@ -3134,12 +3134,12 @@ msgstr "Ajouter un fichier des accès Samba..."
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr "Fichiers de journal de Netbios"
+msgstr "Fichiers de journal de NetBIOS"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Ajouter un fichier Netbios..."
+msgstr "Ajouter un fichier NetBIOS..."
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
