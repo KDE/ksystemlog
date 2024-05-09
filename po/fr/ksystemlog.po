@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2024-05-02 12:35+0200\n"
+"PO-Revision-Date: 2024-05-03 08:52+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -2544,7 +2544,7 @@ msgstr "État IPP"
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr "Journal Web de Cups"
+msgstr "Journal Internet de CUPS"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
@@ -2582,12 +2582,12 @@ msgstr ""
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr "Journal de Cups"
+msgstr "Journal de CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr "Journal de Cups &amp; de son serveur Web"
+msgstr "Journal de CUPS &amp; de son serveur Internet"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2596,47 +2596,47 @@ msgid ""
 "Web Access log</b>.</p>"
 msgstr ""
 "<p>Ces fichiers seront analysés pour afficher le <b>Journal de CUPS</b> et "
-"le <b>journal des accès Web de CUPS</b>.</p>"
+"le <b>journal des accès Internet de CUPS</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr "Fichiers de journal de Cups"
+msgstr "Fichiers de journal de CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "&Ajouter un fichier CUPS..."
+msgstr "&Ajouter un fichier à CUPS..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr "Fichiers de journal d'accès CUPS"
+msgstr "Fichiers de journal d'accès à CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "&Ajouter un fichier d'accès CUPS..."
+msgstr "&Ajouter un fichier d'accès à CUPS..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr "Fichiers de journal des pages CUPS"
+msgstr "Fichiers de journal des pages de CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "Ajouter un fichier de pages CUPS..."
+msgstr "Ajouter un fichier de pages à CUPS..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr "Fichiers PDF de journal de CUPS"
+msgstr "Fichiers « PDF » de journal de CUPS"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "Ajouter un fichier PDF CUPS..."
+msgstr "Ajouter un fichier « PDF » à CUPS..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2710,7 +2710,7 @@ msgstr "Facturation de la tâche :"
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr "Journal des pages CUPS"
+msgstr "Journal des pages de CUPS"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
@@ -2737,7 +2737,7 @@ msgstr "Message :"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr "Journal PDF de CUPS"
+msgstr "Journal « PDF » de CUPS"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
