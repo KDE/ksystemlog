@@ -355,8 +355,8 @@ msgid ""
 msgstr ""
 "Podeu seleccionar esta opció si voleu eliminar l'identificador del procés "
 "del nom del procés. Per exemple, a vegades veureu en la columna <b>Procés</"
-"b> alguna cosa pareixent a <i>cron<b>[3433]</b></i>. Si se selecciona esta "
-"opció, se suprimirà la part en negreta."
+"b> alguna cosa pareixent a <i>cron<b>[3433]</b></i>. Si està marcada, se "
+"suprimirà la part en negreta."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -448,7 +448,7 @@ msgstr "Barra d'eines principal"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "S'està obrint «%1»..."
+msgstr "S'està obrint «%1»…"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
@@ -518,33 +518,32 @@ msgstr "Seleccioneu els nivells de registre que voleu imprimir en color."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Càrrega en curs..."
+msgstr "Càrrega en curs…"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "S'està carregant <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] ""
-"S'està carregant <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
+msgstr[0] "S'està carregant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "S'està carregant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "S'està actualitzant <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[0] "S'està actualitzant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
 msgstr[1] ""
-"S'està actualitzant <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
+"S'està actualitzant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "S'està carregant <b>%1</b>...<br /><i>%2</i>"
+msgstr "S'està carregant <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "S'està actualitzant <b>%1</b>...<br /><i>%2</i>"
+msgstr "S'està actualitzant <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -585,7 +584,7 @@ msgstr "Permisos insuficients"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "S'està carregant el registre..."
+msgstr "S'està carregant el registre…"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -700,7 +699,7 @@ msgstr ""
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "Guarda les entrades seleccionades de registre a..."
+msgstr "Guarda les entrades seleccionades de registre a…"
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
@@ -734,7 +733,7 @@ msgstr ""
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Introduïu ací la busca..."
+msgstr "Introduïu ací la busca…"
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -1100,7 +1099,7 @@ msgstr "Laurent Montel"
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr "Correcció d'errors"
+msgstr "Esmena d'errors"
 
 #: src/main.cpp:53
 #, kde-format
@@ -1183,7 +1182,7 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "Im&primix la selecció..."
+msgstr "Im&primix la selecció…"
 
 #: src/mainWindow.cpp:525
 #, kde-format
@@ -1202,7 +1201,7 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Im&primix la vista prèvia de la selecció..."
+msgstr "Im&primix la vista prèvia de la selecció…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1297,7 +1296,7 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "&Envia la selecció per correu..."
+msgstr "&Envia la selecció per correu…"
 
 #: src/mainWindow.cpp:580
 #, kde-format
@@ -1317,7 +1316,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "Afi&g una entrada de registre..."
+msgstr "Afi&g una entrada de registre…"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1503,8 +1502,8 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"Desplaça o no fins a les línies noves quan canvia el registre. Seleccioneu "
-"esta opció si no voleu que l'aplicació es desplace automàticament a la part "
+"Desplaça o no fins a les línies noves quan canvia el registre. Marqueu esta "
+"opció si no voleu que l'aplicació es desplace automàticament a la part "
 "inferior del registre cada vegada que es refresque."
 
 #: src/mainWindow.cpp:753
@@ -1559,7 +1558,7 @@ msgid ""
 msgstr ""
 "Mostra el registre de l'ACPI a la pestanya actual. L'ACPI s'utilitza per a "
 "gestionar els components de maquinari de l'ordinador, com les bateries dels "
-"portàtils, els botons de reinici..."
+"portàtils, els botons de reinici…"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1686,7 +1685,7 @@ msgstr "Fitxers de registre d'Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Afig un fitxer d'Apache..."
+msgstr "Afig un fitxer d'Apache…"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
@@ -1696,7 +1695,7 @@ msgstr "Fitxers de registre Access d'Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Afig un fitxer Access d'Apache..."
+msgstr "Afig un fitxer Access d'Apache…"
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1877,13 +1876,13 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "Afi&g un fitxer..."
+msgstr "Afi&g un fitxer…"
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "&Modifica el fitxer..."
+msgstr "&Modifica el fitxer…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -2108,7 +2107,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es lligen segons l'ordre d'esta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Utilitzeu el comodí <b>'*'</b> per a seleccionar "
+"gz, *.bz2…)</i>.</li><li>Utilitzeu el comodí <b>'*'</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
@@ -2198,7 +2197,7 @@ msgstr ""
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr "&Canvia l'estat..."
+msgstr "&Canvia l'estat…"
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -2296,7 +2295,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Cap fitxer de registre..."
+msgstr "Cap fitxer de registre…"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2409,7 +2408,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es lligen segons l'ordre d'esta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Utilitzeu el comodí <b>«*»</b> per a seleccionar "
+"gz, *.bz2…)</i>.</li><li>Utilitzeu el comodí <b>«*»</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
@@ -2448,7 +2447,7 @@ msgid ""
 msgstr ""
 "<p>S'analitzaran estos fitxers per a visualitzar els <b>registres del cron</"
 "b> (és a dir, els registres de les tasques planificades). <a href='man:/"
-"cron'>Més informació...</a></p>"
+"cron'>Més informació…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2574,7 +2573,7 @@ msgstr "Fitxers de registre de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "Afig un fitxer de CUPS..."
+msgstr "Afig un fitxer de CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
@@ -2584,7 +2583,7 @@ msgstr "Fitxer de registre d'accés a CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "Afig un fitxer d'accés a CUPS..."
+msgstr "Afig un fitxer d'accés a CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
@@ -2594,7 +2593,7 @@ msgstr "Fitxers de registre de pàgines de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "Afig un fitxer de pàgines de CUPS..."
+msgstr "Afig un fitxer de pàgines de CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
@@ -2604,7 +2603,7 @@ msgstr "Fitxers de registre de PDF de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "Afig un fitxer PDF de CUPS..."
+msgstr "Afig un fitxer PDF de CUPS…"
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2902,7 +2901,7 @@ msgstr "Unitat:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr "Lectura de les entrades de «journald»..."
+msgstr "Lectura de les entrades de «journald»…"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
@@ -3086,7 +3085,7 @@ msgstr "Fitxers de registre de Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Afig un fitxer de Samba..."
+msgstr "Afig un fitxer de Samba…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
@@ -3096,7 +3095,7 @@ msgstr "Fitxers de registre Access de Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Afig un fitxer Access de Samba..."
+msgstr "Afig un fitxer Access de Samba…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
@@ -3106,7 +3105,7 @@ msgstr "Fitxers de registre de Netbios"
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Afig un fitxer de Netbios..."
+msgstr "Afig un fitxer de Netbios…"
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -3266,7 +3265,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr "<li><b>%1</b>:...</li>"
+msgstr "<li><b>%1</b>:…</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
@@ -3286,7 +3285,7 @@ msgstr "Fitxer de &registre:"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr "Seleccioneu esta opció per a eliminar els errors d'X.org"
+msgstr "Marqueu esta opció per a eliminar els errors d'X.org"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
@@ -3301,8 +3300,8 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
-"<p><b>Nota:</b> seleccioneu esta opció per a eliminar els errors d'X.org.</"
-"p><p style=\"margin-bottom:0px\">S'ignoraran les línies següents:</p>"
+"<p><b>Nota:</b> marqueu esta opció per a eliminar els errors d'X.org.</p><p "
+"style=\"margin-bottom:0px\">S'ignoraran les línies següents:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
@@ -3326,7 +3325,7 @@ msgstr ""
 "Mostra el registre de la sessió X a la pestanya actual. El registre de la "
 "sessió X és el lloc a on els programes gràfics escriuen la seua eixida. "
 "Consulteu este registre si voleu conéixer per què un programa ha fallat, o "
-"per què l'entorn d'escriptori (Plasma, Gnome, Unity, Xfce, LXQt...) no "
+"per què l'entorn d'escriptori (Plasma, Gnome, Unity, Xfce, LXQt…) no "
 "s'inicia."
 
 #. i18n("Last updated: %1.",
