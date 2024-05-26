@@ -21,6 +21,7 @@ Keywords[fi]=loki;lokitiedosto;järjestelmäviestit;järjestelmäloki;ydinloki;t
 Keywords[fr]=journal ; fichier de journal ; messages du système ; journal du système ; journal du noyau ; journal des authentifications ; journal de X.org ; journal de journald ; journaux des services ; afficheur d'évènements ; eventvwr ; journal des évènements ;
 Keywords[gl]=rexistro;ficheiro de rexistro;mensaxes do sistema;rexistro do sistema;rexistro do kernel;rexistro de autenticación;rexistro de X.org;rexistro de journald;rexistros de servizos;visor de eventos;eventvwr;eventlog;
 Keywords[he]=יומן;לוג;יומנים;יומן פעילות;יומן תיעוד;קובץ יומן;ג׳ורנל;גורנל;ג'ורנל;ז׳ורנל;זורנל;ז'ורנל;יומן ליבה;יומן קרנל;דוח קרנל;דוח ליבה;יומן אימות;דוח אימות;יומן X.org;יומן journald;יומן שירותים;מציג אירועים;יומן אירועים;לוג אירועים;דוח אירועים;
+Keywords[hi]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
 Keywords[hu]=napló;naplófájl;rendszerüzenetek;rendszernapló;kernelnapló;hitelesítési napló;X.org napló;journald napló;szolgáltatásnapló;Eseménymegjelenítő;eventvwr;eseménynapló;
 Keywords[ia]=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
 Keywords[it]=registro;file di registro;messaggi;registro di sistema;registro del kernel;registro di autenticazione;registro di Xorg;registro di journald;registro dei servizi;visore di eventi;eventvwr;eventlog;
