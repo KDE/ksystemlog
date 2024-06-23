@@ -1,5 +1,6 @@
 # translation of ksystemlog.po to
 # translation of ksystemlog2.po to
+# SPDX-FileCopyrightText: 2011, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marcin Raubal <seniore@kk.pl>, 2005.
 # Marcin Raubal <marcin@jamaro.pl>, 2005.
 # Marcin Raubal <marcin@kk.pl>, 2006.
@@ -7,14 +8,13 @@
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2008, 2009.
 # Piotr Predkiewicz <1hero2@wp.pl>, 2008.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2008.
-# SPDX-FileCopyrightText: 2011, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2023-12-10 14:11+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
+"PO-Revision-Date: 2024-06-22 08:52+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1186,12 +1187,12 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "&Drukuj zaznaczone..."
+msgstr "Wy&drukuj zaznaczone..."
 
 #: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
-msgstr "Drukuj zaznaczenie"
+msgstr "Wydrukuj zaznaczone"
 
 #: src/mainWindow.cpp:527
 #, kde-format
@@ -1205,12 +1206,12 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Drukuj &podgląd zaznaczenia..."
+msgstr "&Podgląd wydruku zaznaczonych..."
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
-msgstr "Drukuj podgląd zaznaczenia"
+msgstr "Podgląd wydruku zaznaczonych"
 
 #: src/mainWindow.cpp:535
 #, kde-format
@@ -1319,7 +1320,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "Dod&aj wpis dziennika..."
+msgstr "Dod&aj wpis do dziennika..."
 
 #: src/mainWindow.cpp:591
 #, kde-format
