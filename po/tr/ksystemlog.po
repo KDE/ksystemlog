@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2024-02-29 17:04+0300\n"
+"PO-Revision-Date: 2024-07-05 02:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -268,7 +268,7 @@ msgid ""
 "not want this to happen."
 msgstr ""
 "Başlangıçta öntanımlı olarak yüklenen günlük kipi. Bunun olmasını "
-"istemiyorsanız 'Günlük Yok Kipi'ni seçin."
+"istemiyorsanız “Günlük Yok Kipi”ni seçin."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -440,17 +440,17 @@ msgstr "Ana Araç Çubuğu"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "'%1' açılıyor..."
+msgstr "“%1” açılıyor…"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "'%1' günlük dosyası başarılı bir biçimde yüklendi."
+msgstr "“%1” günlük dosyası başarılı bir biçimde yüklendi."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "'%1' günlük dosyası değiştirildi."
+msgstr "“%1” günlük dosyası değiştirildi."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -510,32 +510,31 @@ msgstr "Günlük kayıt düzeyleri için renk seçin."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Yükleme İlerlemesi..."
+msgstr "Yükleme ilerlemesi…"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Yükleniyor <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1)"
-msgstr[1] "Yükleniyor <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 dosya)"
+msgstr[0] "<b>%2</b> yeniden yükleniyor…<br /><i>%3</i> — (<b>%4</b>)"
+msgstr[1] "<b>%2</b> yeniden yükleniyor…<br /><i>%3</i> — (<b>%4</b>/%1 dosya)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Yeniden yükleniyor <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1)"
-msgstr[1] ""
-"Yeniden yükleniyor <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 dosya)"
+msgstr[0] "<b>%2</b> yeniden yükleniyor…<br /><i>%3</i> — (<b>%4</b>)"
+msgstr[1] "<b>%2</b> yeniden yükleniyor…<br /><i>%3</i> — (<b>%4</b>/%1 dosya)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Yükleniyor <b>%1</b>...<br /><i>%2</i>"
+msgstr "<b>%1</b> yükleniyor…<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Yeniden yükleniyor <b>%1</b>...<br /><i>%2</i>"
+msgstr "<b>%1</b> yeniden yükleniyor…<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -553,12 +552,12 @@ msgstr "Dosya Yok"
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr "'%1' dosyası yok."
+msgstr "“%1” dosyası yok."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "'%2' uzantılı '%1' dosyası açılamıyor."
+msgstr "“%2” uzantılı “%1” dosyası açılamıyor."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
@@ -568,7 +567,7 @@ msgstr "Dosya Sıkıştırması Açılamadı"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "'%1' dosyasını okumak için yeterli izniniz yok."
+msgstr "“%1” dosyasını okumak için yeterli izniniz yok."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -578,7 +577,7 @@ msgstr "Yetersiz İzin"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Günlük yükleniyor..."
+msgstr "Günlük yükleniyor…"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -589,7 +588,7 @@ msgstr "Günlük başarılı bir biçimde yüklendi."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "'%1' URL'si geçerli değil, atlanıyor."
+msgstr "“%1” URL’si geçerli değil, atlanıyor."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -688,19 +687,19 @@ msgstr "Hiçbir öge seçilmedi. Lütfen kaydetmek için bir öge seçin."
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "Seçili günlük girdilerini şuraya kaydet..."
+msgstr "Seçili günlük girdilerini şuraya kaydet…"
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "%1 günlük satırı '%2' konumuna kaydedildi."
-msgstr[1] "%1 günlük satırı '%2' konumuna kaydedildi."
+msgstr[0] "1 günlük satırı “%2” konumuna kaydedildi."
+msgstr[1] "%1 günlük satırı “%2” konumuna kaydedildi."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "'%1' dosyası kaydeilemedi: İzin verilmedi."
+msgstr "“%1” dosyası kaydedilemedi: İzin verilmedi."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
@@ -720,7 +719,7 @@ msgstr "Yalnızca metin içeriği ile eşleşenlerin listelenmesine izin verir."
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Aramanızı buraya yazın..."
+msgstr "Aramanızı buraya yazın…"
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -743,8 +742,8 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"Yalnızca belirli sütunlara filtrenin uygulanmasına izin verir. \"<i>Tamamı</"
-"i>\" Süzgeç olmayan sütun anlamına gelir."
+"Yalnızca belirli sütunlara süzgecin uygulanmasına izin verir. <i>“Tümü”</i>, "
+"süzgeç olmayan sütun anlamına gelir."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -797,12 +796,12 @@ msgstr "Tarih"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "'%1' sütununu görüntüle/gizle"
+msgstr "“%1” sütununu görüntüle/gizle"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr "'%1' süreci çöktü."
+msgstr "“%1” süreci çöktü."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
@@ -918,8 +917,8 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
-"\"logger\" komutu sisteminizde bulunamadı. Lütfen Konsole içerisinde \"logger"
-"\" yazarak komutun kurulu olup olmadığı tespit edin."
+"“logger” komutu sisteminizde bulunamadı. Lütfen Konsole içerisinde “logger” "
+"yazarak komutun kurulu olup olmadığına bakın."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
@@ -929,7 +928,7 @@ msgstr "Komut bulunamadı"
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr "'logger' komutundan doğru bir şekilde çıkılamadı."
+msgstr "“logger” komutundan doğru bir şekilde çıkılamadı."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
@@ -998,13 +997,13 @@ msgstr "Günlük süreci tan&ımlayıcısı"
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr "'logger' komutunun el kitabını açın."
+msgstr "“logger” komutunun el kitabını açın."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr "Bu bağlantı 'logger' komut kılavuzunu açar."
+msgstr "Bu bağlantı, “logger” komutunun kılavuzunu açar."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
@@ -1037,7 +1036,7 @@ msgstr "KDE tarafından geliştirilen Sistem Günlüğü Görüntüleyicisi"
 #: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(C) 2007-2015, Nicolas Ternisien"
+msgstr "© 2007–2015, Nicolas Ternisien"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1045,8 +1044,9 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
-"Hataları ve sorunları Nicolas Ternisien'e <a href='mailto:nicolas."
-"ternisien@gmail.com'>nicolas.ternisien@gmail.com</a> gönderin"
+"Hataları ve sorunları Nicolas Ternisien’e <a href='mailto:nicolas."
+"ternisien@gmail.com'>nicolas.ternisien@gmail.com</a> adresi üzerinden "
+"gönderin"
 
 #: src/main.cpp:34
 #, kde-format
@@ -1146,7 +1146,7 @@ msgid ""
 "to reload too frequently."
 msgstr ""
 "Geçerli günlüğün izlenmesini duraklatır. Bu eylem özellikle sistem günlük "
-"dosyalarına çok fazla satır yazdığında ve K Sistem Günlüğü'nün çok sık "
+"dosyalarına çok fazla satır yazdığında ve K Sistem Günlüğü’nün çok sık "
 "yeniden yüklenmesine neden olduğunda kullanışlıdır."
 
 #: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
@@ -1170,7 +1170,7 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "&Seçimi Yazdır..."
+msgstr "&Seçimi Yazdır…"
 
 #: src/mainWindow.cpp:525
 #, kde-format
@@ -1189,7 +1189,7 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Seçimin Yazdırma Önizlemesi..."
+msgstr "&Seçimin Yazdırma Önizlemesi…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1222,7 +1222,7 @@ msgstr ""
 #: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr "K Sistem Günlüğü'nden Çık"
+msgstr "K Sistem Günlüğü’nden Çık"
 
 #: src/mainWindow.cpp:550
 #, kde-format
@@ -1284,7 +1284,7 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "&Seçimi E-posta ile Gönder..."
+msgstr "&Seçimi E-posta ile Gönder…"
 
 #: src/mainWindow.cpp:580
 #, kde-format
@@ -1303,7 +1303,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "Günlük Girdisi &Ekle..."
+msgstr "Günlük Girdisi &Ekle…"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1669,7 +1669,7 @@ msgstr "Apache Günlüğü Dosyaları"
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Apache Dosyası Ekle..."
+msgstr "Apache Dosyası Ekle…"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
@@ -1679,7 +1679,7 @@ msgstr "Apache Access Günlüğü Dosyaları"
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Apache Erişim Dosyası Ekle..."
+msgstr "Apache Erişim Dosyası Ekle…"
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1861,13 +1861,13 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "Dosya &Ekle..."
+msgstr "Dosya &Ekle…"
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "Dosyayı &Değiştir..."
+msgstr "Dosyayı &Değiştir…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -2014,7 +2014,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Seçili dosyaları listede "
-"üst sıraya taşı. Bu seçenek ile KSystemLog dosyaları  <span style=\" font-"
+"üst sıraya taşı. Bu seçenek ile KSystemLog dosyaları <span style=\" font-"
 "weight:600;\">ilk sırada </span> okur.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
@@ -2090,9 +2090,9 @@ msgid ""
 msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notlar:</b></p><ul "
 "style='margin-top:0px'><li>Dosyalar listedeki sıraya göre okunur.</"
-"li><li>Sıkıştırılmış ve yalın metin kullanılabilir<i>(*.log, *.gz, *."
-"bz2,...)</i>.</li><li>Çoklu günlük dosyası seçimi ve eklenmesi için <b>'*'</"
-"b> kullanın.</li></ul>"
+"li><li>Sıkıştırılmış ve düz metin kullanılabilir<i>(*.log, *.gz, *.bz2…)</i>."
+"</li><li>Çoklu günlük dosyası seçimi ve eklenmesi için <b>“*”</b> kullanın.</"
+"li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2137,7 +2137,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Güncel günlük satırlarını "
-"göstermek için K Sistem Günlüğü'nün okuduğu dosyaların listesi.</p></body></"
+"göstermek için K Sistem Günlüğü’nün okuduğu dosyaların listesi.</p></body></"
 "html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
@@ -2149,7 +2149,7 @@ msgstr "ekle"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr "'%1' yerel bir dosya değil."
+msgstr "“%1” yerel bir dosya değil."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
@@ -2180,7 +2180,7 @@ msgstr ""
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr "&Durumu Değiştir..."
+msgstr "&Durumu Değiştir…"
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -2276,7 +2276,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Günlük dosyası yok..."
+msgstr "Günlük dosyası yok…"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2349,8 +2349,8 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Seçili dosyaları listede "
-"üst sıraya taşı. Bu seçenek ile KSystemLog dosyaları  <span style=\" font-"
-"weight:600;\">ilk sırada </span> okur.</p></body></html>"
+"üst sıraya taşı. Bu seçenek ile K Sistem Günlüğü, dosyaları <span style=\" "
+"font-weight:600;\">ilk sırada </span> okur.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2373,8 +2373,8 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Seçili dosyaları listede "
-"alt sıraya taşır. Bu seçenek ile KSystemLog dosyaları <span style=\" font-"
-"weight:600;\">en son sırada</span>okur.</p></body></html>"
+"alt sıraya taşır. Bu seçenek ile K Sistem Günlüğü, dosyaları <span style=\" "
+"font-weight:600;\">en son sırada</span>okur.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2388,9 +2388,9 @@ msgid ""
 msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notlar:</b></p><ul "
 "style='margin-top:0px'><li>Dosyalar listedeki sıraya göre okunur.</"
-"li><li>Sıkıştırılmış ve yalın metin kullanılabilir<i>(*.log, *.gz, *."
-"bz2,...)</i>.</li><li>Çoklu günlük dosyası seçimi ve eklenmesi için <b>'*'</"
-"b> kullanın.</li></ul>"
+"li><li>Sıkıştırılmış ve yalın metin kullanılabilir<i>(*.log, *.gz, *.bz2…)</"
+"i>.</li><li>Çoklu günlük dosyası seçimi ve eklenmesi için <b>“*”</b> "
+"kullanın.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2426,8 +2426,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
-"<p>Bu dosyalar analiz edilerek <b>Cron Logs</b>gösterilecektir. <a "
-"href='man:/cron'>Daha fazla bilgi için...</a></p>"
+"<p>Bu dosyalar çözümlenerek <b>Cron Logs</b>gösterilecektir. <a href='man:/"
+"cron'>Daha fazla bilgi…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2553,7 +2553,7 @@ msgstr "CUPS Günlüğü Dosyaları"
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "CUPS Dosyası Ekle..."
+msgstr "CUPS Dosyası Ekle…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
@@ -2563,7 +2563,7 @@ msgstr "CUPS Erişim Günlüğü Dosyaları"
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "CUPS Erişim Dosyası Ekle..."
+msgstr "CUPS Erişim Dosyası Ekle…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
@@ -2573,7 +2573,7 @@ msgstr "CUPS Sayfası Günlüğü Dosyaları"
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "CUPS Sayfa Dosyası Ekle..."
+msgstr "CUPS Sayfa Dosyası Ekle…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
@@ -2583,7 +2583,7 @@ msgstr "CUPS PDF Günlüğü Dosyaları"
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "CUPS PDF Dosyası Ekle..."
+msgstr "CUPS PDF Dosyası Ekle…"
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2881,7 +2881,7 @@ msgstr "Birim:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr "Journald girdileri okunuyor..."
+msgstr "Journald girdileri okunuyor…"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
@@ -3064,7 +3064,7 @@ msgstr "Samba Günlüğü Dosyaları"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Samba Dosyası Ekle..."
+msgstr "Samba Dosyası Ekle…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
@@ -3074,7 +3074,7 @@ msgstr "Samba Erişim Günlüğü Dosyaları"
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Samba Erişim Dosyası Ekle..."
+msgstr "Samba Erişim Dosyası Ekle…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
@@ -3084,7 +3084,7 @@ msgstr "Netbios Günlüğü Dosyaları"
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Netbios Dosyası Ekle..."
+msgstr "Netbios Dosyası Ekle…"
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -3144,8 +3144,7 @@ msgid ""
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Geçerli sekmede sistem günlüğünü görüntüler. Bu günlük genellikle uzman "
-"olmayan işlemler tarafından kullanılır (\"sudo\" veya \"fsck\" komutları "
-"gibi)"
+"olmayan işlemler tarafından kullanılır (“sudo” veya “fsck” komutları gibi)"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3242,7 +3241,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: …</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
@@ -3301,8 +3300,8 @@ msgid ""
 msgstr ""
 "Geçerli sekmede X Oturumu günlüğünü görüntüler. X Oturum günlüğü, grafik "
 "programlarının çıktılarını yazdıkları yerdir. Bir programın neden "
-"kilitlendiğini veya masaüstü ortamınızın (Plasma, Gnome, Unity, Xfce, "
-"LXQt, ...) neden başlatılmadığını öğrenmek istiyorsanız bu günlüğe bakın."
+"kilitlendiğini veya masaüstü ortamınızın (Plasma, GNOME, Unity, Xfce, LXQt…) "
+"neden başlatılmadığını öğrenmek istiyorsanız bu günlüğe bakın."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
