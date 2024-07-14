@@ -1,13 +1,12 @@
 # Translation of ksystemlog to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2007, 2008, 2009, 2012, 2016, 2017, 2021.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-25 00:38+0000\n"
-"PO-Revision-Date: 2021-02-11 21:14+0100\n"
+"PO-Revision-Date: 2024-07-13 21:41+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -3176,8 +3175,8 @@ msgid ""
 msgstr ""
 "Vis X.org-loggen i den gjeldande fana. X.org er tenesta som viser "
 "skrivebordet på skjermen, og tek seg av skjermkortet. Sjå i dennen loggen om "
-"du ønskjer å veta korfor du ikkje har 3D-akselerering, eller korfor ikkje "
-"inneingane vert kjende att."
+"du ønskjer å veta korfor du ikkje har 3D-akselerasjon, eller korfor ikkje "
+"inneiningane vert kjende att."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
