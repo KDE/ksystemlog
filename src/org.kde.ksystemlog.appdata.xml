@@ -22,6 +22,7 @@
   <name xml:lang="fi">KSystemLog</name>
   <name xml:lang="fr">KSystemLog</name>
   <name xml:lang="gl">KSystemLog</name>
+  <name xml:lang="he">KSystemLog</name>
   <name xml:lang="hu">KSystemLog</name>
   <name xml:lang="ia">KSystemLog</name>
   <name xml:lang="id">KSystemLog</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="fi">Järjestelmälokikatselin</summary>
   <summary xml:lang="fr">afficheur de journaux système</summary>
   <summary xml:lang="gl">visor dos rexistros do sistema</summary>
+  <summary xml:lang="he">מציג יומני מערכת</summary>
   <summary xml:lang="hu">Rendszernapló-megjelenítő</summary>
   <summary xml:lang="ia">visor de registro de systema</summary>
   <summary xml:lang="id">penampil catatan log sistem</summary>
@@ -100,6 +102,7 @@
     <p xml:lang="fi">KSystemLog näyttää kaikki järjestelmälokit yleisiin (oletusloki, tunnistauminen, ydin, X.org…) ja lisäpalveluihin (Apache, Cups jne.) ryhmiteltynä. Sillä on monia ominaisuuksia, jotka helpottavat lokien tarkastelua:</p>
     <p xml:lang="fr">KSystemLog affiche tous les journaux de votre système, groupés par catégories : Général (journal système par défaut, authentification, noyau, X.org, etc.) et services optionnels (Apache, CUPS, etc.). Il inclut de nombreuses fonctionnalités facilitant la lecture de vos fichiers de journaux :</p>
     <p xml:lang="gl">KSystemLog mostra todos os rexistros do sistema, agrupados en xerais (rexistro predeterminado do sistema, autenticación, kernel, X.org…) e servizos opcionais (Apache, Cups, etc.). Inclúe moitas funcionalidades para ler facilmente os ficheiros de rexistro:</p>
+    <p xml:lang="he">KSystemLog מציג את כל יומני המערכת שלך, בקיבוץ לפי כללי (יומן ברירת המחדל של המערכת, אימות, ליבה, X.org…), ושירותי רשות (Apache,‏ Cups וכו׳). לרבות מגוון יכולות לקריאה נוחה של קובצי היומנים שלך:</p>
     <p xml:lang="hu">A KSystemLog megjeleníti a rendszer összes naplófájlját, általános (alapértelmezett rendszernapló, hitelesítés, kernel, X.org…) és opcionális szolgáltatások (Apache, Cups, stb, …) szerint csoportosítva. Számos funkcióval segíti a naplófájlok olvasását:</p>
     <p xml:lang="ia">KSystemLog monstra omne registros de tu systema, gruppate per Registro General  (registro de systema redefinite, Authentication, Kernel, X.org...) e Servitios optional  (Apache, Cups, etc, ...). Illo  include multe characteristicas per leger agradibilemente tu files de registro:</p>
     <p xml:lang="id">KSystemLog menampilkan semua catatan log sistemmu, dikelompokkan berdasarkan General (Catatan log sistem baku, Autentikasi, Kernel, X.org...), dan Layanan (Apache, Cups, dll, ...) opsional. Serta banyak fitur-fitur pembacaan secara baik file-file catatan log-mu:</p>
@@ -137,6 +140,7 @@
       <li xml:lang="fi">lokirivien väritys niiden vakavuusasteen mukaan</li>
       <li xml:lang="fr">Mise en couleur des lignes des journaux en fonction de leur sévérité</li>
       <li xml:lang="gl">Colorar as liñas de rexistro segundo a súa gravidade</li>
+      <li xml:lang="he">צביעת שורות היומן לפי דרגת החומרה שלהן</li>
       <li xml:lang="hu">Sorok színezése a fontosságuk szerint</li>
       <li xml:lang="ia">Colora lineas de registro dependente de lor severitate</li>
       <li xml:lang="id">Pewarnaan baris log tergantung pada kepelikannya</li>
@@ -174,6 +178,7 @@
       <li xml:lang="fi">välilehtinäkymä useiden lokien samanaikaiseen tarkasteluun</li>
       <li xml:lang="fr">La vue en onglets permet d'afficher plusieurs journaux en même temps</li>
       <li xml:lang="gl">Vista con lapelas que permite amosar varios rexistros simultaneamente</li>
+      <li xml:lang="he">תצוגת לשוניות שתאפשר להציג מגוון יומנים בו־זמנית</li>
       <li xml:lang="hu">Lapokra osztott nézet több naplófájl egyszerre történő megjelenítéséhez</li>
       <li xml:lang="ia">Vista a schedas que permitte monstrar plure registros al mesme tempore</li>
       <li xml:lang="id">Tampilan bertab untuk memungkinkan penayangan log di waktu yang sama</li>
@@ -210,6 +215,7 @@
       <li xml:lang="fi">uusien lokirivien näyttäminen automaattisesti</li>
       <li xml:lang="fr">Affichage automatique des nouvelles lignes des journaux</li>
       <li xml:lang="gl">Amosar automaticamente as novas liñas rexistradas</li>
+      <li xml:lang="he">להציג אוטומטית שורות חדשות שתועדו</li>
       <li xml:lang="hu">Új bejegyzések automatikus megjelenítése</li>
       <li xml:lang="ia">Monstra automaticamente nove lineas registrate</li>
       <li xml:lang="id">Auto tayang baris baru yang di-log</li>
@@ -247,6 +253,7 @@
       <li xml:lang="fi">yksityiskohtaiset tiedot kustakin lokirivistä</li>
       <li xml:lang="fr">Informations détaillées pour chaque ligne des journaux</li>
       <li xml:lang="gl">Información detallada en cada liña de rexistro</li>
+      <li xml:lang="he">פירוט על כל אחת משורות היומן</li>
       <li xml:lang="hu">Részletes információk minden egyes sorhoz</li>
       <li xml:lang="ia">Informationdetaliate per cata lineas de registro (log)</li>
       <li xml:lang="id">Informasi terperinci untuk setiap baris log</li>
