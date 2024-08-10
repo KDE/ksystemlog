@@ -76,6 +76,7 @@ target_link_libraries(ksystemlog
 
     KF6::Archive
     KF6::TextWidgets
+    KF6::Crash
 )
 
 if (${JOURNALD_FOUND})

@@ -16,6 +16,7 @@ Dependencies:
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kcompletion': '@latest-kf6'
     'frameworks/ktextwidgets': '@latest-kf6'
+    'frameworks/kcrash': '@latest-kf6'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD' ]      

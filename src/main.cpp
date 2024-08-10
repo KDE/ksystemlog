@@ -3,7 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-
+#include <KCrash>
 #include <QApplication>
 #include <QCommandLineParser>
 
@@ -42,6 +42,7 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(about);
 
     app.setApplicationDisplayName(about.displayName());
+    KCrash::initialize();
 
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("utilities-log-viewer")));
 
