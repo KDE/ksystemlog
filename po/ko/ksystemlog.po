@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-08-11 00:42+0000\n"
 "PO-Revision-Date: 2024-02-10 00:04+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1062,7 +1062,7 @@ msgstr "Laurent Montel"
 msgid "Bug Fixing"
 msgstr "버그 수정"
 
-#: src/main.cpp:53
+#: src/main.cpp:54
 #, kde-format
 msgid "Document to open."
 msgstr "열 문서입니다."

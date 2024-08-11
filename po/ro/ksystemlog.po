@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-08-11 00:42+0000\n"
 "PO-Revision-Date: 2024-02-24 17:01+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -1100,7 +1100,7 @@ msgstr "Laurent Montel"
 msgid "Bug Fixing"
 msgstr "Corecții de defecte"
 
-#: src/main.cpp:53
+#: src/main.cpp:54
 #, kde-format
 msgid "Document to open."
 msgstr "Document de deschis."

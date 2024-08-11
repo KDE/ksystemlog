@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-08-11 00:42+0000\n"
 "PO-Revision-Date: 2024-02-27 06:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1062,7 +1062,7 @@ msgstr "Laurent Montel"
 msgid "Bug Fixing"
 msgstr "錯誤修正"
 
-#: src/main.cpp:53
+#: src/main.cpp:54
 #, kde-format
 msgid "Document to open."
 msgstr "要開啟的文件。"

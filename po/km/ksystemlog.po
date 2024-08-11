@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-25 00:38+0000\n"
+"POT-Creation-Date: 2024-08-11 00:42+0000\n"
 "PO-Revision-Date: 2008-02-12 18:14+0700\n"
 "Last-Translator: Auk Piseth <piseth_dv@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -1049,7 +1049,7 @@ msgstr ""
 msgid "Bug Fixing"
 msgstr ""
 
-#: src/main.cpp:53
+#: src/main.cpp:54
 #, fuzzy, kde-format
 msgid "Document to open."
 msgstr "ឯកសារ​ត្រូវ​បើក"
