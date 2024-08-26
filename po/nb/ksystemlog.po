@@ -1019,7 +1019,6 @@ msgstr "&Avbryt"
 
 #: src/main.cpp:24
 #, fuzzy, kde-format
-#| msgid "KSystemlog"
 msgid "KSystemLog"
 msgstr "KSystemlog"
 
