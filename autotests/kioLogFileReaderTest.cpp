@@ -7,7 +7,7 @@
 
 #include <QTest>
 
-//#include <qtest_kde.h>
+// #include <qtest_kde.h>
 
 #include "kioLogFileReader.h"
 #include "logFile.h"

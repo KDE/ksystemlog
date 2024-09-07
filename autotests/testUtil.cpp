@@ -9,7 +9,7 @@
 #include <QTemporaryFile>
 #include <QTest>
 
-//#include <qtest_kde.h>
+// #include <qtest_kde.h>
 
 #include "kernelFactory.h"
 #include "systemFactory.h"
