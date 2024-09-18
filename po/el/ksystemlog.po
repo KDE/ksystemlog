@@ -1043,10 +1043,9 @@ msgid "&Cancel"
 msgstr "&Ακύρωση"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
-msgstr "KSystemlog"
+msgstr "KSystemLog"
 
 #: src/main.cpp:26
 #, kde-format
