@@ -7,20 +7,21 @@
 # Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
 # Stelios <sstavra@gmail.com>, 2015, 2017, 2021.
 # Petros Vidalis <pvidalis@gmail.com>, 2016.
+# SPDX-FileCopyrightText: 2024 Antonis Geralis <capoiosct@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2021-07-03 09:33+0300\n"
-"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"PO-Revision-Date: 2024-09-20 09:39+0300\n"
+"Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1104,7 +1105,7 @@ msgstr "Laurent Montel"
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr "Διόεθωση σφαλμάτων"
+msgstr "Διόρθωση σφαλμάτων"
 
 #: src/main.cpp:54
 #, kde-format
@@ -1221,7 +1222,7 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Προεπισκόπηση εκτώπωσης της επιλογής. Απλώς επιλέξτε τις επιθυμητές γραμμές "
+"Προεπισκόπηση εκτύπωσης της επιλογής. Απλώς επιλέξτε τις επιθυμητές γραμμές "
 "και κάντε κλικ σε αυτή την καταχώριση του μενού για να τις εκτυπώσετε."
 
 #: src/mainWindow.cpp:541
