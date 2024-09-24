@@ -1,0 +1,452 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>&ksystemlog; Priročnik</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Jan</firstname
+><surname
+>Napast</surname
+><affiliation
+><address
+><email
+>jan.napast153@gmail.com</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>17.04.2016</date>
+<releaseinfo
+>0.4 (Aplikacije 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&ksystemlog; je orodje za pregledovanje sistemskega dnevnika &kde;. Ta program je razvit za začetnike, ki ne vedo, kako najti informacije o svojem sistemu ali kje se nahajajo dnevniške datoteke. Zasnovan je tudi za napredne uporabnike, ki želijo hitro videti težave, ki se pojavljajo na njihovem strežniku. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>KDE</keyword>
+	<keyword
+>dnevniki</keyword>
+	<keyword
+>ksystemlog</keyword>
+	<keyword
+>varnost</keyword>
+	<keyword
+>cron</keyword>
+	<keyword
+>prtljažnik</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfiks</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>Uporaba &ksystemlog;</title>
+
+	<sect1 id="introduction">
+		<title
+>Uvod</title>
+
+		<sect2>
+			<title
+>Kaj je &ksystemlog; ?</title>
+			<para
+>&ksystemlog; je orodje za pregledovanje sistemskega dnevnika.</para>
+
+			<para
+>&ksystemlog; uporabnikom pomaga razumeti, kaj njihov stroj počne v ozadju. &ksystemlog; želi poenostaviti branje sistemskih dnevniških datotek. Ta program je razvit za začetnike, ki ne vedo, kako najti informacije o svojem sistemu ali kje se nahajajo dnevniške datoteke v njihovem računalniku. </para>
+
+			<para
+>Zasnovan pa je tudi za napredne uporabnike, ki želijo hitro videti težave, ki se pojavljajo na njihovem strežniku. &ksystemlog; poskuša zagotoviti nekaj naprednih funkcij, ki omogočajo razvrščanje in branje dnevnikov iz določenih programov. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; glavni zaslon</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; glavni zaslon</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>Lastnosti</title>
+
+			<para
+>V trenutni različici &ksystemlog; 0.4 ima precej koristnih funkcij, kot so: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Podpora za veliko različnih vrst dnevniških datotek s podporo za formatiranje strežnika Syslog, Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>Pogled z zavihki za prikaz več dnevnikov hkrati</simpara
+></listitem>
+				<listitem
+><simpara
+>Branje enega načina dnevnika iz več virov</simpara
+></listitem>
+				<listitem
+><simpara
+>Samodejni prikaz na novo zabeleženih vrstic v krepkem tisku</simpara
+></listitem>
+				<listitem
+><simpara
+>Združevanje po različnih kriterijih (raven dnevnika, dnevniška datoteka, proces, ura, ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>Podrobne informacije za vsako vrstico dnevnika</simpara
+></listitem>
+				<listitem
+><simpara
+>Ročno dodajanje vnosa v dnevnik</simpara
+></listitem>
+				<listitem
+><simpara
+>Filtriranje po prioriteti</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Podpira naslednje dnevniške datoteke iz vašega sistema: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>Dnevniki sistemskega dnevnika (sistemska sporočila)</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki jedra</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki preverjanja pristnosti</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki Cups</simpara
+></listitem>
+				<listitem
+><simpara
+>Postfix dnevniki</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>Samba dnevniki</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki Daemons</simpara
+></listitem>
+				<listitem
+><simpara
+>Cron dnevniki</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki XSessions</simpara
+></listitem>
+				<listitem
+><simpara
+>Dnevniki Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>Vključenih je veliko drugih funkcij, ki bodo obravnavane v ustreznih poglavjih tega priročnika. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>Branje dnevnikov z &ksystemlog;</title>
+
+		<para
+>Kot boste videli na naslednjih posnetkih zaslona, &ksystemlog; ponuja funkcije za enostavno razvrščanje in filtriranje vrstic dnevnika. Zdaj jih bomo opisali v naslednjih delih te dokumentacije. </para>
+
+		<sect2 id="getting_started">
+			<title
+>Začetek</title>
+
+			<para
+>Ko zaženete &ksystemlog;, poskuša privzeto odpreti najbolj uporaben dnevnik, <guilabel
+>Sistemski dnevnik</guilabel
+>. Če ga ne prikaže in prikaže okno s sporočilom, ste verjetno pozabili zagnati &ksystemlog; kot skrbniški uporabnik (običajno imenovan root). Dnevniške datoteke so običajno na voljo v mapi /var/log, ki je pogosto zaščitena pred običajnimi uporabniki. V pogovornem oknu z nastavitvami lahko izberete drug dnevnik, ki se odpre ob zagonu. </para>
+
+			<screenshot>
+				<screeninfo
+>&ksystemlog; prvi zagon</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>&ksystemlog; prvi zagon</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>Preprosto branje dnevniških datotek</title>
+
+			<sect3 id="sorting">
+				<title
+>Razvrščanje vrstic dnevnika</title>
+				<para
+>Vsaka vrstica dnevnika je prikazana v pogledu seznama, ki ga lahko razvrstite s klikom na želeni stolpec. Še en klik ga bo razvrstil v drugem vrstnem redu. Če želite razvrstiti seznam, kot je bil ob prvem nalaganju, lahko uporabite menijsko postavko <menuchoice
+><guimenu
+>Uredi</guimenu
+><guimenuitem
+>Znova naloži</guimenuitem
+></menuchoice
+> ali pa preprosto kliknete prvi stolpec seznama, običajno imenovan <guilabel 
+>Datum</guilabel 
+>, za razvrščanje seznama v naraščajočem vrstnem redu. Tudi če vaš način dnevnika ne porabi časa za opis vsake vrstice dnevnika, na primer <guilabel
+>Dnevnik X.org</guilabel
+>, bo seznam pravilno razvrščen, ker &ksystemlog; ohranja notranji vrstni red seznama. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>Filtriranje vrstic dnevnika</title>
+
+				<screenshot>
+					<screeninfo
+>Filtriranje v določenem procesu</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>Filtriranje določenega procesa</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>Za filtriranje po izbranih kriterijih in vnesenem nizu lahko uporabite tudi vrstico za filtriranje. Preprosto vnesite nekaj v filter in seznam bo samodejno spremenjen tako, da bo prikazal samo vrstice, ki se ujemajo z nizom vašega filtra. Kombinirano polje poleg filtra privzeto izbere <guilabel
+>Vse</guilabel
+>, kar pomeni, da bo vrstica prikazana samo, če eden od njenih stolpcev vsebuje niz filtra. </para>
+
+				<para
+>Izberete lahko drugo polje, da filtrirate samo ta stolpec seznama. Na primer, v <guilabel
+>Sistemskem dnevniku</guilabel
+>, tako da izberete stolpec <guilabel
+>Proces</guilabel
+> in vpišete ime procesa v vrstico filtra, &ksystemlog; prikaže vse vrstice dnevnika, ki jih pošlje ta proces. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>Druge lastnosti</title>
+
+			<sect3 id="colorizing">
+				<title
+>Barvanje vrstic dnevnika</title>
+
+				<para
+>Ta možnost je privzeto aktivirana in vam pomaga videti, katere vrstice imajo višjo raven od drugih. Na primer, raven <guilabel
+>Napaka</guilabel
+> bo označena z drugo barvo kot <guilabel
+>Obvestilo</guilabel
+>. To funkcijo lahko onemogočite v konfiguracijskem pogovornem oknu. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>Skrivanje identifikatorja procesa</title>
+
+				<para
+>Če vas zanima samo določen proces (na primer v <guilabel
+>Sistemskem dnevniku</guilabel
+> ali <guilabel
+>Cron Dnevniku</guilabel
+>), lahko skrijete njegov PID v <guilabel
+>Proces</guilabel
+> 
+> stolpec. To je lahko koristno, če poskušate analizirati izhod določenega ukaza, kot je strežnik Samba. V tem primeru uporabite <link linkend="filtering"
+>vrstico filtrov</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>Pošlji logd po e-pošti</title>
+				<para
+>Kontekstni meni ima dejanje <guilabel
+>Izbira e-pošte</guilabel
+>. Izberite ustrezne vrstice v dnevniku in uporabite to dejanje, da odprete okno skladatelja vašega privzetega e-poštnega odjemalca, ki je vnaprej napolnjeno z izbiro. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>Upravljanje spremljanja</title>
+
+		<para
+>&ksystemlog; omogoča enostaven način za nadzor branja in spremljanja dnevniških datotek. Včasih morate dejansko analizirati samo nekatere obstoječe vrstice dnevnika. V tem primeru ne morete dopustiti pojava nove vrstice. Spremljanje dnevniških datotek lahko deaktivirate s klikom na gumb <guibutton
+>Ustavi</guibutton
+>. To prepreči posodabljanje odprtih dnevniških datotek, hkrati pa pusti, da jih napolnijo drugi procesi. Seveda lahko ponovno aktivirate spremljanje s klikom na <guibutton
+>Nadaljuj</guibutton
+>, kar bo prikazalo vrstice dnevnika, dodane od zadnjega premora. </para>
+
+		<para
+>Poleg tega, da se osredotočite na novo prikazane vrstice dnevnika, lahko preklopite možnost <guimenuitem
+>Pomakni se do novih vrstic</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>Upravljanje več odprtih zavihkov</title>
+
+		<para
+>&ksystemlog; omogoča odpiranje več načinov dnevnika z odpiranjem več zavihkov. Za to preprosto uporabite meni <guimenu
+>Okno</guimenu
+> za upravljanje in odpiranje novih zavihkov. Ko izberete pravi zavihek, preprosto izberite želeni način dnevnika v namenskem meniju. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>Zasluge in licenca</title>
+
+	<para
+>&ksystemlog;</para>
+	<para
+>&ksystemlog;, Copyright 2008 by Nicolas Ternisien </para>
+
+	<para
+>Sodelovalci:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>Patrick Dreker : Ideje, izboljšave kode.</simpara
+></listitem>
+		<listitem
+><simpara
+>Bojan : Način dnevnika SSH, tiskanje.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>Posebna zahvala vsem prevajalcem &ksystemlog;.</emphasis>
+	</para>
+
+	<para
+>Prevod: Jan Napast<email
+>jan.napast153@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
