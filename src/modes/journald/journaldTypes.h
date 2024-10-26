@@ -24,7 +24,10 @@ struct JournalFilters {
     QStringList systemdUnits;
 };
 
-enum class JournaldAnalyzerType { Local, Network };
+enum class JournaldAnalyzerType {
+    Local,
+    Network
+};
 
 struct JournaldAnalyzerOptions {
     JournaldAnalyzerType analyzerType = JournaldAnalyzerType::Local;

@@ -25,10 +25,17 @@ class Analyzer : public QObject
     Q_OBJECT
 
 public:
-    enum ReadingMode { UpdatingRead, FullRead };
+    enum ReadingMode {
+        UpdatingRead,
+        FullRead
+    };
     Q_DECLARE_FLAGS(ReadingModes, ReadingMode)
 
-    enum LogFileSortMode { AscendingSortedLogFile, FilteredLogFile, UnsortedLogFile };
+    enum LogFileSortMode {
+        AscendingSortedLogFile,
+        FilteredLogFile,
+        UnsortedLogFile
+    };
     Q_DECLARE_FLAGS(LogFileSortModes, LogFileSortMode)
 
     explicit Analyzer(LogMode *mode);
