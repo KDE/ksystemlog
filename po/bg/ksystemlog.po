@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2024-05-30 20:40+0200\n"
+"PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -439,17 +439,17 @@ msgstr "Главна лента с инструменти"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Отваряне на \"%1\"..."
+msgstr "Отваряне на „%1“..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "Журналният файл \"%1\" е зареден успешно."
+msgstr "Журналният файл „%1“ е зареден успешно."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "Журналният файл \"%1\" е променен."
+msgstr "Журналният файл „%1“ е променен."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -549,7 +549,7 @@ msgstr "Файлът не съществува"
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr "Файл \"%1\" не съществува."
+msgstr "Файл „%1“ не съществува."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
@@ -564,7 +564,7 @@ msgstr "Грешка при разкомпресиране на файла"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "Нямате достатъчно права за четене на \"%1\"."
+msgstr "Нямате достатъчно права за четене на „%1“."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -585,7 +585,7 @@ msgstr "Дневникът е зареден успешно."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "Адресът \"%1\" е невалиден и ще бъде пропуснат."
+msgstr "Адресът „%1“ е невалиден и ще бъде пропуснат."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -804,7 +804,7 @@ msgstr "Показване/скриване на колона '%1'"
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr "Процесът \"%1\" блокира."
+msgstr "Процесът „%1“ блокира."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
@@ -2148,7 +2148,7 @@ msgstr "добавяне"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr "\"%1\" не е локален файл."
+msgstr "„%1“ не е локален файл."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
