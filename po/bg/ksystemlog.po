@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2024-11-09 20:04+0100\n"
+"PO-Revision-Date: 2024-11-10 20:12+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -554,7 +554,7 @@ msgstr "Файл „%1“ не съществува."
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "Не е възможно да се разкомпресира форматът '%2' на '%1'."
+msgstr "Не е възможно да се разкомпресира форматът „%2“ на „%1“."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
@@ -694,13 +694,13 @@ msgstr "Записване на избрани записи в дневника 
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "1 ред от дневника е записан в '%2'."
-msgstr[1] "%1 реда от дневника е записан в '%2'."
+msgstr[0] "1 ред от дневника е записан в „%2“."
+msgstr[1] "%1 реда от дневника е записан в „%2“."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "Невъзможно е да се запише файл '%1': Разрешението е отказано."
+msgstr "Невъзможно е да се запише файл „%1“: Разрешението е отказано."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
@@ -799,7 +799,7 @@ msgstr "Дата"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Показване/скриване на колона '%1'"
+msgstr "Показване/скриване на колона „%1“"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
@@ -1852,7 +1852,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Отваря диалогов прозорец "
-"за даизберете нов файл, който да бъде добавен в списъка.</p></body></html>"
+"за да изберете нов файл, който да бъде добавен в списъка.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
