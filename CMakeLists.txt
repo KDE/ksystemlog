@@ -105,7 +105,7 @@ add_custom_target(
 
 ########### Subfolders ##########
 ecm_set_disabled_deprecation_versions(QT 6.7
-    KF 6.4.0
+    KF 6.10.0
 )
 
 
