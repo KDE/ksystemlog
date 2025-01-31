@@ -5,49 +5,50 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Maris Nartiss <maris.kde@gmail.com>, 2008, 2009.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2009-07-07 22:14+0300\n"
-"Last-Translator: Viesturs Zariņš <viesturs.zarins@mii.lu.lv>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2025-01-29 18:32+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Viesturs Zariņš"
+msgstr "Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "viesturs.zarins@mii.lu.lv"
+msgstr "viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr "Ielādēt šo žurnāla moduli sākot darbu."
+msgstr "Sākot darbu, ielādēt šo žurnāla moduli."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr "Žurnāla attēlojamo rindu skaita ierobežojums."
+msgstr "Attēlojamo žurnāla rindu skaita ierobežojums."
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
-msgstr "Patiess, kad lietotājs vēlas dzēst dublētas žurnāla rindas."
+msgstr "Opcijas ir patiesa, kad lietotājs vēlas dzēst dublētas žurnāla rindas."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -55,7 +56,8 @@ msgstr "Patiess, kad lietotājs vēlas dzēst dublētas žurnāla rindas."
 msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
-msgstr "Patiess, ja nerādīt PID SystemLog procesa kolonā."
+msgstr ""
+"Opcijas ir patiesa, ja „SystemLog“ procesa kolonā nevēlaties rādīt PID."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -63,13 +65,15 @@ msgstr "Patiess, ja nerādīt PID SystemLog procesa kolonā."
 msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
-msgstr "Patiess, ja iekrāsot žurnāla rindas, atkarībā no žurnalēšanas līmeņa."
+msgstr ""
+"Opcija ir patiesa, ja programma iekrāso žurnāla rindas atkarībā no "
+"žurnalēšanas līmeņa."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
 #, kde-format
 msgid "Whether the tooltips are enabled."
-msgstr "Vai ir ieslēgas paskaidres."
+msgstr "Vai ir ieslēgtas paskaidres"
 
 #. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:44
@@ -93,7 +97,7 @@ msgstr "Žurnāla rindu datuma formāts."
 #: src/config/ksystemlog.kcfg:71
 #, kde-format
 msgid "The Samba log file paths."
-msgstr "Samba žurnāla faila ceļi."
+msgstr "„Samba“ žurnāla datņu ceļi."
 
 #: src/configurationDialog.cpp:26
 #, kde-format
@@ -121,7 +125,7 @@ msgstr "&Nākamais"
 #: src/detailDialogBase.ui:14
 #, kde-format
 msgid "Log Line Details"
-msgstr "Žurnāla rindas detaļas"
+msgstr "Žurnāla rindas informācija"
 
 #. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:17
@@ -129,7 +133,7 @@ msgstr "Žurnāla rindas detaļas"
 msgid ""
 "This dialog displays detailed information about the currently selected log "
 "line."
-msgstr "Ši logs rāda detalizētu informāciju par izvēlēto žurnāla rindu."
+msgstr "Šis lodziņš rāda sīkāku informāciju par atlasīto žurnāla rindu."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (text), widget (KTextEdit, message)
@@ -156,7 +160,7 @@ msgstr "Ikona"
 #: src/detailDialogBase.ui:70
 #, kde-format
 msgid "Main information"
-msgstr "Galvenā informācija"
+msgstr "Pamata informācija"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:100
@@ -171,8 +175,8 @@ msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
 msgstr ""
-"Pāriet uz iepriekšējo rindu. Šī poga ir atslēgta, ja nav iepriekšējās "
-"žurnāla rindas."
+"Pāriet uz iepriekšējo rindu. Šī poga ir izslēgta, ja iepriekšējās žurnāla "
+"rindas nav."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
@@ -192,8 +196,7 @@ msgstr "Iet uz nākamo rindu"
 msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
-msgstr ""
-"Pāriet uz nākamo rindu. Šī poga ir atslēgta, ja nav nākamās žurnāla rindas."
+msgstr "Pāriet uz nākamo rindu. Šī poga ir izslēgta, ja šī ir pēdējā rinda."
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
@@ -205,13 +208,13 @@ msgstr "&Tālāk"
 #: src/detailDialogBase.ui:160
 #, kde-format
 msgid "Close the Detail dialog."
-msgstr "Aizvērt detaļu logu."
+msgstr "Aizvērt informācijas logu."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:163
 #, kde-format
 msgid "Closes this Detail dialog."
-msgstr "Aizver šo detaļu logu."
+msgstr "Aizver šo informācijas logu."
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:166
@@ -222,17 +225,15 @@ msgstr "Ai&zvērt"
 #: src/generalConfigurationWidget.cpp:30
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
-msgstr ""
+msgstr "Šis režīms nav pieejams, jo tā žurnāla datnes nepastāv."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
 msgid "No Log Mode"
-msgstr "Nav žurnāla režīma"
+msgstr "Žurnāla režīma nav"
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "Date format Option (Date example)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -241,20 +242,19 @@ msgstr "%1 (%2)"
 #: src/generalConfigurationWidgetBase.ui:18
 #, kde-format
 msgid "Startup"
-msgstr "Startēšana"
+msgstr "Palaišana"
 
 #. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
 #: src/generalConfigurationWidgetBase.ui:26
-#, fuzzy, kde-format
-#| msgid "Load this log mode at startup:"
+#, kde-format
 msgid "Load &this log mode at startup:"
-msgstr "Sākot darbu ielādēt šo žurnalēšanas moduli:"
+msgstr "&Sākot darbu, ielādēt šo žurnāla moduli:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr "Žurnalēšanas modulis, ko noklusēti ielādēt pēc palaišanas"
+msgstr "Žurnāla modulis, ko pēc noklusējuma ielādēt palaižoties"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -263,8 +263,8 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
-"Žurnalēšanas modulis, ko noklusēti ielādēt pēc palaišanas. ja nevēlaties "
-"neko ielādēt, izvēlieties 'Nav žurnalēšanas režīma'."
+"Žurnāla modulis, ko pēc noklusējuma ielādēt, programmu palaižot. Ja "
+"nevēlaties neko ielādēt, izvēlieties „Žurnāla režīma nav“."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -274,17 +274,15 @@ msgstr "Žurnāla rindu saraksts"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
-#, fuzzy, kde-format
-#| msgid "Maximum lines displayed:"
+#, kde-format
 msgid "&Maximum lines displayed:"
-msgstr "Maksimums attēloto rindu:"
+msgstr "&Maksimālais attēlojamo rindu skaits:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
-msgstr ""
-"Izvēlieties maksimālo žurnāla rindiņu skaitu, ko rādīt galvenajā skatā."
+msgstr "Izvēlieties maksimālo žurnāla rindu skaitu, ko rādīt galvenajā skatā."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:78
@@ -293,7 +291,7 @@ msgid ""
 "You can choose here the maximum number of log lines displayed in the main "
 "view."
 msgstr ""
-"Šiet varat izvēlēties maksimālo žurnāla rindu skaitu, ko parādīt galvenajā "
+"Šeit varat izvēlēties maksimālo žurnāla rindu skaitu, ko parādīt galvenajā "
 "skatā."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
@@ -313,8 +311,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
-"Izvēlieties šo iespēju, ja vēlaties dzēst dublicētas žurnāla rindas. <b>Šī "
-"iespēja padarīs lēnāku žurnālu lasīšanu</b>."
+"Izvēlieties šo iespēju, ja vēlaties dzēst atkārtojošās žurnāla rindas. <b>Šī "
+"iespēja žurnālu lasīšanu padarīs lēnāku</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
@@ -333,7 +331,7 @@ msgstr "Opcijas"
 #: src/generalConfigurationWidgetBase.ui:118
 #, kde-format
 msgid "Remove process identifier from process name."
-msgstr "Izņemt procesa identifikatoru no procesa nosaukuma."
+msgstr "No procesa nosaukuma izņemt procesa identifikatoru."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:121
@@ -344,16 +342,16 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
-"Izvēlieties šo iespēju, ja vēlaties izņemt procesa identifikatoru no procesa "
-"nosaukuma. Piemēram, <b>Process</b> kolona var saturēt apmēram šādu tekstu "
-"<i>cron<b>[3433]</b></i>. Ieslēdzot šo iespēju, treknrakstā parādītā daļā "
-"tiks izņemta."
+"Atlasiet šo opciju, ja vēlaties izņemt procesa identifikatoru no procesa "
+"nosaukuma. Piemēram, <b>Process</b> kolonna var saturēt apmēram šādu tekstu "
+"<i>cron<b>[3433]</b></i>. Ieslēdzot šo opciju, treknrakstā parādītā daļā "
+"netiks rādīta."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
 #, kde-format
 msgid "Remove &identifier from process name"
-msgstr "Izņemt &identifikatoru no procesa nosaukuma"
+msgstr "No procesa nosaukuma izņemt &identifikatoru"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
@@ -361,7 +359,7 @@ msgstr "Izņemt &identifikatoru no procesa nosaukuma"
 msgid ""
 "This option allows log lines to be colored depending on their log level."
 msgstr ""
-"Šī iespēja ļauj iekrāsot žurnāla rindas, atkarībā no to žurnalēšanas līmeņa."
+"Šī opcija ļauj iekrāsot žurnāla rindas atkarībā no to žurnalēšanas līmeņa."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -371,9 +369,9 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
-"Šī iespēja ļauj iekrāsot žurnāla rindas, atkarībā no to žurnalēšanas līmeņa. "
-"Piemēram, kļūdas būs sarkanā krāsa, brīdinājumi oranžā... Tas palīdzēs ātrāk "
-"ieraudzīt problēmas."
+"Šī opcija ļauj iekrāsot žurnāla rindas, atkarībā no to žurnalēšanas līmeņa. "
+"Piemēram, kļūdas būs sarkanā krāsa, brīdinājumi oranžā utt. Tas palīdzēs "
+"ātrāk ieraudzīt problēmas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
@@ -391,26 +389,25 @@ msgstr "Datuma formāts"
 #: src/generalConfigurationWidgetBase.ui:156
 #, kde-format
 msgid "&Short date format"
-msgstr "Ī&ss datuma formāts"
+msgstr "Ī&sais datuma formāts"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
 #: src/generalConfigurationWidgetBase.ui:163
 #, kde-format
 msgid "&Long date format"
-msgstr "&Garš datuma formāts"
+msgstr "&Garais datuma formāts"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
-#| msgid "&Short date format"
+#, kde-format
 msgid "&Precise date format"
-msgstr "Ī&ss datuma formāts"
+msgstr "Precī&zais datuma formāts"
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
 #, kde-format
 msgid "&Edit"
-msgstr "R&ediģēt"
+msgstr "&Rediģēt"
 
 #. i18n: ectx: Menu (logs)
 #: src/ksystemlogui.rc:31
@@ -434,22 +431,22 @@ msgstr "Žurnālu rīkjosla"
 #: src/ksystemlogui.rc:64
 #, kde-format
 msgid "Main Toolbar"
-msgstr "Galvenā rīkjosla "
+msgstr "Pamata rīkjosla"
 
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Atver '%1'..."
+msgstr "Atver „%1“..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "Žurnāla fails '%1' veiksmīgi ielādēts."
+msgstr "Žurnāla datne „%1“ ir ielādēta."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "Žurnāla fails '%1' tika mainīts."
+msgstr "Žurnāla datne „%1“ ir mainīta."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -469,7 +466,7 @@ msgstr "Informācija"
 #: src/lib/globals.cpp:122
 #, kde-format
 msgid "Notice"
-msgstr "Piezīme"
+msgstr "Informācija"
 
 #: src/lib/globals.cpp:126
 #, kde-format
@@ -504,7 +501,7 @@ msgstr "Žurnalēšanas līmeņa drukāšana"
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr "Izvēlieties kurus žurnāla līmeņus vēlaties parādīt krāsainus."
+msgstr "Izvēlieties, kurus žurnāla līmeņus vēlaties parādīt krāsainus."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
@@ -515,17 +512,17 @@ msgstr "Ielādēšanas progress..."
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Ielādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 faila)"
-msgstr[1] "Ielādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 failiem)"
-msgstr[2] "Ielādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 failiem)"
+msgstr[0] "Ielādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnes)"
+msgstr[1] "Ielādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnēm)"
+msgstr[2] "Ielādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnēm)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Pārlādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 faila)"
-msgstr[1] "Pārlādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 failiem)"
-msgstr[2] "Pārlādē <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>no %1 failiem)"
+msgstr[0] "Pārlādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnes)"
+msgstr[1] "Pārlādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnēm)"
+msgstr[2] "Pārlādē <b>%2</b>...<br /><i>%3</i> — (<b>%4</b>no %1 datnes)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
@@ -540,33 +537,33 @@ msgstr "Pārlādē <b>%1</b>...<br /><i>%2</i>"
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr "Šis fails nav derīgs. Lūdzu pamainiet to KSystemLog iestatījumos."
+msgstr "Šī datne nav derīga. Pārskatiet to „KSystemLog“ iestatījumos."
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
 #, kde-format
 msgid "File Does Not Exist"
-msgstr "Šis fails nepastāv"
+msgstr "Šī datne nepastāv"
 
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr "Fails '%1' nepastāv."
+msgstr "Datne „%1“ nepastāv."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "Neizdevās atspiest '%2' formātā '%1'."
+msgstr "Neizdevās atspiest „%2“ formātā „%1“."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr "Neizdevās atspiest failu"
+msgstr "Neizdevās atspiest datni"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "Jums nepietiek atļauju lasīt '%1'."
+msgstr "Jums nepietiek atļauju „%1“ lasīšanai."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -581,13 +578,13 @@ msgstr "Ielādē žurnālu..."
 #: src/lib/logManager.cpp:92
 #, kde-format
 msgid "Log successfully loaded."
-msgstr "Žurnāls veiksmīgi ielādēts."
+msgstr "Žurnāls ir ielādēts."
 
 #: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "URL '%1' nav derīgs, izlaiž šo URL."
+msgstr "URL „%1“ nav derīgs, izlaiž šo URL."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -638,7 +635,7 @@ msgstr "Līmenis:"
 #: src/modes/xsession/xsessionItemBuilder.cpp:40
 #, kde-format
 msgid "Original file:"
-msgstr "Orģinālais fails:"
+msgstr "Oriģinālā datne:"
 
 #: src/lib/logViewExport.cpp:43
 #, kde-format
@@ -655,13 +652,12 @@ msgstr "---------------------------------------\n"
 msgid ""
 "You have selected too many lines. Please only select important log lines."
 msgstr ""
-"Jūs esat izvēlējies pārāk daudz rindu. Lūdzu izvēlieties tikai svarīgās "
-"žurnāla rindas."
+"Jūs atlasījāt pārāk daudz rindu. Atlasieties tikai svarīgās žurnāla rindas."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid "Too Many Lines Selected"
-msgstr "Izvēlētas pārāk daudz rindas"
+msgstr "Atlasījāt pārāk daudz rindu"
 
 #: src/lib/logViewExport.cpp:67
 #, kde-format
@@ -671,43 +667,43 @@ msgstr "Manas problēmas rindas žurnālā"
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr "Nekas nav izvēlēts. Nekas netika ielikts starpliktuvē."
+msgstr "Nekas nav atlasīts. Nekas nav iekopēts starpliktuvē."
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] "%1 rinda iekopēta starpliktuvē."
-msgstr[1] "%1 rindas iekopētas starpliktuvē."
-msgstr[2] "%1 rindu iekopēts starpliktuvē."
+msgstr[0] "%1 žurnāla rinda ir iekopēta starpliktuvē."
+msgstr[1] "%1 žurnāla rindas iekopētas starpliktuvē."
+msgstr[2] "%1 žurnāla rindu iekopēts starpliktuvē."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
-msgstr "Nav izvēlēta neviena rinda. Lūdzu izvēlieties ko saglabāt."
+msgstr "Nav atlasīta neviena rinda. Atlasiet, ko saglabāt."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr ""
+msgstr "Saglabāt atlasītos žurnāla ierakstus uz..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "%1 rinda saglabāta '%2'."
-msgstr[1] "%1 rindas saglabātas '%2'."
-msgstr[2] "%1 rindu saglabāts '%2'."
+msgstr[0] "%1 žurnāla rinda saglabāta „%2“."
+msgstr[1] "%1 žurnāla rindas saglabātas „%2“."
+msgstr[2] "%1 žurnāla rindu saglabāts „%2“."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "Neizdevās saglabāt failu '%1': Pieeja liegta."
+msgstr "Neizdevās saglabāt datni „%1“: Pieeja ir liegta."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
 msgid "Unable to save file."
-msgstr "Neizdevās saglabāt failu."
+msgstr "Neizdevās saglabāt datni."
 
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
@@ -717,12 +713,12 @@ msgstr "Šeit ierakstiet filtra tekstu"
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
 msgid "Allows you to only list items that match the content of this text."
-msgstr "Ļauj jums parādīt tikai ierakstus, kas satur šo tekstu."
+msgstr "Parāda tikai ierakstus, kas satur šo tekstu."
 
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Šeit ievadiet meklējamo tekstu..."
+msgstr "Ierakstiet meklējamo tekstu..."
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -732,19 +728,19 @@ msgstr "Filtrs:"
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr ""
+msgstr "Atlasiet prioritātes"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr "Šeit izvēlieties filtrēto kolonu"
+msgstr "Izvēlieties filtrēto kolonnu"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
 msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
-msgstr "Ļauj jums pielietot ierakstu filtru tikai vienai kolonai.  \"<i>Visas</i>\" nozīmē ka nav speciāla filtra."
+msgstr "Ļauj pielietot ierakstu filtru tikai vienai kolonnai.  <i>Visas</i>\" nozīmē ka nav speciāla filtra."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -759,7 +755,7 @@ msgstr "Sasniegtas saraksta beigas."
 #: src/lib/logViewSearchWidget.cpp:241
 #, kde-format
 msgid "Phrase not found."
-msgstr "Frāze netika atrasta"
+msgstr "Frāze nav atrasta"
 
 #. i18n: ectx: property (text), widget (QLabel, searchLabel)
 #: src/lib/logViewSearchWidgetBase.ui:41
@@ -797,12 +793,12 @@ msgstr "Datums"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Rādīt/Slēpt kolonu '%1'"
+msgstr "Rādīt/slēpt kolonnu „%1“"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr "Process '%1' avarēja."
+msgstr "Process „%1“ avarēja."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
@@ -918,8 +914,8 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
-"Neizdevās sistēmā atrast 'logger' komandu. Lai pārbaudītu vai tā ir "
-"instalēta, lūdzu, Konsolē palaidiet 'logger' komandu."
+"Neizdevās sistēmā atrast „logger“ komandu. Lai pārbaudītu, vai tā ir "
+"instalēta, programmā „Konsole“ palaidiet „logger“ komandu."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
@@ -929,7 +925,7 @@ msgstr "Komanda nav atrasta"
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr "Komanda 'logger' nav korekti izieta."
+msgstr "Nekorekti izgāja no „logger“ komandas."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
@@ -939,12 +935,12 @@ msgstr "Izpildīšanas problēma"
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "This file does not exist, please choose another."
-msgstr "Fails nepastāv. Lūdzu izvēlieties citu failu."
+msgstr "Datne nepastāv. Izvēlieties citu datni."
 
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr "Fails nav derīgs"
+msgstr "Datne nav derīga"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
@@ -962,7 +958,7 @@ msgstr "&Ziņojums:"
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr "&Faila saturs:"
+msgstr "&Datnes saturs:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
@@ -986,7 +982,7 @@ msgstr "&Ierīce:"
 #: src/loggerDialogBase.ui:229
 #, kde-format
 msgid "&Tag:"
-msgstr "&Tags:"
+msgstr "&Birka:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
 #: src/loggerDialogBase.ui:241
@@ -998,19 +994,19 @@ msgstr "Žurnalēt procesa &identifikatoru"
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr "Atvērt 'logger' komandas rokasgrāmatu."
+msgstr "Atvērt „logger“ komandas rokasgrāmatu."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr "Šī saite atver 'žurnalētāja' komandas rokasgrāmatu."
+msgstr "Šī saite atver „logger“ komandas rokasgrāmatu."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
 #, kde-format
 msgid "<a href=\"man:/logger\">Logger Manual</a>"
-msgstr "<a href=\"man:/logger\">Žurnalētāja rokasgrāmata</a>"
+msgstr "<a href=\"man:/logger\">„Logger“ rokasgrāmata</a>"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonOK)
 #: src/loggerDialogBase.ui:322
@@ -1025,22 +1021,19 @@ msgid "&Cancel"
 msgstr "At&celt"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
 msgstr "KSystemLog"
 
 #: src/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "System Logs Viewer for KDE"
+#, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr "Sistēmas žurnālu skatītājs priekš KDE"
+msgstr "KDE sistēmas žurnālu skatītājs"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "(C) 2007, Nicolas Ternisien"
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(c) 2007 Nicolas Ternisien"
+msgstr "(C) 2007—2015, Nicolas Ternisien"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1048,7 +1041,7 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
-"Droši ziņojiet par kļūdām Nicolas Ternisien <a href='mailto:nicolas."
+"Ja saskaraties ar kļūdām, rakstiet Nicolas Ternisien <a href='mailto:nicolas."
 "ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
 #: src/main.cpp:34
@@ -1064,12 +1057,12 @@ msgstr "Galvenais izstrādātājs"
 #: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
-msgstr ""
+msgstr "Vyacheslav Matyushin"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr ""
+msgstr "„Journald“ režīms, kļūda labojumi"
 
 #: src/main.cpp:39
 #, kde-format
@@ -1084,18 +1077,17 @@ msgstr "Žurnāla drukāšana"
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Kļūdu labojumi"
 
 #: src/main.cpp:54
-#, fuzzy, kde-format
-#| msgid "Document to open"
+#, kde-format
 msgid "Document to open."
-msgstr "Atveramais dokuments"
+msgstr "Atveramais dokuments."
 
 #: src/mainWindow.cpp:308
 #, kde-format
@@ -1123,7 +1115,7 @@ msgstr "A&tsākt"
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr "Atsākt aktīvā žurnāla novērošanu"
+msgstr "Atsākt aktīvā žurnāla pārraudzīšanu"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1131,8 +1123,8 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
-"Atsāk aktīvā žurnāla novērošanu. Šī darbība ir pieejma tikai, ja lietotājs "
-"ir apturējis lasīšanu."
+"Atsāk aktīvā žurnāla pārraudzīšanu. Šī darbība ir pieejama tikai, ja "
+"lietotājs ir apturējis lasīšanu."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1142,7 +1134,7 @@ msgstr "Ap&turēt"
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
-msgstr "Apturēt aktīvā žurnāla novērošanu"
+msgstr "Apturēt aktīvā žurnāla pārraudzību"
 
 #: src/mainWindow.cpp:345
 #, kde-format
@@ -1151,8 +1143,8 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
-"Aptur aktīvā žurnāla novērošanu. Šī darbība ir īpaši noderīga, ja sistēma "
-"tajā raksta ļoti daudz rindu, liekot KSystemLog to pārāk bieži atjaunināt."
+"Aptur aktīvā žurnāla pārraudzību. Šī darbība ir īpaši noderīga, ja sistēma "
+"tajā raksta ļoti daudz rindu, liekot „KSystemLog“ to pārāk bieži atjaunināt."
 
 #: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
@@ -1163,22 +1155,22 @@ msgstr "Tukšs žurnāls"
 #: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
-msgstr "Atvērt failu ar KSystemLog"
+msgstr "Atvērt datni programmā „KSystemLog“"
 
 #: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
-msgstr "Atver faili ar KSystemLog un parāda tā saturu aktīvajā cilnē."
+msgstr "Atver datni programmā „KSystemLog“ un parāda tā saturu aktīvajā cilnē."
 
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "&Drukāt izvēlēto..."
+msgstr "&Drukāt atlasīto..."
 
 #: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
-msgstr "Drukāt izvēlēto"
+msgstr "Drukāt atlasīto"
 
 #: src/mainWindow.cpp:527
 #, kde-format
@@ -1186,37 +1178,32 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
-"Drukā izvēlēto. Vienkārši izvēlieties svarīgās rindas un nospiediet šo "
-"izvēlnes ierakstu."
+"Drukā atlasīto. Vienkārši atlasiet svarīgās rindas un nospiediet šo "
+"atlasīšanas ierakstu."
 
 #: src/mainWindow.cpp:532
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Drukāt izvēlēto..."
+msgstr "&Atlases drukas priekšskatījums..."
 
 #: src/mainWindow.cpp:533
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "Drukāt izvēlēto"
+msgstr "Atlases drukas priekšskatījums"
 
 #: src/mainWindow.cpp:535
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Drukā izvēlēto. Vienkārši izvēlieties svarīgās rindas un nospiediet šo "
-"izvēlnes ierakstu."
+"Parāda atlases drukas priekšskatījumu. Lai atlasi izdrukātu, atlasiet "
+"svarīgākās rindas un klikšķiniet uz šī izvēlnes ieraksta."
 
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
-msgstr "Saglabāt izvēlēto failā"
+msgstr "Saglabāt atlasīto datnē"
 
 #: src/mainWindow.cpp:543
 #, kde-format
@@ -1224,23 +1211,23 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
-"Saglabā izvēlēto failā. Tas noder, ja vēlaties izveidot nosūtāmu pielikumu "
+"Saglabā atlasīto datnē. Tas noder, ja vēlaties izveidot nosūtāmu pielikumu "
 "vai žurnāla rezerves kopiju."
 
 #: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr "Iziet no KSystemLog"
+msgstr "Iziet no „KSystemLog“"
 
 #: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr "Iziet no KSystemLog."
+msgstr "Iziet no „KSystemLog“."
 
 #: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr "Kopēt izvēlēto uz starpliktuvi"
+msgstr "Kopēt atlasīto starpliktuvē"
 
 #: src/mainWindow.cpp:555
 #, kde-format
@@ -1248,18 +1235,18 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
-"Kopē izvēlēto uz starpliktuvi. šī darbība ir noderīga, ja vēlaties ielīmēt "
-"izvēlēto citā programmā."
+"Kopē atlasīto starpliktuvē. Šī darbība ir noderīga, ja vēlaties to ielīmēt "
+"citā programmā."
 
 #: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
-msgstr "Iz&plest visu"
+msgstr "Iz&vērst visu"
 
 #: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
-msgstr "Izplest visas kategorijas"
+msgstr "Izvērst visas kategorijas"
 
 #: src/mainWindow.cpp:563
 #, kde-format
@@ -1268,7 +1255,7 @@ msgid ""
 "been selected in the <b>Group By</b> menu."
 msgstr ""
 "Šī darbība atver visas galvenās kategorijas. Tā ir ieslēgta tikai, ja ir "
-"izvēlēta kāda no iespējām <b>Grupēt pēc</b> izvēlnē."
+"atlasīta kāda no iespējām <b>Grupēt pēc</b> izvēlnē."
 
 #: src/mainWindow.cpp:569
 #, kde-format
@@ -1278,7 +1265,7 @@ msgstr "Sa&kļaut visu"
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
-msgstr "Sakļaut visas kategorijas."
+msgstr "Sakļaut visas kategorijas"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1287,17 +1274,17 @@ msgid ""
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
 "Šī darbība aizver visas galvenās kategorijas. Tā ir ieslēgta tikai, ja ir "
-"izvēlēta kāda no iespējām <b>Grupēt pēc</b> izvēlnē."
+"atlasīta kāda no iespējām <b>Grupēt pēc</b> izvēlnē."
 
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "Izvēlēto uz &e-pastu..."
+msgstr "Atlasīto uz &e-pastu..."
 
 #: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
-msgstr "Nosūtīt izvēlēto pa e-pastu"
+msgstr "Nosūtīt atlasīto pa e-pastu"
 
 #: src/mainWindow.cpp:582
 #, kde-format
@@ -1305,8 +1292,8 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
-"Nosūta izvēlēto pa e-pastu. Vienkārši izvēlieties vajadzīgās rindas un "
-"nospiediet šo, lai nosūtītu tās draugam vai uz vēstkopu."
+"Nosūta atlasīto pa e-pastu. Lai nosūtītu atlasīto draugam vai uz vēstkopu, "
+"atlasiet vajadzīgās rindas un spiediet te."
 
 #: src/mainWindow.cpp:588
 #, kde-format
@@ -1329,7 +1316,7 @@ msgstr ""
 #: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr "Izvēlēties visas aktīvā žurnāla rindas"
+msgstr "Atlasīt visas aktīvā žurnāla rindas"
 
 #: src/mainWindow.cpp:598
 #, kde-format
@@ -1337,13 +1324,13 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
-"Izvēlas visas aktīvā žurnāla rindas. Šī darbība noder, ja vēlaties, "
-"piemēram, saglabāt failā visas aktīvā žurnāla rindas."
+"Atlasa visas aktīvā žurnāla rindas. Šī darbība noder, ja vēlaties, piemēram, "
+"datnē saglabāt visas aktīvā žurnāla rindas."
 
 #: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr "Rādīt &filtra joslu"
+msgstr "Rādīt &filtru joslu"
 
 #: src/mainWindow.cpp:615
 #, kde-format
@@ -1373,7 +1360,7 @@ msgstr "Aizvērt aktīvo cilni"
 #: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
-msgstr "Aizver aktīvo cilni"
+msgstr "Aizver aktīvo cilni."
 
 #: src/mainWindow.cpp:631
 #, kde-format
@@ -1442,12 +1429,12 @@ msgstr ""
 #: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
-msgstr "&Detaļas"
+msgstr "&Informācija"
 
 #: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
-msgstr "Rādīt izvēlētās rindas detaļas"
+msgstr "Rādīt informāciju par atlasīto rindu"
 
 #: src/mainWindow.cpp:676
 #, kde-format
@@ -1456,25 +1443,26 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
-"Parāda logu, kas satur izvēlētās rindas detaļas. No šī loga varēsiet navigēt "
-"pa žurnāliem, izmantojot pogas <p>Iepriekšējais</p> un <b>Nākamais</b>."
+"Parāda logu, kas satur informāciju par atlasīto rindu. No šī loga varēsiet "
+"iet cauri žurnāliem, izmantojot pogas <p>Iepriekšējais</p> un <b>Nākamais</"
+"b>."
 
 #: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr "I&eslēgt detalizētas paskaidres"
+msgstr "I&eslēgt informatīvas paskaidres"
 
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr "Ieslēgt/Izslēgt paskaidres aktīvajā skatā"
+msgstr "Ieslēgt/izslēgt paskaidres aktīvajā skatā"
 
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
-"Ieslēdz/Izslēdz vai aktīvajā skatā rādīt paskaidres, uzkavējoties ar kursoru "
+"Ieslēdz/Izslēdz vai aktīvajā skatā rādīt paskaidres, ar kursoru uzkavējoties "
 "uz rindas."
 
 #: src/mainWindow.cpp:690
@@ -1494,9 +1482,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"Vai ritināt uz jaunajām rindām, kad izmainās žurnāls. Atzīmējiet šo, la "
-"vēlaties, ka programma automātiski rinina līdz žurnāla faila apakšai, ikreiz "
-"kad tas tiek atsvaidzināts."
+"Vai ritināt uz jaunajām rindām, kad izmainās žurnāls. Atzīmējiet šo, ja "
+"vēlaties, ka programma automātiski ritina līdz žurnāla datnes apakšai "
+"ikreiz, kad tas tiek atsvaidzināts."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1516,12 +1504,13 @@ msgstr "Tips"
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
 msgid "Acpid Log"
-msgstr "Acpid žurnāls"
+msgstr "„Acpid“ žurnāls"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
-msgstr "<p>Šie faili tiks analizēti, lai parādītu <b>Acpid žurnālu</b>.</p>"
+msgstr ""
+"<p>Šīs datnes tiks analizētas, lai parādītu <b>„Acpid“ žurnālu</b>.</p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
@@ -1546,13 +1535,13 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
-"Parāda aktīvajā cilnē APCI žurnālu. ACPI pārvalda datora pamata aparatūru, "
-"piemēram, baterijas un reset pogu."
+"Aktīvajā cilnē parāda APCI žurnālu. ACPI pārvalda datora pamata aparatūru, "
+"piemēram, baterijas, pārstartēšanas pogu u.c."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
 msgid "Host Name"
-msgstr "Resursdators:"
+msgstr "Resursdators"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
@@ -1628,12 +1617,12 @@ msgstr "HTTP pieprasījums:"
 #: src/modes/apache/apacheAccessLogMode.cpp:21
 #, kde-format
 msgid "Apache Access Log"
-msgstr "Apache piekļuves žurnāls"
+msgstr "„Apache“ piekļuves žurnāls"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
-msgstr "Rādīt Apache piekļuves žurnālu."
+msgstr "Rādīt „Apache“ piekļuves žurnālu."
 
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
@@ -1642,7 +1631,7 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
-"Parāda akīvajā cilnē Apache piekļuves žurnālu. Apache ir pasaulē "
+"Aktīvajā cilnē parāda „Apache“ piekļuves žurnālu. „Apache“ ir pasaulē "
 "populārākais tīmekļa serveris."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
@@ -1654,7 +1643,7 @@ msgstr "Klients"
 #: src/modes/apache/apacheLogMode.cpp:21
 #, kde-format
 msgid "Apache Log"
-msgstr "Apache žurnāls"
+msgstr "„Apache“ žurnāls"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:16
 #, kde-format
@@ -1662,28 +1651,28 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
-"<p>Šie faili tiks analizēti, lai parādītu <b>Apache žurnālu</b> un <b>Apache "
-"piekļuves žurnālu</b>.</p>"
+"<p>Šīs datnes tiks analizētas, lai parādītu <b>„Apache“ žurnālu</b> un "
+"<b>„Apache“ piekļuves žurnālu</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Apache Log Files"
-msgstr "Apache žurnāla faili"
+msgstr "„Apache“ žurnāla datnes"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Pievienot Apache failu..."
+msgstr "Pievienot „Apache“ datni..."
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Apache Access Log Files"
-msgstr "Apache piekļuves žurnāla faili"
+msgstr "„Apache“ piekļuves žurnāla datnes"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Pievienot Apache piekļuves failu..."
+msgstr "Pievienot „Apache“ piekļuves datni..."
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1698,7 +1687,7 @@ msgstr "Klients:"
 #: src/modes/apache/apacheLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache log."
-msgstr "Rādīt Apache žurnālu."
+msgstr "Rādīt „Apache“ žurnālu."
 
 #: src/modes/apache/apacheLogMode.cpp:31
 #, kde-format
@@ -1706,39 +1695,33 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
-"Parāda aktīvajā cilnē Apache žurnālu. Apache ir pasaulē populārākais tīmekļa "
-"serveris."
+"Aktīvajā cilnē parāda „Apache“ žurnālu. „Apache“ ir pasaulē populārākais "
+"tīmekļa serveris."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Acpid žurnāls"
+msgstr "Audita žurnāls"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
-msgstr "<p>Šie faili tiks analizēti, lai parādītu <b>Acpid žurnālu</b>.</p>"
+msgstr "<p>Lai parādītu <b>Audita žurnālus</b>, tiks analizēts šīs datnes.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "Rāda Cups žurnālu."
+msgstr "Rādīt audita žurnālu."
 
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"Aktīvajā cilnē parāda sistēmas žurnālu. Šo žurnālu parasti izmanto "
-"nepspecializēti procesi (piemēram, \"sudo\" un \"fsck\" komandas)"
+"Pašreizējā cilnē parāda audita žurnālu. Šo žurnālu pamatā izmanto "
+"nespecializēti procesi (piemēram, „sudo“ vai „fsck“ komandas)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1750,17 +1733,17 @@ msgstr "Autentificēšanas žurnāls"
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr ""
+msgstr "Žurnāla datne nepastāv. Režīms nebūs pieejams."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
 msgid "Authentication Log File"
-msgstr "Autentificēšanas žurnāla fails"
+msgstr "Autentificēšanās žurnāla datne"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:33
 #, kde-format
 msgid "Authentication log file:"
-msgstr "Autentificēšanas žurnāla fails:"
+msgstr "Autentificēšanās žurnāla datne:"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:38
 #, kde-format
@@ -1768,7 +1751,7 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
-"Jūs varat ievadīt vai izvēlēties autentificēšanas žurnāla failu (piemēram: "
+"Jūs varat ievadīt vai izvēlēties autentificēšanās žurnāla datni (piemēram, "
 "<i>/var/log/auth.log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
@@ -1778,14 +1761,14 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
-"Jūs varat ievadīt vai izvēlēties autentificēšanas žurnāla failu. Šis fails "
-"tiks analizēts, kad jūs izvēlēsieties <b>Autentificēšanas žrunāla</b> "
-"izvēlni. Parasti tā nosaukums ir <i>/var/log/auth.log</i>"
+"Jūs varat ievadīt vai izvēlēties autentificēšanās žurnāla datni. Šī datne "
+"tiks analizēta, kad atlasīsiet <b>Autentificēšanas žurnāla</b> izvēlni. "
+"Parasti tās nosaukums ir <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
-msgstr "Rādīt autentificēšanas žurnālu."
+msgstr "Rādīt autentificēšanās žurnālu."
 
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
@@ -1794,9 +1777,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
-"Parāda aktīvajā cilnē autentificēšanās žurnālu. Šinī žurnālā tiek "
-"pierakstītas visas lietotāju pieteikšanās sistēmā. Tas var palīdzēt noteikt "
-"vai kāds ir mēģinājis ielauzties tajā."
+"Parāda aktīvajā cilnē autentificēšanās žurnālu. Šajā žurnālā tiek "
+"pierakstītas visas lietotāju ierakstīšanās sistēmā. Tas var palīdzēt "
+"noteikt, vai kāds nav mēģinājis sistēmā ielauzties."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1804,18 +1787,20 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"Dažas žurnāla datnes nepastāv.\n"
+"Ja trūkst visu žurnāla datņu, šis režīms nebūs pieejams."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
 #, kde-format
 msgid "File List Description"
-msgstr "Failu saraksta apraksts"
+msgstr "Datņu saraksta apraksts"
 
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
 #, kde-format
 msgid "Log Files"
-msgstr "Žurnāla faili"
+msgstr "Žurnāla datnes"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:55
@@ -1836,7 +1821,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Izvēlieties jaunu failu</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Izvēlieties jaunu datni</"
 "p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
@@ -1852,23 +1837,26 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Atver jaunu logu, kurā "
-"izvēlēties jaunu failu pievienošanai sarakstam.</p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Atver jaunu logu, kurā "
+"atlasīt jaunu datni pievienošanai sarakstam.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "Pievienot f&ailu..."
+msgstr "Pievienot d&atni..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "&Mainīt failu..."
+msgstr "&Mainīt datni..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1883,10 +1871,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēst aktīvo failu(s) </p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēst pašreizējo datni(-"
+"es)</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1907,14 +1899,14 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēš sarakstā izvēlētos "
-"failus.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēš sarakstā atlasītās "
+"datnes.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
 #, kde-format
 msgid "&Remove"
-msgstr "&Izņemt"
+msgstr "&Noņemt"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:100 src/modes/base/multipleFileListBase.ui:99
@@ -1935,7 +1927,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Izņemt visus failus</p></"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Noņemt visas datnes</p></"
 "body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
@@ -1957,15 +1949,15 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Izņem visus saraksta "
-"failus, pat ja tie nav izvēlēti.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Noņemt visas sarakstā "
+"esošās datnes — pat tad, ja tās nav atlasītas.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:109
 #: src/modes/base/multipleFileListBase.ui:108
 #, kde-format
 msgid "Rem&ove All"
-msgstr "Izņemt &visus"
+msgstr "Noņemt &visas"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:122
@@ -1981,11 +1973,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvietot aktīvo(s) "
-"failu(s) augšup </p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvietot pašreizējo "
+"datni(-es) augšup</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -2007,16 +2002,16 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto izvēlēto failus "
-"sarakstā uz augšu. Šī darbība ļauj KSystemLog šos failus ielasīt <span style="
-"\" font-weight:600;\">vispirms</span>.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto atlasītās datnes "
+"augšup sarakstā. Šī opcija ļauj datnes nolasīt <span style=\" font-"
+"weight:600;\">pirmās</span> ar „KSystemLog“.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
 #: src/modes/base/multipleFileListBase.ui:130
 #, kde-format
 msgid "Move &Up"
-msgstr "Pārvietot &uz augšu"
+msgstr "Pārvietot &augšup"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:141
@@ -2032,11 +2027,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto aktīvo failu(s) "
-"lejup </p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvietot pašreizējo "
+"datni(-es) lejup</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -2058,16 +2056,16 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto izvēlēto failus "
-"sarakstā uz augšu. Šī darbība ļauj KSystemLog šos failus ielasīt <span style="
-"\" font-weight:600;\">vispirms</span>.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto atlasītās datnes "
+"sarakstā lejup. Šī opcija ļauj datnes nolasīt <span style=\" font-weight:600;"
+"\">pēdējās </span> ar „KSystemLog“.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
 #: src/modes/base/multipleFileListBase.ui:149
 #, kde-format
 msgid "Move &Down"
-msgstr "Pārvietot uz &leju"
+msgstr "Pārvietot &lejup"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/fileListBase.ui:175
@@ -2080,10 +2078,10 @@ msgid ""
 "files when adding files.</li></ul>"
 msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Piezīmes:</b></p><ul "
-"style='margin-top:0px'><li>Failus lasa tādā kārtībā, kādā tie ir šajā "
-"sarakstā.</li><li>Pieņem gan saspiestus gan atklāta teksta failus <i>(*.log, "
-"*.gz, *.bz2,...)</i>.</li><li>Pievienojot failus, izmantojiet <b>'*'</b> "
-"simbolu, lai izvēlētos vairākus žurnāla failus.</li></ul>"
+"style='margin-top:0px'><li>Datnes lasa tādā kārtībā, kādā tās ir šajā "
+"sarakstā.</li><li>Pieņem gan saspiestas, gan vienkāršas teksta datnes <i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>Pievienojot datnes, lai izvēlētos "
+"vairākas žurnāla datnes, izmantojiet <b>*</b> simbolu.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2098,11 +2096,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
 "log type.</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">ŠĪ žurnalēšanas veida "
-"lietoto failu saraksts.</p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Datņu saraksts, ko lieto "
+"šis žurnalēšanas tips.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:197
@@ -2124,9 +2125,9 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Šeit ir visu failu "
-"saraksts, lo KSystemLog lasīs, lai attēlotu aktīvā žurnāla rindas.</p></"
-"body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Te ir redzams ar visām "
+"datnēm, ko nolasīs „KSystemLog“, lai parādītu pašreizējās žurnāla rindas.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
@@ -2137,32 +2138,32 @@ msgstr "pievienot"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr "'%1' nav lokāls fails."
+msgstr "„%1“ nav lokāla datne."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
 msgid "File selection failed"
-msgstr "Neizdevās izvēlēties failu"
+msgstr "Datnes atlasīšana neizdevās"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "All Files (*)"
-msgstr "Visi faili (*)"
+msgstr "Visas datnes (*)"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "Log Files (*.log)"
-msgstr "Žurnāla faili (*.log)"
+msgstr "Žurnāla datnes (*.log)"
 
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
 msgid "Choose Log File"
-msgstr "Izvēlieties žurnāla failu"
+msgstr "Atlasīt žurnāla datni"
 
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
-msgstr "Divu masīvu izmēri atšķiras, izlaiž žurnāla failu lasīšanu."
+msgstr "Divu masīvu izmēri atšķiras, izlaiž žurnāla datņu lasīšanu."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
@@ -2172,7 +2173,7 @@ msgstr "&Mainīt statusu..."
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr "Mainīt pašreizējo failu līmeni"
+msgstr "Mainīt pašreizējās datnes(-u) līmeni"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -2180,8 +2181,8 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
-"Izmaina aktīvā faila(u) žurnalēšanas līmeni. Vairāk informācijas par katru "
-"žurnalēšanas līmeni meklējiet KSystemLog dokumentācijā."
+"Izmaina aktīvās datnes(-u) žurnalēšanas līmeni. Lai uzzinātu vairāk par "
+"katru žurnalēšanas līmeni, skatiet „KSystemLog“ dokumentāciju."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
@@ -2193,13 +2194,13 @@ msgstr "Divu masīvu izmēri atšķiras, izlaiž vispārīgo ceļu lasīšanu."
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr "Faila tipa izvēle"
+msgstr "Datnes tipa atlase"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr "Lūdzu norādiet šī faila tipu:"
+msgstr "Norādiet šīs datnes tipu:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2214,10 +2215,13 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Pieejamo žurnalēšanas "
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Pieejamo žurnalēšanas "
 "līmeņu saraksts</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
@@ -2245,8 +2249,8 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Šis ir visu pieejamo "
 "žurnalēšanas līmeņu saraksts. </p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Lūdzu izvēlieties vienu, "
-"kuru izmantot sarakstā izvēlētajiem failiem.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Izvēlieties vienu, ko "
+"izmantot sarakstā atlasītajām datnēm.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
@@ -2254,11 +2258,13 @@ msgid ""
 "Some log files do not exist.\n"
 "Modes with missing log files will be unavailable."
 msgstr ""
+"Atsevišķas žurnāla datnes nepastāv.\n"
+"Režīmi ar trūkstošām datnēm nebūs pieejami."
 
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Nav žurnāla failu..."
+msgstr "Trūkst žurnāla datnes..."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2279,11 +2285,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
 "of the list.</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēš sarakstā izvēlētos "
-"failus.</p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Dzēš sarakstā atlasītās "
+"datnes.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
@@ -2304,8 +2313,8 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Izņem visus saraksta "
-"failus, pat ja tie nav izvēlēti.</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Noņem visas sarakstā "
+"esošās datnes — arī tad, ja tās nav atlasītas.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/multipleFileListBase.ui:127
@@ -2321,12 +2330,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto izvēlēto failus "
-"sarakstā uz augšu. Šī darbība ļauj KSystemLog šos failus ielasīt <span style="
-"\"  font-weight:600;\">vispirms</span>.</p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Atlasītās datnes pārvieto "
+"sarakstā augšup. Šī opcija ļauj „KSystemLog“ datnes nolasīt <span style=\" "
+"font-weight:600;\">pirmās</span>.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2342,12 +2354,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css \">\n"
-" p, li { white-space: pre-wrap; }\n"
-" </style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font- weight:400; font-style:normal;\">\n"
-" <p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin- right:0px; -qt-block-indent:0; text-indent:0px;\">Pārvieto izvēlēto failus "
-"sarakstā uz leju. Šī darbība ļauj KSystemLog šos failus ielasīt <span style="
-"\"  font-weight:600;\">vēlāk</span>.</p></body></html>"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Atlasītās datnes pārvieto "
+"sarakstā augšup. Šī opcija ļauj „KSystemLog“ datnes nolasīt <span style=\" "
+"font-weight:600;\">pēdējās</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2360,10 +2375,10 @@ msgid ""
 "when adding files.</li></ul>"
 msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Piezīmes:</b></p><ul "
-"style='margin-top:0px'><li>Failus lasa tādā kārtībā, kādā tie ir šajā "
-"sarakstā.</li><li>Pieņem gan saspiestus gan atklāta teksta failus <i>(*.log, "
-"*.gz, *.bz2,...)</i>.</li><li>Pievienojot failus, izmantojiet <b>'*'</b> "
-"simbolu, lai izvēlētos vairākus žurnāla failus.</li></ul>"
+"style='margin-top:0px'><li>Datnes lasa tādā secībā, kādā tās ir šajā "
+"sarakstā.</li><li>Pieņem gan saspiestus gan vienkārša teksta datnes<i>(*."
+"log, *.gz, *.bz2,...)</i>.</li><li>Pievienojot datnes, izmantojiet <b>'*'</"
+"b> simbolu, lai atlasītu vairākas žurnāla datnes.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2391,7 +2406,7 @@ msgstr "Komanda"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr "Cron žurnāls"
+msgstr "„Cron“ žurnāls"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2399,8 +2414,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
-"<p>Šie faili tiks analizēti, lai parādītu <b>Cron žurnālus</b> (t.i. plānoto "
-"darbu žurnālus). <a href='man:/cron'>Vairāk informācijas...</a></p>"
+"<p>Šīs datnes tiks analizētas, lai parādītu <b>„Cron“ žurnālus</b> (t.i. "
+"plānoto darbu žurnālus). <a href='man:/cron'>Vairāk informācijas...</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2410,7 +2425,7 @@ msgstr "Ieslēgt procesu filtrēšanu"
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr "Patur tikai tās rindas, kas atbilst šim procesam :"
+msgstr "Patur tikai tās rindas, kas atbilst šim procesam:"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
@@ -2420,7 +2435,7 @@ msgstr "Lietotājs:"
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr "Rādīt plānotos uzdevumus (Cron žurnāls)."
+msgstr "Rādīt plānotos uzdevumus („Cron“ žurnāls)."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2430,10 +2445,10 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
-"Aktīvajā cilnē parāda plānoto darbu žurnālu. Cron process ir programma, kas "
-"jūsu sistēmā atbild par plānoto darbu palaišanu - drošības pārbaužu, servisu "
-"automātisku restartēšanu un citu. Izmantojiet šo izvēlni, lai apskatītu "
-"nesen darbinātos procesus."
+"Aktīvajā cilnē parāda plānoto darbu žurnālu. „Cron“ process ir programma, "
+"kas jūsu sistēmā atbild par plānoto darbu palaišanu — drošības pārbaužu, "
+"servisu automātisku pārstartēšanu un citiem. Izmantojiet šo izvēlni, lai "
+"apskatītu nesen darbinātos procesus."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2463,7 +2478,7 @@ msgstr "IPP statuss"
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr "Cups tīmekļa žurnāls"
+msgstr "CUPS tīmekļa žurnāls"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
@@ -2478,9 +2493,10 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
-"Parāda aktīvajā cilnē CUPS tīmekļa servera piekļuves žurnālu. CUPS ir "
+"Aktīvajā cilnē parāda CUPS tīmekļa servera piekļuves žurnālu. CUPS ir "
 "programma, kas pārvalda drukāšanu. Šis žurnāls satur visus pieprasījumus "
-"CUPS iegulajam tīmekļa serverim (noklusēti: <i>http://localhost:631</i>)."
+"CUPS iegultajam tīmekļa serverim (pēc noklusējuma: <i>http://localhost:631</"
+"i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2493,19 +2509,19 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
-"Sastapts nepazīstams žurnalēšanas līmenis: Lūdzu nosūtiet šo žurnāla failu "
-"KSysstemLog izstrādātājiem, lai pievienotu to."
+"Atrasts nepazīstams žurnalēšanas līmenis: Nosūtiet šo žurnāla datni "
+"pievienošanai „KSysstemLog“ izstrādātājiem."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr "Cups žurnāls"
+msgstr "CUPS žurnāls"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr "Cups &amp; Cups tīmekļa servera žurnāls"
+msgstr "CUPS un CUPS tīmekļa servera žurnāls"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2513,58 +2529,58 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
-"<p>Šie faili tiks analizēti, lai parādītu <b>Cups žurnālu</b> un  <b>Cups "
+"<p>Šīs datnes tiks analizētas, lai parādītu <b>CUPS žurnālu</b> un <b>CUPS "
 "tīmekļa piekļuves žurnālu</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr "Cups žurnāla faili"
+msgstr "CUPS žurnāla datnes"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "Pievienot Cups failu..."
+msgstr "Pievienot CUPS datni..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr "Cups piekļuves žurnāla faili"
+msgstr "CUPS piekļuves žurnāla datnes"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "Pievienot Cups piekļuves failu..."
+msgstr "Pievienot CUPS piekļuves datni..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr "Cups lapu žurnāla faili"
+msgstr "CUPS lapu žurnāla datnes"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "Pievienot Cups lapu failu..."
+msgstr "Pievienot CUPS lapu datni..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr "Cups PDF žurnāla faili"
+msgstr "CUPS PDF žurnāla datnes"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "Pievienot Cups PDF failu..."
+msgstr "Pievienot CUPS PDF datni..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
 msgid "Cups"
-msgstr "Cups"
+msgstr "CUPS"
 
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
-msgstr "Rāda Cups žurnālu."
+msgstr "Rāda CUPS žurnālu."
 
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
@@ -2628,7 +2644,7 @@ msgstr "Darba izmaksas:"
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr "Cups lapu žurnāls"
+msgstr "CUPS lapu žurnāls"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
@@ -2642,9 +2658,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"Parāda aktīvajā cilnē CUPS lapu žurnālu. CUPS ir programma, kas pārvalda "
+"Aktīvajā cilnē parāda CUPS lapu žurnālu. CUPS ir programma, kas pārvalda "
 "drukāšanu. Šis žurnāls satur visus pieprasījumus CUPS iegultajam tīmekļa "
-"serverim (noklusēti: <i>http://localhost:631</i>)."
+"serverim (pēc noklusējuma: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2654,7 +2670,7 @@ msgstr "Ziņojums:"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr "Cups PDF žurnāls"
+msgstr "CUPS PDF žurnāls"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
@@ -2668,9 +2684,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"Parāda aktīvajā cilnē CUPS PDF žurnālu. CUPS ir programma, kas pārvalda "
+"Aktīvajā cilnē parāda CUPS PDF žurnālu. CUPS ir programma, kas pārvalda "
 "drukāšanu. Šis žurnāls satur visus pieprasījumus CUPS iegultajam tīmekļa "
-"serverim (noklusēti: <i>http://localhost:631</i>)."
+"serverim (pēc noklusējuma: <i>http://localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2681,7 +2697,8 @@ msgstr "Dēmonu žurnāli"
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
-msgstr "<p>Šie faili tiks analizēti, lai parādītu <b>Dēmonu žurnālus</b>.</p>"
+msgstr ""
+"<p>Lai pārbaudītu <b>Dēmonu žurnālus</b>, tiks analizētas šīs datnes.</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
@@ -2695,8 +2712,8 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
-"Parāda akīvajā cilnē dēmonu žurnālus. Dēmoni ir visi sistēmas fona procesi. "
-"Apskatiet šos žurnālus, ja vēlaties zināt kas notiek sistēmā fonā."
+"Aktīvajā cilnē parāda dēmonu žurnālus. Dēmoni ir visi sistēmas fona procesi. "
+"Apskatiet šos žurnālus, ja vēlaties zināt, kas notiek sistēmā fonā."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2704,7 +2721,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:71
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "Adrese"
 
 #. i18n: ectx: property (text), widget (QLabel, portLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2712,175 +2729,168 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Ports"
 
 #. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Ieslēgt"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
 msgid "Unit"
-msgstr ""
+msgstr "Vienība"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
-#, fuzzy, kde-format
-#| msgid "Kernel Log"
+#, kde-format
 msgid "Journald Log"
-msgstr "Kodola žurnāls"
+msgstr "„Journald“ žurnāls"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:78
 #: src/modes/journald/journaldConfigurationWidget.cpp:110
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Ieslēgts"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "Pievienot attālu žurnālu"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "Modificēt attālu žurnālu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "„Journald“ opcijas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "Parādīt žurnāla ierakstus no pašreizējā sāknējuma"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "Parādīt visus žurnāla ierakstus"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "Parādīt žurnāla ierakstus no pašreizējā lietotāja procesiem"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "Parādīt žurnāla ierakstus no sistēmas servisiem un kodola"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "Attālie žurnāli"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
 #, kde-format
 msgid "Add address"
-msgstr ""
+msgstr "Pievienot adresi"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:114
 #, kde-format
 msgid "Remove address"
-msgstr ""
+msgstr "Attālā adrese"
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:124
 #, kde-format
 msgid "Modify address"
-msgstr ""
+msgstr "Modificēt adrese"
 
 #: src/modes/journald/journaldFactory.cpp:27
 #, kde-format
 msgid "Journald"
-msgstr ""
+msgstr "Journald"
 
 #: src/modes/journald/journaldFactory.cpp:43
-#, fuzzy, kde-format
-#| msgid "Local 0"
+#, kde-format
 msgid "Local journal"
-msgstr "Lokāls 0"
+msgstr "Lokāls žurnāls"
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "All messages"
-msgstr "Ziņojums"
+msgstr "Visas ziņas"
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr ""
+msgstr "Filtrēt pēc „systemd“ vienības"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr ""
+msgstr "Filtrēt pēc „syslog“ identifikatora"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
 msgid "Connect"
-msgstr ""
+msgstr "Savienoties"
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
-#, fuzzy, kde-format
-#| msgid "&Priority:"
+#, kde-format
 msgid "Priority:"
-msgstr "&Prioritāte:"
+msgstr "Prioritāte:"
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
 msgid "Unit:"
-msgstr ""
+msgstr "Vienība:"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr ""
+msgstr "Lasa „journald“ ierakstus..."
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
-#, fuzzy, kde-format
-#| msgid "Log file '%1' loaded successfully."
+#, kde-format
 msgid "Journald entries loaded successfully."
-msgstr "Žurnāla fails '%1' veiksmīgi ielādēts."
+msgstr "„Journald“ ieraksti ir ielādēti."
 
 #: src/modes/journald/journaldLogMode.cpp:35
-#, fuzzy, kde-format
-#| msgid "Display the kernel log."
+#, kde-format
 msgid "Display the Journald log."
-msgstr "Rādīt kodola žurnālu."
+msgstr "Rādīt „Journald“ žurnālu."
 
 #: src/modes/journald/journaldLogMode.cpp:36
-#, fuzzy, kde-format
-#| msgid "Duplicates the current tab."
+#, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "Dublē aktīvo cilni."
+msgstr "Parādīt „Journald“ žurnālu pašreizējā cilnē."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "Savienots"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:145
 #, kde-format
 msgid "Connection error"
-msgstr ""
+msgstr "Savienojuma kļūda"
 
 #: src/modes/kernel/kernelAnalyzer.cpp:21
 #, kde-format
@@ -2909,14 +2919,14 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
-"Parāda akīvajā cilnē kodola žurnālu. Šis žurnāls ļoti noder lietotājiem, kas "
-"vēlas zināt kāpēc kodols neatrod to aparatūru vai kāds ir iemesls pēdējām "
+"Aktīvajā cilnē parāda kodola žurnālu. Šis žurnāls ļoti noder lietotājiem, "
+"kuri vēlas zināt, kāpēc kodols neatrod aparatūru vai kāds ir iemesls pēdējām "
 "<i>kodola panikām vai problēmām</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
 msgid "Log File"
-msgstr "Žurnāla fails"
+msgstr "Žurnāla datne"
 
 #: src/modes/open/openLogMode.cpp:45
 #, kde-format
@@ -2926,28 +2936,29 @@ msgstr "Atvērt vietu"
 #: src/modes/open/openLogMode.cpp:59
 #, kde-format
 msgid "Malformed URL. Unable to open this file."
-msgstr "Nederīgs URL. Nevar atvērt šo failu."
+msgstr "Nederīgs URL. Šo datni atvērt nevar."
 
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
 msgid "Unable to open this file."
-msgstr "Neizdevās atvērt šo failu."
+msgstr "Neizdevās atvērt šo datni."
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:10
 #: src/modes/postfix/postfixLogMode.cpp:20
 #, kde-format
 msgid "Postfix Log"
-msgstr "Postfix žurnāls"
+msgstr "„Postfix“ žurnāls"
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
-msgstr "<p>Šie faili tiks analizēti, lai parādītu <b>Postfix žurnālus</b>.</p>"
+msgstr ""
+"<p>Šīs datnes tiks analizētas, lai parādītu <b>„Postfix“ žurnālus</b>.</p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
 msgid "Display the Postfix log."
-msgstr "Rādīt postfix žurnālu."
+msgstr "Rādīt „postfix“ žurnālu."
 
 #: src/modes/postfix/postfixLogMode.cpp:31
 #, kde-format
@@ -2955,18 +2966,18 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
-"Parāda aktīvajā cilnē Postfix žurnālu. Postfix ir Linux pasaulē "
+"Aktīvajā cilnē parāda „Postfix“ žurnālu. „Postfix“ ir „Linux“ pasaulē "
 "visizplatītākais e-pasta serveris."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr "Netbios žurnāls"
+msgstr "„Netbios“ žurnāls"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr "Rādīt Netbios žurnālu."
+msgstr "Rādīt „Netbios“ žurnālu."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -2974,18 +2985,18 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
-"Parāda aktīvajā cilnē Netbios žurnālu. Netbios ir Microsoft izstrādāts failu "
-"kopīgošanas protokols."
+"Aktīvajā cilnē parāda „Netbios“ žurnālu. „Netbios“ ir „Microsoft“ izstrādāts "
+"datņu kopīgošanas protokols."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
 msgid "Samba Access Log"
-msgstr "Samba piekļuves žurnāls"
+msgstr "„Samba“ piekļuves žurnāls"
 
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr "Rādīt Samba piekļuves žurnālu."
+msgstr "Rādīt „Samba“ piekļuves žurnālu."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
@@ -2993,13 +3004,13 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
-"Parāda aktīvajā cilnē Sama piekļuves žurnālu. Šis žurnāla režīms ļauj "
+"Aktīvajā cilnē parāda „Samba“ piekļuves žurnālu. Šis žurnāla režīms ļauj "
 "apskatīt savienojumus no jūsu kopīgojumiem uz attālinātiem datoriem."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
 msgid "Source File"
-msgstr "Avota fails"
+msgstr "Avota datne"
 
 #: src/modes/samba/sambaAnalyzer.cpp:21
 #, kde-format
@@ -3016,7 +3027,7 @@ msgstr "Rinda"
 #: src/modes/samba/sambaLogMode.cpp:23
 #, kde-format
 msgid "Samba Log"
-msgstr "Samba žurnāls"
+msgstr "„Samba“ žurnāls"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:16
 #, kde-format
@@ -3024,48 +3035,48 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
-"<p>Šie faili tiks analizēti, lai parādītu <b>Samba žurnālu</b>, <b>Samba "
-"piekļuves žurnālu</b> un  <b>Netbios žurnālu</b>.</p>"
+"<p>Lai parādītu <b>„Samba“ žurnālu</b>, <b>„Samba“ piekļuves žurnālu</b> un "
+"<b>„Netbios“ žurnālu</b> tiks analizētas šīs datnes.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Samba Log Files"
-msgstr "Samba žurnāla faili"
+msgstr "„Samba“ žurnāla datnes"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Pievienot Samba failu..."
+msgstr "Pievienot „Samba“ datni..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Samba Access Log Files"
-msgstr "Samba piekļuves žurnāla faili"
+msgstr "„Samba“ piekļuves žurnāla datnes"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Pievienot Samba piekļuves failu..."
+msgstr "Pievienot „Samba“ piekļuves datni..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr "Netbios žurnāla faili"
+msgstr "„Netbios“ žurnāla datnes"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Pievienot Netbios failu..."
+msgstr "Pievienot „Netbios“ datni..."
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
 msgid "Samba"
-msgstr "Samba"
+msgstr "„Samba“"
 
 #: src/modes/samba/sambaItemBuilder.cpp:19
 #, kde-format
 msgid "Source File:"
-msgstr "Avota fails:"
+msgstr "Avota datne:"
 
 #: src/modes/samba/sambaItemBuilder.cpp:20
 #, kde-format
@@ -3080,7 +3091,7 @@ msgstr "Rinda:"
 #: src/modes/samba/sambaLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba log."
-msgstr "Rādīt Samba žurnālu."
+msgstr "Rādīt „Samba“ žurnālu."
 
 #: src/modes/samba/sambaLogMode.cpp:33
 #, kde-format
@@ -3088,8 +3099,8 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
-"Parāda aktīvajā cilnē Sama žurnālu. Sama ir failu kopīgošanas serveris, kas "
-"spēj sadarboties ar Microsoft Windows tīkliem."
+"Aktīvajā cilnē parāda „Samba“ žurnālu. „Samba“ ir datņu kopīgošanas "
+"serveris, kas spēj sadarboties ar „Microsoft Windows“ tīkliem."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -3101,7 +3112,7 @@ msgstr "Sistēmas žurnāls"
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
 msgstr ""
-"<p>Šie faili tiks analizēti, lai parādītu <b>Sistēmas žurnālus</b>.</p>"
+"<p>Lai parādītu <b>Sistēmas žurnālus</b>, tiks analizētas šīs datnes.</p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
@@ -3115,7 +3126,7 @@ msgid ""
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Aktīvajā cilnē parāda sistēmas žurnālu. Šo žurnālu parasti izmanto "
-"nepspecializēti procesi (piemēram, \"sudo\" un \"fsck\" komandas)"
+"nespecializēti procesi (piemēram, „sudo“ un „fsck“ komandas)"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3125,12 +3136,12 @@ msgstr "Testēts"
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
 msgid "From config file"
-msgstr "No konfigurācijas faila"
+msgstr "No konfigurācijas datnes"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr "Noklusētais iestatījums"
+msgstr "Noklusējuma iestatījums"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
@@ -3146,12 +3157,13 @@ msgstr "Nav realizēts"
 #: src/modes/xorg/xorgLogMode.cpp:19
 #, kde-format
 msgid "X.org Log"
-msgstr "X.org žurnāls"
+msgstr "„X.org“ žurnāls"
 
 #: src/modes/xorg/xorgConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
-msgstr "<p>Šie faili tiks analizēti, lai parādītu <b>X.org žurnālu</b>.</p>"
+msgstr ""
+"<p>Lai parādītu <b>„X.org“ žurnālu</b>, tiks analizētas šīs datnes.</p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
@@ -3162,7 +3174,7 @@ msgstr "nav"
 #: src/modes/xorg/xorgLogMode.cpp:28
 #, kde-format
 msgid "Display the X.org log."
-msgstr "Rādīt X.org žurnālu."
+msgstr "Rādīt „X.org“ žurnālu."
 
 #: src/modes/xorg/xorgLogMode.cpp:30
 #, kde-format
@@ -3172,10 +3184,10 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
-"Parāda aktīvajā cilnē X.org žurnālu. X.org ir serviss, kas zīmē jūsu "
-"darbvirmsmu uz ekrāna un pārvalda grafikas aparatūri. Aplūkojiet šo žurnālu, "
-"ja vēlaties zināt vai jums ir 3D paātrinātājs vai lai noskaidrotu kāpēc "
-"netiek atpazīta kāda ievades ierīce."
+"Aktīvajā cilnē parāda „X.org“ žurnālu. „X.org“ ir serviss, kas ekrānā zīmē "
+"darbvirsmu un pārvalda grafikas aparatūru. Apskatiet šo žurnālu, ja vēlaties "
+"zināt, vai jums ir 3D paātrinātājs vai lai noskaidrotu, kāpēc sistēma "
+"neatpazīst kādu ievades ierīci."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -3194,7 +3206,7 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
-"Jūs varat ievadīt vai izvēlēties X sesijas žurnāla failu (piemēram: <i>~/."
+"Varat ievadīt vai izvēlēties X sesijas žurnāla datni (piemēram, <i>~/."
 "xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
@@ -3204,8 +3216,8 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
-"Jūs varat ievadīt izvēlēties X sesijas žurnāla failu. Šis fails tiks "
-"analizēts, kad izvēlaties <b>X sesijas žurnālu</b>. Parasti faila nosaukums "
+"Varat ievadīt vai izvēlēties X sesijas žurnāla datni. Šī datne tiks "
+"analizēta, kad atlasīsiet <b>X sesijas žurnālu</b>. Parasti datnes nosaukums "
 "ir <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
@@ -3217,14 +3229,13 @@ msgstr "<li><b>%1</b>: ...</li>"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
 #, kde-format
 msgid "X Session Log File"
-msgstr "X sesijas žurnāla fails"
+msgstr "X sesijas žurnāla datne"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
-#, fuzzy, kde-format
-#| msgid "Log file:"
+#, kde-format
 msgid "&Log file:"
-msgstr "Žurnāla fails:"
+msgstr "Ž&urnāla datne:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -3232,13 +3243,13 @@ msgstr "Žurnāla fails:"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr "Atzīmējiet šo iespēju, lai izņemt Xorg kļūdas"
+msgstr "Atzīmējiet šo opciju, lai izņemtu „Xorg“ kļūdas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr "Ignorēt Xorg kļūdas"
+msgstr "Ignorēt „Xorg“ kļūdas"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
@@ -3247,7 +3258,7 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
-"<p><b>Piezīme:</b> Ieslēdziet šo, lai izņemtu X.org kļūdas.</p><p style="
+"<p><b>Piezīme:</b> Ieslēdziet šo, lai noņemtu „X.org“ kļūdas.</p><p style="
 "\"margin-bottom:0px\">Tiks ignorētas šādas rindas:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
@@ -3262,22 +3273,17 @@ msgid "Display the X Session log."
 msgstr "Rādīt X sesijas žurnālu."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the X Session log in the current tab. X Session log is the place "
-#| "where graphical programs write their output. See this log if you want to "
-#| "know why a program has crashed, or why your display manager (KDE, "
-#| "Gnome,...) has not started."
+#, kde-format
 msgid ""
 "Displays the X Session log in the current tab. X Session log is the place "
 "where graphical programs write their output. See this log if you want to "
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
-"Parāda akīvajā cilnē X sesijas žurnālu. X sesijas žurnāls ir vieta, kur "
-"grafiskās programmas raksta savu izvadu. Apskatiet šo žurnālu, ja velaties "
-"zināt kāpēc kāda programma ir avarējusi vai kāpēc nav palaidies displeja "
-"pārvaldnieks (KDE, Gnome, ...)."
+"Aktīvajā cilnē parāda X sesijas žurnālu. X sesijas žurnāls ir vieta, kur "
+"grafiskās programmas raksta savu izvadu. Apskatiet šo žurnālu, ja vēlaties "
+"zināt, kāpēc kāda programma ir avarējusi vai kāpēc nav palaidies displeja "
+"pārvaldnieks („Plasma“, „Gnome“, „Unity“, „Xfce“, „LXQt“ u.c.)"
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
