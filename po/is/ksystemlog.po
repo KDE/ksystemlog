@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2009, 2015.
+# SPDX-FileCopyrightText: 2025 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2015-01-29 09:07+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"PO-Revision-Date: 2025-04-17 13:37+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,35 +19,35 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.5\n"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr ""
+msgstr "Hlaða þessu annálasniði við ræsingu."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr ""
+msgstr "Takmörk á línufjölda í annálayfirliti"
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
-msgstr ""
+msgstr "Valkostur er sannur ef notandinn vill eyða endurteknum annálalínum."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -55,6 +56,7 @@ msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
 msgstr ""
+"Valkostur er sannur ef það á að sleppa PID í vinnsludálknum í kerfisannálum."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -62,57 +64,57 @@ msgstr ""
 msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
-msgstr ""
+msgstr "Valkostur er sannur ef lita á annálalínurnar eftir annálaþrepi þeirra."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
 #, kde-format
 msgid "Whether the tooltips are enabled."
-msgstr ""
+msgstr "Hvort vísbendingar séu virkar."
 
 #. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:44
 #, kde-format
 msgid "Whether new lines are displayed."
-msgstr ""
+msgstr "Hvort nýjar línur séu birtar."
 
 #. i18n: ectx: label, entry (ToggleFilterBar), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:49
 #, kde-format
 msgid "Whether the filter bar is shown."
-msgstr ""
+msgstr "Hvort síustikan sé sýnileg."
 
 #. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:54
 #, kde-format
 msgid "The date format of log lines."
-msgstr ""
+msgstr "Gagnasnið á annálalínum."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:71
 #, kde-format
 msgid "The Samba log file paths."
-msgstr ""
+msgstr "Slóðir Samba-annálaskráa"
 
 #: src/configurationDialog.cpp:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Settings"
 msgstr "Stillingar"
 
 #: src/configurationDialog.cpp:80
-#, fuzzy, kde-format
+#, kde-format
 msgid "General"
 msgstr "Almennt"
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialog.cpp:27 src/lib/logViewSearchWidgetBase.ui:68
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Previous"
 msgstr "&Fyrra"
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialog.cpp:31 src/lib/logViewSearchWidgetBase.ui:58
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Next"
 msgstr "&Næsta"
 
@@ -120,7 +122,7 @@ msgstr "&Næsta"
 #: src/detailDialogBase.ui:14
 #, kde-format
 msgid "Log Line Details"
-msgstr ""
+msgstr "Upplýsingar annálalínu"
 
 #. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:17
@@ -129,6 +131,7 @@ msgid ""
 "This dialog displays detailed information about the currently selected log "
 "line."
 msgstr ""
+"Þessi svargluggi birtist ítarlegar upplýsingar um annálalínuna sem er valin."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (text), widget (KTextEdit, message)
@@ -141,27 +144,27 @@ msgstr ""
 #: src/modes/kernel/kernelAnalyzer.cpp:22 src/modes/samba/sambaAnalyzer.cpp:23
 #: src/modes/xorg/xorgAnalyzer.cpp:27
 #: src/modes/xsession/xsessionAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Message"
 msgstr "Skilaboð"
 
 #. i18n: ectx: property (text), widget (QLabel, icon)
 #: src/detailDialogBase.ui:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Icon"
 msgstr "Táknmynd"
 
 #. i18n: ectx: property (text), widget (QLabel, header)
 #: src/detailDialogBase.ui:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main information"
-msgstr "Upplýsingar"
+msgstr "Aðalupplýsingar"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:100
 #, kde-format
 msgid "Move to the previous line"
-msgstr ""
+msgstr "Fara á línuna á undan"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:103
@@ -170,10 +173,11 @@ msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
 msgstr ""
+"Fer á línuna á undan. Þessi hnappur er óvirkur ef engar línur eru á undan."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Back"
 msgstr "Til &baka"
 
@@ -181,7 +185,7 @@ msgstr "Til &baka"
 #: src/detailDialogBase.ui:122
 #, kde-format
 msgid "Move to the next line"
-msgstr ""
+msgstr "Fara í næstu línu"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, next)
 #: src/detailDialogBase.ui:125
@@ -190,50 +194,51 @@ msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
 msgstr ""
+"Fer í næstu línu. Þessi hnappur er óvirkur ef engar línur koma á eftir."
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Forward"
 msgstr "Á&fram"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:160
-#, fuzzy, kde-format
+#, kde-format
 msgid "Close the Detail dialog."
-msgstr "Loka núverandi flipa"
+msgstr "Loka upplýsingaglugganum"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:163
 #, kde-format
 msgid "Closes this Detail dialog."
-msgstr ""
+msgstr "Lokar þessum upplýsingaglugga"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: src/detailDialogBase.ui:166
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Close"
 msgstr "&Loka"
 
 #: src/generalConfigurationWidget.cpp:30
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
-msgstr ""
+msgstr "Þetta snið er ekki í boði þar sem annálaskrár eru ekki til staðar."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
 msgid "No Log Mode"
-msgstr ""
+msgstr "Ekkert annálasnið"
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
 #: src/generalConfigurationWidgetBase.ui:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Startup"
 msgstr "Ræsing"
 
@@ -241,13 +246,13 @@ msgstr "Ræsing"
 #: src/generalConfigurationWidgetBase.ui:26
 #, kde-format
 msgid "Load &this log mode at startup:"
-msgstr ""
+msgstr "Hlaða inn &þessu annálasniði við ræsingu:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr ""
+msgstr "Annálasniðið sem verður sjálfkrafa hlaðið inn við ræsingu"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -256,24 +261,26 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
+"Annálasniðið sem er hlaðið sjálfgefið við ræsingu. Veldu 'Ekkert annálasnið' "
+"ef þú vilt ekki að þetta gerist."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
 #, kde-format
 msgid "Log Lines List"
-msgstr ""
+msgstr "Annálalínulisti"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
 #, kde-format
 msgid "&Maximum lines displayed:"
-msgstr ""
+msgstr "Há&marksfjöldi birtra lína:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
-msgstr ""
+msgstr "Veldu hér hámarksfjölda birtra annálalína sem birtast á aðalskjánum."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:78
@@ -281,7 +288,7 @@ msgstr ""
 msgid ""
 "You can choose here the maximum number of log lines displayed in the main "
 "view."
-msgstr ""
+msgstr "Hér getur þú valið hámarksfjölda annálalína sem birtast á aðalskjánum."
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:96
@@ -290,6 +297,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
+"Veldu þennan valkost ef þú vilt eyða tvíteknum annálalínum <b>(gæti hægt á "
+"vinnslunni)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -298,25 +307,27 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
+"Veldu þennan valkost ef þú vilt eyða tvíteknum annálalínum. <b>(þessi "
+"valkostur gæti hægt á annálalestri)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
 #, kde-format
 msgid "Remove &duplicate log lines (may be slower)"
-msgstr ""
+msgstr "Fjarlægja &tvíteknar annálalínur (gæti verið hægvirkara)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
 #: src/generalConfigurationWidgetBase.ui:112 src/loggerDialogBase.ui:206
-#, fuzzy, kde-format
+#, kde-format
 msgid "Options"
-msgstr "Valmöguleikar"
+msgstr "Valkostir"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:118
 #, kde-format
 msgid "Remove process identifier from process name."
-msgstr ""
+msgstr "Fjarlægja vinnsluauðkenni úr heiti vinnslu"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:121
@@ -327,19 +338,22 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"Veldu þetta ef þú vilt fjarlægja auðkenni vinnslunnar úr vinnsluheitinu. "
+"Dálkurinn <b>Vinnsla</b> gæti innihaldið færslur eins og <i>cron<b>[3433]</"
+"b></i>. Ef þessi valkostur er virkur verður feitletraði hlutinn fjarlægsður."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
 #, kde-format
 msgid "Remove &identifier from process name"
-msgstr ""
+msgstr "Fjarlægja &auðkenni úr vinnsluheiti"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
 #, kde-format
 msgid ""
 "This option allows log lines to be colored depending on their log level."
-msgstr ""
+msgstr "Þessi valkostur litar annálalínurnar eftir annálaþrepi þeirra."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -349,40 +363,43 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
+"Með þessum valkostir verða annálalínurnar litaðar eftir því hvert annálaþrep "
+"þeirra er. Til dæmis eru villur rauðar á litinn, viðvaranir appelsínugular o."
+"s.frv. Þetta auðveldar þér að koma auga á vandamál."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
 #, kde-format
 msgid "&Colored log lines"
-msgstr ""
+msgstr "&Litaðar annálalínur"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dateFormatGroupbox)
 #: src/generalConfigurationWidgetBase.ui:147
-#, fuzzy, kde-format
+#, kde-format
 msgid "Date Format"
-msgstr "Snið á dagsetningu"
+msgstr "Dagsetningasnið"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatShortDate)
 #: src/generalConfigurationWidgetBase.ui:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Short date format"
-msgstr "Snið á dagsetningu"
+msgstr "&Stutt dagsetning"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatLongDate)
 #: src/generalConfigurationWidgetBase.ui:163
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Long date format"
-msgstr "Snið á dagsetningu"
+msgstr "&Löng dagsetning"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Precise date format"
-msgstr "Snið á dagsetningu"
+msgstr "Nákvæm dagsetning"
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Edit"
 msgstr "Br&eyta"
 
@@ -390,176 +407,176 @@ msgstr "Br&eyta"
 #: src/ksystemlogui.rc:31
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Annálar"
 
 #. i18n: ectx: Menu (window)
 #: src/ksystemlogui.rc:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Window"
 msgstr "&Gluggi"
 
 #. i18n: ectx: ToolBar (logToolBar)
 #: src/ksystemlogui.rc:53
-#, fuzzy, kde-format
+#, kde-format
 msgid "Logs Toolbar"
-msgstr "Aðaltækjaslá"
+msgstr "Annálastika"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main Toolbar"
-msgstr "Aðaltækjaslá"
+msgstr "Aðaltækjastika"
 
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr ""
+msgstr "Opna '%1'..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr ""
+msgstr "Tókst að hlaða inn annálnum '%1'."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr ""
+msgstr "Annállinn '%1' hefur breyst."
 
 #: src/lib/globals.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "None"
 msgstr "Ekkert"
 
 #: src/lib/globals.cpp:113
-#, fuzzy, kde-format
+#, kde-format
 msgid "Debug"
 msgstr "Aflúsa"
 
 #: src/lib/globals.cpp:117
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information"
 msgstr "Upplýsingar"
 
 #: src/lib/globals.cpp:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Notice"
-msgstr "Athugaðu"
+msgstr "Tilkynning"
 
 #: src/lib/globals.cpp:126
-#, fuzzy, kde-format
+#, kde-format
 msgid "Warning"
-msgstr "Aðvörun"
+msgstr "Viðvörun"
 
 #: src/lib/globals.cpp:129
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error"
 msgstr "Villa"
 
 #: src/lib/globals.cpp:132
-#, fuzzy, kde-format
+#, kde-format
 msgid "Critical"
 msgstr "Mjög alvarlegt"
 
 #: src/lib/globals.cpp:135
-#, fuzzy, kde-format
+#, kde-format
 msgid "Alert"
 msgstr "Aðvörun"
 
 #: src/lib/globals.cpp:138
 #, kde-format
 msgid "Emergency"
-msgstr ""
+msgstr "Neyðartilvik"
 
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr ""
+msgstr "Prentun annálaþrepa"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr ""
+msgstr "Veldu hvaða annálaþrep þú vilt prenta í lit"
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr ""
+msgstr "Hleð framvindu..."
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Hleð <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Hleð <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 skrár)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Endurhleð <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Endurhleð <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 skrár)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "Hleð <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "Enduhleð <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr ""
+msgstr "Þessi skrá er ógild. Breyttu henni í stillingum KSystemLog."
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
 #, kde-format
 msgid "File Does Not Exist"
-msgstr ""
+msgstr "Skráin er ekki til"
 
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr ""
+msgstr "Skráin '%1' er ekki til."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr ""
+msgstr "Gat ekki afþjappað sniðinu '%2' af '%1'."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
 msgid "Unable to Uncompress File"
-msgstr ""
+msgstr "Gat ekki afþjappað skrá"
 
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr ""
+msgstr "Þú ert ekki með nægar heimildir til að lesa '%1'."
 
 #: src/lib/localLogFileReader.cpp:143
-#, fuzzy, kde-format
+#, kde-format
 msgid "Insufficient Permissions"
 msgstr "Ekki nægar heimildir"
 
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr ""
+msgstr "Hleð inn annál..."
 
 #: src/lib/logManager.cpp:92
 #, kde-format
 msgid "Log successfully loaded."
-msgstr ""
+msgstr "Tókst að hlaða inn annál."
 
 #: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr ""
+msgstr "Slóðin '%1' er ógild, sleppi þessari slóð."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -574,20 +591,20 @@ msgstr ""
 #: src/modes/journald/journaldItemBuilder.cpp:22
 #: src/modes/kernel/kernelItemBuilder.cpp:17
 #: src/modes/samba/sambaItemBuilder.cpp:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Date:"
 msgstr "Dagsetning:"
 
 #: src/lib/logModeItemBuilder.cpp:58 src/modes/cron/cronItemBuilder.cpp:18
 #: src/modes/cups/cupsAccessItemBuilder.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hostname:"
 msgstr "Vélarheiti:"
 
 #: src/lib/logModeItemBuilder.cpp:59 src/modes/cron/cronItemBuilder.cpp:19
 #, kde-format
 msgid "Process:"
-msgstr ""
+msgstr "Vinnsla:"
 
 #: src/lib/logModeItemBuilder.cpp:60 src/lib/logModeItemBuilder.cpp:75
 #: src/modes/acpid/acpidItemBuilder.cpp:18
@@ -601,7 +618,7 @@ msgstr ""
 #: src/modes/cups/cupsPdfItemBuilder.cpp:18
 #: src/modes/kernel/kernelItemBuilder.cpp:18
 #: src/modes/samba/sambaItemBuilder.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level:"
 msgstr "Styrkur:"
 
@@ -610,102 +627,103 @@ msgstr "Styrkur:"
 #: src/modes/xsession/xsessionItemBuilder.cpp:40
 #, kde-format
 msgid "Original file:"
-msgstr ""
+msgstr "Upprunaleg skrá:"
 
 #: src/lib/logViewExport.cpp:43
 #, kde-format
 msgid "Here are my logs:\n"
-msgstr ""
+msgstr "Hér eru annálarnir mínir:\n"
 
 #: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
 #, kde-format
 msgid "---------------------------------------\n"
-msgstr ""
+msgstr "---------------------------------------\n"
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid ""
 "You have selected too many lines. Please only select important log lines."
-msgstr ""
+msgstr "Þú valdir of margar línur. Veldu eingöngu mikilvægar annálalínur."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid "Too Many Lines Selected"
-msgstr ""
+msgstr "Of margar línur valdar"
 
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
-msgstr ""
+msgstr "Annálalínur yfir vandamálið mitt"
 
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr ""
+msgstr "Engin atriði valin. Ekkert afritað á klippispjaldið."
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
 msgid "1 log line copied to clipboard."
 msgid_plural "%1 log lines copied to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 annálalína afrituð á klippispjaldið."
+msgstr[1] "%1 annálalínur afritaðar á klippispjaldið."
 
 #: src/lib/logViewExport.cpp:211
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
-msgstr ""
+msgstr "Ekkert atriði valið. Veldu atriði svo þú getir vistað þau."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr ""
+msgstr "Vista valdar annálafærslur í..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 annálalína vistuð í '%2'."
+msgstr[1] "%1 annálalínur vistaðar í '%2'."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr ""
+msgstr "Gat ekki vistað skrána '%1': Heimild hafnað."
 
 #: src/lib/logViewExport.cpp:245
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to save file."
-msgstr "Gat ekki vistað skrá!"
+msgstr "Gat ekki vistað skrá."
 
 #: src/lib/logViewFilterWidget.cpp:94
 #, kde-format
 msgid "Type your filter here"
-msgstr ""
+msgstr "Sláðu inn síuna hér"
 
 #: src/lib/logViewFilterWidget.cpp:95
 #, kde-format
 msgid "Allows you to only list items that match the content of this text."
 msgstr ""
+"Gerir þér kleift að kalla aðeins fram þau atriði sem samsvara þessum texta."
 
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr ""
+msgstr "Sláðu inn leitarorð hér..."
 
 #: src/lib/logViewFilterWidget.cpp:103
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filter:"
 msgstr "Sía:"
 
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr ""
+msgstr "Velja forgang"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr ""
+msgstr "Veldu síaða dálkinn hér"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -713,39 +731,41 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
+"Gerir þér kleift að beita atriðasíunni einungis á dálkinn sem er tilgreindur "
+"hér. \"<i>Allt</i>\" þýðir að engri síu er beitt."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
-#, fuzzy, kde-format
+#, kde-format
 msgid "All"
 msgstr "Allt"
 
 #: src/lib/logViewSearchWidget.cpp:158
 #, kde-format
 msgid "Reached end of list."
-msgstr ""
+msgstr "Komið að enda listans."
 
 #: src/lib/logViewSearchWidget.cpp:241
 #, kde-format
 msgid "Phrase not found."
-msgstr ""
+msgstr "Setning fannst ekki."
 
 #. i18n: ectx: property (text), widget (QLabel, searchLabel)
 #: src/lib/logViewSearchWidgetBase.ui:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Find:"
 msgstr "Finna:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, caseSensitive)
 #: src/lib/logViewSearchWidgetBase.ui:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Match &case"
-msgstr "Passar við &stafstöðu"
+msgstr "Samsvara &há-/lágstöfum"
 
 #. i18n: ectx: property (text), widget (QCheckBox, highlightAllButton)
 #: src/lib/logViewSearchWidgetBase.ui:85
 #, kde-format
 msgid "&Highlight all"
-msgstr ""
+msgstr "&Auðkenna allt"
 
 #. i18n("<p>This is the main view of KSystemLog. It displays the last lines of the selected
 #. log. Please see the documentation to discovers the meaning of each icons and existing log.</p><p>Log
@@ -758,127 +778,127 @@ msgstr ""
 #: src/modes/cups/cupsPageAnalyzer.cpp:19 src/modes/cups/cupsPdfAnalyzer.cpp:19
 #: src/modes/journald/journaldAnalyzer.cpp:21
 #: src/modes/kernel/kernelAnalyzer.cpp:20 src/modes/samba/sambaAnalyzer.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Date"
 msgstr "Dagsetning"
 
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr ""
+msgstr "Birta/fela dálkinn '%1'"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr ""
+msgstr "Vinnslan '%1' hrundi."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
 msgid "Process Crashed"
-msgstr ""
+msgstr "Vinnsla hrundi"
 
 #: src/loggerDialog.cpp:65 src/loggerDialog.cpp:103
 #: src/modes/apache/apacheAccessAnalyzer.cpp:21
 #: src/modes/cron/cronAnalyzer.cpp:15 src/modes/cups/cupsAccessAnalyzer.cpp:22
 #: src/modes/cups/cupsPageAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "User"
 msgstr "Notandi"
 
 #: src/loggerDialog.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgid "Authentication"
 msgstr "Auðkenning"
 
 #: src/loggerDialog.cpp:94
 #, kde-format
 msgid "Private Authentication"
-msgstr ""
+msgstr "Einkaauðkenning"
 
 #: src/loggerDialog.cpp:95
 #, kde-format
 msgid "Cron"
-msgstr ""
+msgstr "Cron"
 
 #: src/loggerDialog.cpp:96
-#, fuzzy, kde-format
+#, kde-format
 msgid "Daemon"
-msgstr "Púki"
+msgstr "Miðlari"
 
 #: src/loggerDialog.cpp:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "FTP"
 msgstr "FTP"
 
 #: src/loggerDialog.cpp:98
-#, fuzzy, kde-format
+#, kde-format
 msgid "Kernel"
 msgstr "Kjarni"
 
 #: src/loggerDialog.cpp:99
 #, kde-format
 msgid "LPR"
-msgstr ""
+msgstr "LPR"
 
 #: src/loggerDialog.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "Mail"
 msgstr "Póstur"
 
 #: src/loggerDialog.cpp:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "News"
 msgstr "Fréttir"
 
 #: src/loggerDialog.cpp:102
-#, fuzzy, kde-format
+#, kde-format
 msgid "Syslog"
 msgstr "Kerfisannáll"
 
 #: src/loggerDialog.cpp:104
 #, kde-format
 msgid "UUCP"
-msgstr ""
+msgstr "UUCP"
 
 #: src/loggerDialog.cpp:106
 #, kde-format
 msgid "Local 0"
-msgstr ""
+msgstr "Staðbundið 0"
 
 #: src/loggerDialog.cpp:107
 #, kde-format
 msgid "Local 1"
-msgstr ""
+msgstr "Staðbundið 1"
 
 #: src/loggerDialog.cpp:108
 #, kde-format
 msgid "Local 2"
-msgstr ""
+msgstr "Staðbundið 2"
 
 #: src/loggerDialog.cpp:109
 #, kde-format
 msgid "Local 3"
-msgstr ""
+msgstr "Staðbundið 3"
 
 #: src/loggerDialog.cpp:110
 #, kde-format
 msgid "Local 4"
-msgstr ""
+msgstr "Staðbundið 4"
 
 #: src/loggerDialog.cpp:111
 #, kde-format
 msgid "Local 5"
-msgstr ""
+msgstr "Staðbundið 5"
 
 #: src/loggerDialog.cpp:112
 #, kde-format
 msgid "Local 6"
-msgstr ""
+msgstr "Staðbundið 6"
 
 #: src/loggerDialog.cpp:113
 #, kde-format
 msgid "Local 7"
-msgstr ""
+msgstr "Staðbundið 7"
 
 #: src/loggerDialog.cpp:223
 #, kde-format
@@ -886,41 +906,43 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
+"Fann ekki skipunina 'logger' í tölvunni. Sláðu inn 'logger' í Konsole til að "
+"sjá hvort þessi skipun sé uppsett."
 
 #: src/loggerDialog.cpp:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command not found"
 msgstr "Skipun fannst ekki"
 
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
-msgstr ""
+msgstr "Skipuninni 'logger' var ekki lokað almenninlega."
 
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "Execution problem"
-msgstr ""
+msgstr "Vandamál í keyrslu"
 
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "This file does not exist, please choose another."
-msgstr ""
+msgstr "Þessi skrá er ekki til, veldu aðra."
 
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "File not valid"
-msgstr ""
+msgstr "Skrá ekki gild"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LoggerDialogBase)
 #: src/loggerDialogBase.ui:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log Message"
-msgstr "Skýrsluboð"
+msgstr "Annálsboð"
 
 #. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
 #: src/loggerDialogBase.ui:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Message:"
 msgstr "Skila&boð:"
 
@@ -928,82 +950,82 @@ msgstr "Skila&boð:"
 #: src/loggerDialogBase.ui:52
 #, kde-format
 msgid "&File content:"
-msgstr ""
+msgstr "&Efni skráar:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/loggerDialogBase.ui:75
-#, fuzzy, kde-format
+#, kde-format
 msgid "Properties"
 msgstr "Eiginleikar"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: src/loggerDialogBase.ui:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Priority:"
 msgstr "&Forgangur:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: src/loggerDialogBase.ui:162
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Facility:"
-msgstr "&Forgangur:"
+msgstr "&Auðveldleiki:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
 #, kde-format
 msgid "&Tag:"
-msgstr ""
+msgstr "&Merki:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useProcessIdentifier)
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr ""
+msgstr "Auð&kenni annálavinnslu"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
 #, kde-format
 msgid "Open the 'logger' command manual."
-msgstr ""
+msgstr "Opna handbókina fyrir 'logger'-skipunina."
 
 #. i18n: ectx: property (statusTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:293
 #, kde-format
 msgid "This link opens the 'logger' command manual."
-msgstr ""
+msgstr "Þessi tengill opnar handbók 'logger'-skipunarinnar."
 
 #. i18n: ectx: property (text), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:296
 #, kde-format
 msgid "<a href=\"man:/logger\">Logger Manual</a>"
-msgstr ""
+msgstr "<a href=\"man:/logger\">Logger-handbók</a>"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonOK)
 #: src/loggerDialogBase.ui:322
-#, fuzzy, kde-format
+#, kde-format
 msgid "&OK"
 msgstr "Í &lagi"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
 #: src/loggerDialogBase.ui:338
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Cancel"
 msgstr "&Hætta við"
 
 #: src/main.cpp:24
 #, kde-format
 msgid "KSystemLog"
-msgstr ""
+msgstr "KSystemLog"
 
 #: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr ""
+msgstr "Kerfisannálaskoðari frá KDE"
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "Nicolas Ternisien"
+msgstr "(C) 2007-2015, Nicolas Ternisien"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1011,77 +1033,79 @@ msgid ""
 "Do not hesitate to report bugs and problems to Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 msgstr ""
+"Ekki hika við að tilkynna Nicolas Ternisien um villur og vandamál á <a "
+"href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>"
 
 #: src/main.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nicolas Ternisien"
 msgstr "Nicolas Ternisien"
 
 #: src/main.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Main developer"
 msgstr "Aðalhöfundur"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
-msgstr ""
+msgstr "Vyacheslav Matyushin"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr ""
+msgstr "Journald-snið, villuleiðréttingar"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
-msgstr ""
+msgstr "Bojan Djurkovic"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
-msgstr ""
+msgstr "Annálaprentun"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Villuleiðréttingar"
 
 #: src/main.cpp:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Document to open."
-msgstr "Skjal sem á að opna"
+msgstr "Skjal sem á að opna."
 
 #: src/mainWindow.cpp:308
 #, kde-format
 msgctxt "Total displayed lines"
 msgid "1 line."
 msgid_plural "%1 lines."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 lína."
+msgstr[1] "%1 línur."
 
 #: src/mainWindow.cpp:311
 #, kde-format
 msgctxt "Line not hidden by search / Total displayed lines"
 msgid "1 line / %2 total."
 msgid_plural "%1 lines / %2 total."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 lína / %2 alls."
+msgstr[1] "%1 línur / %2 alls."
 
 #: src/mainWindow.cpp:332
-#, fuzzy, kde-format
+#, kde-format
 msgid "Resu&me"
-msgstr "Ve&kja"
+msgstr "Halda áf&ram"
 
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr ""
+msgstr "Halda áfram að skoða núverandi annál"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1089,16 +1113,18 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
+"Heldur áfram skoðun á núverandi annál. Þessi aðgerð er bara í boði þegar "
+"notandinn hefur nú þegar gert hlé á lestrinum."
 
 #: src/mainWindow.cpp:341
-#, fuzzy, kde-format
+#, kde-format
 msgid "S&top"
 msgstr "S&töðva"
 
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
-msgstr ""
+msgstr "Gera hlé á skoðun núverandi annáls"
 
 #: src/mainWindow.cpp:345
 #, kde-format
@@ -1107,32 +1133,35 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
+"Gerir hlé á skoðun núverandi annáls. Aðgerðin er sérlega gagnleg þegar "
+"kerfið skrifar of margar línur í annálaskrár þannig að KSystemLog er sífellt "
+"að endurhlaða."
 
 #: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
 msgctxt "Newly created tab"
 msgid "Empty Log"
-msgstr ""
+msgstr "Tómur annáll"
 
 #: src/mainWindow.cpp:520
 #, kde-format
 msgid "Open a file in KSystemLog"
-msgstr ""
+msgstr "Opna skrá í KSystemLog"
 
 #: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
-msgstr ""
+msgstr "Opnar skrá í KSystemLog og birtir efni hennar í núverandi flipa."
 
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr ""
+msgstr "&Prenta val..."
 
 #: src/mainWindow.cpp:525
 #, kde-format
 msgid "Print the selection"
-msgstr ""
+msgstr "Prentar valið"
 
 #: src/mainWindow.cpp:527
 #, kde-format
@@ -1140,16 +1169,18 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
+"Prentar valið. Veldu einfaldlega mikilvægar línur og smelltu á þetta "
+"valmyndaratriði til að prenta valið."
 
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr ""
+msgstr "&Forskoða prentun á vali..."
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
-msgstr ""
+msgstr "Prentforskoðun fyrir valið"
 
 #: src/mainWindow.cpp:535
 #, kde-format
@@ -1157,11 +1188,13 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
+"Prentun á vali forskoðuð. Veldu einfaldlega mikilvægar línur og smelltu á "
+"þetta valmyndaratriði til að prenta valið."
 
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
-msgstr ""
+msgstr "Vista valið í skrá"
 
 #: src/mainWindow.cpp:543
 #, kde-format
@@ -1169,21 +1202,23 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
+"Vistar valið í skrá. Þessi aðgerð er gagnleg ef þú vilt útbúa viðhengi eða "
+"öryggisafrit af tilteknum annál."
 
 #: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr ""
+msgstr "Loka KSystemLog"
 
 #: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr ""
+msgstr "Lokar KSystemLog."
 
 #: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr ""
+msgstr "Afrita valið á klippispjaldið"
 
 #: src/mainWindow.cpp:555
 #, kde-format
@@ -1191,16 +1226,18 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
+"Afritar valið á klippispjaldið. Þessi aðgerð er gagnleg ef þú vilt líma "
+"valið í spjall eða tölvupóst."
 
 #: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
-msgstr ""
+msgstr "&Víkka allt út"
 
 #: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
-msgstr ""
+msgstr "Víkkar út alla flokka"
 
 #: src/mainWindow.cpp:563
 #, kde-format
@@ -1208,16 +1245,18 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
+"Þessi aðgerð opnar alla aðalflokkana. Þetta er bara virkt ef valkosturinn "
+"var valinn í valmyndinni <b>Flokka eftir</b>."
 
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
-msgstr ""
+msgstr "Fel&la allt saman"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
-msgstr ""
+msgstr "Fella saman alla flokka"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1225,16 +1264,18 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
+"Þessi aðgerð lokar öllum aðalflokkunum. Þetta er bara virkt ef valkostur var "
+"valinn í valmyndinni <b>Flokka eftir</b>."
 
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr ""
+msgstr "&Senda val í pósti"
 
 #: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
-msgstr ""
+msgstr "Senda valið í tölvupósti"
 
 #: src/mainWindow.cpp:582
 #, kde-format
@@ -1242,16 +1283,18 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
+"Sendi valið í tölvupósti. Veldu einfaldlega mikilvægar línur og smelltu á "
+"þetta valmyndaratriði til að senda valið til vinar eða á póstlista."
 
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr ""
+msgstr "&Bæta við annálafærslu..."
 
 #: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
-msgstr ""
+msgstr "Bæta annálafærslu við annálakerfið"
 
 #: src/mainWindow.cpp:592
 #, kde-format
@@ -1259,11 +1302,12 @@ msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
 msgstr ""
+"Þessi aðgerð opnar svargluga þar sem þú getur sent skilaboð í annálakerfið."
 
 #: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr ""
+msgstr "Velja allar línur í núverandi annál"
 
 #: src/mainWindow.cpp:598
 #, kde-format
@@ -1271,96 +1315,98 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
+"Velur allar línur í núverandi annál. Þessi aðgerð er gagnleg ef þú vilt til "
+"dæmis vista allt efni núverandi annáls í skrá."
 
 #: src/mainWindow.cpp:609
 #, kde-format
 msgid "Show &Filter Bar"
-msgstr ""
+msgstr "Sýna &síustiku"
 
 #: src/mainWindow.cpp:615
-#, fuzzy, kde-format
+#, kde-format
 msgid "&New Tab"
 msgstr "&Nýr flipi"
 
 #: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
-msgstr ""
+msgstr "Búa til nýjan flipa"
 
 #: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
-msgstr ""
+msgstr "Býr til nýjan flipa sem getur birt annan annál."
 
 #: src/mainWindow.cpp:623
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Close Tab"
 msgstr "&Loka flipa"
 
 #: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Close the current tab"
 msgstr "Loka núverandi flipa"
 
 #: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
-msgstr ""
+msgstr "Lokar núverandi flipa."
 
 #: src/mainWindow.cpp:631
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Duplicate Tab"
-msgstr "A&frita flipa"
+msgstr "&Tvítaka flipa"
 
 #: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
-msgstr ""
+msgstr "Tvítaka núverandi flipa"
 
 #: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
-msgstr ""
+msgstr "Tvítekur núverandi flipa."
 
 #: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
-msgstr ""
+msgstr "Færa flipa til &vinstri"
 
 #: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
-msgstr ""
+msgstr "Færa núverandi flipa til vinstri"
 
 #: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
-msgstr ""
+msgstr "Færir núverandi flipa til vinstri."
 
 #: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
-msgstr ""
+msgstr "Færa flipa til &hægri"
 
 #: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
-msgstr ""
+msgstr "Færa núverandi flipa til hægri"
 
 #: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
-msgstr ""
+msgstr "Færir núverandi flipa til hægri."
 
 #: src/mainWindow.cpp:659
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Reload"
-msgstr "Endu&rlesa"
+msgstr "Endu&rhlaða"
 
 #: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
-msgstr ""
+msgstr "Endurhlaða núverandi annál"
 
 #: src/mainWindow.cpp:662
 #, kde-format
@@ -1368,16 +1414,18 @@ msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
 msgstr ""
+"Endurhleður núverandi annál, ef þú vilt vera viss um að yfirlitið sýni "
+"uppfærðar upplýsingar."
 
 #: src/mainWindow.cpp:672
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Details"
-msgstr "&Smáatriði"
+msgstr "&Upplýsingar"
 
 #: src/mainWindow.cpp:674
 #, kde-format
 msgid "Display details on the selected line"
-msgstr ""
+msgstr "Birtir upplýsingar um línuna sem er valin"
 
 #: src/mainWindow.cpp:676
 #, kde-format
@@ -1386,32 +1434,37 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"Birtir svarglugga sem inniheldur upplýsingar um völdu línuna. Þú getur flett "
+"í gegnum annálana í þessum svarglugga með hnöppunum <b>Fyrri</b> og "
+"<b>Næsti</b>."
 
 #: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr ""
+msgstr "&Virkja ítarlegar vísbendingar"
 
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr ""
+msgstr "Afvirkja/virkja vísbendingar í núverandi yfirliti"
 
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
+"Afvirkjar/virkjar að vísbendingar birtist þegar bendillinn er yfir "
+"annálalínu."
 
 #: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&Skruna að nýjum línum"
 
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "Skrunar (eða ekki) að nýjum línum þegar annállinn breytist"
 
 #: src/mainWindow.cpp:693
 #, kde-format
@@ -1420,47 +1473,50 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"Skrunar (eða ekki) að nýjum línum þegar annállinn breytist. Hakaðu hér ef þú "
+"vilt ekki að forritið skruni sjálfkrafa neðst í annálnum í hvert skipti sem "
+"hann er uppfærður."
 
 #: src/mainWindow.cpp:753
-#, fuzzy, kde-format
+#, kde-format
 msgid "Services"
 msgstr "Þjónustur"
 
 #: src/mainWindow.cpp:754
-#, fuzzy, kde-format
+#, kde-format
 msgid "Others"
 msgstr "Annað"
 
 #: src/modes/acpid/acpidAnalyzer.cpp:18 src/modes/xorg/xorgAnalyzer.cpp:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Type"
-msgstr "Tegund"
+msgstr "Gerð"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
 msgid "Acpid Log"
-msgstr ""
+msgstr "Acpid-annáll"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
-msgstr ""
+msgstr "<p>Þessar skrár verða greindar til að sýna <b>Acpid annálinn</b>.</p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Type:"
-msgstr "Tegund:"
+msgstr "Gerð:"
 
 #: src/modes/acpid/acpidLogMode.cpp:19
 #, kde-format
 msgid "ACPI Log"
-msgstr ""
+msgstr "ACPI-annáll"
 
 #: src/modes/acpid/acpidLogMode.cpp:28
 #, kde-format
 msgid "Display the ACPI log."
-msgstr ""
+msgstr "Birta ACPI-annálinn."
 
 #: src/modes/acpid/acpidLogMode.cpp:30
 #, kde-format
@@ -1469,58 +1525,61 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
+"Birtir ACPI-annálinn í núverandi flipa. ACPI er notað til að hafa umsjón með "
+"hluta vélbúnaðar tölvunnar, eins og fartölvurafhlöðum, "
+"endurræsingarhnöppum..."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Host Name"
-msgstr "Nafn vélar"
+msgstr "Vélarheiti"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Id."
-msgstr ""
+msgstr "Id."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Response"
 msgstr "Svar"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bytes Sent"
 msgstr "Bæti send"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:24
 #, kde-format
 msgid "Agent Identity"
-msgstr ""
+msgstr "Gerandaauðkenni"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:25
 #: src/modes/cups/cupsAccessAnalyzer.cpp:23
 #, kde-format
 msgid "HTTP Request"
-msgstr ""
+msgstr "HTTP-beiðni"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "URL"
-msgstr "Slóð"
+msgstr "Slóð (URL)"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:19
 #, kde-format
 msgid "Host Name:"
-msgstr ""
+msgstr "Vélarheiti:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:20
 #: src/modes/cups/cupsAccessItemBuilder.cpp:20
 #, kde-format
 msgid "Identification:"
-msgstr ""
+msgstr "Auðkenni:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:21
 #: src/modes/cups/cupsAccessItemBuilder.cpp:21
 #: src/modes/cups/cupsPageItemBuilder.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Username:"
 msgstr "Notandanafn:"
 
@@ -1528,33 +1587,33 @@ msgstr "Notandanafn:"
 #: src/modes/cups/cupsAccessItemBuilder.cpp:22
 #, kde-format
 msgid "HTTP Response:"
-msgstr ""
+msgstr "HTTP-svar:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:23
 #: src/modes/cups/cupsAccessItemBuilder.cpp:23
 #, kde-format
 msgid "Bytes Sent:"
-msgstr ""
+msgstr "Bæti send:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:24
 #, kde-format
 msgid "Agent Identity:"
-msgstr ""
+msgstr "Gerandaauðkenni:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:25
 #, kde-format
 msgid "HTTP Request:"
-msgstr ""
+msgstr "HTTP-beiðni:"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:21
 #, kde-format
 msgid "Apache Access Log"
-msgstr ""
+msgstr "Apache aðgangsannáll"
 
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
-msgstr ""
+msgstr "Birta Apache-aðgangsannálinn."
 
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
@@ -1563,9 +1622,12 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"Birtir Apache-aðgangsannálinn í núverandi flipa. Apache er vinsælasti "
+"vefþjónninn í heiminum. Þessi annáll vistar allar beiðnir sem Apache "
+"vefþjónninn framkvæmir."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Client"
 msgstr "Biðlari"
 
@@ -1573,7 +1635,7 @@ msgstr "Biðlari"
 #: src/modes/apache/apacheLogMode.cpp:21
 #, kde-format
 msgid "Apache Log"
-msgstr ""
+msgstr "Apache-annáll"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:16
 #, kde-format
@@ -1581,41 +1643,43 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>Apache-annálinn</b> og "
+"<b>Apache-aðgangsannálinn</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Apache Log Files"
-msgstr ""
+msgstr "Apache-annálaskrár"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr ""
+msgstr "Bæta við Apache-skrá..."
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Apache Access Log Files"
-msgstr ""
+msgstr "Apache aðgangsannálsskrár"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr ""
+msgstr "Bæta við Apache-aðgangsskrá..."
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
 msgid "Apache"
-msgstr ""
+msgstr "Apache"
 
 #: src/modes/apache/apacheItemBuilder.cpp:19
 #, kde-format
 msgid "Client:"
-msgstr ""
+msgstr "Biðlari:"
 
 #: src/modes/apache/apacheLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache log."
-msgstr ""
+msgstr "Birta Apache-annálinn."
 
 #: src/modes/apache/apacheLogMode.cpp:31
 #, kde-format
@@ -1623,22 +1687,25 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"Birtir Apache-annálinn í núverandi flipa. Apache er vinsælasti vefþjónninn í "
+"heiminum."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
 #, kde-format
 msgid "Audit Log"
-msgstr ""
+msgstr "Endurskoðunarannáll"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>endurskoðunarannálana</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
-msgstr ""
+msgstr "Birta endurskoðunarannálinn."
 
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
@@ -1646,28 +1713,30 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Birtir endurskoðunarannálinn í núverandi flipa. Þessi annáll er almennt "
+"notaður fyrir ósértækar vinnslur (eins og skipanirnar \"sudo\" eða \"fsck\")"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
 #, kde-format
 msgid "Authentication Log"
-msgstr ""
+msgstr "Auðkenningarannáll"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:18
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr ""
+msgstr "Annálaskráin er ekki til. Sniðið verður ekki í boði."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
 msgid "Authentication Log File"
-msgstr ""
+msgstr "Annálsskrá auðkenningar"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:33
 #, kde-format
 msgid "Authentication log file:"
-msgstr ""
+msgstr "Annálsskrá auðkenningar:"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:38
 #, kde-format
@@ -1675,6 +1744,8 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
+"Þú getur slegið inn eða valið annálsskrá fyrir auðkenningu (dæmi: <i>/val/"
+"log/auth.log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
@@ -1683,11 +1754,14 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"Þú getur slegið inn eða valið hér annálsskrá fyrir auðkenningu. Þessi skrá "
+"verður greind þegar þú velur valmyndina <b>Auðkenningarannáll</b>. Oftast "
+"heitir skráin <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
-msgstr ""
+msgstr "Birta auðkenningarannálinn."
 
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
@@ -1696,6 +1770,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
+"Birtir auðkenningarannál í núverandi flipa. Þessi annáll sýnir allar "
+"innskráningar notendanna í kerfinu og getur auðveldað þér að sjá hvort "
+"einhver hafi reynt að brjótast inn í kerfið."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1703,18 +1780,20 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"Sumar annálsskrár eru ekki til.\n"
+"Ef allar annálsskrár vantar verður þetta snið ekki í boði."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
 #, kde-format
 msgid "File List Description"
-msgstr ""
+msgstr "Lýsing skráalista"
 
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log Files"
-msgstr "Annáll"
+msgstr "Annálsskrár"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:55
@@ -1729,6 +1808,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Veldu nýja skrá</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -1743,18 +1830,26 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Opnar svarglugga til að "
+"velja nýja skrá sem á að bæta við listann.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Add File..."
-msgstr "Bæt&a skrá..."
+msgstr "Bæt&a við skrá..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Modify File..."
-msgstr "Bæt&a skrá..."
+msgstr "B&reyta skrá..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -1769,6 +1864,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Eyða núverandi skrá(m)</"
+"p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1783,10 +1886,18 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
 "on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Eyðir skránum sem eru "
+"valdar á listanum.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Remove"
 msgstr "&Fjarlægja"
 
@@ -1803,6 +1914,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Fjarlægja allar skrár</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:106
@@ -1817,13 +1936,21 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
 "the list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Fjarlægja allar skrár "
+"álistanum þótt þær séu ekki valdar.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:109
 #: src/modes/base/multipleFileListBase.ui:108
 #, kde-format
 msgid "Rem&ove All"
-msgstr ""
+msgstr "Fjarl&ægja allt"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:122
@@ -1839,6 +1966,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færa núverandi skrá(r) "
+"ofar</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -1854,13 +1989,22 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færa völdu skrárnar ofar á "
+"listann. Með þessum valkosti er hægt að láta skrárnar vera lesnar <span "
+"style=\" font-weight:600;\">fyrst</span> í KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
 #: src/modes/base/multipleFileListBase.ui:130
-#, fuzzy, kde-format
+#, kde-format
 msgid "Move &Up"
-msgstr "Færa &upp"
+msgstr "Færa &ofar"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:141
@@ -1876,6 +2020,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færa núverandi skrá(r) "
+"neðar</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -1891,13 +2043,22 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færir völdu skrárnar neðar "
+"á listann. Með þessum valkosti er hægt að láta skrárnar vera lesnar <span "
+"style=\" font-weight:600;\">síðast</span> í KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
 #: src/modes/base/multipleFileListBase.ui:149
-#, fuzzy, kde-format
+#, kde-format
 msgid "Move &Down"
-msgstr "Færa &niður"
+msgstr "Færa &neðar"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/fileListBase.ui:175
@@ -1909,6 +2070,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Ath.:</b></p><ul "
+"style='margin-top:0px'><li>Skrárnar eru lesnar í þeirri röð sem þær eru í "
+"þessum lista.</li><li>Þjappaðar skrár og hreinar textaskrár eru samþykktar "
+"<i>(*.log, *.gz, *.bz2,...)</i>.</li><li>Notaðu algildistáknið <b>'*'</b> "
+"til að velja margar skrár í einu þegar skrám er bætt við.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -1923,6 +2089,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
 "log type.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Listi yfir skrár sem þessi "
+"annálsgerð notar.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:197
@@ -1938,52 +2112,60 @@ msgid ""
 "file that will be read by KSystemLog to display the current log lines.</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Hér er listi yfir allar "
+"skrár sem KSystemLog les til að sýna núverandi annálslínur.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
 #, kde-format
 msgid "add"
-msgstr ""
+msgstr "bæta við"
 
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr ""
+msgstr "'%1' er ekki í þessu skráakerfi."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
 msgid "File selection failed"
-msgstr ""
+msgstr "Skráaval mistókst"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
-#, fuzzy, kde-format
+#, kde-format
 msgid "All Files (*)"
 msgstr "Allar skrár (*)"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "Log Files (*.log)"
-msgstr ""
+msgstr "Annálsskrár (*.log)"
 
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose Log File"
-msgstr "Veldu annálaskrá"
+msgstr "Veldu annálsskrá"
 
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
-msgstr ""
+msgstr "Fylkin tvö eru ólík að stærð, sleppi því að lesa annálsskrár."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr ""
+msgstr "&Breyta stöðu..."
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr ""
+msgstr "Breyta stiginu fyrir núverandi skrá(r)"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -1991,24 +2173,26 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
+"Breytir stiginu fyrir núverandi skrá(r). Sjá frekari upplýsingar í "
+"handbókinni fyrir KSystemLog varðandi hvert annálsstig."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
-msgstr ""
+msgstr "Fylkin tvö eru ólík að stærð, sleppi því að lesa almennar slóðir."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr ""
+msgstr "Vel skrárgerð"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr ""
+msgstr "Veldu gerðina fyrir þessa skrá:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2023,6 +2207,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Listi yfir fyrirliggjandi "
+"annálsstig</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:43
@@ -2040,6 +2232,17 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
 "to be used for the files selected on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Þetta er listi yfir öll "
+"tiltæk annálaþrep. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Veldu eitt þeirra til að "
+"nota það fyrir skrár sem valdar eru á listanum.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
@@ -2047,15 +2250,17 @@ msgid ""
 "Some log files do not exist.\n"
 "Modes with missing log files will be unavailable."
 msgstr ""
+"Sumar annálsskrár eru ekki til.\n"
+"Snið þar sem annálsskrár vantar verða ekki tiltæk."
 
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr ""
+msgstr "Engin annálsskrá..."
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "1"
 msgstr "1"
 
@@ -2072,6 +2277,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
 "of the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Eyðir völdu skránum á "
+"listanum.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
@@ -2086,6 +2299,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
 "list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Fjarlægja allar skrár af "
+"listanum, líka þær sem eru ekki valdar.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/multipleFileListBase.ui:127
@@ -2101,6 +2322,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færir völdu skrárnar upp í "
+"listanum. Með þessum valkosti er hægt að láta KSystemLog lesa skrár <span "
+"style=\"font-weight:600;\">fyrst</span>.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2116,6 +2346,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Færir völdu skrárnar neðar "
+"á listann. Með þessum valkosti er hægt að láta KSystemLog lesa skrárnar "
+"<span style=\" font-weight:600;\">síðast</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2127,26 +2366,31 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>Ath.:</b></p><ul "
+"style='margin-top:0px'><li>Skrárnar eru lesnar í þeirri röð sem þær eru í "
+"þessum lista.</li><li>Þjappaðar skrár og hreinar textaskrár eru samþykktar "
+"<i>(*.log, *.gz, *.bz2,...)</i>.</li><li>Notaðu algildistáknið <b>'*'</b> "
+"til að velja margar annáls skrár í einu þegar skrám er bætt við.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "HttpResponseNumber HttpResponseDescription"
 msgid "%1 %2"
 msgstr "%1 %2"
 
 #: src/modes/base/syslogAnalyzer.cpp:42 src/modes/cron/cronAnalyzer.cpp:13
 #: src/modes/cups/cupsAccessAnalyzer.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Host"
 msgstr "Vél"
 
 #: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
 #, kde-format
 msgid "Process"
-msgstr ""
+msgstr "Vinnsla"
 
 #: src/modes/cron/cronAnalyzer.cpp:16
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command"
 msgstr "Skipun"
 
@@ -2154,7 +2398,7 @@ msgstr "Skipun"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr ""
+msgstr "Cron-annáll"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2162,26 +2406,28 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>Cron-annála</b> (þ.e. annála "
+"yfir áætluð verk). <a href='man:/cron'>Frekari upplýsingar...</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr ""
+msgstr "Virkja vinnslusíu"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr ""
+msgstr "Sýnir aðeins línur sem samsvara þessari vinnslu :"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "User:"
 msgstr "Notandi:"
 
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr ""
+msgstr "Birtir annál fyrir áætluð verk (Cron-annál)."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2191,41 +2437,45 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"Birtir annálinn yfir áætlaðar vinnslu í núverandi flipa. Cron-vinnsla er "
+"forrit sem stjórnar keyrslu á áætluðum verkum í tölvunni, eins og "
+"öryggisathugunum eða sjálfvirkri endurræsingu á tilteknum þjónustum. Notaðu "
+"þessa valmynd til að sjá vinnslur sem hafa nýlega verið ræstar."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Group"
 msgstr "Hópur"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Status"
 msgstr "Staða"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bytes"
 msgstr "Bæti"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:26
 #, kde-format
 msgid "IPP Operation"
-msgstr ""
+msgstr "IPP-aðgerð"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:27
 #, kde-format
 msgid "IPP Status"
-msgstr ""
+msgstr "IPP-staða"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr ""
+msgstr "Cups-vefannáll"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
-msgstr ""
+msgstr "Sýna aðgangsannála fyrir CUPS-vefþjón"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
@@ -2235,11 +2485,15 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
+"Birtir aðgangsannálinn fyrir CUPS-vefþjóninn í núverandi flipa. CUPS er "
+"forritið sem hefur umsjón með prentun í tölvunni. Þessi annáll vistar allar "
+"beiðnir sem innfelldi CUPS-vefþjónninn framkvæmir (sjálfgefið: <i>http://"
+"localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
 msgid "debug 2"
-msgstr ""
+msgstr "aflúsa 2"
 
 #: src/modes/cups/cupsAnalyzer.cpp:76
 #, kde-format
@@ -2247,17 +2501,19 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
+"Nýtt annálsþrep fundið: Sendu þessa annálsskrá til þróunaraðila KSystemLog "
+"til að bæta því við."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr ""
+msgstr "Cups-annáll"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr ""
+msgstr "Annáll fyrir Cups og Cups-vefþjón"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2265,56 +2521,58 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>Cups-annálinn</b> og <b>Cups "
+"vefaðgangsannálinn</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
-msgstr ""
+msgstr "Cups-annálsskrár"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr ""
+msgstr "Bæta við Cups-skrá..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr ""
+msgstr "Cups-aðgangsannálsskrár"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr ""
+msgstr "Bæta við Cups aðgangsannálsskrá..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr ""
+msgstr "Annálsskrár Cups-síðu"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr ""
+msgstr "Bæta við Cups-síðuskrá..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr ""
+msgstr "Cups PDF annálsskrár"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr ""
+msgstr "Bæta við Cups PDF-skrá..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
 msgid "Cups"
-msgstr ""
+msgstr "Cups"
 
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
-msgstr ""
+msgstr "Birta Cups-annál."
 
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
@@ -2322,66 +2580,68 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
+"Birtir CUPS-annálinn í núverandi flipa. CUPS er forritið sem hefur umsjón "
+"með prentun í tölvunni."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer"
 msgstr "Prentari"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:22
 #, kde-format
 msgid "Job Id"
-msgstr ""
+msgstr "Verknúmer"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Page Number"
-msgstr "Númer síðu"
+msgstr "Blaðsíðutal"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:24
 #, kde-format
 msgid "Num Copies"
-msgstr ""
+msgstr "Eintakafjöldi"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:25
 #, kde-format
 msgid "Job Billing"
-msgstr ""
+msgstr "Reikningsupplýsingar"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer:"
 msgstr "Prentari:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:21
 #, kde-format
 msgid "Job Id:"
-msgstr ""
+msgstr "Verknúmer:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:22
 #, kde-format
 msgid "Page Number:"
-msgstr ""
+msgstr "Blaðsíðutal:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:23
 #, kde-format
 msgid "Num Copies:"
-msgstr ""
+msgstr "Eintakafjöldi:"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:24
 #, kde-format
 msgid "Job Billing:"
-msgstr ""
+msgstr "Reikningsupplýsingar:"
 
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr ""
+msgstr "Annáll Cups-síðu"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Page log."
-msgstr ""
+msgstr "Birta annál CUPS-síðu."
 
 #: src/modes/cups/cupsPageLogMode.cpp:32
 #, kde-format
@@ -2390,21 +2650,24 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"Birtir CUPS síðuannálinn í núverandi flipa. CUPS er forritið sem sér um "
+"prentun í tölvunni þinni. Þessi annáll vistar allar beiðnir sem sendar eru "
+"til innfellda CUPS vefþjónsins (sjálfgefið: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Message:"
 msgstr "Skilaboð:"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr ""
+msgstr "Cups PDF-annáll"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS PDF log."
-msgstr ""
+msgstr "Birta CUPS PDF-annálinn."
 
 #: src/modes/cups/cupsPdfLogMode.cpp:32
 #, kde-format
@@ -2413,22 +2676,26 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"Birtir CUPS PDF-annálinn í núverandi flipa. CUPS er forritið sem sér um "
+"prentun í tölvunni þinni. Þessi annáll vistar allar beiðnir sem sendar eru "
+"til innfellda CUPS vefþjónsins (sjálfgefið: <i>http://localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
-msgstr ""
+msgstr "Miðlaraannálar"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að birta <b>miðlaraannálinn</b>.</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
-msgstr ""
+msgstr "Birta miðlaraannálinn."
 
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
@@ -2437,6 +2704,9 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"Birtir miðlaraannálinn í núverandi flipa. Miðlarar eru vinnslur sem keyrðar "
+"eru í bakgrunni í kerfinu. Skoðaðu þennan annál ef þú vilt vita hvað gerist "
+"í bakgrunni í tölvunni þinni."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2444,7 +2714,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:71
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "Vistfang"
 
 #. i18n: ectx: property (text), widget (QLabel, portLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2452,188 +2722,188 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Tengi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "Virkja"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
 msgid "Unit"
-msgstr ""
+msgstr "Eining"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
 #, kde-format
 msgid "Journald Log"
-msgstr ""
+msgstr "Journald-annáll"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:78
 #: src/modes/journald/journaldConfigurationWidget.cpp:110
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Virkt"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "Bæta við fjartengdri færsluskrá (journal)"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "Breyta fjartengdri færsluskrá (journal)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "Journald-valkostir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "Birta einungis annálsfærslur úr núverandi ræsingu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "Birta allar annálsfærslur"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "Birta annálsfærslur fyrir vinnslur núverandi notanda"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "Birta annálsfærslur fyrir kerfisþjónustur og kjarnann"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "Fjartengdar færsluskrár (journals)"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
 #, kde-format
 msgid "Add address"
-msgstr ""
+msgstr "Bæta við vistfangi"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:114
 #, kde-format
 msgid "Remove address"
-msgstr ""
+msgstr "Fjarlægja vistfang"
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:124
 #, kde-format
 msgid "Modify address"
-msgstr ""
+msgstr "Breyta vistfangi"
 
 #: src/modes/journald/journaldFactory.cpp:27
 #, kde-format
 msgid "Journald"
-msgstr ""
+msgstr "Journald"
 
 #: src/modes/journald/journaldFactory.cpp:43
 #, kde-format
 msgid "Local journal"
-msgstr ""
+msgstr "Staðbundin færsluskrá (journal)"
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "All messages"
-msgstr "Skilaboð"
+msgstr "Öll skilaboð"
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr ""
+msgstr "Sía eftir systemd-einingu"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr ""
+msgstr "Sía eftir syslog-auðkenni"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
 msgid "Connect"
-msgstr ""
+msgstr "Tengjast"
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Priority:"
-msgstr "&Forgangur:"
+msgstr "Forgangur:"
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
 msgid "Unit:"
-msgstr ""
+msgstr "Eining:"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr ""
+msgstr "Les journald-færslur..."
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
 #, kde-format
 msgid "Journald entries loaded successfully."
-msgstr ""
+msgstr "Tókst að hlaða inn Journald-færslum."
 
 #: src/modes/journald/journaldLogMode.cpp:35
 #, kde-format
 msgid "Display the Journald log."
-msgstr ""
+msgstr "Birta Journald-annálinn."
 
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr ""
+msgstr "Birtir journald-annálinn í núverandi flipa."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "Tengt"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:145
 #, kde-format
 msgid "Connection error"
-msgstr ""
+msgstr "Villa í tengingu"
 
 #: src/modes/kernel/kernelAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Component"
 msgstr "Hluti"
 
 #: src/modes/kernel/kernelItemBuilder.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Component:"
 msgstr "Hluti:"
 
 #: src/modes/kernel/kernelLogMode.cpp:19
 #, kde-format
 msgid "Kernel Log"
-msgstr ""
+msgstr "Kjarnaannáll"
 
 #: src/modes/kernel/kernelLogMode.cpp:26
 #, kde-format
 msgid "Display the kernel log."
-msgstr ""
+msgstr "Birta kjarnaannálinn."
 
 #: src/modes/kernel/kernelLogMode.cpp:28
 #, kde-format
@@ -2642,42 +2912,46 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
+"Birtir kjarnaannálinn í núverandi flipa Þessi annáll er einungis gagnlegur "
+"fyrir notendur sem vilja vita hvers vegna kjarninn greinir ekki vélbúnaðinn "
+"þeirra eða hver ástæðan er fyrir síðustu <i>kjarnaáfalli (panic)</i>."
 
 #: src/modes/open/openLogMode.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log File"
-msgstr "Annáll"
+msgstr "Atvikaskrá"
 
 #: src/modes/open/openLogMode.cpp:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open Location"
-msgstr "Opna slóð"
+msgstr "Opna staðsetningu"
 
 #: src/modes/open/openLogMode.cpp:59
 #, kde-format
 msgid "Malformed URL. Unable to open this file."
-msgstr ""
+msgstr "Gölluð slóð. Gat ekki opnað þessa skrá."
 
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
 msgid "Unable to open this file."
-msgstr ""
+msgstr "Get ekki opnað þessa skrá."
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:10
 #: src/modes/postfix/postfixLogMode.cpp:20
 #, kde-format
 msgid "Postfix Log"
-msgstr ""
+msgstr "Postfix-annáll"
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>Postfix-annálana</b>.</p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
 msgid "Display the Postfix log."
-msgstr ""
+msgstr "Birta Postfix-annálinn."
 
 #: src/modes/postfix/postfixLogMode.cpp:31
 #, kde-format
@@ -2685,16 +2959,18 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
+"Birtir Postfix-annálinn í núverandi flipa. Postfix er þekktasti og mest "
+"notaði póstþjónninn í Linuxheiminum."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr ""
+msgstr "Netbios-annáll"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr ""
+msgstr "Birta Netbios-annálinn."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -2702,16 +2978,18 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
+"Birtir Netbios-annálinn í núverandi flipa. Netbios er samskiptastaðall fyrir "
+"samnýtingu skráa sem er þróað af Microsoft."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
 msgid "Samba Access Log"
-msgstr ""
+msgstr "Samba-aðgangsannáll"
 
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr ""
+msgstr "Birta Samba-aðgangsannálinn."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
@@ -2719,20 +2997,22 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
+"Birtir aðgangsannál fyrir Samba í núverandi flipa. Þetta annálssnið gerir "
+"þér kleift að sjá tengingar á milli sameigna þinna og fjartengdra véla."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Source File"
-msgstr "Frumskrá"
+msgstr "Upprunaskrá"
 
 #: src/modes/samba/sambaAnalyzer.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Function"
 msgstr "Aðgerð"
 
 #: src/modes/samba/sambaAnalyzer.cpp:22 src/modes/xorg/xorgAnalyzer.cpp:25
 #: src/modes/xsession/xsessionAnalyzer.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Line"
 msgstr "Lína"
 
@@ -2740,7 +3020,7 @@ msgstr "Lína"
 #: src/modes/samba/sambaLogMode.cpp:23
 #, kde-format
 msgid "Samba Log"
-msgstr ""
+msgstr "Samba-annáll"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:16
 #, kde-format
@@ -2748,61 +3028,63 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
+"<p>Þessar skrár verða greindar til að sýna <b>Samba-annál</b>, <b>Samba-"
+"aðgangsannál</b> og <b>Netbios-annál</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Samba Log Files"
-msgstr ""
+msgstr "Samba-annálsskrár"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr ""
+msgstr "Bæta við Samba-skrá..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Samba Access Log Files"
-msgstr ""
+msgstr "Annálsskrár fyrir Samba-aðgang"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr ""
+msgstr "Bæta við Samba-aðgangsskrá..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr ""
+msgstr "Netbios-annálaskrár"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr ""
+msgstr "Bæta við Netbios-skrá..."
 
 #: src/modes/samba/sambaFactory.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Samba"
 msgstr "Samba"
 
 #: src/modes/samba/sambaItemBuilder.cpp:19
 #, kde-format
 msgid "Source File:"
-msgstr ""
+msgstr "Upprunaskrá:"
 
 #: src/modes/samba/sambaItemBuilder.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Function:"
 msgstr "Aðgerð:"
 
 #: src/modes/samba/sambaItemBuilder.cpp:21
 #, kde-format
 msgid "Line:"
-msgstr ""
+msgstr "Lína:"
 
 #: src/modes/samba/sambaLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba log."
-msgstr ""
+msgstr "Birta Samba-annálinn."
 
 #: src/modes/samba/sambaLogMode.cpp:33
 #, kde-format
@@ -2810,22 +3092,24 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"Birtir Samba-annálinn í núverandi flipa. Samba er samnýtingarþjónn fyrir "
+"skrár sem sér um samskipti við Microsoft Windows-netkerfi."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
 #, kde-format
 msgid "System Log"
-msgstr ""
+msgstr "Kerfisannáll"
 
 #: src/modes/system/systemConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
-msgstr ""
+msgstr "<p>Þessar skrár verða greindar til að sýna <b>kerfisannálana</b>.</p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
 msgid "Display the system log."
-msgstr ""
+msgstr "Birtir kerfisannálinn."
 
 #: src/modes/system/systemLogMode.cpp:31
 #, kde-format
@@ -2833,53 +3117,55 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Birtir kerfisannálinn í núverandi flipa. Þessi annáll er almennt notaður "
+"fyrir ósértækar vinnslur (eins og skipanirnar \"sudo\" eða \"fsck\")"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
 msgid "Probed"
-msgstr ""
+msgstr "Kannað"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
 msgid "From config file"
-msgstr ""
+msgstr "Úr grunnstillingaskrá"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr ""
+msgstr "Sjálfgefin stilling"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
 msgid "From command Line"
-msgstr ""
+msgstr "Frá skipanalínu"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Not implemented"
-msgstr "Ekki útfært enn"
+msgstr "Ekki innleitt"
 
 #: src/modes/xorg/xorgConfigurationWidget.cpp:11
 #: src/modes/xorg/xorgLogMode.cpp:19
 #, kde-format
 msgid "X.org Log"
-msgstr ""
+msgstr "X.org annáll"
 
 #: src/modes/xorg/xorgConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
-msgstr ""
+msgstr "<p>Þessar skrár verða greindar til að sýna <b>X.org annálinn</b>.</p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "none"
 msgstr "ekkert"
 
 #: src/modes/xorg/xorgLogMode.cpp:28
 #, kde-format
 msgid "Display the X.org log."
-msgstr ""
+msgstr "Birta X.org annálinn."
 
 #: src/modes/xorg/xorgLogMode.cpp:30
 #, kde-format
@@ -2889,9 +3175,13 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
+"Birtir X.org annálinn í núverandi flipa. X.org er þjónusta sem sér um að "
+"birta skjáborðið þitt á skjánum og hefur umsjón með vélbúnaði fyrir "
+"skjábirtingu. Skoðaðu þennan annál ef þú vilt vita af hverju engin "
+"þrívíddarhröðun er til staðar eða af hverju inntakstæki er ekki samþykkt."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Program"
 msgstr "Forrit"
 
@@ -2899,7 +3189,7 @@ msgstr "Forrit"
 #: src/modes/xsession/xsessionLogMode.cpp:19
 #, kde-format
 msgid "X Session Log"
-msgstr ""
+msgstr "Annáll X-setu"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:24
 #, kde-format
@@ -2907,6 +3197,8 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
+"Þú getur slegið inn eða valið annálsskrána fyrir X-setu (dæmi: <i>~/."
+"xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
 #, kde-format
@@ -2915,23 +3207,26 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"Þú getur slegið inn eða valið hér annálsskrána fyrir X-setu. Þessi skrá "
+"verður greind þegar þú velur valmyndina <b>Annáll X-setu</b>. Oftast heitir "
+"skráin <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr ""
+msgstr "<li><b>%1</b>: ...</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "X Session Log File"
-msgstr "Annáll"
+msgstr "Annálsskrá X-setu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Log file:"
-msgstr "Annáll"
+msgstr "&Annálsskrá:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -2939,13 +3234,13 @@ msgstr "Annáll"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr ""
+msgstr "Haka hér til að fjarlægja Xorg villur"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr ""
+msgstr "Hunsa Xorg villur"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
@@ -2954,17 +3249,19 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
+"<p><b>Ath.:</b> Hakaðu hér til að fjarlægja X.org villur.</p><p style="
+"\"margin-bottom:0px\">Eftirfarandi línur verða hunsaðar:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Program:"
 msgstr "Forrit:"
 
 #: src/modes/xsession/xsessionLogMode.cpp:28
 #, kde-format
 msgid "Display the X Session log."
-msgstr ""
+msgstr "Birta annál X-setu."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
 #, kde-format
@@ -2974,23 +3271,27 @@ msgid ""
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
+"Birtir annál X-setunnar í núverandi flipa. Annáll X-setu er staðurinn þar "
+"sem úttak forrita í myndrænu notandaviðmóti er skrifað. Skoðaðu þennan annál "
+"ef þú vilt vita af hverju tiltekið forrit hrundi, eða af hverju "
+"skjáborðsumhverfið (Plasma, Gnome, Unity, Xfce, LXQt, ...) ræstist ekki."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
 #: src/statusBar.cpp:54
 #, kde-format
 msgid "Last updated: %1."
-msgstr ""
+msgstr "Síðast uppfært: %1."
 
 #. i18n("%1: %2", KLocale::global()->formatTime(QTime::currentTime(), true,
 #. false), message));
 #: src/statusBar.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
 #: src/tabLogManager.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Log mode name (added lines count)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -2998,7 +3299,7 @@ msgstr "%1 (%2)"
 #: src/tabLogViewsWidget.cpp:74
 #, kde-format
 msgid "No Log"
-msgstr ""
+msgstr "Enginn annáll"
 
 #, fuzzy
 #~ msgctxt "Size format"
