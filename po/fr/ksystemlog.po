@@ -8,7 +8,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2008.
-# SPDX-FileCopyrightText: 2013, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2013, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Simon Depiets <sdepiets@gmail.com>, 2017.
 # SPDX-FileCopyrightText: 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
 #
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2024-05-03 08:52+0200\n"
+"PO-Revision-Date: 2025-04-23 18:25+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -1577,9 +1577,9 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
-"Affiche le journal ACPI dans l'onglet courant. L'ACPI est utilisé pour gérer "
-"les composants matériels de votre ordinateur, comme les batteries de "
-"portables, les boutons de redémarrage..."
+"Affiche le journal ACPI dans l'onglet courant. Le module ACPI est utilisé "
+"pour gérer les composants matériels de votre ordinateur, comme les batteries "
+"de portables, les boutons de redémarrage..."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -2991,8 +2991,8 @@ msgid ""
 msgstr ""
 "Affiche le journal du noyau dans l'onglet courant. Ce journal n'est utile "
 "qu'aux utilisateurs souhaitant savoir pourquoi le noyau n'a pas détecté leur "
-"matériel, ou ceux désirant connaître l'explication du dernier <i>kernel "
-"panic / Oups</i>."
+"matériel, ou ceux désirant connaître l'explication du dernier <i>plantage du "
+"noyau / Oups</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -3363,7 +3363,7 @@ msgstr ""
 "X est l'endroit où les applications graphiques écrivent des messages en "
 "sortie. Consultez ce journal si vous voulez savoir pourquoi votre programme "
 "s'est planté ou pourquoi votre environnement bureautique (Plasma, Gnome, "
-"Unity, Xfce, LXQt, etc.) n'a pas démarré."
+"Unity, XFCE, LXQt, etc.) n'a pas démarré."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
