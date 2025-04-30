@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
-# SPDX-FileCopyrightText: 2021, 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2024-04-01 08:19+0400\n"
+"PO-Revision-Date: 2025-04-29 15:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -18,16 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "صفا الفليج"
+msgstr "صفا الفليج,زايد السعيدي"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "safa1996alfulaij@gmail.com"
+msgstr "safa1996alfulaij@gmail.com,zayed.alsaidi@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -54,6 +55,8 @@ msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
 msgstr ""
+"يكون الخيار صحيحًا في حالة حذف معرف العملية (PID) الموجود في عمود العملية في "
+"سجل النظام."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -62,6 +65,8 @@ msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
 msgstr ""
+"يكون الخيار صحيحًا إذا كان من المقرر تلوين خطوط السجل وفقًا لمستوى السجل الخاص "
+"بها."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
@@ -331,6 +336,9 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"حدد هذا الخيار إذا كنت ترغب في إزالة مُعرّف العملية من اسمها. على سبيل المثال، "
+"قد يحتوي عمود <b>العملية</b> على مُدخلات مثل <i>cron<b>[3433]</b></i>. عند "
+"تفعيل هذا الخيار، سيزال الجزء الغامق."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -353,6 +361,9 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
+"يتيح هذا الخيار تلوين أسطر السجل حسب مستوى السجل. على سبيل المثال، ستظهر "
+"الأخطاء باللون الأحمر، والتحذيرات باللون البرتقالي، وهكذا. سيساعدك هذا على "
+"رؤية المشاكل بسهولة أكبر."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
@@ -437,79 +448,79 @@ msgstr "لا شيء"
 #: src/lib/globals.cpp:113
 #, kde-format
 msgid "Debug"
-msgstr "التّنقيح"
+msgstr "تنقيح"
 
 #: src/lib/globals.cpp:117
 #, kde-format
 msgid "Information"
-msgstr "المعلومات"
+msgstr "معلومات"
 
 #: src/lib/globals.cpp:122
 #, kde-format
 msgid "Notice"
-msgstr "الإخطارات"
+msgstr "إخطارات"
 
 #: src/lib/globals.cpp:126
 #, kde-format
 msgid "Warning"
-msgstr "التّحذيرات"
+msgstr "تحذيرات"
 
 #: src/lib/globals.cpp:129
 #, kde-format
 msgid "Error"
-msgstr "الأخطاء"
+msgstr "أخطاء"
 
 #: src/lib/globals.cpp:132
 #, kde-format
 msgid "Critical"
-msgstr "الحرج"
+msgstr "حرجة"
 
 #: src/lib/globals.cpp:135
 #, kde-format
 msgid "Alert"
-msgstr "التّنبيهات"
+msgstr "تنبيه"
 
 #: src/lib/globals.cpp:138
 #, kde-format
 msgid "Emergency"
-msgstr "الطّوارئ"
+msgstr "طوارئ"
 
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr ""
+msgstr "طباعة مستوى السجل"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr ""
+msgstr "اختر مستويات السجل التي ترغب في طباعتها بالألوان."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr ""
+msgstr "جاري التحميل..."
 
 #: src/lib/loadingBar.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "يحمّل <b>%1</b>...<br /><i>%2</i>"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "يحمّل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "يحمل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/ملف واحد)"
+msgstr[2] "يحمل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/ملفين)"
+msgstr[3] "يحمل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملفات)"
+msgstr[4] "يحمل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملفا)"
+msgstr[5] "يحمل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملف)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/ملف واحد)"
+msgstr[2] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/ملفين)"
+msgstr[3] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملفات)"
+msgstr[4] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملفا)"
+msgstr[5] "يعيد تحميل <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 ملف)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
@@ -519,7 +530,7 @@ msgstr "يحمّل <b>%1</b>...<br /><i>%2</i>"
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr ""
+msgstr "يعيد تحميل <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -815,7 +826,7 @@ msgstr "الاستيثاق"
 #: src/loggerDialog.cpp:94
 #, kde-format
 msgid "Private Authentication"
-msgstr ""
+msgstr "استيثاق خاص"
 
 #: src/loggerDialog.cpp:95
 #, kde-format
@@ -840,7 +851,7 @@ msgstr "النواة"
 #: src/loggerDialog.cpp:99
 #, kde-format
 msgid "LPR"
-msgstr ""
+msgstr "LPR"
 
 #: src/loggerDialog.cpp:100
 #, kde-format
@@ -860,7 +871,7 @@ msgstr "Syslog"
 #: src/loggerDialog.cpp:104
 #, kde-format
 msgid "UUCP"
-msgstr ""
+msgstr "UUCP"
 
 #: src/loggerDialog.cpp:106
 #, kde-format
@@ -970,7 +981,7 @@ msgstr "الأ&ولويّة:"
 #: src/loggerDialogBase.ui:162
 #, kde-format
 msgid "&Facility:"
-msgstr ""
+msgstr "ال&منشأة:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
@@ -1061,7 +1072,7 @@ msgstr "وضع Journald، إصلاحات للعلل"
 #: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
-msgstr ""
+msgstr "بويان ديوركوفيتش"
 
 #: src/main.cpp:39
 #, kde-format
@@ -1439,6 +1450,8 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"يعرض مربع حوار يحتوي على تفاصيل السطر المحدد. يمكنك التنقل عبر السجلات من "
+"هذا المربع باستخدام زري <b>السابق</b> و<b>التالي</b>."
 
 #: src/mainWindow.cpp:682
 #, kde-format
@@ -1459,12 +1472,12 @@ msgstr "يفعّل/يعطّل التّلميحة المعروضة عندما ي�
 #: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&انتقل إلى الأسطر الجديدة"
 
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "إنتقال إلى الأسطر الجديدة أم لا عند تغير السجل"
 
 #: src/mainWindow.cpp:693
 #, kde-format
@@ -1473,6 +1486,8 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"إذا رغبت في الإنتقال إلى الأسطر الجديدة أم لا عند تغير السجل. فعّل هذا الخيار "
+"إذا كنت لا ترغب في أن ينتقل التطبيق تلقائيًا إلى أسفل السجل في كل مرة يُحدث."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1618,6 +1633,9 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"يعرض سجل وصول أباتشي في علامة التبويب الحالية. يُعد أباتشي خادم الويب الرئيس "
+"المستخدم في العالم. يحفظ هذا السجل جميع الطلبات التي يُجريها خادم الويب "
+"أباتشي."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1636,6 +1654,7 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
+"<p>ستُحلل هذه الملفات لعرض <b>سجل أباتشي</b> و<b>سجل وصول أباتشي</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
@@ -1678,6 +1697,8 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"يعرض سجل أباتشي في علامة التبويب الحالية. أباتشي هو خادم الويب الرئيسي "
+"المستخدم في العالم."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1686,16 +1707,14 @@ msgid "Audit Log"
 msgstr "سجلّ التدقيق"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
-msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلّ Acpid</b>.</p>"
+msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلات التدقيق</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "اعرض سجلّ Cups."
+msgstr "اعرض سجلّ التدقيق."
 
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
@@ -1703,6 +1722,8 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"يعرض سجل التدقيق في علامة التبويب الحالية. يُستخدم هذا السجل عادةً من قِبل "
+"العمليات غير المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1741,6 +1762,8 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"يمكنك كتابة أو اختيار ملف سجل المصادقة هنا. سيتم تحليل هذا الملف عند اختيار "
+"قائمة <b>سجل المصادقة</b>. عادةً ما يكون اسمه <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -1754,6 +1777,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
+"يعرض سجل المصادقة في علامة التبويب الحالية. يعرض هذا السجل جميع عمليات تسجيل "
+"الدخول التي أجراها كل مستخدم للنظام، ويساعدك في معرفة ما إذا حاول أحدهم "
+"اختراق نظامك."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1789,6 +1815,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Choose a new file</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">اختر ملفًا جديدًا</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -1803,6 +1837,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">يفتح مربع حوار لاختيار ملف "
+"جديد لإضافته إلى القائمة.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
@@ -1954,6 +1996,15 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
+"الأعلى في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
+"weight:600;\">أولاً</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -1999,6 +2050,15 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
+"الأسفل في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
+"weight:600;\">أولاً بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -2017,6 +2077,11 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></"
+"p><ulstyle='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
+"li><li>تُقبل الملفات المضغوطة والنصية العادية <i>(*.log, *.gz, *.bz2,...)</i>."
+"</li><li>استخدم حرف البدل <b>'*'</b> لتحديد ملفات سجل متعددة عند إضافة ملفات."
+"</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2031,6 +2096,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of files used by this "
 "log type.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { مسافة بيضاء: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">قائمة الملفات المستخدمة "
+"بواسطة هذا النوع من السجلات.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:197
@@ -2046,6 +2119,14 @@ msgid ""
 "file that will be read by KSystemLog to display the current log lines.</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">فيما يلي قائمة بكل الملفات "
+"التي سيقرأها برنامج سجلات نظامك لعرض أسطر السجل الحالية.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:210
@@ -2103,7 +2184,7 @@ msgstr ""
 "كلّ مستوى تسجيل."
 
 #: src/modes/base/logLevelFileList.cpp:150
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
 msgstr "حجم المصفوفتين مختلف، سأتخطّى قراءة المسارات العامّة."
@@ -2112,7 +2193,7 @@ msgstr "حجم المصفوفتين مختلف، سأتخطّى قراءة ال�
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr ""
+msgstr "يحدد نوع الملف"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
@@ -2158,6 +2239,17 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
 "to be used for the files selected on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">هذه قائمة بجميع مستويات "
+"السجل الحالية. </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">يرجى اختيار أحدها "
+"لاستخدامه مع الملفات المحددة في القائمة.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
@@ -2214,6 +2306,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files of the "
 "list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">احذف جميع ملفات القائمة، "
+"حتى لو لم تكن محددة.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/multipleFileListBase.ui:127
@@ -2229,6 +2329,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
+"الأعلى في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
+"weight:600;\">أولاً</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2244,6 +2353,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
+"الأسفل في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
+"weight:600;\">في الأخير بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2255,6 +2373,10 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></"
+"p><ulstyle='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
+"li><li>تُقبل الملفات المضغوطة والنصية العادية <i>(*.log, *.gz, *.bz2,...)</i>."
+"</li><li>استخدم <b>'*'</b> لتحديد ملفات سجل متعددةعند إضافة ملفات.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2282,7 +2404,7 @@ msgstr "الأمر"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr ""
+msgstr "سجل Cron"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2290,16 +2412,18 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
+"<p>ستُحلل هذه الملفات لعرض <b>سجلات Cron</b> (أي سجلات المهام المخطط لها). <a "
+"href='man:/cron'>مزيد من المعلومات...</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
 msgid "Enable Process Filtering"
-msgstr ""
+msgstr "مكّن تصفية العمليات"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:36
 #, kde-format
 msgid "Only keeps lines which matches this process :"
-msgstr ""
+msgstr "يحتفظ فقط بالخطوط التي تتطابق مع هذه العملية:"
 
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
@@ -2309,7 +2433,7 @@ msgstr "المستخدم:"
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr ""
+msgstr "اعرض سجل المهام المخطط لها (سجل Cron)."
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2319,6 +2443,10 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"يعرض سجل المهام المخطط لها في علامة التبويب الحالية. عملية Cron هي برنامج "
+"مسؤول عن تشغيل المهام المخطط لها على نظامك، مثل عمليات التحقق من الأمان، أو "
+"إعادة تشغيل بعض الخدمات تلقائيًا. استخدم هذه القائمة لعرض العمليات التي تم "
+"تشغيلها مؤخرًا."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2348,12 +2476,12 @@ msgstr "حالة IPP"
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
-msgstr ""
+msgstr "سجل ويب Cups"
 
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
-msgstr ""
+msgstr "اعرض سجل وصول خادم الويب CUPS."
 
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
@@ -2363,6 +2491,9 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
+"يعرض سجل وصول خادم ويب CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي "
+"يُدير الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب "
+"CUPS المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2375,17 +2506,18 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
+"اكتشاف مستوى سجل جديد: يُرجى إرسال ملف السجل هذا إلى مطور KSystemLog لإضافته."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
-msgstr ""
+msgstr "سجل Cups"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
-msgstr ""
+msgstr "سجل خادم الويب Cups و خادم Cups"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
@@ -2393,6 +2525,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
+"<p>ستُحلّل هذه الملفّات لعرض <b>سجل Cups</b> و <b>سجل وصول خادم ويب Cups</b>.</"
+"p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
@@ -2407,32 +2541,32 @@ msgstr "أضف ملفّ Cups..."
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
-msgstr ""
+msgstr "ملفات سجل وصول Cups"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr ""
+msgstr "أضف ملف وصول Cups..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
-msgstr ""
+msgstr "ملفات سجل صفحة Cups"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr ""
+msgstr "أضف ملف صفحة Cups..."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
-msgstr ""
+msgstr "ملفات سجل بي دي اف Cups"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr ""
+msgstr "أضف ملف بي دي اف Cups..."
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2450,6 +2584,8 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
+"يعرض سجل خادم ويب CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
+"الطباعة على حاسوبك."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2474,7 +2610,7 @@ msgstr "عدد النُّسخ"
 #: src/modes/cups/cupsPageAnalyzer.cpp:25
 #, kde-format
 msgid "Job Billing"
-msgstr ""
+msgstr "فاتورة العمل"
 
 #: src/modes/cups/cupsPageItemBuilder.cpp:19
 #, kde-format
@@ -2499,17 +2635,17 @@ msgstr "عدد النُّسخ:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:24
 #, kde-format
 msgid "Job Billing:"
-msgstr ""
+msgstr "فاتورة العمل:"
 
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
-msgstr ""
+msgstr "سجل صفحة Cups"
 
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Page log."
-msgstr ""
+msgstr "اعرض سجل صفحة CUPS."
 
 #: src/modes/cups/cupsPageLogMode.cpp:32
 #, kde-format
@@ -2518,6 +2654,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"يعرض سجل وصفحة CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
+"الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS "
+"المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2527,12 +2666,12 @@ msgstr "الرّسالة:"
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
-msgstr ""
+msgstr "سجل بي دي اف Cups"
 
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS PDF log."
-msgstr ""
+msgstr "اعرض سجل بي دي اف CUPS."
 
 #: src/modes/cups/cupsPdfLogMode.cpp:32
 #, kde-format
@@ -2541,6 +2680,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"يعرض سجل بي دي اف CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
+"الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS "
+"المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2551,7 +2693,7 @@ msgstr "سجلّات العفاريت"
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
-msgstr ""
+msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلات الخدمات الخلفية</b>.</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
@@ -2565,6 +2707,8 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"يعرض سجلات العمليات الخلفية في علامة التبويب الحالية. جميع العمليات الخلفية "
+"هي عمليات تُشغّل في خلفية النظام. راجع هذا السجل لمعرفة ما يحدث في خلفية نظامك."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2608,48 +2752,48 @@ msgstr "ممكّن"
 #: src/modes/journald/journaldConfigurationWidget.cpp:100
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "أضف سجل يوميات بعيد"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:134
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "عدّل سجل يوميات بعيد"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "خيارات خدمة Journald"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "اعرض إدخالات السجل من الإقلاع الحالي فقط"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "اعرض جميع إدخالات السجل"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "اعرض إدخالات سجل عمليات المستخدم الحالي"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "اعرض إدخالات السجل لخدمات النظام والنواة"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "السجلات البعيدة"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
@@ -2667,17 +2811,17 @@ msgstr "أزل العنوان"
 #: src/modes/journald/journaldConfigurationWidget.ui:124
 #, kde-format
 msgid "Modify address"
-msgstr ""
+msgstr "عدّل العنوان"
 
 #: src/modes/journald/journaldFactory.cpp:27
 #, kde-format
 msgid "Journald"
-msgstr ""
+msgstr "خدمة Journald"
 
 #: src/modes/journald/journaldFactory.cpp:43
 #, kde-format
 msgid "Local journal"
-msgstr ""
+msgstr "سجل اليوميات المحلي"
 
 #: src/modes/journald/journaldFactory.cpp:46
 #, kde-format
@@ -2731,7 +2875,7 @@ msgstr "اعرض سجلّ Journald."
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr ""
+msgstr "يعرض سجل دفتر اليومية في علامة التبويب الحالية."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
@@ -2770,6 +2914,9 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
+"يعرض سجل النواة في علامة التبويب الحالية. هذا السجل مفيد فقط للمستخدمين "
+"الذين يرغبون في معرفة سبب عدم اكتشاف النواة لأجهزتهم أو سبب آخر <i>خطأ في "
+"النواة</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2795,17 +2942,17 @@ msgstr "تعذّر فتح هذا الملفّ."
 #: src/modes/postfix/postfixLogMode.cpp:20
 #, kde-format
 msgid "Postfix Log"
-msgstr ""
+msgstr "سجل Postfix"
 
 #: src/modes/postfix/postfixConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Postfix Logs</b>.</p>"
-msgstr ""
+msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلات Postfix</b>.</p>"
 
 #: src/modes/postfix/postfixLogMode.cpp:29
 #, kde-format
 msgid "Display the Postfix log."
-msgstr ""
+msgstr "اعرض سجلّ Postfix."
 
 #: src/modes/postfix/postfixLogMode.cpp:31
 #, kde-format
@@ -2813,16 +2960,18 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
+"يعرض سجل Postfix في علامة التبويب الحالية. يُعد Postfix خادم البريد "
+"الإلكتروني الأكثر شهرةً واستخدامًا في عالم لينكس."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
 msgid "Netbios Log"
-msgstr ""
+msgstr "سجل Netbios"
 
 #: src/modes/samba/netbiosLogMode.cpp:31
 #, kde-format
 msgid "Display the Netbios log."
-msgstr ""
+msgstr "اعرض سجلّ Netbios."
 
 #: src/modes/samba/netbiosLogMode.cpp:33
 #, kde-format
@@ -2830,16 +2979,18 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
+"يعرض سجل NetBios في علامة التبويب الحالية. NetBios هو ميفاق مشاركة الملفات "
+"الذي طورته مايكروسوفت."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
 msgid "Samba Access Log"
-msgstr ""
+msgstr "سجل وصول سامبا"
 
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr ""
+msgstr "اعرض سجل وصول سامبا."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
@@ -2847,6 +2998,8 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
+"يعرض سجل وصول سامبا في علامة التبويب الحالية. يتيح لك هذا الوضع رؤية "
+"الاتصالات بين مشاركاتك والمضيفين البعيدين."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -2876,6 +3029,8 @@ msgid ""
 "<p>These files will be analyzed to show <b>Samba log</b>, <b>Samba Access "
 "log</b> and <b>Netbios log</b>.</p>"
 msgstr ""
+"<p>سيُحلل هذه الملفات لعرض <b>سجل سامبا</b>، و<b>سجل وصول سامبا</b>، و<b>سجل "
+"Netbios</b>.</p>"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
@@ -2890,22 +3045,22 @@ msgstr "أضف ملفّ سامبا..."
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Samba Access Log Files"
-msgstr ""
+msgstr "ملفات سجل وصول سامبا"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr ""
+msgstr "أضف ملف وصول سامبا..."
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Netbios Log Files"
-msgstr ""
+msgstr "ملفات سجل Netbios"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr ""
+msgstr "أضف ملف Netbios..."
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -2938,22 +3093,24 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"يعرض سجل سامبا في علامة التبويب الحالية. سامبا هو خادم مشاركة الملفات الذي "
+"يتفاعل مع شبكة مايكروسوفت ويندوز."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
 #, kde-format
 msgid "System Log"
-msgstr ""
+msgstr "سجل النظام"
 
 #: src/modes/system/systemConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
-msgstr ""
+msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلات النظام</b>.</p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
 msgid "Display the system log."
-msgstr ""
+msgstr "اعرض سجلّ النظام."
 
 #: src/modes/system/systemLogMode.cpp:31
 #, kde-format
@@ -2961,26 +3118,28 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"يعرض سجل النظام في علامة التبويب الحالية. يُستخدم هذا السجل عادةً من قِبل "
+"العمليات غير المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
 msgid "Probed"
-msgstr ""
+msgstr "مُدَقَّق"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:71
 #, kde-format
 msgid "From config file"
-msgstr ""
+msgstr "من ملف الضبط"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr ""
+msgstr "إعداد مبدئي"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
 msgid "From command Line"
-msgstr ""
+msgstr "من سطر الأوامر"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:85
 #, kde-format
@@ -2996,7 +3155,7 @@ msgstr "سجلّ X.org"
 #: src/modes/xorg/xorgConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>X.org log</b>.</p>"
-msgstr ""
+msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجل X.org</b>.</p>"
 
 #: src/modes/xorg/xorgItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
@@ -3007,7 +3166,7 @@ msgstr "لاشيء"
 #: src/modes/xorg/xorgLogMode.cpp:28
 #, kde-format
 msgid "Display the X.org log."
-msgstr ""
+msgstr "اعرض سجلّ X.org."
 
 #: src/modes/xorg/xorgLogMode.cpp:30
 #, kde-format
@@ -3017,6 +3176,9 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
+"يعرض سجل X.org في علامة التبويب الحالية. X.org هي الخدمة التي تعرض سطح مكتبك "
+"على الشاشة وتدير أجهزتك الرسومية. راجع هذا السجل لمعرفة سبب عدم وجود تسريعات "
+"ثلاثية الأبعاد أو عدم التعرف على جهاز الإدخال لديك."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -3027,7 +3189,7 @@ msgstr "البرنامج"
 #: src/modes/xsession/xsessionLogMode.cpp:19
 #, kde-format
 msgid "X Session Log"
-msgstr ""
+msgstr "سجل جلسة اكس"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:24
 #, kde-format
@@ -3035,6 +3197,7 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
+"يمكنك كتابة أو اختيار ملف سجل جلسة اكس (مثال: <i>~/.xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
 #, kde-format
@@ -3043,6 +3206,8 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"يمكنك كتابة أو اختيار ملف سجل جلسة اكس هنا سيتم تحليل هذا الملف عند اختيار "
+"قائمة <b>سجل جلسة اكس</b>. عادةً ما يكون اسمه <i>~/.xsession-errors"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
@@ -3067,13 +3232,13 @@ msgstr "ملفّ السّ&جلّ:"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:53
 #, kde-format
 msgid "Check this option to remove Xorg errors"
-msgstr ""
+msgstr "حدد هذا الخيار لإزالة أخطاء Xorg"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreXorgErrors)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:56
 #, kde-format
 msgid "Ignore Xorg errors"
-msgstr ""
+msgstr "تجاهل أخطاء Xorg"
 
 #. i18n: ectx: property (text), widget (QLabel, xorgErrorsDescription)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:66
@@ -3082,6 +3247,8 @@ msgid ""
 "<p><b>Note:</b> Check this option to remove X.org errors.</p><p style="
 "\"margin-bottom:0px\">The following lines will be ignored:</p>"
 msgstr ""
+"<p><b>ملاحظة:</b> حدد هذا الخيار لإزالة أخطاء X.org.</p><p style=\"margin-"
+"bottom:0px\">سيتجاهل الأسطر التالية:</p>"
 
 #: src/modes/xsession/xsessionItemBuilder.cpp:35
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
@@ -3092,7 +3259,7 @@ msgstr "البرنامج:"
 #: src/modes/xsession/xsessionLogMode.cpp:28
 #, kde-format
 msgid "Display the X Session log."
-msgstr ""
+msgstr "اعرض سجلّ اكس."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
 #, kde-format
@@ -3102,6 +3269,9 @@ msgid ""
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
+"يعرض سجل جلسة اكس في علامة التبويب الحالية. سجل جلسة اكس هو المكان الذي تكتب "
+"فيه البرامج الرسومية مخرجاتها. راجع هذا السجل لمعرفة سبب تعطل برنامج، أو سبب "
+"عدم بدء تشغيل بيئة سطح المكتب (بلازما، غنوم،  Unity، Xfce، LXQt، ...)."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
