@@ -22,9 +22,9 @@ public:
                                    const QString &port = QString(),
                                    bool httpsEnabled = false);
 
-    Q_REQUIRED_RESULT QString address() const;
-    Q_REQUIRED_RESULT QString port() const;
-    Q_REQUIRED_RESULT bool httpsEnabled() const;
+    [[nodiscard]] QString address() const;
+    [[nodiscard]] QString port() const;
+    [[nodiscard]] bool httpsEnabled() const;
 
 public Q_SLOTS:
     void accept() override;
