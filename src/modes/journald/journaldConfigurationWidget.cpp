@@ -22,7 +22,11 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
     remoteJournalsListWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     connect(remoteJournalsListWidget, &QTableWidget::itemSelectionChanged, this, &JournaldConfigurationWidget::updateButtons);
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(lastBootOnly, &QCheckBox::stateChanged, this, &JournaldConfigurationWidget::configurationChanged);
+#else
+    connect(lastBootOnly, &QCheckBox::checkStateChanged, this, &JournaldConfigurationWidget::configurationChanged);
+#endif
     connect(entriesTypeComboBox, &QComboBox::currentIndexChanged, this, &JournaldConfigurationWidget::configurationChanged);
 
     connect(addAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::addRemoteJournal);

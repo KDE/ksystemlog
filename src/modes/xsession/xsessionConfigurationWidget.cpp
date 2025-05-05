@@ -29,7 +29,11 @@ XSessionConfigurationWidget::XSessionConfigurationWidget()
     xsessionUrlRequester->setEnabled(true);
 
     connect(xsessionUrlRequester, &KUrlRequester::textChanged, this, &LogModeConfigurationWidget::configurationChanged);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(ignoreXorgErrors, &QCheckBox::stateChanged, this, &LogModeConfigurationWidget::configurationChanged);
+#else
+    connect(ignoreXorgErrors, &QCheckBox::checkStateChanged, this, &LogModeConfigurationWidget::configurationChanged);
+#endif
 
     connect(ignoreXorgErrors, &QAbstractButton::toggled, xorgErrorsDescription, &QWidget::setEnabled);
 
