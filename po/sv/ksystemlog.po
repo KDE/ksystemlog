@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:44+0000\n"
 "PO-Revision-Date: 2024-06-18 00:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2749,18 +2749,18 @@ msgstr "Enhet"
 msgid "Journald Log"
 msgstr "Journald-logg"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:78
-#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#: src/modes/journald/journaldConfigurationWidget.cpp:82
+#: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
 msgstr "Aktiverad"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
 msgstr "Lägg till fjärrjournal"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
 msgstr "Ändra fjärrjournal"
@@ -3222,7 +3222,7 @@ msgstr ""
 "väljer <b>X-sessionslogg</b> i menyn. I allmänhet har den namnet <i>~/."
 "xsession-errors</i>"
 
-#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
 msgstr "<li><b>%1</b>: ...</li>"

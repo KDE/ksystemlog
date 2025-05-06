@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:44+0000\n"
 "PO-Revision-Date: 2023-11-14 07:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2792,18 +2792,18 @@ msgstr "Модуль"
 msgid "Journald Log"
 msgstr "Журнал journald"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:78
-#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#: src/modes/journald/journaldConfigurationWidget.cpp:82
+#: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
 msgstr "Увімкнено"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
 msgstr "Додати віддалений журнал"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
 msgstr "Змінити віддалений журнал"
@@ -3264,7 +3264,7 @@ msgstr ""
 "буде проаналізовано, якщо ви оберете у меню <b>журнал сеансів X</b>. "
 "Зазвичай, назва цього файла — <i>~/.xsession-errors</i>"
 
-#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
 msgstr "<li><b>%1</b>: ...</li>"

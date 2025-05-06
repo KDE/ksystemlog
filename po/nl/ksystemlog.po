@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:44+0000\n"
 "PO-Revision-Date: 2023-11-14 10:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2782,18 +2782,18 @@ msgstr "Eenheid"
 msgid "Journald Log"
 msgstr "Journald-log"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:78
-#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#: src/modes/journald/journaldConfigurationWidget.cpp:82
+#: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
 msgstr "Journaal op afstand toevoegen"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
 msgstr "Journaal op afstand wijzigen"
@@ -3255,7 +3255,7 @@ msgstr ""
 "<b>X-sessie-log</b> menu wordt dit bestand geanalyseerd. In het algemeen is "
 "de naam <i>~/.xsession-errors</i>"
 
-#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
 msgstr "<li><b>%1</b>: ...</li>"

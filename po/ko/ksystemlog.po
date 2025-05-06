@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:44+0000\n"
 "PO-Revision-Date: 2024-02-10 00:04+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2704,18 +2704,18 @@ msgstr "단위"
 msgid "Journald Log"
 msgstr "Journald 로그"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:78
-#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#: src/modes/journald/journaldConfigurationWidget.cpp:82
+#: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
 msgstr "사용함"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
 msgstr "원격 저널 추가"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
 msgstr "원격 저널 수정"
@@ -3166,7 +3166,7 @@ msgstr ""
 "X 세션 로그 파일을 지정할 수 있습니다. 이 파일은 <b>X 세션 로그</b> 메뉴를 선"
 "택하면 분석됩니다. 대개 <i>~/.xsession-errors</i>에 저장됩니다."
 
-#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
 msgstr "<li><b>%1</b>: ...</li>"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-11 00:42+0000\n"
+"POT-Creation-Date: 2025-05-06 00:44+0000\n"
 "PO-Revision-Date: 2011-01-05 11:32+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2786,18 +2786,18 @@ msgstr ""
 msgid "Journald Log"
 msgstr "Kernel-Logbook"
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:78
-#: src/modes/journald/journaldConfigurationWidget.cpp:110
+#: src/modes/journald/journaldConfigurationWidget.cpp:82
+#: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
 msgstr ""
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:100
+#: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
 msgstr ""
 
-#: src/modes/journald/journaldConfigurationWidget.cpp:134
+#: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
 msgstr ""
@@ -3270,7 +3270,7 @@ msgstr ""
 "warrt bekeken, wenn Du dat Menü <b>\"X-Törn\"-Logbook</b> utsöchst. Dat heet "
 "normalerwies <i>~/.xsession-errors</i>."
 
-#: src/modes/xsession/xsessionConfigurationWidget.cpp:87
+#: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
 msgstr "<li><b>%1</b>: ...</li>"
