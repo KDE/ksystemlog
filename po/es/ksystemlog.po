@@ -1,23 +1,22 @@
-# translation of ksystemlog.po to Spanish
-# Translation of ksystemlog to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for ksystemlog.po package.
+# Copyright (C) 2007-2025 This file is copyright:
+# This file is distributed under the same license as the ksystemlog package.
 #
-# Santiago FernÃ¡ndez Sancho <santi@kde-es.org>, 2007.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
-# Ignacio Poggi <ignaciop.3@gmail.com>, 2008.
-# jeffrey steve borbon sanabria <jeffto@aclibre.org>, 2008.
-# Jaime Robles <jaime@kde.org>, 2009.
-# Cristina Yenyxe Gonzalez Garcia <the.blue.valkyrie@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2009, 2012, 2017, 2021, 2023 Eloy Cuadra <ecuadra@eloihr.net>
-# David Paul <eodos0@gmail.com>, 2011.
-# Rocio Gallego <traducciones@rociogallego.com>, 2015.
+# SPDX-FileCopyrightText: 2007 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2008 Ignacio Poggi <ignaciop.3@gmail.com>
+# SPDX-FileCopyrightText: 2008 jeffrey steve borbon sanabria <jeffto@aclibre.org>
+# SPDX-FileCopyrightText: 2009 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2009 Cristina Yenyxe Gonzalez Garcia <the.blue.valkyrie@gmail.com>
+# SPDX-FileCopyrightText: 2009, 2012, 2017, 2021, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2011 David Paul <eodos0@gmail.com>
+# SPDX-FileCopyrightText: 2015 Rocio Gallego <traducciones@rociogallego.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-11 00:42+0000\n"
-"PO-Revision-Date: 2023-11-14 18:03+0100\n"
+"PO-Revision-Date: 2025-05-18 14:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -456,7 +455,7 @@ msgstr "Barra de herramientas principal"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Abriendo '%1'..."
+msgstr "Abriendo '%1'…"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
@@ -526,31 +525,31 @@ msgstr "Seleccione qué niveles de registro desea imprimir en color."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Cargando progreso..."
+msgstr "Cargando progreso…"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Cargando <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] "Cargando <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 archivos)"
+msgstr[0] "Cargando <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Cargando <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 archivos)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Recargando <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] "Recargando <b>%2</b>...<br /><i>%3</i> - /<b>%4</b>/%1 archivos)"
+msgstr[0] "Recargando <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Recargando <b>%2</b>…<br /><i>%3</i> - /<b>%4</b>/%1 archivos)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Cargando <b>%1</b>...<br /><i>%2</i>"
+msgstr "Cargando <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Recargando <b>%1</b>...<br /><i>%2</i>"
+msgstr "Recargando <b>%1</b>…<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -591,7 +590,7 @@ msgstr "Permisos insuficientes"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Cargando el registro..."
+msgstr "Cargando el registro…"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -705,7 +704,7 @@ msgstr ""
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "Guardar las entradas de registro seleccionadas en..."
+msgstr "Guardar las entradas de registro seleccionadas en…"
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
@@ -737,7 +736,7 @@ msgstr "Le permite listar solo los elementos que coincidan con este texto."
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Introduzca aquí su búsqueda..."
+msgstr "Introduzca aquí su búsqueda…"
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -1187,7 +1186,7 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "Im&primir selección..."
+msgstr "Im&primir selección…"
 
 #: src/mainWindow.cpp:525
 #, kde-format
@@ -1206,7 +1205,7 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Im&primir selección de la vista previa..."
+msgstr "Im&primir selección de la vista previa…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1302,7 +1301,7 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "&Enviar por correo electrónico la selección..."
+msgstr "&Enviar por correo electrónico la selección…"
 
 #: src/mainWindow.cpp:580
 #, kde-format
@@ -1322,7 +1321,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "&Añadir entrada de registro..."
+msgstr "&Añadir entrada de registro…"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1564,7 +1563,7 @@ msgid ""
 msgstr ""
 "Muestra el registro de ACPI en la pestaña actual. ACPI se usa para gestionar "
 "los componentes de hardware de su equipo, como las baterías de un portátil, "
-"botones de reinicio..."
+"botones de reinicio…"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1691,7 +1690,7 @@ msgstr "Registro de Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Añadir archivo de Apache..."
+msgstr "Añadir archivo de Apache…"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
@@ -1701,7 +1700,7 @@ msgstr "Registro de accesos de Apache"
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Añadir registro de accesos de Apache..."
+msgstr "Añadir registro de accesos de Apache…"
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1883,13 +1882,13 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "&Agregar archivo..."
+msgstr "&Agregar archivo…"
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "&Modificar archivo..."
+msgstr "&Modificar archivo…"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -2115,7 +2114,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Los archivos se leen usando el orden de esta "
 "lista.</li><li>Se aceptan archivos comprimidos y en texto plano <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Use el comodín <b>«*»</b> cuando esté añadiendo "
+"gz, *.bz2,…)</i>.</li><li>Use el comodín <b>«*»</b> cuando esté añadiendo "
 "archivos de registro para seleccionar varios.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
@@ -2205,7 +2204,7 @@ msgstr ""
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr "&Cambiar el estado..."
+msgstr "&Cambiar el estado…"
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -2304,7 +2303,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Sin archivo de registro..."
+msgstr "Sin archivo de registro…"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2419,7 +2418,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Los archivos son leídos usando el orden de esta "
 "lista.</li><li>Archivos comprimidos y en texto plano son aceptados <i>(*."
-"log, *.gz, *.bz2,...)</i>.</li><li>Use el <b>'*'</b> asterisco para "
+"log, *.gz, *.bz2,…)</i>.</li><li>Use el <b>'*'</b> asterisco para "
 "seleccionar múltiples archivos de registro, cuando esté adicionando archivos."
 "</li></ul>"
 
@@ -2459,7 +2458,7 @@ msgid ""
 msgstr ""
 "<p>Estos archivos se analizarán para mostrar los <b>registros del Cron</b> "
 "(por ejemplo, registros de tareas planificadas). <a href='man:/cron'>Más "
-"información...</a></p>"
+"información…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2584,7 +2583,7 @@ msgstr "Archivos de registro de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "Agregar archivo de CUPS..."
+msgstr "Agregar archivo de CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
@@ -2594,7 +2593,7 @@ msgstr "Elegir archivo de registro de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "Agregar archivo de acceso de CUPS..."
+msgstr "Agregar archivo de acceso de CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
@@ -2604,7 +2603,7 @@ msgstr "Registro de páginas de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "Agregar archivo de páginas CUPS..."
+msgstr "Agregar archivo de páginas CUPS…"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
@@ -2614,7 +2613,7 @@ msgstr "Registro de archivos PDF de CUPS"
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "Agregar archivo PDF de CUPS..."
+msgstr "Agregar archivo PDF de CUPS…"
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -3097,7 +3096,7 @@ msgstr "Registro de Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Agregar archivo de Samba..."
+msgstr "Agregar archivo de Samba…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
@@ -3107,7 +3106,7 @@ msgstr "Registro de accesos de Samba"
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Añadir archivo de registro de accesos de Samba..."
+msgstr "Añadir archivo de registro de accesos de Samba…"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
@@ -3117,7 +3116,7 @@ msgstr "Archivos de registro de Netbios"
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Añadir archivo de Netbios..."
+msgstr "Añadir archivo de Netbios…"
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -3277,7 +3276,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:87
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: …</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
@@ -3337,8 +3336,7 @@ msgstr ""
 "Muestra el registro de sesiones de X en la pestaña actual. El registro de "
 "sesiones de X es donde los programas gráficos escriben su salida. Consulte "
 "este registro si desea saber por qué se ha colgado un programa, o por qué no "
-"se ha iniciado su entorno de escritorio (Plasma, Gnome, Unity, Xfce, "
-"LXQt...)."
+"se ha iniciado su entorno de escritorio (Plasma, Gnome, Unity, Xfce, LXQt…)."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
@@ -3364,21 +3362,3 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "No Log"
 msgstr "Sin registro"
-
-#~ msgid "&Fancy short date format"
-#~ msgstr "Formato de &fecha corto decorado"
-
-#~ msgid "Fanc&y long date format"
-#~ msgstr "Formato de fecha largo &decorado"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 B"
-#~ msgstr "%1 B"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 KB"
-#~ msgstr "%1 kB"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
