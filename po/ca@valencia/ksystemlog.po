@@ -1196,7 +1196,7 @@ msgid ""
 "menu entry to print the selection."
 msgstr ""
 "Imprimix la selecció. Senzillament seleccioneu les línies importants i "
-"cliqueu en esta entrada del menú per a imprimir la selecció."
+"cliqueu damunt d'esta entrada del menú per a imprimir la selecció."
 
 #: src/mainWindow.cpp:532
 #, kde-format
@@ -1215,7 +1215,8 @@ msgid ""
 "this menu entry to print the selection."
 msgstr ""
 "Imprimix la vista prèvia de la selecció. Senzillament seleccioneu les línies "
-"importants i cliqueu en esta entrada del menú per a imprimir la selecció."
+"importants i cliqueu damunt d'esta entrada del menú per a imprimir la "
+"selecció."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1310,8 +1311,8 @@ msgid ""
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
 "Envia la selecció per correu. Senzillament seleccioneu les línies importants "
-"i cliqueu en esta entrada de menú per a enviar la selecció a un amic o a una "
-"llista de correu."
+"i cliqueu damunt d'esta entrada de menú per a enviar la selecció a un amic o "
+"a una llista de correu."
 
 #: src/mainWindow.cpp:588
 #, kde-format
