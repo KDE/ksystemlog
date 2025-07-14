@@ -3159,7 +3159,7 @@ msgstr "კონფიგურაციის ფაილიდან"
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr "ნაგულისხმები პარამეტრი"
+msgstr "ნაგულისხმევი პარამეტრი"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format

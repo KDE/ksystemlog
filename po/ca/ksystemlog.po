@@ -1,16 +1,16 @@
 # Translation of ksystemlog.po to Catalan
-# Copyright (C) 2008-2023 This_file_is_part_of_KDE
+# Copyright (C) 2008-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2014, 2016, 2017, 2020, 2021, 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2023-11-14 09:45+0100\n"
+"PO-Revision-Date: 2025-07-12 13:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2959,7 +2959,7 @@ msgid ""
 msgstr ""
 "Mostra el registre del nucli a la pestanya actual. Aquest registre només és "
 "útil per als usuaris que volen conèixer per què el nucli no detecta el "
-"maquinari o la causa del darrer <i>panic/oops del nucli</i>."
+"maquinari o la causa del darrer <i>pànic/oops del nucli</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
