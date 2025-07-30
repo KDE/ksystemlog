@@ -33,6 +33,8 @@ JournaldConfigurationWidget::JournaldConfigurationWidget()
     connect(modifyAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::modifyRemoteJournal);
     connect(removeAddressButton, &QPushButton::clicked, this, &JournaldConfigurationWidget::removeRemoteJournal);
     connect(remoteJournalsListWidget, &QTableWidget::cellDoubleClicked, this, &JournaldConfigurationWidget::tableItemClicked);
+
+    remoteJournalsListWidget->setLayoutDirection(Qt::LeftToRight); // Force LTR for address list
 }
 
 void JournaldConfigurationWidget::saveConfig()

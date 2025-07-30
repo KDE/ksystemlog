@@ -60,6 +60,8 @@ LogViewWidget::LogViewWidget(QWidget *parent)
 
     setContextMenuPolicy(Qt::ActionsContextMenu);
     setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge}));
+
+    setLayoutDirection(Qt::LeftToRight); // Force LTR layout
 }
 
 LogViewWidget::~LogViewWidget()

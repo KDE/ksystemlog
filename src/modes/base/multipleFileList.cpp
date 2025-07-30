@@ -64,6 +64,8 @@ MultipleFileList::MultipleFileList(QWidget *parent, const QString &descriptionTe
 
     updateButtons();
 
+    fileList->setLayoutDirection(Qt::LeftToRight); // Force LTR for the file list
+
     qCDebug(KSYSTEMLOG) << "Multiple File list initialized";
 }
 

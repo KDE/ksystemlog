@@ -26,6 +26,8 @@ FileList::FileList(QWidget *parent, const QString &descriptionText)
 
     setupUi(this);
 
+    fileList->setLayoutDirection(Qt::LeftToRight); // Force LTR for the file list
+
     mWarningBox = new KMessageWidget(this);
     mWarningBox->setVisible(false);
     mWarningBox->setMessageType(KMessageWidget::Warning);
