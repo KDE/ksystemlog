@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-07-29 10:34+0300\n"
+"PO-Revision-Date: 2025-07-30 09:23+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -109,13 +109,13 @@ msgstr "כללי"
 #: src/detailDialog.cpp:27 src/lib/logViewSearchWidgetBase.ui:68
 #, kde-format
 msgid "&Previous"
-msgstr "ה&קודם"
+msgstr "ה&קודמת"
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialog.cpp:31 src/lib/logViewSearchWidgetBase.ui:58
 #, kde-format
 msgid "&Next"
-msgstr "ה&בא"
+msgstr "ה&באה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:14
@@ -332,6 +332,9 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"יש לבחור את האפשרות הזאת כדי להסיר את מזהה התהליך משם התהליך. למשל, עמודת "
+"<b>תהליך</b> עשויה להכיל רשומות כגון <i>cron<b>[3433]</b></i>. אם האפשרות "
+"הזאת מופעלת החלק המודגש יוסר."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -505,10 +508,10 @@ msgstr[3] "<b>%2</b> נטען…<br /><i>%3</i> - (<b>%4</b>/%1 קבצים)"
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "<b>%2</b>נטען מחדש…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "<b>%2</b>נטען מחדש…<br /><i>%3</i> - (<b>%4</b>/שני קבצים)"
+msgstr[2] "<b>%2</b>נטען מחדש…<br /><i>%3</i> - (<b>%4</b>/%1 קבצים)"
+msgstr[3] "<b>%2</b>נטען מחדש…<br /><i>%3</i> - (<b>%4</b>/%1 קבצים)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
@@ -677,10 +680,10 @@ msgstr "שמירת רשומות היומן הנבחרות אל…"
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שורת יומן אחת נשמרה אל ‚%2’."
+msgstr[1] "שתי שורות יומן נשמרו אל ‚%2’."
+msgstr[2] "%1 שורות יומן נשמרו אל ‚%2’."
+msgstr[3] "%1 שורות יומן נשמרו אל ‚%2’."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
@@ -1071,7 +1074,7 @@ msgstr "לורנט מונטל"
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr "תיקון תקלות."
+msgstr "תיקון תקלות"
 
 #: src/main.cpp:54
 #, kde-format
@@ -1174,12 +1177,12 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr ""
+msgstr "ת&צוגה מקדימה להדפסה של הבחירה…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
-msgstr ""
+msgstr "תצוגה מקדימה להדפסה של הבחירה"
 
 #: src/mainWindow.cpp:535
 #, kde-format
@@ -1187,11 +1190,13 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
+"תצוגה מקדימה להדפסה של הבחירה. צריך פשוט לבחור את השורות החשובות וללחוץ על "
+"רשומת התפריט הזאת כדי להציג איך הבחירה תיועד להדפסה."
 
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
-msgstr ""
+msgstr "שמירת הבחירה לקובץ"
 
 #: src/mainWindow.cpp:543
 #, kde-format
@@ -1199,21 +1204,23 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
+"שמירת הבחירה לקובץ. הפעולה הזאת שימושית כדי ליצור קובץ מצורף או גיבוי של "
+"יומן מסוים."
 
 #: src/mainWindow.cpp:549
 #, kde-format
 msgid "Quit KSystemLog"
-msgstr ""
+msgstr "יציאה מ־KSystemLog"
 
 #: src/mainWindow.cpp:550
 #, kde-format
 msgid "Quits KSystemLog."
-msgstr ""
+msgstr "יציאה מ־KSystemLog."
 
 #: src/mainWindow.cpp:553
 #, kde-format
 msgid "Copy the selection to the clipboard"
-msgstr ""
+msgstr "העתקת הבחירה ללוח הגזירים"
 
 #: src/mainWindow.cpp:555
 #, kde-format
@@ -1221,16 +1228,18 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
+"העתקת הבחירה ללוח הגזירים. הפעולה הזאת שימושית כדי להדביק את הבחירה בצ׳אט או "
+"בהודעת דוא״ל."
 
 #: src/mainWindow.cpp:560
 #, kde-format
 msgid "Ex&pand All"
-msgstr ""
+msgstr "ה&רחבה של הכול"
 
 #: src/mainWindow.cpp:561
 #, kde-format
 msgid "Expand all categories"
-msgstr ""
+msgstr "הרחבת כל הקטגוריות"
 
 #: src/mainWindow.cpp:563
 #, kde-format
@@ -1238,16 +1247,18 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
+"הפעולה הזאת פותחת את כל הקטגוריות העיקריות. פעילה רק אם נבחרה אפשרות בתפריט "
+"<b>קיבוץ לפי</b>."
 
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
-msgstr ""
+msgstr "&צמצום של הכול"
 
 #: src/mainWindow.cpp:570
 #, kde-format
 msgid "Collapse all categories"
-msgstr ""
+msgstr "צמצום כל הקטגוריות"
 
 #: src/mainWindow.cpp:572
 #, kde-format
@@ -1255,16 +1266,18 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
+"הפעולה הזאת סוגרת את כל הקטגוריות העיקריות. פעילה רק אם נבחרה אפשרות בתפריט "
+"<b>קיבוץ לפי</b>."
 
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr ""
+msgstr "שליחת הבחירה ב&דוא״ל…"
 
 #: src/mainWindow.cpp:580
 #, kde-format
 msgid "Send the selection by mail"
-msgstr ""
+msgstr "שליחת הבחירה בדוא״ל"
 
 #: src/mainWindow.cpp:582
 #, kde-format
@@ -1272,28 +1285,30 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
+"שליחת הבחירה בדוא״ל. צריך פשוט לבחור את השורות החשובות וללחוץ על רשומת "
+"התפריט הזאת כדי לשלוח את הבחירה לחברים או לרשימת תפוצה."
 
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr ""
+msgstr "הוספת &רשומת יומן…"
 
 #: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
-msgstr ""
+msgstr "הוספת רשומת יומן למערכת היומנים"
 
 #: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
-msgstr ""
+msgstr "הפעולה הזאת תפתח חלונית שתאפשר לך לשלוח הודעה למערכת היומנים."
 
 #: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr ""
+msgstr "בחירת כל השורות של היומן הנוכחי"
 
 #: src/mainWindow.cpp:598
 #, kde-format
@@ -1301,6 +1316,8 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
+"בחירת כל השורות של היומן הנוכחי. הפעולה הזאת נחוצה לשמירת כל התוכן של היומן "
+"הנוכחי לקובץ."
 
 #: src/mainWindow.cpp:609
 #, kde-format
@@ -1416,32 +1433,34 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"הצגת תיבת חלונית שמכילה פרטים על השורה הנבחרת. אפשר לנווט בין היומנים "
+"מהחלונית הזאת עם הכפתורים <b>הקודמת</b> ו<b>הבאה</b>."
 
 #: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr ""
+msgstr "הפעלת &חלוניות צצות מפורטות"
 
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr ""
+msgstr "הפעלת/השבתת חלוניות צצות בתצוגה הנוכחית"
 
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
-msgstr ""
+msgstr "השבתת/הפעלת החלוניות הצצות כשהסמן עובר מעל שורת יומן."
 
 #: src/mainWindow.cpp:690
 #, kde-format
 msgid "&Scroll to New Lines"
-msgstr ""
+msgstr "&גלילה לשורות חדשות"
 
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "האם לגלול לשורות חדשות כשהיומן משתנה או לא"
 
 #: src/mainWindow.cpp:693
 #, kde-format
@@ -1474,7 +1493,7 @@ msgstr "יומן Acpid"
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
-msgstr ""
+msgstr "<p>הקבצים האלו ינותחו כדי להציג את <b>יומן Acpid</b>.</p>"
 
 #: src/modes/acpid/acpidItemBuilder.cpp:19
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
@@ -1499,6 +1518,8 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
+"הצגת יומן ה־ACPI בלשונית הנוכחית. ACPI משמש לניהול רכיבי החומרה במחשב שלך, "
+"כמו סוללות של ניידים, כפתורי איפוס…"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1593,6 +1614,8 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"הצגת יומן הגישה של Apache בלשונית הנוכחית. Apache הוא שרת האתרים העיקרי ברוב "
+"השרתים בעולם. היומן הזה שומר את כל הבקשות שמבוצעות על ידי שרת האתרים Apache."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1611,6 +1634,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Apache log</b> and the "
 "<b>Apache Access log</b>.</p>"
 msgstr ""
+"<p>הקבצים האלו ינותחו כדי להציג את <b>יומן Apache</b> ואת <b>יומן הגישה של "
+"Apache</b>.</p>"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
@@ -1653,6 +1678,8 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"הצגת היומן של Apache בלשונית הנוכחית. Apache הוא שרת האתרים העיקרי ברוב "
+"השרתים בעולם."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1663,12 +1690,12 @@ msgstr "יומן פיקוח"
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
-msgstr ""
+msgstr "<p>הקבצים האלו ינותחו כדי להציג את <b>יומני הפיקוח</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
-msgstr ""
+msgstr "הצגת יומן הפיקוח."
 
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
@@ -1676,6 +1703,8 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"הצגת יומן הפיקוח בלשונית הנוכחית. היומן הזה בדרך כל משמש תהליכים לא בתחומי "
+"מומחיות מסוימים (למשל הפקודות „sudo” או „fsck”)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1736,6 +1765,8 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"חלק מקובצי היומנים לא קיימים.\n"
+"אם כל קובצי היומנים חסרים, המצב הזה לא יהיה זמין."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
@@ -2307,6 +2338,9 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
+"הצגת יומן הגישה לשרת האתר של CUPS בלשונית הנוכחית. CUPS היא התוכנית שמנהלת "
+"את ההדפסה במחשב שלך. היומן הזה שומר את כל הבקשות שמגיעות לשרת המשובץ של CUPS "
+"(ברירת מחדל: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2339,6 +2373,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cups log</b> and the <b>Cups "
 "Web Access log</b>.</p>"
 msgstr ""
+"<p>הקבצים האלו ינותחו כדי להציג את <b>יומן Cups</b> ואת <b>יומן הגישה לאתר "
+"Cups</b>.</p>"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
@@ -2466,6 +2502,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"הצגת היומן של עמוד CUPS בלשונית הנוכחית. CUPS היא התוכנית שמנהלת את ההדפסה "
+"במחשב שלך. היומן הזה שומר את כל הבקשות שמגיעות לשרת המשובץ של CUPS (ברירת "
+"מחדל: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2489,6 +2528,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
+"הצגת יומן ה־PDF של CUPS בלשונית הנוכחית. CUPS היא התוכנית שמנהלת את ההדפסה "
+"במחשב שלך. היומן הזה שומר את כל הבקשות שמגיעות לשרת המשובץ של CUPS (ברירת "
+"מחדל: <i>http://localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2674,7 +2716,7 @@ msgstr "רשומות Journald נטענו בהצלחה."
 #: src/modes/journald/journaldLogMode.cpp:35
 #, kde-format
 msgid "Display the Journald log."
-msgstr "הצגת יומן Journald"
+msgstr "הצגת יומן Journald."
 
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
@@ -2907,7 +2949,7 @@ msgstr "יומן מערכת"
 #: src/modes/system/systemConfigurationWidget.cpp:14
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>System logs</b>.</p>"
-msgstr ""
+msgstr "<p>הקבצים האלו ינותחו כדי להציג את <b>יומני המערכת</b>.</p>"
 
 #: src/modes/system/systemLogMode.cpp:29
 #, kde-format
