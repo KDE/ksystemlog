@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-07-30 09:21+0300\n"
+"PO-Revision-Date: 2025-07-31 13:26+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1074,7 +1074,7 @@ msgstr "לורנט מונטל"
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr "תיקון תקלות."
+msgstr "תיקון תקלות"
 
 #: src/main.cpp:54
 #, kde-format
@@ -1469,6 +1469,8 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"האם לגלול או לא לשורות החדשות כשהיומן משתנה. יש לסמן את האפשרות הזאת כדי "
+"שהיישום לא יגלול אוטומטית לתחתית היומן עם כל עדכון."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1743,6 +1745,8 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"אפשר להקליד או לבחור כאן את קובץ יומן האימות. הקובץ הזה ינותח בעת בחירת "
+"התפריט <b>יומן אימות</b>. בדרך כלל, השם שלו הוא <i>‎/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -1815,6 +1819,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Opens a dialog box to "
 "choose a new file to be added to the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">פתיחת חלונית לבחירת קובץ "
+"חדש להוספה לרשימה.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:64
@@ -1841,6 +1853,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Delete the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">מחיקת הקובץ או הקבצים "
+"הנוכחיים</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:87
@@ -1855,6 +1875,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the files selected "
 "on the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">מחיקת קבצים שנבחרו ברשימה."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:90 src/modes/base/multipleFileListBase.ui:89
@@ -1875,6 +1903,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all files</p></"
 "body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">הסרת כל הקבצים</p></body></"
+"html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:106
@@ -1889,6 +1925,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Remove all the files on "
 "the list, even if they are not selected.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">הסרת כל הקבצים ברשימה, "
+"אפילו אם לא נבחרו.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeAll)
 #: src/modes/base/fileListBase.ui:109
@@ -1911,6 +1955,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move up the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">העלאת הקובץ או הקבצים "
+"הנוכחיים למעלה</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:128
@@ -1948,6 +2000,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Move down the current "
 "file(s)</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">הורדת הקובץ או הקבצים "
+"הנוכחיים למטה</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:147
@@ -2167,6 +2227,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Deletes the selected files "
 "of the list.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">מחיקת הקבצים הנבחרים "
+"מהרשימה.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
@@ -2265,6 +2333,8 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
+"<p>הקבצים האלו ינותחו כדי להציג את <b>יומני Cron</b> (כלומר יומני המשימות "
+"המתוכננות). <a href='man:/cron'>פרטים נוספים…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2294,6 +2364,10 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"הצגת יומן המשימות המתוכננות בלשונית הנוכחית. תהליך Cron הוא תוכנית שאחראית "
+"על הוצאה לפועל של משימות מתוכננות במערכת שלך, כמו למשל בדיקות אבטחת מידע או "
+"הפעלה אוטומטית מחדש של חלק מהשירותים. יש להשתמש בתפריט הזה כדי לצפות "
+"בתהליכים האחרונים שהופעלו."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2555,6 +2629,8 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"הצגת יומני הסוכנים בלשונית הנוכחית. הסוכנים הם כולם תהליכים שהופעלו מאחורי "
+"הקלעים של המערכת. היומן הזה מאפשר לבדוק מה קרה במערכת מאחורי הקלעים."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2716,7 +2792,7 @@ msgstr "רשומות Journald נטענו בהצלחה."
 #: src/modes/journald/journaldLogMode.cpp:35
 #, kde-format
 msgid "Display the Journald log."
-msgstr "הצגת יומן Journald"
+msgstr "הצגת יומן Journald."
 
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
@@ -2939,6 +3015,8 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"הצגת היומן של Samba בלשונית הנוכחית. Samba הוא שרת שיתוף הקבצים שמתקשר עם "
+"רשת Microsoft Windows."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -3051,6 +3129,8 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"אפשר להקליד או לבחור כאן קובץ יומן הפעלת X. הקובץ הזה ינותח בעת בחירה בתפריט "
+"<b>יומן הפעלת X</b>. בדרך כלל, שמו הוא <i>‎~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
