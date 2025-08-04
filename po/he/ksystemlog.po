@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-08-02 23:31+0300\n"
+"PO-Revision-Date: 2025-08-03 11:16+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1978,6 +1978,15 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">העלאת הקבצים הנבחרים במעלה "
+"הרשימה. האפשרות הזאת גורמת לכך שהקבצים <span style=\" font-weight:600;"
+"\">ייקראו ראשונים</span> על ידי KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -2023,6 +2032,15 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">הורדת הקבצים הנבחרים במורד "
+"הרשימה. האפשרות הזאת גורמת לכך שהקבצים <span style=\" font-weight:600;"
+"\">ייקראו אחרונים</span> על ידי KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -2041,6 +2059,10 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>לתשומת ליבך:</b></p><ul "
+"style='margin-top:0px'><li>הקבצים נקראים לפי סדר הרשימה הזאת.</li><li>מותר "
+"קבצים דחוסים ופשוטים <i>(‎*.log,‏ ‎*.gz,‏ ‎*.bz2,…)</i>.</li><li>אפשר להשתמש בתו "
+"הכוללני <b>'*'</b> כדי לבחור כמה קובצי יומנים בעת הוספת קובץ.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
 #: src/modes/base/fileListBase.ui:191
@@ -2229,7 +2251,7 @@ msgstr "אין קובץ יומן…"
 #: src/modes/base/multipleFileListBase.ui:60
 #, kde-format
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/multipleFileListBase.ui:86
@@ -2289,6 +2311,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">העלאת הקבצים הנבחרים במעלה "
+"הרשימה. האפשרות הזאת גורמת לכך שהקבצים <span style=\" font-weight:600;"
+"\">ייקראו ראשונים</span> על ידי KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2304,6 +2335,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">הורדת הקבצים הנבחרים במורד "
+"הרשימה. האפשרות הזאת גורמת לכך שהקבצים <span style=\" font-weight:600;"
+"\">ייקראו אחרונים</span> על ידי KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2315,6 +2355,10 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
+"<p style='margin-top:0px;margin-bottom:0px;'><b>לתשומת ליבך:</b></p><ul "
+"style='margin-top:0px'><li>הקבצים נקראים לפי סדר הרשימה הזאת.</li><li>מותר "
+"קבצים דחוסים ופשוטים <i>(‎*.log,‏ ‎*.gz,‏ ‎*.bz2,…)</i>.</li><li>אפשר להשתמש בתו "
+"הכוללני <b>'*'</b> כדי לבחור כמה קובצי יומנים בעת הוספת קובץ.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
