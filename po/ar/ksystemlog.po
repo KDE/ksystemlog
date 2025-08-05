@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-04-29 15:33+0400\n"
+"PO-Revision-Date: 2025-08-04 18:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -34,19 +34,19 @@ msgstr "safa1996alfulaij@gmail.com,zayed.alsaidi@gmail.com"
 #: src/config/ksystemlog.kcfg:13
 #, kde-format
 msgid "Load this log mode at startup."
-msgstr "حمّل وضع السّجلّات هذا عند البدء."
+msgstr "حمّل وضع السجلات هذا عند البدء."
 
 #. i18n: ectx: label, entry (MaxLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:18
 #, kde-format
 msgid "The log view line count limit."
-msgstr "حدّ عدد أسطر عرض السّجلّ."
+msgstr "حدّ عدد أسطر عرض السجل."
 
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
-msgstr "الخيار مفعّل إن أراد المستخدم حذف أسطر السّجلّ المتكرّرة."
+msgstr "الخيار ممكّن إن أراد المستخدم حذف أسطر السجل المتكرّرة."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -72,7 +72,7 @@ msgstr ""
 #: src/config/ksystemlog.kcfg:39
 #, kde-format
 msgid "Whether the tooltips are enabled."
-msgstr "فيما إذا كانت التّلميحات مفعّلة أم لا."
+msgstr "فيما إذا كانت التّلميحات ممكّنة أم لا."
 
 #. i18n: ectx: label, entry (NewLinesDisplayed), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:44
@@ -90,7 +90,7 @@ msgstr "فيما إذا كان شريط المرشّح ظاهرًًا أم لا.
 #: src/config/ksystemlog.kcfg:54
 #, kde-format
 msgid "The date format of log lines."
-msgstr "نسق التّاريخ لأسطر السّجلّ."
+msgstr "نسق التّاريخ لأسطر السجل."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:71
@@ -124,7 +124,7 @@ msgstr "ال&تّالي"
 #: src/detailDialogBase.ui:14
 #, kde-format
 msgid "Log Line Details"
-msgstr "تفاصيل سطر السّجلّ"
+msgstr "تفاصيل سطر السجل"
 
 #. i18n: ectx: property (whatsThis), widget (QDialog, DetailDialogBase)
 #: src/detailDialogBase.ui:17
@@ -132,7 +132,7 @@ msgstr "تفاصيل سطر السّجلّ"
 msgid ""
 "This dialog displays detailed information about the currently selected log "
 "line."
-msgstr "يعرض هذا الحواريّ معلومات مفصّلة عن سطر السّجلّ المحدّد حاليًّا."
+msgstr "يعرض هذا الحواريّ معلومات مفصّلة عن سطر السجل المحدّد حاليًّا."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #. i18n: ectx: property (text), widget (KTextEdit, message)
@@ -222,7 +222,7 @@ msgstr "أ&غلق"
 #: src/generalConfigurationWidget.cpp:30
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
-msgstr "هذا الوضع غير متوفّر لأنّ ملفّات السّجلّات غير موجودة."
+msgstr "هذا الوضع غير متوفّر لأنّ ملفّات السجلات غير موجودة."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
@@ -245,13 +245,13 @@ msgstr "البدء"
 #: src/generalConfigurationWidgetBase.ui:26
 #, kde-format
 msgid "Load &this log mode at startup:"
-msgstr "حمّل و&ضع السّجلّات هذا عند البدء:"
+msgstr "حمّل و&ضع السجلات هذا عند البدء:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr "وضع السّجلّات المحمّل افتراضيًّا عند البدء"
+msgstr "وضع السجلات المحمّل مبدئيًّا عند البدء"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -260,14 +260,14 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
-"وضع السّجلّات المحمّل افتراضيًّا عند البدء. اختر 'لا وضع سجلّات' إن لم ترد لهذا أن "
+"وضع السجلات المحمّل مبدئيًّا عند البدء. اختر 'لا وضع سجلّات' إن لم ترد لهذا أن "
 "يحدث."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
 #, kde-format
 msgid "Log Lines List"
-msgstr "قائمة أسطر السّجلّ"
+msgstr "قائمة أسطر السجل"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
@@ -296,7 +296,7 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
-"أشّر على هذا الخيار إن أردت حذف أسطر السّجلّات المتكرّرة <b>(قد يكون بطيئًا)</b>."
+"أشّر على هذا الخيار إن أردت حذف أسطر السجلات المتكرّرة <b>(قد يكون بطيئًا)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -305,14 +305,14 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
-"أشّر على هذا الخيار إن أردت حذف أسطر السّجلّات المتكرّرة <b>قد يؤخّر هذا الخيار "
-"قراءة السّجلّات</b>."
+"أشّر على هذا الخيار إن أردت حذف أسطر السجلات المتكرّرة <b>قد يؤخّر هذا الخيار "
+"قراءة السجلات</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
 #, kde-format
 msgid "Remove &duplicate log lines (may be slower)"
-msgstr "أزل أسطر السّجلّات المت&كرّرة (قد يكون أبطأ)"
+msgstr "أزل أسطر السجلات المت&كرّرة (قد يكون أبطأ)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (title), widget (QGroupBox, optionsGroupbox)
@@ -417,7 +417,7 @@ msgstr "&نافذة"
 #: src/ksystemlogui.rc:53
 #, kde-format
 msgid "Logs Toolbar"
-msgstr "شريط أدوات السّجلّات"
+msgstr "شريط أدوات السجلات"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/ksystemlogui.rc:64
@@ -433,12 +433,12 @@ msgstr "يفتح '%1'..."
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "حُمّل ملفّ السّجلّ '%1' بنجاح."
+msgstr "حُمّل ملفّ السجل '%1' بنجاح."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "تغيّر ملفّ السّجلّ '%1'."
+msgstr "تغيّر ملفّ السجل '%1'."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -571,12 +571,12 @@ msgstr "الصّلاحيّات غير كافية"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "يحمّل السّجلّ..."
+msgstr "يحمّل السجل..."
 
 #: src/lib/logManager.cpp:92
 #, kde-format
 msgid "Log successfully loaded."
-msgstr "حُمّل السّجلّ بنجاح."
+msgstr "حُمّل السجل بنجاح."
 
 #: src/lib/logModeConfiguration.cpp:202 src/lib/logModeConfiguration.cpp:230
 #: src/modes/base/genericConfiguration.cpp:75
@@ -649,7 +649,7 @@ msgstr "---------------------------------------\n"
 #, kde-format
 msgid ""
 "You have selected too many lines. Please only select important log lines."
-msgstr "لقد حدّدت أسطرًا كثيرة. فضلًا حدّد أسطر السّجلّات المهمّة فقط."
+msgstr "لقد حدّدت أسطرًا كثيرة. فضلًا حدّد أسطر السجلات المهمّة فقط."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
@@ -659,7 +659,7 @@ msgstr "الأسطر المحدّدة كثيرة"
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
-msgstr "أسطر السّجلّ لمشكلتي"
+msgstr "أسطر السجل لمشكلتي"
 
 #: src/lib/logViewExport.cpp:191
 #, kde-format
@@ -685,7 +685,7 @@ msgstr "لا عناصر محدّدة. فضلًا حدّد عناصر ليمكن�
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "احفظ مدخلات السّجلّ إلى..."
+msgstr "احفظ مدخلات السجل إلى..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
@@ -951,7 +951,7 @@ msgstr "الملفّ غير صالح"
 #: src/loggerDialogBase.ui:24
 #, kde-format
 msgid "Log Message"
-msgstr "رسالة السّجلّ"
+msgstr "رسالة السجل"
 
 #. i18n: ectx: property (text), widget (QRadioButton, messageActivation)
 #: src/loggerDialogBase.ui:39
@@ -993,7 +993,7 @@ msgstr "الو&سم:"
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr "م&عرّف عمليّة السّجلّ"
+msgstr "م&عرّف عمليّة السجل"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
@@ -1077,7 +1077,7 @@ msgstr "بويان ديوركوفيتش"
 #: src/main.cpp:39
 #, kde-format
 msgid "Log Printing"
-msgstr "طباعة السّجلّ"
+msgstr "طباعة السجل"
 
 #: src/main.cpp:40
 #, kde-format
@@ -1126,7 +1126,7 @@ msgstr "&تابع"
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
-msgstr "تابع مراقبة السّجلّ الحاليّ"
+msgstr "تابع مراقبة السجل الحاليّ"
 
 #: src/mainWindow.cpp:336
 #, kde-format
@@ -1134,7 +1134,7 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
-"يتابع مراقبة السّجلّ الحاليّ. هذا الخيار متوفّر فقط عندما ألبث المستخدم القراءة."
+"يتابع مراقبة السجل الحاليّ. هذا الخيار متوفّر فقط عندما ألبث المستخدم القراءة."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1144,7 +1144,7 @@ msgstr "أو&قف"
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
-msgstr "ألبث مراقبة السّجلّ الحاليّ"
+msgstr "ألبث مراقبة السجل الحاليّ"
 
 #: src/mainWindow.cpp:345
 #, kde-format
@@ -1153,8 +1153,8 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
-"يلبث مراقبة السّجلّ الحاليّ. هذا الإجراء مفيد خاصّة إن كان النّظام يكتب العديد من "
-"الأسطر إلى ملفّات السّجلّ، ممّا يتسبّب ل‍«سجلّات نظامك» بإعادة التّحميل مرّات كثيرة."
+"يلبث مراقبة السجل الحاليّ. هذا الإجراء مفيد خاصّة إن كان النّظام يكتب العديد من "
+"الأسطر إلى ملفّات السجل، ممّا يتسبّب ل‍«سجلّات نظامك» بإعادة التّحميل مرّات كثيرة."
 
 #: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
@@ -1264,7 +1264,7 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
-"يفتح هذا الإجراء كلّ الفئات الرئيسيّة. هذا مفعّل فقط إن كان محدّدًا في قائمة "
+"يفتح هذا الإجراء كلّ الفئات الرئيسيّة. هذا ممكّن فقط إن كان محدّدًا في قائمة "
 "<b>جمّع حسب</b>."
 
 #: src/mainWindow.cpp:569
@@ -1283,7 +1283,7 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
-"يغلق هذا الإجراء كلّ الفئات الرئيسيّة. هذا مفعّل فقط إن كان محدّدًا في قائمة "
+"يغلق هذا الإجراء كلّ الفئات الرئيسيّة. هذا ممكّن فقط إن كان محدّدًا في قائمة "
 "<b>جمّع حسب</b>."
 
 #: src/mainWindow.cpp:578
@@ -1313,19 +1313,19 @@ msgstr "أ&ضف مدخلة سجلّ..."
 #: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
-msgstr "أضف مدخلة سجلّ إلى نظام السّجلّات"
+msgstr "أضف مدخلة سجلّ إلى نظام السجلات"
 
 #: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
 "This action will open a dialog which lets you send a message to the log "
 "system."
-msgstr "سيفتح هذا الإجراء حواريّ يسمح لك بإرسال رسالة إلى نظام السّجلّ."
+msgstr "سيفتح هذا الإجراء حواريّ يسمح لك بإرسال رسالة إلى نظام السجل."
 
 #: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
-msgstr "حدّد كلّ أسطر السّجلّ الحاليّ"
+msgstr "حدّد كلّ أسطر السجل الحاليّ"
 
 #: src/mainWindow.cpp:598
 #, kde-format
@@ -1333,8 +1333,8 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
-"يحدّد كلّ الأسطر في السّجلّ الحاليّ. هذا الإجراء مفيد إن أردت (مثلًا) حفظ كلّ محتوى "
-"السّجلّ الحاليّ إلى ملفّ."
+"يحدّد كلّ الأسطر في السجل الحاليّ. هذا الإجراء مفيد إن أردت (مثلًا) حفظ كلّ محتوى "
+"السجل الحاليّ إلى ملفّ."
 
 #: src/mainWindow.cpp:609
 #, kde-format
@@ -1424,14 +1424,14 @@ msgstr "أ&عد التّحميل"
 #: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
-msgstr "أعد تحميل السّجلّ الحاليّ"
+msgstr "أعد تحميل السجل الحاليّ"
 
 #: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
-msgstr "يعيد تحميل السّجلّ الحاليّ، إن أردت التّأكّد بأن العرض محدّث كما يجب."
+msgstr "يعيد تحميل السجل الحاليّ، إن أردت التّأكّد بأن العرض محدّث كما يجب."
 
 #: src/mainWindow.cpp:672
 #, kde-format
@@ -1456,18 +1456,18 @@ msgstr ""
 #: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr "&فعّل التّلميحات المفصّلة"
+msgstr "&مكّن التّلميحات المفصّلة"
 
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr "فعّل/عطّل تلميحة العرض الحاليّ"
+msgstr "مكّن/عطّل تلميحة العرض الحاليّ"
 
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
-msgstr "يفعّل/يعطّل التّلميحة المعروضة عندما يكون المؤشّر على سطر سجلّ ما."
+msgstr "يمكّن/يعطّل التّلميحة المعروضة عندما يكون المؤشّر على سطر سجلّ ما."
 
 #: src/mainWindow.cpp:690
 #, kde-format
@@ -1486,8 +1486,8 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"إذا رغبت في الإنتقال إلى الأسطر الجديدة أم لا عند تغير السجل. فعّل هذا الخيار "
-"إذا كنت لا ترغب في أن ينتقل التطبيق تلقائيًا إلى أسفل السجل في كل مرة يُحدث."
+"إذا رغبت في الانتقال إلى الأسطر الجديدة أم لا عند تغير السجل. مكّن هذا الخيار "
+"إذا كنت لا ترغب في أن ينتقل التطبيق آليًّا إلى أسفل السجل في كل مرة يُحدث."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1735,7 +1735,7 @@ msgstr "سجلّ الاستيثاق"
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr "ملفّ السّجلّ غير موجود. لن يتوفّر الوضع."
+msgstr "ملفّ السجل غير موجود. لن يتوفّر الوضع."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
@@ -1787,8 +1787,8 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
-"بعض ملفّات السّجلّ غير موجودة.\n"
-"إن كانت كلّ ملفّات السّجلّ ناقصة، لن يتوفّر هذا الوضع."
+"بعض ملفّات السجل غير موجودة.\n"
+"إن كانت كلّ ملفّات السجل ناقصة، لن يتوفّر هذا الوضع."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
@@ -1800,7 +1800,7 @@ msgstr "وصف قائمة الملفّات"
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
 #, kde-format
 msgid "Log Files"
-msgstr "ملفّات السّجلّ"
+msgstr "ملفّات السجل"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:55
@@ -2152,7 +2152,7 @@ msgstr "كلّ الملفّات (*)"
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "Log Files (*.log)"
-msgstr "ملفّات السّجلّ (‎*.log)"
+msgstr "ملفّات السجل (‎*.log)"
 
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
@@ -2162,7 +2162,7 @@ msgstr "اختر ملفّ سجلّ"
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
-msgstr "حجم المصفوفتين مختلف، سأتخطّى قراءة ملفّات السّجلّ."
+msgstr "حجم المصفوفتين مختلف، سأتخطّى قراءة ملفّات السجل."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
@@ -2220,7 +2220,7 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">اسرد مستويات السّجلّ "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">اسرد مستويات السجل "
 "الموجودة</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
@@ -2257,7 +2257,7 @@ msgid ""
 "Some log files do not exist.\n"
 "Modes with missing log files will be unavailable."
 msgstr ""
-"بعض ملفّات السّجلّ غير موجودة.\n"
+"بعض ملفّات السجل غير موجودة.\n"
 "لن تتوفّر الأوضاع الناقصة لملفّات سجلّ."
 
 #: src/modes/base/multipleFileList.cpp:411
@@ -2445,7 +2445,7 @@ msgid ""
 msgstr ""
 "يعرض سجل المهام المخطط لها في علامة التبويب الحالية. عملية Cron هي برنامج "
 "مسؤول عن تشغيل المهام المخطط لها على نظامك، مثل عمليات التحقق من الأمان، أو "
-"إعادة تشغيل بعض الخدمات تلقائيًا. استخدم هذه القائمة لعرض العمليات التي تم "
+"إعادة تشغيل بعض الخدمات آليًّا. استخدم هذه القائمة لعرض العمليات التي تم "
 "تشغيلها مؤخرًا."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
@@ -2730,7 +2730,7 @@ msgstr "المنفذ"
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr "فعّل"
+msgstr "مكّن"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
@@ -2921,7 +2921,7 @@ msgstr ""
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
 msgid "Log File"
-msgstr "ملفّ السّجلّ"
+msgstr "ملفّ السجل"
 
 #: src/modes/open/openLogMode.cpp:45
 #, kde-format
