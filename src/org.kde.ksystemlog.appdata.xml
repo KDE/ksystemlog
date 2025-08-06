@@ -91,7 +91,7 @@
     <p>KSystemLog show all logs of your system, grouped by General (Default system
     log, Authentication, Kernel, X.org...), and optional Services (Apache, Cups,
     etc, ...). It includes many features to read nicely your log files:</p>
-    <p xml:lang="ar">يعرض سجلات نظامك جميع سجلات المتعلقة بالحاسوب ، مجمعة بشكل عام (سجل النظام الافتراضي، المصادقة، النواة، أكس.أورغ ...) والخدمات الاختيارية (Apache ،Cups، إلخ ...). يتضمن العديد من الميزات لقراءة ملفات السجل الخاصة بك بشكل جيد:</p>
+    <p xml:lang="ar">يعرض سجلات نظامك جميع سجلات المتعلقة بالحاسوب ، مجمعة بشكل عام (سجل النظام المبدئي، المصادقة، النواة، أكس.أورغ ...) والخدمات الاختيارية (Apache ،Cups، إلخ ...). يتضمن العديد من الميزات لقراءة ملفات السجل الخاصة بك بشكل جيد:</p>
     <p xml:lang="az">KsystemLog, sisteminizin bütün jurnalını ümumi qruplaşdırılmış (Standart sistem jurnalı, Kimlik doğrulaması, Nüvə bidirişləri jurnalı, X.org jurnalı...) və əlavə xidmətlər (Apache, Cups və s...) şəklində baxmağa imkan verir. Bu tətbiq, jurnal faylları ilə sadə şəkildə işləmək aşağıdakı funksiyaları təqdim edir:</p>
     <p xml:lang="bg">KSystemLog показва всички дневници на вашата система, групирани по Общи (стандартни системни дневници, дневници на удостоверявания, ядрото, X.org..) и допълнителни услуги (Apache, Cups, и т.н., ...). Той включва много функции за удобно четене на вашите лог файлове:</p>
     <p xml:lang="ca">El KSystemLog mostra tots els registres del sistema, agrupats per serveis generals (Registre predeterminat del sistema, Autenticació, Nucli, X.org...), i opcionals (Apache, CUPS...). Inclou moltes funcionalitats per a llegir de manera agradable els fitxers de registre:</p>
@@ -210,7 +210,7 @@
       <li xml:lang="zh-CN">标签页视图，可同时显示多个日志</li>
       <li xml:lang="zh-TW">分頁檢視，允許同時顯示多個日誌</li>
       <li>Auto display new lines logged</li>
-      <li xml:lang="ar">عرض آلي للسطور المضافة في السجل</li>
+      <li xml:lang="ar">عرض آليّ للسطور المضافة في السجل</li>
       <li xml:lang="az">Yeni jurnal sətirlərinin avtomatik göstərilməsi</li>
       <li xml:lang="bg">Автоматично показване на нови регистрирани редове</li>
       <li xml:lang="ca">Presentació automàtica de les línies noves del registre</li>
