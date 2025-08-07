@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-08-04 18:36+0400\n"
+"PO-Revision-Date: 2025-08-06 14:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -84,7 +84,7 @@ msgstr "فيما إذا كان يجب عرض الأسطر الجديدة أم ل
 #: src/config/ksystemlog.kcfg:49
 #, kde-format
 msgid "Whether the filter bar is shown."
-msgstr "فيما إذا كان شريط المرشّح ظاهرًًا أم لا."
+msgstr "إذا كان شريط المرشّح ظاهرًا أم لا."
 
 #. i18n: ectx: label, entry (DateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:54
@@ -101,7 +101,7 @@ msgstr "مسارات ملفّات سجلّات سامبا."
 #: src/configurationDialog.cpp:26
 #, kde-format
 msgid "Settings"
-msgstr "إعدادادت"
+msgstr "إعدادات"
 
 #: src/configurationDialog.cpp:80
 #, kde-format
@@ -582,7 +582,7 @@ msgstr "حُمّل السجل بنجاح."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "العنوان '%1' ليس صالًحا، سأتخطّاه."
+msgstr "العنوان '%1' ليس صالحًا، سأتخطّاه."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -1477,7 +1477,7 @@ msgstr "&انتقل إلى الأسطر الجديدة"
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr "إنتقال إلى الأسطر الجديدة أم لا عند تغير السجل"
+msgstr "هل ينتقل إلى الأسطر الجديدة أم لا عند تغير السجل"
 
 #: src/mainWindow.cpp:693
 #, kde-format
@@ -1762,8 +1762,8 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
-"يمكنك كتابة أو اختيار ملف سجل المصادقة هنا. سيتم تحليل هذا الملف عند اختيار "
-"قائمة <b>سجل المصادقة</b>. عادةً ما يكون اسمه <i>/var/log/auth.log</i>"
+"يمكنك كتابة أو اختيار ملف سجل المصادقة هنا. سيُحلل هذا الملف عند اختيار قائمة "
+"<b>سجل المصادقة</b>. عادةً ما يكون اسمه <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -2077,8 +2077,8 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> wildcard to select multiple log "
 "files when adding files.</li></ul>"
 msgstr ""
-"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></"
-"p><ulstyle='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
+"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></p><ul "
+"style='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
 "li><li>تُقبل الملفات المضغوطة والنصية العادية <i>(*.log, *.gz, *.bz2,...)</i>."
 "</li><li>استخدم حرف البدل <b>'*'</b> لتحديد ملفات سجل متعددة عند إضافة ملفات."
 "</li></ul>"
@@ -2373,10 +2373,10 @@ msgid ""
 "bz2,...)</i>.</li><li>Use the <b>'*'</b> joker to select multiple log files "
 "when adding files.</li></ul>"
 msgstr ""
-"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></"
-"p><ulstyle='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
+"<p style='margin-top:0px;margin-bottom:0px;'><b>ملاحظات:</b></p><ul "
+"style='margin-top:0px'><li>تُقرأ الملفات وفقًا لترتيب هذه القائمة.</"
 "li><li>تُقبل الملفات المضغوطة والنصية العادية <i>(*.log, *.gz, *.bz2,...)</i>."
-"</li><li>استخدم <b>'*'</b> لتحديد ملفات سجل متعددةعند إضافة ملفات.</li></ul>"
+"</li><li>استخدم <b>'*'</b> لتحديد ملفات سجل متعددة عند إضافة ملفات.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
 #, kde-format
@@ -2445,8 +2445,7 @@ msgid ""
 msgstr ""
 "يعرض سجل المهام المخطط لها في علامة التبويب الحالية. عملية Cron هي برنامج "
 "مسؤول عن تشغيل المهام المخطط لها على نظامك، مثل عمليات التحقق من الأمان، أو "
-"إعادة تشغيل بعض الخدمات آليًّا. استخدم هذه القائمة لعرض العمليات التي تم "
-"تشغيلها مؤخرًا."
+"إعادة تشغيل بعض الخدمات آليًّا. استخدم هذه القائمة لعرض العمليات المُشغلة مؤخرًا."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -3206,8 +3205,8 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
-"يمكنك كتابة أو اختيار ملف سجل جلسة اكس هنا سيتم تحليل هذا الملف عند اختيار "
-"قائمة <b>سجل جلسة اكس</b>. عادةً ما يكون اسمه <i>~/.xsession-errors"
+"يمكنك كتابة أو اختيار ملف سجل جلسة اكس هنا سيُحلل هذا الملف عند اختيار قائمة "
+"<b>سجل جلسة اكس</b>. عادةً ما يكون اسمه <i>~/.xsession-errors"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
