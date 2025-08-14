@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:44+0000\n"
-"PO-Revision-Date: 2025-08-06 14:58+0400\n"
+"PO-Revision-Date: 2025-08-13 18:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1633,9 +1633,8 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
-"يعرض سجل وصول أباتشي في علامة التبويب الحالية. يُعد أباتشي خادم الويب الرئيس "
-"المستخدم في العالم. يحفظ هذا السجل جميع الطلبات التي يُجريها خادم الويب "
-"أباتشي."
+"يعرض سجل وصول أباتشي في اللسان الحالي. يُعد أباتشي خادم الويب الرئيس المستخدم "
+"في العالم. يحفظ هذا السجل جميع الطلبات التي يُجريها خادم الويب أباتشي."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1697,8 +1696,8 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
-"يعرض سجل أباتشي في علامة التبويب الحالية. أباتشي هو خادم الويب الرئيسي "
-"المستخدم في العالم."
+"يعرض سجل أباتشي في اللسان الحالي. أباتشي هو خادم الويب الرئيسي المستخدم في "
+"العالم."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1722,8 +1721,8 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"يعرض سجل التدقيق في علامة التبويب الحالية. يُستخدم هذا السجل عادةً من قِبل "
-"العمليات غير المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
+"يعرض سجل التدقيق في اللسان الحالي. يُستخدم هذا السجل عادةً من قِبل العمليات غير "
+"المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1777,9 +1776,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
-"يعرض سجل المصادقة في علامة التبويب الحالية. يعرض هذا السجل جميع عمليات تسجيل "
-"الدخول التي أجراها كل مستخدم للنظام، ويساعدك في معرفة ما إذا حاول أحدهم "
-"اختراق نظامك."
+"يعرض سجل المصادقة في اللسان الحالي. يعرض هذا السجل جميع عمليات تسجيل الدخول "
+"التي أجراها كل مستخدم للنظام، ويساعدك في معرفة ما إذا حاول أحدهم اختراق "
+"نظامك."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -2443,9 +2442,9 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
-"يعرض سجل المهام المخطط لها في علامة التبويب الحالية. عملية Cron هي برنامج "
-"مسؤول عن تشغيل المهام المخطط لها على نظامك، مثل عمليات التحقق من الأمان، أو "
-"إعادة تشغيل بعض الخدمات آليًّا. استخدم هذه القائمة لعرض العمليات المُشغلة مؤخرًا."
+"يعرض سجل المهام المخطط لها في اللسان الحالي. عملية Cron هي برنامج مسؤول عن "
+"تشغيل المهام المخطط لها على نظامك، مثل عمليات التحقق من الأمان، أو إعادة "
+"تشغيل بعض الخدمات آليًّا. استخدم هذه القائمة لعرض العمليات المُشغلة مؤخرًا."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2490,9 +2489,9 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
-"يعرض سجل وصول خادم ويب CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي "
-"يُدير الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب "
-"CUPS المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
+"يعرض سجل وصول خادم ويب CUPS في اللسان الحالي. CUPS هو البرنامج الذي يُدير "
+"الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS "
+"المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2583,8 +2582,8 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
-"يعرض سجل خادم ويب CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
-"الطباعة على حاسوبك."
+"يعرض سجل خادم ويب CUPS في اللسان الحالي. CUPS هو البرنامج الذي يُدير الطباعة "
+"على حاسوبك."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2653,9 +2652,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"يعرض سجل وصفحة CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
-"الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS "
-"المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
+"يعرض سجل وصفحة CUPS في اللسان الحالي. CUPS هو البرنامج الذي يُدير الطباعة على "
+"حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS المُضمّن "
+"(مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2679,9 +2678,9 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"يعرض سجل بي دي اف CUPS في علامة التبويب الحالية. CUPS هو البرنامج الذي يُدير "
-"الطباعة على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS "
-"المُضمّن (مبدئيًا: <i>http://localhost:631</i>)."
+"يعرض سجل بي دي اف CUPS في اللسان الحالي. CUPS هو البرنامج الذي يُدير الطباعة "
+"على حاسوبك. يحفظ هذا السجل جميع الطلبات المُنفذة على خادم ويب CUPS المُضمّن "
+"(مبدئيًا: <i>http://localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2706,8 +2705,8 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
-"يعرض سجلات العمليات الخلفية في علامة التبويب الحالية. جميع العمليات الخلفية "
-"هي عمليات تُشغّل في خلفية النظام. راجع هذا السجل لمعرفة ما يحدث في خلفية نظامك."
+"يعرض سجلات العمليات الخلفية في اللسان الحالي. جميع العمليات الخلفية هي "
+"عمليات تُشغّل في خلفية النظام. راجع هذا السجل لمعرفة ما يحدث في خلفية نظامك."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2874,7 +2873,7 @@ msgstr "اعرض سجلّ Journald."
 #: src/modes/journald/journaldLogMode.cpp:36
 #, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "يعرض سجل دفتر اليومية في علامة التبويب الحالية."
+msgstr "يعرض سجل دفتر اليومية في اللسان الحالي."
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
@@ -2913,9 +2912,8 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
-"يعرض سجل النواة في علامة التبويب الحالية. هذا السجل مفيد فقط للمستخدمين "
-"الذين يرغبون في معرفة سبب عدم اكتشاف النواة لأجهزتهم أو سبب آخر <i>خطأ في "
-"النواة</i>."
+"يعرض سجل النواة في اللسان الحالي. هذا السجل مفيد فقط للمستخدمين الذين يرغبون "
+"في معرفة سبب عدم اكتشاف النواة لأجهزتهم أو سبب آخر <i>خطأ في النواة</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2959,8 +2957,8 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
-"يعرض سجل Postfix في علامة التبويب الحالية. يُعد Postfix خادم البريد "
-"الإلكتروني الأكثر شهرةً واستخدامًا في عالم لينكس."
+"يعرض سجل Postfix في اللسان الحالي. يُعد Postfix خادم البريد الإلكتروني الأكثر "
+"شهرةً واستخدامًا في عالم لينكس."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
@@ -2978,8 +2976,8 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
-"يعرض سجل NetBios في علامة التبويب الحالية. NetBios هو ميفاق مشاركة الملفات "
-"الذي طورته مايكروسوفت."
+"يعرض سجل NetBios في اللسان الحالي. NetBios هو ميفاق مشاركة الملفات الذي "
+"طورته مايكروسوفت."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
@@ -2997,8 +2995,8 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
-"يعرض سجل وصول سامبا في علامة التبويب الحالية. يتيح لك هذا الوضع رؤية "
-"الاتصالات بين مشاركاتك والمضيفين البعيدين."
+"يعرض سجل وصول سامبا في اللسان الحالي. يتيح لك هذا الوضع رؤية الاتصالات بين "
+"مشاركاتك والمضيفين البعيدين."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -3092,8 +3090,8 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
-"يعرض سجل سامبا في علامة التبويب الحالية. سامبا هو خادم مشاركة الملفات الذي "
-"يتفاعل مع شبكة مايكروسوفت ويندوز."
+"يعرض سجل سامبا في اللسان الحالي. سامبا هو خادم مشاركة الملفات الذي يتفاعل مع "
+"شبكة مايكروسوفت ويندوز."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -3117,8 +3115,8 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"يعرض سجل النظام في علامة التبويب الحالية. يُستخدم هذا السجل عادةً من قِبل "
-"العمليات غير المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
+"يعرض سجل النظام في اللسان الحالي. يُستخدم هذا السجل عادةً من قِبل العمليات غير "
+"المتخصصة (مثل أوامر \"sudo\" أو \"fsck\")."
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3175,8 +3173,8 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
-"يعرض سجل X.org في علامة التبويب الحالية. X.org هي الخدمة التي تعرض سطح مكتبك "
-"على الشاشة وتدير أجهزتك الرسومية. راجع هذا السجل لمعرفة سبب عدم وجود تسريعات "
+"يعرض سجل X.org في اللسان الحالي. X.org هي الخدمة التي تعرض سطح مكتبك على "
+"الشاشة وتدير أجهزتك الرسومية. راجع هذا السجل لمعرفة سبب عدم وجود تسريعات "
 "ثلاثية الأبعاد أو عدم التعرف على جهاز الإدخال لديك."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
@@ -3268,9 +3266,9 @@ msgid ""
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
-"يعرض سجل جلسة اكس في علامة التبويب الحالية. سجل جلسة اكس هو المكان الذي تكتب "
-"فيه البرامج الرسومية مخرجاتها. راجع هذا السجل لمعرفة سبب تعطل برنامج، أو سبب "
-"عدم بدء تشغيل بيئة سطح المكتب (بلازما، غنوم،  Unity، Xfce، LXQt، ...)."
+"يعرض سجل جلسة اكس في اللسان الحالي. سجل جلسة اكس هو المكان الذي تكتب فيه "
+"البرامج الرسومية مخرجاتها. راجع هذا السجل لمعرفة سبب تعطل برنامج، أو سبب عدم "
+"بدء تشغيل بيئة سطح المكتب (بلازما، غنوم،  Unity، Xfce، LXQt، ...)."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
