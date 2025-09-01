@@ -272,7 +272,7 @@ msgid ""
 "not want this to happen."
 msgstr ""
 "El mode de registre que es carregarà de manera predeterminada a l'inici. "
-"Seleccioneu «Sense mode de registre» si no voleu que açò passe."
+"Trieu «Sense mode de registre» si no voleu que açò passe."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -291,7 +291,7 @@ msgstr "&Màxim de línies que s'han de mostrar:"
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
 msgstr ""
-"Seleccioneu ací el nombre màxim de línies que es mostraran en la finestra "
+"Trieu ací el nombre màxim de línies que es mostraran en la finestra "
 "principal."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
@@ -311,7 +311,7 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
-"Seleccioneu esta opció si voleu suprimir les línies duplicades del registre "
+"Trieu esta opció si voleu suprimir les línies duplicades del registre "
 "<b>(pot ser lent)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
@@ -513,7 +513,7 @@ msgstr "Nivell de registre que s'ha d'imprimir"
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr "Seleccioneu els nivells de registre que voleu imprimir en color."
+msgstr "Trieu els nivells de registre que voleu imprimir en color."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
@@ -693,8 +693,8 @@ msgstr[1] "S'han copiat %1 línies del registre a dins del porta-retalls."
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
 msgstr ""
-"No s'ha seleccionat cap element. Seleccioneu els elements candidats que "
-"s'hagen de guardar."
+"No s'ha seleccionat cap element. Trieu els elements candidats que s'hagen de "
+"guardar."
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
@@ -743,12 +743,12 @@ msgstr "Filtre:"
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr "Selecciona les prioritats"
+msgstr "Tria les prioritats"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr "Seleccioneu ací la columna de filtratge"
+msgstr "Trieu ací la columna de filtratge"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -952,7 +952,7 @@ msgstr "Problema d'execució"
 #: src/loggerDialog.cpp:236
 #, kde-format
 msgid "This file does not exist, please choose another."
-msgstr "Este fitxer no existix. Seleccioneu-ne un altre."
+msgstr "Este fitxer no existix. Trieu-ne un altre."
 
 #: src/loggerDialog.cpp:236
 #, kde-format
@@ -1778,8 +1778,8 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
-"Podeu teclejar o seleccionar el fitxer de registre d'autenticació (exemple: "
-"<i>/var/log/auth.log</i>)."
+"Podeu teclejar o triar el fitxer de registre d'autenticació (exemple: <i>/"
+"var/log/auth.log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
@@ -1788,9 +1788,9 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
-"Ací podeu teclejar o seleccionar el fitxer de registre d'autenticació. Este "
-"fitxer s'analitzarà quan seleccioneu el menú del <b>registre d'autenticació</"
-"b>. Generalment, el seu nom és <i>/var/log/auth.log</i>"
+"Ací podeu teclejar o triar el fitxer de registre d'autenticació. Este fitxer "
+"s'analitzarà quan seleccioneu el menú del <b>registre d'autenticació</b>. "
+"Generalment, el seu nom és <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -1848,8 +1848,8 @@ msgstr ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Seleccioneu un fitxer nou</"
-"p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Trieu un fitxer nou</p></"
+"body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, add)
 #: src/modes/base/fileListBase.ui:61
@@ -2186,7 +2186,7 @@ msgstr "Fitxers de registre (*.log)"
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
 msgid "Choose Log File"
-msgstr "Seleccioneu un fitxer de registre"
+msgstr "Trieu un fitxer de registre"
 
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
@@ -2226,13 +2226,13 @@ msgstr ""
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr "Seleccioneu el tipus de fitxer"
+msgstr "Trieu el tipus de fitxer"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
 #, kde-format
 msgid "Please select the type of this file:"
-msgstr "Seleccioneu el tipus d'este fitxer:"
+msgstr "Trieu el tipus d'este fitxer:"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:36
@@ -2281,7 +2281,7 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Esta és la llista de tots "
 "els nivells de registre existents. </p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Seleccioneu-ne un per a "
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Trieu-ne un per a "
 "utilitzar-lo en els fitxers seleccionats de la llista.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
@@ -3249,8 +3249,8 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
-"Podeu teclejar o seleccionar el fitxer de registre de la sessió X (exemple: "
-"<i>~/.xsession-errors</i>)."
+"Podeu teclejar o triar el fitxer de registre de la sessió X (exemple: <i>~/."
+"xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
 #, kde-format
@@ -3259,9 +3259,9 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
-"Ací podeu teclejar o seleccionar el fitxer de registre de la sessió X. Este "
-"fitxer s'analitzarà quan seleccioneu el menú del <b>registre de la sessió X</"
-"b>. Generalment, el seu nom és <i>~/.xsession-errors</i>"
+"Ací podeu teclejar o triar el fitxer de registre de la sessió X. Este fitxer "
+"s'analitzarà quan seleccioneu el menú del <b>registre de la sessió X</b>. "
+"Generalment, el seu nom és <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
