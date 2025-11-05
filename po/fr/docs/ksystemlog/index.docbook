@@ -243,7 +243,7 @@ Hide menu entries and actions for modes with missing log files
 			<para
 >Lorsque vous démarre &ksystemlog;, il essaye par défaut d'ouvrir le journal le plus utile, le <guilabel
 >journal système</guilabel
->. S'il ne l'affiche pas et qu'un message apparaît, vous avez sûrement oubliez de lancer &ksystemlog; en tant qu'administrateur (généralement appelé superutilisateur). Les fichiers journaux sont habituellement disponible dans le dossier /var/log dont l'accès est souvent interdits aux simples utilisateurs. La boîte de dialogue de configuration vous permettra d'ajouter d'autres journaux à ouvrir au démarrage. </para>
+>. S'il ne l'affiche pas et qu'un message apparait, vous avez sûrement oubliez de lancer &ksystemlog; en tant qu'administrateur (généralement appelé superutilisateur). Les fichiers journaux sont habituellement disponible dans le dossier /var/log dont l'accès est souvent interdits aux simples utilisateurs. La boite de dialogue de configuration vous permettra d'ajouter d'autres journaux à ouvrir au démarrage. </para>
 
 			<screenshot>
 				<screeninfo
@@ -327,7 +327,7 @@ Hide menu entries and actions for modes with missing log files
 >Erreur</guilabel
 > sera indiqué en utilisant une autre couleur que celui correspondant à une simple <guilabel
 >Information</guilabel
->. Cette caractéristique peut être désactivée dans la boîte de dialogue de configuration. </para>
+>. Cette caractéristique peut être désactivée dans la boite de dialogue de configuration. </para>
 
 			</sect3>
 
