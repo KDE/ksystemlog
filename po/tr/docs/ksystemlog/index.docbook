@@ -53,13 +53,13 @@
 >&FDLNotice;</legalnotice>
 
 <date
->2016-04-17</date>
+>2016‒04‒17</date>
 <releaseinfo
 >0.4 (Uygulamalar 16.04)</releaseinfo>
 
 <abstract>
 <para
->&ksystemlog;, &kde;'nin sunduğu bir sistem günlüğü görüntüleme aracıdır. Bu program, sistemleri hakkında nasıl bilgi bulacağını veya günlük dosyalarının nerede bulunduğunu bilmeyen başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. Ayrıca sunucularında oluşan sorunları tez görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. </para>
+>&ksystemlog;, &kde;’nin sunduğu bir sistem günlüğü görüntüleme aracıdır. Bu program, sistemleri hakkında nasıl bilgi bulacağını veya günlük dosyalarının nerede bulunduğunu bilmeyen başlangıç düzeyindeki kullanıcılar için geliştirilmiştir. Ayrıca sunucularında oluşan sorunları tez görmek isteyen ileri düzey kullanıcılar için de tasarlanmıştır. </para>
 
 </abstract>
 
@@ -161,7 +161,7 @@ Hide menu entries and actions for modes with missing log files
 ></listitem>
 				<listitem
 ><simpara
->Farklı kriterlere göre gruplandırma (günlük düzeyi, günlük dosyası, süreç, saat, ...)</simpara
+>Farklı kriterlere göre gruplandırma (günlük düzeyi, günlük dosyası, süreç, saat, …)</simpara
 ></listitem>
 				<listitem
 ><simpara
@@ -257,7 +257,7 @@ Hide menu entries and actions for modes with missing log files
 			<para
 >&ksystemlog; uygulamasını başlattığınızda, öntanımlı olarak en yararlı günlük olduğunu düşündüğü <guilabel
 >Sistem Günlüğü</guilabel
->'nü açmaya çalışır. Görüntüleyemezse &ksystemlog; uygulamasını yönetici olarak başlatmayı unuttuğunuzu size anımsatan bir iletişim kutusu görüntüler. Günlük dosyaları genellikle normal kullanıcılara karşı korunan /var/log klasöründe bulunur. Ayarlar iletişim kutusunda, başlangıçta açılacak başka bir günlük seçebilirsiniz. </para>
+>’nü açmaya çalışır. Görüntüleyemezse &ksystemlog; uygulamasını yönetici olarak başlatmayı unuttuğunuzu size anımsatan bir iletişim kutusu görüntüler. Günlük dosyaları genellikle normal kullanıcılara karşı korunan /var/log klasöründe bulunur. Ayarlar iletişim kutusunda, başlangıçta açılacak başka bir günlük seçebilirsiniz. </para>
 
 			<screenshot>
 				<screeninfo
@@ -341,7 +341,7 @@ Hide menu entries and actions for modes with missing log files
 >Hata</guilabel
 > düzeyi, <guilabel
 >Bildirim</guilabel
->'den farklı bir renkle vurgulanacaktır. Bu özellik yapılandırma iletişim kutusundan devre dışı bırakılabilir. </para>
+>’den farklı bir renkle vurgulanacaktır. Bu özellik yapılandırma iletişim kutusundan devre dışı bırakılabilir. </para>
 
 			</sect3>
 
@@ -380,7 +380,7 @@ Hide menu entries and actions for modes with missing log files
 >Durdur</guibutton
 > düğmesine tıklayarak günlük dosyalarının izlenmesini devre dışı bırakabilirsiniz. Bu, açılan günlük dosyalarının güncellenmesini durdururken diğer işlemler tarafından doldurulmasına izin verir. Elbette, son duraklatmadan bu yana eklenen günlük satırlarını görüntüleyecek olan <guibutton
 >Sürdür</guibutton
->'e tıklayarak izlemeyi yeniden etkinleştirebilirsiniz. </para>
+>’e tıklayarak izlemeyi yeniden etkinleştirebilirsiniz. </para>
 
 		<para
 >Ayrıca, yeni görünen günlük satırlarına odaklanmak için <guimenuitem
