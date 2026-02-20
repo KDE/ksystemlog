@@ -234,12 +234,10 @@ msgid "No Log Mode"
 msgstr "Gan Mód Logála"
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "Date format Option (Date example)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
 #: src/generalConfigurationWidgetBase.ui:18
@@ -249,10 +247,9 @@ msgstr "Tosú"
 
 #. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
 #: src/generalConfigurationWidgetBase.ui:26
-#, fuzzy, kde-format
-#| msgid "Load this log mode at startup:"
+#, kde-format
 msgid "Load &this log mode at startup:"
-msgstr "Luchtaigh an mód logála seo ag am tosaithe:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
@@ -278,10 +275,9 @@ msgstr "Liosta Línte an Logchomhaid"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
-#, fuzzy, kde-format
-#| msgid "Maximum lines displayed:"
+#, kde-format
 msgid "&Maximum lines displayed:"
-msgstr "Líon uasta línte a thaispeántar:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
@@ -408,10 +404,9 @@ msgstr "Formáid &fhada"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
-#| msgid "&Short date format"
+#, kde-format
 msgid "&Precise date format"
-msgstr "Formáid &ghairid"
+msgstr ""
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -1047,22 +1042,19 @@ msgid "&Cancel"
 msgstr "&Cealaigh"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
-msgstr "KSystemlog"
+msgstr ""
 
 #: src/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "System Logs Viewer for KDE"
+#, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr "Amharcán Logchomhad le haghaidh KDE"
+msgstr ""
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "(C) 2007, Nicolas Ternisien"
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "© 2007, Nicolas Ternisien"
+msgstr ""
 
 #: src/main.cpp:29
 #, kde-format
@@ -1115,10 +1107,9 @@ msgid "Bug Fixing"
 msgstr ""
 
 #: src/main.cpp:54
-#, fuzzy, kde-format
-#| msgid "Document to open"
+#, kde-format
 msgid "Document to open."
-msgstr "Cáipéis le hoscailt"
+msgstr ""
 
 #: src/mainWindow.cpp:308
 #, kde-format
@@ -1219,28 +1210,21 @@ msgstr ""
 "rogha seo chun an roghnúchán a phriontáil."
 
 #: src/mainWindow.cpp:532
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Priontáil Roghnúchán..."
+msgstr ""
 
 #: src/mainWindow.cpp:533
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "Priontáil an roghnúchán"
+msgstr ""
 
 #: src/mainWindow.cpp:535
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Priontáil an roghnúchán. Roghnaigh na línte tábhachtacha agus cliceáil an "
-"rogha seo chun an roghnúchán a phriontáil."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1748,37 +1732,26 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Logchomhad Acpid"
+msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>Déanfar anailís ar na comhaid seo chun <b>Logchomhad Acpid</b> a "
-"thaispeáint.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "Taispeáin an logchomhad Cups."
+msgstr ""
 
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"Taispeáin logchomhad an chórais sa chluaisín reatha. Próisis ghinearálta "
-"(orduithe cosúil le \"sudo\" nó \"fsck\") a úsáideann an logchomhad seo go "
-"hiondúil"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -2805,10 +2778,9 @@ msgstr ""
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
-#, fuzzy, kde-format
-#| msgid "Kernel Log"
+#, kde-format
 msgid "Journald Log"
-msgstr "Logchomhad na hEithne"
+msgstr ""
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:82
 #: src/modes/journald/journaldConfigurationWidget.cpp:114
@@ -2886,16 +2858,14 @@ msgid "Journald"
 msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:43
-#, fuzzy, kde-format
-#| msgid "Local 0"
+#, kde-format
 msgid "Local journal"
-msgstr "Logánta 0"
+msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "All messages"
-msgstr "Teachtaireacht"
+msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
@@ -2915,10 +2885,9 @@ msgid "Connect"
 msgstr ""
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
-#, fuzzy, kde-format
-#| msgid "&Priority:"
+#, kde-format
 msgid "Priority:"
-msgstr "&Tosaíocht:"
+msgstr ""
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
@@ -2933,22 +2902,19 @@ msgstr ""
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
-#, fuzzy, kde-format
-#| msgid "Log file '%1' loaded successfully."
+#, kde-format
 msgid "Journald entries loaded successfully."
-msgstr "D'éirigh leis logchomhad '%1' a luchtú."
+msgstr ""
 
 #: src/modes/journald/journaldLogMode.cpp:35
-#, fuzzy, kde-format
-#| msgid "Display the kernel log."
+#, kde-format
 msgid "Display the Journald log."
-msgstr "Taispeáin logchomhad na heithne."
+msgstr ""
 
 #: src/modes/journald/journaldLogMode.cpp:36
-#, fuzzy, kde-format
-#| msgid "Duplicates the current tab."
+#, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "Cóipeáil an cluaisín reatha."
+msgstr ""
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
@@ -3308,10 +3274,9 @@ msgstr "Logchomhad an tSeisiúin X"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
-#, fuzzy, kde-format
-#| msgid "Log file:"
+#, kde-format
 msgid "&Log file:"
-msgstr "Logchomhad:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -3350,22 +3315,13 @@ msgid "Display the X Session log."
 msgstr "Taispeáin logchomhad an tSeisiúin X."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the X Session log in the current tab. X Session log is the place "
-#| "where graphical programs write their output. See this log if you want to "
-#| "know why a program has crashed, or why your display manager (KDE, "
-#| "Gnome,...) has not started."
+#, kde-format
 msgid ""
 "Displays the X Session log in the current tab. X Session log is the place "
 "where graphical programs write their output. See this log if you want to "
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
-"Taispeáin logchomhad an tSeisiúin X sa chluaisín reatha. Seo é an áit ina "
-"scríobhann ríomhchláir ghrafacha a n-aschur. Féach ar an logchomhad seo más "
-"mian leat déanamh amach cén fáth ar thuairteáil ríomhchlár éigin, nó cén "
-"fáth nár thosaigh bainisteoir do scáileáin (KDE, Gnome, ...)."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
@@ -3391,300 +3347,3 @@ msgstr "%1 (%2)"
 #, kde-format
 msgid "No Log"
 msgstr "Gan Logchomhad"
-
-#~ msgid "&Fancy short date format"
-#~ msgstr "Formáid ghairid &mhaisiúil"
-
-#~ msgid "Fanc&y long date format"
-#~ msgstr "Formáid fhada mhai&siúil"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 B"
-#~ msgstr "%1 B"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 KB"
-#~ msgstr "%1 kB"
-
-#~ msgctxt "Size format"
-#~ msgid "%1 MB"
-#~ msgstr "%1 MB"
-
-#~ msgid "The file does not exist"
-#~ msgstr "Níl an comhad ann"
-
-#~ msgid "Loading <b>%2</b>...<br /><i>%3</i>"
-#~ msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-#~ msgstr[0] "<b>%2</b> á luchtú...<br /><i>%3</i> (%1 chomhad)"
-#~ msgstr[1] "<b>%2</b> á luchtú...<br /><i>%3</i> - (<b>%4</b>/%1 chomhad)"
-#~ msgstr[2] "<b>%2</b> á luchtú...<br /><i>%3</i> - (<b>%4</b>/%1 chomhad)"
-#~ msgstr[3] "<b>%2</b> á luchtú...<br /><i>%3</i> - (<b>%4</b>/%1 gcomhad)"
-#~ msgstr[4] "<b>%2</b> á luchtú...<br /><i>%3</i> - (<b>%4</b>/%1 comhad)"
-
-#~ msgid "Reloading <b>%2</b>...<br /><i>%3</i>"
-#~ msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-#~ msgstr[0] "<b>%2</b> á athluchtú...<br /><i>%3</i> (%1 chomhad)"
-#~ msgstr[1] "<b>%2</b> á athluchtú...<br /><i>%3</i> - (<b>%4</b>/%1 chomhad)"
-#~ msgstr[2] "<b>%2</b> á athluchtú...<br /><i>%3</i> - (<b>%4</b>/%1 chomhad)"
-#~ msgstr[3] "<b>%2</b> á athluchtú...<br /><i>%3</i> - (<b>%4</b>/%1 gcomhad)"
-#~ msgstr[4] "<b>%2</b> á athluchtú...<br /><i>%3</i> - (<b>%4</b>/%1 comhad)"
-
-#~ msgid ""
-#~ "Displays or not the new lines if the log changes. This option is useful "
-#~ "when you want to see an old log lines and that KSystemLog often refreshes "
-#~ "the current view."
-#~ msgstr ""
-#~ "Taispeáin nó ná taispeáin na línte nua nuair a athraíonn an logchomhad. "
-#~ "Rogha áisiúil é seo nuair is mian leat seanlínte a fheiceáil de bhrí go n-"
-#~ "úraíonn KSystemLog an t-amharc go minic."
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>Cups Web Server log</"
-#~ "b>. This list also determines the order in which the files are read.</p></"
-#~ "qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad Freastalaí "
-#~ "Gréasáin Cups</b> a thaispeáint. Socraíonn an liosta seo an t-ord ina "
-#~ "léifear na comhaid freisin.</p></qt>"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>Samba log</b>. This "
-#~ "list also determines the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad Samba</b> a "
-#~ "thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid "Form"
-#~ msgstr "Foirm"
-
-#~ msgid "'%1' is not valid."
-#~ msgstr "Is neamhbhailí é '%1'."
-
-#~ msgid "'%1' is a folder."
-#~ msgstr "Is fillteán é '%1'."
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>Postfix Logs</b>. This "
-#~ "list also determine the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad Postfix</b> a "
-#~ "thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid "Patrick Decker"
-#~ msgstr "Patrick Decker"
-
-#~ msgid "Ideas, Code improvements"
-#~ msgstr "Smaointe, feabhsúcháin"
-
-#~ msgid "SSH mode, Printing feature"
-#~ msgstr "Mód SSH, Gné phriontála"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>X Session Log</b>. This "
-#~ "list also determines the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad Seisiúin X</"
-#~ "b> a thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>SSH log</b>. This list "
-#~ "also determines the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad SSH</b> a "
-#~ "thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid "Hostname"
-#~ msgstr "Óstainm"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>daemons Logs</b>. This "
-#~ "list also determine the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad na ndeamhan</"
-#~ "b> a thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>X.org log</b>. This "
-#~ "list also determines the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad X.org</b> a "
-#~ "thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid "Boot Log File"
-#~ msgstr "Logchomhad Tosuithe"
-
-#~ msgid "Boot Log File:"
-#~ msgstr "Logchomhad Tosuithe:"
-
-#~ msgid ""
-#~ "<qt>You can type or choose here the boot log file. This file will be "
-#~ "analyzed by KSystemLog when you will choose the <b>Boot log</b> menu "
-#~ "item. Generally, its name is <i>/var/log/boot.log</i></qt>"
-#~ msgstr ""
-#~ "<qt>Is féidir an logchomhad tosuithe a iontráil nó a roghnú anseo. "
-#~ "Déanfaidh KSystemLog anailís ar an gcomhad seo nuair a roghnaíonn tú "
-#~ "<b>Logchomhad Tosuithe</b> sa roghchlár. Go hiondúil, is é <i>/var/log/"
-#~ "boot.log</i> an t-ainm atá air</qt>"
-
-#~ msgid "logs"
-#~ msgstr "logchomhaid"
-
-#~ msgid "&CUPS"
-#~ msgstr "&CUPS"
-
-#~ msgid ""
-#~ "<p>These files will be analyzed to display <b>Acpid log</b>.<br />This "
-#~ "list also determines the order in which the files are read.</p>"
-#~ msgstr ""
-#~ "<p>Déanfar anailís ar na comhaid seo chun <b>logchomhad Acpid</b> a "
-#~ "thaispeáint.<br />Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p>"
-
-#~ msgctxt "Undefined host name"
-#~ msgid "undefined"
-#~ msgstr "gan ainm"
-
-#~ msgid ""
-#~ "<p>These files will be analyzed to display <b>Apache Access log</b>.<br /"
-#~ ">This list also determines the order in which the files are read.</p>"
-#~ msgstr ""
-#~ "<p>Déanfar anailís ar na comhaid seo chun <b>logchomhad rochtana Apache</"
-#~ "b> a thaispeáint.<br />Socraíonn an liosta seo an t-ord ina léifear na "
-#~ "comhaid freisin.</p>"
-
-#~ msgid ""
-#~ "<qt><p>These files will be analyzed to display <b>Kernel logs</b>. This "
-#~ "list also determines the order in which the files are read.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Déanfar anailís ar na comhaid seo chun <b>logchomhad na hEithne</"
-#~ "b> a thaispeáint. Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p></qt>"
-
-#~ msgid ""
-#~ "<p>These files will be analyzed to display <b>System logs</b>.<br />This "
-#~ "list also determines the order in which the files are read.</p>"
-#~ msgstr ""
-#~ "<p>Déanfar anailís ar na comhaid seo chun <b>logchomhaid an Chórais</b> a "
-#~ "thaispeáint.<br />Socraíonn an liosta seo an t-ord ina léifear na comhaid "
-#~ "freisin.</p>"
-
-#~ msgid "&Apache Log"
-#~ msgstr "Logchomhad &Apache"
-
-#~ msgid "S&ystem Log"
-#~ msgstr "&Logchomhad an Chórais"
-
-#~ msgid "Column:"
-#~ msgstr "Colún:"
-
-#~ msgid "Boot Log"
-#~ msgstr "Logchomhad Tosaithe"
-
-#~ msgid "Daemon Log"
-#~ msgstr "Logchomhad na nDeamhan"
-
-#~ msgid "CUPS Log"
-#~ msgstr "Logchomhad CUPS"
-
-#~ msgid "SSH Log"
-#~ msgstr "Logchomhad SSH"
-
-#~ msgid "Log Levels"
-#~ msgstr "Leibhéil Logála"
-
-#~ msgid "Hello"
-#~ msgstr "Dia Duit"
-
-#~ msgid "File Log"
-#~ msgstr "Logchomhad Comhad"
-
-#~ msgid "Number of characters:"
-#~ msgstr "Líon na gcarachtar:"
-
-#~ msgid "&File"
-#~ msgstr "&Comhad"
-
-#~ msgid "&Settings"
-#~ msgstr "&Socruithe"
-
-#~ msgid "&Kernel Log"
-#~ msgstr "Logchomhad na h&Eithne"
-
-#~ msgid "&Boot Log"
-#~ msgstr "Logchomhad &Tosaithe"
-
-#~ msgid "A&uthentication Log"
-#~ msgstr "Logchomhad &Fíordheimhnithe"
-
-#~ msgid "&X.org Log"
-#~ msgstr "Logchomhad &X.org"
-
-#~ msgid "X &Session Log"
-#~ msgstr "Logchomhad an t&Seisiúin X"
-
-#~ msgid "&ACPI Log"
-#~ msgstr "Logchomhad &ACPI"
-
-#~ msgid "&CUPS Log"
-#~ msgstr "Logchomhad &CUPS"
-
-#~ msgid "&Apache log"
-#~ msgstr "Logchomhad &Apache"
-
-#~ msgid "&Apache Web log"
-#~ msgstr "Logchomhad Gréasáin &Apache"
-
-#~ msgid "&Postfix Log"
-#~ msgstr "Logchomhad &Postfix"
-
-#~ msgid "&Samba Log"
-#~ msgstr "Logchomhad &Samba"
-
-#~ msgid "SS&H Log"
-#~ msgstr "Logchomhad SS&H"
-
-#~ msgid "Display the SSH log."
-#~ msgstr "Taispeáin an logchomhad SSH."
-
-#~ msgid "&Change Status"
-#~ msgstr "&Athraigh Stádas"
-
-#~ msgid "<qt>Loading <b>%1</b> - <b>%2</b>/%3 file (<b>%4</b>/%5)...</qt>"
-#~ msgstr "<qt><b>%1</b> á luchtú - <b>%2</b>/%3 comhad (<b>%4</b>/%5)...</qt>"
-
-#~ msgid "<qt>Reloading <b>%1</b> - <b>%2</b>/%3 file (<b>%4</b>/%5)...</qt>"
-#~ msgstr ""
-#~ "<qt><b>%1</b> á athluchtú - <b>%2</b>/%3 comhad (<b>%4</b>/%5)...</qt>"
-
-#~ msgid "<qt>Loading <b>%1</b> (<b>%2</b>/%3)...</qt>"
-#~ msgstr "<qt><b>%1</b> á luchtú (<b>%2</b>/%3)...</qt>"
-
-#~ msgid "<qt>Reloading <b>%1</b> (<b>%2</b>/%3)...</qt>"
-#~ msgstr "<qt><b>%1</b> á athluchtú (<b>%2</b>/%3)...</qt>"
-
-#~ msgid "Files"
-#~ msgstr "Comhaid"
-
-#~ msgid "Filter here..."
-#~ msgstr "Scagaire anseo..."
-
-#~ msgid "Today"
-#~ msgstr "Inniu"
-
-#~ msgid "Yesterday"
-#~ msgstr "Inné"
-
-#~ msgid "%1, %2h"
-#~ msgstr "%1, %2u"
-
-#~ msgid "<div align='center'><b>Group:</b> %1</div>"
-#~ msgstr "<div align='center'><b>Grúpa:</b> %1</div>"
-
-#~ msgid "%1, %2 hour"
-#~ msgstr "%1, %2 uaire"
