@@ -26,6 +26,7 @@
   <name xml:lang="hu">KSystemLog</name>
   <name xml:lang="ia">KSystemLog</name>
   <name xml:lang="id">KSystemLog</name>
+  <name xml:lang="is">KSystemLog</name>
   <name xml:lang="it">KSystemLog</name>
   <name xml:lang="ka">KSystemLog</name>
   <name xml:lang="ko">KSystemLog</name>
@@ -66,6 +67,7 @@
   <summary xml:lang="hu">Rendszernapló-megjelenítő</summary>
   <summary xml:lang="ia">visor de registro de systema</summary>
   <summary xml:lang="id">penampil catatan log sistem</summary>
+  <summary xml:lang="is">skoðari kerfisatvikaskráa</summary>
   <summary xml:lang="it">Visore dei registri di sistema</summary>
   <summary xml:lang="ka">სისტემური ჟურნალის დამთვალიერებელი</summary>
   <summary xml:lang="ko">시스템 로그 뷰어</summary>
@@ -108,6 +110,7 @@
     <p xml:lang="hu">A KSystemLog megjeleníti a rendszer összes naplófájlját, általános (alapértelmezett rendszernapló, hitelesítés, kernel, X.org…) és opcionális szolgáltatások (Apache, Cups, stb, …) szerint csoportosítva. Számos funkcióval segíti a naplófájlok olvasását:</p>
     <p xml:lang="ia">KSystemLog monstra omne registros de tu systema, gruppate per Registro General  (registro de systema redefinite, Authentication, Kernel, X.org...) e Servitios optional  (Apache, Cups, etc, ...). Illo  include multe characteristicas per leger agradibilemente tu files de registro:</p>
     <p xml:lang="id">KSystemLog menampilkan semua catatan log sistemmu, dikelompokkan berdasarkan General (Catatan log sistem baku, Autentikasi, Kernel, X.org...), dan Layanan (Apache, Cups, dll, ...) opsional. Serta banyak fitur-fitur pembacaan secara baik file-file catatan log-mu:</p>
+    <p xml:lang="is">KSystemLog birtir allar atvikaskrár kerfisins, hópað eftir Almennt (sjálfgefna Kerfisatvikaskráin, Auðkenning, Kjarni, X.org...), og svo valkvæðar Þjónustur (Apache, Cups, o.s.frv. ...). Það er með marga eiginleika til að auðvelda lestur á atvikaskrám:</p>
     <p xml:lang="it">KSystemLog mostra tutti i registri di sistema, raggruppati per Generale (registro predefinito di sistema, autenticazione, Kernel, X.org...) e Servizi opzionali (Apache, Cups, ecc, ...). Include molte funzionalità per leggere bene i file di registro:</p>
     <p xml:lang="ka">KSystemLog აჩვენებს თქვენი სისტემის ყველა ჟურნალს, დაჯგუფებულად (ნაგულისხმევი ჟურნალი, ავთენტიკაცია, ბირთვი, გრაფიკა და ა.შ&gt;) და არასავალდებულო სერვისებს (Apache, CUPS, ა.შ.). მას ჟურნალის ლამაზად საჩვენებლად ბევრი ფუნქცია გააჩნია:</p>
     <p xml:lang="ko">KSystemLog는 시스템의 모든 로그를 볼 수 있는 도구입니다. 일반(기본 시스템 로그, 인증, 커널, X.org, ...) 및 추가 서비스(Apache, CUPS, ...) 로그로 분류합니다. 로그 파일을 읽기 편하게 하는 도구를 제공합니다.</p>
@@ -147,6 +150,7 @@
       <li xml:lang="hu">Sorok színezése a fontosságuk szerint</li>
       <li xml:lang="ia">Colora lineas de registro dependente de lor severitate</li>
       <li xml:lang="id">Pewarnaan baris log tergantung pada kepelikannya</li>
+      <li xml:lang="is">Lita atvikaskrárlínurnar eftir alvarleika þeirra</li>
       <li xml:lang="it">Colorazione delle righe del registro in base alla loro gravità</li>
       <li xml:lang="ka">ჟურნალის ხაზების მათი მნიშვნელობის მიხედვით გაფერადება</li>
       <li xml:lang="ko">심각도에 따라서 로그 줄 자동 색상 지정</li>
@@ -186,6 +190,7 @@
       <li xml:lang="hu">Lapokra osztott nézet több naplófájl egyszerre történő megjelenítéséhez</li>
       <li xml:lang="ia">Vista a schedas que permitte monstrar plure registros al mesme tempore</li>
       <li xml:lang="id">Tampilan bertab untuk memungkinkan penayangan log di waktu yang sama</li>
+      <li xml:lang="is">Skoðun í flipum til að geta skoðað margar atvikaskrár í einu</li>
       <li xml:lang="it">Vista a schede, che permette la visualizzazione di più registri nello stesso tempo</li>
       <li xml:lang="ka">ჩანართებიანი ხედი რამდენიმე ჟურნალის ერთდროულად სანახავად</li>
       <li xml:lang="ko">여러 로그를 탭을 통해서 동시에 표시</li>
@@ -224,6 +229,7 @@
       <li xml:lang="hu">Új bejegyzések automatikus megjelenítése</li>
       <li xml:lang="ia">Monstra automaticamente nove lineas registrate</li>
       <li xml:lang="id">Auto tayang baris baru yang di-log</li>
+      <li xml:lang="is">Birta sjálfkrafa nýjar línur artvikaskráningar</li>
       <li xml:lang="it">Visualizzazione automatica delle nuove righe registrate</li>
       <li xml:lang="ka">ჟურნალის ახალი ხაზების ავტომატური ჩვენება</li>
       <li xml:lang="ko">새로 로그에 추가된 줄 자동 표시</li>
@@ -263,6 +269,7 @@
       <li xml:lang="hu">Részletes információk minden egyes sorhoz</li>
       <li xml:lang="ia">Informationdetaliate per cata lineas de registro (log)</li>
       <li xml:lang="id">Informasi terperinci untuk setiap baris log</li>
+      <li xml:lang="is">Ítarlegar upplýsingar fyrir hverja línu atvikaskrár</li>
       <li xml:lang="it">Informazioni dettagliate per ciascuna riga del registro</li>
       <li xml:lang="ka">ჟურნალის თთოეული ხაზის დეტალური ინფორმაცია</li>
       <li xml:lang="ko">각각 로그 줄별 자세한 정보</li>
