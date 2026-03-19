@@ -4,7 +4,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${CMAKE_CURRENT_BINARY_DIR}/../config
 )
-add_library(ksystemlog_lib STATIC ${ksystemlog_lib_sources})
+add_library(ksystemlog_lib STATIC)
 target_sources(ksystemlog_lib PRIVATE
     analyzer.cpp
     fileAnalyzer.cpp

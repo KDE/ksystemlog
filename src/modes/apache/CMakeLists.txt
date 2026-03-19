@@ -1,4 +1,4 @@
-add_library(ksystemlog_apache STATIC ${ksystemlog_apache_sources})
+add_library(ksystemlog_apache STATIC)
 
 target_sources(ksystemlog_apache PRIVATE
 	apacheConfiguration.cpp
