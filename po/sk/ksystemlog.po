@@ -44,7 +44,7 @@ msgstr "Limit riadkov pre prezeranie logu."
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
-msgstr "Možnosť je pravda ak chce uživateľ zmazať opakované logované riadky."
+msgstr "Možnosť je pravda ak chce užívateľ zmazať opakované logované riadky."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -338,7 +338,7 @@ msgid ""
 "will be removed."
 msgstr ""
 "Môžete zmazať identifikátor procesu v mene procesu. Napríklad budete vidieť "
-"v stľpci  <b>Process</b> niečo ako <i>cron<b>[3433]</b></i>. Ak túto možnosť "
+"v stĺpci  <b>Process</b> niečo ako <i>cron<b>[3433]</b></i>. Ak túto možnosť "
 "aktivujete, nepríjemná číselná časť bude odstránená. "
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
@@ -730,7 +730,7 @@ msgstr "Vybrať priority"
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr "Tu vyberte filtrovaný stľpec"
+msgstr "Tu vyberte filtrovaný stĺpec"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -738,8 +738,8 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"Dovolí aplikovať polžku filtra na tu špecifikovaný stľpec. \"<i>All</i>\" "
-"stľpec znamená žiadny špecifický filter."
+"Dovolí aplikovať polžku filtra na tu špecifikovaný stĺpec. \"<i>All</i>\" "
+"stĺpec znamená žiadny špecifický filter."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -792,7 +792,7 @@ msgstr "Dátum"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "Zobraz/Skry stľpec '%1'"
+msgstr "Zobraz/Skry stĺpec '%1'"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
@@ -810,7 +810,7 @@ msgstr "Proces spadol"
 #: src/modes/cups/cupsPageAnalyzer.cpp:21
 #, kde-format
 msgid "User"
-msgstr "Uživateľ"
+msgstr "Užívateľ"
 
 #: src/loggerDialog.cpp:93
 #, kde-format
@@ -1584,7 +1584,7 @@ msgstr "Identifikácia:"
 #: src/modes/cups/cupsPageItemBuilder.cpp:20
 #, kde-format
 msgid "Username:"
-msgstr "Meno uživateľa:"
+msgstr "Meno užívateľa:"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:22
 #: src/modes/cups/cupsAccessItemBuilder.cpp:22
@@ -1774,7 +1774,7 @@ msgid ""
 "tried to crack your system."
 msgstr ""
 "Zobrazí autentifikačný log v aktuálnej záložke. Tento log zobrazuje všetky "
-"prihlásenia uživateľov do systému a pomôže vám pri zisťovaní či sa niekto "
+"prihlásenia užívateľov do systému a pomôže vám pri zisťovaní či sa niekto "
 "nepokúšal nabúrať vám  systém."
 
 #: src/modes/base/fileList.cpp:33
@@ -2427,7 +2427,7 @@ msgstr "Ponechá iba riadky ktoré zodpovedajú tomuto procesu:"
 #: src/modes/cron/cronItemBuilder.cpp:20
 #, kde-format
 msgid "User:"
-msgstr "Uživateľ:"
+msgstr "Užívateľ:"
 
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
@@ -2917,7 +2917,7 @@ msgid ""
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
 "Zobrazí log kernelu v aktuálnej záložke. Tento log je užitočný pre "
-"uživateľov ktorý potrebujú vedieť prečo kernel nedetekuje ich hardware alebo "
+"užívateľov ktorý potrebujú vedieť prečo kernel nedetekuje ich hardware alebo "
 "čo je príčinou poslednej <i>kernel panic/oops</i>."
 
 #: src/modes/open/openLogMode.cpp:22
