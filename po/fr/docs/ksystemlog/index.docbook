@@ -234,7 +234,7 @@ Hide menu entries and actions for modes with missing log files
 >Lire des journaux avec &ksystemlog;</title>
 
 		<para
->Comme vous pouvez le voir sur la copie d'écran suivante, &ksystemlog; est capable de trier et de filtrer facilement les lignes des journaux. Nous allons maintenant les décrire dans cette partie de la documentation. </para>
+>Comme vous pouvez le voir sur la capture d'écran suivante, &ksystemlog; est capable de trier et de filtrer facilement les lignes des journaux. Nous allons maintenant les décrire dans cette partie de la documentation. </para>
 
 		<sect2 id="getting_started">
 			<title
