@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 19:46-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -53,7 +54,7 @@ msgstr ""
 msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
-msgstr "سىستېما خاتىرەنىڭ جەريان ئىستونىدا جەريان نومۇرى(PID)نى كۆرسىتەمدۇ يوق"
+msgstr "سىستېما خاتىرەنىڭ جەريان رەتتە جەريان نومۇرى(PID)نى كۆرسىتەمدۇ يوق."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -98,7 +99,7 @@ msgstr "Samba خاتىرە ھۆججەتنىڭ يولى."
 #: src/configurationDialog.cpp:26
 #, kde-format
 msgid "Settings"
-msgstr "تەڭشەكلەر"
+msgstr "تەڭشەك"
 
 #: src/configurationDialog.cpp:80
 #, kde-format
@@ -173,14 +174,14 @@ msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
 msgstr ""
-"ئالدىنقى قۇرغا يۆتكەيدۇ. ئەگەر ئۈستىدە قۇر بولمىسا بۇ توپچا ئۈنۈمىنى "
+"ئالدىنقى قۇرغا يۆتكەيدۇ. ئەگەر ئۈستىدە قۇر بولمىسا بۇ توپچە ئۈنۈمىنى "
 "يوقىتىدۇ."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
 #, kde-format
 msgid "&Back"
-msgstr "كەينى(&B)"
+msgstr "قايت(&B)"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, next)
 #: src/detailDialogBase.ui:122
@@ -194,7 +195,7 @@ msgstr "كېيىنكى قۇرغا يۆتكە"
 msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
-msgstr "قۇرغا يۆتكەيدۇ. ئەگەر ئاستىدا قۇر بولمىسا بۇ توپچا ئۈنۈمىنى يوقىتىدۇ."
+msgstr "قۇرغا يۆتكەيدۇ. ئەگەر ئاستىدا قۇر بولمىسا بۇ توپچە ئۈنۈمىنى يوقىتىدۇ."
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
@@ -231,9 +232,7 @@ msgid "No Log Mode"
 msgstr "خاتىرە ھالىتى يوق"
 
 #: src/generalConfigurationWidget.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "Date format Option (Date example)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -246,10 +245,9 @@ msgstr "قوزغىلىش"
 
 #. i18n: ectx: property (text), widget (QLabel, startupModeLabel)
 #: src/generalConfigurationWidgetBase.ui:26
-#, fuzzy, kde-format
-#| msgid "Load this log mode at startup:"
+#, kde-format
 msgid "Load &this log mode at startup:"
-msgstr "قوزغالغاندا بۇ خاتىرە ھالىتىنى يۈكلەيدۇ:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:36
@@ -275,10 +273,9 @@ msgstr "خاتىرە قۇرلار تىزىمى"
 
 #. i18n: ectx: property (text), widget (QLabel, maxLinesLabel)
 #: src/generalConfigurationWidgetBase.ui:59
-#, fuzzy, kde-format
-#| msgid "Maximum lines displayed:"
+#, kde-format
 msgid "&Maximum lines displayed:"
-msgstr "كۆرسىتەلەيدىغان ئەڭ كۆپ قۇر:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
@@ -305,7 +302,7 @@ msgid ""
 "slow)</b>."
 msgstr ""
 "ئەگەر تەكرارلانغان خاتىرە قۇرنى ئۆچۈرمەكچى بولسىڭىز بۇ تۈرنى تاللاڭ "
-"<b>(ئاستىراق)</b>"
+"<b>(ئاستىراق)</b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -346,9 +343,9 @@ msgid ""
 "will be removed."
 msgstr ""
 "ئەگەر جەريان ئاتىدىن جەريان كىملىكىنى چىقىرىۋەتمەكچى بولسىڭىز بۇ تاللانمىنى "
-"تاللاڭ. بەزىدە سىز <b>جەريان</b> ئىستونىدا <i>cron<b>[3433]</b></i> غا "
-"ئوخشاش نەرسىلەرنى كۆرۈشىڭىز مۇمكىن. ئەگەر بۇ تاللانما تاللانسا ئۇنداقتا "
-"ئادەمنى بىزار قىلىدىغان توم بۆلىكىنى چىقىرىۋېتىدۇ."
+"تاللاڭ. بەزىدە سىز <b>جەريان</b> رەتتە <i>cron<b>[3433]</b></i> غا ئوخشاش "
+"نەرسىلەرنى كۆرۈشىڭىز مۇمكىن. ئەگەر بۇ تاللانما تاللانسا ئۇنداقتا ئادەمنى "
+"بىزار قىلىدىغان توم بۆلىكىنى چىقىرىۋېتىدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -401,10 +398,9 @@ msgstr "ئۇزۇن چېسلا پىچىمى(&L)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, formatPreciseDate)
 #: src/generalConfigurationWidgetBase.ui:170
-#, fuzzy, kde-format
-#| msgid "&Short date format"
+#, kde-format
 msgid "&Precise date format"
-msgstr "قىسقا چېسلا پىچىمى(&S)"
+msgstr ""
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -439,17 +435,17 @@ msgstr "ئاساسىي قورال بالداق"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "'%1' نى ئېچىۋاتىدۇ…"
+msgstr "«%1» نى ئېچىۋاتىدۇ…"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
 msgid "Log file '%1' loaded successfully."
-msgstr "خاتىرە ھۆججىتى '%1' مۇۋەپپەقىيەتلىك يۈكلەندى."
+msgstr "خاتىرە ھۆججىتى «%1» مۇۋەپپەقىيەتلىك يۈكلەندى."
 
 #: src/lib/fileAnalyzer.cpp:119 src/modes/audit/auditAnalyzer.cpp:227
 #, kde-format
 msgid "Log file '%1' has changed."
-msgstr "خاتىرە ھۆججىتى '%1' ئۆزگەرتىلدى."
+msgstr "خاتىرە ھۆججىتى «%1» ئۆزگەرتىلدى."
 
 #: src/lib/globals.cpp:110
 #, kde-format
@@ -548,12 +544,12 @@ msgstr "ھۆججەت مەۋجۇت ئەمەس"
 #: src/lib/localLogFileReader.cpp:113
 #, kde-format
 msgid "The file '%1' does not exist."
-msgstr "'%1' ھۆججەت مەۋجۇت ئەمەس."
+msgstr "«%1» ھۆججەت مەۋجۇت ئەمەس."
 
 #: src/lib/localLogFileReader.cpp:134
 #, kde-format
 msgid "Unable to uncompress the '%2' format of '%1'."
-msgstr "'%1' نىڭ '%2' پىچىمىنى يېشەلمەيدۇ."
+msgstr "«%1» نىڭ «%2» پىچىمىنى يېشەلمەيدۇ."
 
 #: src/lib/localLogFileReader.cpp:135
 #, kde-format
@@ -563,7 +559,7 @@ msgstr "ھۆججەتنى يېشەلمەيدۇ"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "سىزنىڭ '%1' نى ئوقۇشقا يېتەرلىك ھوقۇقىڭىز يوق."
+msgstr "سىزنىڭ «%1» نى ئوقۇشقا يېتەرلىك ھوقۇقىڭىز يوق."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -584,7 +580,7 @@ msgstr "خاتىرە غەلىبىلىك يۈكلەندى."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "URL '%1' ئىناۋەتسىز، بۇ URL دىن ئاتلايدۇ."
+msgstr "URL «%1» ئىناۋەتسىز، بۇ URL دىن ئاتلايدۇ."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -645,7 +641,7 @@ msgstr "خاتىرەم تۆۋەندىكىچە:\n"
 #: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
 #, kde-format
 msgid "---------------------------------------\n"
-msgstr "---------------------------------------\n"
+msgstr ""
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
@@ -688,12 +684,12 @@ msgstr ""
 #, kde-format
 msgid "1 log line saved to '%2'."
 msgid_plural "%1 log lines saved to '%2'."
-msgstr[0] "%1 خاتىرە قۇرى '%2' غا ساقلاندى."
+msgstr[0] "%1 خاتىرە قۇرى «%2» غا ساقلاندى."
 
 #: src/lib/logViewExport.cpp:244
 #, kde-format
 msgid "Unable to save file '%1': Permission Denied."
-msgstr "'%1' ھۆججەتنى ساقلىيالمايدۇ: زىيارەت رەت قىلىندى."
+msgstr "«%1» ھۆججەتنى ساقلىيالمايدۇ: زىيارەت رەت قىلىندى."
 
 #: src/lib/logViewExport.cpp:245
 #, kde-format
@@ -728,7 +724,7 @@ msgstr ""
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
 msgid "Choose the filtered column here"
-msgstr "سۈزىدىغان ئىستوننى تاللاڭ"
+msgstr "سۈزىدىغان رەتنى تاللاڭ"
 
 #: src/lib/logViewFilterWidget.cpp:153
 #, kde-format
@@ -736,7 +732,7 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"بەلگىلەنگەن ئىستونغا سۈزگۈچ ئىشلىتىشىڭىزگە يول قويىدۇ. \"<i>ھەممىسى</i>\" "
+"بەلگىلەنگەن رەتكە سۈزگۈچ ئىشلىتىشىڭىزگە يول قويىدۇ. \"<i>ھەممىسى</i>\" "
 "بەلگىلەنگەن سۈزگۈچ يوقلۇقىنى بىلدۈرىدۇ."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
@@ -790,12 +786,12 @@ msgstr "چېسلا"
 #: src/lib/logViewWidget.cpp:104
 #, kde-format
 msgid "Display/Hide the '%1' column"
-msgstr "'%1' ئىستوننى كۆرسەت/يوشۇر"
+msgstr "«%1» رەتنى كۆرسەت/يوشۇر"
 
 #: src/lib/processOutputLogFileReader.cpp:140
 #, kde-format
 msgid "The process '%1' crashed."
-msgstr "جەريان '%1' يىمىرىلدى."
+msgstr "جەريان «%1» يىمىرىلدى."
 
 #: src/lib/processOutputLogFileReader.cpp:141
 #, kde-format
@@ -823,7 +819,7 @@ msgstr "شەخسىي كىملىك دەلىللەش"
 #: src/loggerDialog.cpp:95
 #, kde-format
 msgid "Cron"
-msgstr "Cron"
+msgstr ""
 
 #: src/loggerDialog.cpp:96
 #, kde-format
@@ -833,7 +829,7 @@ msgstr "مۇئەككەل"
 #: src/loggerDialog.cpp:97
 #, kde-format
 msgid "FTP"
-msgstr "FTP"
+msgstr ""
 
 #: src/loggerDialog.cpp:98
 #, kde-format
@@ -843,7 +839,7 @@ msgstr "يادرو"
 #: src/loggerDialog.cpp:99
 #, kde-format
 msgid "LPR"
-msgstr "LPR"
+msgstr ""
 
 #: src/loggerDialog.cpp:100
 #, kde-format
@@ -863,7 +859,7 @@ msgstr "سىستېما خاتىرىسى(Syslog)"
 #: src/loggerDialog.cpp:104
 #, kde-format
 msgid "UUCP"
-msgstr "UUCP"
+msgstr ""
 
 #: src/loggerDialog.cpp:106
 #, kde-format
@@ -1018,22 +1014,19 @@ msgid "&Cancel"
 msgstr "ۋاز كەچ(&C)"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
-msgstr "KSystemlog"
+msgstr "KSystemLog"
 
 #: src/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "System Logs Viewer for KDE"
+#, kde-format
 msgid "System Logs Viewer by KDE"
-msgstr "KDE نىڭ سىستېما خاتىرە كۆرگۈچىسى"
+msgstr ""
 
 #: src/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "(C) 2007, Nicolas Ternisien"
+#, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(C) 2007, Nicolas Ternisien"
+msgstr ""
 
 #: src/main.cpp:29
 #, kde-format
@@ -1043,12 +1036,12 @@ msgid ""
 msgstr ""
 "كەمتۈك يوللاشتىن ئىككىلەنمەي قانداق مەسىلە بولسا Nicolas Ternisien <a "
 "href='mailto:nicolas.ternisien@gmail.com'>nicolas.ternisien@gmail.com</a>قا "
-"مەلۇم قىلىڭ."
+"مەلۇم قىلىڭ"
 
 #: src/main.cpp:34
 #, kde-format
 msgid "Nicolas Ternisien"
-msgstr "Nicolas Ternisien"
+msgstr ""
 
 #: src/main.cpp:35
 #, kde-format
@@ -1068,7 +1061,7 @@ msgstr ""
 #: src/main.cpp:39
 #, kde-format
 msgid "Bojan Djurkovic"
-msgstr "Bojan Djurkovic"
+msgstr ""
 
 #: src/main.cpp:39
 #, kde-format
@@ -1078,7 +1071,7 @@ msgstr "خاتىرە بېسىش"
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Laurent Montel"
 
 #: src/main.cpp:40
 #, kde-format
@@ -1086,10 +1079,9 @@ msgid "Bug Fixing"
 msgstr ""
 
 #: src/main.cpp:54
-#, fuzzy, kde-format
-#| msgid "Document to open"
+#, kde-format
 msgid "Document to open."
-msgstr "ئاچىدىغان پۈتۈك"
+msgstr ""
 
 #: src/mainWindow.cpp:308
 #, kde-format
@@ -1181,28 +1173,21 @@ msgstr ""
 "تاللانغاننى باسىدۇ."
 
 #: src/mainWindow.cpp:532
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "تاللىغاننى باس(&P)…"
+msgstr ""
 
 #: src/mainWindow.cpp:533
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "تاللىغاننى باس"
+msgstr ""
 
 #: src/mainWindow.cpp:535
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"تاللىغاننى باسىدۇ. پەقەت مۇھىم مەزمۇننىلا تاللاپ بۇ تىزىملىك تۈرى چېكىلسە "
-"تاللانغاننى باسىدۇ."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1434,7 +1419,7 @@ msgstr ""
 #: src/mainWindow.cpp:672
 #, kde-format
 msgid "&Details"
-msgstr "تەپسىلاتلار(&D)"
+msgstr "تەپسىلاتى(&D)"
 
 #: src/mainWindow.cpp:674
 #, kde-format
@@ -1488,7 +1473,7 @@ msgid ""
 "log each time it is refreshed."
 msgstr ""
 "خاتىرە ئۆزگەرگەندە يېڭى قۇرغا دومىلىتامدۇ يوق. ئەگەر ھەر قېتىم يېڭىلىغاندا "
-"قوللىنىشچان پروگرامما خاتىرە ئاستىدا ئۆزلۈكىدىن دومىلاشنى خالىمىسىڭىز بۇ "
+"قوللىنىشچان پىروگرامما خاتىرە ئاستىدا ئۆزلۈكىدىن دومىلاشنى خالىمىسىڭىز بۇ "
 "تاللانمىنى تاللاڭ."
 
 #: src/mainWindow.cpp:753
@@ -1499,12 +1484,12 @@ msgstr "مۇلازىمەتلەر"
 #: src/mainWindow.cpp:754
 #, kde-format
 msgid "Others"
-msgstr "باشقىلار"
+msgstr "باشقا"
 
 #: src/modes/acpid/acpidAnalyzer.cpp:18 src/modes/xorg/xorgAnalyzer.cpp:26
 #, kde-format
 msgid "Type"
-msgstr "تىپى"
+msgstr "تۈرى"
 
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
@@ -1521,7 +1506,7 @@ msgstr ""
 #: src/modes/xorg/xorgItemBuilder.cpp:35 src/modes/xorg/xorgItemBuilder.cpp:37
 #, kde-format
 msgid "Type:"
-msgstr "تىپى:"
+msgstr "تۈرى:"
 
 #: src/modes/acpid/acpidLogMode.cpp:19
 #, kde-format
@@ -1552,7 +1537,7 @@ msgstr "ماشىنا ئاتى"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Id."
-msgstr "Id."
+msgstr ""
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:22
 #, kde-format
@@ -1578,7 +1563,7 @@ msgstr "HTTP ئىلتىماسى"
 #: src/modes/apache/apacheAccessAnalyzer.cpp:26
 #, kde-format
 msgid "URL"
-msgstr "URL"
+msgstr "تور ئادرېسى"
 
 #: src/modes/apache/apacheAccessItemBuilder.cpp:19
 #, kde-format
@@ -1685,7 +1670,7 @@ msgstr "Apache زىيارەت خاتىرىسى ھۆججەت قوش…"
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
 msgid "Apache"
-msgstr "Apache"
+msgstr ""
 
 #: src/modes/apache/apacheItemBuilder.cpp:19
 #, kde-format
@@ -1708,36 +1693,26 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Acpid خاتىرىسى"
+msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>بۇ ھۆججەتلەر <b>Acpid خاتىرە</b>نى كۆرسىتىش ئۈچۈن تەھلىل قىلىنىدۇ.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "بۇ Cups خاتىرەنى كۆرسىتىدۇ."
+msgstr ""
 
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە سىستېما زىيارەت  خاتىرىسىنى كۆرسىتىدۇ. بۇ خىل خاتىرە "
-"شەكلىنى ئالاھىدە بەلگىلەنمىگەن جەريان(\"sudo\" ياكى \"fsck\" بۇيرۇقىغا "
-"ئوخشاش) ھاسىل قىلغان."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -2152,7 +2127,7 @@ msgstr "قوش"
 #: src/modes/base/fileListHelper.cpp:99
 #, kde-format
 msgid "'%1' is not a local file."
-msgstr "'%1' يەرلىك ھۆججەت ئەمەس."
+msgstr "«%1» يەرلىك ھۆججەت ئەمەس."
 
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
@@ -2162,7 +2137,7 @@ msgstr "ھۆججەت تاللىيالمىدى"
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "All Files (*)"
-msgstr "ھەممە ھۆججەتلەر(*)"
+msgstr "ھەممە ھۆججەت(*)"
 
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
@@ -2177,7 +2152,7 @@ msgstr "خاتىرە ھۆججەت تاللاڭ"
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
-msgstr "ئىككى ئىستوننىڭ چوڭلۇقى پەرقلىق، خاتىرە ھۆججەتنى ئوقۇشتىن ئاتلايدۇ."
+msgstr "ئىككى رەتنىڭ چوڭلۇقى پەرقلىق، خاتىرە ھۆججەتنى ئوقۇشتىن ئاتلايدۇ."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
@@ -2202,13 +2177,13 @@ msgstr ""
 #, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
-msgstr "ئىككى ئىستوننىڭ چوڭلۇقى پەرقلىق، ئادەتتىكى يولنى ئوقۇشتىن ئاتلايدۇ."
+msgstr "ئىككى رەتنىڭ چوڭلۇقى پەرقلىق، ئادەتتىكى يولنى ئوقۇشتىن ئاتلايدۇ."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
 #, kde-format
 msgid "Selecting File Type"
-msgstr "ھۆججەت تىپىنى تاللاش"
+msgstr "ھۆججەت تۈرىنى تاللاش"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/base/logLevelSelectionDialogBase.ui:23
@@ -2403,7 +2378,7 @@ msgstr "%1 %2"
 #: src/modes/cups/cupsAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Host"
-msgstr "ماشىنا"
+msgstr "مۇلازىمېتىر"
 
 #: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
 #, kde-format
@@ -2507,7 +2482,7 @@ msgid ""
 "i>)."
 msgstr ""
 "نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) غا ئىگە تور مۇلازىمېتىرىنىڭ زىيارەت "
-"خاتىرىسىنى كۆرسىتىدۇ. CUPS بېسىشنى باشقۇرىدىغان پروگرامما. بۇ خاتىرە CUPS "
+"خاتىرىسىنى كۆرسىتىدۇ. CUPS بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS "
 "سىڭدۈرمە تور مۇلازىمېتىر (كۆڭۈلدىكى: <i>http://localhost:631</i>) غا "
 "نىسبەتەن يوللىغان ئىلتىماستۇر."
 
@@ -2602,12 +2577,12 @@ msgid ""
 "printing on your computer."
 msgstr ""
 "نۆۋەتتىكى بەتكۈچتە CUPS  خاتىرىسىنى كۆرسىتىدۇ. CUPS كومپيۇتېرىڭىزدىكى "
-"بېسىشنى باشقۇرىدىغان پروگرامما."
+"بېسىشنى باشقۇرىدىغان پىروگرامما."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
 msgid "Printer"
-msgstr "پرىنتېر"
+msgstr "باسقۇ"
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:22
 #, kde-format
@@ -2672,7 +2647,7 @@ msgid ""
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
 "نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) بەت خاتىرىسىنى كۆرسىتىدۇ. CUPS "
-"بېسىشنى باشقۇرىدىغان پروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
+"بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
 "(كۆڭۈلدىكى: <i>http://localhost:631</i>) غا نىسبەتەن يوللىغان ئىلتىماستۇر."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
@@ -2698,7 +2673,7 @@ msgid ""
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
 "نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) PDF خاتىرىسىنى كۆرسىتىدۇ. CUPS "
-"بېسىشنى باشقۇرىدىغان پروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
+"بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
 "(كۆڭۈلدىكى: <i>http://localhost:631</i>) غا نىسبەتەن يوللىغان ئىلتىماستۇر."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
@@ -2735,7 +2710,7 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:71
 #, kde-format
 msgid "Address"
-msgstr ""
+msgstr "ئادرېس"
 
 #. i18n: ectx: property (text), widget (QLabel, portLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2743,31 +2718,30 @@ msgstr ""
 #: src/modes/journald/journaldConfigurationWidget.ui:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "ئېغىز"
 
 #. i18n: ectx: property (text), widget (QCheckBox, httpsCheckBox)
 #: src/modes/journald/journaldAddressDialog.ui:66
 #, kde-format
 msgid "Enable"
-msgstr ""
+msgstr "قوزغات"
 
 #: src/modes/journald/journaldAnalyzer.cpp:22
 #, kde-format
 msgid "Unit"
-msgstr ""
+msgstr "بىرلىك"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
-#, fuzzy, kde-format
-#| msgid "Kernel Log"
+#, kde-format
 msgid "Journald Log"
-msgstr "يادرو خاتىرىسى"
+msgstr ""
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:82
 #: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "قوزغىتىلغان"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
@@ -2839,16 +2813,14 @@ msgid "Journald"
 msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:43
-#, fuzzy, kde-format
-#| msgid "Local 0"
+#, kde-format
 msgid "Local journal"
-msgstr "يەرلىك 0"
+msgstr ""
 
 #: src/modes/journald/journaldFactory.cpp:46
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "All messages"
-msgstr "ئۇچۇر"
+msgstr "بارلىق ئۇچۇرلار"
 
 #: src/modes/journald/journaldFactory.cpp:57
 #: src/modes/journald/journaldFactory.cpp:117
@@ -2865,18 +2837,17 @@ msgstr ""
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
 msgid "Connect"
-msgstr ""
+msgstr "باغلان"
 
 #: src/modes/journald/journaldItemBuilder.cpp:23
-#, fuzzy, kde-format
-#| msgid "&Priority:"
+#, kde-format
 msgid "Priority:"
-msgstr "مەرتىۋىسى(&P):"
+msgstr "ئالدىنلىق:"
 
 #: src/modes/journald/journaldItemBuilder.cpp:24
 #, kde-format
 msgid "Unit:"
-msgstr ""
+msgstr "بىرلىكى:"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:150
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
@@ -2886,27 +2857,24 @@ msgstr ""
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
-#, fuzzy, kde-format
-#| msgid "Log file '%1' loaded successfully."
+#, kde-format
 msgid "Journald entries loaded successfully."
-msgstr "خاتىرە ھۆججىتى '%1' مۇۋەپپەقىيەتلىك يۈكلەندى."
+msgstr ""
 
 #: src/modes/journald/journaldLogMode.cpp:35
-#, fuzzy, kde-format
-#| msgid "Display the kernel log."
+#, kde-format
 msgid "Display the Journald log."
-msgstr "يادرو خاتىرىسىنى كۆرسىتىدۇ."
+msgstr ""
 
 #: src/modes/journald/journaldLogMode.cpp:36
-#, fuzzy, kde-format
-#| msgid "Duplicates the current tab."
+#, kde-format
 msgid "Displays the journald log in the current tab."
-msgstr "نۆۋەتتىكى بەتكۈچنى كۆپەيتىدۇ."
+msgstr ""
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:91
 #, kde-format
 msgid "Connected"
-msgstr ""
+msgstr "باغلاندى"
 
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:145
 #, kde-format
@@ -3093,7 +3061,7 @@ msgstr "Netbios ھۆججەت قوش…"
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
 msgid "Samba"
-msgstr "Samba"
+msgstr ""
 
 #: src/modes/samba/sambaItemBuilder.cpp:19
 #, kde-format
@@ -3215,13 +3183,13 @@ msgstr ""
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
 msgid "Program"
-msgstr "پروگرامما"
+msgstr "پىروگرامما"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:11
 #: src/modes/xsession/xsessionLogMode.cpp:19
 #, kde-format
 msgid "X Session Log"
-msgstr "X ئەڭگىمە خاتىرە"
+msgstr "X جەريانچاق خاتىرە"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:24
 #, kde-format
@@ -3229,7 +3197,7 @@ msgid ""
 "You can type or choose the X Session log file (example: <i>~/.xsession-"
 "errors</i>)."
 msgstr ""
-"سىز X ئەڭگىمە خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز (مەسىلەن: "
+"سىز X جەريانچاق خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز (مەسىلەن: "
 "<i>~/.xsession-errors</i>)."
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:26
@@ -3239,8 +3207,8 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
-"سىز بۇ جايدا X ئەڭگىمە خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز. بۇ "
-"ھۆججەت سىز <b>X ئەڭگىمە خاتىرە</b>تىزىملىكىنى تاللىغاندا تەھلىل قىلىدۇ. "
+"سىز بۇ جايدا X جەريانچاق خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز. "
+"بۇ ھۆججەت سىز <b>X جەريانچاق خاتىرە</b>تىزىملىكىنى تاللىغاندا تەھلىل قىلىدۇ. "
 "ئادەتتە ئۇنىڭ ئاتى <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
@@ -3252,14 +3220,13 @@ msgstr "<li><b>%1</b>: …</li>"
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
 #, kde-format
 msgid "X Session Log File"
-msgstr "X ئەڭگىمە خاتىرە ھۆججەت"
+msgstr "X جەريانچاق خاتىرە ھۆججەت"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:25
-#, fuzzy, kde-format
-#| msgid "Log file:"
+#, kde-format
 msgid "&Log file:"
-msgstr "خاتىرە ھۆججەت:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ignoreXorgErrors)
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreXorgErrors)
@@ -3289,30 +3256,21 @@ msgstr ""
 #: src/modes/xsession/xsessionItemBuilder.cpp:37
 #, kde-format
 msgid "Program:"
-msgstr "پروگرامما:"
+msgstr "پىروگرامما:"
 
 #: src/modes/xsession/xsessionLogMode.cpp:28
 #, kde-format
 msgid "Display the X Session log."
-msgstr "بۇ X ئەڭگىمە خاتىرەنى كۆرسىتىدۇ."
+msgstr "بۇ X جەريانچاق خاتىرەنى كۆرسىتىدۇ."
 
 #: src/modes/xsession/xsessionLogMode.cpp:30
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the X Session log in the current tab. X Session log is the place "
-#| "where graphical programs write their output. See this log if you want to "
-#| "know why a program has crashed, or why your display manager (KDE, "
-#| "Gnome,...) has not started."
+#, kde-format
 msgid ""
 "Displays the X Session log in the current tab. X Session log is the place "
 "where graphical programs write their output. See this log if you want to "
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە X ئەڭگىمە خاتىرەنى كۆرسىتىدۇ. X ئەڭگىمە گرافىكىلىق "
-"پروگراممىنىڭ چىقىرىش خاتىرىسىدۇر. بۇ خاتىرە ئارقىلىق مەلۇم پروگراممىنىڭ نېمە "
-"ئۈچۈن يىمىرىلگەنلىكىنى ياكى كۆرسىتىش باشقۇرغۇچ (KDE، گىنوم …) "
-"قوزغالمىغانلىقىنى بىلەلەيسىز."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
