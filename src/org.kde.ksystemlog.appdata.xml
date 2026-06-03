@@ -43,6 +43,7 @@
   <name xml:lang="sl">KSystemLog</name>
   <name xml:lang="sv">Ksystemlog</name>
   <name xml:lang="tr">K Sistem Günlüğü</name>
+  <name xml:lang="ug">KSystemLog</name>
   <name xml:lang="uk">KSystemLog</name>
   <name xml:lang="zh-CN">KSystemLog 系统日志</name>
   <name xml:lang="zh-TW">KSystemLog</name>
@@ -84,6 +85,7 @@
   <summary xml:lang="sl">vpogledovalnik v sistemski dnevnik</summary>
   <summary xml:lang="sv">Visningsverktyg för systemloggar</summary>
   <summary xml:lang="tr">sistem günlüğü görüntüleyicisi</summary>
+  <summary xml:lang="ug">سىستېما خاتىرىسى كۆرگۈچ</summary>
   <summary xml:lang="uk">Переглядач системних журналів</summary>
   <summary xml:lang="zh-CN">系统日志查看器</summary>
   <summary xml:lang="zh-TW">系統日誌檢視器</summary>
