@@ -4,13 +4,13 @@
 # Tamas Szanto <tszanto@interware.hu>, 2008.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
 # Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2021.
-# Kristof Kiszel <ulysses@fsf.hu>, 2024.
+# SPDX-FileCopyrightText: 2024, 2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2024-01-10 13:53+0100\n"
+"PO-Revision-Date: 2026-06-18 21:51+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1011,7 +1011,7 @@ msgstr "&OK"
 #: src/loggerDialogBase.ui:338
 #, kde-format
 msgid "&Cancel"
-msgstr "&Mégsem"
+msgstr "&Mégse"
 
 #: src/main.cpp:24
 #, kde-format
