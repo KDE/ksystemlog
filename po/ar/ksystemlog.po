@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
-# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2025-10-15 20:30+0400\n"
+"PO-Revision-Date: 2026-06-25 11:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2686,7 +2686,7 @@ msgstr ""
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
-msgstr "سجلّات العفاريت"
+msgstr "سجلّات الخدمات"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
@@ -2696,7 +2696,7 @@ msgstr "<p>ستُحلّل هذه الملفّات لعرض <b>سجلات الخ�
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
-msgstr "اعرض سجلّات العفاريت."
+msgstr "اعرض سجلّات الخدمات."
 
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
