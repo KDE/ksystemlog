@@ -524,16 +524,16 @@ msgstr "Càrrega en curs…"
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "S'està carregant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] "S'està carregant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
+msgstr[0] "S'està carregant <b>%2</b>…<br /><i>%3</i> – (<b>%4</b>)"
+msgstr[1] "S'està carregant <b>%2</b>…<br /><i>%3</i> – (<b>%4</b>/%1 fitxers)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "S'està actualitzant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[0] "S'està actualitzant <b>%2</b>…<br /><i>%3</i> – (<b>%4</b>)"
 msgstr[1] ""
-"S'està actualitzant <b>%2</b>…<br /><i>%3</i> - (<b>%4</b>/%1 fitxers)"
+"S'està actualitzant <b>%2</b>…<br /><i>%3</i> – (<b>%4</b>/%1 fitxers)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
