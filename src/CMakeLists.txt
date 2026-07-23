@@ -19,12 +19,12 @@ add_subdirectory(modes/apache)
 add_subdirectory(modes/postfix)
 add_subdirectory(modes/samba)
 add_subdirectory(modes/cups)
-if (${AUDIT_FOUND})
+if (AUDIT_FOUND)
     add_subdirectory(modes/audit)
-endif (${AUDIT_FOUND})
-if (${JOURNALD_FOUND})
+endif ()
+if (JOURNALD_FOUND)
     add_subdirectory(modes/journald)
-endif (${JOURNALD_FOUND})
+endif ()
 
 add_executable(ksystemlog)
 target_sources(ksystemlog PRIVATE
@@ -79,15 +79,15 @@ target_link_libraries(ksystemlog
     KF6::Crash
 )
 
-if (${JOURNALD_FOUND})
+if (JOURNALD_FOUND)
     target_link_libraries(ksystemlog
         ksystemlog_journald)
-endif(${JOURNALD_FOUND})
+endif()
 
-if (${AUDIT_FOUND})
+if (AUDIT_FOUND)
     target_link_libraries(ksystemlog
         ksystemlog_audit)
-endif(${AUDIT_FOUND})
+endif()
 
 ########### Installation ###############
 
