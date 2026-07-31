@@ -356,7 +356,7 @@ Hide menu entries and actions for modes with missing log files
 >Cron-Protokoll</guilabel
 >), so können Sie die Prozess-Identifikation (PID) in der Spalte <guilabel
 >Prozess</guilabel
-> ausblenden. Das kann zum Beispiel dann nützlich sein, wenn Sie die Ausgabe eines bestimmten Befehls wie zum Beispiel zum Start des Samba-Servers untersuchen möchten. In diesem Fall benutzen Sie <link linkend="filtering"
+> ausblenden. Das kann zum Beispiel dann nützlich sein, wenn Sie die Ausgabe eines bestimmten Befehls wie zum Beispiel zum Start des Samba-Servers untersuchen möchten. In diesem Fall verwenden Sie <link linkend="filtering"
 >Filterleiste</link
 >. </para>
 

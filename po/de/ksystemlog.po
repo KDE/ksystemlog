@@ -379,7 +379,7 @@ msgid ""
 "will help you to see problems more easily."
 msgstr ""
 "Mit dieser Einstellung werden im Protokoll die Zeilen jeder Protokollstufe "
-"in eigenen Farben angezeigt. Ein Fehler könnte z. B. in Rot, ein Warnung in "
+"in eigenen Farben angezeigt. Ein Fehler könnte z. B. in Rot, ein Warnung in "
 "Orange usw. eingefärbt werden. Dies wird Ihnen helfen, Probleme leichter zu "
 "erkennen."
 
@@ -1196,7 +1196,7 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
-"Druckt die Auswahl. Wählen Sie die wichtigen Zeilen aus und benutzen Sie "
+"Druckt die Auswahl. Wählen Sie die wichtigen Zeilen aus und verwenden Sie "
 "diesen Menüeintrag, um Ihre Auswahl zu drucken."
 
 #: src/mainWindow.cpp:532
@@ -1215,8 +1215,8 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Druckt die Vorschauauswahl. Wählen Sie die wichtigen Zeilen aus und benutzen "
-"Sie diesen Menüeintrag, um Ihre Auswahl zu drucken."
+"Druckt die Vorschauauswahl. Wählen Sie die wichtigen Zeilen aus und "
+"verwenden Sie diesen Menüeintrag, um Ihre Auswahl zu drucken."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1312,7 +1312,7 @@ msgid ""
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
 "Sendet die Auswahl per E-Mail. Wählen Sie die wichtigen Zeilen aus und "
-"benutzen Sie diesen Menüeintrag, um die Auswahl zu einem Freund oder einer "
+"verwenden Sie diesen Menüeintrag, um die Auswahl zu einem Freund oder einer "
 "Mailingliste zu senden."
 
 #: src/mainWindow.cpp:588
@@ -1346,7 +1346,7 @@ msgid ""
 "example, to save all the content of the current log in a file."
 msgstr ""
 "Wählt alle Zeilen des aktuellen Protokolls aus. Dies ist nützlich, wenn Sie "
-"z. B. den gesamten Inhalt des aktuellen Protokolls in einer Datei speichern "
+"z. B. den gesamten Inhalt des aktuellen Protokolls in einer Datei speichern "
 "möchten."
 
 #: src/mainWindow.cpp:609
@@ -1446,7 +1446,7 @@ msgid ""
 "Reloads the current log, if you want to be sure that the view is correctly "
 "updated."
 msgstr ""
-"Lädt das aktuelle Protokoll neu. Sie können diese Funktion benutzen, wenn "
+"Lädt das aktuelle Protokoll neu. Sie können diese Funktion verwenden, wenn "
 "Sie sicher gehen möchten, dass die Ansicht korrekt aktualisiert wurde."
 
 #: src/mainWindow.cpp:672
@@ -1468,7 +1468,7 @@ msgid ""
 msgstr ""
 "Zeigt ein Fenster mit den Details der ausgewählten Zeile an. Sie können sich "
 "mit diesem Fenster durch das Protokoll bewegen, indem Sie die Knöpfe "
-"<b>Zurück</b> und <b>Weiter</b> benutzen."
+"<b>Zurück</b> und <b>Weiter</b> verwenden."
 
 #: src/mainWindow.cpp:682
 #, kde-format
@@ -1559,8 +1559,8 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
-"Zeigt das ACPI-Protokoll im aktuellen Unterfenster an. ACPI wird benutzt, um "
-"die Hardwarekomponenten Ihres Rechners, wie Notebook-Akkus, Reset-Knöpfe "
+"Zeigt das ACPI-Protokoll im aktuellen Unterfenster an. ACPI wird verwendet, "
+"um die Hardwarekomponenten Ihres Rechners, wie Notebook-Akkus, Reset-Knöpfe "
 "usw. zu verwalten."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
@@ -1749,8 +1749,8 @@ msgid ""
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Zeigt das Audit-Protokoll im aktuellen Unterfenster an. Dieses Protokoll "
-"wird im Allgemeinen von nicht spezialisierten Prozessen wie z. B. den "
-"Befehlen „sudo“ oder „fsck“ benutzt."
+"wird im Allgemeinen von nicht spezialisierten Prozessen wie z. B. den "
+"Befehlen „sudo“ oder „fsck“ verwendet."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1780,7 +1780,7 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
-"Sie können hier Ihre Authentifizierungs-Protokolldatei, z. B. <i>/var/log/"
+"Sie können hier Ihre Authentifizierungs-Protokolldatei, z. B. <i>/var/log/"
 "auth.log</i>, eingeben oder auswählen."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
@@ -2489,10 +2489,10 @@ msgid ""
 "launched processes."
 msgstr ""
 "Zeigt das Protokoll für die geplanten Aufgaben im aktuellen Unterfenster an. "
-"Der Cron-Dienst wird benutzt, um geplante Aufgaben, wie z .B. "
+"Der Cron-Dienst wird verwendet, um geplante Aufgaben, wie z .B. "
 "Sicherheitskontrollen oder automatische Neustarts eines Dienstes "
-"durchzuführen. Benutzen Sie dieses Menü, um die zuletzt gestarteten Prozesse "
-"zu sehen."
+"durchzuführen. Verwenden Sie dieses Menü, um die zuletzt gestarteten "
+"Prozesse zu sehen."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -3180,8 +3180,8 @@ msgid ""
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
 "Zeigt das Systemprotokoll im aktuellen Unterfenster an. Dieses Protokoll "
-"wird im Allgemeinen von nicht spezialisierten Prozessen wie z. B. den "
-"Befehlen „sudo“ oder „fsck“ benutzt."
+"wird im Allgemeinen von nicht spezialisierten Prozessen wie z. B. den "
+"Befehlen „sudo“ oder „fsck“ verwendet."
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
