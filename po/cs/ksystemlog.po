@@ -3,31 +3,32 @@
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2021.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2023-01-25 09:15+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-04 22:20+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -53,7 +54,7 @@ msgstr "Volba platí, pokud uživatel chce smazat opakující se řádky."
 msgid ""
 "Option is true if the PID in the process column of the SystemLog is to be "
 "omitted."
-msgstr ""
+msgstr "Volba platí, pokud je PID ve sloupci procesu v SystemLog vynechán."
 
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
@@ -86,7 +87,7 @@ msgstr "Zda je zobrazen panel filtrů."
 #: src/config/ksystemlog.kcfg:54
 #, kde-format
 msgid "The date format of log lines."
-msgstr "Formát data u řádek záznamu."
+msgstr "Formát data u řádků záznamu."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:71
@@ -223,7 +224,7 @@ msgstr "Uz&avřít"
 #: src/generalConfigurationWidget.cpp:30
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
-msgstr ""
+msgstr "Tento režim není k dispozici, protože neexistují jeho soubory záznamu."
 
 #: src/generalConfigurationWidget.cpp:35
 #, kde-format
@@ -261,6 +262,8 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
+"Režim záznamu se načítá ve výchozím nastavení při spuštění. Pokud si to "
+"nepřejete, vyberte možnost 'Žádný režim záznamu'."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -297,6 +300,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines <b>(may be "
 "slow)</b>."
 msgstr ""
+"Tuto možnost vyberte, pokud chcete odstranit duplicitní řádky záznamu <b> "
+"(může to trvat déle) </b>."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
@@ -305,6 +310,8 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
+"Tuto možnost vyberte, pokud chcete odstranit duplicitní řádky záznamu. "
+"<b>Tato možnost může zpomalit čtení záznamů</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
@@ -334,6 +341,10 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
+"Tuto možnost vyberte, pokud chcete z názvu procesu odstranit identifikátor "
+"procesu. Například sloupec <b>Proces</b> může obsahovat záznamy jako "
+"<i>cron<b>[3433]</b></i>. Je-li tato možnost aktivována, tučně vyznačená "
+"část bude odstraněna."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -347,6 +358,7 @@ msgstr "Odstranit &identifikátor z názvu procesu"
 msgid ""
 "This option allows log lines to be colored depending on their log level."
 msgstr ""
+"Tato volba umožňuje barevné odlišení řádků záznamu podle jejich úrovně."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -356,6 +368,9 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
+"Tato volba umožňuje barevné odlišení záznamů v protokolu podle jejich "
+"úrovně. Například chyby se budou zobrazovat červeně, varování oranžově a tak "
+"dále. Díky tomu budete moci problémy snáze rozpoznat."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
@@ -420,7 +435,7 @@ msgstr "Hlavní panel nástrojů"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "Otevírám '%1'..."
+msgstr "Otevírání '%1'..."
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
@@ -496,27 +511,27 @@ msgstr "Průběh načítání..."
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] "Načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 soubory)"
-msgstr[2] "Načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 souborů)"
+msgstr[0] "Načítání <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Načítání <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 soubory)"
+msgstr[2] "Načítání <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 souborů)"
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "Znova načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
-msgstr[1] "Znova načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 soubory)"
-msgstr[2] "Znova načítám <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 souborů)"
+msgstr[0] "Znovunačtení <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
+msgstr[1] "Znovunačtení <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 soubory)"
+msgstr[2] "Znovunačtení <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 souborů)"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Načítám <b>%1</b>...<br /><i>%2</i>"
+msgstr "Načítání <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "Znova načítám <b>%1</b>...<br /><i>%2</i>"
+msgstr "Znovunačtení <b>%1</b>...<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -557,7 +572,7 @@ msgstr "Nedostatečná oprávnění"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Načítám záznam..."
+msgstr "Načítání záznamu..."
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -568,7 +583,7 @@ msgstr "Záznam úspěšně načten."
 #: src/modes/base/genericConfiguration.cpp:75
 #, kde-format
 msgid "URL '%1' is not valid, skipping this URL."
-msgstr "URL '%1' není platné, přeskakuji toto URL."
+msgstr "URL '%1' není platná, tato URL se přeskočí."
 
 #: src/lib/logModeItemBuilder.cpp:57 src/lib/logModeItemBuilder.cpp:74
 #: src/modes/acpid/acpidItemBuilder.cpp:17
@@ -636,12 +651,12 @@ msgstr "---------------------------------------\n"
 msgid ""
 "You have selected too many lines. Please only select important log lines."
 msgstr ""
-"Vybrali jste příliš mnoho řádek. Vyberte prosím pouze důležité řádky záznamu."
+"Vybrali jste příliš mnoho řádků. Vyberte prosím pouze důležité řádky záznamu."
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
 msgid "Too Many Lines Selected"
-msgstr "Vybráno příliš mnoho řádek"
+msgstr "Vybráno příliš mnoho řádků"
 
 #: src/lib/logViewExport.cpp:67
 #, kde-format
@@ -671,7 +686,7 @@ msgstr ""
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr ""
+msgstr "Uložit vybrané položky záznamu do..."
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
@@ -1166,7 +1181,7 @@ msgid ""
 "menu entry to print the selection."
 msgstr ""
 "Vytiskne výběr. Jednoduše vyberte důležité řádky a klikněte na tuto nabídku "
-"pro vytištění výběru. "
+"pro vytištění výběru."
 
 #: src/mainWindow.cpp:532
 #, kde-format
@@ -1185,12 +1200,12 @@ msgid ""
 "this menu entry to print the selection."
 msgstr ""
 "Vytiskne výběr. Jednoduše vyberte důležité řádky a klikněte na tuto nabídku "
-"pro vytištění výběru. "
+"pro vytištění výběru."
 
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
-msgstr "Uložit výběr do souboru."
+msgstr "Uložit výběr do souboru"
 
 #: src/mainWindow.cpp:543
 #, kde-format
@@ -1599,7 +1614,7 @@ msgstr "Záznam přístupů Apache"
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
-msgstr "Zobrazit záznam přístupů k Apache"
+msgstr "Zobrazit záznam přístupů k Apache."
 
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
@@ -2930,7 +2945,7 @@ msgstr "Záznam přístupů Samby"
 #: src/modes/samba/sambaAccessLogMode.cpp:31
 #, kde-format
 msgid "Display the Samba Access log."
-msgstr "Zobrazit záznam přístupů na Sambu"
+msgstr "Zobrazit záznam přístupů na Sambu."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:33
 #, kde-format
