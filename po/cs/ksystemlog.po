@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-08-04 22:20+0200\n"
+"PO-Revision-Date: 2026-08-05 21:47+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -729,7 +729,7 @@ msgstr "Filtr:"
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
-msgstr ""
+msgstr "Vyberte priority"
 
 #: src/lib/logViewFilterWidget.cpp:151
 #, kde-format
@@ -917,6 +917,8 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
+"Ve vašem systému se nepodařilo najít příkaz 'logger'. Zadejte prosím "
+"'logger' do Konsole, abyste zjistili, zda je tento příkaz nainstalován."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
@@ -977,7 +979,7 @@ msgstr "&Priorita:"
 #: src/loggerDialogBase.ui:162
 #, kde-format
 msgid "&Facility:"
-msgstr ""
+msgstr "&Zařízení:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, tagActivation)
 #: src/loggerDialogBase.ui:229
@@ -989,7 +991,7 @@ msgstr "Zn&ačka:"
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr ""
+msgstr "Identifikátor záznamu procesu"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
@@ -1058,12 +1060,12 @@ msgstr "Hlavní vývojář"
 #: src/main.cpp:38
 #, kde-format
 msgid "Vyacheslav Matyushin"
-msgstr ""
+msgstr "Vyacheslav Matyushin"
 
 #: src/main.cpp:38
 #, kde-format
 msgid "Journald mode, bugfixes"
-msgstr ""
+msgstr "Režim Journald, opravy chyb"
 
 #: src/main.cpp:39
 #, kde-format
@@ -1445,6 +1447,9 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
+"Zobrazí dialogové okno s podrobnostmi o vybraném řádku. V tomto dialogovém "
+"okně můžete procházet záznamy pomocí tlačítek <b>Předchozí</b> a <b>Další</"
+"b>."
 
 #: src/mainWindow.cpp:682
 #, kde-format
@@ -1454,13 +1459,15 @@ msgstr "Povo&lit podrobné nástrojové tipy"
 #: src/mainWindow.cpp:683
 #, kde-format
 msgid "Disable/Enable the tooltip on the current view"
-msgstr ""
+msgstr "Vypnout/zapnout popisky v aktuálním zobrazení"
 
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
+"Vypne/zapne zobrazení popisku, který se objeví, když kurzor najede na řádek "
+"záznamu."
 
 #: src/mainWindow.cpp:690
 #, kde-format
@@ -1470,7 +1477,7 @@ msgstr "&Zobrazit nové řádky"
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
-msgstr ""
+msgstr "Přejít na nové řádky při změně záznamu, nebo ne"
 
 #: src/mainWindow.cpp:693
 #, kde-format
@@ -1479,6 +1486,9 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
+"Posouvat či neposouvat na nové řádky při změně obsahu záznamu. Tuto možnost "
+"zaškrtněte, pokud nechcete, aby se aplikace při každém obnovení automaticky "
+"posouvala na konec záznamu."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1529,6 +1539,8 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
+"Zobrazí záznam ACPI na aktuální kartě. ACPI slouží ke správě hardwarových "
+"komponent počítače, jako jsou baterie notebooků, tlačítka pro reset..."
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1623,6 +1635,9 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
+"Zobrazí přístupový záznam Apache na aktuální kartě. Apache je "
+"nejpoužívanější webový server na světě. Tento záznam ukládá všechny "
+"požadavky zpracované webovým serverem Apache."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1685,6 +1700,8 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
+"Zobrazí záznam Apache na aktuální kartě. Apache je nejpoužívanější webový "
+"server na světě."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1709,6 +1726,8 @@ msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Zobrazí záznam auditu na aktuální kartě. Tento záznam obvykle používají "
+"nespecializované procesy (například příkazy \"sudo\" nebo \"fsck\")."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1720,7 +1739,7 @@ msgstr "Záznam ověřování"
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
-msgstr ""
+msgstr "Soubor záznamu neexistuje. Režim nebude k dispozici."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
@@ -1738,6 +1757,8 @@ msgid ""
 "You can type or choose the authentication log file (example: <i>/var/log/"
 "auth.log</i>)."
 msgstr ""
+"Můžete zadat nebo vybrat soubor záznamu ověřování (příklad: <i>/var/log/auth."
+"log</i>)."
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
@@ -1746,11 +1767,14 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
+"Zde můžete zadat nebo vybrat soubor záznamu ověřování. Tento soubor bude "
+"analyzován, když vyberete položku nabídky <b>Záznam ověřování</b>. Obvykle "
+"se tento soubor nachází v adresáři <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
-msgstr ""
+msgstr "Zobrazit záznam ověřování."
 
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
@@ -1759,6 +1783,9 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
+"Zobrazí záznam ověřování na aktuální kartě. Tento záznam obsahuje všechna "
+"přihlášení jednotlivých uživatelů systému a může vám pomoci zjistit, zda se "
+"někdo nepokusil proniknout do vašeho systému."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1766,6 +1793,8 @@ msgid ""
 "Some log files do not exist.\n"
 "If all log files are missing, this mode will be unavailable."
 msgstr ""
+"Některé soubory záznamu neexistují.\n"
+"Pokud chybí všechny soubory záznamu, nebude tento režim k dispozici."
 
 #. i18n: ectx: property (text), widget (QLabel, description)
 #: src/modes/base/fileListBase.ui:31 src/modes/base/multipleFileListBase.ui:31
@@ -2141,6 +2170,8 @@ msgstr "Vybrat soubor pro záznam"
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
 msgstr ""
+"Velikost těchto dvou polí se liší, přičemž se vynechává čtení souborů "
+"záznamů."
 
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
@@ -2150,7 +2181,7 @@ msgstr "Z&měnit stav..."
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
-msgstr ""
+msgstr "Změnit úroveň aktuálního souboru (souborů)"
 
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
@@ -2158,12 +2189,14 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
+"Změní úroveň aktuálního souboru (souborů). Další informace o jednotlivých "
+"úrovních záznamu najdete v dokumentaci ke KSystemLog."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
 msgid ""
 "The two arrays size are different, skipping the reading of generic paths."
-msgstr ""
+msgstr "Velikost obou polí se liší, proto se vynechá čtení obecných cest."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, LogLevelSelectionDialogBase)
 #: src/modes/base/logLevelSelectionDialogBase.ui:14
@@ -2233,6 +2266,8 @@ msgid ""
 "Some log files do not exist.\n"
 "Modes with missing log files will be unavailable."
 msgstr ""
+"Některé soubory záznamů neexistují.\n"
+"Režimy, u nichž chybí soubory záznamů, nebudou k dispozici."
 
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
@@ -2327,6 +2362,15 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Posune vybrané soubory v "
+"seznamu dolů. Tato volba umožňuje, aby soubory byly <span style=\" font-"
+"weight:600;\">nakonec</span> přečteny programem KSystemLog.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2409,6 +2453,10 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
+"Zobrazí záznam naplánovaných úloh na aktuální záložce. Proces cron je "
+"program, který má na starosti spouštění naplánovaných úloh ve vašem systému, "
+"jako jsou bezpečnostní kontroly nebo automatické restartování některých "
+"služeb. Pomocí této nabídky si můžete prohlédnout nedávno spuštěné procesy."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2469,6 +2517,8 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
+"Byla zjištěna nová úroveň záznamu: Zašlete prosím tento soubor záznamu "
+"vývojáři KSystemLog, aby ji mohl přidat."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
@@ -2670,6 +2720,9 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
+"Zobrazí protokoly démonů na aktuální kartě. Démoni jsou všechny procesy "
+"spuštěné na pozadí systému. Tento záznam si prohlédněte, pokud chcete vědět, "
+"co se děje na pozadí vašeho systému."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2713,48 +2766,48 @@ msgstr "Povoleno"
 #: src/modes/journald/journaldConfigurationWidget.cpp:104
 #, kde-format
 msgid "Add remote journal"
-msgstr ""
+msgstr "Přidat vzdálený žurnál"
 
 #: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
-msgstr ""
+msgstr "Upravit vzdálený žurnál"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
 #, kde-format
 msgid "Journald options"
-msgstr ""
+msgstr "Možnosti Journald"
 
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
 msgid "Display log entries from current boot only"
-msgstr ""
+msgstr "Zobrazit pouze položky záznamu z aktuálního spuštění"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:31
 #, kde-format
 msgid "Display all log entries"
-msgstr ""
+msgstr "Zobrazit všechny položky záznamu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:36
 #, kde-format
 msgid "Display log entries of processes of the current user"
-msgstr ""
+msgstr "Zobrazit položky záznamu procesů aktuálního uživatele"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, entriesTypeComboBox)
 #: src/modes/journald/journaldConfigurationWidget.ui:41
 #, kde-format
 msgid "Display log entries of system services and the kernel"
-msgstr ""
+msgstr "Zobrazit položky záznamů systémových služeb a jádra"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxRemoteJournals)
 #: src/modes/journald/journaldConfigurationWidget.ui:52
 #, kde-format
 msgid "Remote journals"
-msgstr ""
+msgstr "Vzdálené žurnály"
 
 #. i18n: ectx: property (text), widget (QPushButton, addAddressButton)
 #: src/modes/journald/journaldConfigurationWidget.ui:104
@@ -2793,13 +2846,13 @@ msgstr "Všechna hlášení"
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr ""
+msgstr "Filtrovat podle jednotky systemd"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
 #, kde-format
 msgid "Filter by syslog identifier"
-msgstr ""
+msgstr "Filtrovat podle identifikátoru syslogu"
 
 #: src/modes/journald/journaldFactory.cpp:102
 #, kde-format
@@ -2820,7 +2873,7 @@ msgstr "Jednotka:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr ""
+msgstr "Načítání položek v journald..."
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
@@ -2875,6 +2928,9 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
+"Zobrazí protokol jádra na aktuální kartě. Tento protokol je užitečný pouze "
+"pro uživatele, kteří chtějí zjistit, proč jádro nerozpoznává jejich "
+"hardware, nebo co je příčinou posledního <i>kernel panic/oops</i>."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2919,6 +2975,8 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
+"Zobrazí záznam Postfixu na aktuální kartě. Postfix je nejznámější a "
+"nejpoužívanější poštovní server ve světě Linuxu."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
@@ -2936,6 +2994,8 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
+"Zobrazí záznam NetBIOS na aktuální kartě. NetBIOS je protokol pro sdílení "
+"souborů vyvinutý společností Microsoft."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
@@ -2953,6 +3013,9 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
+"Zobrazí záznam přístupu Samba na aktuální kartě. Tento režim záznamu vám "
+"umožňuje sledovat připojení mezi vašimi sdílenými složkami a vzdálenými "
+"hostiteli."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -3046,6 +3109,8 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
+"Zobrazí záznam Samby na aktuální kartě. Samba je server pro sdílení souborů, "
+"který komunikuje se sítí Microsoft Windows."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -3070,6 +3135,8 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
+"Zobrazí systémový záznam na aktuální kartě. Tento záznam obvykle používají "
+"nespecializované procesy (například příkazy \"sudo\" nebo \"fsck\")."
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3127,6 +3194,10 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
+"Zobrazí záznam X.org na aktuální kartě. X.org je služba, která zobrazuje "
+"pracovní plochu na obrazovce a spravuje grafický hardware. Tento záznam si "
+"prohlédněte, pokud chcete zjistit, proč nemáte k dispozici 3D akceleraci "
+"nebo proč není rozpoznáno vaše vstupní zařízení."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -3155,6 +3226,9 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
+"Zde můžete zadat nebo vybrat soubor záznamu sezení X. Tento soubor bude "
+"analyzován, když vyberete položku nabídky <b>Záznam sezení X</b>. Obvykle se "
+"tento soubor jmenuje <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
@@ -3216,6 +3290,10 @@ msgid ""
 "know why a program has crashed, or why your desktop environment (Plasma, "
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
+"Zobrazí záznam sezení X na aktuální kartě. Záznam sezení X je místo, kam "
+"grafické programy zapisují svůj výstup. Tento záznam si prohlédněte, pokud "
+"chcete zjistit, proč došlo k selhání programu nebo proč se nespustilo vaše "
+"desktopové prostředí (Plasma, Gnome, Unity, Xfce, LXQt, ...)."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
