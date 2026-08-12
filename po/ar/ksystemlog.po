@@ -2003,7 +2003,7 @@ msgstr ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
 "الأعلى في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
-"weight:600;\">أولاً</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
+"weight:600;\">أولًا</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -2336,7 +2336,7 @@ msgstr ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">ينقل الملفات المحددة إلى "
 "الأعلى في القائمة. يسمح هذا الخيار بقراءة الملفات <span style=\" font-"
-"weight:600;\">أولاً</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
+"weight:600;\">أولًا</span> بواسطة برنامج سجلّات نظامك.</p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
