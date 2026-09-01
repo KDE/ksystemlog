@@ -6,20 +6,21 @@
 # SPDX-FileCopyrightText: 2010 Moritz Baumann <flamingmo@online.de>
 # SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
 # SPDX-FileCopyrightText: 2010-2012, 2015-2016, 2020 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2021-03-08 07:49+0100\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2026-08-29 16:44+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,8 +49,7 @@ msgstr "Die Zeilenbegrenzung für die Protokollanzeige."
 #, kde-format
 msgid "Option is true if the user wants to delete repeated log lines."
 msgstr ""
-"Ist diese Einstellung eingeschaltet, werden doppelte Protokollzeilen "
-"gelöscht."
+"Ist diese Einstellung aktiviert, werden doppelte Protokollzeilen gelöscht."
 
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
@@ -446,7 +446,7 @@ msgstr "Haupt-Werkzeugleiste"
 #: src/lib/fileAnalyzer.cpp:100 src/modes/audit/auditAnalyzer.cpp:208
 #, kde-format
 msgid "Opening '%1'..."
-msgstr "„%1“ wird geöffnet ..."
+msgstr "„%1“ wird geöffnet …"
 
 #: src/lib/fileAnalyzer.cpp:107 src/modes/audit/auditAnalyzer.cpp:215
 #, kde-format
@@ -516,33 +516,32 @@ msgstr "Wählen Sie hier, welche Protokollstufe Sie farbig drucken möchten."
 #: src/lib/loadingBar.cpp:29
 #, kde-format
 msgid "Loading Progress..."
-msgstr "Ladefortschritt ..."
+msgstr "Ladefortschritt …"
 
 #: src/lib/loadingBar.cpp:57
 #, kde-format
 msgid "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Loading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "<b>%2</b>...<br /><i>%3</i> – (<b>%4</b>) wird geladen"
-msgstr[1] ""
-"<b>%2</b>...<br /><i>%3</i> – (<b>%4</b>/%1 Dateien) werden geladen "
+msgstr[0] "<b>%2</b> …<br /><i>%3</i> – (<b>%4</b>) wird geladen"
+msgstr[1] "<b>%2</b> …<br /><i>%3</i> – (<b>%4</b>/%1 Dateien) werden geladen "
 
 #: src/lib/loadingBar.cpp:64
 #, kde-format
 msgid "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>)"
 msgid_plural "Reloading <b>%2</b>...<br /><i>%3</i> - (<b>%4</b>/%1 files)"
-msgstr[0] "<b>%2</b>...<br /><i>%3</i> – (<b>%4</b>) wird neu geladen"
+msgstr[0] "<b>%2</b> …<br /><i>%3</i> – (<b>%4</b>) wird neu geladen"
 msgstr[1] ""
-"<b>%2</b>...<br /><i>%3</i> – (<b>%4</b>/%1 Dateien) werden neu geladen"
+"<b>%2</b> …<br /><i>%3</i> – (<b>%4</b>/%1 Dateien) werden neu geladen"
 
 #: src/lib/loadingBar.cpp:75
 #, kde-format
 msgid "Loading <b>%1</b>...<br /><i>%2</i>"
-msgstr "<b>%1</b> ...<br /><i>%2</i> wird geladen"
+msgstr "<b>%1</b> …<br /><i>%2</i> wird geladen"
 
 #: src/lib/loadingBar.cpp:77
 #, kde-format
 msgid "Reloading <b>%1</b>...<br /><i>%2</i>"
-msgstr "<b>%1</b> wird erneut geladen ...<br /><i>%2</i>"
+msgstr "<b>%1</b> wird neu geladen …<br /><i>%2</i>"
 
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
@@ -585,7 +584,7 @@ msgstr "Unzureichende Berechtigungen"
 #: src/lib/logManager.cpp:68
 #, kde-format
 msgid "Loading log..."
-msgstr "Protokolldatei wird geladen ..."
+msgstr "Protokolldatei wird geladen …"
 
 #: src/lib/logManager.cpp:92
 #, kde-format
@@ -699,7 +698,7 @@ msgstr "Keine Elemente ausgewählt. Bitte wählen Sie um sie zu speichern."
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
-msgstr "Ausgewählte Protokolleinträge speichern in ..."
+msgstr "Ausgewählte Protokolleinträge speichern in …"
 
 #: src/lib/logViewExport.cpp:242
 #, kde-format
@@ -731,7 +730,7 @@ msgstr "Ermöglicht die Anzeige der auf diesen Text passenden Elemente."
 #: src/lib/logViewFilterWidget.cpp:96
 #, kde-format
 msgid "Enter your search here..."
-msgstr "Geben Sie hier Ihren Suchbegriff ein ..."
+msgstr "Geben Sie hier Ihren Suchbegriff ein …"
 
 #: src/lib/logViewFilterWidget.cpp:103
 #, kde-format
@@ -1050,7 +1049,7 @@ msgstr "Systemprotokoll-Betrachter von KDE"
 #: src/main.cpp:28
 #, kde-format
 msgid "(C) 2007-2015, Nicolas Ternisien"
-msgstr "(C) 2007-2015, Nicolas Ternisien"
+msgstr "© 2007–2015 Nicolas Ternisien"
 
 #: src/main.cpp:29
 #, kde-format
@@ -1183,7 +1182,7 @@ msgstr ""
 #: src/mainWindow.cpp:524
 #, kde-format
 msgid "&Print Selection..."
-msgstr "Auswahl &drucken ..."
+msgstr "Auswahl &drucken …"
 
 #: src/mainWindow.cpp:525
 #, kde-format
@@ -1202,7 +1201,7 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Vorschauauswahl &drucken ..."
+msgstr "Vorschauauswahl &drucken …"
 
 #: src/mainWindow.cpp:533
 #, kde-format
@@ -1298,7 +1297,7 @@ msgstr ""
 #: src/mainWindow.cpp:578
 #, kde-format
 msgid "&Email Selection..."
-msgstr "Auswahl per &E-Mail versenden ..."
+msgstr "Auswahl per &E-Mail versenden …"
 
 #: src/mainWindow.cpp:580
 #, kde-format
@@ -1318,7 +1317,7 @@ msgstr ""
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
-msgstr "Protokolleintrag &hinzufügen ..."
+msgstr "Protokolleintrag &hinzufügen …"
 
 #: src/mainWindow.cpp:591
 #, kde-format
@@ -1473,7 +1472,7 @@ msgstr ""
 #: src/mainWindow.cpp:682
 #, kde-format
 msgid "&Enable Detailed Tooltips"
-msgstr "Detaillierte Kurzinfos &einschalten"
+msgstr "Detaillierte Kurzinfos &aktivieren"
 
 #: src/mainWindow.cpp:683
 #, kde-format
@@ -1485,8 +1484,8 @@ msgstr "Kurzinfo der aktuellen Ansicht ein- bzw. ausschalten"
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
-"Schaltet die Kurzinfo, die erscheint wenn der Mauszeiger über einer "
-"Protokollzeile ruht, in der aktuellen Ansicht ein bzw. aus."
+"(De-)aktiviert die Kurzinfo, die erscheint, wenn der Mauszeiger über einer "
+"Protokollzeile ruht."
 
 #: src/mainWindow.cpp:690
 #, kde-format
@@ -1688,7 +1687,7 @@ msgstr "Apache-Protokolldateien"
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Apache File..."
-msgstr "Apache-Datei hinzufügen ..."
+msgstr "Apache-Datei hinzufügen …"
 
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
@@ -1698,7 +1697,7 @@ msgstr "Apache-Zugriffsprotokolldateien"
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Apache Access File..."
-msgstr "Apache-Zugriffsdatei hinzufügen ..."
+msgstr "Apache-Zugriffsdatei hinzufügen …"
 
 #: src/modes/apache/apacheFactory.cpp:48
 #, kde-format
@@ -1881,13 +1880,13 @@ msgstr ""
 #: src/modes/base/fileListBase.ui:64
 #, kde-format
 msgid "&Add File..."
-msgstr "&Datei hinzufügen ..."
+msgstr "&Datei hinzufügen …"
 
 #. i18n: ectx: property (text), widget (QPushButton, modify)
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "Datei &bearbeiten ..."
+msgstr "Datei &bearbeiten …"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -2113,7 +2112,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Anmerkungen:</b></p><ul "
 "style='margin-top:0px'><li>Die Dateien werden in der Reihenfolge der Liste "
 "gelesen.</li><li>Es werden normale Textdateien und komprimierte Dateien "
-"akzeptiert <i>(*.log, *.gz, *.bz2,...)</i>.</li><li>Verwenden Sie den "
+"akzeptiert <i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Verwenden Sie den "
 "Platzhalter <b>„*“</b>, wenn Sie beim Hinzufügen mehrere Dateien auswählen "
 "möchten.</li></ul>"
 
@@ -2204,7 +2203,7 @@ msgstr ""
 #: src/modes/base/logLevelFileList.cpp:35
 #, kde-format
 msgid "&Change Status..."
-msgstr "Status ä&ndern ..."
+msgstr "Status ä&ndern …"
 
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
@@ -2303,7 +2302,7 @@ msgstr ""
 #: src/modes/base/multipleFileList.cpp:411
 #, kde-format
 msgid "No log file..."
-msgstr "Keine Protokolldatei ..."
+msgstr "Keine Protokolldatei …"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, fileList)
 #: src/modes/base/multipleFileListBase.ui:60
@@ -2418,7 +2417,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Anmerkungen:</b></p><ul "
 "style='margin-top:0px'><li>Die Dateien werden in der Reihenfolge der Liste "
 "gelesen.</li><li>Es werden normale Textdateien und komprimierte Dateien "
-"akzeptiert <i>(*.log, *.gz, *.bz2,...)</i>.</li><li>Verwenden Sie den "
+"akzeptiert <i>(*.log, *.gz, *.bz2,…)</i>.</li><li>Verwenden Sie den "
 "Platzhalter <b>„*“</b>, wenn Sie beim Hinzufügen mehrere Dateien auswählen "
 "möchten.</li></ul>"
 
@@ -2458,7 +2457,7 @@ msgid ""
 msgstr ""
 "<p>Diese Dateien werden ausgewertet, um die <b>Cron-Protokolle</b> "
 "(Aufgabenplaner-Protokolle) anzuzeigen. <a href='man:/cron'>Weitere "
-"Informationen ...</a></p>"
+"Informationen…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2584,7 +2583,7 @@ msgstr "CUPS-Protokolldateien"
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Cups File..."
-msgstr "CUPS-Datei hinzufügen ..."
+msgstr "CUPS-Datei hinzufügen …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
@@ -2594,7 +2593,7 @@ msgstr "CUPS-Zugriffsprotokolldateien"
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Cups Access File..."
-msgstr "CUPS-Zugriffsdateien hinzufügen ..."
+msgstr "CUPS-Zugriffsdatei hinzufügen …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
@@ -2604,7 +2603,7 @@ msgstr "CUPS-Seiten-Protokolldatei"
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
-msgstr "CUPS-Seiten-Protokolldatei hinzufügen ..."
+msgstr "CUPS-Seiten-Protokolldatei hinzufügen …"
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
@@ -2614,7 +2613,7 @@ msgstr "CUPS-PDF-Protokolldateien"
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Add Cups PDF File..."
-msgstr "CUPS-PDF-Protokolldateien hinzufügen ..."
+msgstr "CUPS-PDF-Protokolldatei hinzufügen …"
 
 #: src/modes/cups/cupsFactory.cpp:55
 #, kde-format
@@ -2886,7 +2885,7 @@ msgstr "Alle Meldungen"
 #: src/modes/journald/journaldFactory.cpp:117
 #, kde-format
 msgid "Filter by systemd unit"
-msgstr "Nach Systemd-Einheit filtern"
+msgstr "Nach Systemd-Unit filtern"
 
 #: src/modes/journald/journaldFactory.cpp:72
 #: src/modes/journald/journaldFactory.cpp:134
@@ -2913,7 +2912,7 @@ msgstr "Einheit:"
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:214
 #, kde-format
 msgid "Reading journald entries..."
-msgstr "Journald-Einträge werden gelesen ..."
+msgstr "Journald-Einträge werden gelesen …"
 
 #: src/modes/journald/journaldLocalAnalyzer.cpp:161
 #: src/modes/journald/journaldNetworkAnalyzer.cpp:225
@@ -3099,7 +3098,7 @@ msgstr "Samba-Protokolldateien"
 #: src/modes/samba/sambaConfigurationWidget.cpp:19
 #, kde-format
 msgid "Add Samba File..."
-msgstr "Samba-Datei hinzufügen ..."
+msgstr "Samba-Datei hinzufügen …"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
@@ -3109,7 +3108,7 @@ msgstr "Samba-Zugriffsprotokolldateien"
 #: src/modes/samba/sambaConfigurationWidget.cpp:20
 #, kde-format
 msgid "Add Samba Access File..."
-msgstr "Samba-Zugriffsdatei hinzufügen ..."
+msgstr "Samba-Zugriffsdatei hinzufügen …"
 
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
@@ -3119,7 +3118,7 @@ msgstr "Netbios-Protokolldateien"
 #: src/modes/samba/sambaConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Netbios File..."
-msgstr "Netbios-Datei hinzufügen ..."
+msgstr "Netbios-Datei hinzufügen …"
 
 #: src/modes/samba/sambaFactory.cpp:52
 #, kde-format
@@ -3281,7 +3280,7 @@ msgstr ""
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
 msgid "<li><b>%1</b>: ...</li>"
-msgstr "<li><b>%1</b>: ...</li>"
+msgstr "<li><b>%1</b>: …</li>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/modes/xsession/xsessionConfigurationWidgetBase.ui:17
@@ -3340,10 +3339,10 @@ msgid ""
 "Gnome, Unity, Xfce, LXQt, ...) has not started."
 msgstr ""
 "Zeigt das X-Sitzungsprotokoll im aktuellen Unterfenster an. Das X-"
-"Sitzungsprotokoll ist die Stelle, in die Ihre grafischen Programme ihre "
-"Ausgaben schreiben. Schauen Sie in dieses Protokoll, wenn Sie wissen "
-"möchten, warum ein Programm abgestürzt ist oder warum Ihre Arbeitsfläche "
-"(Plasma, Gnome, Unity, Xfce, LXQt, ...) nicht gestartet wurde."
+"Sitzungsprotokoll ist der Ort, in den grafische Programme ihre Ausgaben "
+"schreiben. Durchsuchen Sie dieses Protokoll, wenn Sie wissen möchten, warum "
+"ein Programm abgestürzt ist oder warum Ihre Arbeitsfläche (Plasma, GNOME, "
+"Unity, Xfce, LXQt,…) nicht gestartet wurde."
 
 #. i18n("Last updated: %1.",
 #. KLocale::global()->formatTime(lastModification, true, false) ));
