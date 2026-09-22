@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-05-31 19:46-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -174,8 +174,6 @@ msgid ""
 "Moves to the previous line. This button is deactivated if there is no "
 "previous log line."
 msgstr ""
-"ئالدىنقى قۇرغا يۆتكەيدۇ. ئەگەر ئۈستىدە قۇر بولمىسا بۇ توپچە ئۈنۈمىنى "
-"يوقىتىدۇ."
 
 #. i18n: ectx: property (text), widget (QPushButton, previous)
 #: src/detailDialogBase.ui:106
@@ -195,7 +193,7 @@ msgstr "كېيىنكى قۇرغا يۆتكە"
 msgid ""
 "Moves to the next line. This button is deactivated if there is no next log "
 "line."
-msgstr "قۇرغا يۆتكەيدۇ. ئەگەر ئاستىدا قۇر بولمىسا بۇ توپچە ئۈنۈمىنى يوقىتىدۇ."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, next)
 #: src/detailDialogBase.ui:128
@@ -235,7 +233,7 @@ msgstr "خاتىرە ھالىتى يوق"
 #, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, startupModeGroupbox)
 #: src/generalConfigurationWidgetBase.ui:18
@@ -262,8 +260,6 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
-"قوزغالغاندا كۆڭۈلدىكى ئەھۋالدا يۈكلەيدىغان خاتىرە ھالىتى. ئەگەر كۆڭۈلدىكى "
-"ئەھۋالدا يۈكلەشنى خالىمىسىڭىز «خاتىرە ھالىتى يوق»نى تاللاڭ."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
@@ -311,8 +307,6 @@ msgid ""
 "Select this option if you want to delete duplicate log lines. <b>This option "
 "can slow log reading</b>."
 msgstr ""
-"ئەگەر تەكرارلانغان خاتىرە قۇرنى ئۆچۈرمەكچى بولسىڭىز بۇ تاللانمىنى تاللاڭ. "
-"ئەمما بۇنداق بولغاندا <b>خاتىرە ئوقۇش جەريانى ئاستىلاپ كېتىشى مۇمكىن</b>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
@@ -342,10 +336,6 @@ msgid ""
 "such as <i>cron<b>[3433]</b></i>. If this option is activated, the bold part "
 "will be removed."
 msgstr ""
-"ئەگەر جەريان ئاتىدىن جەريان كىملىكىنى چىقىرىۋەتمەكچى بولسىڭىز بۇ تاللانمىنى "
-"تاللاڭ. بەزىدە سىز <b>جەريان</b> رەتتە <i>cron<b>[3433]</b></i> غا ئوخشاش "
-"نەرسىلەرنى كۆرۈشىڭىز مۇمكىن. ئەگەر بۇ تاللانما تاللانسا ئۇنداقتا ئادەمنى "
-"بىزار قىلىدىغان توم بۆلىكىنى چىقىرىۋېتىدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deleteProcessId)
 #: src/generalConfigurationWidgetBase.ui:124
@@ -368,9 +358,9 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
-"بۇ تاللانما خاتىرە دەرىجىسى بويىچە خاتىرىنى رەڭلەشكە يول قويىدۇ. مەسىلەن، "
-"«خاتالىق» دەرىجىسى قىزىل رەڭدە، «ئاگاھلاندۇرۇش» دەرىجىسى قىزغۇچ سېرىق رەڭدە "
-"قاتارلىق. بۇ مەسىلىنى تېخىمۇ ئاسان تېپىشىڭىزغا ياردەم بېرىدۇ."
+"بۇ تاللانما خاتىرە دەرىجىسى بويىچە خاتىرىنى رەڭلەشكە يول قويىدۇ. For "
+"example, errors will be shown in red, warnings in orange, and so on. This "
+"will help you to see problems more easily."
 
 #. i18n: ectx: property (text), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:137
@@ -533,7 +523,7 @@ msgstr "قايتا يۈكلەۋاتىدۇ <b>%1</b>...<br /><i>%2</i>"
 #: src/lib/localLogFileReader.cpp:98 src/lib/processOutputLogFileReader.cpp:91
 #, kde-format
 msgid "This file is not valid. Please adjust it in the settings of KSystemLog."
-msgstr "بۇ ھۆججەت ئىناۋەتسىز. KSystemLog نىڭ مۇناسىۋەتلىك تەڭشىكىنى تەڭشەڭ."
+msgstr ""
 
 #: src/lib/localLogFileReader.cpp:99 src/lib/localLogFileReader.cpp:114
 #: src/lib/processOutputLogFileReader.cpp:92
@@ -647,7 +637,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "You have selected too many lines. Please only select important log lines."
-msgstr "سىز تاللىغان قۇر سانى بەك كۆپ. پەقەت مۇھىم خاتىرە قۇرلىرىنىلا تاللاڭ."
+msgstr ""
 
 #: src/lib/logViewExport.cpp:63
 #, kde-format
@@ -662,7 +652,7 @@ msgstr "مەسىلە بار خاتىرە قۇرلىرىم"
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
-msgstr "ھېچقانداق تۈر تاللانمىدى. چاپلاش تاختىسىغا ھېچنېمە كۆچۈرۈلمىدى."
+msgstr ""
 
 #: src/lib/logViewExport.cpp:197
 #, kde-format
@@ -673,7 +663,7 @@ msgstr[0] "%1 خاتىرە قۇرى چاپلاش تاختىسىغا كۆچۈرۈ
 #: src/lib/logViewExport.cpp:211
 #, kde-format
 msgid "No items selected. Please select items to be able to save them."
-msgstr "ھېچقانداق تۈر تاللانمىدى. ساقلاش ئۈچۈن تۈرلەرنى تاللاڭ."
+msgstr ""
 
 #: src/lib/logViewExport.cpp:215
 #, kde-format
@@ -732,8 +722,6 @@ msgid ""
 "Allows you to apply the item filter only on the specified column here. "
 "\"<i>All</i>\" column means no specific filter."
 msgstr ""
-"بەلگىلەنگەن رەتكە سۈزگۈچ ئىشلىتىشىڭىزگە يول قويىدۇ. \"<i>ھەممىسى</i>\" "
-"بەلگىلەنگەن سۈزگۈچ يوقلۇقىنى بىلدۈرىدۇ."
 
 #: src/lib/logViewFilterWidget.cpp:156 src/lib/logViewFilterWidget.cpp:173
 #, kde-format
@@ -907,8 +895,6 @@ msgid ""
 "Unable to find the 'logger' command on your system. Please type 'logger' in "
 "a Konsole to determine whether this command is installed."
 msgstr ""
-"سىستېمىڭىزدىن 'logger' بۇيرۇقىنى تاپالمىدى. Konsole دا 'logger' نى كىرگۈزۈپ "
-"بۇ بۇيرۇقنى ئورناتقانلىقىڭىزنى تەكشۈرۈڭ."
 
 #: src/loggerDialog.cpp:225
 #, kde-format
@@ -1016,7 +1002,7 @@ msgstr "ۋاز كەچ(&C)"
 #: src/main.cpp:24
 #, kde-format
 msgid "KSystemLog"
-msgstr "KSystemLog"
+msgstr ""
 
 #: src/main.cpp:26
 #, kde-format
@@ -1071,7 +1057,7 @@ msgstr "خاتىرە بېسىش"
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr "Laurent Montel"
+msgstr ""
 
 #: src/main.cpp:40
 #, kde-format
@@ -1113,8 +1099,6 @@ msgid ""
 "Resumes the watching of the current log. This action is only available when "
 "the user has already paused the reading."
 msgstr ""
-"نۆۋەتتە كۆرۈۋاتقان خاتىرەنى  داۋاملاشتۇرىدۇ. بۇ مەشغۇلات پەقەت ئىشلەتكۈچى "
-"ئوقۇشنى ۋاقىتلىق توختاتقاندا كېرەكلىك."
 
 #: src/mainWindow.cpp:341
 #, kde-format
@@ -1133,9 +1117,6 @@ msgid ""
 "when the system is writing too many lines to log files, causing KSystemLog "
 "to reload too frequently."
 msgstr ""
-"نۆۋەتتىكى خاتىرە كۆرۈشنى ۋاقىتلىق توختىتىدۇ. سىستېما خاتىرەسىنىڭ قۇر سانى "
-"بەك كۆپ بولغاندا KSystemLog نى قايتا-قايتا يۈكلەش ئەھۋالى كۆرۈلگەندە بۇ "
-"مەشغۇلات بەك كېرەكلىك."
 
 #: src/mainWindow.cpp:421 src/tabLogManager.cpp:56
 #, kde-format
@@ -1169,8 +1150,6 @@ msgid ""
 "Prints the selection. Simply select the important lines and click on this "
 "menu entry to print the selection."
 msgstr ""
-"تاللىغاننى باسىدۇ. پەقەت مۇھىم مەزمۇننىلا تاللاپ بۇ تىزىملىك تۈرى چېكىلسە "
-"تاللانغاننى باسىدۇ."
 
 #: src/mainWindow.cpp:532
 #, kde-format
@@ -1200,8 +1179,6 @@ msgid ""
 "Saves the selection to a file. This action is useful if you want to create "
 "an attachment or a backup of a particular log."
 msgstr ""
-"تاللانغاننى بىر ھۆججەتكە ساقلايدۇ. بۇ مەشغۇلات ئارقىلىق قوشۇلما ياكى زاپاس "
-"خاتىرە قۇرغىلى بولىدۇ."
 
 #: src/mainWindow.cpp:549
 #, kde-format
@@ -1224,8 +1201,6 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
-"تاللانغاننى چاپلاش تاختىسىغا كۆچۈرىدۇ. بۇ مەشغۇلات تاللىغان مەزمۇننى كۆچۈرۈپ "
-"پاراڭلىشىش كۆزنىكى ياكى ئېلخەتكە كۆچۈرۈشكە ئىشلىتىلىدۇ."
 
 #: src/mainWindow.cpp:560
 #, kde-format
@@ -1243,8 +1218,6 @@ msgid ""
 "This action opens all main categories. This is enabled only if an option has "
 "been selected in the <b>Group By</b> menu."
 msgstr ""
-"بۇ مەشغۇلات بارلىق ئاساسىي تۈرلەرنى ئاچىدۇ. پەقەت <b>گۇرۇپپا بويىچە</b> "
-"تىزىملىكتىكى تاللانما تاللانغاندىلا ئاندىن كېرەكلىك."
 
 #: src/mainWindow.cpp:569
 #, kde-format
@@ -1262,8 +1235,6 @@ msgid ""
 "This action closes all main categories. This is enabled only if an option "
 "has been selected in the <b>Group By</b> menu."
 msgstr ""
-"بۇ مەشغۇلات بارلىق ئاساسىي تۈرلەرنى ياپىدۇ. پەقەت <b>گۇرۇپپا بويىچە</b> "
-"تىزىملىكتىكى تاللانما تاللانغاندىلا ئاندىن كېرەكلىك."
 
 #: src/mainWindow.cpp:578
 #, kde-format
@@ -1281,8 +1252,6 @@ msgid ""
 "Sends the selection by mail. Simply select the important lines and click on "
 "this menu entry to send the selection to a friend or a mailing list."
 msgstr ""
-"تاللىغاننى ئېلخەتتە يوللايدۇ. مۇھىم مەزمۇننى ئاددىيلا تاللاپ بۇ تىزىملىك "
-"تۈرى چېكىلسە تاللانغاننى دوستقا ياكى ئېلخەت تىزىمىغا يوللايدۇ."
 
 #: src/mainWindow.cpp:588
 #, kde-format
@@ -1314,8 +1283,6 @@ msgid ""
 "Selects all lines of the current log. This action is useful if you want, for "
 "example, to save all the content of the current log in a file."
 msgstr ""
-"نۆۋەتتىكى خاتىرەنىڭ ھەممە قۇرلىرىنى تاللايدۇ. بۇ مەشغۇلات نۆۋەتتىكى ھەممە "
-"خاتىرەنى ھۆججەتكە ساقلاشقا ئىشلىتىلىدۇ."
 
 #: src/mainWindow.cpp:609
 #, kde-format
@@ -1433,9 +1400,6 @@ msgid ""
 "able to navigate through the logs from this dialog box with the <b>Previous</"
 "b> and <b>Next</b> buttons."
 msgstr ""
-"تاللىغان قۇرنىڭ تەپسىلاتىنى ئۆز ئىچىگە ئالغان سۆزلەشكۈنى كۆرسىتىدۇ. سىز "
-"<b>ئالدىنقى</b> ۋە <b>كېيىنكى</b> نى چېكىپ سۆزلەشكۈدە پۈتكۈل خاتىرەگە كۆز "
-"يۈگۈرتەلەيسىز."
 
 #: src/mainWindow.cpp:682
 #, kde-format
@@ -1472,9 +1436,6 @@ msgid ""
 "you do not want the application to scroll automatically at the bottom of the "
 "log each time it is refreshed."
 msgstr ""
-"خاتىرە ئۆزگەرگەندە يېڭى قۇرغا دومىلىتامدۇ يوق. ئەگەر ھەر قېتىم يېڭىلىغاندا "
-"قوللىنىشچان پىروگرامما خاتىرە ئاستىدا ئۆزلۈكىدىن دومىلاشنى خالىمىسىڭىز بۇ "
-"تاللانمىنى تاللاڭ."
 
 #: src/mainWindow.cpp:753
 #, kde-format
@@ -1525,9 +1486,6 @@ msgid ""
 "hardware components of your computer, like notebook batteries, reset "
 "buttons..."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە ACPI خاتىرەنى كۆرسىتىدۇ. ACPI كومپيۇتېرىڭىزنىڭ خاتىرە "
-"كومپيۇتېر توكدانى، ئىسسىق قوزغىتىش توپچىسىغا ئوخشاش قاتتىق دېتاللارنى "
-"باشقۇرىدۇ…"
 
 #: src/modes/apache/apacheAccessAnalyzer.cpp:19
 #, kde-format
@@ -1622,10 +1580,6 @@ msgid ""
 "Web server in the world. This log saves all requests performed by the Apache "
 "web server."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Apache زىيارەت خاتىرىسىنى كۆرسىتىدۇ. Apache ھازىر "
-"دۇنيادىكى ئىشلىتىلىشى ئەڭ كۆپ بولغان تور بەت مۇلازىمېتىرىدۇر. بۇ خاتىرە "
-"Apache تور بەت مۇلازىمېتىرىغا يوللانغان بارلىق ئىلتىماسلارنىڭ خاتىرىسىنى "
-"ساقلايدۇ."
 
 #: src/modes/apache/apacheAnalyzer.cpp:19
 #, kde-format
@@ -1688,8 +1642,6 @@ msgid ""
 "Displays the Apache log in the current tab. Apache is the main used Web "
 "server in the world."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Apache  خاتىرىسىنى كۆرسىتىدۇ. Apache ھازىر دۇنيادىكى "
-"ئىشلىتىلىشى ئەڭ كۆپ بولغان تور بەت مۇلازىمېتىرىدۇر."
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
@@ -1752,9 +1704,6 @@ msgid ""
 "analyzed when you select the <b>Authentication log</b> menu. Generally, its "
 "name is <i>/var/log/auth.log</i>"
 msgstr ""
-"سىز بۇ جايدا دەلىللەش خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز. بۇ "
-"ھۆججەت سىز <b>دەلىللەش خاتىرىسى</b>تىزىملىكىنى تاللىغاندا تەھلىل قىلىدۇ. "
-"ئادەتتە ئۇنىڭ ئاتى <i>/var/log/auth.log</i>"
 
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
@@ -1768,9 +1717,6 @@ msgid ""
 "logins made by each user of the system, and can help you to know if someone "
 "tried to crack your system."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە دەلىللەش خاتىرەنى كۆرسىتىدۇ. بۇ خاتىرە بارلىق سىستېما "
-"ئىشلەتكۈچىلىرىنىڭ ئىشلىتىش خاتىرىسىنى كۆرسىتىدۇ ھەمدە باشقىلارنىڭ سىستېمىغا "
-"ھۇجۇم قىلىشنى سىنىغان-سىنىمىغانلىقىنى سىزگە بىلدۈرىدۇ."
 
 #: src/modes/base/fileList.cpp:33
 #, kde-format
@@ -1985,16 +1931,6 @@ msgid ""
 "up in the list. This option allows the files to be read <span style=\" font-"
 "weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html dir=\"RTL\"><head><meta name=\"qrichtext\" content=\"1\" /><style type="
-"\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">تىزىمدىكى تاللانغان "
-"ھۆججەتلەرنى ئۈستىگە يۆتكەيدۇ. بۇ مەشغۇلات مەزكۇر ھۆججەتنى KSystemLog قا  "
-"<span style=\" font-weight:600;\">ئالدى بىلەن</span>ئوقۇتىدۇ.</p></body></"
-"html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:131
@@ -2040,15 +1976,6 @@ msgid ""
 "down in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in last</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html dir=\"RTL\"><head><meta name=\"qrichtext\" content=\"1\" /><style type="
-"\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">تىزىمدىكى تاللانغان "
-"ھۆججەتلەرنى تۆۋەنگە يۆتكەيدۇ. بۇ مەشغۇلات مەزكۇر ھۆججەتنى KSystemLog   <span "
-"style=\" font-weight:600;\">ئارقىدا</span> ئوقۇيدۇ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:150
@@ -2170,8 +2097,6 @@ msgid ""
 "Changes the level of the current file(s). See KSystemLog documentation for "
 "more information about each log level."
 msgstr ""
-"نۆۋەتتىكى ھۆججەت(لەر)نىڭ دەرىجىسىنى ئۆزگەرتىدۇ. ھەر بىر خاتىرە دەرىجىسىنىڭ "
-"ئۇچۇرىنى KSystemLog پۈتۈكىدىن كۆرۈڭ."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
@@ -2229,17 +2154,6 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
 "to be used for the files selected on the list.</p></body></html>"
 msgstr ""
-"<html dir=\"RTL\"><head><meta name=\"qrichtext\" content=\"1\" /><style type="
-"\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">بۇ مەۋجۇت بولغان بارلىق "
-"خاتىرە دەرىجىسىنىڭ تىزىمى. </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ئۇلارنىڭ ئىچىدىن "
-"قوللىنىدىغان تىزىمدىكى ھۆججەتتىن تاللاڭ.</p></body></html>"
 
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
@@ -2257,7 +2171,7 @@ msgstr "خاتىرە ھۆججەت يوق…"
 #: src/modes/base/multipleFileListBase.ui:60
 #, kde-format
 msgid "1"
-msgstr "1"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, remove)
 #: src/modes/base/multipleFileListBase.ui:86
@@ -2317,16 +2231,6 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">in first</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html dir=\"RTL\"><head><meta name=\"qrichtext\" content=\"1\" /><style type="
-"\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">تىزىمدىكى تاللانغان "
-"ھۆججەتلەرنى ئۈستىگە يۆتكەيدۇ. بۇ مەشغۇلات مەزكۇر ھۆججەتنى KSystemLog قا  "
-"<span style=\" font-weight:600;\">ئالدى بىلەن</span>ئوقۇتىدۇ.</p></body></"
-"html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, down)
 #: src/modes/base/multipleFileListBase.ui:146
@@ -2342,15 +2246,6 @@ msgid ""
 "files in the list. This option allows the files to be read <span style=\" "
 "font-weight:600;\">at last</span> by KSystemLog.</p></body></html>"
 msgstr ""
-"<html dir=\"RTL\"><head><meta name=\"qrichtext\" content=\"1\" /><style type="
-"\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">تىزىمدىكى تاللانغان "
-"ھۆججەتلەرنى تۆۋەنگە يۆتكەيدۇ. بۇ مەشغۇلات مەزكۇر ھۆججەتنى KSystemLog   <span "
-"style=\" font-weight:600;\">ئارقىدا</span> ئوقۇيدۇ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
@@ -2372,7 +2267,7 @@ msgstr ""
 #, kde-format
 msgctxt "HttpResponseNumber HttpResponseDescription"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: src/modes/base/syslogAnalyzer.cpp:42 src/modes/cron/cronAnalyzer.cpp:13
 #: src/modes/cups/cupsAccessAnalyzer.cpp:20
@@ -2402,8 +2297,6 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
-"<p>بۇ ھۆججەتلەر <b>Cron خاتىرە</b> (مەسىلەن پىلانلانغان ۋەزىپە خاتىرىسى)نى "
-"كۆرسىتىش ئۈچۈن تەھلىل قىلىدۇ. <a href='man:/cron'>تېخىمۇ كۆپ ئۇچۇر…</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
 #, kde-format
@@ -2433,10 +2326,6 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە پىلانلانغان ۋەزىپە خاتىرىسىنى كۆرسىتىدۇ.Cron "
-"سىستېمىڭىزدىكى بىخەتەرلىك تەكشۈرۈش ياكى مەلۇم مۇلازىمەتنى ئۆزلۈكىدىن "
-"قوزغىتىشقا ئوخشاش خىزمەتلەرنى پىلانلىق ئىجرا قىلىشقا مەسئۇل. بۇ تىزىملىكنى "
-"ئىشلىتىپ يېقىندا ئىجرا قىلىنغان جەرياننى كۆرگىلى بولىدۇ."
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
@@ -2481,10 +2370,6 @@ msgid ""
 "performed to the CUPS embedded web server (default: <i>http://localhost:631</"
 "i>)."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) غا ئىگە تور مۇلازىمېتىرىنىڭ زىيارەت "
-"خاتىرىسىنى كۆرسىتىدۇ. CUPS بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS "
-"سىڭدۈرمە تور مۇلازىمېتىر (كۆڭۈلدىكى: <i>http://localhost:631</i>) غا "
-"نىسبەتەن يوللىغان ئىلتىماستۇر."
 
 #: src/modes/cups/cupsAnalyzer.cpp:56
 #, kde-format
@@ -2576,8 +2461,6 @@ msgid ""
 "Displays the CUPS log in the current tab. CUPS is the program which manages "
 "printing on your computer."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە CUPS  خاتىرىسىنى كۆرسىتىدۇ. CUPS كومپيۇتېرىڭىزدىكى "
-"بېسىشنى باشقۇرىدىغان پىروگرامما."
 
 #: src/modes/cups/cupsPageAnalyzer.cpp:20
 #, kde-format
@@ -2646,9 +2529,6 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) بەت خاتىرىسىنى كۆرسىتىدۇ. CUPS "
-"بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
-"(كۆڭۈلدىكى: <i>http://localhost:631</i>) غا نىسبەتەن يوللىغان ئىلتىماستۇر."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2672,9 +2552,6 @@ msgid ""
 "manages printing on your computer. This log saves all requests performed to "
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە بېسىش سىستېمىسى(CUPS) PDF خاتىرىسىنى كۆرسىتىدۇ. CUPS "
-"بېسىشنى باشقۇرىدىغان پىروگرامما. بۇ خاتىرە CUPS سىڭدۈرمە تور مۇلازىمېتىر "
-"(كۆڭۈلدىكى: <i>http://localhost:631</i>) غا نىسبەتەن يوللىغان ئىلتىماستۇر."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -2700,9 +2577,6 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە مۇئەككەل خاتىرەنى كۆرسىتىدۇ. نازارەتچى سىستېما ئارقا "
-"سۇپىسىدا ئىجرا قىلىنىدىغان جەريان بولۇپ، سىز بۇ خاتىرەنى كۆرۈپ سىستېما ئارقا "
-"سۇپىسىدا نېمە ئىش يۈز بەرگەنلىكىنى بىلەلەيسىز."
 
 #. i18n: ectx: property (text), widget (QLabel, addressLabel)
 #. i18n: ectx: property (text), widget (QTableWidget, remoteJournalsListWidget)
@@ -2908,9 +2782,6 @@ msgid ""
 "users who want to know why the Kernel does not detect their hardware or what "
 "is the cause of the last <i>kernel panic/oops</i>."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە يادرو خاتىرەنى كۆرسىتىدۇ. يادرو خاتىرە پەقەت يادرو "
-"نېمىشقىدۇر  قاتتىق دېتاللىرىنى بايقىيالمىغان ياكى <i>kernel panic/oops</i> "
-"كاشىلىسى كېلىپ چىققان كىشىلەرگە كېرەكلىك."
 
 #: src/modes/open/openLogMode.cpp:22
 #, kde-format
@@ -2925,7 +2796,7 @@ msgstr "ئورۇننى ئاچ"
 #: src/modes/open/openLogMode.cpp:59
 #, kde-format
 msgid "Malformed URL. Unable to open this file."
-msgstr "بۇزۇلغان URL. بۇ ھۆججەتنى ئاچالمايدۇ."
+msgstr "Malformed URL. بۇ ھۆججەتنى ئاچالمايدۇ."
 
 #: src/modes/open/openLogMode.cpp:60
 #, kde-format
@@ -2955,8 +2826,6 @@ msgid ""
 "Displays the Postfix log in the current tab. Postfix is the most known and "
 "used mail server in the Linux world."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Postfix  خاتىرىسىنى كۆرسىتىدۇ. Postfix لىنۇكىس "
-"دۇنياسىدىكى ئىشلىتىلىشى ئەڭ كۆپ بولغان خەت مۇلازىمېتىرىدۇر."
 
 #: src/modes/samba/netbiosLogMode.cpp:23
 #, kde-format
@@ -2974,8 +2843,6 @@ msgid ""
 "Displays the Netbios log in the current tab. Netbios is the file sharing "
 "protocol developed by Microsoft."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Netbios  خاتىرىسىنى كۆرسىتىدۇ. Netbios مىكروسوفت شىركىتى "
-"ئىجاد قىلغان ھۆججەت ھەمبەھىر كېلىشىمى."
 
 #: src/modes/samba/sambaAccessLogMode.cpp:23
 #, kde-format
@@ -2993,9 +2860,6 @@ msgid ""
 "Displays the Samba Access log in the current tab. This log mode allows you "
 "to see connections between your shares and remote hosts."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Samba زىيارەت  خاتىرىسىنى كۆرسىتىدۇ. بۇ خىل خاتىرە شەكلى "
-"ھەمبەھىرلىرىڭىز بىلەن يىراقتىكى ماشىنىنىڭ باغلىنىش خاتىرىسىنى كۆرۈشىڭىزگە "
-"يول قويىدۇ."
 
 #: src/modes/samba/sambaAnalyzer.cpp:20
 #, kde-format
@@ -3089,8 +2953,6 @@ msgid ""
 "Displays the Samba log in the current tab. Samba is the file sharing server "
 "which interacts with Microsoft Windows network."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە Samba  خاتىرىسىنى كۆرسىتىدۇ. Samba مىكروسوفت Windows تورى "
-"بىلەن ھۆججەت ھەمبەھىرلەيدىغان مۇلازىمېتىر."
 
 #: src/modes/system/systemConfigurationWidget.cpp:10
 #: src/modes/system/systemLogMode.cpp:20
@@ -3115,9 +2977,6 @@ msgid ""
 "Displays the system log in the current tab. This log is generally used by "
 "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە سىستېما زىيارەت  خاتىرىسىنى كۆرسىتىدۇ. بۇ خىل خاتىرە "
-"شەكلىنى ئالاھىدە بەلگىلەنمىگەن جەريان(\"sudo\" ياكى \"fsck\" بۇيرۇقىغا "
-"ئوخشاش) ھاسىل قىلغان."
 
 #: src/modes/xorg/xorgAnalyzer.cpp:69
 #, kde-format
@@ -3175,10 +3034,6 @@ msgid ""
 "log if you want to know why you do not have 3D accelerations or why your "
 "input device is not recognized."
 msgstr ""
-"نۆۋەتتىكى بەتكۈچتە X.org خاتىرەنى كۆرسىتىدۇ. X.org ئۈستەلئۈستى ئېكرانىنى "
-"كۆرسىتىش ۋە گرافىكىلىق قاتتىق دېتاللارنى باشقۇرىدىغان مۇلازىمەتتۇر. سىز بۇ "
-"خاتىرىنى كۆرۈپ سىستېمىنىڭ 3D تېزلەتكۈچىنىڭ نېمە ئۈچۈن قوزغىتىلمىغانلىقى ياكى "
-"كىرگۈزۈش ئۈسكۈنىسىنى توغرا تونۇمىغانلىقىنى بىلەلەيسىز."
 
 #: src/modes/xsession/xsessionAnalyzer.cpp:20
 #, kde-format
@@ -3207,9 +3062,6 @@ msgid ""
 "analyzed when you select the <b>X Session log</b> menu. Generally, its name "
 "is <i>~/.xsession-errors</i>"
 msgstr ""
-"سىز بۇ جايدا X جەريانچاق خاتىرە ھۆججەتنى كىرگۈزەلەيسىز ياكى تاللىيالايسىز. "
-"بۇ ھۆججەت سىز <b>X جەريانچاق خاتىرە</b>تىزىملىكىنى تاللىغاندا تەھلىل قىلىدۇ. "
-"ئادەتتە ئۇنىڭ ئاتى <i>~/.xsession-errors</i>"
 
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:91
 #, kde-format
@@ -3284,13 +3136,13 @@ msgstr "ئاخىرقى يېڭىلانغىنى: %1."
 #: src/statusBar.cpp:62
 #, kde-format
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: src/tabLogManager.cpp:49
 #, kde-format
 msgctxt "Log mode name (added lines count)"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/tabLogViewsWidget.cpp:74
 #, kde-format
