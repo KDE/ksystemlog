@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2005, 2007.
 # Mladen Pejakovic <pejakm@gmail.com>, 2011.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2015, 2016, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2017-09-28 17:59+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Слободан Симић,Младен Пејаковић"
+msgstr "Слободан Симић,Младен Пејаковић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com,pejakm@gmail.com"
+msgstr "slsimic@gmail.com,pejakm@gmail.com,nemhirsl@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -64,7 +65,7 @@ msgid ""
 "Option is true if the log lines are to be colored depending on their log "
 "level."
 msgstr ""
-"Укључите да би се редови дневника бојили на основу свог нивоа бележења."
+"Укључите да би се редови дневника бојили на основу свог нивоа биљежења."
 
 #. i18n: ectx: label, entry (TooltipEnabled), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:39
@@ -360,7 +361,7 @@ msgstr "Уклони &идентификатор из имена процеса"
 msgid ""
 "This option allows log lines to be colored depending on their log level."
 msgstr ""
-"Ова опција омогућава бојење редова у зависности од њиховог нивоа бележења."
+"Ова опција омогућава бојење редова у зависности од њиховог нивоа биљежења."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
@@ -370,7 +371,7 @@ msgid ""
 "example, errors will be shown in red, warnings in orange, and so on. This "
 "will help you to see problems more easily."
 msgstr ""
-"Ова опција омогућава бојење редова у зависности од њиховог нивоа бележења. "
+"Ова опција омогућава бојење редова у зависности од њиховог нивоа биљежења. "
 "На примјер, грешке ће бити црвене, упозорења наранџаста, и тако даље. Ово ће "
 "вам помоћи да лакше уочите проблеме."
 
@@ -497,12 +498,12 @@ msgstr "опасност"
 #: src/lib/levelPrintPage.cpp:25
 #, kde-format
 msgid "Log Level Printing"
-msgstr "Штампање нивоа бележења"
+msgstr "Штампање нивоа биљежења"
 
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
-msgstr "Изаберите нивое бележења које желите да буду у боји."
+msgstr "Изаберите нивое биљежења које желите да буду у боји."
 
 #: src/lib/loadingBar.cpp:29
 #, kde-format
@@ -878,7 +879,7 @@ msgstr "е‑пошта"
 #: src/loggerDialog.cpp:101
 #, kde-format
 msgid "News"
-msgstr "вести"
+msgstr "вијести"
 
 # >> @item logging facility
 #: src/loggerDialog.cpp:102
@@ -1023,7 +1024,7 @@ msgstr "&Ознака:"
 #: src/loggerDialogBase.ui:241
 #, kde-format
 msgid "Log process &identifier"
-msgstr "Бележи &идентификатор процеса"
+msgstr "Биљежи &идентификатор процеса"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, loggerManual)
 #: src/loggerDialogBase.ui:290
@@ -1056,8 +1057,7 @@ msgid "&Cancel"
 msgstr "&Одустани"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
 msgstr "К‑системски-дневник"
 
@@ -1113,12 +1113,12 @@ msgstr "Штампање дневника"
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Лорен Монтел"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Исправке грешака"
 
 #: src/main.cpp:54
 #, kde-format
@@ -1223,28 +1223,23 @@ msgstr ""
 "менија да их одштампате."
 
 #: src/mainWindow.cpp:532
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Ш&тампај избор..."
+msgstr "Пре&глед избора пред штампање..."
 
 #: src/mainWindow.cpp:533
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "Штампај избор"
+msgstr "Прикажи преглед избора пред штампање"
 
 #: src/mainWindow.cpp:535
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Штампа избор. Једноставно изаберите важне редове па кликните на ову ставку "
-"менија да их одштампате."
+"Приказује преглед избора пред штампање. Једноставно изаберите важне редове "
+"па кликните на ову ставку менија да их одштампате."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1281,8 +1276,8 @@ msgid ""
 "Copies the selection to the clipboard. This action is useful if you want to "
 "paste the selection in a chat or an email."
 msgstr ""
-"Копира избор у клипборд. Ова радња је корисна када желите да налепите избор "
-"у ћаскање или е‑пошту."
+"Копира избор у клипборд. Ова радња је корисна када желите да налијепите "
+"избор у ћаскање или е‑пошту."
 
 #: src/mainWindow.cpp:560
 #, kde-format
@@ -1764,37 +1759,30 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Дневник за acpid"
+msgstr "Дневник ревизије"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>Ови фајлови ће бити анализирани ради приказа дневника за <tt>acpid</tt>.</"
-"p>"
+"<p>Ови фајлови ће бити анализирани ради приказа <b>дневника ревизије</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "Прикажи дневник ЦУПС‑а"
+msgstr "Прикажи дневник ревизије."
 
 # skip-rule: t-login
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"Приказује системски дневник под текућим језичком. Овај дневник углавном "
-"користе неспецијализовани процеси, попут наредби sudo или fsck."
+"Приказује дневник ревизије под текућим језичком. Овај дневник углавном "
+"користе неспецијализовани процеси (попут наредби sudo или fsck)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
@@ -1915,7 +1903,7 @@ msgstr "&Додај фајл..."
 #: src/modes/base/fileListBase.ui:71 src/modes/base/multipleFileListBase.ui:70
 #, kde-format
 msgid "&Modify File..."
-msgstr "&Измени фајл..."
+msgstr "&Измијени фајл..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, remove)
 #: src/modes/base/fileListBase.ui:81 src/modes/base/multipleFileListBase.ui:80
@@ -2124,7 +2112,7 @@ msgstr "„%1“ није локални фајл."
 #: src/modes/base/fileListHelper.cpp:100
 #, kde-format
 msgid "File selection failed"
-msgstr "Избор фајла није успео"
+msgstr "Избор фајла није успио"
 
 # >> @item:intext
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
@@ -2166,7 +2154,7 @@ msgid ""
 "more information about each log level."
 msgstr ""
 "Мијења ниво текућих фајлова. Погледајте документацију К‑системског-дневника "
-"за више информација о сваком нивоу бележења."
+"за више информација о сваком нивоу биљежења."
 
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
@@ -2198,7 +2186,7 @@ msgid ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">List of existing log "
 "levels</p></body></html>"
-msgstr "<p>Списак постојећих нивоа бележења.</p>"
+msgstr "<p>Списак постојећих нивоа биљежења.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QListWidget, logLevelsList)
 #: src/modes/base/logLevelSelectionDialogBase.ui:43
@@ -2216,7 +2204,7 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Please select one of them "
 "to be used for the files selected on the list.</p></body></html>"
 msgstr ""
-"<p>Ово је списак свих постојећих нивоа бележења.</p><p>Изаберите онај који "
+"<p>Ово је списак свих постојећих нивоа биљежења.</p><p>Изаберите онај који "
 "желите да се користи за фајлове изабране на списку.</p>"
 
 #: src/modes/base/multipleFileList.cpp:34
@@ -2388,7 +2376,7 @@ msgid ""
 "launched processes."
 msgstr ""
 "Приказује дневник заказаних задатака под текућим језичком. Крон је програм "
-"задужен да покреће заказане задатке на систему, као што су безбедносне "
+"задужен да покреће заказане задатке на систему, као што су безбједносне "
 "провјере или аутоматско управљање сервисима. Кроз овај мени можете видјети "
 "недавно покренуте процесе."
 
@@ -2443,7 +2431,7 @@ msgid ""
 "i>)."
 msgstr ""
 "Приказује дневник приступа ЦУПС‑овом веб серверу под текућим језичком. ЦУПС "
-"је програм који управља штампањем на рачунару. Овај дневник бележи све "
+"је програм који управља штампањем на рачунару. Овај дневник биљежи све "
 "захтјеве упућене угнијежђеном ЦУПС‑овом веб серверу (подразумијевано: "
 "<i>http://localhost:631</i>)."
 
@@ -2459,7 +2447,7 @@ msgid ""
 "New Log Level detected: Please send this log file to the KSystemLog "
 "developer to add it."
 msgstr ""
-"Сусретнут је нов ниво бележења: пошаљите овај фајл дневника програмерима "
+"Сусретнут је нов ниво биљежења: пошаљите овај фајл дневника програмерима "
 "К‑системског-дневника да би додали овај ниво."
 
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
@@ -2617,7 +2605,7 @@ msgid ""
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
 "Приказује дневник страница ЦУПС‑а под текућим језичком. ЦУПС је програм који "
-"управља штампањем на рачунару. Овај дневник бележи све захтјеве упућене "
+"управља штампањем на рачунару. Овај дневник биљежи све захтјеве упућене "
 "угнијежђеном ЦУПС‑овом веб серверу (подразумијевано: <i>http://"
 "localhost:631</i>)."
 
@@ -2646,7 +2634,7 @@ msgid ""
 "the CUPS embedded web server (default: <i>http://localhost:631</i>)."
 msgstr ""
 "Приказује ПДФ дневник ЦУПС‑а под текућим језичком. ЦУПС је програм који "
-"управља штампањем на рачунару. Овај дневник бележи све захтјеве упућене "
+"управља штампањем на рачунару. Овај дневник биљежи све захтјеве упућене "
 "угнијежђеном ЦУПС‑овом веб серверу (подразумијевано: <i>http://"
 "localhost:631</i>)."
 
@@ -2733,7 +2721,7 @@ msgstr "Додавање удаљеног дневника"
 #: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
-msgstr "Измена удаљеног дневника"
+msgstr "Измјена удаљеног дневника"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxOptions)
 #: src/modes/journald/journaldConfigurationWidget.ui:17
@@ -2787,7 +2775,7 @@ msgstr "Уклони адресу"
 #: src/modes/journald/journaldConfigurationWidget.ui:124
 #, kde-format
 msgid "Modify address"
-msgstr "Измени адресу"
+msgstr "Измијени адресу"
 
 #: src/modes/journald/journaldFactory.cpp:27
 #, kde-format
