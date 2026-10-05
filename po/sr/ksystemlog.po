@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2005, 2007.
 # Mladen Pejakovic <pejakm@gmail.com>, 2011.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2015, 2016, 2017.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2017-09-28 17:59+0200\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 23:13+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Слободан Симић,Младен Пејаковић"
+msgstr "Слободан Симић,Младен Пејаковић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com,pejakm@gmail.com"
+msgstr "slsimic@gmail.com,pejakm@gmail.com,nemhirsl@gmail.com"
 
 #. i18n: ectx: label, entry (StartupLogMode), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:13
@@ -1056,8 +1057,7 @@ msgid "&Cancel"
 msgstr "&Одустани"
 
 #: src/main.cpp:24
-#, fuzzy, kde-format
-#| msgid "KSystemlog"
+#, kde-format
 msgid "KSystemLog"
 msgstr "К‑системски-дневник"
 
@@ -1113,12 +1113,12 @@ msgstr "Штампање дневника"
 #: src/main.cpp:40
 #, kde-format
 msgid "Laurent Montel"
-msgstr ""
+msgstr "Лорен Монтел"
 
 #: src/main.cpp:40
 #, kde-format
 msgid "Bug Fixing"
-msgstr ""
+msgstr "Исправке грешака"
 
 #: src/main.cpp:54
 #, kde-format
@@ -1223,28 +1223,23 @@ msgstr ""
 "менија да их одштампате."
 
 #: src/mainWindow.cpp:532
-#, fuzzy, kde-format
-#| msgid "&Print Selection..."
+#, kde-format
 msgid "&Print Preview Selection..."
-msgstr "Ш&тампај избор..."
+msgstr "Пре&глед избора пред штампање..."
 
 #: src/mainWindow.cpp:533
-#, fuzzy, kde-format
-#| msgid "Print the selection"
+#, kde-format
 msgid "Print preview the selection"
-msgstr "Штампај избор"
+msgstr "Прикажи преглед избора пред штампање"
 
 #: src/mainWindow.cpp:535
-#, fuzzy, kde-format
-#| msgid ""
-#| "Prints the selection. Simply select the important lines and click on this "
-#| "menu entry to print the selection."
+#, kde-format
 msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Штампа избор. Једноставно изаберите важне редове па кликните на ову ставку "
-"менија да их одштампате."
+"Приказује преглед избора пред штампање. Једноставно изаберите важне редове "
+"па кликните на ову ставку менија да их одштампате."
 
 #: src/mainWindow.cpp:541
 #, kde-format
@@ -1764,37 +1759,30 @@ msgstr ""
 
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
-#, fuzzy, kde-format
-#| msgid "Acpid Log"
+#, kde-format
 msgid "Audit Log"
-msgstr "Дневник за acpid"
+msgstr "Дневник ревизије"
 
 #: src/modes/audit/auditConfigurationWidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
+#, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr ""
-"<p>Ови фајлови ће бити анализирани ради приказа дневника за <tt>acpid</tt>.</"
-"p>"
+"<p>Ови фајлови ће бити анализирани ради приказа <b>дневника ревизије</b>.</p>"
 
 #: src/modes/audit/auditLogMode.cpp:26
-#, fuzzy, kde-format
-#| msgid "Display the Cups log."
+#, kde-format
 msgid "Display the audit log."
-msgstr "Прикажи дневник ЦУПС‑а"
+msgstr "Прикажи дневник ревизије."
 
 # skip-rule: t-login
 #: src/modes/audit/auditLogMode.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Displays the system log in the current tab. This log is generally used by "
-#| "non-specialized processes (like \"sudo\" or \"fsck\" commands)"
+#, kde-format
 msgid ""
 "Displays the audit log in the current tab. This log is generally used by non-"
 "specialized processes (like \"sudo\" or \"fsck\" commands)"
 msgstr ""
-"Приказује системски дневник под текућим језичком. Овај дневник углавном "
-"користе неспецијализовани процеси, попут наредби sudo или fsck."
+"Приказује дневник ревизије под текућим језичком. Овај дневник углавном "
+"користе неспецијализовани процеси (попут наредби sudo или fsck)"
 
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
