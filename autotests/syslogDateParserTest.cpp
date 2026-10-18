@@ -57,21 +57,14 @@ void SyslogDateParserTest::testIso8601_data()
 
     const QDate date(2026, 10, 9);
 
-    QTest::newRow("rsyslog RFC 3339 with microseconds")
-        << QStringLiteral("2026-10-09T23:15:00.123456+09:00 jupiter systemd[1]: Started.")
-        << QDateTime(date, QTime(23, 15, 0, 123), QTimeZone(9 * 3600)).toLocalTime();
-    QTest::newRow("UTC")
-        << QStringLiteral("2026-10-09T14:15:00Z jupiter systemd[1]: Started.")
-        << QDateTime(date, QTime(14, 15, 0), QTimeZone(0)).toLocalTime();
-    QTest::newRow("negative offset without colon")
-        << QStringLiteral("2026-10-09T09:15:00.5-0500 jupiter systemd[1]: Started.")
-        << QDateTime(date, QTime(9, 15, 0, 500), QTimeZone(-5 * 3600)).toLocalTime();
-    QTest::newRow("no time zone")
-        << QStringLiteral("2026-10-09T23:15:00 jupiter systemd[1]: Started.")
-        << QDateTime(date, QTime(23, 15, 0));
-    QTest::newRow("space separator")
-        << QStringLiteral("2026-10-09 23:15:00 jupiter systemd[1]: Started.")
-        << QDateTime(date, QTime(23, 15, 0));
+    QTest::newRow("rsyslog RFC 3339 with microseconds") << QStringLiteral("2026-10-09T23:15:00.123456+09:00 jupiter systemd[1]: Started.")
+                                                        << QDateTime(date, QTime(23, 15, 0, 123), QTimeZone(9 * 3600)).toLocalTime();
+    QTest::newRow("UTC") << QStringLiteral("2026-10-09T14:15:00Z jupiter systemd[1]: Started.")
+                         << QDateTime(date, QTime(14, 15, 0), QTimeZone(0)).toLocalTime();
+    QTest::newRow("negative offset without colon") << QStringLiteral("2026-10-09T09:15:00.5-0500 jupiter systemd[1]: Started.")
+                                                   << QDateTime(date, QTime(9, 15, 0, 500), QTimeZone(-5 * 3600)).toLocalTime();
+    QTest::newRow("no time zone") << QStringLiteral("2026-10-09T23:15:00 jupiter systemd[1]: Started.") << QDateTime(date, QTime(23, 15, 0));
+    QTest::newRow("space separator") << QStringLiteral("2026-10-09 23:15:00 jupiter systemd[1]: Started.") << QDateTime(date, QTime(23, 15, 0));
 }
 
 void SyslogDateParserTest::testIso8601()
