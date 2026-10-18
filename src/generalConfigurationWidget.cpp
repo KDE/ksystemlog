@@ -150,7 +150,7 @@ void GeneralConfigurationWidget::defaultConfig()
 bool GeneralConfigurationWidget::isValid() const
 {
     if (syslogDateFormat->currentData().toInt() == KSystemLogConfig::EnumSyslogDateFormat::Custom && syslogCustomDateFormat->text().trimmed().isEmpty()) {
-        qCDebug(KSYSTEMLOG) << "Custom syslog date format is empty";
+        qCWarning(KSYSTEMLOG) << "Custom syslog date format is empty";
         return false;
     }
 

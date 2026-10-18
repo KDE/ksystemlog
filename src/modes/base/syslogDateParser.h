@@ -39,7 +39,7 @@ struct Result {
     /// Number of characters of the line used by the timestamp and the separator following it.
     qsizetype consumed = 0;
 
-    bool isValid() const
+    [[nodiscard]] bool isValid() const
     {
         return dateTime.isValid();
     }
@@ -51,14 +51,14 @@ struct Result {
  * @param customFormat QDateTime format string, only used with the Custom format
  * @param defaultYear year used when the timestamp does not contain one
  */
-Result parse(QStringView line, Format format, const QString &customFormat, int defaultYear);
+[[nodiscard]] Result parse(QStringView line, Format format, const QString &customFormat, int defaultYear);
 
-Result parseTraditional(QStringView line, int year);
-Result parseIso8601(QStringView line);
-Result parseCustom(QStringView line, const QString &customFormat, int defaultYear);
+[[nodiscard]] Result parseTraditional(QStringView line, int year);
+[[nodiscard]] Result parseIso8601(QStringView line);
+[[nodiscard]] Result parseCustom(QStringView line, const QString &customFormat, int defaultYear);
 
 /**
  * @return true if the line starts with an ISO 8601 date ("YYYY-MM-DD")
  */
-bool startsWithIso8601Date(QStringView line);
+[[nodiscard]] bool startsWithIso8601Date(QStringView line);
 }
