@@ -33,6 +33,7 @@ Q_SIGNALS:
 
 private:
     void addDateFormatExample();
+    void updateSyslogCustomDateFormatState();
     QButtonGroup *mDateFormatGroup = nullptr;
     KMessageWidget *mWarningBox = nullptr;
 };

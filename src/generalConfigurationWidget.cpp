@@ -8,6 +8,7 @@
 
 #include <QButtonGroup>
 #include <QCheckBox>
+#include <QLineEdit>
 #include <QPushButton>
 
 #include <KLocalizedString>
@@ -59,6 +60,26 @@ GeneralConfigurationWidget::GeneralConfigurationWidget()
     connect(mDateFormatGroup, &QButtonGroup::buttonClicked, this, &GeneralConfigurationWidget::configurationChanged);
 
     addDateFormatExample();
+
+    syslogDateFormat->addItem(i18nc("Syslog timestamp format", "Automatic detection"), KSystemLogConfig::EnumSyslogDateFormat::Automatic);
+    syslogDateFormat->addItem(i18nc("Syslog timestamp format (example)", "Traditional (%1)", QStringLiteral("Oct  9 23:15:00")),
+                              KSystemLogConfig::EnumSyslogDateFormat::Traditional);
+    syslogDateFormat->addItem(i18nc("Syslog timestamp format (example)", "ISO 8601 / RFC 3339 (%1)", QStringLiteral("2026-10-09T23:15:00.123456+09:00")),
+                              KSystemLogConfig::EnumSyslogDateFormat::ISO8601);
+    syslogDateFormat->addItem(i18nc("Syslog timestamp format", "Custom"), KSystemLogConfig::EnumSyslogDateFormat::Custom);
+
+    connect(syslogDateFormat, &QComboBox::currentIndexChanged, this, &GeneralConfigurationWidget::updateSyslogCustomDateFormatState);
+    connect(syslogDateFormat, &QComboBox::currentIndexChanged, this, &GeneralConfigurationWidget::configurationChanged);
+    connect(syslogCustomDateFormat, &QLineEdit::textChanged, this, &GeneralConfigurationWidget::configurationChanged);
+
+    updateSyslogCustomDateFormatState();
+}
+
+void GeneralConfigurationWidget::updateSyslogCustomDateFormatState()
+{
+    const bool custom = syslogDateFormat->currentData().toInt() == KSystemLogConfig::EnumSyslogDateFormat::Custom;
+    syslogCustomDateFormatLabel->setEnabled(custom);
+    syslogCustomDateFormat->setEnabled(custom);
 }
 
 GeneralConfigurationWidget::~GeneralConfigurationWidget()
@@ -96,6 +117,11 @@ void GeneralConfigurationWidget::readConfig()
     const auto dateFormat = (QLocale::FormatType)KSystemLogConfig::dateFormat();
     QAbstractButton *selectedButton = mDateFormatGroup->button(dateFormat);
     selectedButton->setChecked(true);
+
+    const int syslogDateFormatIndex = syslogDateFormat->findData(KSystemLogConfig::syslogDateFormat());
+    syslogDateFormat->setCurrentIndex(syslogDateFormatIndex != -1 ? syslogDateFormatIndex : 0);
+    syslogCustomDateFormat->setText(KSystemLogConfig::syslogCustomDateFormat());
+    updateSyslogCustomDateFormatState();
 }
 
 void GeneralConfigurationWidget::saveConfig() const
@@ -110,6 +136,9 @@ void GeneralConfigurationWidget::saveConfig() const
     KSystemLogConfig::setColorizeLogLines(colorizeLogLines->isChecked());
 
     KSystemLogConfig::setDateFormat(mDateFormatGroup->checkedId());
+
+    KSystemLogConfig::setSyslogDateFormat(syslogDateFormat->currentData().toInt());
+    KSystemLogConfig::setSyslogCustomDateFormat(syslogCustomDateFormat->text().trimmed());
 }
 
 void GeneralConfigurationWidget::defaultConfig()
@@ -120,6 +149,11 @@ void GeneralConfigurationWidget::defaultConfig()
 
 bool GeneralConfigurationWidget::isValid() const
 {
+    if (syslogDateFormat->currentData().toInt() == KSystemLogConfig::EnumSyslogDateFormat::Custom && syslogCustomDateFormat->text().trimmed().isEmpty()) {
+        qCDebug(KSYSTEMLOG) << "Custom syslog date format is empty";
+        return false;
+    }
+
     if (maxLines->value() > 0) {
         // Check if log files exist for selected mode.
         const QVariant modeID = startupLogMode->currentData();

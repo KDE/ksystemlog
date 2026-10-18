@@ -63,7 +63,23 @@
 			</choices>
 			-->
 		</entry>
-		
+
+		<entry name="SyslogDateFormat" type="Enum">
+			<label>The timestamp format used to parse syslog style log files (System, Authentication, Daemons, Cron, Postfix...).</label>
+			<choices>
+				<choice name="Automatic"/>
+				<choice name="Traditional"/>
+				<choice name="ISO8601"/>
+				<choice name="Custom"/>
+			</choices>
+			<default>Automatic</default>
+		</entry>
+
+		<entry name="SyslogCustomDateFormat" type="String">
+			<label>The QDateTime format string used when the syslog timestamp format is Custom.</label>
+			<default>yyyy-MM-dd HH:mm:ss</default>
+		</entry>
+
 		<!--
 
 		Samba config entries

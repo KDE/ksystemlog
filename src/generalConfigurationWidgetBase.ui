@@ -175,6 +175,55 @@
     </widget>
    </item>
    <item>
+    <widget class="QGroupBox" name="syslogDateFormatGroupbox">
+     <property name="title">
+      <string>Syslog Timestamp Format</string>
+     </property>
+     <layout class="QFormLayout" name="syslogDateFormatLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="syslogDateFormatLabel">
+        <property name="text">
+         <string>&amp;Parse timestamps as:</string>
+        </property>
+        <property name="buddy">
+         <cstring>syslogDateFormat</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="syslogDateFormat">
+        <property name="toolTip">
+         <string>The format of the timestamp at the beginning of each line of syslog style log files.</string>
+        </property>
+        <property name="whatsThis">
+         <string>Choose the format of the timestamp written at the beginning of each line of syslog style log files (System, Authentication, Daemons, Cron, Postfix...). &lt;i&gt;Automatic&lt;/i&gt; detects ISO 8601 timestamps (such as &lt;i&gt;2026-10-09T23:15:00.123456+09:00&lt;/i&gt;, the default of recent rsyslog versions) and falls back to the traditional format (such as &lt;i&gt;Oct  9 23:15:00&lt;/i&gt;).</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="syslogCustomDateFormatLabel">
+        <property name="text">
+         <string>C&amp;ustom format:</string>
+        </property>
+        <property name="buddy">
+         <cstring>syslogCustomDateFormat</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="syslogCustomDateFormat">
+        <property name="toolTip">
+         <string>A Qt date format string, for example &lt;i&gt;yyyy-MM-dd HH:mm:ss&lt;/i&gt; or &lt;i&gt;dd/MMM/yyyy:HH:mm:ss&lt;/i&gt;.</string>
+        </property>
+        <property name="whatsThis">
+         <string>The format used when &lt;i&gt;Custom&lt;/i&gt; is selected, using the QDateTime format syntax (yyyy, MM, MMM, dd, d, HH, mm, ss, zzz, t...). The timestamp is made of as many space separated words as this format. If the format has no year, the current year is used.</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <spacer name="bottomSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>

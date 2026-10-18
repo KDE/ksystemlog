@@ -9,6 +9,7 @@ target_sources(ksystemlog_base_mode PRIVATE
 	logLevelSelectionDialog.cpp
 	genericConfiguration.cpp
 	syslogAnalyzer.cpp
+	syslogDateParser.cpp
 
         parsingHelper.h
         fileList.h
@@ -18,6 +19,7 @@ target_sources(ksystemlog_base_mode PRIVATE
         logLevelSelectionDialog.h
         genericConfiguration.h
         syslogAnalyzer.h
+        syslogDateParser.h
     )
 
 ki18n_wrap_ui(ksystemlog_base_mode fileListBase.ui )

@@ -8,6 +8,7 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/config
   ${CMAKE_CURRENT_BINARY_DIR}/../src/config
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/lib
+  ${CMAKE_CURRENT_SOURCE_DIR}/../src/modes/base
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/modes/system
   ${CMAKE_CURRENT_SOURCE_DIR}/../src/modes/kernel
 )
@@ -31,6 +32,7 @@ endmacro(ksystemlog_unit_tests)
 ksystemlog_unit_tests(
 	logModeFactoryTest
 	systemAnalyzerTest
+	syslogDateParserTest
         kernelAnalyzerTest
 
     # Not real unit tests

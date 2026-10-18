@@ -9,6 +9,7 @@
 #include <QStringList>
 #include <QTest>
 #include <QThread>
+#include <QTimeZone>
 
 #include "testUtil.h"
 
@@ -40,6 +41,8 @@ private Q_SLOTS:
     void testDeleteProcessIdentifier();
     void testMaxLines();
     void testRemoveDuplicates();
+
+    void testIso8601Lines();
 
 private:
     void compareWithMinTime(const QList<LogLine *> &lines, const QDateTime &minTime);
@@ -378,6 +381,76 @@ void SystemAnalyzerTest::testRemoveDuplicates()
     systemAnalyzer->watchLogFiles(true);
 
     QCOMPARE(model->itemCount(), 5);
+}
+
+void SystemAnalyzerTest::testIso8601Lines()
+{
+    LogViewModel *model = nullptr;
+
+    Analyzer *systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
+    QVERIFY(systemAnalyzer);
+    QVERIFY(model);
+
+    // Specifical configuration
+    KSystemLogConfig::setMaxLines(1000);
+    KSystemLogConfig::setDeleteDuplicatedLines(false);
+    KSystemLogConfig::setDeleteProcessIdentifier(false);
+    KSystemLogConfig::setSyslogDateFormat(KSystemLogConfig::EnumSyslogDateFormat::Automatic);
+
+    QVector<LogFile> const logFiles = testUtil.createLogFiles(QStringLiteral(":/testFiles/system/iso8601.log"));
+
+    systemAnalyzer->setLogFiles(logFiles);
+
+    systemAnalyzer->watchLogFiles(true);
+
+    QCOMPARE(model->itemCount(), 3);
+
+    // Lines are sorted by date in the model, so look them up by message
+    QHash<QString, LogLine *> linesByMessage;
+    const auto logLines = model->logLines();
+    for (LogLine *logLine : logLines) {
+        linesByMessage.insert(logLine->logItems().last(), logLine);
+    }
+
+    LogLine *line = linesByMessage.value(QStringLiteral("Started Daily apt download activities."));
+    QVERIFY(line);
+    QCOMPARE(line->logItems(),
+             QStringList() << QStringLiteral("jupiter") << QStringLiteral("systemd[1]") << QStringLiteral("Started Daily apt download activities."));
+    QCOMPARE(line->time(), QDateTime(QDate(2026, 10, 9), QTime(23, 15, 0, 123), QTimeZone(9 * 3600)).toLocalTime());
+
+    line = linesByMessage.value(QStringLiteral("eth0: link up"));
+    QVERIFY(line);
+    QCOMPARE(line->logItems(), QStringList() << QStringLiteral("jupiter") << QStringLiteral("kernel") << QStringLiteral("eth0: link up"));
+    QCOMPARE(line->time(), QDateTime(QDate(2026, 10, 9), QTime(14, 16, 0), QTimeZone(0)).toLocalTime());
+
+    // A traditional line in the same file is still understood in automatic mode
+    line = linesByMessage.value(QStringLiteral("Old style line"));
+    QVERIFY(line);
+    QCOMPARE(line->logItems(), QStringList() << QStringLiteral("jupiter") << QStringLiteral("test") << QStringLiteral("Old style line"));
+    QCOMPARE(line->time(), QDateTime(QDate(QDate::currentDate().year(), 10, 9), QTime(23, 17, 0)));
+
+    testUtil.destroyReader(systemAnalyzer);
+
+    // With the traditional format forced, ISO 8601 lines are not understood anymore
+    KSystemLogConfig::setSyslogDateFormat(KSystemLogConfig::EnumSyslogDateFormat::Traditional);
+
+    systemAnalyzer = testUtil.createAnalyzer(QStringLiteral("systemLogMode"), &model);
+    QVERIFY(systemAnalyzer);
+    systemAnalyzer->setLogFiles(logFiles);
+    systemAnalyzer->watchLogFiles(true);
+
+    QCOMPARE(model->itemCount(), 3);
+    int undefinedHosts = 0;
+    for (LogLine *logLine : model->logLines()) {
+        if (logLine->logItems().constFirst().isEmpty()) {
+            ++undefinedHosts;
+        }
+    }
+    QCOMPARE(undefinedHosts, 2);
+
+    testUtil.destroyReader(systemAnalyzer);
+
+    KSystemLogConfig::setSyslogDateFormat(KSystemLogConfig::EnumSyslogDateFormat::Automatic);
 }
 
 QTEST_MAIN(SystemAnalyzerTest)

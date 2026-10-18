@@ -23,8 +23,14 @@
 #include "logViewModel.h"
 
 #include "parsingHelper.h"
+#include "syslogDateParser.h"
 
 #include "ksystemlogConfig.h"
+
+static_assert(KSystemLogConfig::EnumSyslogDateFormat::Automatic == SyslogDateParser::Automatic);
+static_assert(KSystemLogConfig::EnumSyslogDateFormat::Traditional == SyslogDateParser::Traditional);
+static_assert(KSystemLogConfig::EnumSyslogDateFormat::ISO8601 == SyslogDateParser::Iso8601);
+static_assert(KSystemLogConfig::EnumSyslogDateFormat::Custom == SyslogDateParser::Custom);
 
 SyslogAnalyzer::SyslogAnalyzer(LogMode *logMode)
     : FileAnalyzer(logMode)
@@ -64,42 +70,17 @@ LogLine *SyslogAnalyzer::parseMessage(const QString &logLine, const LogFile &ori
     // qCDebug(KSYSTEMLOG) << QTime::currentTime() << " : Reading line : " << logLine << " from " <<
     // originalFile.url.path();
 
-    // 15 is the default date size format
-    if (logLine.length() < 15) {
-        qCDebug(KSYSTEMLOG) << "Too short line";
-        return undefinedLogLine(logLine, originalFile);
-    }
-
-    const int year = QDate::currentDate().year();
-
-    // Month number
-    QString const month(logLine.left(3));
-
-    QString line(logLine);
-
-    line.remove(0, 4);
-    const int monthNum = ParsingHelper::instance()->parseSyslogMonth(month);
-
-    // Day number
-    QString const day(line.left(2));
-    const int dayNum = day.toInt();
-
-    line.remove(0, 3);
-
-    // Time
-    QString stringTime(line.left(8));
-    const int h = QStringView(stringTime).left(2).toInt();
-    stringTime.remove(0, 3);
-    const int m = QStringView(stringTime).left(2).toInt();
-    stringTime.remove(0, 3);
-    const int s = QStringView(stringTime).left(2).toInt();
-    const QDateTime dateTime(QDate(year, monthNum, dayNum), QTime(h, m, s));
-    if (!dateTime.isValid()) {
+    const auto dateFormat = static_cast<SyslogDateParser::Format>(KSystemLogConfig::syslogDateFormat());
+    const SyslogDateParser::Result parsedDate =
+        SyslogDateParser::parse(logLine, dateFormat, KSystemLogConfig::syslogCustomDateFormat(), QDate::currentDate().year());
+    if (!parsedDate.isValid()) {
         qCDebug(KSYSTEMLOG) << "Malformed date and time";
         return undefinedLogLine(logLine, originalFile);
     }
 
-    line.remove(0, 9);
+    const QDateTime &dateTime = parsedDate.dateTime;
+
+    QString line = logLine.mid(parsedDate.consumed);
 
     QString hostname;
 

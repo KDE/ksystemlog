@@ -7,6 +7,7 @@
      <file>testFiles/system/delete-process-identifier.log</file>
      <file>testFiles/system/max-lines.log</file>
      <file>testFiles/system/duplicate-lines.log</file>
+     <file>testFiles/system/iso8601.log</file>
      
      <file>testFiles/logFileReader/file.txt</file>
 
