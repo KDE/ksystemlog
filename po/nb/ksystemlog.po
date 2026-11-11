@@ -1456,7 +1456,7 @@ msgstr "Slå på/av verktøytips på denne visningen"
 msgid ""
 "Disables/Enables the tooltip displayed when the cursor hovers a log line."
 msgstr ""
-"Slår av/på verktøytipset som vises når musepeker ligger over en logglinje."
+"Slår på/av verktøytipset som vises når musepeker ligger over en logglinje."
 
 #: src/mainWindow.cpp:690
 #, kde-format
