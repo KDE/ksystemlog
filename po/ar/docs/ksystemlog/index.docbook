@@ -1,0 +1,451 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<book id="ksystemlog" lang="&language;">
+
+<bookinfo>
+<title
+>دليل سجلّات نظامك</title>
+
+<authorgroup>
+	<author
+><firstname
+>Nicolas</firstname
+><surname
+>Ternisien</surname
+> <affiliation
+> <address
+><email
+>nicolas.ternisien@gmail.com</email
+></address>
+		</affiliation>
+	</author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+
+<copyright>
+	<year
+>2008</year>
+	<holder
+>Nicolas Ternisien</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2016-04-17</date>
+<releaseinfo
+>0.4 (تطبيقات 16.04)</releaseinfo>
+
+<abstract>
+<para
+>سجلّات نظامك هو أداة لعرض سجلات النظام من &kde;. طُوّر هذا البرنامج للمستخدمين المبتدئين الذين لا يعرفون كيفية العثور على معلومات حول نظامهم أو مكان وجود ملفات السجل. صُمّم أيضًا للمستخدمين المتقدمين الذين يرغبون في رؤية المشكلات التي تحدث على خادمهم بسرعة. </para>
+
+</abstract>
+
+<keywordset>
+	<keyword
+>كيدي</keyword>
+	<keyword
+>سجلّات</keyword>
+	<keyword
+>سجلّات نظامك</keyword>
+	<keyword
+>أمن</keyword>
+	<keyword
+>كرون</keyword>
+	<keyword
+>إقلاع</keyword>
+	<keyword
+>ssh</keyword>
+	<keyword
+>postfix</keyword>
+	<keyword
+>apache</keyword>
+	<keyword
+>samba</keyword>
+</keywordset>
+
+</bookinfo>
+<!--
+GSoC 2015 (add journald support to KSystemLog) http://vyacheslav-matyushin.blogspot.de/
+GUI stuff from git log
+Switch default mode to journald. Add journald to default toolbar layout
+Added HTTPS support for remote journals
+Added UI to enable HTTPS for remote journals
+Local analyzer display filter name in tab and window title
+Network journal submenus now contain "Filter by" submenus
+Implemented configuration UI and saving/restoring of remote journals
+Hide category submenus if they are empty
+Hide menu entries and actions for modes with missing log files
+-->
+<chapter id="using_ksystemlog">
+	<title
+>استخدام سجلّات نظامك</title>
+
+	<sect1 id="introduction">
+		<title
+>مقدمة</title>
+
+		<sect2>
+			<title
+>ما هو سجلّات نظامك؟</title>
+			<para
+>سجلّات نظامك هو أداة لعرض سجلات النظام.</para>
+
+			<para
+>يساعد سجلّات نظامك المستخدمين على فهم ما يفعله جهازهم في الخلفية. يهدف سجلّات نظامك إلى تبسيط قراءة ملفات سجلات النظام. طُوّر هذا البرنامج للمستخدمين المبتدئين الذين لا يعرفون كيفية العثور على معلومات حول نظامهم أو مكان وجود ملفات السجل في حاسوبهم. </para>
+
+			<para
+>لكنه صُمّم أيضًا للمستخدمين المتقدمين الذين يرغبون في رؤية المشكلات التي تحدث على خادمهم بسرعة. يحاول سجلّات نظامك توفير بعض الميزات المتقدمة للسماح بفرز وقراءة السجلات من برامج محددة. </para>
+
+			<screenshot>
+				<screeninfo
+>الشاشة الرئيسة لـ سجلّات نظامك</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="main-screen.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>الشاشة الرئيسة لـ سجلّات نظامك</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+
+		</sect2>
+
+		<sect2>
+			<title
+>الميزات</title>
+
+			<para
+>في نسخته الحالية، سجلّات نظامك 0.4، يحتوي على عدد لا بأس به من الميزات المفيدة، مثل: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>دعم لأنواع عديدة من ملفات السجل المختلفة، مع دعم تنسيق خادم Syslog، وسامبا</simpara
+></listitem>
+				<listitem
+><simpara
+>عرض مبوب لعرض عدة سجلات في نفس الوقت</simpara
+></listitem>
+				<listitem
+><simpara
+>قراءة وضع سجل واحد من مصادر متعددة</simpara
+></listitem>
+				<listitem
+><simpara
+>عرض تلقائي للأسطر المسجلة حديثًا بخط عريض</simpara
+></listitem>
+				<listitem
+><simpara
+>تجميع بمعايير مختلفة (مستوى السجل، ملف السجل، العملية، الساعة، ...)</simpara
+></listitem>
+				<listitem
+><simpara
+>معلومات مفصلة عن كل سطر من الأسطر</simpara
+></listitem>
+				<listitem
+><simpara
+>إضافة إدخال سجل يدويًا</simpara
+></listitem>
+				<listitem
+><simpara
+>تصفية حسب الأولوية</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>يدعم ملفات السجل التالية من نظامك: </para>
+
+			<itemizedlist>
+				<listitem
+><simpara
+>سجلات Syslog (رسائل النظام)</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات X.org</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات النواة</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات الاستيثاق</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات ACPID</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Cups</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Postfix</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Apache</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Samba</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلّات الخدمات</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Cron</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات XSessions</simpara
+></listitem>
+				<listitem
+><simpara
+>سجلات Systemd / Journald</simpara
+></listitem>
+			</itemizedlist>
+
+			<para
+>تتضمن العديد من الميزات الأخرى التي ستُناقش في الفصول المناسبة من هذا الدليل. </para>
+
+		</sect2>
+
+	</sect1>
+
+
+	<sect1 id="reading">
+		<title
+>قراءة السجلات مع سجلّات نظامك</title>
+
+		<para
+>كما سترى في لقطات الشاشة التالية، يوفر سجلّات نظامك ميزات لفرز وتصفية أسطر السجلات بسهولة. سنصفها الآن في الأجزاء التالية من هذه الوثائق. </para>
+
+		<sect2 id="getting_started">
+			<title
+>البدء</title>
+
+			<para
+>عند تشغيل سجلّات نظامك، يحاول مبدئيًا فتح السجل الأكثر فائدة، وهو <guilabel
+>سجل النظام</guilabel
+>. إذا لم يعرضه وأظهر مربع رسالة، فربما نسيت تشغيل سجلّات نظامك كمستخدم إداري (يُسمى عادة root). تتوفر ملفات السجلات عادة في المجلد /var/log، الذي غالبًا ما يكون محميًا ضد المستخدمين العاديين. في حوار الإعدادات، يمكنك اختيار سجل آخر لفتحه عند بدء التشغيل. </para>
+
+			<screenshot>
+				<screeninfo
+>الإطلاق الأول لـ سجلّات نظامك</screeninfo>
+				<mediaobject>
+					<imageobject>
+					<imagedata fileref="first-opening.png" format="PNG"/>
+					</imageobject>
+					<textobject>
+					<phrase
+>الإطلاق الأول لـ سجلّات نظامك</phrase>
+					</textobject>
+				</mediaobject>
+			</screenshot>
+		</sect2>
+
+		<sect2 id="easy_reading">
+			<title
+>قراءة ملفات السجلات بسهولة</title>
+
+			<sect3 id="sorting">
+				<title
+>فرز أسطر السجلات</title>
+				<para
+>تُعرض كل أسطر السجلات في عرض قائمة، يمكن فرزه بالنقر على العمود المطلوب. نقر آخر يفرزه بالترتيب المعاكس. إذا أردت فرز القائمة كما كانت عند التحميل الأول، يمكنك استخدام عنصر القائمة <menuchoice
+><guimenu
+>تحرير</guimenu
+><guimenuitem
+>إعادة تحميل</guimenuitem
+></menuchoice
+>، أو ببساطة النقر على العمود الأول من القائمة، الذي يُسمى عادة <guilabel
+>التاريخ</guilabel
+>، لفرز القائمة بترتيب تصاعدي. حتى إذا كان وضع السجل لا يستخدم الوقت لوصف كل سطر سجل، مثل <guilabel
+>سجل X.org</guilabel
+>، فستُفرز القائمة بشكل صحيح، لأن سجلّات نظامك يحتفظ بترتيب داخلي للقائمة. </para>
+			</sect3>
+
+			<sect3 id="filtering">
+				<title
+>تصفية أسطر السجلات</title>
+
+				<screenshot>
+					<screeninfo
+>تصفية بناءً على عملية محددة</screeninfo>
+					<mediaobject>
+						<imageobject>
+						<imagedata fileref="filter-process.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+						<phrase
+>تصفية بناءً على عملية محددة</phrase>
+						</textobject>
+					</mediaobject>
+				</screenshot>
+
+				<para
+>يمكنك أيضًا استخدام شريط التصفية للتصفية وفقًا للمعيار المحدد والسلسلة المكتوبة. اكتب ببساطة شيئًا في شريط التصفية، وستُعدل القائمة آليًا لعرض الأسطر التي تطابق سلسلة التصفية فقط. مبدئيًا، يختار مربع التحرير والسرد بجانب شريط التصفية <guilabel
+>الكل</guilabel
+>، مما يعني أن السطر سيُعرض فقط إذا كان أحد أعمدة السلسلة يحتوي على سلسلة التصفية. </para>
+
+				<para
+>يمكنك اختيار حقل آخر لتصفية هذا العمود فقط من القائمة. على سبيل المثال، في <guilabel
+>سجل النظام</guilabel
+>، باختيار عمود <guilabel
+>العملية</guilabel
+> وكتابة اسم عملية في شريط التصفية، سيعرض سجلّات نظامك كل أسطر السجلات المرسلة من هذه العملية. </para>
+			</sect3>
+
+		</sect2>
+
+		<sect2 id="other_features">
+			<title
+>مزايا أخرى</title>
+
+			<sect3 id="colorizing">
+				<title
+>تلوين أسطر السجلات</title>
+
+				<para
+>هذا الخيار مفعل مبدئيًا ويساعدك على رؤية الأسطر ذات المستوى الأعلى من غيرها. على سبيل المثال، سيُبرز مستوى <guilabel
+>خطأ</guilabel
+> بلون مختلف عن مستوى <guilabel
+>إشعار</guilabel
+>. يمكن تعطيل هذه الميزة في حوار الإعدادات. </para>
+
+			</sect3>
+
+			<sect3 id="hiding_pid">
+				<title
+>إخفاء معرف العملية</title>
+
+				<para
+>إذا كنت مهتمًا فقط بعملية محددة (مثلًا في <guilabel
+>سجل النظام</guilabel
+> أو <guilabel
+>سجل كرون</guilabel
+>)، يمكنك إخفاء معرف العملية الخاص بها في عمود <guilabel
+>العملية</guilabel
+>. قد يكون هذا مفيدًا إذا كنت تحاول تحليل مخرجات أمر معين، مثل خادم سامبا. في هذه الحالة، يُرجى استخدام <link linkend="filtering"
+>شريط التصفية</link
+>. </para>
+
+			</sect3>
+			<sect3 id="send_email">
+				<title
+>إرسال السجل عبر البريد الإلكتروني</title>
+				<para
+>تحتوي قائمة السياق على إجراء <guilabel
+>تحديد البريد الإلكتروني</guilabel
+>. اختر الأسطر ذات الصلة في السجل واستخدم هذا الإجراء لفتح نافذة المحرر لعميل البريد الإلكتروني المبدئي لديك معبأة مسبقًا بالتحديد. </para>
+
+			</sect3>
+		</sect2>
+	<sect2 id="monitoring_management">
+		<title
+>إدارة المراقبة</title>
+
+		<para
+>يوفر سجلّات نظامك طريقة سهلة للتحكم في قراءة ومراقبة ملفات السجلات. في الواقع، أحيانًا تحتاج فقط إلى تحليل بعض أسطر السجلات الموجودة. في هذه الحالة، لا يمكنك تحمل ظهور سطر جديد. يمكنك إلغاء تنشيط مراقبة ملفات السجلات بالنقر على الزر <guibutton
+>إيقاف</guibutton
+>. يوقف هذا تحديث ملفات السجلات المفتوحة مع السماح لها بالامتلاء من عمليات أخرى. بالطبع، يمكنك إعادة تنشيط المراقبة بالنقر على <guibutton
+>استئناف</guibutton
+>، الذي سيعرض أسطر السجلات المضافة منذ آخر إيقاف مؤقت. </para>
+
+		<para
+>علاوة على ذلك، للتركيز على أسطر السجلات الجديدة، يمكنك تبديل خيار <guimenuitem
+>التمرير إلى الأسطر الجديدة</guimenuitem
+>. </para>
+	</sect2>
+
+	<sect2 id="multiple_logs">
+		<title
+>إدارة عدة علامات تبويب مفتوحة</title>
+
+		<para
+>يسمح لك سجلّات نظامك بفتح عدة أوضاع سجل بفتح علامات تبويب متعددة. لهذا، استخدم ببساطة قائمة <guimenu
+>نافذة</guimenu
+> لإدارة وفتح علامات تبويب جديدة. بمجرد تحديد علامة التبويب الصحيحة، اختر ببساطة وضع السجل المطلوب باستخدام القائمة المخصصة. </para>
+	</sect2>
+	</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+	<title
+>الحقوق والترخيص</title>
+
+	<para
+>سجلّات نظامك</para>
+	<para
+>سجلّات نظامك، حقوق النشر 2008 لنيكولا تيرنيسيان </para>
+
+	<para
+>المساهمون:</para>
+	<itemizedlist>
+		<listitem
+><simpara
+>باتريك دريكر: أفكار، تحسينات في الكود.</simpara
+></listitem>
+		<listitem
+><simpara
+>بويان: وضع سجل SSH، الطباعة.</simpara
+></listitem>
+	</itemizedlist>
+
+	<para>
+		<emphasis
+>شكر خاص لجميع مترجمي سجلّات نظامك.</emphasis>
+	</para>
+
+	<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->
