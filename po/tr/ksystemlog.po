@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 03:01+0000\n"
-"PO-Revision-Date: 2026-11-16 18:49+0300\n"
+"PO-Revision-Date: 2026-11-18 19:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -834,7 +834,7 @@ msgstr "Cron"
 #: src/loggerDialog.cpp:96
 #, kde-format
 msgid "Daemon"
-msgstr "Ardalan Süreci"
+msgstr "Art Alan Süreci"
 
 #: src/loggerDialog.cpp:97
 #, kde-format
@@ -1189,12 +1189,12 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Seçimin Yazdırma Ön İzlemesi…"
+msgstr "&Seçimin Baskı Ön İzlemesi…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
-msgstr "Seçimin yazdırma ön izlemesi"
+msgstr "Seçimin baskı ön izlemesi"
 
 #: src/mainWindow.cpp:535
 #, kde-format
@@ -1202,7 +1202,7 @@ msgid ""
 "Prints preview the selection. Simply select the important lines and click on "
 "this menu entry to print the selection."
 msgstr ""
-"Seçimin yazdırma ön izlemesini gösterir. Yalnızca önemli satırları seçin ve "
+"Seçimin baskı ön izlemesini gösterir. Yalnızca önemli satırları seçin ve "
 "seçimi yazdırmak için bu menü girdisine tıklayın."
 
 #: src/mainWindow.cpp:541
@@ -2707,19 +2707,19 @@ msgstr ""
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
-msgstr "Ardalan Süreçlerinin Günlük Kayıtları"
+msgstr "Art Alan Süreçlerinin Günlük Kayıtları"
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
-"<p><b>Ardalan Süreçlerinin Günlüklerini</b> göstermek için bu dosyalar "
+"<p><b>Art Alan Süreçlerinin Günlüklerini</b> göstermek için bu dosyalar "
 "çözümlenecektir.</p>"
 
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
-msgstr "Ardalan süreçlerinin günlük kayıtlarını görüntüleyin."
+msgstr "Art alan süreçlerinin günlük kayıtlarını görüntüleyin."
 
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
@@ -2728,7 +2728,7 @@ msgid ""
 "launched in the background of the system. See this log if you want to know "
 "what occurs in the background of your system."
 msgstr ""
-"Geçerli sekmede ardalan süreçlerinin günlüklerini görüntüler. Ardalan "
+"Geçerli sekmede art alan süreçlerinin günlüklerini görüntüler. Art alan "
 "süreçleri, sistemin arka planında başlatılan tüm işlemlerdir. Sisteminizin "
 "arka planında neler olduğunu öğrenmek istiyorsanız bu günlüğe bakın."
 
