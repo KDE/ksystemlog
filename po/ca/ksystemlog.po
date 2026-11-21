@@ -1,16 +1,16 @@
 # Translation of ksystemlog.po to Catalan
-# Copyright (C) 2008-2025 This_file_is_part_of_KDE
+# Copyright (C) 2008-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2014, 2016-2017, 2020-2023 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2008-2017, 2020-2023, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2008-2017, 2020-2023, 2025-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:16+0000\n"
-"PO-Revision-Date: 2025-07-12 13:19+0200\n"
+"PO-Revision-Date: 2026-11-20 19:03+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -573,7 +573,7 @@ msgstr "No s'ha pogut descomprimir el fitxer"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "No teniu permisos suficients per a llegir «%1»."
+msgstr "No teniu prou permisos per a llegir «%1»."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -2106,7 +2106,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es llegeixen segons l'ordre d'aquesta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Useu el comodí <b>'*'</b> per a seleccionar "
+"gz, *.bz2...)</i>.</li><li>Useu el comodí <b>'*'</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
@@ -2409,7 +2409,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es llegeixen segons l'ordre d'aquesta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Useu el comodí <b>«*»</b> per a seleccionar "
+"gz, *.bz2...)</i>.</li><li>Useu el comodí <b>«*»</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
