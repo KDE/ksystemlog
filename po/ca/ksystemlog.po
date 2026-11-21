@@ -1,16 +1,16 @@
 # Translation of ksystemlog.po to Catalan
-# Copyright (C) 2008-2025 This_file_is_part_of_KDE
+# Copyright (C) 2008-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2014, 2016-2017, 2020-2023 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2008-2017, 2020-2023, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2008-2017, 2020-2023, 2025-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 03:01+0000\n"
-"PO-Revision-Date: 2025-07-12 13:19+0200\n"
+"POT-Creation-Date: 2026-11-21 01:14+0000\n"
+"PO-Revision-Date: 2026-11-20 19:03+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -94,8 +94,23 @@ msgstr "Si es mostra la barra de filtres o no."
 msgid "The date format of log lines."
 msgstr "El format de la data de les línies del registre."
 
+#. i18n: ectx: label, entry (SyslogDateFormat), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:68
+#, kde-format
+msgid ""
+"The timestamp format used to parse syslog style log files (System, "
+"Authentication, Daemons, Cron, Postfix...)."
+msgstr ""
+
+#. i18n: ectx: label, entry (SyslogCustomDateFormat), group (KSystemLogGeneral)
+#: src/config/ksystemlog.kcfg:79
+#, kde-format
+msgid ""
+"The QDateTime format string used when the syslog timestamp format is Custom."
+msgstr ""
+
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
-#: src/config/ksystemlog.kcfg:71
+#: src/config/ksystemlog.kcfg:87
 #, kde-format
 msgid "The Samba log file paths."
 msgstr "El camí als fitxers de registre de Samba."
@@ -143,7 +158,7 @@ msgstr ""
 #: src/detailDialogBase.ui:41 src/lib/logViewWidget.cpp:34
 #: src/loggerDialogBase.ui:33 src/modes/acpid/acpidAnalyzer.cpp:19
 #: src/modes/apache/apacheAnalyzer.cpp:20 src/modes/audit/auditAnalyzer.cpp:23
-#: src/modes/base/syslogAnalyzer.cpp:44 src/modes/cups/cupsAnalyzer.cpp:24
+#: src/modes/base/syslogAnalyzer.cpp:50 src/modes/cups/cupsAnalyzer.cpp:24
 #: src/modes/cups/cupsPdfAnalyzer.cpp:20
 #: src/modes/journald/journaldAnalyzer.cpp:23
 #: src/modes/kernel/kernelAnalyzer.cpp:22 src/modes/samba/sambaAnalyzer.cpp:23
@@ -227,19 +242,44 @@ msgstr "Tanca aquest diàleg de detall."
 msgid "&Close"
 msgstr "&Tanca"
 
-#: src/generalConfigurationWidget.cpp:30
+#: src/generalConfigurationWidget.cpp:31
 #, kde-format
 msgid "This mode is unavailable because its log files do not exist."
 msgstr ""
 "Aquest mode no està disponible perquè els seus fitxers de registre no "
 "existeixen."
 
-#: src/generalConfigurationWidget.cpp:35
+#: src/generalConfigurationWidget.cpp:36
 #, kde-format
 msgid "No Log Mode"
 msgstr "Sense mode de registre"
 
-#: src/generalConfigurationWidget.cpp:74
+#: src/generalConfigurationWidget.cpp:64
+#, fuzzy, kde-format
+#| msgid "Authentication"
+msgctxt "Syslog timestamp format"
+msgid "Automatic detection"
+msgstr "Autenticació"
+
+#: src/generalConfigurationWidget.cpp:65
+#, kde-format
+msgctxt "Syslog timestamp format (example)"
+msgid "Traditional (%1)"
+msgstr ""
+
+#: src/generalConfigurationWidget.cpp:67
+#, kde-format
+msgctxt "Syslog timestamp format (example)"
+msgid "ISO 8601 / RFC 3339 (%1)"
+msgstr ""
+
+#: src/generalConfigurationWidget.cpp:69
+#, kde-format
+msgctxt "Syslog timestamp format"
+msgid "Custom"
+msgstr ""
+
+#: src/generalConfigurationWidget.cpp:95
 #, kde-format
 msgctxt "Date format option (date example)"
 msgid "%1 (%2)"
@@ -413,6 +453,62 @@ msgstr "Format &llarg de la data"
 msgid "&Precise date format"
 msgstr "Format de la data e&xacta"
 
+#. i18n: ectx: property (title), widget (QGroupBox, syslogDateFormatGroupbox)
+#: src/generalConfigurationWidgetBase.ui:180
+#, kde-format
+msgid "Syslog Timestamp Format"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, syslogDateFormatLabel)
+#: src/generalConfigurationWidgetBase.ui:186
+#, kde-format
+msgid "&Parse timestamps as:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QComboBox, syslogDateFormat)
+#: src/generalConfigurationWidgetBase.ui:196
+#, kde-format
+msgid ""
+"The format of the timestamp at the beginning of each line of syslog style "
+"log files."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QComboBox, syslogDateFormat)
+#: src/generalConfigurationWidgetBase.ui:199
+#, kde-format
+msgid ""
+"Choose the format of the timestamp written at the beginning of each line of "
+"syslog style log files (System, Authentication, Daemons, Cron, Postfix...). "
+"<i>Automatic</i> detects ISO 8601 timestamps (such as "
+"<i>2026-10-09T23:15:00.123456+09:00</i>, the default of recent rsyslog "
+"versions) and falls back to the traditional format (such as <i>Oct  9 "
+"23:15:00</i>)."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, syslogCustomDateFormatLabel)
+#: src/generalConfigurationWidgetBase.ui:206
+#, kde-format
+msgid "C&ustom format:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, syslogCustomDateFormat)
+#: src/generalConfigurationWidgetBase.ui:216
+#, kde-format
+msgid ""
+"A Qt date format string, for example <i>yyyy-MM-dd HH:mm:ss</i> or <i>dd/MMM/"
+"yyyy:HH:mm:ss</i>."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, syslogCustomDateFormat)
+#: src/generalConfigurationWidgetBase.ui:219
+#, kde-format
+msgid ""
+"The format used when <i>Custom</i> is selected, using the QDateTime format "
+"syntax (yyyy, MM, MMM, dd, d, HH, mm, ss, zzz, t...). The timestamp is made "
+"of as many space separated words as this format. If the format has no year, "
+"the current year is used."
+msgstr ""
+
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
 #, kde-format
@@ -573,7 +669,7 @@ msgstr "No s'ha pogut descomprimir el fitxer"
 #: src/lib/localLogFileReader.cpp:142
 #, kde-format
 msgid "You do not have sufficient permissions to read '%1'."
-msgstr "No teniu permisos suficients per a llegir «%1»."
+msgstr "No teniu prou permisos per a llegir «%1»."
 
 #: src/lib/localLogFileReader.cpp:143
 #, kde-format
@@ -796,7 +892,7 @@ msgstr "Ressalta-&ho tot"
 #: src/lib/logViewWidget.cpp:34 src/modes/acpid/acpidAnalyzer.cpp:17
 #: src/modes/apache/apacheAccessAnalyzer.cpp:18
 #: src/modes/apache/apacheAnalyzer.cpp:18 src/modes/audit/auditAnalyzer.cpp:22
-#: src/modes/base/syslogAnalyzer.cpp:41 src/modes/cron/cronAnalyzer.cpp:12
+#: src/modes/base/syslogAnalyzer.cpp:47 src/modes/cron/cronAnalyzer.cpp:12
 #: src/modes/cups/cupsAccessAnalyzer.cpp:19 src/modes/cups/cupsAnalyzer.cpp:23
 #: src/modes/cups/cupsPageAnalyzer.cpp:19 src/modes/cups/cupsPdfAnalyzer.cpp:19
 #: src/modes/journald/journaldAnalyzer.cpp:21
@@ -2106,7 +2202,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es llegeixen segons l'ordre d'aquesta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Useu el comodí <b>'*'</b> per a seleccionar "
+"gz, *.bz2...)</i>.</li><li>Useu el comodí <b>'*'</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, fileList)
@@ -2409,7 +2505,7 @@ msgstr ""
 "<p style='margin-top:0px;margin-bottom:0px;'><b>Notes:</b></p><ul "
 "style='margin-top:0px'><li>Els fitxers es llegeixen segons l'ordre d'aquesta "
 "llista.</li><li>S'accepten els fitxers comprimits i els de text <i>(*.log, *."
-"gz, *.bz2,...)</i>.</li><li>Useu el comodí <b>«*»</b> per a seleccionar "
+"gz, *.bz2...)</i>.</li><li>Useu el comodí <b>«*»</b> per a seleccionar "
 "múltiples fitxers de registre quan afegiu fitxers.</li></ul>"
 
 #: src/modes/base/parsingHelper.cpp:156
@@ -2418,13 +2514,13 @@ msgctxt "HttpResponseNumber HttpResponseDescription"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: src/modes/base/syslogAnalyzer.cpp:42 src/modes/cron/cronAnalyzer.cpp:13
+#: src/modes/base/syslogAnalyzer.cpp:48 src/modes/cron/cronAnalyzer.cpp:13
 #: src/modes/cups/cupsAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Host"
 msgstr "Màquina"
 
-#: src/modes/base/syslogAnalyzer.cpp:43 src/modes/cron/cronAnalyzer.cpp:14
+#: src/modes/base/syslogAnalyzer.cpp:49 src/modes/cron/cronAnalyzer.cpp:14
 #, kde-format
 msgid "Process"
 msgstr "Procés"
