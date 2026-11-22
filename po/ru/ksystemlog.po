@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:14+0000\n"
-"PO-Revision-Date: 2026-10-04 10:09+0200\n"
+"PO-Revision-Date: 2026-11-21 07:52+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -109,6 +109,8 @@ msgid ""
 "The timestamp format used to parse syslog style log files (System, "
 "Authentication, Daemons, Cron, Postfix...)."
 msgstr ""
+"Формат меток времени, используемый для разбора файлов журналов в стиле "
+"syslog (системных, идентификации, служб, Cron, Postfix…)."
 
 #. i18n: ectx: label, entry (SyslogCustomDateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:79
@@ -116,6 +118,8 @@ msgstr ""
 msgid ""
 "The QDateTime format string used when the syslog timestamp format is Custom."
 msgstr ""
+"Строка формата QDateTime, используемая при выборе пользовательского формата "
+"меток времени syslog."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:87
@@ -259,29 +263,28 @@ msgid "No Log Mode"
 msgstr "Режим без журнала"
 
 #: src/generalConfigurationWidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Automatic detection"
-msgstr "Идентификация"
+msgstr "Автоматическое определение"
 
 #: src/generalConfigurationWidget.cpp:65
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "Traditional (%1)"
-msgstr ""
+msgstr "Традиционный (%1)"
 
 #: src/generalConfigurationWidget.cpp:67
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "ISO 8601 / RFC 3339 (%1)"
-msgstr ""
+msgstr "ISO 8601 / RFC 3339 (%1)"
 
 #: src/generalConfigurationWidget.cpp:69
 #, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Custom"
-msgstr ""
+msgstr "Пользовательский"
 
 #: src/generalConfigurationWidget.cpp:95
 #, kde-format
@@ -459,13 +462,13 @@ msgstr "&Точный формат даты"
 #: src/generalConfigurationWidgetBase.ui:180
 #, kde-format
 msgid "Syslog Timestamp Format"
-msgstr ""
+msgstr "Формат меток времени syslog"
 
 #. i18n: ectx: property (text), widget (QLabel, syslogDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:186
 #, kde-format
 msgid "&Parse timestamps as:"
-msgstr ""
+msgstr "&Разбирать метки времени как:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:196
@@ -474,6 +477,7 @@ msgid ""
 "The format of the timestamp at the beginning of each line of syslog style "
 "log files."
 msgstr ""
+"Формат метки времени в начале каждой строки файла журнала в стиле syslog."
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:199
@@ -486,12 +490,18 @@ msgid ""
 "versions) and falls back to the traditional format (such as <i>Oct  9 "
 "23:15:00</i>)."
 msgstr ""
+"Выберите формат метки времени, записываемой в начале каждой строки файлов "
+"журналов в стиле syslog (системных, идентификации, служб, Cron, Postfix…). "
+"<i>Автоматическое определение</i> распознаёт метки времени ISO 8601 "
+"(например, <i>2026-10-09T23:15:00.123456+09:00</i>, используемые по "
+"умолчанию в последних версиях rsyslog) и при необходимости переключается на "
+"традиционный формат (например, <i>Oct  9 23:15:00</i>)."
 
 #. i18n: ectx: property (text), widget (QLabel, syslogCustomDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:206
 #, kde-format
 msgid "C&ustom format:"
-msgstr ""
+msgstr "По&льзовательский формат:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:216
@@ -500,6 +510,8 @@ msgid ""
 "A Qt date format string, for example <i>yyyy-MM-dd HH:mm:ss</i> or <i>dd/MMM/"
 "yyyy:HH:mm:ss</i>."
 msgstr ""
+"Строка формата даты Qt, например <i>yyyy-MM-dd HH:mm:ss</i> или <i>dd/MMM/"
+"yyyy:HH:mm:ss</i>."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:219
@@ -510,6 +522,10 @@ msgid ""
 "of as many space separated words as this format. If the format has no year, "
 "the current year is used."
 msgstr ""
+"Формат, используемый при выборе варианта <i>Пользовательский</i>, с "
+"синтаксисом QDateTime (yyyy, MM, MMM, dd, d, HH, mm, ss, zzz, t…). Метка "
+"времени состоит из стольких разделённых пробелами слов, сколько задано этим "
+"форматом. Если год в формате не указан, используется текущий год."
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -1304,12 +1320,12 @@ msgstr ""
 #: src/mainWindow.cpp:532
 #, kde-format
 msgid "&Print Preview Selection..."
-msgstr "&Предпросмотр печати выбранного..."
+msgstr "&Предварительный просмотр печати выбранного…"
 
 #: src/mainWindow.cpp:533
 #, kde-format
 msgid "Print preview the selection"
-msgstr "Предварительный просмотре печати выбранных строк"
+msgstr "Предварительный просмотр печати выбранных строк"
 
 #: src/mainWindow.cpp:535
 #, kde-format
@@ -1318,7 +1334,7 @@ msgid ""
 "this menu entry to print the selection."
 msgstr ""
 "Открывает окно предварительного просмотра печати выбранных строк. Выберите "
-"нужныестроки журнала и нажмите на этот пункт меню."
+"нужные строки журнала и нажмите на этот пункт меню."
 
 #: src/mainWindow.cpp:541
 #, kde-format

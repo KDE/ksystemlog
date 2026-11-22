@@ -1,22 +1,22 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the ksystemlog package.
 #
-# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:14+0000\n"
-"PO-Revision-Date: 2025-10-05 11:36+0300\n"
+"PO-Revision-Date: 2026-11-21 08:07+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -242,29 +242,28 @@ msgid "No Log Mode"
 msgstr "ללא מצב יומן"
 
 #: src/generalConfigurationWidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Automatic detection"
-msgstr "אימות"
+msgstr "זיהוי אוטומטי"
 
 #: src/generalConfigurationWidget.cpp:65
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "Traditional (%1)"
-msgstr ""
+msgstr "מסורתית (%1)"
 
 #: src/generalConfigurationWidget.cpp:67
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "ISO 8601 / RFC 3339 (%1)"
-msgstr ""
+msgstr "ISO 8601 / RFC 3339 (%1)"
 
 #: src/generalConfigurationWidget.cpp:69
 #, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Custom"
-msgstr ""
+msgstr "מותאמת אישית"
 
 #: src/generalConfigurationWidget.cpp:95
 #, kde-format
@@ -434,13 +433,13 @@ msgstr "תבנית תאריך מ&דויק"
 #: src/generalConfigurationWidgetBase.ui:180
 #, kde-format
 msgid "Syslog Timestamp Format"
-msgstr ""
+msgstr "תבנית חותמת זמן של Syslog"
 
 #. i18n: ectx: property (text), widget (QLabel, syslogDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:186
 #, kde-format
 msgid "&Parse timestamps as:"
-msgstr ""
+msgstr "&פיענוח חותמות זמן בתור:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:196
@@ -475,6 +474,8 @@ msgid ""
 "A Qt date format string, for example <i>yyyy-MM-dd HH:mm:ss</i> or <i>dd/MMM/"
 "yyyy:HH:mm:ss</i>."
 msgstr ""
+"מחרוזת תבנית תאריך של Qtף למשל <i>yyyy-MM-dd HH:mm:ss</i> או <i>dd/MMM/yyyy:"
+"HH:mm:ss</i>."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:219
