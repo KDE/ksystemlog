@@ -3,27 +3,29 @@
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007.
 # Yasen Pramatarov <yasen@lindeas.com>, 2011.
-# SPDX-FileCopyrightText: 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2023-2024, 2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:14+0000\n"
-"PO-Revision-Date: 2024-11-10 20:12+0100\n"
+"PO-Revision-Date: 2026-11-22 13:13+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.11.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 26.08.3\n"
 
+# [проверка] правопис: Кондарев
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Минчо Кондарев"
 
+# [проверка] граматика: ГРЕШКА: Липсва съгласуване по род и число.
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -41,6 +43,8 @@ msgstr "Зареждане на този журнален режим при ст
 msgid "The log view line count limit."
 msgstr "Ограничението за броя на редовете в дневника."
 
+# [проверка] граматика: ГРЕШКА: "потребителят" трябва да е "потребителят"
+# (пълен член).
 #. i18n: ectx: label, entry (DeleteDuplicatedLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:23
 #, kde-format
@@ -49,6 +53,8 @@ msgstr ""
 "Опцията е вярна, ако потребителят иска да изтрие повтарящите се редове на "
 "дневника."
 
+# [проверка] граматика: ГРЕШКА: "вярна" не се съгласува с "опцията" (ж.р.),
+# трябва "истинска".
 #. i18n: ectx: label, entry (DeleteProcessIdentifier), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:28
 #, kde-format
@@ -59,6 +65,8 @@ msgstr ""
 "Опцията е вярна, ако PID в колоната за процес на SystemLog трябва да бъде "
 "пропуснат."
 
+# [проверка] граматика: ГРЕШКА: "вярна" не е подходящо съгласуване с "опция" -
+# трябва "истинска" или "активна".
 #. i18n: ectx: label, entry (ColorizeLogLines), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:33
 #, kde-format
@@ -93,6 +101,9 @@ msgstr "Дали се показва лентата на филтъра."
 msgid "The date format of log lines."
 msgstr "Форматът на датата на редовете на дневника."
 
+# [проверка] граматика: ГРЕШКА: "отпечатъка" е грешно, трябва да е
+# "отпечатъка"
+# (винителен падеж).
 #. i18n: ectx: label, entry (SyslogDateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:68
 #, kde-format
@@ -100,13 +111,18 @@ msgid ""
 "The timestamp format used to parse syslog style log files (System, "
 "Authentication, Daemons, Cron, Postfix...)."
 msgstr ""
+"Форматът на отпечатъка на времето, използван за анализиране на файлове с "
+"дневник в стил syslog (System, Authentication, Daemons, Cron, Postfix...)."
 
+# [проверка] правопис: Стрингът
 #. i18n: ectx: label, entry (SyslogCustomDateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:79
 #, kde-format
 msgid ""
 "The QDateTime format string used when the syslog timestamp format is Custom."
 msgstr ""
+"Форматен низ на QDateTime, използван, когато форматът на времевия stamps на "
+"syslog е „Персонализиран“."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:87
@@ -245,35 +261,35 @@ msgid "This mode is unavailable because its log files do not exist."
 msgstr ""
 "Този режим е недостъпен, тъй като не съществуват неговите журнални файлове."
 
+# [проверка] правопис: лог
 #: src/generalConfigurationWidget.cpp:36
 #, kde-format
 msgid "No Log Mode"
 msgstr "Няма режим на лог"
 
 #: src/generalConfigurationWidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Automatic detection"
-msgstr "Удостоверяване"
+msgstr "Автоматично разпознаване"
 
 #: src/generalConfigurationWidget.cpp:65
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "Traditional (%1)"
-msgstr ""
+msgstr "Традиционен (%1)"
 
 #: src/generalConfigurationWidget.cpp:67
 #, kde-format
 msgctxt "Syslog timestamp format (example)"
 msgid "ISO 8601 / RFC 3339 (%1)"
-msgstr ""
+msgstr "ISO 8601 / RFC 3339 (%1)"
 
 #: src/generalConfigurationWidget.cpp:69
 #, kde-format
 msgctxt "Syslog timestamp format"
 msgid "Custom"
-msgstr ""
+msgstr "Персонализиран"
 
 #: src/generalConfigurationWidget.cpp:95
 #, kde-format
@@ -309,6 +325,7 @@ msgstr ""
 "Режимът на дневника, който се зарежда по подразбиране при стартиране. "
 "Изберете \"Без режим на дневника\", ако не искате това да се случва."
 
+# [проверка] правопис: логове
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
 #: src/generalConfigurationWidgetBase.ui:51
 #, kde-format
@@ -321,12 +338,18 @@ msgstr "Списък с логове"
 msgid "&Maximum lines displayed:"
 msgstr "&Максимално показвани редове:"
 
+# [проверка] правопис: логове | граматика: ГРЕШКА: съгласуване по род и число
+# -
+# "максималният" трябва да е "максималния"
 #. i18n: ectx: property (toolTip), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:75
 #, kde-format
 msgid "Choose here the maximum number of log lines displayed in the main view."
 msgstr "Тук изберете максималният брой редове за логове, който да се показва."
 
+# [проверка] правопис: логове | граматика: ГРЕШКА: съгласуване по род и число
+# -
+# "максималният" трябва да е "максималния"
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, maxLines)
 #: src/generalConfigurationWidgetBase.ui:78
 #, kde-format
@@ -337,6 +360,7 @@ msgstr ""
 "Тук можете да изберете максималният брой редове за логове, който да се "
 "показва."
 
+# [проверка] правопис: логове
 #. i18n: ectx: property (toolTip), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:96
 #, kde-format
@@ -347,6 +371,7 @@ msgstr ""
 "Изберете тази опция ако искате да изтриете дублираните логове <b>(може да е "
 "бавно)</b>."
 
+# [проверка] правопис: логове
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:99
 #, kde-format
@@ -357,6 +382,8 @@ msgstr ""
 "Можете да изберете тази опция, ако искате да изтриете дублираните логове. "
 "<b>Опцията може да забави четенето</b>."
 
+# [проверка] правопис: логове | граматика: ГРЕШКА: "маже" е правописна грешка,
+# правилно е "може".
 #. i18n: ectx: property (text), widget (QCheckBox, deleteDuplicatedLines)
 #: src/generalConfigurationWidgetBase.ui:102
 #, kde-format
@@ -396,6 +423,7 @@ msgstr ""
 msgid "Remove &identifier from process name"
 msgstr "Изтриване идентификатора от името на процеса"
 
+# [проверка] правопис: логовете
 #. i18n: ectx: property (toolTip), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:131
 #, kde-format
@@ -404,6 +432,8 @@ msgid ""
 msgstr ""
 "Тази опция позволява оцветяването на логовете в зависимост от тяхното ниво."
 
+# [проверка] правопис: логовете | граматика: ГРЕШКА: "грешката" и
+# "предупреждението" трябва да са в множествено число.
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, colorizeLogLines)
 #: src/generalConfigurationWidgetBase.ui:134
 #, kde-format
@@ -450,13 +480,13 @@ msgstr "&Прецизен формат на датата"
 #: src/generalConfigurationWidgetBase.ui:180
 #, kde-format
 msgid "Syslog Timestamp Format"
-msgstr ""
+msgstr "Формат на времевия печат на syslog"
 
 #. i18n: ectx: property (text), widget (QLabel, syslogDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:186
 #, kde-format
 msgid "&Parse timestamps as:"
-msgstr ""
+msgstr "&Анализиране на времевите отметки като:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:196
@@ -465,7 +495,10 @@ msgid ""
 "The format of the timestamp at the beginning of each line of syslog style "
 "log files."
 msgstr ""
+"Форматът на времевия печат в началото на всеки ред на лог файлове в стил "
+"syslog."
 
+# [проверка] правопис: Окт, автентификация
 #. i18n: ectx: property (whatsThis), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:199
 #, kde-format
@@ -477,13 +510,19 @@ msgid ""
 "versions) and falls back to the traditional format (such as <i>Oct  9 "
 "23:15:00</i>)."
 msgstr ""
+"Избор на формат на времевия печат в началото на всеки ред на лог файлове в "
+"стил syslog (System, Authentication, Daemons, Cron, Postfix...). "
+"<i>Автоматично</i> разпознава времевия печати в стандарт ISO 8601 (като "
+"<i>2026-10-09T23:15:00.123456+09:00</i>, стандартен за новите версии на "
+"rsyslog) и превключва към традиционния формат (като <i>Oct  9 23:15:00</i>)."
 
 #. i18n: ectx: property (text), widget (QLabel, syslogCustomDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:206
 #, kde-format
 msgid "C&ustom format:"
-msgstr ""
+msgstr "&Персонализиран формат:"
 
+# [проверка] правопис: Стринг
 #. i18n: ectx: property (toolTip), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:216
 #, kde-format
@@ -491,7 +530,10 @@ msgid ""
 "A Qt date format string, for example <i>yyyy-MM-dd HH:mm:ss</i> or <i>dd/MMM/"
 "yyyy:HH:mm:ss</i>."
 msgstr ""
+"Низ за формат на дата в Qt, например <i>yyyy-MM-dd HH:mm:ss</i> или <i>dd/"
+"MMM/yyyy:HH:mm:ss</i>."
 
+# [проверка] правопис: Времевиот
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:219
 #, kde-format
@@ -501,6 +543,11 @@ msgid ""
 "of as many space separated words as this format. If the format has no year, "
 "the current year is used."
 msgstr ""
+"Форматът, използван, когато е избран <i>Персонализиран</i>, използва "
+"синтаксиса на формата QDateTime (yyyy, MM, MMM, dd, d, HH, mm, ss, zzz, "
+"t...). Времевият печат се състои от толкова думи, разделени с интервал, "
+"колкото има в този формат. Ако форматът няма година, се използва текущата "
+"година."
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
@@ -520,6 +567,7 @@ msgstr "Журнали"
 msgid "&Window"
 msgstr "&Прозорец"
 
+# [проверка] правопис: логове
 #. i18n: ectx: ToolBar (logToolBar)
 #: src/ksystemlogui.rc:53
 #, kde-format
@@ -597,6 +645,7 @@ msgstr "Спешно"
 msgid "Log Level Printing"
 msgstr "Отпечатване на ниво на дневника"
 
+# [проверка] правопис: логове
 #: src/lib/levelPrintPage.cpp:32
 #, kde-format
 msgid "Choose which log levels you wish to print in color."
@@ -739,6 +788,7 @@ msgstr "Оригинален файл:"
 msgid "Here are my logs:\n"
 msgstr "Ето моите дневници:\n"
 
+# [проверка] граматика: Разбрано.
 #: src/lib/logViewExport.cpp:45 src/lib/logViewExport.cpp:59
 #, kde-format
 msgid "---------------------------------------\n"
@@ -757,16 +807,20 @@ msgstr ""
 msgid "Too Many Lines Selected"
 msgstr "Избрани са твърде много редове"
 
+# [проверка] граматика: ГРЕШКА: "Редове" е мн.ч., а "дневника" е ед.ч.
 #: src/lib/logViewExport.cpp:67
 #, kde-format
 msgid "Log Lines of my problem"
 msgstr "Редове на дневника на моя проблем"
 
+# [проверка] правопис: клипборда
 #: src/lib/logViewExport.cpp:191
 #, kde-format
 msgid "No items selected. Nothing copied to clipboard."
 msgstr "Няма избрани елементи. Нищо не е копирано в клипборда."
 
+# [проверка] правопис: клипборда | граматика: ГРЕШКА: съгласуване по число -
+# трябва да е „реда от дневника са копирани“
 #: src/lib/logViewExport.cpp:197
 #, kde-format
 msgid "1 log line copied to clipboard."
@@ -781,11 +835,15 @@ msgstr ""
 "Няма избрани елементи. Моля, изберете елементите, за да можете да ги "
 "запазите."
 
+# [проверка] граматика: ГРЕШКА: "записи в дневника" е излишно, трябва
+# "Записване на избрани записи в..."
 #: src/lib/logViewExport.cpp:215
 #, kde-format
 msgid "Save selected log entries to..."
 msgstr "Записване на избрани записи в дневника в..."
 
+# [проверка] граматика: ГРЕШКА: съгласуване по число – „реда“ трябва да е
+# „редове“
 #: src/lib/logViewExport.cpp:242
 #, kde-format
 msgid "1 log line saved to '%2'."
@@ -825,6 +883,8 @@ msgstr "Въведете тук вашето търсене..."
 msgid "Filter:"
 msgstr "Филтър:"
 
+# [проверка] граматика: ГРЕШКА: Несъответствие между оригинал и превод –
+# „priorities“ не означава „свойства“.
 #: src/lib/logViewFilterWidget.cpp:123
 #, kde-format
 msgid "Select priorities"
@@ -960,6 +1020,7 @@ msgstr "Поща"
 msgid "News"
 msgstr "Новини"
 
+# [проверка] правопис: лог
 #: src/loggerDialog.cpp:102
 #, kde-format
 msgid "Syslog"
@@ -1024,6 +1085,8 @@ msgstr ""
 msgid "Command not found"
 msgstr "Командата не е инсталирана"
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване на прилагателното с
+# подлога.
 #: src/loggerDialog.cpp:230
 #, kde-format
 msgid "The 'logger' command has not been properly exited."
@@ -1127,6 +1190,7 @@ msgstr "От&каз"
 msgid "KSystemLog"
 msgstr "KSystemLog"
 
+# [проверка] правопис: логове
 #: src/main.cpp:26
 #, kde-format
 msgid "System Logs Viewer by KDE"
@@ -1207,16 +1271,20 @@ msgid_plural "%1 lines / %2 total."
 msgstr[0] "1 ред / %2 общо."
 msgstr[1] "%1 реда / %2 общо."
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване по род и число.
 #: src/mainWindow.cpp:332
 #, kde-format
 msgid "Resu&me"
 msgstr "&Продължаване"
 
+# [проверка] правопис: лог
 #: src/mainWindow.cpp:334
 #, kde-format
 msgid "Resume the watching of the current log"
 msgstr "Продължение на наблюдението на текущия лог"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: "потребителят" трябва да е
+# "потребителя" (винителен падеж).
 #: src/mainWindow.cpp:336
 #, kde-format
 msgid ""
@@ -1231,11 +1299,15 @@ msgstr ""
 msgid "S&top"
 msgstr "&Спиране"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Неправилно съгласуване по
+# число
+# – „наблюдението“ е в единствено число, а „лог“ е в единствено число.
 #: src/mainWindow.cpp:343
 #, kde-format
 msgid "Pause the watching of the current log"
 msgstr "Пауза на наблюдението на текущия лог"
 
+# [проверка] правопис: лог
 #: src/mainWindow.cpp:345
 #, kde-format
 msgid ""
@@ -1258,6 +1330,7 @@ msgstr "Празен журнал "
 msgid "Open a file in KSystemLog"
 msgstr "Отваряне на файл в KSystemLog"
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:521
 #, kde-format
 msgid "Opens a file in KSystemLog and displays its content in the current tab."
@@ -1302,11 +1375,14 @@ msgstr ""
 "Отпечатва маркираното. Просто маркирайте важните редове и натиснете тук, за "
 "да отпечатате."
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване по число – „запис“ е
+# м.р., а „избраното“ е ср.р.
 #: src/mainWindow.cpp:541
 #, kde-format
 msgid "Save the selection to a file"
 msgstr "Запис на избраното във файл"
 
+# [проверка] правопис: лог
 #: src/mainWindow.cpp:543
 #, kde-format
 msgid ""
@@ -1359,6 +1435,8 @@ msgstr ""
 "Това действие отваря всички главни категории. Това е включено само ако "
 "опцията е била избрана в менюто <b>Групиране по</b>."
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване по род и число –
+# „Свиване“ е среден род, а „всички“ е множествено число.
 #: src/mainWindow.cpp:569
 #, kde-format
 msgid "Col&lapse All"
@@ -1388,6 +1466,7 @@ msgstr "Изпращане на избраното по &е-поща..."
 msgid "Send the selection by mail"
 msgstr "Изпращане на избраното по е-поща"
 
+# [проверка] граматика: ГРЕШКА: "го" е в грешен род и число; трябва да е "ги".
 #: src/mainWindow.cpp:582
 #, kde-format
 msgid ""
@@ -1398,16 +1477,20 @@ msgstr ""
 "натиснете командата в менюто, за да го изпратите на приятел или на пощенски "
 "списък."
 
+# [проверка] правопис: лог
 #: src/mainWindow.cpp:588
 #, kde-format
 msgid "&Add Log Entry..."
 msgstr "&Добавяне на лог..."
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Несъгласуване по род и число –
+# „лог“ е м.р., трябва „лог запис“ или „лог съобщение“.
 #: src/mainWindow.cpp:591
 #, kde-format
 msgid "Add a log entry to the log system"
 msgstr "Добавяне на лог в системата"
 
+# [проверка] правопис: логове
 #: src/mainWindow.cpp:592
 #, kde-format
 msgid ""
@@ -1417,11 +1500,15 @@ msgstr ""
 "Това действие ще отвори прозорец, който ви позволява да изпратите съобщение "
 "до системата за логове."
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Несъгласуване по число -
+# "Маркиране" е в единствено число, а "редове" е в множествено.
 #: src/mainWindow.cpp:596
 #, kde-format
 msgid "Select all lines of the current log"
 msgstr "Маркиране всички редове в текущия лог"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: липсва запетая след "ако" и
+# "съдържание" е в неправилна форма.
 #: src/mainWindow.cpp:598
 #, kde-format
 msgid ""
@@ -1436,91 +1523,119 @@ msgstr ""
 msgid "Show &Filter Bar"
 msgstr "Показване на лентата на &филтъра"
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:615
 #, kde-format
 msgid "&New Tab"
 msgstr "&Нов подпрозорец"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: „подпрозорец“ не е
+# правилен превод на „tab“ в този контекст.
 #: src/mainWindow.cpp:617 src/tabLogViewsWidget.cpp:32
 #, kde-format
 msgid "Create a new tab"
 msgstr "Създаване на нов подпрозорец"
 
+# [проверка] правопис: лог, подпрозорец
 #: src/mainWindow.cpp:618 src/tabLogViewsWidget.cpp:33
 #, kde-format
 msgid "Creates a new tab which can display another log."
 msgstr "Създава нов подпрозорец, където може да се види друг лог."
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:623
 #, kde-format
 msgid "&Close Tab"
 msgstr "&Затваряне на подпрозорец"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: Несъгласуване по род и
+# число – „текущия“ трябва да е „текущия“.
 #: src/mainWindow.cpp:625 src/tabLogViewsWidget.cpp:38
 #, kde-format
 msgid "Close the current tab"
 msgstr "Затваряне на текущия подпрозорец"
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:626 src/tabLogViewsWidget.cpp:39
 #, kde-format
 msgid "Closes the current tab."
 msgstr "Затваря текущия подпрозорец."
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:631
 #, kde-format
 msgid "&Duplicate Tab"
 msgstr "&Дублиране на подпрозорец"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: „подпрозорец“ е дума
+# от
+# руски произход, по-добре „раздел“ или „етикет“
 #: src/mainWindow.cpp:633
 #, kde-format
 msgid "Duplicate the current tab"
 msgstr "Дублиране на текущия подпрозорец"
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:634
 #, kde-format
 msgid "Duplicates the current tab."
 msgstr "Дублира текущия подпрозорец."
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:643
 #, kde-format
 msgid "Move Tab &Left"
 msgstr "Преместване на подпрозорец &наляво"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: Несъгласуване по род и
+# число – „подпрозорец“ е м.р., а „преместване“ е ср.р.
 #: src/mainWindow.cpp:645
 #, kde-format
 msgid "Move the current tab to the left"
 msgstr "Преместване на подпрозорец наляво"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: „подпрозорец“ не е
+# правилен превод на „tab“ в този контекст.
 #: src/mainWindow.cpp:646
 #, kde-format
 msgid "Moves the current tab to the left."
 msgstr "Премества текущия подпрозорец наляво."
 
+# [проверка] правопис: подпрозорец
 #: src/mainWindow.cpp:651
 #, kde-format
 msgid "Move Tab &Right"
 msgstr "Преместване на подпрозорец на&дясно"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: Несъгласуване по род и
+# число – „подпрозорец“ е м.р., а „преместване“ е ср.р.
 #: src/mainWindow.cpp:653
 #, kde-format
 msgid "Move the current tab to the right"
 msgstr "Преместване на подпрозорец надясно"
 
+# [проверка] правопис: подпрозорец | граматика: ГРЕШКА: „подпрозорец“ е грешен
+# термин; трябва да е „раздел“ или „етикет“.
 #: src/mainWindow.cpp:654
 #, kde-format
 msgid "Moves the current tab to the right."
 msgstr "Премества текущия подпрозорец надясно."
 
+# [проверка] граматика: ГРЕШКА: Несъгласуване по род – „Презареждане“ е среден
+# род, а „&Reload“ е в мъжки род.
 #: src/mainWindow.cpp:659
 #, kde-format
 msgid "&Reload"
 msgstr "Презаре&ждане"
 
+# [проверка] правопис: лог
 #: src/mainWindow.cpp:661
 #, kde-format
 msgid "Reload the current log"
 msgstr "Презареждане на текущия лог"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: "има правилно обновяване" е
+# неправилно съгласуване.
 #: src/mainWindow.cpp:662
 #, kde-format
 msgid ""
@@ -1540,6 +1655,7 @@ msgstr "&Подробности"
 msgid "Display details on the selected line"
 msgstr "Показва подробности за текущо маркирания ред"
 
+# [проверка] правопис: логовете
 #: src/mainWindow.cpp:676
 #, kde-format
 msgid ""
@@ -1560,6 +1676,7 @@ msgstr "&Включване на подробни подсказки"
 msgid "Disable/Enable the tooltip on the current view"
 msgstr "Включване/Изключване на подсказките за текущия изглед"
 
+# [проверка] правопис: лога
 #: src/mainWindow.cpp:684
 #, kde-format
 msgid ""
@@ -1573,11 +1690,14 @@ msgstr ""
 msgid "&Scroll to New Lines"
 msgstr "&Прелистване до новите редове"
 
+# [проверка] правопис: лога
 #: src/mainWindow.cpp:691
 #, kde-format
 msgid "Scrolls or not to the new lines when the log changes"
 msgstr "Показване на нови редове при промяна на лога"
 
+# [проверка] граматика: ГРЕШКА: "превърта" е в м.р., а "дневникът" е в м.р.
+# ед.ч., трябва да е "превърта ли".
 #: src/mainWindow.cpp:693
 #, kde-format
 msgid ""
@@ -1604,11 +1724,13 @@ msgstr "Други"
 msgid "Type"
 msgstr "Вид"
 
+# [проверка] правопис: лог
 #: src/modes/acpid/acpidConfigurationWidget.cpp:11
 #, kde-format
 msgid "Acpid Log"
 msgstr "Acpid лог"
 
+# [проверка] правопис: лог
 #: src/modes/acpid/acpidConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Acpid log</b>.</p>"
@@ -1621,16 +1743,19 @@ msgstr ""
 msgid "Type:"
 msgstr "Вид:"
 
+# [проверка] правопис: лог
 #: src/modes/acpid/acpidLogMode.cpp:19
 #, kde-format
 msgid "ACPI Log"
 msgstr "ACPI лог"
 
+# [проверка] правопис: лог
 #: src/modes/acpid/acpidLogMode.cpp:28
 #, kde-format
 msgid "Display the ACPI log."
 msgstr "Показване на ACPI лог."
 
+# [проверка] правопис: лога, подпрозорец
 #: src/modes/acpid/acpidLogMode.cpp:30
 #, kde-format
 msgid ""
@@ -1647,6 +1772,7 @@ msgstr ""
 msgid "Host Name"
 msgstr "Име на хост"
 
+# [проверка] правопис: Ид
 #: src/modes/apache/apacheAccessAnalyzer.cpp:20
 #, kde-format
 msgid "Id."
@@ -1718,16 +1844,20 @@ msgstr "Идентификация на агент:"
 msgid "HTTP Request:"
 msgstr "HTTP заявка:"
 
+# [проверка] правопис: Лог
 #: src/modes/apache/apacheAccessLogMode.cpp:21
 #, kde-format
 msgid "Apache Access Log"
 msgstr "Лог за достъп до Apache"
 
+# [проверка] правопис: лог
 #: src/modes/apache/apacheAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache Access log."
 msgstr "Показване на Apache уеб лог."
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: "уеб сървър" е в м.р., а
+# "заявки" е в ж.р.
 #: src/modes/apache/apacheAccessLogMode.cpp:32
 #, kde-format
 msgid ""
@@ -1743,12 +1873,15 @@ msgstr ""
 msgid "Client"
 msgstr "Клиент"
 
+# [проверка] правопис: лог
 #: src/modes/apache/apacheConfigurationWidget.cpp:11
 #: src/modes/apache/apacheLogMode.cpp:21
 #, kde-format
 msgid "Apache Log"
 msgstr "Apache лог"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: липсва съгласуване по род и
+# число в "лог за достъп до Apache".
 #: src/modes/apache/apacheConfigurationWidget.cpp:16
 #, kde-format
 msgid ""
@@ -1758,6 +1891,7 @@ msgstr ""
 "<p>Файловете ще бъдат анализирани за <b>Apache лог</b> и лог за достъп до  "
 "Apache.</p>"
 
+# [проверка] правопис: Лог
 #: src/modes/apache/apacheConfigurationWidget.cpp:19
 #, kde-format
 msgid "Apache Log Files"
@@ -1768,6 +1902,7 @@ msgstr "Лог файлове на Apache"
 msgid "Add Apache File..."
 msgstr "Добавяне на Apache файл..."
 
+# [проверка] правопис: Лог
 #: src/modes/apache/apacheConfigurationWidget.cpp:20
 #, kde-format
 msgid "Apache Access Log Files"
@@ -1788,11 +1923,14 @@ msgstr "Apache"
 msgid "Client:"
 msgstr "Клиент:"
 
+# [проверка] правопис: лог
 #: src/modes/apache/apacheLogMode.cpp:30
 #, kde-format
 msgid "Display the Apache log."
 msgstr "Показване на Apache лог."
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: "прозорец" не съгласувано с
+# "лог" по род и число.
 #: src/modes/apache/apacheLogMode.cpp:31
 #, kde-format
 msgid ""
@@ -1802,22 +1940,30 @@ msgstr ""
 "Показва Apache лог в текущия прозорец. Apache основно се използва за уеб "
 "сървър."
 
+# [проверка] правопис: лог
 #: src/modes/audit/auditConfigurationWidget.cpp:14
 #: src/modes/audit/auditLogMode.cpp:16 src/modes/audit/auditLogMode.cpp:25
 #, kde-format
 msgid "Audit Log"
 msgstr "Одит лог"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Несъгласуване по число - "Одит
+# лог" трябва да е "Одит логове".
 #: src/modes/audit/auditConfigurationWidget.cpp:18
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Audit logs</b>.</p>"
 msgstr "<p>Файловете ще бъдат анализирани за <b>Одит лог</b>.</p>"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Неправилно съгласуване по род
+# и
+# число - трябва да е "Показване на audit лога".
 #: src/modes/audit/auditLogMode.cpp:26
 #, kde-format
 msgid "Display the audit log."
 msgstr "Показване на audit лог."
 
+# [проверка] правопис: Логът, лог, подпрозорец | граматика: ГРЕШКА:
+# "подпрозорец" не е правилно съгласувано с "лог" в число.
 #: src/modes/audit/auditLogMode.cpp:28
 #, kde-format
 msgid ""
@@ -1827,28 +1973,33 @@ msgstr ""
 "Показва системния лог в текущия подпрозорец. Логът се използва основно за "
 "неспециализирани процеси (като командите \"sudo\" или \"fsck\")"
 
+# [проверка] правопис: Лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:11
 #: src/modes/authentication/authenticationLogMode.cpp:19
 #, kde-format
 msgid "Authentication Log"
 msgstr "Лог за автентичност"
 
+# [проверка] правопис: Лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:18
 #: src/modes/xsession/xsessionConfigurationWidget.cpp:18
 #, kde-format
 msgid "Log file does not exist. Mode will be unavailable."
 msgstr "Лог файлът не съществува. Режимът ще бъде недостъпен."
 
+# [проверка] правопис: Лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:23
 #, kde-format
 msgid "Authentication Log File"
 msgstr "Лог файл за удостоверяване"
 
+# [проверка] правопис: Лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:33
 #, kde-format
 msgid "Authentication log file:"
 msgstr "Лог файл за удостоверяване:"
 
+# [проверка] правопис: лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:38
 #, kde-format
 msgid ""
@@ -1858,6 +2009,7 @@ msgstr ""
 "Тук можете да напишете или изберете лог файла за автентичност (например: <i>/"
 "var/log/auth.log</i>)."
 
+# [проверка] правопис: лог
 #: src/modes/authentication/authenticationConfigurationWidget.cpp:40
 #, kde-format
 msgid ""
@@ -1869,11 +2021,14 @@ msgstr ""
 "анализиран от KSystemLog, когато изберете <b>лог за автентичност</b> от "
 "менюто. Обикновено това е <i>/var/log/auth.log</i>"
 
+# [проверка] правопис: лога
 #: src/modes/authentication/authenticationLogMode.cpp:28
 #, kde-format
 msgid "Display the authentication log."
 msgstr "Показване на лога за автентичност."
 
+# [проверка] правопис: лога, логове, хакне | граматика: ГРЕШКА: „логове на
+# потребителите“ е в множествено число, а „потребители“ е в единствено число.
 #: src/modes/authentication/authenticationLogMode.cpp:30
 #, kde-format
 msgid ""
@@ -1885,6 +2040,7 @@ msgstr ""
 "потребителите на системата и ще ви помогне да научите ако някой се е опитал "
 "да хакне системата."
 
+# [проверка] правопис: лог
 #: src/modes/base/fileList.cpp:33
 #, kde-format
 msgid ""
@@ -1900,6 +2056,7 @@ msgstr ""
 msgid "File List Description"
 msgstr "Описание на файлов списък"
 
+# [проверка] правопис: Лог
 #. i18n: ectx: property (title), widget (QGroupBox, filesBox)
 #: src/modes/base/fileListBase.ui:44 src/modes/base/multipleFileListBase.ui:44
 #, kde-format
@@ -2063,6 +2220,8 @@ msgstr ""
 msgid "Rem&ove All"
 msgstr "Премахване на &всички"
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване на прилагателното с
+# подлога.
 #. i18n: ectx: property (toolTip), widget (QPushButton, up)
 #: src/modes/base/fileListBase.ui:122
 #: src/modes/base/multipleFileListBase.ui:121
@@ -2118,6 +2277,8 @@ msgstr ""
 msgid "Move &Up"
 msgstr "На&горе"
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване на прилагателното с
+# подлога.
 #. i18n: ectx: property (toolTip), widget (QPushButton, down)
 #: src/modes/base/fileListBase.ui:141
 #: src/modes/base/multipleFileListBase.ui:140
@@ -2256,16 +2417,19 @@ msgstr "Маркирането на файлове беше неуспешно"
 msgid "All Files (*)"
 msgstr "Всички файлове (*)"
 
+# [проверка] правопис: Лог
 #: src/modes/base/fileListHelper.cpp:114 src/modes/base/fileListHelper.cpp:124
 #, kde-format
 msgid "Log Files (*.log)"
 msgstr "Лог файлове (*.log)"
 
+# [проверка] правопис: лог
 #: src/modes/base/fileListHelper.cpp:115 src/modes/base/fileListHelper.cpp:125
 #, kde-format
 msgid "Choose Log File"
 msgstr "Изберете лог файл"
 
+# [проверка] правопис: лог
 #: src/modes/base/genericConfiguration.cpp:58
 #, kde-format
 msgid "The two arrays size are different, skipping the reading of log files."
@@ -2278,11 +2442,15 @@ msgstr ""
 msgid "&Change Status..."
 msgstr "&Промяна на статуса..."
 
+# [проверка] правопис: ове | граматика: ГРЕШКА: Неправилно съгласуване по
+# число
+# – „файл(ове)“ изисква „нивото на файловете“.
 #: src/modes/base/logLevelFileList.cpp:36
 #, kde-format
 msgid "Change the level of the current file(s)"
 msgstr "Промяна нивото на текущия файл(ове)"
 
+# [проверка] правопис: ове
 #: src/modes/base/logLevelFileList.cpp:38
 #, kde-format
 msgid ""
@@ -2292,6 +2460,8 @@ msgstr ""
 "Променя нивото на текущия файл(ове). За повече информация относно нивата, "
 "погледнете документацията на KSystemLog."
 
+# [проверка] граматика: ГРЕШКА: "основните пътища" е грешно, трябва да е
+# "общите пътища" или "генеричните пътища".
 #: src/modes/base/logLevelFileList.cpp:150
 #, kde-format
 msgid ""
@@ -2362,6 +2532,7 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Моля, изберете едно от тях "
 "да се използва за файловете, избрани в списъка.</p></body></html>"
 
+# [проверка] правопис: лог
 #: src/modes/base/multipleFileList.cpp:34
 #, kde-format
 msgid ""
@@ -2404,6 +2575,7 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Изтрива избраните файлове "
 "от списъка.</p></body></html>"
 
+# [проверка] граматика: ГРЕШКА: липсва съюз "списъка" и "са" е излишно.
 #. i18n: ectx: property (whatsThis), widget (QPushButton, removeAll)
 #: src/modes/base/multipleFileListBase.ui:105
 #, kde-format
@@ -2476,6 +2648,8 @@ msgstr ""
 "<span style=\" font-weight:600;\">последни</span> от KSystemLog.</p></body></"
 "html>"
 
+# [проверка] правопис: FФайловете, лог | граматика: ГРЕШКА: липсва пълен член
+# при "файловете" и "списък"
 #. i18n: ectx: property (text), widget (QLabel, notes)
 #: src/modes/base/multipleFileListBase.ui:174
 #, kde-format
@@ -2514,12 +2688,15 @@ msgstr "Процес"
 msgid "Command"
 msgstr "Команда"
 
+# [проверка] правопис: лог
 #: src/modes/cron/cronConfigurationWidget.cpp:10
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
 msgstr "Cron лог"
 
+# [проверка] правопис: лог, т | граматика: ГРЕШКА: липсва пълен член при "Cron
+# лог" и "тези за планираните задачи"
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
 msgid ""
@@ -2544,11 +2721,14 @@ msgstr "Запазва само редове, които отговарят на
 msgid "User:"
 msgstr "Потребител:"
 
+# [проверка] правопис: лог, лога
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
 msgstr "Показване на лога за планираните задачи (или лог на Cron)."
 
+# [проверка] правопис: лога | граматика: ГРЕШКА: "Процеса Cron" трябва да е
+# "Процесът Cron".
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
 msgid ""
@@ -2587,16 +2767,19 @@ msgstr "IPP операция"
 msgid "IPP Status"
 msgstr "Състояние на IPP"
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsAccessLogMode.cpp:21
 #, kde-format
 msgid "Cups Web Log"
 msgstr "CUPS уеб лог"
 
+# [проверка] правопис: лога
 #: src/modes/cups/cupsAccessLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Web Server Access log."
 msgstr "Показва лога за уеб достъп до CUPS."
 
+# [проверка] правопис: лог, лога
 #: src/modes/cups/cupsAccessLogMode.cpp:32
 #, kde-format
 msgid ""
@@ -2614,6 +2797,8 @@ msgstr ""
 msgid "debug 2"
 msgstr "проследяване и премахване на грешки 2"
 
+# [проверка] граматика: ГРЕШКА: Несъгласуване по род и число – „нещо ново“ и
+# „файла“ не съответстват.
 #: src/modes/cups/cupsAnalyzer.cpp:76
 #, kde-format
 msgid ""
@@ -2623,17 +2808,21 @@ msgstr ""
 "Намерено е нещо ново: Моля, изпратете файла на разработчиците на KSystemLog, "
 "за да го добавят."
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #: src/modes/cups/cupsLogMode.cpp:21
 #, kde-format
 msgid "Cups Log"
 msgstr "CUPS лог"
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsConfigurationWidget.cpp:11
 #, kde-format
 msgid "Cups &amp; Cups Web Server Log"
 msgstr "Cups &amp; Cups Web Server лог"
 
+# [проверка] правопис: лог, лога | граматика: ГРЕШКА: Несъгласуване по род и
+# число в "лога за уеб достъп до CUPS".
 #: src/modes/cups/cupsConfigurationWidget.cpp:16
 #, kde-format
 msgid ""
@@ -2643,6 +2832,7 @@ msgstr ""
 "<p>Файловете ще бъдат анализирани за <b>Cups лог</b>. Показва лога за уеб "
 "достъп до CUPS.</p>"
 
+# [проверка] правопис: Лог
 #: src/modes/cups/cupsConfigurationWidget.cpp:19
 #, kde-format
 msgid "Cups Log Files"
@@ -2653,6 +2843,7 @@ msgstr "Лог файлове на Cups"
 msgid "Add Cups File..."
 msgstr "Добавяне на файл Cups..."
 
+# [проверка] правопис: Лог
 #: src/modes/cups/cupsConfigurationWidget.cpp:20
 #, kde-format
 msgid "Cups Access Log Files"
@@ -2663,16 +2854,21 @@ msgstr "Лог файлове за достъп до Cups"
 msgid "Add Cups Access File..."
 msgstr "Добавяне на файл за достъп до Cups ..."
 
+# [проверка] правопис: Лог | граматика: ГРЕШКА: Несъгласуване по род и число -
+# "страница" е ж.р., а "файлове" е мн.ч.
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Cups Page Log Files"
 msgstr "Лог файлове на Cups страница"
 
+# [проверка] граматика: ГРЕШКА: Неправилно съгласуване по род и число –
+# „страницата“ е ж.р., а „файл“ е м.р.
 #: src/modes/cups/cupsConfigurationWidget.cpp:21
 #, kde-format
 msgid "Add Cups Page File..."
 msgstr "Добавяне на файла на страницата на Cups ..."
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsConfigurationWidget.cpp:22
 #, kde-format
 msgid "Cups PDF Log Files"
@@ -2688,11 +2884,13 @@ msgstr "Добавяне на Cups PDF файл ..."
 msgid "Cups"
 msgstr "Cups"
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsLogMode.cpp:30
 #, kde-format
 msgid "Display the Cups log."
 msgstr "Показване на лог на CUPS."
 
+# [проверка] правопис: лога, подпрозорец
 #: src/modes/cups/cupsLogMode.cpp:32
 #, kde-format
 msgid ""
@@ -2752,16 +2950,21 @@ msgstr "Брой копия:"
 msgid "Job Billing:"
 msgstr "Фактуриране на работа:"
 
+# [проверка] правопис: Лог
 #: src/modes/cups/cupsPageLogMode.cpp:21
 #, kde-format
 msgid "Cups Page Log"
 msgstr "Лог на CUPS страница"
 
+# [проверка] правопис: лог | граматика: ГРЕШКА: Неправилно съгласуване по род
+# и
+# число – „лог страницата“ трябва да е „лог страница“.
 #: src/modes/cups/cupsPageLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS Page log."
 msgstr "Показване на лог страницата на CUPS."
 
+# [проверка] правопис: лог, лога
 #: src/modes/cups/cupsPageLogMode.cpp:32
 #, kde-format
 msgid ""
@@ -2778,16 +2981,19 @@ msgstr ""
 msgid "Message:"
 msgstr "Съобщение:"
 
+# [проверка] правопис: Лог
 #: src/modes/cups/cupsPdfLogMode.cpp:21
 #, kde-format
 msgid "Cups PDF Log"
 msgstr "Лог на CUPS PDF"
 
+# [проверка] правопис: лог
 #: src/modes/cups/cupsPdfLogMode.cpp:30
 #, kde-format
 msgid "Display the CUPS PDF log."
 msgstr "Показване на PDF лог на CUPS."
 
+# [проверка] правопис: лог, лога
 #: src/modes/cups/cupsPdfLogMode.cpp:32
 #, kde-format
 msgid ""
@@ -2799,23 +3005,30 @@ msgstr ""
 "управлява печата на компютъра. Този лог записва всички заявки от вградения "
 "сървър CUPS (по подразбиране е <i>http://localhost:631</i>)."
 
+# [проверка] правопис: Лог | граматика: ГРЕШКА: Несъгласуване по род и число –
+# „демоните“ е мн.ч., а „лог“ е м.р.
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
 #, kde-format
 msgid "Daemons' Logs"
 msgstr "Лог на &демоните"
 
+# [проверка] правопис: Логове
 #: src/modes/daemon/daemonConfigurationWidget.cpp:15
 #, kde-format
 msgid "<p>These files will be analyzed to show the <b>Daemons' Logs</b>.</p>"
 msgstr ""
 "<p>Файловете ще бъдат анализирани за <b>Логове на демон процеси</b>.</p>"
 
+# [проверка] правопис: логовете | граматика: ГРЕШКА: Несъгласуване по число –
+# „логовете“ трябва да е „логовете на демоните“.
 #: src/modes/daemon/daemonLogMode.cpp:21
 #, kde-format
 msgid "Display the daemons' logs."
 msgstr "Показване логовете на демоните."
 
+# [проверка] правопис: лог, логовете | граматика: ГРЕШКА: "за тях" е неясно,
+# трябва да се уточни "за тях" какво.
 #: src/modes/daemon/daemonLogMode.cpp:23
 #, kde-format
 msgid ""
@@ -2854,12 +3067,14 @@ msgstr "Включване"
 msgid "Unit"
 msgstr "Единица"
 
+# [проверка] правопис: Лог
 #: src/modes/journald/journaldConfigurationWidget.cpp:18
 #: src/modes/journald/journaldLogMode.cpp:22
 #, kde-format
 msgid "Journald Log"
 msgstr "Лог на journald"
 
+# [проверка] правопис: Вкл
 #: src/modes/journald/journaldConfigurationWidget.cpp:82
 #: src/modes/journald/journaldConfigurationWidget.cpp:114
 #, kde-format
@@ -2871,6 +3086,8 @@ msgstr "Вкл."
 msgid "Add remote journal"
 msgstr "Добавяне на отдалечен дневник"
 
+# [проверка] граматика: ГРЕШКА: "дневник" е в среден род, трябва да е
+# "дневника"
 #: src/modes/journald/journaldConfigurationWidget.cpp:138
 #, kde-format
 msgid "Modify remote journal"
@@ -2882,6 +3099,8 @@ msgstr "Промяна на отдалеченото дневник"
 msgid "Journald options"
 msgstr "Опции на journald"
 
+# [проверка] граматика: ГРЕШКА: "зареждане" е ср. род, трябва
+# "зареждане<b><br/></b>то"
 #. i18n: ectx: property (text), widget (QCheckBox, lastBootOnly)
 #: src/modes/journald/journaldConfigurationWidget.ui:23
 #, kde-format
