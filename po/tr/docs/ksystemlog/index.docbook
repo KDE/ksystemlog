@@ -219,7 +219,7 @@ Hide menu entries and actions for modes with missing log files
 ></listitem>
 				<listitem
 ><simpara
->Ardalan süreci günlükleri</simpara
+>Art alan süreci günlükleri</simpara
 ></listitem>
 				<listitem
 ><simpara
@@ -255,7 +255,7 @@ Hide menu entries and actions for modes with missing log files
 >Başlarken</title>
 
 			<para
->&ksystemlog; uygulamasını başlattığınızda, öntanımlı olarak en yararlı günlük olduğunu düşündüğü <guilabel
+>&ksystemlog; uygulamasını başlattığınızda, varsayılan olarak en yararlı günlük olduğunu düşündüğü <guilabel
 >Sistem Günlüğü</guilabel
 >’nü açmaya çalışır. Görüntüleyemezse &ksystemlog; uygulamasını yönetici olarak başlatmayı unuttuğunuzu size anımsatan bir iletişim kutusu görüntüler. Günlük dosyaları genellikle normal kullanıcılara karşı korunan /var/log klasöründe bulunur. Ayarlar iletişim kutusunda, başlangıçta açılacak başka bir günlük seçebilirsiniz. </para>
 
@@ -314,7 +314,7 @@ Hide menu entries and actions for modes with missing log files
 				</screenshot>
 
 				<para
->Seçils kriterlere ve yazılan diziye göre süzmek için süzgeç çubuğunu da kullanabilirsiniz. Süzgece bir şey yazmanız yeterlidir; liste, yalnızca süzgeç dizinizle eşleşen satırları görüntüleyecek biçimde kendiliğinden değiştirilecektir. Öntanımlı olarak, süzgecin yanındaki birleşik giriş kutusu <guilabel
+>Seçils kriterlere ve yazılan diziye göre süzmek için süzgeç çubuğunu da kullanabilirsiniz. Süzgece bir şey yazmanız yeterlidir; liste, yalnızca süzgeç dizinizle eşleşen satırları görüntüleyecek biçimde kendiliğinden değiştirilecektir. Varsayılan olarak, süzgecin yanındaki birleşik giriş kutusu <guilabel
 >Tümü</guilabel
 > seçeneğini seçer; bu, bir satırın yalnızca sütunlarından biri süzgeç dizisini içeriyorsa görüntüleneceği anlamına gelir. </para>
 
@@ -337,7 +337,7 @@ Hide menu entries and actions for modes with missing log files
 >Renkli günlük satırları</title>
 
 				<para
->Bu seçenek öntanımlı olarak etkindir ve hangi satırların diğerlerinden daha yüksek düzeye sahip olduğunu görmenize yardımcı olur. Örneğin, <guilabel
+>Bu seçenek varsayılan olarak etkindir ve hangi satırların diğerlerinden daha yüksek düzeye sahip olduğunu görmenize yardımcı olur. Örneğin, <guilabel
 >Hata</guilabel
 > düzeyi, <guilabel
 >Bildirim</guilabel
@@ -367,7 +367,7 @@ Hide menu entries and actions for modes with missing log files
 				<para
 >Bağlam menüsünde <guilabel
 >Seçimi E-posta ile Gönder</guilabel
-> eylemi bulunur. Günlükteki ilgili satırları seçin ve bu eylemi, öntanımlı e-posta istemcinizin seçimle önceden doldurulmuş oluşturucu penceresini açmak için kullanın. </para>
+> eylemi bulunur. Günlükteki ilgili satırları seçin ve bu eylemi, varsayılan e-posta istemcinizin seçimle önceden doldurulmuş oluşturucu penceresini açmak için kullanın. </para>
 
 			</sect3>
 		</sect2>
