@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeadmin-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:14+0000\n"
-"PO-Revision-Date: 2026-11-22 19:14+0300\n"
+"PO-Revision-Date: 2026-11-23 18:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -302,7 +302,7 @@ msgstr "&Bu günlük kipini açılışta yükle:"
 #: src/generalConfigurationWidgetBase.ui:36
 #, kde-format
 msgid "The log mode which is loaded by default at startup"
-msgstr "Başlangıçta öntanımlı olarak yüklenen günlük kipi"
+msgstr "Başlangıçta varsayılan olarak yüklenen günlük kipi"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, startupLogMode)
 #: src/generalConfigurationWidgetBase.ui:39
@@ -311,7 +311,7 @@ msgid ""
 "The log mode loaded by default at startup. Choose 'No Log Mode' if you do "
 "not want this to happen."
 msgstr ""
-"Başlangıçta öntanımlı olarak yüklenen günlük kipi. Bunun olmasını "
+"Başlangıçta varsayılan olarak yüklenen günlük kipi. Bunun olmasını "
 "istemiyorsanız “Günlük Yok Kipi”ni seçin."
 
 #. i18n: ectx: property (title), widget (QGroupBox, linesNumberGroupbox)
@@ -2787,8 +2787,8 @@ msgid ""
 msgstr ""
 "Geçerli sekmede CUPS Sayfası günlüğünü görüntüler. CUPS, bilgisayarınızda "
 "yazdırmayı yöneten programdır. Bu günlük, CUPS yerleşik web sunucusuna "
-"gerçekleştirilen tüm istekleri kaydeder (öntanımlı: <i>http://localhost:631</"
-"i>)."
+"gerçekleştirilen tüm istekleri kaydeder (varsayılan: <i>http://"
+"localhost:631</i>)."
 
 #: src/modes/cups/cupsPdfItemBuilder.cpp:19
 #, kde-format
@@ -2814,8 +2814,8 @@ msgid ""
 msgstr ""
 "Geçerli sekmede CUPS PDF günlüğünü görüntüler. CUPS, bilgisayarınızda "
 "yazdırmayı yöneten programdır. Bu günlük, CUPS yerleşik web sunucusuna "
-"gerçekleştirilen tüm istekleri kaydeder (öntanımlı: <i>http://localhost:631</"
-"i>)."
+"gerçekleştirilen tüm istekleri kaydeder (varsayılan: <i>http://"
+"localhost:631</i>)."
 
 #: src/modes/daemon/daemonConfigurationWidget.cpp:11
 #: src/modes/daemon/daemonLogMode.cpp:12
@@ -3273,7 +3273,7 @@ msgstr "Yapılandırma dosyasından"
 #: src/modes/xorg/xorgAnalyzer.cpp:74
 #, kde-format
 msgid "Default setting"
-msgstr "Öntanımlı ayar"
+msgstr "Varsayılan ayar"
 
 #: src/modes/xorg/xorgAnalyzer.cpp:77
 #, kde-format
