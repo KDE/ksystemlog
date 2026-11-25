@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ksystemlog\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-21 01:14+0000\n"
-"PO-Revision-Date: 2026-11-21 08:07+0200\n"
+"PO-Revision-Date: 2026-11-24 11:42+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -96,13 +96,15 @@ msgid ""
 "The timestamp format used to parse syslog style log files (System, "
 "Authentication, Daemons, Cron, Postfix...)."
 msgstr ""
+"תבנית חותמת הזמן שמשמשת לפיענוח קובצי יומן בנוסח syslog (מערכת, אימות, "
+"סוכנים, Cron,‏ Postfix…)."
 
 #. i18n: ectx: label, entry (SyslogCustomDateFormat), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:79
 #, kde-format
 msgid ""
 "The QDateTime format string used when the syslog timestamp format is Custom."
-msgstr ""
+msgstr "מחרוזת תבנית ה־QDateFormat כאשר תבנית חותמת ה־syslog מותאמת אישית."
 
 #. i18n: ectx: label, entry (SambaPaths), group (KSystemLogGeneral)
 #: src/config/ksystemlog.kcfg:87
@@ -447,7 +449,7 @@ msgstr "&פיענוח חותמות זמן בתור:"
 msgid ""
 "The format of the timestamp at the beginning of each line of syslog style "
 "log files."
-msgstr ""
+msgstr "תבנית חותמת הזמן בהתחלה של כל שורה בקובצי יומן בנוסח syslog."
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, syslogDateFormat)
 #: src/generalConfigurationWidgetBase.ui:199
@@ -460,12 +462,16 @@ msgid ""
 "versions) and falls back to the traditional format (such as <i>Oct  9 "
 "23:15:00</i>)."
 msgstr ""
+"נא לבחור את תבנית חותמת הזמן שנכתבת בתחילת כל שורה של קובצי יומנים בנוסח "
+"syslog (מערכת, אימות, סוכנים, Cron,‏ Postfix…).<i>אוטומטי</i> מזהה חותמות זמן "
+"מסוג ISO 8601 (כגון <i>2026-10-09T23:15:00.123456+09:00</i>, ברירת המחדל של "
+"גרסאות rsyslog העדכניות) ונסוג לתבנית המסורתית (כגון <i>Oct  9 23:15:00</i>)."
 
 #. i18n: ectx: property (text), widget (QLabel, syslogCustomDateFormatLabel)
 #: src/generalConfigurationWidgetBase.ui:206
 #, kde-format
 msgid "C&ustom format:"
-msgstr ""
+msgstr "עיצוב מותאם &אישית:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, syslogCustomDateFormat)
 #: src/generalConfigurationWidgetBase.ui:216
@@ -486,6 +492,10 @@ msgid ""
 "of as many space separated words as this format. If the format has no year, "
 "the current year is used."
 msgstr ""
+"התבנית לשימוש כשנבחרה האפשרות <i>מותאמת אישית</i>, משתמשת בתחביר QDateTime‏ "
+"(yyyy, MM, MMM, dd, d, HH, mm, ss, zzz, t...‎). חותמת הזמן נוצרת בתור מגוון "
+"מילים שמופרדות בפסיקים בתור התבנית הזאת. אם לאין שנה בתבנית אז הניחוש הוא "
+"שזאת השנה הנוכחית."
 
 #. i18n: ectx: Menu (edit)
 #: src/ksystemlogui.rc:13
