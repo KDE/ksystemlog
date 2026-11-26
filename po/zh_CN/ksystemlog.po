@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/ksystemlog/ksystemlog.pot\n"
-"X-Crowdin-File-ID: 44897\n"
+"X-Crowdin-File: /kf6-stable/messages/ksystemlog/ksystemlog.pot\n"
+"X-Crowdin-File-ID: 53040\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -802,7 +802,7 @@ msgstr "私人认证"
 #: src/loggerDialog.cpp:95
 #, kde-format
 msgid "Cron"
-msgstr "任务调度"
+msgstr "定时任务"
 
 #: src/loggerDialog.cpp:96
 #, kde-format
@@ -2349,7 +2349,7 @@ msgstr "命令"
 #: src/modes/cron/cronLogMode.cpp:19
 #, kde-format
 msgid "Cron Log"
-msgstr "任务调度(Cron)日志"
+msgstr "定时任务日志"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:15
 #, kde-format
@@ -2357,7 +2357,7 @@ msgid ""
 "<p>These files will be analyzed to show the <b>Cron Logs</b> (i.e. planned "
 "tasks logs). <a href='man:/cron'>More information...</a></p>"
 msgstr ""
-"<p>这些文件将被分析以显示<b>任务调度(Cron)日志</b>(例如，计划任务日志)。<a "
+"<p>这些文件将被分析以显示<b>定时任务日志</b>(例如，计划任务日志)。<a "
 "href='man:/cron'>更多信息...</a></p>"
 
 #: src/modes/cron/cronConfigurationWidget.cpp:24
@@ -2378,7 +2378,7 @@ msgstr "用户："
 #: src/modes/cron/cronLogMode.cpp:28
 #, kde-format
 msgid "Display the planned tasks log (Cron log)."
-msgstr "显示任务调度(Cron)日志。"
+msgstr "显示定时任务日志。"
 
 #: src/modes/cron/cronLogMode.cpp:30
 #, kde-format
@@ -2388,8 +2388,8 @@ msgid ""
 "or auto-restarting of some services. Use this menu to see the recently "
 "launched processes."
 msgstr ""
-"在当前标签页上显示任务调度(Cron)日志。Cron 负责定期执行系统工作，比如安全检"
-"查，或者自动重启某些服务。使用此菜单可看到最近运行的进程。"
+"在当前标签页上显示定时任务日志。定时任务程序 Cron 负责定期执行系统工作，比如"
+"安全检查，或者自动重启某些服务。使用此菜单可看到最近运行的进程。"
 
 #: src/modes/cups/cupsAccessAnalyzer.cpp:21
 #, kde-format
